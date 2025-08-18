@@ -1,0 +1,86 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* 메인 컨테이너 */
+#main-container {
+    width: 1200px;
+    height: 100%;
+    background-color: #FFFEF1;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 메인 */
+main {
+    /* height는 컨텐츠에 따라 */
+    height: 600px; 
+    min-height: calc(100vh - 255px);
+    width: 100%;
+    background-color: #FFFEF1;
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* 버튼 */
+button{
+  border-radius: 13px;
+  padding : 0px 20px;
+  height: 50px;
+  background-color: #f59d85;
+  border : 0px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* 메인에서 사용하는 폰트 */
+.font-main{
+  font-size: 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 메뉴에서 사용하는 폰트 */
+.font-menu{
+  font-family: "Yeon Sung", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 후원 완료 텍스트 */
+.sponsorship-complete-text{
+  padding-top: 220px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 50px;
+  text-align: center;
+  
+
+  color:#f59d85;
+}
+
+/* 후원 완료 하단 */
+#sponsorship-complete-bottom{
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+/* 후원 완료 하단 버튼 */
+#sponsorship-complete-bottom a{
+  background-color:#f59d85;
+  color: white;
+  padding: 0px 20px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin: 0px 30px;
+}

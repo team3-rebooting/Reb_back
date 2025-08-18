@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#main-container {
+  width: 1200px;
+  height: 100%;
+  /*알아서 넣기*/
+  background-color: #fffef1;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  padding-top: 110px;
+  height: 3300px;
+  min-height: calc(100vh - 235px);
+
+  width: 100%;
+  background-color: #fffef1;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button {
+  border-radius: 13px;
+  padding: 0px 20px;
+  height: 40px;
+  background-color: #f59d85;
+  border: 0px;
+}
+
+.font-main {
+  font-size: 18px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+}
+
+.font-menu {
+  font-family: "Yeon Sung", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pagetitle {
+  font-size: 30px;
+  color: #f38a6e;
+
+  padding-top: 100px;
+  height: 110px;
+  line-height: 110px;
+
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 메인 최상단 제목 시작 */
+.introduction-main-title {
+  background-color: #f59d85;
+}
+
+.introduction-main-title {
+  background-color: rgb(255, 234, 48, 0.5);
+  width: 1000px;
+  display: flex;
+  color: black;
+  justify-content: flex-end;
+  border-radius: 13px;
+  margin: auto;
+  margin-top: 3%;
+}
+
+.introduction-main-title-text {
+  padding: 35px;
+  font-size: 37px;
+}
+
+.introduction-main-title-logo {
+  align-items: center;
+  background-color: none;
+  width: 130px;
+  height: 130px;
+}
+
+.logo-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 메인 최상단 제목 끝 */
+
+/* 메인 전체*/
+.introduction-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.introduction-span-logo-name {
+  color: #F38A6E;
+}
+
+/* 소개글 CSS 시작 */
+.introduction-text-container {
+  background-color: rgb(255, 234, 48, 0.5);
+  /* text-wrap: wrap; */
+  line-height: 50px;
+  border-radius: 13px;
+  width: 100%;
+  margin-top: 3%;
+}
+
+.introduction-intro-bold {
+  text-shadow: 1px 1px 2px rgb(63, 60, 60);
+  display: inline-block;
+  margin-left: 3%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  font-size: 30px;
+}
+
+.introduction-intro-text {
+  margin-left: 3%;
+  margin-bottom: 3%;
+  font-size: 20px;
+}
+
+/* 소개글 CSS 끝*/
+
+/* 루틴 모임 모집 소개 시작 */
+.introduction-routine-meeting-container {
+  background-color: rgb(255, 234, 48, 0.5);
+  /* margin: 5% auto; */
+  margin-top: 3%;
+  border-radius: 13px;
+  width: 100%;
+}
+
+
+
+.introduction-routine-meeting-image-container {
+  background-color: white;
+  justify-content: space-around;
+  display: flex;
+}
+
+#introduction-routine-meeting-image-text {
+  text-align: center;
+}
+
+.introduction-routine-meeting-text-container {
+  line-height: 40px;
+  margin-left: 3%;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  font-size: 20px;
+}
+
+/* 루틴 모임 모집 소개 끝 */
+
+/* 수업 수강 소개 시작 */
+.introduction-class-container {
+  background-color: rgb(255, 234, 48, 0.5);
+  border-radius: 13px;
+  width: 100%;
+  margin-top: 3%;
+}
+
+/* .introduction-class-title {
+  background-color: white;
+} */
+
+.introduction-class-image-container {
+  background-color: white;
+  justify-content: space-around;
+  display: flex;
+}
+
+#introduction-class-image-container-text {
+  text-align: center;
+}
+
+.introduction-class-text-container {
+  line-height: 40px;
+  margin-left: 3%;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  font-size: 20px;
+}
+
+/* 수업 수강 소개 끝 */
+
+/*  클로징 시작 */
+.introduction-closing-container {
+  border-radius: 13px;
+  width: 100%;
+}
+
+.introduction-closing-text-container {
+  line-height: 40px;
+  margin-top: 3%;
+  text-align: center;
+  font-size: 25px;
+}
+
+.introduction-closing-image-container {
+  justify-content: space-around;
+  display: flex;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+/*  클로징 끝 */
