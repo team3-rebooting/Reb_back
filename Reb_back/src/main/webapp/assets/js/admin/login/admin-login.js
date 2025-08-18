@@ -3,8 +3,8 @@ let loginWarning = document.querySelector("#main-login-warning");
 
 
 
-loginBtn.addEventListener('click', () => {
-  const id = document.querySelector("#main-login-id").value;
+/*loginBtn.addEventListener('click', () => {
+ const id = document.querySelector("#main-login-id").value;
   const pw = document.querySelector("#main-login-pw").value;
   if (id === 'admin' && pw === 'admin') {
     loginWarning.style.display = "none";
@@ -14,3 +14,4 @@ loginBtn.addEventListener('click', () => {
     loginWarning.style.display = "block";
   }
 });
+*/
