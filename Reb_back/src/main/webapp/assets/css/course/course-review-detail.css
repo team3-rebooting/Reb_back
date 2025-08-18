@@ -1,0 +1,322 @@
+ * {
+   margin: 0;
+   padding: 0;
+ }
+
+ .p-back {
+   float: right;
+   font-size: 24px;
+   margin-top: 15px;
+ }
+
+ .p-back:hover {
+   cursor: pointer;
+ }
+
+ #header {
+   height: 110px;
+   width: 100%;
+   position: fixed;
+   background-color: #f59d85;
+ }
+
+ #footer {
+   width: 100%;
+   height: 125px;
+   background-color: #f59d85;
+ }
+
+ #main-container {
+   width: 1200px;
+   height: 100%;
+   /*알아서 넣기*/
+   background-color: #FFFEF1;
+   margin: auto;
+   align-items: center;
+   justify-content: center;
+ }
+
+ main {
+   height: 100%;
+   width: 100%;
+   background-color: #FFFEF1;
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   padding-bottom: 110px;
+   min-height: calc(100vh - 235px);
+ }
+
+ button {
+   border-radius: 13px;
+   padding: 0px 20px;
+   height: 40px;
+   background-color: #f59d85;
+   border: 0px;
+ }
+
+ .font-main {
+   font-size: 18px;
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   color: white;
+ }
+
+ .font-menu {
+   font-family: "Yeon Sung", system-ui;
+   font-weight: 400;
+   font-style: normal;
+ }
+
+ .pagetitle {
+   font-size: 30px;
+   color: #F38A6E;
+
+   padding-top: 50px;
+   height: 110px;
+   line-height: 110px;
+
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 700;
+   font-style: normal;
+   text-align: center;
+ }
+
+ .span-likes {
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   padding-right: 10px;
+ }
+
+ .p-title {
+   color: #F38A6E;
+   font-size: 36px;
+   text-align: center;
+ }
+
+ .detail-container {
+   background-color: #FFFEF1;
+   display: flex;
+   flex-direction: column;
+   width: 1200px;
+   height: 100%;
+ }
+
+ .div-detail-area {
+   width: 100%;
+   /* height: 100%; */
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   font-size: 18px;
+ }
+
+ .img-detail {
+   width: 600px;
+   height: 500px;
+ }
+
+ .div-img {
+   display: flex;
+   justify-content: center;
+ }
+
+ .div-write-date {
+   display: flex;
+   justify-content: flex-end;
+ }
+
+ .p-expert-info-title {
+   font-size: 20px;
+   color: #F38A6E;
+ }
+
+ .div-expert-detail {
+   margin-top: 50px;
+
+ }
+
+ .div-expert-detail-button {
+   margin-top: 50px;
+   display: flex;
+   justify-content: space-around;
+   margin-bottom: 100px;
+ }
+
+ .div-expert-info-detail {
+   display: flex;
+   justify-content: center;
+ }
+
+ .button-application {
+   width: 147px;
+   height: 50px;
+   color: white;
+   border-radius: 13px;
+   padding: 0px 20px;
+   font-size: 20px;
+   background-color: #f59d85;
+   border: 0px;
+ }
+
+ .button-cancel {
+   /* display: none; */
+   width: 147px;
+   height: 50px;
+   font-size: 30px;
+   background-color: white;
+   border-radius: 13px;
+   padding: 0px 20px;
+   font-size: 20px;
+   color: #ff0000;
+   border: 1px solid #ff0000;
+ }
+
+ .p-expert-detail-comment {
+   width: 600px;
+ }
+
+ .div-user-integration {
+   display: flex;
+
+ }
+
+ .img-user-profile {
+   width: 30px;
+   height: 30px;
+   border-radius: 30px;
+ }
+
+ .div-button-area {
+   margin: 50px 0px;
+   /* 여기 display를 none으로 해서 내 게시물만 display flex로 변경 */
+   display: flex;
+   justify-content: space-evenly;
+ }
+
+ .div-font-awesome-line {
+   flex: 1;
+   text-align: right;
+ }
+
+ .li-comment {
+   display: flex;
+   list-style: none;
+   border-bottom: 1px solid black;
+   width: 100%;
+ }
+
+ .li-comment>.div-user-name-area>.span-comment-edit {
+   float: right;
+ }
+
+ .img-user-profile {
+   width: 50px;
+   height: 50px;
+   border-radius: 30px;
+ }
+
+ .p-user-name {
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 16px;
+ }
+
+ .p-comment-text {
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 14px;
+ }
+
+ .p-update-date {
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 12px;
+ }
+
+ .input-comment {
+   border-radius: 15px;
+   border: 0px;
+   width: 90%;
+   height: 20px;
+   padding: 20px;
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 14px;
+   background-color: #F7F7F7;
+ }
+
+ .button-write {
+   height: 60px;
+   float: right;
+   color: white;
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+ }
+
+ .form-comment-write {
+   width: 100%;
+ }
+
+ .div-comment-write {
+   margin: 15px 0px;
+   display: flex;
+   justify-content: flex-start;
+   width: 100%;
+ }
+
+ .div-user-name-area,
+ .div-user-text-area {
+   width: 1200px;
+   display: flex;
+   justify-content: space-between;
+ }
+
+
+ .span-comment-edit {
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 12px;
+   line-height: 24px;
+ }
+
+ .span-comment-delete {
+   font-family: "IBM Plex Sans KR", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 12px;
+   line-height: 24px;
+   color: #ff0000;
+ }
+
+ button:hover {
+   cursor: pointer;
+ }
+
+ .span-comment-edit:hover,
+ .span-comment-delete:hover {
+   cursor: pointer;
+ }
+ .div-page {
+  display: flex;
+  justify-content: center;
+}
+.div-pagenation {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

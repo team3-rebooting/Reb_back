@@ -1,0 +1,128 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* 폰트 */
+.font-menu {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 바디 */
+body{
+  background-color: #a6a6a6;
+  margin: auto;
+}
+
+/* 헤더 */
+header{
+  background-color: #757575;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 버튼 마우스 호버시 손가락 모양 */
+button{
+  cursor: pointer;
+}
+
+/* 사이트 로고 */
+header>a>img{
+  height: 110px;
+  width: 110px;
+}
+
+/* 메인 */
+main{
+  margin: auto;
+  width: 1512px;
+  background-color: #bebebe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 235px);
+}
+
+/* 페이지 제목 */
+#main-admin-notice-create{
+  margin-top: 100px;
+  height: 70px;
+  width: 1200px;
+  font-size: 48px;
+  color: #000000;
+}
+
+/* 제목, 파일, 내용 입력 영역 */
+form{
+  margin-top: 30px;
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+/* 제목 입력 */
+#main-admin-notice-create-title{
+  height: 50px;
+  width: 600px;
+  border-radius: 20px;
+  font-size: 30px;
+  padding: 0 20px;
+  border: 0.1px solid lightgray;
+}
+
+/* 파일 입력 */
+#main-admin-notice-create-file{
+  background-color: white;
+  padding: 0 20px;
+  margin: 20px 0;
+  height: 40px;
+  width: 1160px;
+  border-radius: 10px;
+  line-height: 40px;
+  border: 0.1px solid lightgray;
+}
+
+/* 내용 입력 */
+#main-admin-notice-create-content{
+  padding: 10px;
+  font-size: 16px;
+  resize: none;
+  height: 600px;
+  width: 1200px;
+  border-radius: 10px;
+  border: 0.1px solid lightgray;
+}
+
+/* 버튼 커스텀 */
+.main-btn{
+  height: 66px;
+  width: 147px;
+  border-radius: 25px;
+  font-size: 30px;
+  margin: 100px 56px 200px;
+  cursor: pointer;
+}
+
+/* 확인 버튼 */
+.main-btn:first-child{
+  background-color: #757575;
+  color: white;
+  border: 0;
+}
+
+/* 취소 버튼 */
+.main-btn:last-child{
+  background-color: white;
+  color: red;
+  border: 3px solid red;
+}
+
+/* 푸터 */
+footer{
+  background-color: #d9d9d9;
+  height: 125px;
+}

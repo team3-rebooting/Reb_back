@@ -1,0 +1,89 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* 메인 컨테이너 */
+#main-container {
+    width: 1200px;
+    height: 100%;
+    background-color: #FFFEF1;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 메인 */
+main {
+    /* height는 컨텐츠에 따라 */
+    height: 700px; 
+    min-height: calc(100vh - 235px);
+    width: 100%;
+    background-color: #FFFEF1;
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 버튼 */
+button{
+  border-radius: 13px;
+  padding : 0px 20px;
+  height: 50px;
+  background-color: #f59d85;
+  border : 0px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* 메인 폰트 */
+.font-main{
+  font-size: 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 메뉴 버튼 */
+.font-menu{
+  font-family: "Yeon Sung", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 페이지 제목 */
+.pagetitle{
+  font-size : 30px;
+  color : #F38A6E;
+
+  padding-top : 100px;
+  height: 110px;
+  line-height: 110px;
+  
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* 회원 탈퇴 안내 */
+#account-deletion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #F38A6E;
+    margin: auto;
+
+    height: 100%;
+    width: 100%;
+    line-height: 80px;
+    text-align: center;
+
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}

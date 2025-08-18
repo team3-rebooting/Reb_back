@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 폰트 */
+.font-menu {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 바디 */
+body {
+  background-color: #757575;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 헤더 */
+header {
+  display: flex;
+  margin: auto;
+  position: fixed;
+  transform: translateX(155px);
+  z-index: 2;
+  background-color: #bebebe;
+  height: 80px;
+  width: 895px;
+  font-size: 20px;
+  line-height: 80px;
+  justify-content: space-between;
+}
+
+/* 상단 메뉴 이름 배치 */
+header>p{
+  margin : 0 30px;
+} 
+
+/* 마우스 호버시 손가락 모양 */
+button{
+  cursor: pointer;
+}
+
+/* 로그아웃 버튼 */
+header>button {
+  height: 30px;
+  width: 50px;
+  border-radius: 10px;
+  margin: 25px 20px;
+  background-color: black;
+  color: white;
+  border: 0;
+  font-size: 16px;
+}
+
+/* 메인 */
+main{
+  height: 100vh;
+  display: flex;
+  position: relative;
+  top: 80px;
+}
+
+/* 사이드바 리스트 영역 */
+#main-admin-list-menu{
+  background-color: #d9d9d9;
+  height: 100vh;
+  width: 310px;
+  position: fixed;
+  transform: translate(-155px, -80px);
+}
+
+/* 사이드바 리스트 */
+#main-admin-list{
+  margin: 150px 55px;
+  width: 200px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 사이드바 리스트 목록 */
+#main-admin-list>li{
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+/* 사이드바 리스트 목록 마우스 호버시 폰트 사이즈 증가 */
+#main-admin-list>li:hover{
+  font-size: 24px;
+}
+
+/* 사이드바 리스트 스타일 제거 */
+#main-admin-list>li>a{
+  text-decoration: none;
+  color: black;
+}
+
+/* 메인 영역 */
+#main-member{
+  background-color: white;
+  width: 895px;
+  transform: translateX(155px);
+}
+
+#main-member-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+/* 회원 리스트 제목 */
+#main-admin-member-list-title{
+  background-color: #d9d9d9;
+  margin-top: 100px;
+  display: flex;
+  height: 50px;
+  width: 860px;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 20px;
+}
+
+/* 회원번호 영역 */
+.main-admin-member-list-number{
+  width: 80px;
+  text-align: center;
+}
+
+/* 아이디 영역 */
+.main-admin-member-list-id{
+  width: 140px;
+  text-align: center;
+}
+
+/* 닉네임 영역 */
+.main-admin-member-list-nickname{
+  width: 120px;
+  text-align: center;
+}
+
+/* 인적사항 영역 */
+.main-admin-member-list-info{
+  width: 500px;
+  text-align: center;
+}
+
+/* 회원 유형 영역 */
+.main-admin-member-list-type{
+  width: 80px;
+  text-align: center;
+}
+
+/* 회원 목록 리스트 */
+#main-admin-member-list{
+  width: 875px;
+  font-size: 18px;
+}
+
+/* 회원 리스트 목록 */
+#main-admin-member-list>li{
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 0 10px;
+  list-style-type: none;
+  border-bottom: 3px solid #a7a7a7;
+}
+
+/* 인적사항 영역 */
+.main-admin-member-list-info-li{
+  width: 400px;
+  margin: 0 50px;
+  text-align: center;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+/* 페이지네이션 */
+#main-page-number{
+  display: flex;
+  width: 370px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* 스타일 제거 */
+#main-page-number>a{
+  margin: 0 28px;
+  text-decoration: none;
+  color: black;
+}
+
+/* 검색 영역 */
+#main-search{
+  height: 45px;
+  width: 840px;
+  font-size: 20px;
+  display: flex;
+  align-self: start;
+  margin: 30px 28px;
+}
+
+/* 검색 조건 영역 */
+.select-find {
+    border-radius: 10px;
+    border: 1px solid black;
+    height: 45px;
+    font-family: "IBM Plex Sans KR", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 입력창 */
+#main-search-input{
+  width: 370px;
+  height: 45px;
+  border-radius: 10px;
+  margin: 0 5px;
+  border: 1px solid black;
+}
+
+/* 검색 form */
+form{
+  display: flex;
+  align-items: center;
+}
+
+/* 돋보기 이미지 버튼 */
+form>button{
+  background-color: white;
+  border: 0;
+  transform: translateX(-40px);
+}
+
+/* 돋보기 이미지 */
+form>button>img{
+  height: 30px;
+  width: 30px;
+  border: 0px;
+}

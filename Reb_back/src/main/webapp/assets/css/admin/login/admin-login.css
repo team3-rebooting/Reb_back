@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 메인 */
+main {
+  background-color: #EEEEEE;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 로그인 영역 */
+#main-login {
+  height: 900px;
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 사이트 로고 */
+#main-login-logo {
+  height: 300px;
+  width: 300px;
+  position: relative;
+  top: 40px;
+}
+
+/* 페이지 이름 영역 */
+p {
+  font-size: 48px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 아이디, 비밀번호 form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 아이디, 비밀번호 입력창 */
+#main-login-id,
+#main-login-pw {
+  height: 60px;
+  width: 450px;
+  border-radius: 20px;
+  margin: 20px auto;
+  padding: 0 10px;
+  font-size: 32px;
+}
+
+/* 로그인 버튼 */
+#main-login-submit {
+  background-color: #818181;
+  color: white;
+  height: 80px;
+  width: 232px;
+  border-radius: 25px;
+  font-size: 30px;
+  margin: auto;
+  border: 0;
+  cursor: pointer;
+}
+
+/* 경고 메세지 영역 */
+div{
+  height: 65px;
+  width: 650px;
+}
+
+/* 경고 메세지 */
+#main-login-warning {
+  font-size: 30px;
+  color: red;
+  margin: 0 0 20px;
+  display: none;
+}

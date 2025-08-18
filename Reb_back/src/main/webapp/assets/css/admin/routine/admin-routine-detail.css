@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 110px;
+  width: 100%;
+  position: fixed;
+  background-color: #757575;
+  display: flex;
+  justify-content: center;
+}
+
+header>a>img {
+  height: 110px;
+  width: 110px;
+}
+
+footer {
+  width: 100%;
+  height: 125px;
+  background-color: #d9d9d9;
+}
+
+button {
+  cursor: pointer;
+}
+
+#main-container {
+  width: 1200px;
+  height: 100%;
+  /*알아서 넣기*/
+  background-color: #FFFEF1;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  min-height: calc(100vh - 235px);
+}
+
+main {
+  padding-top: 110px;
+  height: 100%;
+  width: 100%;
+  background-color: #a6a6a6;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  min-height: calc(100vh - 235px);
+}
+
+button {
+  border-radius: 13px;
+  padding: 0px 20px;
+  margin: 50px;
+  height: 40px;
+  background-color: #f59d85;
+  border: 0px;
+}
+
+.font-main {
+  font-size: 18px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+#detail-container-list {
+  display: flex;
+  margin-top: 100px;
+  justify-content: space-between;
+}
+
+.pagetitle {
+  font-size: 30px;
+  color: #F38A6E;
+
+  height: 110px;
+  line-height: 110px;
+  align-self: center;
+
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-left: 400px;
+}
+
+/* 목록으로 이동 */
+.back-list{
+  height: 50px;
+  width: 80px;
+  background-color: #818181;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.back-list {
+  height: 50px;
+  width: 80px;
+  background-color: #818181;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.p-title {
+  color: #F38A6E;
+  font-size: 36px;
+  text-align: center;
+}
+
+.routine-detail-container {
+  background-color: #FFFEF1;
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  height: 100%;
+}
+
+
+
+.div-detail-area {
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.img-detail {
+  width: 600px;
+  height: 500px;
+}
+
+.div-img {
+  display: flex;
+  justify-content: center;
+}
+
+.div-write-date {
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.p-expert-info-title {
+  font-size: 20px;
+  color: #F38A6E;
+}
+
+.div-expert-detail {
+  margin-top: 50px;
+
+}
+
+.div-expert-detail-button {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.div-expert-info-detail {
+  margin-left: 100px;
+}
+
+.button-update {
+  width: 100px;
+  height: 45px;
+  color: white;
+  border-radius: 13px;
+  padding: 0px 20px;
+  font-size: 20px;
+  background-color: #f59d85;
+  border: 0px;
+}
+
+.button-delete {
+  width: 100px;
+  height: 45px;
+  font-size: 30px;
+  background-color: white;
+  border-radius: 13px;
+  padding: 0px 20px;
+  font-size: 20px;
+  color: #ff0000;
+  border: 3px solid #ff0000;
+}
