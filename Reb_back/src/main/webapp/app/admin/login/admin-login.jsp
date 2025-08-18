@@ -23,17 +23,17 @@
       <img src="./../../../assets/img/team_logo.png" alt="페이지 로고" id="main-login-logo">
       <p>틈새빛 관리 시스템</p>
       <!-- 아이디, 비밀번호 form -->
-      <form action="" method="post">
+      <form action="${pageContext.request.contextPath}/admin/loginOk.ad" method="post">
         <!-- 아이디 입력 영역 -->
-        <input type="text" id="main-login-id" name="id" placeholder="아이디" value="" autofocus>
+        <input type="text" id="main-login-id" name="adminId" placeholder="아이디" value="" autofocus>
         <!-- 비밀번호 입력 영역 -->
-        <input type="password" id="main-login-pw" name="pw" placeholder="패스워드" autocomplete="off" value="">
+        <input type="password" id="main-login-pw" name="adminPassword" placeholder="패스워드" autocomplete="off" value="">
         <!-- 경고 메세지 영역 -->
         <div>
           <p id="main-login-warning">잘못된 ID 또는 패스워드입니다. 입력을 확인해주세요.</p>
         </div>
         <!-- 로그인 버튼 -->
-        <button type="button" id="main-login-submit">로그인</button>
+        <button type="submit" id="main-login-submit">로그인</button>
       </form>
     </section>
   </main>
