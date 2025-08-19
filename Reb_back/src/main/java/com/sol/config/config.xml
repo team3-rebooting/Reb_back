@@ -56,7 +56,6 @@
 		<mapper resource="com/sol/mapper/MyReviewMapper.xml" />
 		<mapper resource="com/sol/mapper/MyRoutineMapper.xml" />
 		<mapper resource="com/sol/mapper/RoutineListMapper.xml" />
-		<mapper resource="com/sol/mapper/RoutineMemberApplicant.xml" />
 		<mapper resource="com/sol/mapper/RoutineMemberApplicantMapper.xml" />
 		<mapper resource="com/sol/mapper/RoutineReviewCommentList.xml" />
 		<mapper resource="com/sol/mapper/RoutineReviewCommentMapper.xml" />
