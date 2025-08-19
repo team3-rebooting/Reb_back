@@ -6,11 +6,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/mypage/mypage-password.css">
-  <link rel="stylesheet" href="./../../assets/css/mypage/sidemenu.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/mypage-password.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/sidemenu.css">
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
 
-  <script defer src="./../../assets/js/mypage/mypage-password.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/mypage/mypage-password.js"></script>
   <title>틈새빛</title>
 </head>
 
@@ -49,8 +49,8 @@
   <!-- 푸터 -->
   <div id="footer">
   </div>
-  <script src="./../../assets/js/header-login.js"></script>
-  <script src="./../../assets/js/footer.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/header-login.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
 
 </html>
