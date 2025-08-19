@@ -171,7 +171,7 @@
             <label for="pw">
               <p class="font-main">비밀번호 : </p>
             </label>
-            <input type="password" class="input-pw" id="pw" name="memberPw">
+            <input type="password" class="input-pw" id="pw" name="memberPassword">
           </div>
           <!--일반 로그인 버튼 -->
           <button class="button-basic button-login" type="submit">

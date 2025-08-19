@@ -3,7 +3,6 @@ package com.sol.app.member;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,6 +24,7 @@ public class LoginOkController implements Execute{
 		Result result = new Result();
 		// 로그인 시도 결과에 따른 경로를 알려주기 위해 사용
 		String path = null;
+		System.out.println("LoginOkController 진입 성공");
 		
 		String memberId = request.getParameter("memberId"); // 아이디 저장 처리할 때 재사용
 		String memberPassword = request.getParameter("memberPassword");
@@ -39,21 +39,30 @@ public class LoginOkController implements Execute{
 		memberNumber = memberDAO.login(memberDTO);
 		
 		if(memberNumber != -1) {
-			path = "/";
+			path = "/member/login.me";
 			session.setAttribute("memberNumber", memberNumber);
 			System.out.println("세션 값 : " + memberNumber);
 			
-			if(remember != null) {
-				Cookie cookie = new Cookie("memberId", memberId);
-				cookie.setMaxAge(60 * 60 * 24);
-				
-				response.addCookie(cookie);
-			} else {
-				path= "/member/login.me?login=fail";
-			}
+			/*
+			 * if(remember != null) { 
+			 * 		Cookie cookie = new Cookie("memberId", memberId);
+			 * 		cookie.setMaxAge(60 * 60 * 24);
+			 * 		cookie.setPath(cookiePath));
+			 * 		response.addCookie(cookie);
+			 * 
+			 * 		response.addCookie(cookie); 
+			 * } else { 
+			 * 		path= "/member/login.me?login=fail"; 
+			 *  }
+			 */
 		}
 		
-		return null;
+		
+		result.setRedirect(true);	// 세션에 저장된 값은 유지
+		result.setPath(path);
+		
+		System.out.println("loginOkController 탈출");
+		return result;
 	}
 	
 }
