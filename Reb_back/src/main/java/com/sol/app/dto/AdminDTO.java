@@ -9,6 +9,13 @@ public class AdminDTO {
 	private int adminNumber;
 	private String adminId;
 	private String adminPassword;
+	private String adminNickname;
+	public String getAdminNickname() {
+		return adminNickname;
+	}
+	public void setAdminNickname(String adminNickname) {
+		this.adminNickname = adminNickname;
+	}
 	private int adminProfileImageNumber;
 	public int getAdminNumber() {
 		return adminNumber;
