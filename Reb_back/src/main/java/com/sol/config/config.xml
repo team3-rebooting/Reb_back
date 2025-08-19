@@ -37,6 +37,33 @@
 	<mappers>
 		<mapper resource="com/sol/mapper/MemberMapper.xml" />
 		<mapper resource="com/sol/mapper/AdminMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseRequestMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseReviewCommentList.xml" />
+		<mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/ExpertApplicantMapper.xml" />
+		<mapper resource="com/sol/mapper/ExpertFileMapper.xml" />
+		<mapper resource="com/sol/mapper/ExpertMapper.xml" />
+		<mapper resource="com/sol/mapper/ExpertMapper.xml" />
+		<mapper resource="com/sol/mapper/FileMapper.xml" />
+		<mapper resource="com/sol/mapper/MemberMapper.xml" />
+		<mapper resource="com/sol/mapper/MyCommentMapper.xml" />
+		<mapper resource="com/sol/mapper/MyCourseMapper.xml" />
+		<mapper resource="com/sol/mapper/MyCourseRequestMapper.xml" />
+		<mapper resource="com/sol/mapper/MyExpertMapper.xml" />
+		<mapper resource="com/sol/mapper/MyPageMapper.xml" />
+		<mapper resource="com/sol/mapper/MyReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/MyRoutineMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineListMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineMemberApplicant.xml" />
+		<mapper resource="com/sol/mapper/RoutineMemberApplicantMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewCommentList.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewCommentMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewLikeMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewListMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/SponsorMapper.xml" />
 	</mappers>
 </configuration>
 
