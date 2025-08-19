@@ -62,7 +62,6 @@ public class MyPageFrontController extends HttpServlet {
 			break;
 		case "/myPage/editOk.my":
 			System.out.println("개인정보 수정 처리");
-			response.sendRedirect("/app/mypage/personal-info.jsp");
 			break;
 		}
 		
