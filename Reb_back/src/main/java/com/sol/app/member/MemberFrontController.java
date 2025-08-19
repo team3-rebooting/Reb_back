@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sol.app.Result;
+import com.sol.app.admin.LoginController;
 
 /**
  * Servlet implementation class MemberFrontController
@@ -56,7 +57,7 @@ public class MemberFrontController extends HttpServlet {
 		switch(target) {
 		case "/member/login.me":
 			System.out.println("로그인 페이지 요청");
-			request.getRequestDispatcher("/app/member/login.jsp").forward(request, response);
+			result = new LoginController().execute();
 			break;
 		case "/member/loginOk.me":
 			System.out.println("로그인 처리 요청");

@@ -21,24 +21,36 @@ public class LoginOkController implements Execute{
 		// TODO Auto-generated method stub
 		MemberDTO memberDTO = new MemberDTO();
 		MemberDAO memberDAO = new MemberDAO();
-		Result result = null;
+		int memberNumber = 0;
+		Result result = new Result();
+		// 로그인 시도 결과에 따른 경로를 알려주기 위해 사용
+		String path = null;
 		
-		String memberId = request.getParameter("userId");
-		String memberPw = request.getParameter("userPw");
-		memberDTO = memberDAO.login(memberId, memberPw);
+		String memberId = request.getParameter("memberId"); // 아이디 저장 처리할 때 재사용
+		String memberPassword = request.getParameter("memberPassword");
+//		String remember = request.getParameter("remember");		// 아이디 기억 체크박스를 위해 사용, 현재 페이지에는 없는 기능
 		
-		if(memberDTO != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("memberDTO", memberDTO);
+		// 세션 저장
+		HttpSession session = request.getSession();
+		memberDTO.setMemberId(memberId);
+		memberDTO.setMemberPassword(memberPassword);
+		
+		// 쿼리문 실행 메소드 호출
+		memberNumber = memberDAO.login(memberDTO);
+		
+		if(memberNumber != -1) {
+			path = "/";
+			session.setAttribute("memberNumber", memberNumber);
+			System.out.println("세션 값 : " + memberNumber);
 			
-			Cookie cookie = new Cookie("memberId", memberId);
-			cookie.setMaxAge(60 * 60 * 24);
-			
-			result.setPath(request.getContextPath());
-			result.setRedirect(true);
-		}else {
-			result.setPath(request.getContextPath() + "/member/login.jsp");
-			result.setRedirect(true);
+			if(remember != null) {
+				Cookie cookie = new Cookie("memberId", memberId);
+				cookie.setMaxAge(60 * 60 * 24);
+				
+				response.addCookie(cookie);
+			} else {
+				path= "/member/login.me?login=fail";
+			}
 		}
 		
 		return null;

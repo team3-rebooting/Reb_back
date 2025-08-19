@@ -6,10 +6,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/auth/login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/auth/login.css">
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
-  <script defer src="./../../assets/js/auth/login.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/auth/login.js"></script>
   <title>틈새빛</title>
 </head>
 
@@ -158,28 +158,28 @@
       <!-- 로그인 컨테이너 -->
       <div class="login-container">
         <!-- 로그인 폼 -->
-        <form action="" method="post" class="form-login" autocomplete="off">
+        <form action="${pageContext.request.contextPath}/member/loginOk.me" method="post" class="form-login" autocomplete="off">
           <!-- id 입력 영역 -->
           <div class="div-id">
             <label for="id">
               <p class="font-main">아이디 : </p>
             </label>
-            <input type="text" class="input-id" id="id" name="userId">
+            <input type="text" class="input-id" id="id" name="memberId">
           </div>
           <!-- 비밀번호 입력 영역 -->
           <div class="div-pw">
             <label for="pw">
               <p class="font-main">비밀번호 : </p>
             </label>
-            <input type="password" class="input-pw" id="pw" name="userPw">
+            <input type="password" class="input-pw" id="pw" name="memberPw">
           </div>
           <!--일반 로그인 버튼 -->
-          <button class="button-basic button-login" type="button">
+          <button class="button-basic button-login" type="submit">
             로그인
           </button>
           <!-- 카카오로그인 버튼 -->
           <button class="button-kakao" type="button">
-            <img src="./../../assets/img/kakao.png" class="kakao-img">카카오 로그인
+            <img src="${pageContext.request.contextPath}/assets/img/kakao.png" class="kakao-img">카카오 로그인
           </button>
         </form>
         <!-- 밑줄 -->
@@ -199,7 +199,7 @@
   <div id="footer">
   </div>
 </body>
-<script src="./../../assets/js/header-nologin.js"></script>
-<script src="./../../assets/js/footer.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/header-nologin.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>
