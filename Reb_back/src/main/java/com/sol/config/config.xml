@@ -14,8 +14,11 @@
 
 	<!-- DTO 별칭 설정 추후 추가 -->
 	<typeAliases>
-		<typeAlias type="com.example.app.dto.MemberDTO"
-			alias="MemberDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.MemberDTO"
+			alias="MemberDTO">
+		</typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminDTO"
+         alias="AdminDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -25,15 +28,16 @@
 				<property name="driver" value="oracle.jdbc.OracleDriver" />
 				<property name="url"
 					value="jdbc:oracle:thin:@localhost:1521/xe" />
-				<property name="username" value="kdt" />
-				<property name="password" value="1234" />
+				<property name="username" value="kdt03" />
+				<property name="password" value="rebooting0829" />
 			</dataSource>
 		</environment>
 	</environments>
 
 	<!-- mapper.xml 추후 추가 -->
 	<mappers>
-		<mapper resource="com/example/mapper/MemberMapper.xml" />
+		<mapper resource="com/sol/mapper/MemberMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminMapper.xml" />
 	</mappers>
 </configuration>
 
