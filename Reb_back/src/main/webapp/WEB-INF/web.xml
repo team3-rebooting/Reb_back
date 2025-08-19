@@ -19,4 +19,15 @@
      <servlet-name>Admin</servlet-name>
      <url-pattern>*.ad</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>MyPage</servlet-name>
+     <servlet-class>com.sol.app.myPage.MyPageFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>MyPage</servlet-name>
+     <url-pattern>*.my</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

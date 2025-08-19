@@ -15,8 +15,7 @@
 	<!-- DTO 별칭 설정 추후 추가 -->
 	<typeAliases>
 		<typeAlias type="com.sol.app.dto.MemberDTO"
-			alias="MemberDTO">
-		</typeAlias>
+			alias="MemberDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.AdminDTO"
          alias="AdminDTO"></typeAlias>
 	</typeAliases>
