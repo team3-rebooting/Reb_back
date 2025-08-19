@@ -36,6 +36,7 @@
 	<!-- mapper.xml 추후 추가 -->
 	<mappers>
 		<mapper resource="com/sol/mapper/MemberMapper.xml" />
+		<mapper resource="com/sol/mapper/AddressMapper.xml" />
 		<mapper resource="com/sol/mapper/AdminMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseRequestMapper.xml" />
