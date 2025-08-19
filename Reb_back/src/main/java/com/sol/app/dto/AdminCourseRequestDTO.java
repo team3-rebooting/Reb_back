@@ -1,0 +1,191 @@
+package com.sol.app.dto;
+
+public class AdminCourseRequestDTO {
+	//전문가 수업 요청 정보
+	private int prevCourseNumber;
+	private int courseOpenStatusNumber;
+	private int courseRequestTypeNumber;
+	private String courseRegisterDate;
+	private String courseRequestDate;
+	private String courseResultDate;
+	private String courseRejectReason;
+	//수업
+	private int courseNumber;
+	private String courseTitle;
+	private String courseContent;
+	private int expertNumber;
+	private int courseRecruitStatusNumber;
+	private int courseMainImageNumber;
+	private String coursePostDate;
+	private String coursePostUpdateDate;
+	private String courseRecruitStartDate;
+	private String courseRecruitEndDate;
+	private String courseStartDate;
+	private String courseEndDate;
+	private String courseStartTime;
+	private String courseEndTime;
+	private String courseDayOfWeek;
+	private int courseRecruitCount;
+	private int coursePrice;
+	
+	public int getPrevCourseNumber() {
+		return prevCourseNumber;
+	}
+	public void setPrevCourseNumber(int prevCourseNumber) {
+		this.prevCourseNumber = prevCourseNumber;
+	}
+	public int getCourseOpenStatusNumber() {
+		return courseOpenStatusNumber;
+	}
+	public void setCourseOpenStatusNumber(int courseOpenStatusNumber) {
+		this.courseOpenStatusNumber = courseOpenStatusNumber;
+	}
+	public int getCourseRequestTypeNumber() {
+		return courseRequestTypeNumber;
+	}
+	public void setCourseRequestTypeNumber(int courseRequestTypeNumber) {
+		this.courseRequestTypeNumber = courseRequestTypeNumber;
+	}
+	public String getCourseRegisterDate() {
+		return courseRegisterDate;
+	}
+	public void setCourseRegisterDate(String courseRegisterDate) {
+		this.courseRegisterDate = courseRegisterDate;
+	}
+	public String getCourseRequestDate() {
+		return courseRequestDate;
+	}
+	public void setCourseRequestDate(String courseRequestDate) {
+		this.courseRequestDate = courseRequestDate;
+	}
+	public String getCourseResultDate() {
+		return courseResultDate;
+	}
+	public void setCourseResultDate(String courseResultDate) {
+		this.courseResultDate = courseResultDate;
+	}
+	public String getCourseRejectReason() {
+		return courseRejectReason;
+	}
+	public void setCourseRejectReason(String courseRejectReason) {
+		this.courseRejectReason = courseRejectReason;
+	}
+	public int getCourseNumber() {
+		return courseNumber;
+	}
+	public void setCourseNumber(int courseNumber) {
+		this.courseNumber = courseNumber;
+	}
+	public String getCourseTitle() {
+		return courseTitle;
+	}
+	public void setCourseTitle(String courseTitle) {
+		this.courseTitle = courseTitle;
+	}
+	public String getCourseContent() {
+		return courseContent;
+	}
+	public void setCourseContent(String courseContent) {
+		this.courseContent = courseContent;
+	}
+	public int getExpertNumber() {
+		return expertNumber;
+	}
+	public void setExpertNumber(int expertNumber) {
+		this.expertNumber = expertNumber;
+	}
+	public int getCourseRecruitStatusNumber() {
+		return courseRecruitStatusNumber;
+	}
+	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
+		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
+	}
+	public int getCourseMainImageNumber() {
+		return courseMainImageNumber;
+	}
+	public void setCourseMainImageNumber(int courseMainImageNumber) {
+		this.courseMainImageNumber = courseMainImageNumber;
+	}
+	public String getCoursePostDate() {
+		return coursePostDate;
+	}
+	public void setCoursePostDate(String coursePostDate) {
+		this.coursePostDate = coursePostDate;
+	}
+	public String getCoursePostUpdateDate() {
+		return coursePostUpdateDate;
+	}
+	public void setCoursePostUpdateDate(String coursePostUpdateDate) {
+		this.coursePostUpdateDate = coursePostUpdateDate;
+	}
+	public String getCourseRecruitStartDate() {
+		return courseRecruitStartDate;
+	}
+	public void setCourseRecruitStartDate(String courseRecruitStartDate) {
+		this.courseRecruitStartDate = courseRecruitStartDate;
+	}
+	public String getCourseRecruitEndDate() {
+		return courseRecruitEndDate;
+	}
+	public void setCourseRecruitEndDate(String courseRecruitEndDate) {
+		this.courseRecruitEndDate = courseRecruitEndDate;
+	}
+	public String getCourseStartDate() {
+		return courseStartDate;
+	}
+	public void setCourseStartDate(String courseStartDate) {
+		this.courseStartDate = courseStartDate;
+	}
+	public String getCourseEndDate() {
+		return courseEndDate;
+	}
+	public void setCourseEndDate(String courseEndDate) {
+		this.courseEndDate = courseEndDate;
+	}
+	public String getCourseStartTime() {
+		return courseStartTime;
+	}
+	public void setCourseStartTime(String courseStartTime) {
+		this.courseStartTime = courseStartTime;
+	}
+	public String getCourseEndTime() {
+		return courseEndTime;
+	}
+	public void setCourseEndTime(String courseEndTime) {
+		this.courseEndTime = courseEndTime;
+	}
+	public String getCourseDayOfWeek() {
+		return courseDayOfWeek;
+	}
+	public void setCourseDayOfWeek(String courseDayOfWeek) {
+		this.courseDayOfWeek = courseDayOfWeek;
+	}
+	public int getCourseRecruitCount() {
+		return courseRecruitCount;
+	}
+	public void setCourseRecruitCount(int courseRecruitCount) {
+		this.courseRecruitCount = courseRecruitCount;
+	}
+	public int getCoursePrice() {
+		return coursePrice;
+	}
+	public void setCoursePrice(int coursePrice) {
+		this.coursePrice = coursePrice;
+	}
+	@Override
+	public String toString() {
+		return "AdminCourseRequestDTO [prevCourseNumber=" + prevCourseNumber + ", courseOpenStatusNumber="
+				+ courseOpenStatusNumber + ", courseRequestTypeNumber=" + courseRequestTypeNumber
+				+ ", courseRegisterDate=" + courseRegisterDate + ", courseRequestDate=" + courseRequestDate
+				+ ", courseResultDate=" + courseResultDate + ", courseRejectReason=" + courseRejectReason
+				+ ", courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", courseContent=" + courseContent
+				+ ", expertNumber=" + expertNumber + ", courseRecruitStatusNumber=" + courseRecruitStatusNumber
+				+ ", courseMainImageNumber=" + courseMainImageNumber + ", coursePostDate=" + coursePostDate
+				+ ", coursePostUpdateDate=" + coursePostUpdateDate + ", courseRecruitStartDate="
+				+ courseRecruitStartDate + ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate="
+				+ courseStartDate + ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime
+				+ ", courseEndTime=" + courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount="
+				+ courseRecruitCount + ", coursePrice=" + coursePrice + "]";
+	}
+	
+}

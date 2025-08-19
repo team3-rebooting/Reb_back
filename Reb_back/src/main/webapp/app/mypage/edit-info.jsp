@@ -45,7 +45,7 @@
     <div id="main-container">
       <div class="pagetitle">개인정보 수정</div>
       <!-- 개인정보 수정 form -->
-      <form action="${pageContext.request.contextPath}/mypage/" method="post">
+      <form action="${pageContext.request.contextPath}/myPage/editOk.my" method="post">
         <div class="edit-info-container">
           <!-- ID -->
           <div class="edit-info-list">
@@ -174,7 +174,7 @@
         </div>
         <!-- 개인정보 수정/취소 버튼 -->
         <div id="bottom-button">
-          <button type="submit" name="personalInfoEdit" id="button-edit-user-complete">수정</button>
+          <button type="button" name="personalInfoEdit" id="button-edit-user-complete">수정</button>
           <button type="button" name="personalInfoDel" id="button-edit-user-cancel">취소</button>
         </div>
       </form>

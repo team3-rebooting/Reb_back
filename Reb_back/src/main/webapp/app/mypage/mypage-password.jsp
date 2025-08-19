@@ -39,7 +39,7 @@
       <form class="form-pw" action="" method="post">
         <!-- 비밀번호 입력 -->
         <label for="buttonPw" class="label-pw">비밀번호</label>
-        <input type="password" name="buttonPw" id="button-pw" placeholder="비밀번호 입력">
+        <input type="password" name="memberPassword" id="input-pw" placeholder="비밀번호 입력">
         <button class="button-pw" value="button-pw" type="button">확인</button>
       </form>
       <!-- 비밀번호 틀렸을 경우 안내 문구 -->

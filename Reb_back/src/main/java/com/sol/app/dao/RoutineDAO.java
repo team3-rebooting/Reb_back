@@ -2,17 +2,12 @@ package com.sol.app.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.sol.app.dto.MemberDTO;
 import com.sol.config.MyBatisConfig;
 
-public class MyPageDAO {
+public class RoutineDAO {
 	public SqlSession sqlSession;
 
-	public MyPageDAO() {
+	public RoutineDAO() {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
-	}
-	
-	public MemberDTO login(MemberDTO memberDTO) {
-		return sqlSession.selectOne("member.login", memberDTO);
 	}
 }
