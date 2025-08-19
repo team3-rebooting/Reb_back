@@ -6,15 +6,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/mypage/edit-info.css">
-  <link rel="stylesheet" href="./../../assets/css/mypage/sidemenu.css">
-  <link rel="stylesheet" href="./../../assets/css/mypage/mypage-modal.css">
-  <link rel="stylesheet" href="./../../assets/css/mypage/expert-rejection-reason.css">
-  <link rel="stylesheet" href="./../../assets/css/mypage/expert-file-upload.css">
-  <link rel="stylesheet" href="./../../assets/css/mypage/profile-pic-upload.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/edit-info.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/sidemenu.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/mypage-modal.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/expert-rejection-reason.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/expert-file-upload.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/profile-pic-upload.css">
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
-  <script defer src="./../../assets/js/mypage/edit-info.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/mypage/edit-info.js"></script>
   <title>틈새빛</title>
 </head>
 
@@ -45,12 +45,12 @@
     <div id="main-container">
       <div class="pagetitle">개인정보 수정</div>
       <!-- 개인정보 수정 form -->
-      <form action="" method="post">
+      <form action="${pageContext.request.contextPath}/mypage/" method="post">
         <div class="edit-info-container">
           <!-- ID -->
           <div class="edit-info-list">
             <div class="edit-info-type">ID</div>
-            <div class="edit-info-data">boradori</div>
+            <div class="edit-info-data" id="edit-info-id">boradori</div>
           </div>
           <!-- 비밀번호 -->
           <div class="edit-info-list edit-info-two-row">
@@ -88,12 +88,12 @@
           <!-- 생년월일 -->
           <div class="edit-info-list">
             <div class="edit-info-type">생년월일</div>
-            <div class="edit-info-data">1995.01.21</div>
+            <div class="edit-info-data" id="edit-info-birth-date">1995.01.21</div>
           </div>
           <!-- 성별 -->
           <div class="edit-info-list">
             <div class="edit-info-type">성별</div>
-            <div class="edit-info-data">여</div>
+            <div class="edit-info-data" id="edit-info-gender">여</div>
           </div>
           <!-- 주소 -->
           <div class="edit-info-list edit-info-two-row">
@@ -174,7 +174,7 @@
         </div>
         <!-- 개인정보 수정/취소 버튼 -->
         <div id="bottom-button">
-          <button type="button" name="personalInfoEdit" id="button-edit-user-complete">수정</button>
+          <button type="submit" name="personalInfoEdit" id="button-edit-user-complete">수정</button>
           <button type="button" name="personalInfoDel" id="button-edit-user-cancel">취소</button>
         </div>
       </form>
@@ -183,12 +183,12 @@
   <!-- 푸터 -->
   <div id="footer">
   </div>
-  <script src="./../../assets/js/mypage/sidemenu.js"></script>
-  <script src="./../../assets/js/mypage/mypage-modal.js"></script>
-  <script src="./../../assets/js/mypage/expert-file-upload.js"></script>
-  <script src="./../../assets/js/mypage/profile-pic-upload.js"></script>
-  <script src="./../../assets/js/header-login.js"></script>
-  <script src="./../../assets/js/footer.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/expert-file-upload.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/profile-pic-upload.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/header-login.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
 
 </html>

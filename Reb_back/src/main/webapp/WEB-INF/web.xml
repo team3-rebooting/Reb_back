@@ -30,4 +30,15 @@
      <url-pattern>*.my</url-pattern>
   </servlet-mapping>
   
+  
+  <servlet>
+     <servlet-name>Member</servlet-name>
+     <servlet-class>com.sol.app.member.MemberFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>Member</servlet-name>
+     <url-pattern>*.me</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
