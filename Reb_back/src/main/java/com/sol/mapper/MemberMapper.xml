@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
-	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
-		SELECT MEMBER_NUMBER, MEMBER_ID, MEMBER_NAME, MEMBER_GENDER, MEMBER_NICKNAME
+	<!-- 로그인 쿼리 작성 -->
+	<select id="login" parameterType="MemberDTO" resultType="int">
+		SELECT MEMBER_NUMBER
 		FROM TBL_MEMBER
-		WHERE MEMBER_ID = #{memberId} and MEMBER_PASSWORD = #{memberPw}
+		WHERE MEMBER_ID = #{memberId} and MEMBER_PASSWORD = #{memberPassword}
 	</select>
 </mapper>

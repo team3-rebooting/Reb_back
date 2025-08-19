@@ -34,12 +34,12 @@ public class MemberDTO {
 	String addressDetail;
 	String memberEmail;
 	String memberName;
-	char memberGender;
+	String memberGender;
 	String memberNickname;
 	String memberPhoneNumber;
-	int expertStatusNumber;
 	String memberBirthDate;
 	int profileFileNumber;
+	
 	public int getMemberNumber() {
 		return memberNumber;
 	}
@@ -82,10 +82,10 @@ public class MemberDTO {
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
-	public char getMemberGender() {
+	public String getMemberGender() {
 		return memberGender;
 	}
-	public void setMemberGender(char memberGender) {
+	public void setMemberGender(String memberGender) {
 		this.memberGender = memberGender;
 	}
 	public String getMemberNickname() {
@@ -99,12 +99,6 @@ public class MemberDTO {
 	}
 	public void setMemberPhoneNumber(String memberPhoneNumber) {
 		this.memberPhoneNumber = memberPhoneNumber;
-	}
-	public int getExpertStatusNumber() {
-		return expertStatusNumber;
-	}
-	public void setExpertStatusNumber(int expertStatusNumber) {
-		this.expertStatusNumber = expertStatusNumber;
 	}
 	public String getMemberBirthDate() {
 		return memberBirthDate;
@@ -120,9 +114,16 @@ public class MemberDTO {
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "MemberDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPassword="
+				+ memberPassword + ", zipCode=" + zipCode + ", addressDetail=" + addressDetail + ", memberEmail="
+				+ memberEmail + ", memberName=" + memberName + ", memberGender=" + memberGender + ", memberNickname="
+				+ memberNickname + ", memberPhoneNumber=" + memberPhoneNumber + ", memberBirthDate=" + memberBirthDate
+				+ ", profileFileNumber=" + profileFileNumber + "]";
 	}
+	
+	
+	
+	
 	
 	
 }
