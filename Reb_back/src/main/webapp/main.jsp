@@ -95,7 +95,7 @@
             </a>
           </div>
           <div class="review-box">
-            <a href="./app/routine-meeting/routine-meeting-review-detail.html" clas="a-review-box">
+            <a href="./app/routine-meeting/routine-meeting-review-detail.html" class="a-review-box">
               <div class="review-img-box">
                 <img src="./assets/img/routine.png" alt="">
               </div>
@@ -107,7 +107,7 @@
             </a>
           </div>
           <div class="review-box">
-            <a href="./app/routine-meeting/routine-meeting-review-detail.html" clas="a-review-box">
+            <a href="./app/routine-meeting/routine-meeting-review-detail.html" class="a-review-box">
               <div class="review-img-box">
                 <img src="./assets/img/routine.png" alt="">
               </div>
@@ -124,7 +124,7 @@
         <div class="pagetitle">모집중인 수업 후기글</div>
         <div id="review-list">
           <div class="review-box">
-            <a href="./app/course/course-review-detail.html" clas="a-review-box">
+            <a href="./app/course/course-review-detail.html" class="a-review-box">
               <div class="review-img-box">
                 <img src="./assets/img/routine.png" alt="">
               </div>
@@ -136,7 +136,7 @@
             </a>
           </div>
           <div class="review-box">
-            <a href="./app/course/course-review-detail.html" clas="a-review-box">
+            <a href="./app/course/course-review-detail.html" class="a-review-box">
               <div class="review-img-box">
                 <img src="./assets/img/routine.png" alt="">
               </div>
@@ -148,7 +148,7 @@
             </a>
           </div>
           <div class="review-box">
-            <a href="./app/course/course-review-detail.html" clas="a-review-box">
+            <a href="./app/course/course-review-detail.html" class="a-review-box">
               <div class="review-img-box">
                 <img src="./assets/img/routine.png" alt="">
               </div>

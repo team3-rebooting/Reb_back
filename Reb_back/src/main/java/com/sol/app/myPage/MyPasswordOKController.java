@@ -6,7 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.app.member.dao.MemberDAO;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.dao.MyPageDAO;
