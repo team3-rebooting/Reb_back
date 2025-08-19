@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-    fetch("footer.html")
+    fetch("${pageContext.request.contextPath}/footer.jsp")
         .then(response => response.text())
         .then(data => {
             footer = document.querySelector(`#footer`);

@@ -6,14 +6,14 @@
     틈새빛
   </div>
   <div id="footer-content">
-    <div id="footer-div-logo"><img id="footer-img-logo" src="assets/img/team_logo.png" alt=""></div>
+    <div id="footer-div-logo"><img id="footer-img-logo" src="${pageContext.request.contextPath}/assets/img/team_logo.png" alt=""></div>
     <div id="footer-information-right">
       <div>
         <nav>
           <!-- 푸터 링크 -->
           <ul id="footer-ul-link-list">
-            <li><a href="app/aboutUs/site-introduction.html">소개글</a></li>
-            <li><a href="app/aboutUs/privacy-policy.html">개인정보처리방침</a></li>
+            <li><a href="${pageContext.request.contextPath}/app/aboutUs/site-introduction.html">소개글</a></li>
+            <li><a href="${pageContext.request.contextPath}/app/aboutUs/privacy-policy.html">개인정보처리방침</a></li>
           </ul>
         </nav>
       </div>
@@ -25,4 +25,5 @@
       </div>
     </div>
   </div>
+      <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </footer>
