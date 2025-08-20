@@ -61,7 +61,11 @@ public class AdminFrontController extends HttpServlet {
                   System.out.println("공지사항 리스트");
                   request.getRequestDispatcher("/app/admin/notice/admin-notice-list.jsp").forward(request, response);
                   break;
-                  
+               case "/admin/noticeCreate.ad" :
+            	  System.out.println("공지사항 생성");
+            	  request.getRequestDispatcher("/app/admin/notice/admin-notice-create.jsp").forward(request, response);
+            	  break;
+            	  
             }
             
             if (result != null && result.getPath() != null) {
