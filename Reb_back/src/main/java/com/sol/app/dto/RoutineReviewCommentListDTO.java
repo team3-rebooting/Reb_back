@@ -1,13 +1,14 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class RoutineReviewCommentListDTO {
 	//RoutineReviewComment, MemberDTO, FileDTO
 	private int routineReviewCommentNumber;
 	private int routineReviewNumber;
 	private int memberNumber;
 	private String memberNickname;
-	private int profileFileNumber;
-	private String filePath;
+	private List<FileMemberProFileDTO> fileMemberProFileList;
 	private String routineReviewCreatedDate;
 	private String routineReviewUpdatedDate;
 	private String routineReviewContent;
@@ -35,18 +36,6 @@ public class RoutineReviewCommentListDTO {
 	public void setMemberNickname(String memberNickname) {
 		this.memberNickname = memberNickname;
 	}
-	public int getProfileFileNumber() {
-		return profileFileNumber;
-	}
-	public void setProfileFileNumber(int profileFileNumber) {
-		this.profileFileNumber = profileFileNumber;
-	}
-	public String getFilePath() {
-		return filePath;
-	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
 	public String getRoutineReviewCreatedDate() {
 		return routineReviewCreatedDate;
 	}
@@ -65,13 +54,19 @@ public class RoutineReviewCommentListDTO {
 	public void setRoutineReviewContent(String routineReviewContent) {
 		this.routineReviewContent = routineReviewContent;
 	}
-	
+	public List<FileMemberProFileDTO> getFileMemberProFileList() {
+		return fileMemberProFileList;
+	}
+	public void setFileMemberProFileList(List<FileMemberProFileDTO> fileMemberProFileList) {
+		this.fileMemberProFileList = fileMemberProFileList;
+	}
 	@Override
 	public String toString() {
 		return "RoutineReviewCommentListDTO [routineReviewCommentNumber=" + routineReviewCommentNumber
 				+ ", routineReviewNumber=" + routineReviewNumber + ", memberNumber=" + memberNumber
-				+ ", memberNickname=" + memberNickname + ", profileFileNumber=" + profileFileNumber + ", filePath="
-				+ filePath + ", routineReviewCreatedDate=" + routineReviewCreatedDate + ", routineReviewUpdatedDate="
+				+ ", memberNickname=" + memberNickname + ", fileMemberProFileList=" + fileMemberProFileList
+				+ ", routineReviewCreatedDate=" + routineReviewCreatedDate + ", routineReviewUpdatedDate="
 				+ routineReviewUpdatedDate + ", routineReviewContent=" + routineReviewContent + "]";
 	}
+	
 }

@@ -1,5 +1,7 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class MyMemberDTO {
 	//MemberDTO, AddressDTO, ExpertCertStatusDTO, FileDTO,ExpertApplicantDTO
 	
@@ -20,8 +22,7 @@ public class MyMemberDTO {
 	private String expertCertStatusInfo;
 	private String expertApplicantReason;
 	private String memberBirthDate;
-	private int profileFileNumber;
-	private String filePath;
+	private List<FileMemberProFileDTO> fileMemberProFileList;
 	public int getMemberNumber() {
 		return memberNumber;
 	}
@@ -118,19 +119,12 @@ public class MyMemberDTO {
 	public void setMemberBirthDate(String memberBirthDate) {
 		this.memberBirthDate = memberBirthDate;
 	}
-	public int getProfileFileNumber() {
-		return profileFileNumber;
+	public List<FileMemberProFileDTO> getFileMemberProFileList() {
+		return fileMemberProFileList;
 	}
-	public void setProfileFileNumber(int profileFileNumber) {
-		this.profileFileNumber = profileFileNumber;
+	public void setFileMemberProFileList(List<FileMemberProFileDTO> fileMemberProFileList) {
+		this.fileMemberProFileList = fileMemberProFileList;
 	}
-	public String getFilePath() {
-		return filePath;
-	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-	
 	@Override
 	public String toString() {
 		return "MyMemberDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPassword="
@@ -139,6 +133,7 @@ public class MyMemberDTO {
 				+ ", memberGender=" + memberGender + ", memberNickname=" + memberNickname + ", memberPhoneNumber="
 				+ memberPhoneNumber + ", expertCertStatusNumber=" + expertCertStatusNumber + ", expertCertStatusInfo="
 				+ expertCertStatusInfo + ", expertApplicantReason=" + expertApplicantReason + ", memberBirthDate="
-				+ memberBirthDate + ", profileFileNumber=" + profileFileNumber + ", filePath=" + filePath + "]";
+				+ memberBirthDate + ", fileMemberProFileList=" + fileMemberProFileList + "]";
 	}
+	
 }

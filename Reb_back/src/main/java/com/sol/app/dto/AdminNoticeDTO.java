@@ -1,15 +1,17 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class AdminNoticeDTO {
 	private int noticeNumber;
 	private String noticeTitle;
 	private int adminNumber;
 	private String adminNickname;
-	private String adminProfileImageNumber;
 	private String noticeCreatedDate;
 	private String noticeUpdatedDate;
 	private String noticeContent;
-	private int noticeFileNumber;
+	private List<FileNoticeDTO> fileNoticeList; 
+	
 	public int getNoticeNumber() {
 		return noticeNumber;
 	}
@@ -27,18 +29,6 @@ public class AdminNoticeDTO {
 	}
 	public void setAdminNumber(int adminNumber) {
 		this.adminNumber = adminNumber;
-	}
-	public String getAdminNickName() {
-		return adminNickname;
-	}
-	public void setAdminNickName(String adminNickName) {
-		this.adminNickname = adminNickName;
-	}
-	public String getAdminProfileImageNumber() {
-		return adminProfileImageNumber;
-	}
-	public void setAdminProfileImageNumber(String adminProfileImageNumber) {
-		this.adminProfileImageNumber = adminProfileImageNumber;
 	}
 	public String getNoticeCreatedDate() {
 		return noticeCreatedDate;
@@ -58,18 +48,24 @@ public class AdminNoticeDTO {
 	public void setNoticeContent(String noticeContent) {
 		this.noticeContent = noticeContent;
 	}
-	public int getNoticeFileNumber() {
-		return noticeFileNumber;
+	public String getAdminNickname() {
+		return adminNickname;
 	}
-	public void setNoticeFileNumber(int noticeFileNumber) {
-		this.noticeFileNumber = noticeFileNumber;
+	public void setAdminNickname(String adminNickname) {
+		this.adminNickname = adminNickname;
+	}
+	public List<FileNoticeDTO> getFileNoticeList() {
+		return fileNoticeList;
+	}
+	public void setFileNoticeList(List<FileNoticeDTO> fileNoticeList) {
+		this.fileNoticeList = fileNoticeList;
 	}
 	@Override
 	public String toString() {
 		return "AdminNoticeDTO [noticeNumber=" + noticeNumber + ", noticeTitle=" + noticeTitle + ", adminNumber="
-				+ adminNumber + ", adminNickName=" + adminNickname + ", adminProfileImageNumber="
-				+ adminProfileImageNumber + ", noticeCreatedDate=" + noticeCreatedDate + ", noticeUpdatedDate="
-				+ noticeUpdatedDate + ", noticeContent=" + noticeContent + ", noticeFileNumber=" + noticeFileNumber
-				+ "]";
+				+ adminNumber + ", adminNickname=" + adminNickname + ", noticeCreatedDate=" + noticeCreatedDate
+				+ ", noticeUpdatedDate=" + noticeUpdatedDate + ", noticeContent=" + noticeContent + ", fileNoticeList="
+				+ fileNoticeList + "]";
 	}
+	
 }
