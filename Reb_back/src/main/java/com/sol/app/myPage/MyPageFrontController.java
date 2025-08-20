@@ -51,7 +51,7 @@ public class MyPageFrontController extends HttpServlet {
 		switch (target) {
 		case "/myPage/myPassword.my":
 			System.out.println("마이페이지 비밀번호 입력 페이지");
-			request.getRequestDispatcher("/app/mypage/mypage-password.jsp").forward(request, response);
+			result = new MyPasswordController().execute(request, response);
 			break;
 		case "/myPage/myPasswordOk.my":
 			System.out.println("마이페이지 비밀번호 처리");
