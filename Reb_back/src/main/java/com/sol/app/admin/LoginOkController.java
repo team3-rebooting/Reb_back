@@ -23,9 +23,9 @@ public class LoginOkController implements Execute {
 		System.out.println(adminDTO);
 		if(adminDTO != null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("adminDTO",adminDTO);
+			session.setAttribute("adminNumber",adminDTO.getAdminNumber());
 			//여기서 메인으로 보내주면됨
-			result.setPath(request.getContextPath() + "");
+			result.setPath(request.getContextPath() + "/admin/noticeList.ad");
 			result.setRedirect(true);
 		}
 		else {
