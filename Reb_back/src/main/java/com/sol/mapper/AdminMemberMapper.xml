@@ -12,12 +12,12 @@
                 			m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_PASSWORD,
                 			m.MEMBER_ADDRESS_NUMBER, m.MEMBER_EMAIL, m.MEMBER_NAME,
                 			m.MEMBER_GENDER, m.MEMBER_NICKNAME, m.MEMBER_PHONE_NUMBER,
-                			TO_CHAR(m.MEMBER_BIRTH_DATE, 'YYYY-MM-DD') AS MEMBER_BIRTH_DATE
+                			TO_CHAR(m.MEMBER_BIRTH_DATE, 'YYYY-MM-DD')
             				FROM TBL_MEMBER m
             				ORDER BY m.MEMBER_NUMBER DESC
         					) subquery
     				)
-		) WHERE rnum BETWEEN #{startRow} AND #{endRow};
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 	</select>
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(member_number)

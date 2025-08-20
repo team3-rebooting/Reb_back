@@ -4,8 +4,8 @@
 	<select id="select" parameterType="int" resultType="AdminNoticeDTO">
 		<![CDATA[
 		SELECT  n.NOTICE_NUMBER, n.NOTICE_TITLE, n.ADMIN_NUMBER,a.ADMIN_NICKNAME,
-    	TO_CHAR(n.NOTICE_CREATED_DATE, 'YYYY-MM-DD HH24:MI:SS') noticeCreatedDate,
-    	TO_CHAR(n.NOTICE_UPDATED_DATE, 'YYYY-MM-DD HH24:MI:SS') noticeUpdatedDate,
+    	TO_CHAR(n.NOTICE_CREATED_DATE, 'YYYY-MM-DD HH24:MI:SS'),
+    	TO_CHAR(n.NOTICE_UPDATED_DATE, 'YYYY-MM-DD HH24:MI:SS'),
     	n.NOTICE_CONTENT noticeContent,
     	f.FILE_SYSTEM_NAME fileSystemName,
     	f.FILE_ORIGINAL_NAME fileOriginalName

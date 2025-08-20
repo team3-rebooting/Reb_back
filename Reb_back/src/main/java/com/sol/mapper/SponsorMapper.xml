@@ -15,13 +15,13 @@
         		JOIN TBL_MEMBER m ON s.MEMBER_NUMBER = m.MEMBER_NUMBER
         		ORDER BY s.SPONSOR_DATE DESC
     			) subquery
-			) WHERE rnum BETWEEN #{startRow} AND #{endRow};
+			) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 	]]>	
 	</select>
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(sponsor_number)
 		FROM tbl_sponsor	
-
+	</select>
 	<select id="getTotalAmount" parameterType="memberNumber" resultType="int">
 		SELECT sum(sponsor_amount) FROM TBL_SPONSOR 
 		WHERE MEMBER_NUMBER = #{memberNumber}

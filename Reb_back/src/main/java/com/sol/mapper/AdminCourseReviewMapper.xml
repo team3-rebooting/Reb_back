@@ -6,8 +6,8 @@
 		SELECT
     	r.COURSE_REVIEW_NUMBER, r.COURSE_NUMBER, r.COURSE_REVIEW_TITLE,
     	m.MEMBER_NUMBER, m.MEMBER_NICKNAME,
-    	TO_CHAR(r.COURSE_REVIEW_CREATED_DATE, 'YYYY-MM-DD') AS COURSE_REVIEW_CREATED_DATE,
-    	TO_CHAR(r.COURSE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD') AS COURSE_REVIEW_UPDATED_DATE,
+    	TO_CHAR(r.COURSE_REVIEW_CREATED_DATE, 'YYYY-MM-DD'),
+    	TO_CHAR(r.COURSE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD'),
     	r.COURSE_REVIEW_CONTENT,
     	fmp.FILE_SYSTEM_NAME AS Member_Profile_File,
     	fcr.FILE_SYSTEM_NAME AS Course_Review_File
@@ -18,7 +18,7 @@
     	ON r.MEMBER_NUMBER = fmp.MEMBER_NUMBER
 		LEFT JOIN TBL_FILE_COURSE_REVIEW fcr
     	ON r.COURSE_REVIEW_NUMBER = fcr.COURSE_REVIEW_NUMBER
-		WHERE r.COURSE_REVIEW_NUMBER = #{courseReviewNumber};
+		WHERE r.COURSE_REVIEW_NUMBER = #{courseReviewNumber}
 		]]>
 	</select>
 	<select id="selectAll" resultType="AdminCourseReviewListDTO">
@@ -40,7 +40,7 @@
         		) subquery
     		)
 		)
-		WHERE rnum BETWEEN #{startRow} AND #{endRow};
+		WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>
 	</select>
 	<delete id="delete" parameterType="int">

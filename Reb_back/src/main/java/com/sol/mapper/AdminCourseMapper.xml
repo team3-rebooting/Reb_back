@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminCourse">
+	<select id="selectAll" resultType="AdminCourseListDTO">
+		SELECT * FROM (
+    			SELECT ROWNUM AS rnum, subquery.*
+    			FROM (
+            			SELECT
+                			m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NICKNAME,
+                			c.COURSE_NUMBER, c.COURSE_TITLE, c.COURSE_RECRUIT_STATUS_NUMBER,
+                			TO_CHAR(c.COURSE_START_DATE, 'YYYY-MM-DD'), TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD')
+           					FROM TBL_COURSE c
+            				JOIN TBL_MEMBER m
+                			ON c.EXPERT_NUMBER = m.MEMBER_NUMBER
+            				ORDER BY c.COURSE_START_DATE DESC
+        				) subquery
+				)	
+			WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(course_number)
+		FROM tbl_course	
+	</select>
+	<select id="select" parameterType="int" resultType="adminCourseDTO">
+	SELECT
+    c.COURSE_NUMBER, c.COURSE_TITLE, c.COURSE_CONTENT,
+    e.EXPERT_NUMBER, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER, e.EXPERT_FIELD_NUMBER,
+    c.COURSE_RECRUIT_STATUS_NUMBER,
+    fc.FILE_SYSTEM_NAME AS FILE_COURSE_NAME,
+    TO_CHAR(c.COURSE_POST_DATE, 'YYYY-MM-DD'),TO_CHAR(c.COURSE_POST_UPDATE_DATE, 'YYYY-MM-DD'),
+    TO_CHAR(c.COURSE_RECRUIT_START_DATE, 'YYYY-MM-DD'),TO_CHAR(c.COURSE_RECRUIT_END_DATE, 'YYYY-MM-DD'),
+    TO_CHAR(c.COURSE_START_DATE, 'YYYY-MM-DD'),TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD'),
+    TO_CHAR(c.COURSE_START_TIME, 'HH24:MI'),TO_CHAR(c.COURSE_END_TIME, 'HH24:MI'),
+    c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT, c.COURSE_PRICE
+	FROM TBL_COURSE c
+	JOIN TBL_EXPERT e
+    ON c.EXPERT_NUMBER = e.EXPERT_NUMBER
+	LEFT JOIN TBL_FILE_COURSE fc
+    ON c.COURSE_NUMBER = fc.COURSE_NUMBER
+	WHERE c.COURSE_NUMBER = #{courseNumber}
+	</select>
+</mapper>
