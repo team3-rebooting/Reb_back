@@ -1,5 +1,7 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class MemberDTO {
 	
 //	CREATE TABLE TBL_MEMBER (
@@ -29,14 +31,13 @@ public class MemberDTO {
 	private int memberNumber;
 	private String memberId;
 	private String memberPassword;
-	private int addressNumber;
+	private int memberAddressNumber;
 	private String memberEmail;
 	private String memberName;
 	private String memberGender;
 	private String memberNickname;
 	private String memberPhoneNumber;
 	private String memberBirthDate;
-	private int profileFileNumber;
 	
 	public int getMemberNumber() {
 		return memberNumber;
@@ -56,11 +57,11 @@ public class MemberDTO {
 	public void setMemberPassword(String memberPassword) {
 		this.memberPassword = memberPassword;
 	}
-	public int getAddressNumber() {
-		return addressNumber;
+	public int getMemberAddressNumber() {
+		return memberAddressNumber;
 	}
-	public void setAddressNumber(int addressNumber) {
-		this.addressNumber = addressNumber;
+	public void setMemberAddressNumber(int memberAddressNumber) {
+		this.memberAddressNumber = memberAddressNumber;
 	}
 	public String getMemberEmail() {
 		return memberEmail;
@@ -98,19 +99,12 @@ public class MemberDTO {
 	public void setMemberBirthDate(String memberBirthDate) {
 		this.memberBirthDate = memberBirthDate;
 	}
-	public int getProfileFileNumber() {
-		return profileFileNumber;
-	}
-	public void setProfileFileNumber(int profileFileNumber) {
-		this.profileFileNumber = profileFileNumber;
-	}
 	
 	@Override
 	public String toString() {
 		return "MemberDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPassword="
-				+ memberPassword + ", addressNumber=" + addressNumber + ", memberEmail=" + memberEmail + ", memberName="
-				+ memberName + ", memberGender=" + memberGender + ", memberNickname=" + memberNickname
-				+ ", memberPhoneNumber=" + memberPhoneNumber + ", memberBirthDate=" + memberBirthDate
-				+ ", profileFileNumber=" + profileFileNumber + "]";
+				+ memberPassword + ", memberAddressNumber=" + memberAddressNumber + ", memberEmail=" + memberEmail
+				+ ", memberName=" + memberName + ", memberGender=" + memberGender + ", memberNickname=" + memberNickname
+				+ ", memberPhoneNumber=" + memberPhoneNumber + ", memberBirthDate=" + memberBirthDate + "]";
 	}
 }

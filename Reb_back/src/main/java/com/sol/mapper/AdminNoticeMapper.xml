@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminNotice">
+	<select id="detail" parameterType="" resultType="AdminNoticeDTO">
+		SELECT n.notice_number, n.notice_title, n.notice_created_date, 
+		n.notice_updated_date, n.notice_content, 
+		a.admin_number, a.admin_nickname, a.admin_profile_image_number, 
+		n.notice_file_number 
+		FROM tbl_notice n 
+		JOIN tbl_admin a 
+		ON n.admin_number = a.admin_number
+	</select>
+	<select id="list" parameterType="" resultType="AdminNoticeDTO">
+		select n.notice_number, n.notice_title, n.notice_created_date, 
+		n.notice_updated_date, a.admin_number, a.admin_nickname,
+		FROM tbl_notice n 
+		JOIN tbl_admin a 
+		ON n.admin_number = a.admin_number
+	</select>
+	<insert id="create" parameterType="NoticeDTO">
+		insert into tbl_notice(notice_number, notice_title, admin_number, notice_content, notice_file_number)
+		values(seq_notice.nextval, #{noticeTitle}, #{adminNumber}, #{noticeContent}, #{noticeFileNumber})
+	</insert>
+	<update id="update" parameterType="NoticeDTO">
+		update tbl_notice set notice_title = #{noticeTitle} , notice_content = #{noticeContent}, notice_file_number = #{noticeFileNumber}, 
+		notice_update_date = to_date(sysdate,'YYYY-MM-DD')  
+		where admin_number = #{adminNumber}
+	</update>
+	<delete id="delete" parameterType="NoticeDTO">
+		delete from tbl_notice where notice_number = #{noticeNumber} and admin_number = #{adminNumber}
+	</delete>
+	
+</mapper>

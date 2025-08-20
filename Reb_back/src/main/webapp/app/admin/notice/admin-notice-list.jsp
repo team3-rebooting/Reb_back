@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>공지 사항 목록</title>
   <link rel="stylesheet" href="./../../../assets/css/admin/notice/admin-notice-list.css">
-  <script defer src="./../../../assets/js/admin/notice/admin-notice-list.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/admin/notice/admin-notice-list.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -161,7 +161,7 @@
           </li>
         </ul>
         <!-- 등록 버튼 -->
-        <button id="main-create-notice">등록</button>
+        <button type="button" id="main-create-notice">등록</button>
         <!-- 페이지네이션 -->
         <div id="main-page-number">
           <p>&lt</p>

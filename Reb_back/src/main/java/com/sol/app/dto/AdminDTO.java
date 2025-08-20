@@ -1,5 +1,7 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class AdminDTO {
 //	ADMIN_NUMBER NUMBER,
 //    ADMIN_ID VARCHAR2(20) NOT NULL,
@@ -16,7 +18,6 @@ public class AdminDTO {
 	public void setAdminNickname(String adminNickname) {
 		this.adminNickname = adminNickname;
 	}
-	private int adminProfileImageNumber;
 	public int getAdminNumber() {
 		return adminNumber;
 	}
@@ -35,17 +36,14 @@ public class AdminDTO {
 	public void setAdminPassword(String adminPassword) {
 		this.adminPassword = adminPassword;
 	}
-	public int getAdminProfileImageNumber() {
-		return adminProfileImageNumber;
-	}
-	public void setAdminProfileImageNumber(int adminProfileImageNumber) {
-		this.adminProfileImageNumber = adminProfileImageNumber;
-	}
 	@Override
 	public String toString() {
 		return "AdminDTO [adminNumber=" + adminNumber + ", adminId=" + adminId + ", adminPassword=" + adminPassword
-				+ ", adminProfileImageNumber=" + adminProfileImageNumber + "]";
+				+ ", adminNickname=" + adminNickname + "]";
 	}
+	
+	
+	
 	
 	
 }

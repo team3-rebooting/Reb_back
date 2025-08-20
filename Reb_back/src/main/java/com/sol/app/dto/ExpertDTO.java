@@ -5,7 +5,7 @@ public class ExpertDTO {
 	private int memberNumber;
 	private String expertLicenseInfo;
 	private String expertCareer;
-	private int expertFiledNumber;
+	private int expertFieldNumber;
 	public int getExpertNumber() {
 		return expertNumber;
 	}
@@ -30,16 +30,17 @@ public class ExpertDTO {
 	public void setExpertCareer(String expertCareer) {
 		this.expertCareer = expertCareer;
 	}
-	public int getExpertFiledNumber() {
-		return expertFiledNumber;
+	public int getExpertFieldNumber() {
+		return expertFieldNumber;
 	}
-	public void setExpertFiledNumber(int expertFiledNumber) {
-		this.expertFiledNumber = expertFiledNumber;
+	public void setExpertFieldNumber(int expertFieldNumber) {
+		this.expertFieldNumber = expertFieldNumber;
 	}
 	@Override
 	public String toString() {
 		return "ExpertDTO [expertNumber=" + expertNumber + ", memberNumber=" + memberNumber + ", expertLicenseInfo="
-				+ expertLicenseInfo + ", expertCareer=" + expertCareer + ", expertFiledNumber=" + expertFiledNumber
+				+ expertLicenseInfo + ", expertCareer=" + expertCareer + ", expertFieldNumber=" + expertFieldNumber
 				+ "]";
 	}
+
 }
