@@ -64,6 +64,8 @@ public class MemberFrontController extends HttpServlet {
 			result = new LoginOkController().execute(request, response);
 			System.out.println("로그인 처리 완료");
 			break;
+		case "/member/logoutOk.me":
+			System.out.println("로그아웃 처리 요청");
 		}
 		
 		if(result != null && result.getPath() != null) {
