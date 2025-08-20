@@ -5,8 +5,6 @@
 		<!-- select from tbl_member, tbl_address, tbl_expertCertStatus, tbl_file, tbl_expertApplicant -->
 	</select>
 	<update id="update" parameterType = "MyMemberDTO">
-		update tbl_member
-		update tbl_address
-		insert into tbl_address
+		<!-- update tbl_member -->
 	</update>
 </mapper>
