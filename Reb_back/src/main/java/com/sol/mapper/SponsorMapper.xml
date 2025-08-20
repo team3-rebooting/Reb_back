@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sponsor">
-	<select id="" parameterType="" resultType="">
-		
+	<select id="selectAll" parameterType="" resultType="SponsorDTO">
+	<![CDATA[
+		SELECT * FROM (
+    		SELECT ROWNUM AS rnum, subquery.*
+    		FROM (
+        		SELECT 
+            	s.SPONSOR_NUMBER, s.MEMBER_NUMBER, s.SPONSOR_AMOUNT,
+            	TO_CHAR(s.SPONSOR_DATE, 'YYYY-MM-DD') AS SPONSOR_DATE,
+            	m.MEMBER_ID, m.MEMBER_NICKNAME
+        		FROM TBL_SPONSOR s
+        		JOIN TBL_MEMBER m ON s.MEMBER_NUMBER = m.MEMBER_NUMBER
+        		ORDER BY s.SPONSOR_DATE DESC
+    			) subquery
+			) WHERE rnum BETWEEN #{startRow} AND #{endRow};
+	</select>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(sponsor_number)
+		FROM tbl_sponsor
+	]]>	
+	</select>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(sponsor_number)
+		FROM tbl_sponsor	
 	</select>
 </mapper>
