@@ -6,8 +6,7 @@ public class MemberDTO {
 //		    MEMBER_NUMBER NUMBER,
 //		    MEMBER_ID VARCHAR2(20) NOT NULL,
 //		    MEMBER_PASSWORD VARCHAR2(20) NOT NULL,
-//		    ZIP_CODE CHAR(5) NOT NULL,
-//		    ADDRESS_DETAIL VARCHAR2(60),
+//		    ADDRESS_NUMBER NUMBER NOT NULL,
 //		    MEMBER_EMAIL VARCHAR2(320),
 //		    MEMBER_NAME VARCHAR2(60) NOT NULL,
 //		    MEMBER_GENDER CHAR(1) NOT NULL CHECK (MEMBER_GENDER IN ('M', 'F')),
@@ -27,18 +26,17 @@ public class MemberDTO {
 //		    CONSTRAINT UK_MEMBER_NICKNAME UNIQUE(MEMBER_NICKNAME)
 //		);
 	
-	int memberNumber;
-	String memberId;
-	String memberPassword;
-	String zipCode;
-	String addressDetail;
-	String memberEmail;
-	String memberName;
-	String memberGender;
-	String memberNickname;
-	String memberPhoneNumber;
-	String memberBirthDate;
-	int profileFileNumber;
+	private int memberNumber;
+	private String memberId;
+	private String memberPassword;
+	private int addressNumber;
+	private String memberEmail;
+	private String memberName;
+	private String memberGender;
+	private String memberNickname;
+	private String memberPhoneNumber;
+	private String memberBirthDate;
+	private int profileFileNumber;
 	
 	public int getMemberNumber() {
 		return memberNumber;
@@ -58,17 +56,11 @@ public class MemberDTO {
 	public void setMemberPassword(String memberPassword) {
 		this.memberPassword = memberPassword;
 	}
-	public String getZipCode() {
-		return zipCode;
+	public int getAddressNumber() {
+		return addressNumber;
 	}
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
-	public String getAddressDetail() {
-		return addressDetail;
-	}
-	public void setAddressDetail(String addressDetail) {
-		this.addressDetail = addressDetail;
+	public void setAddressNumber(int addressNumber) {
+		this.addressNumber = addressNumber;
 	}
 	public String getMemberEmail() {
 		return memberEmail;
@@ -112,18 +104,13 @@ public class MemberDTO {
 	public void setProfileFileNumber(int profileFileNumber) {
 		this.profileFileNumber = profileFileNumber;
 	}
+	
 	@Override
 	public String toString() {
 		return "MemberDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPassword="
-				+ memberPassword + ", zipCode=" + zipCode + ", addressDetail=" + addressDetail + ", memberEmail="
-				+ memberEmail + ", memberName=" + memberName + ", memberGender=" + memberGender + ", memberNickname="
-				+ memberNickname + ", memberPhoneNumber=" + memberPhoneNumber + ", memberBirthDate=" + memberBirthDate
+				+ memberPassword + ", addressNumber=" + addressNumber + ", memberEmail=" + memberEmail + ", memberName="
+				+ memberName + ", memberGender=" + memberGender + ", memberNickname=" + memberNickname
+				+ ", memberPhoneNumber=" + memberPhoneNumber + ", memberBirthDate=" + memberBirthDate
 				+ ", profileFileNumber=" + profileFileNumber + "]";
 	}
-	
-	
-	
-	
-	
-	
 }
