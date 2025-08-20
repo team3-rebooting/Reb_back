@@ -20,7 +20,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
- <%--  <script defer src="${pageContext.request.contextPath}/assets/js/auth/login.js"></script> --%>
+<script defer src="${pageContext.request.contextPath}/assets/js/auth/login.js"></script>
   <title>틈새빛</title>
 </head>
 
@@ -32,7 +32,7 @@
   <div class="modal-id-background">
     <!-- 아이디 찾기 모달 창 -->
     <div class="div-findid-modal">
-      <form action="" method="get">
+      <form action="" method="post">
         <!-- x 버튼 영역 -->
         <div class="div-modal-x"><button class="button-id-x" type="button">X</button></div>
         <!-- 모달 이름 영역 -->
@@ -158,7 +158,7 @@
       <!-- 로그인 컨테이너 -->
       <div class="login-container">
         <!-- 로그인 폼 -->
-        <form action="${pageContext.request.contextPath}/member/loginOk.me" method="post" class="form-login" autocomplete="off">
+        <form action="${pageContext.request.contextPath}/member/loginOk.me" method="post" id="joinForm" class="form-login" autocomplete="off">
           <!-- id 입력 영역 -->
           <div class="div-id">
             <label for="id">
@@ -188,7 +188,7 @@
         <div class="div-login-etc">
           <p class="p-findid font-main">아이디 찾기</p>
           <p class="p-findpw font-main">비밀번호 찾기</p>
-          <a href="./signup.html">
+          <a href="${pageContext.request.contextPath}/member/signup.me">
             <p class="font-main">회원가입</p>
           </a>
         </div>
