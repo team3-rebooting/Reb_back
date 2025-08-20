@@ -1,12 +1,13 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class CourseDTO {
 	private int courseNumber;
 	private String courseTitle;
 	private String courseContent;
 	private int expertNumber;
 	private int courseRecruitStatusNumber;
-	private int courseMainImageNumber;
 	private String coursePostDate;
 	private String coursePostUpdateDate;
 	private String courseRecruitStartDate;
@@ -47,12 +48,6 @@ public class CourseDTO {
 	}
 	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
 		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
-	}
-	public int getCourseMainImageNumber() {
-		return courseMainImageNumber;
-	}
-	public void setCourseMainImageNumber(int courseMainImageNumber) {
-		this.courseMainImageNumber = courseMainImageNumber;
 	}
 	public String getCoursePostDate() {
 		return coursePostDate;
@@ -120,16 +115,17 @@ public class CourseDTO {
 	public void setCoursePrice(int coursePrice) {
 		this.coursePrice = coursePrice;
 	}
-	
 	@Override
 	public String toString() {
 		return "CourseDTO [courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", courseContent="
 				+ courseContent + ", expertNumber=" + expertNumber + ", courseRecruitStatusNumber="
-				+ courseRecruitStatusNumber + ", courseMainImageNumber=" + courseMainImageNumber + ", coursePostDate="
-				+ coursePostDate + ", coursePostUpdateDate=" + coursePostUpdateDate + ", courseRecruitStartDate="
-				+ courseRecruitStartDate + ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate="
-				+ courseStartDate + ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime
-				+ ", courseEndTime=" + courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount="
-				+ courseRecruitCount + ", coursePrice=" + coursePrice + "]";
+				+ courseRecruitStatusNumber + ", coursePostDate=" + coursePostDate + ", coursePostUpdateDate="
+				+ coursePostUpdateDate + ", courseRecruitStartDate=" + courseRecruitStartDate
+				+ ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate=" + courseStartDate
+				+ ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime + ", courseEndTime="
+				+ courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount=" + courseRecruitCount
+				+ ", coursePrice=" + coursePrice + "]";
 	}
+	
+	
 }

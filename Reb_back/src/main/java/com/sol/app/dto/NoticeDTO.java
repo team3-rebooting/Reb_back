@@ -6,8 +6,7 @@ public class NoticeDTO {
 	private int adminNumber;
 	private String noticeCreatedDate;
 	private String noticeUpdatedDate;
-	private String noticeContent;
-	private int noticeFileNumber;
+	private String noticeContent; 
 	public int getNoticeNumber() {
 		return noticeNumber;
 	}
@@ -44,17 +43,12 @@ public class NoticeDTO {
 	public void setNoticeContent(String noticeContent) {
 		this.noticeContent = noticeContent;
 	}
-	public int getNoticeFileNumber() {
-		return noticeFileNumber;
-	}
-	public void setNoticeFileNumber(int noticeFileNumber) {
-		this.noticeFileNumber = noticeFileNumber;
-	}
+	
 	@Override
 	public String toString() {
 		return "NoticeDTO [noticeNumber=" + noticeNumber + ", noticeTitle=" + noticeTitle + ", adminNumber="
 				+ adminNumber + ", noticeCreatedDate=" + noticeCreatedDate + ", noticeUpdatedDate=" + noticeUpdatedDate
-				+ ", noticeContent=" + noticeContent + ", noticeFileNumber=" + noticeFileNumber + "]";
+				+ ", noticeContent=" + noticeContent + ", noticeFileNumber=" + "]";
 	}
 	
 }

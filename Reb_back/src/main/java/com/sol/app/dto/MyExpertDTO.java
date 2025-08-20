@@ -1,20 +1,20 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class MyExpertDTO {
 	//ExpertDTO, ExpertCertStatusDTO, ExpertApplicantDTO, ExpertFileDTO, FiledDTO, FileDTO 
 	private int expertNumber;
 	private int memberNumber;
 	private String expertLicenseInfo;
 	private String expertCareer;
-	private int expertFiledNumber;
+	private int expertFieldNumber;
 	private String fieldName;
 	private int expertCertStatusNumber;
 	private String expertCertStatusInfo;
 	private String expertApplicantReason;
 	private String expertCheckDate;
-	private int expertFileNumber;
-	private String filePath;
-	private String fileRegDate;
+	private List<FileExpertDTO> fileExpertList;
 	public int getExpertNumber() {
 		return expertNumber;
 	}
@@ -38,12 +38,6 @@ public class MyExpertDTO {
 	}
 	public void setExpertCareer(String expertCareer) {
 		this.expertCareer = expertCareer;
-	}
-	public int getExpertFiledNumber() {
-		return expertFiledNumber;
-	}
-	public void setExpertFiledNumber(int expertFiledNumber) {
-		this.expertFiledNumber = expertFiledNumber;
 	}
 	public String getFieldName() {
 		return fieldName;
@@ -75,32 +69,25 @@ public class MyExpertDTO {
 	public void setExpertCheckDate(String expertCheckDate) {
 		this.expertCheckDate = expertCheckDate;
 	}
-	public int getExpertFileNumber() {
-		return expertFileNumber;
+	public int getExpertFieldNumber() {
+		return expertFieldNumber;
 	}
-	public void setExpertFileNumber(int expertFileNumber) {
-		this.expertFileNumber = expertFileNumber;
+	public void setExpertFieldNumber(int expertFieldNumber) {
+		this.expertFieldNumber = expertFieldNumber;
 	}
-	public String getFilePath() {
-		return filePath;
+	public List<FileExpertDTO> getFileExpertList() {
+		return fileExpertList;
 	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
+	public void setFileExpertList(List<FileExpertDTO> fileExpertList) {
+		this.fileExpertList = fileExpertList;
 	}
-	public String getFileRegDate() {
-		return fileRegDate;
-	}
-	public void setFileRegDate(String fileRegDate) {
-		this.fileRegDate = fileRegDate;
-	}
-	
 	@Override
 	public String toString() {
 		return "MyExpertDTO [expertNumber=" + expertNumber + ", memberNumber=" + memberNumber + ", expertLicenseInfo="
-				+ expertLicenseInfo + ", expertCareer=" + expertCareer + ", expertFiledNumber=" + expertFiledNumber
+				+ expertLicenseInfo + ", expertCareer=" + expertCareer + ", expertFieldNumber=" + expertFieldNumber
 				+ ", fieldName=" + fieldName + ", expertCertStatusNumber=" + expertCertStatusNumber
 				+ ", expertCertStatusInfo=" + expertCertStatusInfo + ", expertApplicantReason=" + expertApplicantReason
-				+ ", expertCheckDate=" + expertCheckDate + ", expertFileNumber=" + expertFileNumber + ", filePath="
-				+ filePath + ", fileRegDate=" + fileRegDate + "]";
+				+ ", expertCheckDate=" + expertCheckDate + ", fileExpertList=" + fileExpertList + "]";
 	}
+	
 }

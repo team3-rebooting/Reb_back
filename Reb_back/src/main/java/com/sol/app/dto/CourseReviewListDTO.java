@@ -1,12 +1,17 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class CourseReviewListDTO {
 	private String memberNickname;
+	//작성자 프로필 사진
 	private String profileFilePath;
+	private List<FileMemberProFileDTO> fileWriterPriFileList;
 	private int courseReviewLikeCount;
 	private int courseReviewCommentNumber;
 	private int CommentMemberNickname;
-	private int CommentMemberProfile;
+	//댓글 프로필 사진
+	private List<FileMemberProFileDTO> fileCommentPriFileList; 
 	private String courseReviewCreatedDate;
 	private String courseReviewUpdatedDate;
 	private String courseReviewContent;
@@ -14,7 +19,8 @@ public class CourseReviewListDTO {
 	private int courseNumber;
 	private String courseReviewTitle;
 	private int memberNumber;
-	private int courseReviewImageNumber;
+	//수업 후기 사진
+	private List<FileCourseReviewDTO> fileCourseReviewList;
 	public String getMemberNickname() {
 		return memberNickname;
 	}
@@ -44,12 +50,6 @@ public class CourseReviewListDTO {
 	}
 	public void setCommentMemberNickname(int commentMemberNickname) {
 		CommentMemberNickname = commentMemberNickname;
-	}
-	public int getCommentMemberProfile() {
-		return CommentMemberProfile;
-	}
-	public void setCommentMemberProfile(int commentMemberProfile) {
-		CommentMemberProfile = commentMemberProfile;
 	}
 	public String getCourseReviewCreatedDate() {
 		return courseReviewCreatedDate;
@@ -93,23 +93,35 @@ public class CourseReviewListDTO {
 	public void setMemberNumber(int memberNumber) {
 		this.memberNumber = memberNumber;
 	}
-	public int getCourseReviewImageNumber() {
-		return courseReviewImageNumber;
+	public List<FileMemberProFileDTO> getFileWriterPriFileList() {
+		return fileWriterPriFileList;
 	}
-	public void setCourseReviewImageNumber(int courseReviewImageNumber) {
-		this.courseReviewImageNumber = courseReviewImageNumber;
+	public void setFileWriterPriFileList(List<FileMemberProFileDTO> fileWriterPriFileList) {
+		this.fileWriterPriFileList = fileWriterPriFileList;
 	}
-	
+	public List<FileMemberProFileDTO> getFileCommentPriFileList() {
+		return fileCommentPriFileList;
+	}
+	public void setFileCommentPriFileList(List<FileMemberProFileDTO> fileCommentPriFileList) {
+		this.fileCommentPriFileList = fileCommentPriFileList;
+	}
+	public List<FileCourseReviewDTO> getFileCourseReviewList() {
+		return fileCourseReviewList;
+	}
+	public void setFileCourseReviewList(List<FileCourseReviewDTO> fileCourseReviewList) {
+		this.fileCourseReviewList = fileCourseReviewList;
+	}
 	@Override
 	public String toString() {
 		return "CourseReviewListDTO [memberNickname=" + memberNickname + ", profileFilePath=" + profileFilePath
-				+ ", courseReviewLikeCount=" + courseReviewLikeCount + ", courseReviewCommentNumber="
-				+ courseReviewCommentNumber + ", CommentMemberNickname=" + CommentMemberNickname
-				+ ", CommentMemberProfile=" + CommentMemberProfile + ", courseReviewCreatedDate="
-				+ courseReviewCreatedDate + ", courseReviewUpdatedDate=" + courseReviewUpdatedDate
-				+ ", courseReviewContent=" + courseReviewContent + ", courseReviewNumber=" + courseReviewNumber
-				+ ", courseNumber=" + courseNumber + ", courseReviewTitle=" + courseReviewTitle + ", memberNumber="
-				+ memberNumber + ", courseReviewImageNumber=" + courseReviewImageNumber + "]";
+				+ ", fileWriterPriFileList=" + fileWriterPriFileList + ", courseReviewLikeCount="
+				+ courseReviewLikeCount + ", courseReviewCommentNumber=" + courseReviewCommentNumber
+				+ ", CommentMemberNickname=" + CommentMemberNickname + ", fileCommentPriFileList="
+				+ fileCommentPriFileList + ", courseReviewCreatedDate=" + courseReviewCreatedDate
+				+ ", courseReviewUpdatedDate=" + courseReviewUpdatedDate + ", courseReviewContent="
+				+ courseReviewContent + ", courseReviewNumber=" + courseReviewNumber + ", courseNumber=" + courseNumber
+				+ ", courseReviewTitle=" + courseReviewTitle + ", memberNumber=" + memberNumber
+				+ ", fileCourseReviewList=" + fileCourseReviewList + "]";
 	}
 	
 	

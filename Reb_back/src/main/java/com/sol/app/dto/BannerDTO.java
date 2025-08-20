@@ -1,10 +1,11 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class BannerDTO {
 	private int bannerNumber;
 	private String bannerTitle;
-	private int bannerImageNumber;
-	private int bannerOrderNumber;
+ 	private int bannerOrderNumber;
 	public int getBannerNumber() {
 		return bannerNumber;
 	}
@@ -17,12 +18,6 @@ public class BannerDTO {
 	public void setBannerTitle(String bannerTitle) {
 		this.bannerTitle = bannerTitle;
 	}
-	public int getBannerImageNumber() {
-		return bannerImageNumber;
-	}
-	public void setBannerImageNumber(int bannerImageNumber) {
-		this.bannerImageNumber = bannerImageNumber;
-	}
 	public int getBannerOrderNumber() {
 		return bannerOrderNumber;
 	}
@@ -31,8 +26,9 @@ public class BannerDTO {
 	}
 	@Override
 	public String toString() {
-		return "BannerDTO [bannerNumber=" + bannerNumber + ", bannerTitle=" + bannerTitle + ", bannerImageNumber="
-				+ bannerImageNumber + ", bannerOrderNumber=" + bannerOrderNumber + "]";
+		return "BannerDTO [bannerNumber=" + bannerNumber + ", bannerTitle=" + bannerTitle + ", bannerOrderNumber="
+				+ bannerOrderNumber + "]";
 	}
+	
 	
 }

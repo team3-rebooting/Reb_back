@@ -1,12 +1,14 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class AdminCourseListDTO {
 	private int courseNumber;
 	private String courseTitle;
 	private String courseContent;
 	private int expertNumber;
 	private int courseRecruitStatusNumber;
-	private int courseMainImageNumber;
+	private List<FileCourseDTO> fileCourseList;
 	private String coursePostDate;
 	private String coursePostUpdateDate;
 	private String courseRecruitStartDate;
@@ -50,12 +52,6 @@ public class AdminCourseListDTO {
 	}
 	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
 		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
-	}
-	public int getCourseMainImageNumber() {
-		return courseMainImageNumber;
-	}
-	public void setCourseMainImageNumber(int courseMainImageNumber) {
-		this.courseMainImageNumber = courseMainImageNumber;
 	}
 	public String getCoursePostDate() {
 		return coursePostDate;
@@ -141,11 +137,17 @@ public class AdminCourseListDTO {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
+	public List<FileCourseDTO> getFileCourseList() {
+		return fileCourseList;
+	}
+	public void setFileCourseList(List<FileCourseDTO> fileCourseList) {
+		this.fileCourseList = fileCourseList;
+	}
 	@Override
 	public String toString() {
 		return "AdminCourseListDTO [courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", courseContent="
 				+ courseContent + ", expertNumber=" + expertNumber + ", courseRecruitStatusNumber="
-				+ courseRecruitStatusNumber + ", courseMainImageNumber=" + courseMainImageNumber + ", coursePostDate="
+				+ courseRecruitStatusNumber + ", fileCourseList=" + fileCourseList + ", coursePostDate="
 				+ coursePostDate + ", coursePostUpdateDate=" + coursePostUpdateDate + ", courseRecruitStartDate="
 				+ courseRecruitStartDate + ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate="
 				+ courseStartDate + ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime
@@ -153,6 +155,9 @@ public class AdminCourseListDTO {
 				+ courseRecruitCount + ", coursePrice=" + coursePrice + ", memberName=" + memberName + ", memberNumber="
 				+ memberNumber + ", memberId=" + memberId + "]";
 	}
+	
+
+	
 
 	
 }

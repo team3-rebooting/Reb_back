@@ -15,7 +15,7 @@ public class MyCourseRequestDTO {
 	private String courseRejectReason;
 	private String courseTitle;
 	private int expertNumber;
-	private int expertFiledNumber;
+	private int expertFieldNumber;
 	private String fieldName;
 	private int courseRecruitStatusNumber;
 	private String coursePostDate;
@@ -100,12 +100,6 @@ public class MyCourseRequestDTO {
 	public void setExpertNumber(int expertNumber) {
 		this.expertNumber = expertNumber;
 	}
-	public int getExpertFiledNumber() {
-		return expertFiledNumber;
-	}
-	public void setExpertFiledNumber(int expertFiledNumber) {
-		this.expertFiledNumber = expertFiledNumber;
-	}
 	public String getFieldName() {
 		return fieldName;
 	}
@@ -142,7 +136,12 @@ public class MyCourseRequestDTO {
 	public void setCourseRecruitCount(int courseRecruitCount) {
 		this.courseRecruitCount = courseRecruitCount;
 	}
-	
+	public int getExpertFieldNumber() {
+		return expertFieldNumber;
+	}
+	public void setExpertFieldNumber(int expertFieldNumber) {
+		this.expertFieldNumber = expertFieldNumber;
+	}
 	@Override
 	public String toString() {
 		return "MyCourseRequestDTO [memberNumber=" + memberNumber + ", courseNumber=" + courseNumber
@@ -151,9 +150,10 @@ public class MyCourseRequestDTO {
 				+ ", courseRequestType=" + courseRequestType + ", courseRegisterDate=" + courseRegisterDate
 				+ ", courseRequestDate=" + courseRequestDate + ", courseResultDate=" + courseResultDate
 				+ ", courseRejectReason=" + courseRejectReason + ", courseTitle=" + courseTitle + ", expertNumber="
-				+ expertNumber + ", expertFiledNumber=" + expertFiledNumber + ", fieldName=" + fieldName
+				+ expertNumber + ", expertFieldNumber=" + expertFieldNumber + ", fieldName=" + fieldName
 				+ ", courseRecruitStatusNumber=" + courseRecruitStatusNumber + ", coursePostDate=" + coursePostDate
 				+ ", coursePostUpdateDate=" + coursePostUpdateDate + ", courseApplicantCount=" + courseApplicantCount
 				+ ", courseRecruitCount=" + courseRecruitCount + "]";
 	}
+	
 }

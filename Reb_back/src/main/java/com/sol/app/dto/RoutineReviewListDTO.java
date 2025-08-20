@@ -13,8 +13,7 @@ public class RoutineReviewListDTO {
 	private String routineReviewCreatedDate;
 	private String routineReviewUpdatedDate;
 	private String routineReviewContent;
-	private int routineReviewImageNumber;
-	private String filePath;
+	private List<FileRoutineReviewDTO> fileRoutineReviewList;
 	private int likeCount;
 	private List<RoutineReviewLikeDTO> likeList = new ArrayList<>();
 	public int getRoutineReviewNumber() {
@@ -65,18 +64,6 @@ public class RoutineReviewListDTO {
 	public void setRoutineReviewContent(String routineReviewContent) {
 		this.routineReviewContent = routineReviewContent;
 	}
-	public int getRoutineReviewImageNumber() {
-		return routineReviewImageNumber;
-	}
-	public void setRoutineReviewImageNumber(int routineReviewImageNumber) {
-		this.routineReviewImageNumber = routineReviewImageNumber;
-	}
-	public String getFilePath() {
-		return filePath;
-	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
 	public int getLikeCount() {
 		return likeCount;
 	}
@@ -90,13 +77,4 @@ public class RoutineReviewListDTO {
 		this.likeList = likeList;
 	}
 	
-	@Override
-	public String toString() {
-		return "RoutineReviewListDTO [routineReviewNumber=" + routineReviewNumber + ", routineNumber=" + routineNumber
-				+ ", routineReviewTitle=" + routineReviewTitle + ", memberNumber=" + memberNumber + ", memberNickname="
-				+ memberNickname + ", routineReviewCreatedDate=" + routineReviewCreatedDate
-				+ ", routineReviewUpdatedDate=" + routineReviewUpdatedDate + ", routineReviewContent="
-				+ routineReviewContent + ", routineReviewImageNumber=" + routineReviewImageNumber + ", filePath="
-				+ filePath + ", likeCount=" + likeCount + "]";
-	}
 }

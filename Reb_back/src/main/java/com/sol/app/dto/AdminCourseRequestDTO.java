@@ -1,5 +1,7 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class AdminCourseRequestDTO {
 	//전문가 수업 요청 정보
 	private int prevCourseNumber;
@@ -9,13 +11,12 @@ public class AdminCourseRequestDTO {
 	private String courseRequestDate;
 	private String courseResultDate;
 	private String courseRejectReason;
-	//수업
 	private int courseNumber;
 	private String courseTitle;
 	private String courseContent;
 	private int expertNumber;
 	private int courseRecruitStatusNumber;
-	private int courseMainImageNumber;
+	private List<FileCourseDTO> fileCourseList;
 	private String coursePostDate;
 	private String coursePostUpdateDate;
 	private String courseRecruitStartDate;
@@ -100,12 +101,6 @@ public class AdminCourseRequestDTO {
 	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
 		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
 	}
-	public int getCourseMainImageNumber() {
-		return courseMainImageNumber;
-	}
-	public void setCourseMainImageNumber(int courseMainImageNumber) {
-		this.courseMainImageNumber = courseMainImageNumber;
-	}
 	public String getCoursePostDate() {
 		return coursePostDate;
 	}
@@ -172,6 +167,12 @@ public class AdminCourseRequestDTO {
 	public void setCoursePrice(int coursePrice) {
 		this.coursePrice = coursePrice;
 	}
+	public List<FileCourseDTO> getFileCourseList() {
+		return fileCourseList;
+	}
+	public void setFileCourseList(List<FileCourseDTO> fileCourseList) {
+		this.fileCourseList = fileCourseList;
+	}
 	@Override
 	public String toString() {
 		return "AdminCourseRequestDTO [prevCourseNumber=" + prevCourseNumber + ", courseOpenStatusNumber="
@@ -180,12 +181,16 @@ public class AdminCourseRequestDTO {
 				+ ", courseResultDate=" + courseResultDate + ", courseRejectReason=" + courseRejectReason
 				+ ", courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", courseContent=" + courseContent
 				+ ", expertNumber=" + expertNumber + ", courseRecruitStatusNumber=" + courseRecruitStatusNumber
-				+ ", courseMainImageNumber=" + courseMainImageNumber + ", coursePostDate=" + coursePostDate
+				+ ", fileCourseList=" + fileCourseList + ", coursePostDate=" + coursePostDate
 				+ ", coursePostUpdateDate=" + coursePostUpdateDate + ", courseRecruitStartDate="
 				+ courseRecruitStartDate + ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate="
 				+ courseStartDate + ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime
 				+ ", courseEndTime=" + courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount="
 				+ courseRecruitCount + ", coursePrice=" + coursePrice + "]";
 	}
+	
+	
+
+	
 	
 }

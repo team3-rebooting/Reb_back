@@ -1,5 +1,7 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class CourseReviewDTO {
 	private int courseReviewNumber;
 	private int courseNumber;
@@ -8,7 +10,6 @@ public class CourseReviewDTO {
 	private String courseReviewCreatedDate;
 	private String courseReviewUpdatedDate;
 	private String courseReviewContent;
-	private int courseReviewImageNumber;
 	public int getCourseReviewNumber() {
 		return courseReviewNumber;
 	}
@@ -51,19 +52,14 @@ public class CourseReviewDTO {
 	public void setCourseReviewContent(String courseReviewContent) {
 		this.courseReviewContent = courseReviewContent;
 	}
-	public int getCourseReviewImageNumber() {
-		return courseReviewImageNumber;
-	}
-	public void setCourseReviewImageNumber(int courseReviewImageNumber) {
-		this.courseReviewImageNumber = courseReviewImageNumber;
-	}
 	@Override
 	public String toString() {
 		return "CourseReviewDTO [courseReviewNumber=" + courseReviewNumber + ", courseNumber=" + courseNumber
 				+ ", courseReviewTitle=" + courseReviewTitle + ", memberNumber=" + memberNumber
 				+ ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewUpdatedDate="
-				+ courseReviewUpdatedDate + ", courseReviewContent=" + courseReviewContent
-				+ ", courseReviewImageNumber=" + courseReviewImageNumber + "]";
+				+ courseReviewUpdatedDate + ", courseReviewContent=" + courseReviewContent + "]";
 	}
+	
+	
 	
 }
