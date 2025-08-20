@@ -4,7 +4,7 @@ public class AdminNoticeDTO {
 	private int noticeNumber;
 	private String noticeTitle;
 	private int adminNumber;
-	private String adminNickName;
+	private String adminNickname;
 	private String adminProfileImageNumber;
 	private String noticeCreatedDate;
 	private String noticeUpdatedDate;
@@ -29,10 +29,10 @@ public class AdminNoticeDTO {
 		this.adminNumber = adminNumber;
 	}
 	public String getAdminNickName() {
-		return adminNickName;
+		return adminNickname;
 	}
 	public void setAdminNickName(String adminNickName) {
-		this.adminNickName = adminNickName;
+		this.adminNickname = adminNickName;
 	}
 	public String getAdminProfileImageNumber() {
 		return adminProfileImageNumber;
@@ -67,7 +67,7 @@ public class AdminNoticeDTO {
 	@Override
 	public String toString() {
 		return "AdminNoticeDTO [noticeNumber=" + noticeNumber + ", noticeTitle=" + noticeTitle + ", adminNumber="
-				+ adminNumber + ", adminNickName=" + adminNickName + ", adminProfileImageNumber="
+				+ adminNumber + ", adminNickName=" + adminNickname + ", adminProfileImageNumber="
 				+ adminProfileImageNumber + ", noticeCreatedDate=" + noticeCreatedDate + ", noticeUpdatedDate="
 				+ noticeUpdatedDate + ", noticeContent=" + noticeContent + ", noticeFileNumber=" + noticeFileNumber
 				+ "]";
