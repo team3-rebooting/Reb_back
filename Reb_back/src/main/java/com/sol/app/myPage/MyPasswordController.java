@@ -16,22 +16,20 @@ public class MyPasswordController implements Execute{
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		MemberDAO memberDAO = new MemberDAO();
 		Result result = new Result();
 		HttpSession session = request.getSession();
 		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
 		String path = null;
 		
 		if(memberNumber == null) {
-			path = "/app/member/login.jsp";
+			path = request.getContextPath() + "/app/auth/login.jsp";
 		}else {
-			path = "/app/mypage/mypage-password.jsp";
+			path =  request.getContextPath() + "/app/mypage/mypage-password.jsp";
 		}
 		
 		result.setPath(path);
 		result.setRedirect(false);
 		
-		return null;
+		return result;
 	}
-
 }

@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   //불러오기
-  fetch("./../../app/mypage/sidemenu.html")
+  fetch("/app/mypage/sidemenu.jsp")
     .then(response => response.text())
     .then(data => {
       document.getElementById('mypage-sidemenu-container').innerHTML = data;
