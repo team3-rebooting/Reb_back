@@ -31,7 +31,7 @@
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <!-- JS 적용 -->
 <script defer
-	src="${pageContext.request.contextPath}/assets/js/auth/signup.js?v=1.0"></script>
+	src="${pageContext.request.contextPath}/assets/js/auth/signup.js"></script>
 
 <body>
 	<!-- 헤더 -->
@@ -44,7 +44,7 @@
 			<div class="signup-container">
 				<!-- 회원가입 form -->
 				<form action="${pageContext.request.contextPath}/member/signupOk.me"
-					method="post" class="form-signup" autocomplete="off">
+					method="post" class="form-signup" id="joinForm" autocomplete="off">
 					<!-- 아이디 입력 영역 -->
 					<div class="div-signup">
 						<span class="span-signup">* 아이디 : </span>
@@ -166,9 +166,9 @@
 					<!-- 회원가입 버튼, 뒤로가기 버튼 영역 -->
 					<div class="div-signup">
 						<button type="button" class="button-back">뒤로가기</button>
-						<a href="${pageContext.request.contextPath}/member/signupOk.me">
+						<%-- <a href="${pageContext.request.contextPath}/member/signupOk.me"> --%>
 							<button type="submit" class="button-basic button-signup">회원가입하기</button>
-						</a>
+						<!-- </a> -->
 					</div>
 				</form>
 			</div>

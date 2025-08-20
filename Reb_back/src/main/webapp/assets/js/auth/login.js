@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", function() {
+	const form = document.getElementById("joinForm") || document.querySelector("form");
+	const base = (form && form.dataset.contextPath) ? form.dataset.contextPath : "";
 const findIdModal = document.querySelector(".p-findid");
 const closeFindIdModal = document.querySelector(".button-id-x");
 const idModal = document.querySelector(".modal-id-background");
@@ -257,4 +260,5 @@ buttonRetryPw.addEventListener('click', () => {
   inputPhoneNumberPw.readOnly = true;
   inputPhoneNumberPw.style.backgroundColor = "#d9d9d9";
   inputPhoneNumberPw.value = "";
+});
 });

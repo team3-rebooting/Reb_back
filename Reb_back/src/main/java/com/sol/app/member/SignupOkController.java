@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.dao.MemberDAO;
-import com.sol.app.dto.MemberDTO;
+import com.sol.app.dto.MemberSignupDTO;
 
 public class SignupOkController implements Execute{
 
@@ -18,14 +17,8 @@ public class SignupOkController implements Execute{
 			throws ServletException, IOException {
 		System.out.println("SignupOkController 진입 완료");
 		
-		MemberDAO memberDAO = new MemberDAO();
-		MemberDTO memberDTO = new MemberDTO();
-		Result result = new Result();
-		String path = null;
+		MemberSignupDTO memberSignupDTO = new MemberSignupDTO();
 		
-		String memberId = request.getParameter("memberId");
-		String memberPassword = request.getParameter("memberPassword");
-		String memberBirth = request.getParameter("memberBirth");
 		
 		
 		return null;

@@ -20,7 +20,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
- <%--  <script defer src="${pageContext.request.contextPath}/assets/js/auth/login.js"></script> --%>
+<script defer src="${pageContext.request.contextPath}/assets/js/auth/login.js"></script>
   <title>틈새빛</title>
 </head>
 
@@ -158,7 +158,7 @@
       <!-- 로그인 컨테이너 -->
       <div class="login-container">
         <!-- 로그인 폼 -->
-        <form action="${pageContext.request.contextPath}/member/loginOk.me" method="post" class="form-login" autocomplete="off">
+        <form action="${pageContext.request.contextPath}/member/loginOk.me" method="post" id="joinForm" class="form-login" autocomplete="off">
           <!-- id 입력 영역 -->
           <div class="div-id">
             <label for="id">
