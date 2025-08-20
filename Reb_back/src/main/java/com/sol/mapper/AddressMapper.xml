@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="address">
-	<select id="" parameterType="" parameterMap="">
-	</select>
+<mapper namespace="address">	
+	<update id="" parameterType = "">
+		<!-- update tbl_address -->
+	</update>
+	<insert id="" parameterType = "">
+		<!-- insert into tbl_address -->
+	</insert>
 </mapper>
