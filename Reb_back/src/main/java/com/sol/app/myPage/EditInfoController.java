@@ -10,15 +10,15 @@ import javax.servlet.http.HttpSession;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.dao.MyPageDAO;
-import com.sol.app.dto.MemberDTO;
+import com.sol.app.dto.MyMemberDTO;
 
-public class MyPasswordOKController implements Execute {
+public class EditInfoController  implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {		
 		MyPageDAO myPageDAO = new MyPageDAO();
-		MemberDTO memberDTO = new MemberDTO();
+		MyMemberDTO myMemberDTO = new MyMemberDTO();
 		Result result = new Result();
 		String path = null;
 		
@@ -26,30 +26,27 @@ public class MyPasswordOKController implements Execute {
 		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
 		
 		request.setCharacterEncoding("UTF-8");
-		memberDTO.setMemberPassword(request.getParameter("memberPassword"));
 		
 		if(memberNumber == null) {
-			path = request.getContextPath() + "/member/login.me";
+			path = "/member/login.me";
+			result.setRedirect(true);
 		}
 		else {
-			String memberId = myPageDAO.getId(memberNumber);
+			myMemberDTO = myPageDAO.read(memberNumber);
 			
-			if(memberId == null || memberId == "") {
-				path = request.getContextPath() + "/myPage/myPassword.my?pw=fail";
-			}
-			else {
-				memberDTO.setMemberId(memberId);
-		
-				if(myPageDAO.login(memberDTO)) {
-					path = request.getContextPath() + "/myPage/myInfoOk.my";
-				}else {
-					path = request.getContextPath() + "/myPage/myPassword.my?pw=fail";
-				}
+			if(myMemberDTO != null) {
+				//myMemberDTO.setFileMemberProfileList(myPageDAO.selectProfileList(memberNumber));
+				request.setAttribute("myMemberDTO", myMemberDTO);
+				path = "/app/mypage/edit-info.jsp";
+				result.setRedirect(false);
+			}else {
+				path = "/myPage/myPassword.my?pw=fail";
+				result.setRedirect(true);
 			}
 		}
 
-		result.setPath(path);
-		result.setRedirect(true);
+		result.setPath(request.getContextPath() + path);
+		
 		return result;
 	}
 }

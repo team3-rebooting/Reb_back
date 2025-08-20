@@ -21,7 +21,7 @@ public class MyMemberDTO {
 	private String expertCertStatusInfo;
 	private String expertApplicantReason;
 	private String memberBirthDate;
-	private List<FileMemberProfileDTO> fileMemberProFileList;
+	private List<FileMemberProfileDTO> fileMemberProfileList;
 	public int getMemberNumber() {
 		return memberNumber;
 	}
@@ -119,11 +119,11 @@ public class MyMemberDTO {
 		this.memberBirthDate = memberBirthDate;
 	}
 	
-	public List<FileMemberProfileDTO> getFileMemberProFileList() {
-		return fileMemberProFileList;
+	public List<FileMemberProfileDTO> getFileMemberProfileList() {
+		return fileMemberProfileList;
 	}
-	public void setFileMemberProFileList(List<FileMemberProfileDTO> fileMemberProFileList) {
-		this.fileMemberProFileList = fileMemberProFileList;
+	public void setFileMemberProfileList(List<FileMemberProfileDTO> fileMemberProfileList) {
+		this.fileMemberProfileList = fileMemberProfileList;
 	}
 	
 	@Override
@@ -134,7 +134,7 @@ public class MyMemberDTO {
 				+ ", memberGender=" + memberGender + ", memberNickname=" + memberNickname + ", memberPhoneNumber="
 				+ memberPhoneNumber + ", expertCertStatusNumber=" + expertCertStatusNumber + ", expertCertStatusInfo="
 				+ expertCertStatusInfo + ", expertApplicantReason=" + expertApplicantReason + ", memberBirthDate="
-				+ memberBirthDate + ", fileMemberProFileList=" + fileMemberProFileList + "]";
+				+ memberBirthDate + ", fileMemberProFileList=" + fileMemberProfileList + "]";
 	}
 	
 }

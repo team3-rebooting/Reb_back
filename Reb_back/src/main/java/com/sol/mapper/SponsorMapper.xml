@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sponsor">
+  
 	<select id="selectAll" parameterType="" resultType="SponsorDTO">
 	<![CDATA[
 		SELECT * FROM (
@@ -15,14 +16,25 @@
         		ORDER BY s.SPONSOR_DATE DESC
     			) subquery
 			) WHERE rnum BETWEEN #{startRow} AND #{endRow};
-	</select>
-	<select id="getTotal" resultType="int">
-		SELECT COUNT(sponsor_number)
-		FROM tbl_sponsor
 	]]>	
 	</select>
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(sponsor_number)
 		FROM tbl_sponsor	
+
+	<select id="getTotalAmount" parameterType="memberNumber" resultType="int">
+		SELECT sum(sponsor_amount) FROM TBL_SPONSOR 
+		WHERE MEMBER_NUMBER = #{memberNumber}
+	</select>
+	
+	<select id="getTotalCount" parameterType="memberNumber" resultType="int">
+		SELECT count(sponsor_number) FROM TBL_SPONSOR 
+		WHERE MEMBER_NUMBER = #{memberNumber}
+	</select>
+	
+	<select id="selectList" parameterType="memberNumber" resultType="SponsorDTO">
+		SELECT sponsor_number, member_number, sponsor_amount, sponsor_date  FROM TBL_SPONSOR 
+		WHERE MEMBER_NUMBER = #{memberNumber}
+
 	</select>
 </mapper>
