@@ -77,7 +77,7 @@
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-hide">
 							<input class="input-basic input-essential" type="date"
-								name="memberBirth">
+								name="memberBirthDate">
 							<p class="p-warning">생년월일은 필수 입력입니다</p>
 						</div>
 					</div>
@@ -166,9 +166,7 @@
 					<!-- 회원가입 버튼, 뒤로가기 버튼 영역 -->
 					<div class="div-signup">
 						<button type="button" class="button-back">뒤로가기</button>
-						<%-- <a href="${pageContext.request.contextPath}/member/signupOk.me"> --%>
 							<button type="submit" class="button-basic button-signup">회원가입하기</button>
-						<!-- </a> -->
 					</div>
 				</form>
 			</div>

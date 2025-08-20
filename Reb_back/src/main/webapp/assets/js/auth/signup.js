@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	let dupliButton = document.querySelector(".button-no-duplication");
 	let noDupliP = document.querySelector(".p-no-duplication");
 	let dupliP = document.querySelector(".p-duplication");
-	let id = document.querySelector("input[name='id']");
-	let pw = document.querySelector("input[name='pw']");
+	let id = document.querySelector("input[name='memberId']");
+	let pw = document.querySelector("input[name='memberPassword']");
 	let pwRe = document.querySelector("input[name='pwRe']");
-	let birth = document.querySelector("input[name='birth']");
+	let birth = document.querySelector("input[name='memberBirthDate']");
 	let addressBasic = document.querySelector("input[name='addressBasic']");
 	let addressAdd = document.querySelector("input[name='addressAdd']");
 	let userName = document.querySelector("input[name='name']");
@@ -212,8 +212,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	let tempCode = "";
 
 	buttonInjung.addEventListener('click', function() {
+		console.log("ㅁㅁ");
 		const phoneNumberValue = phoneNumber.value.trim();
 		if (!phoneNumberValue) {
+			
 			alert("핸드폰 번호를 입력해주세요");
 			return;
 		}
@@ -237,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 	injunging.addEventListener('blur', function() {
-		const code = phoneNumber.value.trim();
+		const code = injungPhone.value.trim();
 
 		if (code === tempCode) {
 			alert("인증에 성공했습니다.");

@@ -75,6 +75,7 @@ public class MemberFrontController extends HttpServlet {
 		case "/member/signupOk.me":
 			System.out.println("회원가입 처리 요청");
 			result = new SignupOkController().execute(request, response);
+			break;
 		}
 		
 		if(result != null && result.getPath() != null) {
