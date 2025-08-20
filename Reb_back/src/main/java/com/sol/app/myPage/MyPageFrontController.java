@@ -55,6 +55,7 @@ public class MyPageFrontController extends HttpServlet {
 			break;
 		case "/myPage/myPasswordOk.my":
 			System.out.println("마이페이지 비밀번호 처리");
+			result = new MyPasswordOKController().execute(request, response);
 			break;
 		case "/myPage/personalInfo.my":
 			System.out.println("개인정보 조회");
