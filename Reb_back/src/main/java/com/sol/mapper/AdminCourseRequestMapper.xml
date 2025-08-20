@@ -18,7 +18,7 @@
         	ORDER BY c.COURSE_START_DATE
     	) subquery
 	)
-	WHERE rnum BETWEEN #{startRow} AND #{endRow};
+	WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		
 	]]>
 	</select>
