@@ -25,7 +25,7 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
 
-  <script defer src="./../../assets/js/mypage/personal-info.js"></script>
+ <!--  <script defer src="./../../assets/js/mypage/personal-info.js"></script> -->
   <title>틈새빛</title>
 </head>
 
@@ -43,7 +43,7 @@
     <!-- 메인 컨테이너 -->
     <div id="main-container">
       <div class="pagetitle">개인정보 조회</div>
-      <form action="" method="post">
+      <form action="/myPage/editInfo.my" method="post">
         <!-- 개인정보 조회 -->
         <div id="personal-info-container">
           <!-- ID -->
@@ -124,7 +124,7 @@
         </div>
         <!-- 버튼 -->
         <div id="form-bottom-button">
-          <button type="button" name="personalInfoEdit" id="button-edit-user">수정</button>
+          <button name="personalInfoEdit" id="button-edit-user">수정</button>
           <button type="button" name="personalInfoDel" id="button-del-user">회원 탈퇴</button>
         </div>
       </form>

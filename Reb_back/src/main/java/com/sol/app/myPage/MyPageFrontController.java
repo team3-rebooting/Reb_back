@@ -61,11 +61,11 @@ public class MyPageFrontController extends HttpServlet {
 				System.out.println("개인정보 조회 처리");
 				result = new MyInfoOkController().execute(request, response);
 				break;
-//		case "/myPage/myInfo.my":
-//			System.out.println("개인정보 조회 페이지");
-//			response.sendRedirect("/app/mypage/personal-info.jsp");
-//			break;
-		case "/myPage/editOk.my":
+		case "/myPage/editInfo.my":
+			System.out.println("개인정보 수정 페이지");
+			result = new EditInfoController().execute(request, response);
+			break;	
+		case "/myPage/editInfoOk.my":
 			System.out.println("개인정보 수정 처리");
 			break;
 		}

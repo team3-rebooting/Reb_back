@@ -32,5 +32,4 @@ public class MyPasswordController implements Execute{
 		
 		return result;
 	}
-
 }

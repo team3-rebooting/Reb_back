@@ -3,7 +3,7 @@ package com.sol.app.dto;
 public class AddressDTO {
 	private int addressNumber;
 	private String zipCode;
-	private String adress;
+	private String address;
 	private String addressDetail;
 	
 	public int getAddressNumber() {
@@ -18,11 +18,11 @@ public class AddressDTO {
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getAddressDetail() {
 		return addressDetail;
@@ -33,7 +33,7 @@ public class AddressDTO {
 	
 	@Override
 	public String toString() {
-		return "AddressDTO [addressNumber=" + addressNumber + ", zipCode=" + zipCode + ", adress=" + adress
+		return "AddressDTO [addressNumber=" + addressNumber + ", zipCode=" + zipCode + ", address=" + address
 				+ ", addressDetail=" + addressDetail + "]";
 	}
 }

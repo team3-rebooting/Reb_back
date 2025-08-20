@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +51,7 @@
           <!-- ID -->
           <div class="edit-info-list">
             <div class="edit-info-type">ID</div>
-            <div class="edit-info-data" id="edit-info-id">boradori</div>
+            <div class="edit-info-data" id="edit-info-id">${myMemberDTO.memberId}</div>
           </div>
           <!-- 비밀번호 -->
           <div class="edit-info-list edit-info-two-row">
@@ -72,14 +73,14 @@
           <!-- 이름 -->
           <div class="edit-info-list">
             <div class="edit-info-type">이름</div>
-            <div class="edit-info-data">전보라</div>
+            <div class="edit-info-data">${myMemberDTO.memberName}</div>
           </div>
           <!-- 닉네임 -->
           <div class="edit-info-list">
             <div class="edit-info-type">닉네임</div>
             <!-- 닉네임 입력 -->
             <div class="edit-info-data">
-              <input type="text" id="input-edit-info-nickname" name="editInfoNicname" value="보라도리" placeholder="닉네임">
+              <input type="text" id="input-edit-info-nickname" name="editInfoNicname" value="${myMemberDTO.memberNickname}" placeholder="닉네임">
               <div id="possible-nickname-text">사용 가능</div>
               <button type="button" name="editInfoNicname" id="button-edit-info-nickname" value="edit-info-nickname">중복
                 확인</button>
@@ -88,12 +89,21 @@
           <!-- 생년월일 -->
           <div class="edit-info-list">
             <div class="edit-info-type">생년월일</div>
-            <div class="edit-info-data" id="edit-info-birth-date">1995.01.21</div>
+            <div class="edit-info-data" id="edit-info-birth-date">${myMemberDTO.memberBirthDate}</div>
           </div>
           <!-- 성별 -->
           <div class="edit-info-list">
             <div class="edit-info-type">성별</div>
-            <div class="edit-info-data" id="edit-info-gender">여</div>
+            <div class="edit-info-data" id="edit-info-gender">
+            	<c:choose>
+            		<c:when test="${(myMemberDTO.memberGender == 'M') }">
+            			남
+            		</c:when>
+            		<c:otherwise>
+            			여
+            		</c:otherwise>
+            	</c:choose>
+            </div>
           </div>
           <!-- 주소 -->
           <div class="edit-info-list edit-info-two-row">
@@ -101,17 +111,17 @@
             <div class="edit-info-data edit-info-input-two-row">
               <div id="edit-info-address-main">
                 <div id="edit-info-address-text">
-                  서울시 송파구 잠실동
+                  ${myMemberDTO.address}
                 </div>
                 <div id="edit-info-address-post">
-                  00000
+                  ${myMemberDTO.zipCode}
                 </div>
                 <!-- 주소 검색 -->
                 <button type="button" name="addressSearchBtn" id="button-search-address">주소 검색</button>
               </div>
               <!-- 실거주지 입력 -->
               <div id="address-re-input">
-                <input type="text" name="editInfoDetailAddress" value="000동 000호" placeholder="상세 주소">
+                <input type="text" name="editInfoDetailAddress" value="<c:if test="${not empty myMemberDTO.addressDetail}">${myMemberDTO.addressDetail}</c:if>" placeholder="상세 주소">
               </div>
             </div>
           </div>
@@ -119,7 +129,7 @@
           <div class="edit-info-list">
             <div class="edit-info-type">이메일</div>
             <div class="edit-info-data">
-              <input type="email" id="input-edit-info-email" name="email" value="boradori@abcd.com" placeholder="이메일 주소">
+              <input type="email" id="input-edit-info-email" name="email" value="${myMemberDTO.memberEmail}" placeholder="이메일 주소">
             </div>
           </div>
           <!-- 전화번호 -->
@@ -133,7 +143,7 @@
             <div class="edit-info-data edit-info-input-two-row">
               <div id="div-send-verification-code">
                 <!-- 전화번호 입력 -->
-                <input type="text" id="input-edit-info-phone-number" name="phoneNumber" disabled value="010-1234-5678"
+                <input type="text" id="input-edit-info-phone-number" name="phoneNumber" disabled value="${myMemberDTO.memberPhoneNumber}"
                   placeholder="전화번호">
                 <!-- 버튼 - 변경/인증번호 전송 -->
                 <div id="div-button-update-phone-number">
@@ -156,7 +166,16 @@
             <div class="edit-info-type">전문가 인증</div>
             <div class="edit-info-data">
               <!-- 전문가 인증 상태 -->
-              <div id="edit-info-expert-status">확인 중</div>
+              <div id="edit-info-expert-status">
+              	<c:choose>
+   					<c:when test="${not empty myMemberDTO.expertCertStatusInfo}">
+   						${myMemberDTO.expertCertStatusInfo}
+   					</c:when>
+   					<c:otherwise>
+   						-
+   					</c:otherwise>
+   				</c:choose>
+              </div>
             </div>
           </div>
           <!-- 프로필 사진 -->

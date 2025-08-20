@@ -31,7 +31,7 @@ public class MemberDTO {
 	private int memberNumber;
 	private String memberId;
 	private String memberPassword;
-	private int addressNumber;
+	private int memberAddressNumber;
 	private String memberEmail;
 	private String memberName;
 	private String memberGender;
@@ -57,11 +57,11 @@ public class MemberDTO {
 	public void setMemberPassword(String memberPassword) {
 		this.memberPassword = memberPassword;
 	}
-	public int getAddressNumber() {
-		return addressNumber;
+	public int getMemberAddressNumber() {
+		return memberAddressNumber;
 	}
-	public void setAddressNumber(int addressNumber) {
-		this.addressNumber = addressNumber;
+	public void setMemberAddressNumber(int memberAddressNumber) {
+		this.memberAddressNumber = memberAddressNumber;
 	}
 	public String getMemberEmail() {
 		return memberEmail;
@@ -99,12 +99,12 @@ public class MemberDTO {
 	public void setMemberBirthDate(String memberBirthDate) {
 		this.memberBirthDate = memberBirthDate;
 	}
+	
 	@Override
 	public String toString() {
 		return "MemberDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPassword="
-				+ memberPassword + ", addressNumber=" + addressNumber + ", memberEmail=" + memberEmail + ", memberName="
-				+ memberName + ", memberGender=" + memberGender + ", memberNickname=" + memberNickname
+				+ memberPassword + ", memberAddressNumber=" + memberAddressNumber + ", memberEmail=" + memberEmail
+				+ ", memberName=" + memberName + ", memberGender=" + memberGender + ", memberNickname=" + memberNickname
 				+ ", memberPhoneNumber=" + memberPhoneNumber + ", memberBirthDate=" + memberBirthDate + "]";
 	}
-	
 }
