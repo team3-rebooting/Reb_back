@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdminExpertApplicant">
+	<select id="selectAll" resultType="AdminExpertApplicantListDTO">
+		<![CDATA[
+		SELECT *
+			FROM (
+				SELECT ROWNUM AS rnum, subquery.*
+					FROM (
+						SELECT *
+							FROM (
+		SELECT
+			ea.MEMBER_NUMBER, m.MEMBER_ID, ea.EXPERT_APPLICANT_REASON,
+			ea.EXPERT_STATUS_NUMBER, ecs.EXPERT_CERT_STATUS_INFO, TO_CHAR(ea.EXPERT_CHECK_DATE,
+			'YYYY-MM-DD'),
+			fe.file_system_name, fe.file_original_name, m.ADDRESS_NUMBER,
+			m.MEMBER_PHONE_NUMBER FROM TBL_EXPERT_APPLICANT ea 
+			JOIN TBL_MEMBER m
+			ON ea.MEMBER_NUMBER = m.MEMBER_NUMBER 
+			JOIN TBL_EXPERT_CERT_STATUS ecs
+			ON ea.EXPERT_STATUS_NUMBER = ecs.EXPERT_CERT_STATUS_NUMBER
+			LEFT JOIN TBL_FILE_EXPERT fe
+			ON ea.MEMBER_NUMBER = fe.MEMBER_NUMBER
+			ORDER BY ea.EXPERT_CHECK_DATE
+		) subquery
+	)
+)
+		WHERE rnum BETWEEN #{startRow} AND #{endRow};
+		]]>
+	</select>
+	<!--파일 어떻게넣지 -->
+	<insert id="insert" parameterType="AdminExpertApplicantDTO">
+		insert into tbl_expert(EXPERT_NUMBER,MEMBER_NUMBER,EXPERT_LICENSE_INFO,EXPERT_CAREER,EXPERT_FIELD_NUMBER)
+		values(seq_expert.nextval,#{memberNumber},#{expertLisenseInfo},#{expertCareer},#{expertFieldNumber})
+	</insert>
+</mapper>
