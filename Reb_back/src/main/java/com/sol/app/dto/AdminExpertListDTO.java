@@ -1,11 +1,13 @@
 package com.sol.app.dto;
 
-public class AdminExpertLIistDTO {
+import java.util.List;
+
+public class AdminExpertListDTO {
 	private int expertApplicantNumber;
 	private int memberNumber;
 	private String memberId;
 	private String memberName;
-	private int expertFiledNumber;
+	private List<FileExpertDTO> fileExpertList;
 	private String expertApplicantReason;
 	private String expertCheckDate;
 	public int getExpertApplicantNumber() {
@@ -32,12 +34,6 @@ public class AdminExpertLIistDTO {
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
-	public int getExpertFiledNumber() {
-		return expertFiledNumber;
-	}
-	public void setExpertFiledNumber(int expertFiledNumber) {
-		this.expertFiledNumber = expertFiledNumber;
-	}
 	public String getExpertApplicantReason() {
 		return expertApplicantReason;
 	}
@@ -50,11 +46,18 @@ public class AdminExpertLIistDTO {
 	public void setExpertCheckDate(String expertCheckDate) {
 		this.expertCheckDate = expertCheckDate;
 	}
+	public List<FileExpertDTO> getFileExpertList() {
+		return fileExpertList;
+	}
+	public void setFileExpertList(List<FileExpertDTO> fileExpertList) {
+		this.fileExpertList = fileExpertList;
+	}
 	@Override
 	public String toString() {
-		return "AdminExpertLIistDTO [expertApplicantNumber=" + expertApplicantNumber + ", memberNumber=" + memberNumber
-				+ ", memberId=" + memberId + ", memberName=" + memberName + ", expertFiledNumber=" + expertFiledNumber
+		return "AdminExpertListDTO [expertApplicantNumber=" + expertApplicantNumber + ", memberNumber=" + memberNumber
+				+ ", memberId=" + memberId + ", memberName=" + memberName + ", fileExpertList=" + fileExpertList
 				+ ", expertApplicantReason=" + expertApplicantReason + ", expertCheckDate=" + expertCheckDate + "]";
 	}
+	
 	
 }

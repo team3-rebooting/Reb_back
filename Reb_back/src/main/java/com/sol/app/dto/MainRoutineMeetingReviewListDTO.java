@@ -1,5 +1,7 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class MainRoutineMeetingReviewListDTO {
 	
 	//루틴 모임 후기글 목록
@@ -7,7 +9,7 @@ public class MainRoutineMeetingReviewListDTO {
 	private String routineReviewTitle; // 루틴 후기 제목
 	private String memberName; // 회원 이름
 	private String routineReviewCreatedDate; // 루틴 후기 작성날짜
-	private int routineReviewImageNumber; // 루틴 후기 이미지 번호
+	private List<FileRoutineReviewDTO> fileRoutineReviewList;// 루틴 후기 이미지 번호
 	
 	
 	public int getRoutineReviewNumber() {
@@ -28,19 +30,25 @@ public class MainRoutineMeetingReviewListDTO {
 	public void setRoutineReviewCreatedDate(String routineReviewCreatedDate) {
 		this.routineReviewCreatedDate = routineReviewCreatedDate;
 	}
-	public int getRoutineReviewImageNumber() {
-		return routineReviewImageNumber;
+	public String getRoutineReviewTitle() {
+		return routineReviewTitle;
 	}
-	public void setRoutineReviewImageNumber(int routineReviewImageNumber) {
-		this.routineReviewImageNumber = routineReviewImageNumber;
+	public void setRoutineReviewTitle(String routineReviewTitle) {
+		this.routineReviewTitle = routineReviewTitle;
 	}
-	
+	public List<FileRoutineReviewDTO> getFileRoutineReviewList() {
+		return fileRoutineReviewList;
+	}
+	public void setFileRoutineReviewList(List<FileRoutineReviewDTO> fileRoutineReviewList) {
+		this.fileRoutineReviewList = fileRoutineReviewList;
+	}
 	@Override
 	public String toString() {
-		return "MainRoutineMeetingReviewListDTO [routineReviewNumber=" + routineReviewNumber + ", memberName="
-				+ memberName + ", routineReviewCreatedDate=" + routineReviewCreatedDate + ", routineReviewImageNumber="
-				+ routineReviewImageNumber + "]";
+		return "MainRoutineMeetingReviewListDTO [routineReviewNumber=" + routineReviewNumber + ", routineReviewTitle="
+				+ routineReviewTitle + ", memberName=" + memberName + ", routineReviewCreatedDate="
+				+ routineReviewCreatedDate + ", fileRoutineReviewList=" + fileRoutineReviewList + "]";
 	}
+	
 
 	
 }

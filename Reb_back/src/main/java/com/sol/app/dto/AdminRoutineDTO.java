@@ -1,5 +1,7 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class AdminRoutineDTO {
 	private String routineStatusInfo;
 	private int routineNumber;
@@ -8,7 +10,7 @@ public class AdminRoutineDTO {
 	private String routineTitle;
 	private String routineContent;
 	private int routineStatusNumber;
-	private int mainImageNumber;
+	private List<FileRoutineDTO> fileRoutineList;
 	private String routineLocation;
 	private String routineCreatedDate;
 	private String routineUpdatedDate;
@@ -61,12 +63,6 @@ public class AdminRoutineDTO {
 	}
 	public void setRoutineStatusNumber(int routineStatusNumber) {
 		this.routineStatusNumber = routineStatusNumber;
-	}
-	public int getMainImageNumber() {
-		return mainImageNumber;
-	}
-	public void setMainImageNumber(int mainImageNumber) {
-		this.mainImageNumber = mainImageNumber;
 	}
 	public String getRoutineLocation() {
 		return routineLocation;
@@ -134,18 +130,25 @@ public class AdminRoutineDTO {
 	public void setRoutineRecruitCount(int routineRecruitCount) {
 		this.routineRecruitCount = routineRecruitCount;
 	}
+	public List<FileRoutineDTO> getFileRoutineList() {
+		return fileRoutineList;
+	}
+	public void setFileRoutineList(List<FileRoutineDTO> fileRoutineList) {
+		this.fileRoutineList = fileRoutineList;
+	}
 	@Override
 	public String toString() {
-		return "AdminRoutineListDTO [routineStatusInfo=" + routineStatusInfo + ", routineNumber=" + routineNumber
+		return "AdminRoutineDTO [routineStatusInfo=" + routineStatusInfo + ", routineNumber=" + routineNumber
 				+ ", routineLeaderNumber=" + routineLeaderNumber + ", adminNumber=" + adminNumber + ", routineTitle="
 				+ routineTitle + ", routineContent=" + routineContent + ", routineStatusNumber=" + routineStatusNumber
-				+ ", mainImageNumber=" + mainImageNumber + ", routineLocation=" + routineLocation
+				+ ", fileRoutineList=" + fileRoutineList + ", routineLocation=" + routineLocation
 				+ ", routineCreatedDate=" + routineCreatedDate + ", routineUpdatedDate=" + routineUpdatedDate
 				+ ", routineRecruitStartDate=" + routineRecruitStartDate + ", routineRecruitEndDate="
 				+ routineRecruitEndDate + ", routineStartDate=" + routineStartDate + ", routineEndDate="
 				+ routineEndDate + ", routineStartTime=" + routineStartTime + ", routineEndTime=" + routineEndTime
 				+ ", routineDayOfWeek=" + routineDayOfWeek + ", routineRecruitCount=" + routineRecruitCount + "]";
 	}
+	
 	
 	
 	

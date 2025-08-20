@@ -14,8 +14,7 @@ public class RoutineListDTO {
 	private String routineContent;
 	private int routineStatusNumber;
 	private String routineStatusInfo;
-	private int mainImageNumber;
-	private String filePath;
+	private List<FileRoutineDTO> fileRoutineList;
 	private String routineLocation;
 	private String routineCreatedDate;
 	private String routineUpdatedDate;
@@ -76,18 +75,6 @@ public class RoutineListDTO {
 	}
 	public void setRoutineStatusInfo(String routineStatusInfo) {
 		this.routineStatusInfo = routineStatusInfo;
-	}
-	public int getMainImageNumber() {
-		return mainImageNumber;
-	}
-	public void setMainImageNumber(int mainImageNumber) {
-		this.mainImageNumber = mainImageNumber;
-	}
-	public String getFilePath() {
-		return filePath;
-	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
 	}
 	public String getRoutineLocation() {
 		return routineLocation;
@@ -167,14 +154,19 @@ public class RoutineListDTO {
 	public void setApplicantList(List<RoutineMemberApplicantDTO> applicantList) {
 		this.applicantList = applicantList;
 	}
-	
+	public List<FileRoutineDTO> getFileRoutineList() {
+		return fileRoutineList;
+	}
+	public void setFileRoutineList(List<FileRoutineDTO> fileRoutineList) {
+		this.fileRoutineList = fileRoutineList;
+	}
 	@Override
 	public String toString() {
 		return "RoutineListDTO [routineNumber=" + routineNumber + ", routineLeaderNumber=" + routineLeaderNumber
 				+ ", routineLeaderName=" + routineLeaderName + ", adminNumber=" + adminNumber + ", routineTitle="
 				+ routineTitle + ", routineContent=" + routineContent + ", routineStatusNumber=" + routineStatusNumber
-				+ ", routineStatusInfo=" + routineStatusInfo + ", mainImageNumber=" + mainImageNumber + ", filePath="
-				+ filePath + ", routineLocation=" + routineLocation + ", routineCreatedDate=" + routineCreatedDate
+				+ ", routineStatusInfo=" + routineStatusInfo + ", fileRoutineList=" + fileRoutineList
+				+ ", routineLocation=" + routineLocation + ", routineCreatedDate=" + routineCreatedDate
 				+ ", routineUpdatedDate=" + routineUpdatedDate + ", routineRecruitStartDate=" + routineRecruitStartDate
 				+ ", routineRecruitEndDate=" + routineRecruitEndDate + ", routineStartDate=" + routineStartDate
 				+ ", routineEndDate=" + routineEndDate + ", routineStartTime=" + routineStartTime + ", routineEndTime="
@@ -182,4 +174,6 @@ public class RoutineListDTO {
 				+ routineApplicantCount + ", routineRecruitCount=" + routineRecruitCount + ", applicantList="
 				+ applicantList + "]";
 	}
+	
+	
 }

@@ -1,5 +1,7 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class MyMemberDTO {
 	//MemberDTO, AddressDTO, ExpertCertStatusDTO, FileDTO,ExpertApplicantDTO
 	private int memberNumber;
@@ -19,8 +21,7 @@ public class MyMemberDTO {
 	private String expertCertStatusInfo;
 	private String expertApplicantReason;
 	private String memberBirthDate;
-	private int fileSystemName;
-	private String fileOriginalName;
+	private List<FileMemberProfileDTO> fileMemberProFileList;
 	public int getMemberNumber() {
 		return memberNumber;
 	}
@@ -117,17 +118,12 @@ public class MyMemberDTO {
 	public void setMemberBirthDate(String memberBirthDate) {
 		this.memberBirthDate = memberBirthDate;
 	}
-	public int getFileSystemName() {
-		return fileSystemName;
+	
+	public List<FileMemberProfileDTO> getFileMemberProFileList() {
+		return fileMemberProFileList;
 	}
-	public void setFileSystemName(int fileSystemName) {
-		this.fileSystemName = fileSystemName;
-	}
-	public String getFileOriginalName() {
-		return fileOriginalName;
-	}
-	public void setFileOriginalName(String fileOriginalName) {
-		this.fileOriginalName = fileOriginalName;
+	public void setFileMemberProFileList(List<FileMemberProfileDTO> fileMemberProFileList) {
+		this.fileMemberProFileList = fileMemberProFileList;
 	}
 	
 	@Override
@@ -138,7 +134,7 @@ public class MyMemberDTO {
 				+ ", memberGender=" + memberGender + ", memberNickname=" + memberNickname + ", memberPhoneNumber="
 				+ memberPhoneNumber + ", expertCertStatusNumber=" + expertCertStatusNumber + ", expertCertStatusInfo="
 				+ expertCertStatusInfo + ", expertApplicantReason=" + expertApplicantReason + ", memberBirthDate="
-				+ memberBirthDate + ", fileSystemName=" + fileSystemName + ", fileOriginalName=" + fileOriginalName
-				+ "]";
+				+ memberBirthDate + ", fileMemberProFileList=" + fileMemberProFileList + "]";
 	}
+	
 }
