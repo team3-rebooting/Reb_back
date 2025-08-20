@@ -5,7 +5,11 @@
 	<update id="" parameterType = "">
 		<!-- update tbl_address -->
 	</update>
-	<insert id="" parameterType = "">
-		<!-- insert into tbl_address -->
+	<insert id="insert" parameterType="AddressDTO">
+		<selectKey keyProperty="addressNumber" resultType="int" order="AFTER">
+			SELECT seq_address.CURRVAL FROM DUAL
+		</selectKey>
+		INSERT INTO tbl_address(ADDRESS_NUMBER, ZIP_CODE, ADDRESS, ADDRESS_DETAIL)
+		values(SEQ_ADDRESS.NEXTVAL , #{zipCode}, #{address}, #{addressDetail});
 	</insert>
 </mapper>
