@@ -5,10 +5,12 @@ public class MyMemberDTO {
 	
 	private int memberNumber;
 	private String memberId;
-	private String memberPasword;
+	private String memberPassword;
+	private int addressNumber;
 	private String zipCode;
 	private String address;
 	private String addressDetail;
+	
 	private String memberEmail;
 	private String memberName;
 	private String memberGender;
@@ -20,7 +22,6 @@ public class MyMemberDTO {
 	private String memberBirthDate;
 	private int profileFileNumber;
 	private String filePath;
-	
 	public int getMemberNumber() {
 		return memberNumber;
 	}
@@ -33,11 +34,17 @@ public class MyMemberDTO {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	public String getMemberPasword() {
-		return memberPasword;
+	public String getMemberPassword() {
+		return memberPassword;
 	}
-	public void setMemberPasword(String memberPasword) {
-		this.memberPasword = memberPasword;
+	public void setMemberPassword(String memberPassword) {
+		this.memberPassword = memberPassword;
+	}
+	public int getAddressNumber() {
+		return addressNumber;
+	}
+	public void setAddressNumber(int addressNumber) {
+		this.addressNumber = addressNumber;
 	}
 	public String getZipCode() {
 		return zipCode;
@@ -126,11 +133,11 @@ public class MyMemberDTO {
 	
 	@Override
 	public String toString() {
-		return "MyMemberDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPasword="
-				+ memberPasword + ", zipCode=" + zipCode + ", address=" + address + ", addressDetail=" + addressDetail
-				+ ", memberEmail=" + memberEmail + ", memberName=" + memberName + ", memberGender=" + memberGender
-				+ ", memberNickname=" + memberNickname + ", memberPhoneNumber=" + memberPhoneNumber
-				+ ", expertCertStatusNumber=" + expertCertStatusNumber + ", expertCertStatusInfo="
+		return "MyMemberDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPassword="
+				+ memberPassword + ", addressNumber=" + addressNumber + ", zipCode=" + zipCode + ", address=" + address
+				+ ", addressDetail=" + addressDetail + ", memberEmail=" + memberEmail + ", memberName=" + memberName
+				+ ", memberGender=" + memberGender + ", memberNickname=" + memberNickname + ", memberPhoneNumber="
+				+ memberPhoneNumber + ", expertCertStatusNumber=" + expertCertStatusNumber + ", expertCertStatusInfo="
 				+ expertCertStatusInfo + ", expertApplicantReason=" + expertApplicantReason + ", memberBirthDate="
 				+ memberBirthDate + ", profileFileNumber=" + profileFileNumber + ", filePath=" + filePath + "]";
 	}
