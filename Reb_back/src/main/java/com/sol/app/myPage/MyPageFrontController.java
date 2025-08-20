@@ -57,8 +57,12 @@ public class MyPageFrontController extends HttpServlet {
 			System.out.println("마이페이지 비밀번호 처리");
 			result = new MyPasswordOKController().execute(request, response);
 			break;
-		case "/myPage/personalInfo.my":
-			System.out.println("개인정보 조회");
+		case "/myPage/myInfoOk.my":
+				System.out.println("개인정보 조회 처리");
+				result = new MyInfoOkController().execute(request, response);
+				break;
+		case "/myPage/myInfo.my":
+			System.out.println("개인정보 조회 페이지");
 			response.sendRedirect("/app/mypage/personal-info.jsp");
 			break;
 		case "/myPage/editOk.my":

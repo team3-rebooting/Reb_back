@@ -10,33 +10,35 @@ import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.dao.MyPageDAO;
 import com.sol.app.dto.MemberDTO;
+import com.sol.app.dto.MyMemberDTO;
 
-public class MyPasswordOKController implements Execute {
+public class MyInfoOkController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		MyPageDAO myPageDAO = new MyPageDAO();
-		MemberDTO memberDTO = new MemberDTO();
+		MyMemberDTO myMemberDTO = new MyMemberDTO();
 		Result result = new Result();
 		
 		request.setCharacterEncoding("UTF-8");
 		
 		//회원정보 세팅
-		memberDTO.setMemberId(request.getParameter("memberId"));
-		memberDTO.setMemberPassword(request.getParameter("memberPassword"));
+		myMemberDTO.setMemberId(request.getParameter("memberId"));
+		myMemberDTO.setMemberPassword(request.getParameter("memberPassword"));
 		
-		//DAO 호출
-		memberDTO = myPageDAO.login(memberDTO);
+		myMemberDTO = myPageDAO.read(myMemberDTO);
 		
-		if(memberDTO != null) {
-			result.setPath(request.getContextPath() + "/myPage/myInfoOk.my");
+		if(myMemberDTO != null) {
+			System.out.println(myMemberDTO.toString());
+			result.setPath(request.getContextPath() + "/myPage/myInfo.my");
+			result.setRedirect(true);
 		}else {
 			result.setPath(request.getContextPath() + "/myPage/myPassword.my?pw=fail");
+			result.setRedirect(false);
 		}
-
-		result.setRedirect(true);
+		
 		return result;
 	}
-	
+
 }
