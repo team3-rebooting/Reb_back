@@ -8,7 +8,7 @@ public class CourseReviewCommentListDTO {
 	private int courseReviewNumber;
 	private int memberNumber;
 	private String memberNickname;
-	private List<FileMemberProFileDTO> fileMemberProFIleList;
+	private List<FileMemberProfileDTO> fileMemberProFIleList;
 	private String filePath;
 	private String courseReviewCreatedDate;
 	private String courseReviewUpdatedDate;
@@ -61,10 +61,10 @@ public class CourseReviewCommentListDTO {
 	public void setCourseReviewContent(String courseReviewContent) {
 		this.courseReviewContent = courseReviewContent;
 	}
-	public List<FileMemberProFileDTO> getFileMemberProFIleList() {
+	public List<FileMemberProfileDTO> getFileMemberProFIleList() {
 		return fileMemberProFIleList;
 	}
-	public void setFileMemberProFIleList(List<FileMemberProFileDTO> fileMemberProFIleList) {
+	public void setFileMemberProFIleList(List<FileMemberProfileDTO> fileMemberProFIleList) {
 		this.fileMemberProFIleList = fileMemberProFIleList;
 	}
 	@Override

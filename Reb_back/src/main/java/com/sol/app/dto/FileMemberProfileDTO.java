@@ -1,6 +1,6 @@
 package com.sol.app.dto;
 
-public class FileMemberProFileDTO {
+public class FileMemberProfileDTO {
 	private String fileSystemName;
 	private String fileOriginalName;
 	private int memberNumber;

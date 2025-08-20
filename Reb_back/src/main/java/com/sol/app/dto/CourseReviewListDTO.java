@@ -6,12 +6,12 @@ public class CourseReviewListDTO {
 	private String memberNickname;
 	//작성자 프로필 사진
 	private String profileFilePath;
-	private List<FileMemberProFileDTO> fileWriterPriFileList;
+	private List<FileMemberProfileDTO> fileWriterPriFileList;
 	private int courseReviewLikeCount;
 	private int courseReviewCommentNumber;
 	private int CommentMemberNickname;
 	//댓글 프로필 사진
-	private List<FileMemberProFileDTO> fileCommentPriFileList; 
+	private List<FileMemberProfileDTO> fileCommentPriFileList; 
 	private String courseReviewCreatedDate;
 	private String courseReviewUpdatedDate;
 	private String courseReviewContent;
@@ -93,16 +93,16 @@ public class CourseReviewListDTO {
 	public void setMemberNumber(int memberNumber) {
 		this.memberNumber = memberNumber;
 	}
-	public List<FileMemberProFileDTO> getFileWriterPriFileList() {
+	public List<FileMemberProfileDTO> getFileWriterPriFileList() {
 		return fileWriterPriFileList;
 	}
-	public void setFileWriterPriFileList(List<FileMemberProFileDTO> fileWriterPriFileList) {
+	public void setFileWriterPriFileList(List<FileMemberProfileDTO> fileWriterPriFileList) {
 		this.fileWriterPriFileList = fileWriterPriFileList;
 	}
-	public List<FileMemberProFileDTO> getFileCommentPriFileList() {
+	public List<FileMemberProfileDTO> getFileCommentPriFileList() {
 		return fileCommentPriFileList;
 	}
-	public void setFileCommentPriFileList(List<FileMemberProFileDTO> fileCommentPriFileList) {
+	public void setFileCommentPriFileList(List<FileMemberProfileDTO> fileCommentPriFileList) {
 		this.fileCommentPriFileList = fileCommentPriFileList;
 	}
 	public List<FileCourseReviewDTO> getFileCourseReviewList() {

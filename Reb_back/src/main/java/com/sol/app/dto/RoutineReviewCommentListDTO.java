@@ -8,7 +8,7 @@ public class RoutineReviewCommentListDTO {
 	private int routineReviewNumber;
 	private int memberNumber;
 	private String memberNickname;
-	private List<FileMemberProFileDTO> fileMemberProFileList;
+	private List<FileMemberProfileDTO> fileMemberProFileList;
 	private String routineReviewCreatedDate;
 	private String routineReviewUpdatedDate;
 	private String routineReviewContent;
@@ -54,10 +54,10 @@ public class RoutineReviewCommentListDTO {
 	public void setRoutineReviewContent(String routineReviewContent) {
 		this.routineReviewContent = routineReviewContent;
 	}
-	public List<FileMemberProFileDTO> getFileMemberProFileList() {
+	public List<FileMemberProfileDTO> getFileMemberProFileList() {
 		return fileMemberProFileList;
 	}
-	public void setFileMemberProFileList(List<FileMemberProFileDTO> fileMemberProFileList) {
+	public void setFileMemberProFileList(List<FileMemberProfileDTO> fileMemberProFileList) {
 		this.fileMemberProFileList = fileMemberProFileList;
 	}
 	@Override

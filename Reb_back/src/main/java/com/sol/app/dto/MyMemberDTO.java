@@ -4,7 +4,6 @@ import java.util.List;
 
 public class MyMemberDTO {
 	//MemberDTO, AddressDTO, ExpertCertStatusDTO, FileDTO,ExpertApplicantDTO
-	
 	private int memberNumber;
 	private String memberId;
 	private String memberPassword;
@@ -22,7 +21,7 @@ public class MyMemberDTO {
 	private String expertCertStatusInfo;
 	private String expertApplicantReason;
 	private String memberBirthDate;
-	private List<FileMemberProFileDTO> fileMemberProFileList;
+	private List<FileMemberProfileDTO> fileMemberProFileList;
 	public int getMemberNumber() {
 		return memberNumber;
 	}
@@ -119,12 +118,14 @@ public class MyMemberDTO {
 	public void setMemberBirthDate(String memberBirthDate) {
 		this.memberBirthDate = memberBirthDate;
 	}
-	public List<FileMemberProFileDTO> getFileMemberProFileList() {
+	
+	public List<FileMemberProfileDTO> getFileMemberProFileList() {
 		return fileMemberProFileList;
 	}
-	public void setFileMemberProFileList(List<FileMemberProFileDTO> fileMemberProFileList) {
+	public void setFileMemberProFileList(List<FileMemberProfileDTO> fileMemberProFileList) {
 		this.fileMemberProFileList = fileMemberProFileList;
 	}
+	
 	@Override
 	public String toString() {
 		return "MyMemberDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPassword="
