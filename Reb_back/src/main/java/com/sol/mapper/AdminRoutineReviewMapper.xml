@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminRoutineReview">
+	<select id="select" parameterType="int" resultType="AdminRoutineReviewDTO">
+		<![CDATA[
+		SELECT
+   		 r.Routine_Review_Number, r.Routine_Number, r.Routine_Review_Title,
+   		 m.MEMBER_NUMBER, m.MEMBER_NICKNAME,
+    	TO_CHAR(r.Routine_Review_Created_Date, 'YYYY-MM-DD') AS Routine_Review_Created_Date,
+   		 TO_CHAR(r.Routine_Review_Updated_Date, 'YYYY-MM-DD') AS Routine_Review_Updated_Date,
+  		  r.Routine_Review_Content,
+   		 fmp.FILE_SYSTEM_NAME AS Member_Profile_File,
+  		  frr.FILE_SYSTEM_NAME AS Routine_Review_File
+		FROM TBL_ROUTINE_REVIEW r
+		JOIN TBL_MEMBER m
+    	ON r.MEMBER_NUMBER = m.MEMBER_NUMBER
+		LEFT JOIN TBL_FILE_MEMBER_PROFILE fmp
+    	ON r.MEMBER_NUMBER = fmp.MEMBER_NUMBER
+		LEFT JOIN TBL_FILE_ROUTINE_REVIEW frr
+    	ON r.Routine_Review_Number = frr.Routine_Review_Number
+		WHERE r.Routine_Review_Number = #{routineReviewNumber};
+		]]>
+	</select>
+	<select id="selectAll" resultType ="AdminRoutineReviewListDTO">
+		SELECT *
+			FROM (
+    		SELECT ROWNUM AS rnum, subquery.*
+    			FROM (
+        			SELECT *
+        		FROM (
+           			 SELECT
+                	r.ROUTINE_REVIEW_NUMBER, r.ROUTINE_REVIEW_TITLE, r.MEMBER_NUMBER,
+                	m.MEMBER_NICKNAME, TO_CHAR(r.ROUTINE_REVIEW_CREATED_DATE, 'YYYY-MM-DD'),
+                	TO_CHAR(r.ROUTINE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD')
+            		FROM TBL_ROUTINE_REVIEW r
+            		JOIN TBL_MEMBER m
+                	ON r.MEMBER_NUMBER = m.MEMBER_NUMBER
+           			 ORDER BY ROUTINE_REVIEW_CREATED_DATE DESC
+       			 ) subquery
+   			 )
+		)
+		WHERE rnum BETWEEN #{startRow} AND #{endRow};
+	</select>
+	<delete id="delete" parameterType="int">
+		DELETE FROM TBL_ROUTINE_REVIEW WHERE ROUTINE_REVIEW_NUMBER = #{routineReviewNumber} 
+	</delete>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(routine_review_number)
+		FROM tbl_routine_review	
+	</select>
+</mapper>
