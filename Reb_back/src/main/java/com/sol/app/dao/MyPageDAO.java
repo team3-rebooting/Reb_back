@@ -91,4 +91,12 @@ public class MyPageDAO {
 	public void deleteFileExpert(int memberNumber) {
 		sqlSession.delete("fileExpert.delete", memberNumber);
 	}
+	
+	public String getExpertApplicantReason(int memberNumber) {
+		return sqlSession.selectOne("expertApplicant.getReason", memberNumber);
+	}
+	
+	public String getCourseRejectReason(int memberNumber) {
+		return sqlSession.selectOne("courseRequest.getReason", memberNumber);
+	}
 }
