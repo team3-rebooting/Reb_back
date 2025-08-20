@@ -13,11 +13,10 @@ public class MemberDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public MemberDTO login(String memberId, String memberPw) {
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setMemberId(memberId);
-		memberDTO.setMemberPassword(memberPw);
-		return sqlSession.selectOne("member.login", memberDTO);
+	public int login(MemberDTO memberDTO) {
+		Integer memberNumber = sqlSession.selectOne("member.login", memberDTO);
+		// NullPointerException 방지
+		return memberNumber == null ? -1 : memberNumber;
 	}
 
 }

@@ -36,8 +36,8 @@
 	<!-- mapper.xml 추후 추가 -->
 	<mappers>
 		<mapper resource="com/sol/mapper/MemberMapper.xml" />
-		<mapper resource="com/sol/mapper/AddressMapper.xml" />
 		<mapper resource="com/sol/mapper/AdminMapper.xml" />
+		<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseRequestMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseReviewCommentList.xml" />
@@ -63,6 +63,6 @@
 		<mapper resource="com/sol/mapper/RoutineReviewLikeMapper.xml" />
 		<mapper resource="com/sol/mapper/RoutineReviewListMapper.xml" />
 		<mapper resource="com/sol/mapper/RoutineReviewMapper.xml" />
-		<mapper resource="com/sol/mapper/SponsorMapper.xml" />
+		<mapper resource="com/sol/mapper/SponsorMapper.xml" /> -->
 	</mappers>
 </configuration>
