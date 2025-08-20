@@ -13,7 +13,7 @@ const closeFindPwModal = document.querySelector(".button-pw-x");
 const pwModal = document.querySelector(".modal-pw-background");
 const buttonPwFind = document.querySelector(".button-modal-find-pw");
 
-const loginBtn = document.querySelector(".button-login");
+/*const loginBtn = document.querySelector(".button-login");*/
 
 const inputModalNameId = document.querySelector(".input-modal-name-id");
 const inputModalPnId = document.querySelector(".input-modal-pn-id");
@@ -132,7 +132,7 @@ buttonPwFind.addEventListener('click', () => {
   }
 });
 
-loginBtn.addEventListener('click', (e) => {
+/*loginBtn.addEventListener('click', (e) => {
   let inputId = document.querySelector(".input-id").value;
   let inputPw = document.querySelector(".input-pw").value;
   if (inputId.length === 0 || inputPw.length === 0) {
@@ -146,7 +146,7 @@ loginBtn.addEventListener('click', (e) => {
     alert("로그인 실패");
     e.preventDefault();
   }
-});
+});*/
 
 
 buttonInjung.addEventListener('click', () => {
