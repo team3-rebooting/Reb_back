@@ -65,7 +65,7 @@
           <!-- 후원 버튼 -->
           <div id="div-a-donation-link"><a href="${pageContext.request.contextPath}/app/donation/sponsorship-input.jsp">후원</a></div>
           <!-- 마이페이지 버튼 -->
-          <a href="${pageContext.request.contextPath}/app/mypage/mypage-password.jsp"><img src="${pageContext.request.contextPath}/assets/img/header/header_side_myPagebutton.png"
+          <a href="${pageContext.request.contextPath}/myPage/myPassword.my"><img src="${pageContext.request.contextPath}/assets/img/header/header_side_myPagebutton.png"
               alt=""></a>
         </div>
       </div>

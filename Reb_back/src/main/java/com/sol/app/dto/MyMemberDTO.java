@@ -1,14 +1,17 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class MyMemberDTO {
 	//MemberDTO, AddressDTO, ExpertCertStatusDTO, FileDTO,ExpertApplicantDTO
-	
 	private int memberNumber;
 	private String memberId;
-	private String memberPasword;
+	private String memberPassword;
+	private int addressNumber;
 	private String zipCode;
 	private String address;
 	private String addressDetail;
+	
 	private String memberEmail;
 	private String memberName;
 	private String memberGender;
@@ -18,9 +21,7 @@ public class MyMemberDTO {
 	private String expertCertStatusInfo;
 	private String expertApplicantReason;
 	private String memberBirthDate;
-	private int profileFileNumber;
-	private String filePath;
-	
+	private List<FileMemberProfileDTO> fileMemberProFileList;
 	public int getMemberNumber() {
 		return memberNumber;
 	}
@@ -33,11 +34,17 @@ public class MyMemberDTO {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	public String getMemberPasword() {
-		return memberPasword;
+	public String getMemberPassword() {
+		return memberPassword;
 	}
-	public void setMemberPasword(String memberPasword) {
-		this.memberPasword = memberPasword;
+	public void setMemberPassword(String memberPassword) {
+		this.memberPassword = memberPassword;
+	}
+	public int getAddressNumber() {
+		return addressNumber;
+	}
+	public void setAddressNumber(int addressNumber) {
+		this.addressNumber = addressNumber;
 	}
 	public String getZipCode() {
 		return zipCode;
@@ -111,27 +118,23 @@ public class MyMemberDTO {
 	public void setMemberBirthDate(String memberBirthDate) {
 		this.memberBirthDate = memberBirthDate;
 	}
-	public int getProfileFileNumber() {
-		return profileFileNumber;
+	
+	public List<FileMemberProfileDTO> getFileMemberProFileList() {
+		return fileMemberProFileList;
 	}
-	public void setProfileFileNumber(int profileFileNumber) {
-		this.profileFileNumber = profileFileNumber;
-	}
-	public String getFilePath() {
-		return filePath;
-	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
+	public void setFileMemberProFileList(List<FileMemberProfileDTO> fileMemberProFileList) {
+		this.fileMemberProFileList = fileMemberProFileList;
 	}
 	
 	@Override
 	public String toString() {
-		return "MyMemberDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPasword="
-				+ memberPasword + ", zipCode=" + zipCode + ", address=" + address + ", addressDetail=" + addressDetail
-				+ ", memberEmail=" + memberEmail + ", memberName=" + memberName + ", memberGender=" + memberGender
-				+ ", memberNickname=" + memberNickname + ", memberPhoneNumber=" + memberPhoneNumber
-				+ ", expertCertStatusNumber=" + expertCertStatusNumber + ", expertCertStatusInfo="
+		return "MyMemberDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPassword="
+				+ memberPassword + ", addressNumber=" + addressNumber + ", zipCode=" + zipCode + ", address=" + address
+				+ ", addressDetail=" + addressDetail + ", memberEmail=" + memberEmail + ", memberName=" + memberName
+				+ ", memberGender=" + memberGender + ", memberNickname=" + memberNickname + ", memberPhoneNumber="
+				+ memberPhoneNumber + ", expertCertStatusNumber=" + expertCertStatusNumber + ", expertCertStatusInfo="
 				+ expertCertStatusInfo + ", expertApplicantReason=" + expertApplicantReason + ", memberBirthDate="
-				+ memberBirthDate + ", profileFileNumber=" + profileFileNumber + ", filePath=" + filePath + "]";
+				+ memberBirthDate + ", fileMemberProFileList=" + fileMemberProFileList + "]";
 	}
+	
 }

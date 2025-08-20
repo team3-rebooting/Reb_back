@@ -1,6 +1,6 @@
 package com.sol.app.dto;
 
-public class FiledDTO {
+public class FieldDTO {
 	private int fieldNumber;
 	private String fieldName;
 	

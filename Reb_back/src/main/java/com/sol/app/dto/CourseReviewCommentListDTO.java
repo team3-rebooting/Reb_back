@@ -1,12 +1,14 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class CourseReviewCommentListDTO {
 	//CourseReviewComment, MemberDTO, FileDTO
 	private int courseReviewCommentNumber;
 	private int courseReviewNumber;
 	private int memberNumber;
 	private String memberNickname;
-	private int profileFileNumber;
+	private List<FileMemberProfileDTO> fileMemberProFIleList;
 	private String filePath;
 	private String courseReviewCreatedDate;
 	private String courseReviewUpdatedDate;
@@ -35,12 +37,6 @@ public class CourseReviewCommentListDTO {
 	public void setMemberNickname(String memberNickname) {
 		this.memberNickname = memberNickname;
 	}
-	public int getProfileFileNumber() {
-		return profileFileNumber;
-	}
-	public void setProfileFileNumber(int profileFileNumber) {
-		this.profileFileNumber = profileFileNumber;
-	}
 	public String getFilePath() {
 		return filePath;
 	}
@@ -65,13 +61,19 @@ public class CourseReviewCommentListDTO {
 	public void setCourseReviewContent(String courseReviewContent) {
 		this.courseReviewContent = courseReviewContent;
 	}
-	
+	public List<FileMemberProfileDTO> getFileMemberProFIleList() {
+		return fileMemberProFIleList;
+	}
+	public void setFileMemberProFIleList(List<FileMemberProfileDTO> fileMemberProFIleList) {
+		this.fileMemberProFIleList = fileMemberProFIleList;
+	}
 	@Override
 	public String toString() {
 		return "CourseReviewCommentListDTO [courseReviewCommentNumber=" + courseReviewCommentNumber
 				+ ", courseReviewNumber=" + courseReviewNumber + ", memberNumber=" + memberNumber + ", memberNickname="
-				+ memberNickname + ", profileFileNumber=" + profileFileNumber + ", filePath=" + filePath
+				+ memberNickname + ", fileMemberProFIleList=" + fileMemberProFIleList + ", filePath=" + filePath
 				+ ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewUpdatedDate="
 				+ courseReviewUpdatedDate + ", courseReviewContent=" + courseReviewContent + "]";
 	}
+	
 }

@@ -1,12 +1,14 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class ExpertCourseRequestDTO {
 	private String courseRequestType;
 	private int courseNumber;
 	private String courseTitle;
 	private String courseContent;
 	private int expertNumber;
-	private int courseMainImageNumber;
+	private List<FileCourseDTO> fileCourseList;
 	private String courseStartDate;
 	private String courseEndDate;
 	private String courseStartTime;
@@ -29,9 +31,6 @@ public class ExpertCourseRequestDTO {
 	public int getExpertNumber() {
 		return expertNumber;
 	}
-	public int getCourseMainImageNumber() {
-		return courseMainImageNumber;
-	}
 	public String getCourseStartDate() {
 		return courseStartDate;
 	}
@@ -53,13 +52,55 @@ public class ExpertCourseRequestDTO {
 	public int getCoursePrice() {
 		return coursePrice;
 	}
+	public List<FileCourseDTO> getFileCourseList() {
+		return fileCourseList;
+	}
+	public void setFileCourseList(List<FileCourseDTO> fileCourseList) {
+		this.fileCourseList = fileCourseList;
+	}
+	public void setCourseRequestType(String courseRequestType) {
+		this.courseRequestType = courseRequestType;
+	}
+	public void setCourseNumber(int courseNumber) {
+		this.courseNumber = courseNumber;
+	}
+	public void setCourseTitle(String courseTitle) {
+		this.courseTitle = courseTitle;
+	}
+	public void setCourseContent(String courseContent) {
+		this.courseContent = courseContent;
+	}
+	public void setExpertNumber(int expertNumber) {
+		this.expertNumber = expertNumber;
+	}
+	public void setCourseStartDate(String courseStartDate) {
+		this.courseStartDate = courseStartDate;
+	}
+	public void setCourseEndDate(String courseEndDate) {
+		this.courseEndDate = courseEndDate;
+	}
+	public void setCourseStartTime(String courseStartTime) {
+		this.courseStartTime = courseStartTime;
+	}
+	public void setCourseEndTime(String courseEndTime) {
+		this.courseEndTime = courseEndTime;
+	}
+	public void setCourseDayOfWeek(String courseDayOfWeek) {
+		this.courseDayOfWeek = courseDayOfWeek;
+	}
+	public void setCourseRecruitCount(int courseRecruitCount) {
+		this.courseRecruitCount = courseRecruitCount;
+	}
+	public void setCoursePrice(int coursePrice) {
+		this.coursePrice = coursePrice;
+	}
 	@Override
 	public String toString() {
 		return "ExpertCourseRequestDTO [courseRequestType=" + courseRequestType + ", courseNumber=" + courseNumber
 				+ ", courseTitle=" + courseTitle + ", courseContent=" + courseContent + ", expertNumber=" + expertNumber
-				+ ", courseMainImageNumber=" + courseMainImageNumber + ", courseStartDate=" + courseStartDate
-				+ ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime + ", courseEndTime="
-				+ courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount=" + courseRecruitCount
+				+ ", fileCourseList=" + fileCourseList + ", courseStartDate=" + courseStartDate + ", courseEndDate="
+				+ courseEndDate + ", courseStartTime=" + courseStartTime + ", courseEndTime=" + courseEndTime
+				+ ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount=" + courseRecruitCount
 				+ ", coursePrice=" + coursePrice + "]";
 	}
 	
