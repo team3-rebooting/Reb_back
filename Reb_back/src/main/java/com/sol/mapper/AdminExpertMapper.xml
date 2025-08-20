@@ -21,7 +21,7 @@
         				) subquery
     					)
 					)
-		WHERE rnum BETWEEN #{startRow} AND #{endRow};
+		WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>
 	</select>
 	<select id="getTotal" resultType="int">
@@ -29,6 +29,7 @@
 		FROM tbl_member	
 	</select>
 	<select id="select" parameterType="int" resultType="AdminExpertDTO">
+	<![CDATA[
 		SELECT
     	e.EXPERT_NUMBER, e.MEMBER_NUMBER, m.MEMBER_NAME,
     	m.MEMBER_GENDER, m.MEMBER_PHONE_NUMBER, m.MEMBER_EMAIL,
@@ -39,6 +40,7 @@
     		ON e.MEMBER_NUMBER = m.MEMBER_NUMBER
 		LEFT JOIN TBL_FILE_EXPERT fe
    			 ON e.MEMBER_NUMBER = fe.MEMBER_NUMBER
-		WHERE e.EXPERT_NUMBER = #{expertNumber};
+		WHERE e.EXPERT_NUMBER = #{expertNumber}
+	]]>
 	</select>
 </mapper>
