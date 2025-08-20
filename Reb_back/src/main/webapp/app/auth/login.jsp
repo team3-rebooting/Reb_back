@@ -188,7 +188,7 @@
         <div class="div-login-etc">
           <p class="p-findid font-main">아이디 찾기</p>
           <p class="p-findpw font-main">비밀번호 찾기</p>
-          <a href="./signup.html">
+          <a href="${pageContext.request.contextPath}/member/signup.me">
             <p class="font-main">회원가입</p>
           </a>
         </div>

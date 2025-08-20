@@ -66,6 +66,15 @@ public class MemberFrontController extends HttpServlet {
 			break;
 		case "/member/logoutOk.me":
 			System.out.println("로그아웃 처리 요청");
+			result = new LogoutOkController().execute(request, response);
+			break;
+		case "/member/signup.me":
+			System.out.println("회원가입 페이지 이동");
+			request.getRequestDispatcher("/app/auth/signup.jsp").forward(request, response);
+			break;
+		case "/member/signupOk.me":
+			System.out.println("회원가입 처리 요청");
+			result = new SignupOkController().execute(request, response);
 		}
 		
 		if(result != null && result.getPath() != null) {

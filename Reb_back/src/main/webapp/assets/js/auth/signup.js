@@ -181,7 +181,7 @@ dupliButton.addEventListener('click', () => {
   }
 });
 
-buttonInjung.addEventListener('click', () => { 
+/*buttonInjung.addEventListener('click', () => { 
     alert("인증번호 전송");
     phoneNumber.readOnly = true;
     phoneNumber.style.backgroundColor = "#d9d9d9";
@@ -205,7 +205,49 @@ injunging.addEventListener("click", () => {
   } else {
     alert("인증번호가 맞지 않습니다");
   }
+});*/
+
+let tempCode = "";
+
+buttonInjung.addEventListener('click', function(){
+	const phoneNumberValue = phoneNumber.value.trim();
+	if(!phoneNumberValue){
+		alert("핸드폰 번호를 입력해주세요");
+		return;
+	}
+	
+	// 6자리 난수 생성
+	tempCode = String(Math.floor(100000 + Math.random() * 900000));
+	console.log("임시 인증번호 : " + tempCode);		// 콘솔 확인용
+	
+	alert("임시 인증번호는 [" + tempCode + "] 입니다.");
+	phoneNumber.readOnly = true;
+	phoneNumber.style.backgroundColor = "#d9d9d9";
+	buttonInjung.disabled = true;
+	buttonInjung.style.color = "#d9d9d9";
+	injungPhone.readOnly = false;
+	injungPhone.style.backgroundColor = "white";
+	injunging.disabled = false;
+	injunging.style.color = "white";
+	retry.disabled = false;
+	retry.style.color = "white";
+	
 });
+
+injunging.addEventListener('blur', function(){
+	const code = phoneNumber.value.trim();
+	
+	if(code === tempCode){
+		alert("인증에 성공했습니다.");
+		injungPhone.readOnly = true;
+		injungPhone.style.backgroundColor = "#d9d9d9";
+		injunging.disabled = true;
+		injunging.style.color = "#d9d9d9";
+		alert("인증 성공");
+	} else{
+		alert("인증번호가 맞지 않습니다");
+	}
+})
 
 retry.addEventListener('click', () => {
   phoneNumber.readOnly = false;
