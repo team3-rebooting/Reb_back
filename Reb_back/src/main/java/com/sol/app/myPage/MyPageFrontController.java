@@ -46,7 +46,7 @@ public class MyPageFrontController extends HttpServlet {
 
 		String target = request.getRequestURI().substring(request.getContextPath().length());
 		System.out.println("현재 경로 : " + target);
-		Result result = new Result();
+		Result result = null;
 
 		switch (target) {
 		case "/myPage/myPassword.my":
@@ -61,10 +61,10 @@ public class MyPageFrontController extends HttpServlet {
 				System.out.println("개인정보 조회 처리");
 				result = new MyInfoOkController().execute(request, response);
 				break;
-		case "/myPage/myInfo.my":
-			System.out.println("개인정보 조회 페이지");
-			response.sendRedirect("/app/mypage/personal-info.jsp");
-			break;
+//		case "/myPage/myInfo.my":
+//			System.out.println("개인정보 조회 페이지");
+//			response.sendRedirect("/app/mypage/personal-info.jsp");
+//			break;
 		case "/myPage/editOk.my":
 			System.out.println("개인정보 수정 처리");
 			break;

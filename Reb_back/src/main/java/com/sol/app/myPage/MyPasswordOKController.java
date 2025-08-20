@@ -26,22 +26,25 @@ public class MyPasswordOKController implements Execute {
 		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
 		
 		request.setCharacterEncoding("UTF-8");
-		
-		//회원정보 세팅
-		memberDTO.setMemberId(request.getParameter("memberId"));
 		memberDTO.setMemberPassword(request.getParameter("memberPassword"));
 		
 		if(memberNumber == null) {
 			path = request.getContextPath() + "/member/login.me";
 		}
 		else {
-			//DAO 호출
-			memberDTO = myPageDAO.login(memberDTO);
-		
-			if(memberDTO != null) {
-				path = request.getContextPath() + "/myPage/myInfoOk.my";
-			}else {
+			String memberId = myPageDAO.getId(memberNumber);
+			
+			if(memberId == null || memberId == "") {
 				path = request.getContextPath() + "/myPage/myPassword.my?pw=fail";
+			}
+			else {
+				memberDTO.setMemberId(memberId);
+		
+				if(myPageDAO.login(memberDTO)) {
+					path = request.getContextPath() + "/myPage/myInfoOk.my";
+				}else {
+					path = request.getContextPath() + "/myPage/myPassword.my?pw=fail";
+				}
 			}
 		}
 

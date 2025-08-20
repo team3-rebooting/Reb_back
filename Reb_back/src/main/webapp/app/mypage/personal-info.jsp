@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,49 +49,70 @@
           <!-- ID -->
           <div class="personal-info-list">
             <div class="personal-info-type">ID</div>
-            <div class="personal-info-data">boradori</div>
+            <div class="personal-info-data">${myMemberDTO.memberId}</div>
           </div>
           <!-- 이름 -->
           <div class="personal-info-list">
             <div class="personal-info-type">이름</div>
-            <div class="personal-info-data">전보라</div>
+            <div class="personal-info-data">${myMemberDTO.memberName}</div>
           </div>
           <!-- 닉네임 -->
           <div class="personal-info-list">
             <div class="personal-info-type">닉네임</div>
-            <div class="personal-info-data">보라도리짱</div>
+            <div class="personal-info-data">${myMemberDTO.memberNickname}</div>
           </div>
           <!-- 생년월일 -->
           <div class="personal-info-list">
             <div class="personal-info-type">생년월일</div>
-            <div class="personal-info-data">1995.01.21</div>
+            <div class="personal-info-data">${myMemberDTO.memberBirthDate}</div>
           </div>
           <!-- 성별 -->
           <div class="personal-info-list">
             <div class="personal-info-type">성별</div>
-            <div class="personal-info-data">여</div>
+            <div class="personal-info-data">
+            	<c:choose>
+            		<c:when test="${(myMemberDTO.memberGender == 'M') }">
+            			남
+            		</c:when>
+            		<c:otherwise>
+            			여
+            		</c:otherwise>
+            	</c:choose>
+            	
+            </div>
           </div>
           <!-- 주소 -->
           <div class="personal-info-list">
             <div class="personal-info-type">주소</div>
-            <div class="personal-info-data">서울시 송파구 잠실동</div>
-            <div id="personal-info-data-postcode">00000</div>
+            <div class="personal-info-data">
+            	${myMemberDTO.address}<c:if test="${not empty myMemberDTO.addressDetail}">, ${myMemberDTO.addressDetail}</c:if>
+            </div>
+            <div id="personal-info-data-postcode">${myMemberDTO.zipCode}</div>
           </div>
           <!-- 이메일 -->
           <div class="personal-info-list">
             <div class="personal-info-type">이메일</div>
-            <div class="personal-info-data">boradori@naver.com</div>
+            <div class="personal-info-data">${myMemberDTO.memberEmail}</div>
           </div>
           <!-- 전화번호 -->
           <div class="personal-info-list">
             <div class="personal-info-type">전화번호</div>
-            <div class="personal-info-data">010-1234-5678</div>
+            <div class="personal-info-data">${myMemberDTO.memberPhoneNumber}</div>
           </div>
           <!-- 전문가 인증 -->
           <div class="personal-info-list">
             <div class="personal-info-type">전문가 인증</div>
             <!-- 전문가 인증 상태 -->
-            <div class="personal-info-data" id="personal-info-expert-status">반려</div>
+            <div class="personal-info-data" id="personal-info-expert-status">
+            	<c:choose>
+   					<c:when test="${not empty myMemberDTO.expertCertStatusInfo}">
+   						${myMemberDTO.expertCertStatusInfo}
+   					</c:when>
+   					<c:otherwise>
+   						-
+   					</c:otherwise>
+   				</c:choose>
+            </div>
           </div>
           <!-- 프로필 사진 -->
           <div class="personal-info-list">

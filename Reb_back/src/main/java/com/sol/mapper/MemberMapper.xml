@@ -7,4 +7,10 @@
 		FROM TBL_MEMBER
 		WHERE MEMBER_ID = #{memberId} and MEMBER_PASSWORD = #{memberPassword}
 	</select>
+	
+	<select id="getId" parameterType="int" resultType="string">
+		SELECT MEMBER_ID
+		FROM TBL_MEMBER
+		WHERE MEMBER_NUMBER = #{memberNumber}
+	</select>
 </mapper>
