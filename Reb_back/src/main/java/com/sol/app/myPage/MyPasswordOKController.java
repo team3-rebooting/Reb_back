@@ -33,7 +33,7 @@ public class MyPasswordOKController implements Execute {
 			result.setPath(request.getContextPath() + "/myPage/myinfo.my");
 			result.setRedirect(true);
 		}else {
-			result.setPath(request.getContextPath() + "/myPage/myPassword.my");
+			result.setPath(request.getContextPath() + "/myPage/myPassword.my?pw=fail");
 			result.setRedirect(false);
 		}
 		

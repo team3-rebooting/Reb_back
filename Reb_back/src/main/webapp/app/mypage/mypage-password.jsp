@@ -36,11 +36,11 @@
       <!-- 페이지 제목 -->
       <div class="pagetitle">마이페이지</div>
       <!-- 비밀번호 form -->
-      <form class="form-pw" action="" method="post">
+      <form class="form-pw" action="${pageContext.request.contextPath}/myPage/myPasswordOk.my" method="post">
         <!-- 비밀번호 입력 -->
         <label for="buttonPw" class="label-pw">비밀번호</label>
         <input type="password" name="memberPassword" id="input-pw" placeholder="비밀번호 입력">
-        <button class="button-pw" value="button-pw" type="button">확인</button>
+        <button class="button-pw" value="button-pw">확인</button>
       </form>
       <!-- 비밀번호 틀렸을 경우 안내 문구 -->
       <div class="wrongpw font-main">올바르지 않은 비밀번호 입니다.</div>
