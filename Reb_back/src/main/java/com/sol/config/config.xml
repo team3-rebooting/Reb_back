@@ -18,6 +18,8 @@
 			alias="MemberDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.AdminDTO"
          alias="AdminDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.MyMemberDTO"
+         alias="MyMemberDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -37,6 +39,7 @@
 	<mappers>
 		<mapper resource="com/sol/mapper/MemberMapper.xml" />
 		<mapper resource="com/sol/mapper/AdminMapper.xml" />
+		<mapper resource="com/sol/mapper/MyMemberMapper.xml" />
 		<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseRequestMapper.xml" />
