@@ -39,6 +39,7 @@ public class LoginOkController implements Execute{
 		memberNumber = memberDAO.login(memberDTO);
 		
 		if(memberNumber != -1) {
+//			추후 main servlet으로 경로 변경
 			path = "/member/login.me";
 			session.setAttribute("memberNumber", memberNumber);
 			System.out.println("세션 값 : " + memberNumber);
@@ -55,6 +56,8 @@ public class LoginOkController implements Execute{
 			 * 		path= "/member/login.me?login=fail"; 
 			 *  }
 			 */
+		}else {
+			path = "/member/login.me?login=fail";
 		}
 		
 		
