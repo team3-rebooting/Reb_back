@@ -1,7 +1,7 @@
 package com.sol.app.dto;
 
 public class NoticeListDTO {
-	
+
 //    NOTICE_NUMBER NUMBER,
 //    NOTICE_TITLE VARCHAR2(90) NOT NULL,
 //    ADMIN_NUMBER NUMBER NOT NULL,
@@ -9,13 +9,13 @@ public class NoticeListDTO {
 //    NOTICE_UPDATED_DATE DATE,
 //    NOTICE_CONTENT VARCHAR2(3000) NOT NULL,
 //    NOTICE_FILE_NUMBER NUMBER,
+
+	private int noticeNumber; // 공지사항 번호
+	private String noticeTitle; // 공지사항 제목
+	private String noticeCreatedDate; // 공지사항 작성날짜
+	private int	adminNumber; // 관리자 번호
+	private String adminNickname; // 관리자닉네임
 	
-    private int noticeNumber; // 공지사항 번호
-    private String noticeTitle; // 공지사항 제목
-    private String adminNickname; // 관리자닉네임
-    private String noticeCreatedDate; // 공지사항 작성날짜
-    private String noticeUpdatedDate; // 공지사항 수정날짜
-    
 	public int getNoticeNumber() {
 		return noticeNumber;
 	}
@@ -28,29 +28,30 @@ public class NoticeListDTO {
 	public void setNoticeTitle(String noticeTitle) {
 		this.noticeTitle = noticeTitle;
 	}
-	public String getAdminNickname() {
-		return adminNickname;
-	}
-	public void setAdminNickname(String adminNickname) {
-		this.adminNickname = adminNickname;
-	}
 	public String getNoticeCreatedDate() {
 		return noticeCreatedDate;
 	}
 	public void setNoticeCreatedDate(String noticeCreatedDate) {
 		this.noticeCreatedDate = noticeCreatedDate;
 	}
-	public String getNoticeUpdatedDate() {
-		return noticeUpdatedDate;
+	public int getAdminNumber() {
+		return adminNumber;
 	}
-	public void setNoticeUpdatedDate(String noticeUpdatedDate) {
-		this.noticeUpdatedDate = noticeUpdatedDate;
+	public void setAdminNumber(int adminNumber) {
+		this.adminNumber = adminNumber;
 	}
-	
+	public String getAdminNickname() {
+		return adminNickname;
+	}
+	public void setAdminNickname(String adminNickname) {
+		this.adminNickname = adminNickname;
+	}
 	@Override
 	public String toString() {
-		return "NoticeListDTO [noticeNumber=" + noticeNumber + ", noticeTitle=" + noticeTitle + ", adminNickname="
-				+ adminNickname + ", noticeCreatedDate=" + noticeCreatedDate + ", noticeUpdatedDate="
-				+ noticeUpdatedDate + "]";
+		return "NoticeListDTO [noticeNumber=" + noticeNumber + ", noticeTitle=" + noticeTitle + ", noticeCreatedDate="
+				+ noticeCreatedDate + ", adminNumber=" + adminNumber + ", adminNickname=" + adminNickname + "]";
 	}
+
+
+
 }

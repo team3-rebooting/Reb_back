@@ -1,33 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="adminNotice">
-	<select id="detail" parameterType="" resultType="AdminNoticeDTO">
-		SELECT n.notice_number, n.notice_title, n.notice_created_date, 
-		n.notice_updated_date, n.notice_content, 
-		a.admin_number, a.admin_nickname, a.admin_profile_image_number, 
-		n.notice_file_number 
-		FROM tbl_notice n 
-		JOIN tbl_admin a 
-		ON n.admin_number = a.admin_number
+	<select id="select" parameterType="int" resultType="AdminNoticeDTO">
+		<![CDATA[
+		SELECT  n.NOTICE_NUMBER, n.NOTICE_TITLE, n.ADMIN_NUMBER,a.ADMIN_NICKNAME,
+    	TO_CHAR(n.NOTICE_CREATED_DATE, 'YYYY-MM-DD HH24:MI:SS'),
+    	TO_CHAR(n.NOTICE_UPDATED_DATE, 'YYYY-MM-DD HH24:MI:SS'),
+    	n.NOTICE_CONTENT,f.FILE_SYSTEM_NAME, f.FILE_ORIGINAL_NAME
+		FROM TBL_NOTICE n JOIN TBL_ADMIN a ON n.ADMIN_NUMBER = a.ADMIN_NUMBER
+		LEFT JOIN TBL_FILE_NOTICE f 
+    	ON n.NOTICE_NUMBER = f.NOTICE_NUMBER
+		WHERE n.NOTICE_NUMBER = #{noticeNumber}
+		]]>
 	</select>
-	<select id="list" parameterType="" resultType="AdminNoticeDTO">
-		select n.notice_number, n.notice_title, n.notice_created_date, 
-		n.notice_updated_date, a.admin_number, a.admin_nickname,
-		FROM tbl_notice n 
-		JOIN tbl_admin a 
-		ON n.admin_number = a.admin_number
+	<select id="selectAll" resultType="AdminNoticeListDTO">
+		<![CDATA[
+		select * from (
+			select rownum as rnum, subquery.* 
+			from (
+				select * from (
+						select a.admin_number, a.admin_nickname, n.notice_number, n.notice_title, n.notice_content, n.notice_created_date
+						from tbl_admin a join tbl_notice n
+						on a.admin_number = n.admin_number
+						order by n.notice_created_date desc
+				) subquery
+			) where rnum between #{startRow} and #{endRow}
+		]]>	 
+	</select>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(notice_number)
+		FROM tbl_notice	
 	</select>
 	<insert id="create" parameterType="NoticeDTO">
-		insert into tbl_notice(notice_number, notice_title, admin_number, notice_content, notice_file_number)
-		values(seq_notice.nextval, #{noticeTitle}, #{adminNumber}, #{noticeContent}, #{noticeFileNumber})
+		<selectKey keyProperty="noticeNumber" resultType="int" order="BEFORE">
+			SELECT seq_notice.CURRVAL FROM DUAL
+		</selectKey>
+    INSERT INTO TBL_NOTICE (NOTICE_NUMBER, NOTICE_TITLE, ADMIN_NUMBER, NOTICE_CONTENT) 
+    VALUES (SEQ_NOTICE.NEXTVAL, #{noticeTitle}, #{adminNumber}, #{noticeContent})
 	</insert>
 	<update id="update" parameterType="NoticeDTO">
-		update tbl_notice set notice_title = #{noticeTitle} , notice_content = #{noticeContent}, notice_file_number = #{noticeFileNumber}, 
-		notice_update_date = to_date(sysdate,'YYYY-MM-DD')  
-		where admin_number = #{adminNumber}
+    UPDATE TBL_NOTICE
+    SET NOTICE_TITLE = #{noticeTitle}, NOTICE_CONTENT = #{noticeContent}, NOTICE_UPDATED_DATE = SYSDATE
+    WHERE NOTICE_NUMBER = #{noticeNumber} AND ADMIN_NUMBER = #{adminNumber}
 	</update>
-	<delete id="delete" parameterType="NoticeDTO">
-		delete from tbl_notice where notice_number = #{noticeNumber} and admin_number = #{adminNumber}
+	<delete id="delete" parameterType="int">
+    DELETE FROM TBL_NOTICE WHERE NOTICE_NUMBER = #{noticeNumber}
 	</delete>
 	
 </mapper>

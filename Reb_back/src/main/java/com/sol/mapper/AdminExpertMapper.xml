@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminExpert">
+	<select id="selectAll" resultType="AdminExpertListDTO">
+	<![CDATA[
+		SELECT *
+			FROM (
+    			SELECT ROWNUM AS rnum, subquery.*
+    			FROM (
+        			SELECT *
+        			FROM (
+            			SELECT
+                		m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME,
+                		e.EXPERT_FIELD_NUMBER, TO_CHAR(a.EXPERT_CHECK_DATE, 'YYYY-MM-DD')
+            			FROM TBL_EXPERT_APPLICANT a
+            			JOIN TBL_EXPERT e
+                		ON a.MEMBER_NUMBER = e.MEMBER_NUMBER
+            			JOIN TBL_MEMBER m
+                		ON a.MEMBER_NUMBER = m.MEMBER_NUMBER
+            			ORDER BY a.EXPERT_CHECK_DATE DESC
+        				) subquery
+    					)
+					)
+		WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
+	</select>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(member_number)
+		FROM tbl_member	
+	</select>
+	<select id="select" parameterType="int" resultType="AdminExpertDTO">
+	<![CDATA[
+		SELECT
+    	e.EXPERT_NUMBER, e.MEMBER_NUMBER, m.MEMBER_NAME,
+    	m.MEMBER_GENDER, m.MEMBER_PHONE_NUMBER, m.MEMBER_EMAIL,
+    	fe.FILE_SYSTEM_NAME AS EXPERT_FILE_NUMBER, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER,
+    	e.EXPERT_FIELD_NUMBER
+		FROM TBL_EXPERT e
+		JOIN TBL_MEMBER m
+    		ON e.MEMBER_NUMBER = m.MEMBER_NUMBER
+		LEFT JOIN TBL_FILE_EXPERT fe
+   			 ON e.MEMBER_NUMBER = fe.MEMBER_NUMBER
+		WHERE e.EXPERT_NUMBER = #{expertNumber}
+	]]>
+	</select>
+</mapper>

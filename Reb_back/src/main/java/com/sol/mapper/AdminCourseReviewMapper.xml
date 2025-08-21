@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminCourseReview">
+	<select id="select" parameterType="int" resultType="AdminCourseReviewDTO">
+		<![CDATA[
+		SELECT
+    	r.COURSE_REVIEW_NUMBER, r.COURSE_NUMBER, r.COURSE_REVIEW_TITLE,
+    	m.MEMBER_NUMBER, m.MEMBER_NICKNAME,
+    	TO_CHAR(r.COURSE_REVIEW_CREATED_DATE, 'YYYY-MM-DD'),
+    	TO_CHAR(r.COURSE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD'),
+    	r.COURSE_REVIEW_CONTENT,
+    	fmp.FILE_SYSTEM_NAME AS Member_Profile_File,
+    	fcr.FILE_SYSTEM_NAME AS Course_Review_File
+		FROM TBL_COURSE_REVIEW r
+		JOIN TBL_MEMBER m
+    	ON r.MEMBER_NUMBER = m.MEMBER_NUMBER
+		LEFT JOIN TBL_FILE_MEMBER_PROFILE fmp
+    	ON r.MEMBER_NUMBER = fmp.MEMBER_NUMBER
+		LEFT JOIN TBL_FILE_COURSE_REVIEW fcr
+    	ON r.COURSE_REVIEW_NUMBER = fcr.COURSE_REVIEW_NUMBER
+		WHERE r.COURSE_REVIEW_NUMBER = #{courseReviewNumber}
+		]]>
+	</select>
+	<select id="selectAll" resultType="AdminCourseReviewListDTO">
+	<![CDATA[
+		SELECT *
+			FROM (
+    		SELECT ROWNUM AS rnum, subquery.*
+    		FROM (
+        		SELECT *
+        		FROM (
+            		SELECT
+                	r.COURSE_REVIEW_NUMBER, r.COURSE_REVIEW_TITLE, r.MEMBER_NUMBER,
+                	m.MEMBER_NICKNAME, TO_CHAR(r.COURSE_REVIEW_CREATED_DATE, 'YYYY-MM-DD'),
+                	TO_CHAR(r.COURSE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD')
+            		FROM TBL_COURSE_REVIEW r
+            		JOIN TBL_MEMBER m
+                	ON r.MEMBER_NUMBER = m.MEMBER_NUMBER
+            		ORDER BY r.COURSE_REVIEW_NUMBER DESC
+        		) subquery
+    		)
+		)
+		WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
+	</select>
+	<delete id="delete" parameterType="int">
+		DELETE FROM TBL_COURSE_REVIEW WHERE COURSE_REVIEW_NUMBER = #{courseReviewNumber} 
+	</delete>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(course_review_number)
+		FROM tbl_course_review	
+	</select>
+</mapper>
