@@ -1,4 +1,4 @@
-package com.sol.app.dao;
+package com.sol.app.admin.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
