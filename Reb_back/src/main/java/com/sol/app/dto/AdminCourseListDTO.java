@@ -1,6 +1,7 @@
 package com.sol.app.dto;
 
 public class AdminCourseListDTO {
+	//memberDTO, courseDTO
 	private int memberNumber;
 	private String memberId;
 	private String memberNickname;

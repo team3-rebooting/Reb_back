@@ -76,5 +76,20 @@ public class RoutineReviewListDTO {
 	public void setLikeList(List<RoutineReviewLikeDTO> likeList) {
 		this.likeList = likeList;
 	}
+	public List<FileRoutineReviewDTO> getFileRoutineReviewList() {
+		return fileRoutineReviewList;
+	}
+	public void setFileRoutineReviewList(List<FileRoutineReviewDTO> fileRoutineReviewList) {
+		this.fileRoutineReviewList = fileRoutineReviewList;
+	}
+	@Override
+	public String toString() {
+		return "RoutineReviewListDTO [routineReviewNumber=" + routineReviewNumber + ", routineNumber=" + routineNumber
+				+ ", routineReviewTitle=" + routineReviewTitle + ", memberNumber=" + memberNumber + ", memberNickname="
+				+ memberNickname + ", routineReviewCreatedDate=" + routineReviewCreatedDate
+				+ ", routineReviewUpdatedDate=" + routineReviewUpdatedDate + ", routineReviewContent="
+				+ routineReviewContent + ", fileRoutineReviewList=" + fileRoutineReviewList + ", likeCount=" + likeCount
+				+ ", likeList=" + likeList + "]";
+	}
 	
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminBanner">
+	<select id="selectAll" resultType="AdminBannerDTO">
+		SELECT * FROM (
+    			SELECT ROWNUM AS rnum, subquery.*
+    			FROM (
+					SELECT b.banner_number,
+					b.banner_title, b.banner_order_number, fb.file_system_name
+					FROM tbl_banner b JOIN tbl_file_banner fb
+					ON b.banner_number = fb.banner_number
+					ORDER BY BANNER_ORDER_NUMBER
+					 ) subquery
+					)	
+	WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	</select>
+</mapper>
