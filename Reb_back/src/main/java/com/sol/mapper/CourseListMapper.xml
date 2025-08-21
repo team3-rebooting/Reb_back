@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="courseList">
-	<select id="list" parameterType="CourseListDTO" resultType="CourseListDTO">
-		select course_number, course_title, COURSE_STATUS_INFO, course_post_date, member_name
-		from
+	<select id="list" parameterType="CourseListDTO"
+		resultType="CourseListDTO">
+
+		<!-- INSERT INTO tbl_course(COURSE_NUMBER, COURSE_TITLE, COURSE_CONTENT, 
+			EXPERT_NUMBER, COURSE_RECRUIT_STATUS_NUMBER, COURSE_RECRUIT_START_DATE, COURSE_RECRUIT_END_DATE, 
+			COURSE_START_DATE, COURSE_END_DATE, COURSE_START_TIME,COURSE_END_TIME, COURSE_DAY_OF_WEEK, 
+			COURSE_RECRUIT_COUNT, COURSE_PRICE) values(SEQ_COURSE.NEXTVAL, '신밧드의 모험', 
+			'같이 떠나는 모험을 떠나요', 2, 3, TO_DATE('2025-08-30', 'YYYY-MM-DD'), TO_DATE('2025-08-30', 
+			'YYYY-MM-DD') , TO_DATE('2025-08-30', 'YYYY-MM-DD'), TO_DATE('2025-08-30', 
+			'YYYY-MM-DD'), TO_DATE('09:00', 'HH24:MI'), TO_DATE('16:30', 'HH24:MI'), 
+			'MT', 30, 29500); -->
+		<!-- 3 X 3으로 출력되어야함 추후 잡아보기 -->
+	<![CDATA[
+	SELECT * FROM (
+      SELECT ROWNUM AS rnum, subquery.*
+      FROM (
+		select c.course_number,fc.file_system_name , c.course_title ,
+		cr.COURSE_STATUS_INFO, c.course_post_date, m.member_name
+		FROM tbl_course c
+			LEFT OUTER JOIN tbl_expert e
+				ON c.expert_number = e.EXPERT_NUMBER
+			LEFT OUTER JOIN tbl_member m
+				ON e.MEMBER_NUMBER = m.MEMBER_NUMBER
+			LEFT OUTER JOIN tbl_course_recruit_status cr
+				ON c.COURSE_RECRUIT_STATUS_NUMBER = cr.COURSE_RECRUIT_STATUS_NUMBER
+			LEFT OUTER JOIN tbl_file_course fc
+				ON c.course_number = fc.course_number
+		ORDER BY c.course_post_date DESC
+      ) subquery
+   	) WHERE rnum BETWEEN #{startRow} AND #{endRow} 
+	]]>
 	</select>
 </mapper>
