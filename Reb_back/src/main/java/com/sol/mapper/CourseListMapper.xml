@@ -60,4 +60,14 @@
 	<insert id="delete" parameterType="CourseDTO">
 		
 	</insert>
+	
+	<select id="select" parameterType="CourseListDTO">
+		<![CDATA[
+			select course_number, m.member_number, e.expert_number, course_title, course_post_date, e.member_name, 
+				field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER, course_content, c.COURSE_RECRUIT_START_DATE
+				c.COURSE_RECRUIT_END_DATE, c.COURSE_START_DATE, c.COURSE_END_DATE, c.COURSE_START_TIME, c.COURSE_END_TIME
+				c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT, c.COURSE_PRICE
+				from
+		]]
+	</select>
 </mapper>
