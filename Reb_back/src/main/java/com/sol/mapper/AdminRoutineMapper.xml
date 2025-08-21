@@ -25,7 +25,7 @@
 		SELECT COUNT(routine_number)
 		FROM tbl_routine	
 	</select>
-	<select id="select" parameterType="int" resultType="AdminRoutineDTO">
+	<select id="select" parameterType="int" resultType="AdminRoutineListDTO">
 	<![CDATA[
 		SELECT
     	r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, l.ROUTINE_LEADER_NAME,
@@ -38,9 +38,9 @@
 		WHERE r.ROUTINE_NUMBER = #{routineNumber}
 	]]>	
 	</select>
-	<insert id="create" parameterType="RoutineDTO">
+	<insert id="create" parameterType="AdminRoutineDTO">
 		<selectKey keyProperty="routineNumber" resultType="int" order="BEFORE">
-			SELECT seq_routine.CURRVAL FROM DUAL
+			SELECT seq_routine.nextVal FROM DUAL
 		</selectKey>
     INSERT INTO TBL_ROUTINE (
         ROUTINE_NUMBER, ROUTINE_LEADER_NUMBER, ADMIN_NUMBER, ROUTINE_TITLE,
@@ -50,7 +50,7 @@
         ROUTINE_DAY_OF_WEEK, ROUTINE_RECRUIT_COUNT
     )
     VALUES (
-        SEQ_ROUTINE.NEXTVAL, #{routineLeaderNumber}, #{adminNumber}, #{routineTitle},
+        #{routineNumber}, #{routineLeaderNumber}, #{adminNumber}, #{routineTitle},
         #{routineContent}, #{routineStatusNumber}, #{routineLocation},
         SYSDATE, TO_DATE(#{routineRecruitStartDate}, 'YYYY-MM-DD'), TO_DATE(#{routineRecruitEndDate}, 'YYYY-MM-DD'),
         TO_DATE(#{routineStartDate}, 'YYYY-MM-DD'), TO_DATE(#{routineEndDate}, 'YYYY-MM-DD'),
@@ -58,7 +58,7 @@
         #{routineDayOfWeek}, #{routineRecruitCount}
     )
 	</insert>
-	<update id="update" parameterType="RoutineDTO">
+	<update id="update" parameterType="AdminRoutineDTO">
     UPDATE TBL_ROUTINE
     SET ROUTINE_TITLE = #{routineTitle}, ROUTINE_CONTENT = #{routineContent}, ROUTINE_STATUS_NUMBER = #{routineStatusNumber},
         ROUTINE_LOCATION = #{routineLocation}, ROUTINE_UPDATED_DATE = SYSDATE,
@@ -69,7 +69,7 @@
         ROUTINE_DAY_OF_WEEK = #{routineDayOfWeek}, ROUTINE_RECRUIT_COUNT = #{routineRecruitCount}
     	WHERE ROUTINE_NUMBER = #{routineNumber}
 	</update>
-	<delete id="delete" parameterType="RoutineDTO">
+	<delete id="delete" parameterType="AdminRoutineDTO">
     DELETE FROM TBL_ROUTINE WHERE ROUTINE_NUMBER = #{routineNumber}
     </delete>
     
