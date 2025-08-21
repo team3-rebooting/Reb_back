@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.dao.AdminDAO;
+import com.sol.app.admin.dao.AdminDAO;
 import com.sol.app.dto.AdminDTO;
 
 public class LoginOkController implements Execute {

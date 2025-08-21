@@ -3,7 +3,7 @@
 
 <mapper namespace="admin">
 	<select id="login" parameterType="AdminDTO" resultType="AdminDTO">
-		SELECT ADMIN_NUMBER, ADMIN_ID, ADMIN_PROFILE_IMAGE_NUMBER FROM TBL_ADMIN
+		SELECT ADMIN_NUMBER, ADMIN_ID FROM TBL_ADMIN
 		WHERE ADMIN_ID = #{adminId} and ADMIN_PASSWORD = #{adminPassword}
 	</select>
 </mapper>
