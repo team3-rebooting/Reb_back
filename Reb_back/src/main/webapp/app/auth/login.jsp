@@ -26,8 +26,7 @@
 
 <body>
   <!-- 헤더 -->
-  <div id="header">
-  </div>
+  <jsp:include page="/header.jsp" />
   <!-- 아이디찾기 모달 배경-->
   <div class="modal-id-background">
     <!-- 아이디 찾기 모달 창 -->

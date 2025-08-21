@@ -35,7 +35,7 @@
 
 <body>
 	<!-- 헤더 -->
-	<div id="header"></div>
+	<jsp:include page="/header.jsp" />
 	<!-- 메인 -->
 	<main>
 		<!-- 메인 컨테이너 -->
@@ -86,6 +86,7 @@
 						<span class="span-signup">* 주소 : </span>
 						<!-- 기본 주소, 추가 주소 입력 영역 -->
 						<div class="div-signup-address ">
+							<input class="input-zip-code input-essential" type="test" name="zip-code" placeholder="우편 번호" readonly required>
 							<input class="input-address-basic input-essential" type="text"
 								name="addressBasic" placeholder="기본 주소">
 							<p class="p-warning">기본 주소는 필수 입력입니다</p>

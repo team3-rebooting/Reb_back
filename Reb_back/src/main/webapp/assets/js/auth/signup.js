@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
-	addressBasic.addEventListener('blur', () => {
+	/*addressBasic.addEventListener('blur', () => {
 		let nearWarning = addressBasic.closest(".div-signup");
 		let warning = nearWarning.querySelector(".p-warning");
 		if (!addressBasic.value) {
@@ -129,7 +129,36 @@ document.addEventListener("DOMContentLoaded", function() {
 		} else {
 			warning.style.display = "none";
 		}
+	});*/
+	
+	const zipCode = document.querySelector(".input-zip-code");
+const serchBtn = document.getElementsByClassName("button-find");
+if(serchBtn){
+	searchBtn.addEventListener('click', function(){
+		new daum.Postcode({
+			oncomplete: function(data){
+				// 우편번호
+				zipCode.value = data.zonecode || "";
+				
+				var isRoad = data.userSelectedType ==='R';
+				var base = isRoad ? (data.roadAddress || "") : (data.jibunAddress || "");
+				var extra = "";
+				
+				if(isRoad){
+					if(data.bname && /[동|로|가]$/.test(data.bname)) extra += data.bname;
+					if(data.buildingName && data.apartment ==="y"){
+						extra += (extra ? ", " : "") + data.buildingName;
+					}
+				}
+				
+				var main = base + (dxtra ? " (" + extra + ") " : "");
+				addressBasic.value = main;
+				
+				addressAdd.focus();
+			}
+		}).open({popupTitle: "우편번호 검색"});
 	});
+}
 
 	userName.addEventListener('blur', () => {
 		let nearWarning = userName.closest(".div-signup");
