@@ -9,8 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.dao.MyPageDAO;
 import com.sol.app.dto.MyMemberDTO;
+import com.sol.app.myPage.dao.MyPageDAO;
 
 public class MyInfoOkController implements Execute{
 
