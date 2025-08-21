@@ -6,10 +6,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/routine-meeting/routine-meeting-review-comment-write.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/routine/routine-meeting-review-comment-write.css">
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,7 @@
 </head>
 
 <body>
-  <div id="header">
-  </div>
+  <jsp:include page="/header.jsp" />
   <main>
     <div id="main-container">
       <ul class="ul-comment-list">
@@ -60,6 +59,5 @@
   <div id="footer">
   </div>
 </body>
-<script src="./../../assets/js/header-login.js"></script>
 <script src="./../../assets/js/footer.js"></script>
 </html>

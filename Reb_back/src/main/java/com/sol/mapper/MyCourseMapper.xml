@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="myCourse">
-	<select id="" parameterType="" resultType="">
-		
+	<select id="selectList" parameterType="int" resultType="MyCourseDTO">
+		<![CDATA[
+		SELECT c.COURSE_NUMBER, a.MEMBER_NUMBER, a.COURSE_MEMBER_APPLY_DATE , e.EXPERT_NUMBER, m.MEMBER_NUMBER AS EXPERT_MEMBER_NUMBER, m.MEMBER_NAME AS EXPERT_NAME, c.COURSE_TITLE  
+			FROM (SELECT * FROM tbl_course_member_applicant WHERE MEMBER_NUMBER = #{memberNumber}) a 
+			JOIN tbl_course c 
+				ON a.COURSE_NUMBER = c.COURSE_NUMBER
+			LEFT JOIN tbl_expert e 
+				ON e.EXPERT_NUMBER = c.EXPERT_NUMBER
+			LEFT JOIN tbl_member m 
+				ON e.MEMBER_NUMBER = m.MEMBER_NUMBER
+		]]>
 	</select>
 </mapper>

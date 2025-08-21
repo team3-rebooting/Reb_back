@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="routineMemberApplicant">
-	<select id="" parameterType="" resultType="">
-		
+	<select id="getCount" parameterType="int" resultType="int">
+		SELECT count(a.MEMBER_NUMBER) 
+		FROM TBL_ROUTINE_MEMBER_APPLICANT a  
+		JOIN (SELECT ROUTINE_NUMBER FROM TBL_ROUTINE WHERE ROUTINE_NUMBER = #{routineNumber}) r
+		ON r.ROUTINE_NUMBER = a.ROUTINE_NUMBER
 	</select>
+	
+	<insert id="insert" parameterType="RoutineMemberApplicantDTO">
+		insert into tbl_routine_member_applicant(ROUTINE_NUMBER, MEMBER_NUMBER, ROUTINE_MEMBER_APPLY_DATE)
+		values(#{routineNumber}, #{memberNubmer}, #{routineMemberApplyDate})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_routine_member_applicant
+		where member_number = #{memberNumber}
+	</delete>
+	
+	<select id="select" parameterType="int">
+		delete count(ROUTINE_NUMBER) from tbl_routine_member_applicant
+		where ROUTINE_NUMBER = #{routineNumber}
+	</select>
+	
 </mapper>

@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="myComment">
-	<select id="" parameterType="" resultType="">
-		
+	<select id="selectList" parameterType="int" resultType="MyCommentDTO">
+		<![CDATA[
+		SELECT * FROM
+		(select 
+			crc.MEMBER_NUMBER, '수업 후기' AS post_type, 
+			cr.COURSE_REVIEW_NUMBER AS review_number, 
+			cr.COURSE_REVIEW_TITLE AS review_title,
+			crc.COURSE_REVIEW_COMMENT_NUMBER AS comment_number,
+			crc.COURSE_REVIEW_CONTENT AS comment_content,
+			crc.COURSE_REVIEW_CREATED_DATE AS comment_created_date,
+			crc.COURSE_REVIEW_UPDATED_DATE AS comment_updated_date
+			FROM tbl_course_review_comment crc JOIN tbl_course_review cr ON crc.COURSE_REVIEW_NUMBER = cr.COURSE_REVIEW_NUMBER
+		union
+		select
+			rrc.MEMBER_NUMBER, '루틴 모임 후기' AS post_type, 
+			rr.ROUTINE_REVIEW_NUMBER AS review_number, 
+			rr.ROUTINE_REVIEW_TITLE AS review_title,
+			rrc.ROUTINE_REVIEW_COMMENT_NUMBER AS comment_number,
+			rrc.ROUTINE_REVIEW_CONTENT AS comment_content,
+			rrc.ROUTINE_REVIEW_CREATED_DATE AS comment_created_date,
+			rrc.ROUTINE_REVIEW_UPDATED_DATE AS comment_updated_date
+			FROM tbl_routine_review_comment rrc JOIN TBL_ROUTINE_REVIEW rr ON rrc.ROUTINE_REVIEW_NUMBER = rr.ROUTINE_REVIEW_NUMBER) sub
+		WHERE sub.member_number = #{memberNumber}
+		ORDER BY comment_created_date DESC
+		]]>
 	</select>
 </mapper>

@@ -2,23 +2,57 @@ package com.sol.app.dto;
 
 public class MyReviewDTO {
 	//CourseReviewDTO, RoutineReviewDTO (union)
+	
 	private String postType;
+	private int reviewNumber;
+	private String reviewTitle;
+	private int postReviewNumber;
+	private int postNumber;
+	private String createdDate;
+	private String updatedDate;
 	private int memberNumber;
-	private int courseReviewNumber;
-	private int courseNumber;
-	private String courseReviewTitle;
-	private String courseReviewCreatedDate;
-	private String courseReviewUpdatedDate;
-	private int routineReviewNumber;
-	private int routineNumber;
-	private String routineReviewTitle;
-	private String routineReviewCreatedDate;
-	private String routineReviewUpdatedDate;
+	
 	public String getPostType() {
 		return postType;
 	}
 	public void setPostType(String postType) {
 		this.postType = postType;
+	}
+	public int getReviewNumber() {
+		return reviewNumber;
+	}
+	public void setReviewNumber(int reviewNumber) {
+		this.reviewNumber = reviewNumber;
+	}
+	public String getReviewTitle() {
+		return reviewTitle;
+	}
+	public void setReviewTitle(String reviewTitle) {
+		this.reviewTitle = reviewTitle;
+	}
+	public int getPostReviewNumber() {
+		return postReviewNumber;
+	}
+	public void setPostReviewNumber(int postReviewNumber) {
+		this.postReviewNumber = postReviewNumber;
+	}
+	public int getPostNumber() {
+		return postNumber;
+	}
+	public void setPostNumber(int postNumber) {
+		this.postNumber = postNumber;
+	}
+	public String getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(String createdDate) {
+		this.createdDate = createdDate;
+	}
+	public String getUpdatedDate() {
+		return updatedDate;
+	}
+	public void setUpdatedDate(String updatedDate) {
+		this.updatedDate = updatedDate;
 	}
 	public int getMemberNumber() {
 		return memberNumber;
@@ -26,74 +60,11 @@ public class MyReviewDTO {
 	public void setMemberNumber(int memberNumber) {
 		this.memberNumber = memberNumber;
 	}
-	public int getCourseReviewNumber() {
-		return courseReviewNumber;
-	}
-	public void setCourseReviewNumber(int courseReviewNumber) {
-		this.courseReviewNumber = courseReviewNumber;
-	}
-	public int getCourseNumber() {
-		return courseNumber;
-	}
-	public void setCourseNumber(int courseNumber) {
-		this.courseNumber = courseNumber;
-	}
-	public String getCourseReviewTitle() {
-		return courseReviewTitle;
-	}
-	public void setCourseReviewTitle(String courseReviewTitle) {
-		this.courseReviewTitle = courseReviewTitle;
-	}
-	public String getCourseReviewCreatedDate() {
-		return courseReviewCreatedDate;
-	}
-	public void setCourseReviewCreatedDate(String courseReviewCreatedDate) {
-		this.courseReviewCreatedDate = courseReviewCreatedDate;
-	}
-	public String getCourseReviewUpdatedDate() {
-		return courseReviewUpdatedDate;
-	}
-	public void setCourseReviewUpdatedDate(String courseReviewUpdatedDate) {
-		this.courseReviewUpdatedDate = courseReviewUpdatedDate;
-	}
-	public int getRoutineReviewNumber() {
-		return routineReviewNumber;
-	}
-	public void setRoutineReviewNumber(int routineReviewNumber) {
-		this.routineReviewNumber = routineReviewNumber;
-	}
-	public int getRoutineNumber() {
-		return routineNumber;
-	}
-	public void setRoutineNumber(int routineNumber) {
-		this.routineNumber = routineNumber;
-	}
-	public String getRoutineReviewTitle() {
-		return routineReviewTitle;
-	}
-	public void setRoutineReviewTitle(String routineReviewTitle) {
-		this.routineReviewTitle = routineReviewTitle;
-	}
-	public String getRoutineReviewCreatedDate() {
-		return routineReviewCreatedDate;
-	}
-	public void setRoutineReviewCreatedDate(String routineReviewCreatedDate) {
-		this.routineReviewCreatedDate = routineReviewCreatedDate;
-	}
-	public String getRoutineReviewUpdatedDate() {
-		return routineReviewUpdatedDate;
-	}
-	public void setRoutineReviewUpdatedDate(String routineReviewUpdatedDate) {
-		this.routineReviewUpdatedDate = routineReviewUpdatedDate;
-	}
 	
 	@Override
 	public String toString() {
-		return "MyReviewDTO [postType=" + postType + ", memberNumber=" + memberNumber + ", courseReviewNumber="
-				+ courseReviewNumber + ", courseNumber=" + courseNumber + ", courseReviewTitle=" + courseReviewTitle
-				+ ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewUpdatedDate="
-				+ courseReviewUpdatedDate + ", routineReviewNumber=" + routineReviewNumber + ", routineNumber="
-				+ routineNumber + ", routineReviewTitle=" + routineReviewTitle + ", routineReviewCreatedDate="
-				+ routineReviewCreatedDate + ", routineReviewUpdatedDate=" + routineReviewUpdatedDate + "]";
+		return "MyReviewDTO [postType=" + postType + ", reviewNumber=" + reviewNumber + ", reviewTitle=" + reviewTitle
+				+ ", postReviewNumber=" + postReviewNumber + ", postNumber=" + postNumber + ", createdDate="
+				+ createdDate + ", updatedDate=" + updatedDate + ", memberNumber=" + memberNumber + "]";
 	}
 }

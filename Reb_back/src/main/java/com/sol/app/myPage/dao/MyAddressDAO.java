@@ -12,7 +12,7 @@ public class MyAddressDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public void insertAddress(AddressDTO addressDTO) {
+	public void insert(AddressDTO addressDTO) {
 		//select key 배우면 반환해서 사용자 수정에 추가하기
 		sqlSession.insert("address.insert", addressDTO);
 	}
