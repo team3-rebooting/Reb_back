@@ -4,106 +4,67 @@ public class MyCommentDTO {
 	// CourseReviewCommentDTO, RoutineReviewCommentDTO
 	
 	private int memberNumber;
-	private int courseReviewNumber;
-	private int courseNumber;
-	private String courseReviewTitle;
-	private String courseReviewCreatedDate;
-	private String courseReviewUpdatedDate;
-	private String courseReviewContent;
-	private int routineReviewNumber;
-	private int routineNumber;
-	private String routineReviewTitle;
-	private String routineReviewCreatedDate;
-	private String routineReviewUpdatedDate;
-	private String routineReviewContent;
+	private String postType;
+	private int reviewNumber;
+	private String reviewTitle;
+	private String commentNumber;
+	private String commentContent;
+	private String commentCreatedDate;
+	private String commentUpdatedDate;
 	public int getMemberNumber() {
 		return memberNumber;
 	}
 	public void setMemberNumber(int memberNumber) {
 		this.memberNumber = memberNumber;
 	}
-	public int getCourseReviewNumber() {
-		return courseReviewNumber;
+	public String getPostType() {
+		return postType;
 	}
-	public void setCourseReviewNumber(int courseReviewNumber) {
-		this.courseReviewNumber = courseReviewNumber;
+	public void setPostType(String postType) {
+		this.postType = postType;
 	}
-	public int getCourseNumber() {
-		return courseNumber;
+	public int getReviewNumber() {
+		return reviewNumber;
 	}
-	public void setCourseNumber(int courseNumber) {
-		this.courseNumber = courseNumber;
+	public void setReviewNumber(int reviewNumber) {
+		this.reviewNumber = reviewNumber;
 	}
-	public String getCourseReviewTitle() {
-		return courseReviewTitle;
+	public String getReviewTitle() {
+		return reviewTitle;
 	}
-	public void setCourseReviewTitle(String courseReviewTitle) {
-		this.courseReviewTitle = courseReviewTitle;
+	public void setReviewTitle(String reviewTitle) {
+		this.reviewTitle = reviewTitle;
 	}
-	public String getCourseReviewCreatedDate() {
-		return courseReviewCreatedDate;
+	public String getCommentNumber() {
+		return commentNumber;
 	}
-	public void setCourseReviewCreatedDate(String courseReviewCreatedDate) {
-		this.courseReviewCreatedDate = courseReviewCreatedDate;
+	public void setCommentNumber(String commentNumber) {
+		this.commentNumber = commentNumber;
 	}
-	public String getCourseReviewUpdatedDate() {
-		return courseReviewUpdatedDate;
+	public String getCommentContent() {
+		return commentContent;
 	}
-	public void setCourseReviewUpdatedDate(String courseReviewUpdatedDate) {
-		this.courseReviewUpdatedDate = courseReviewUpdatedDate;
+	public void setCommentContent(String commentContent) {
+		this.commentContent = commentContent;
 	}
-	public String getCourseReviewContent() {
-		return courseReviewContent;
+	public String getCommentCreatedDate() {
+		return commentCreatedDate;
 	}
-	public void setCourseReviewContent(String courseReviewContent) {
-		this.courseReviewContent = courseReviewContent;
+	public void setCommentCreatedDate(String commentCreatedDate) {
+		this.commentCreatedDate = commentCreatedDate;
 	}
-	public int getRoutineReviewNumber() {
-		return routineReviewNumber;
+	public String getCommentUpdatedDate() {
+		return commentUpdatedDate;
 	}
-	public void setRoutineReviewNumber(int routineReviewNumber) {
-		this.routineReviewNumber = routineReviewNumber;
-	}
-	public int getRoutineNumber() {
-		return routineNumber;
-	}
-	public void setRoutineNumber(int routineNumber) {
-		this.routineNumber = routineNumber;
-	}
-	public String getRoutineReviewTitle() {
-		return routineReviewTitle;
-	}
-	public void setRoutineReviewTitle(String routineReviewTitle) {
-		this.routineReviewTitle = routineReviewTitle;
-	}
-	public String getRoutineReviewCreatedDate() {
-		return routineReviewCreatedDate;
-	}
-	public void setRoutineReviewCreatedDate(String routineReviewCreatedDate) {
-		this.routineReviewCreatedDate = routineReviewCreatedDate;
-	}
-	public String getRoutineReviewUpdatedDate() {
-		return routineReviewUpdatedDate;
-	}
-	public void setRoutineReviewUpdatedDate(String routineReviewUpdatedDate) {
-		this.routineReviewUpdatedDate = routineReviewUpdatedDate;
-	}
-	public String getRoutineReviewContent() {
-		return routineReviewContent;
-	}
-	public void setRoutineReviewContent(String routineReviewContent) {
-		this.routineReviewContent = routineReviewContent;
+	public void setCommentUpdatedDate(String commentUpdatedDate) {
+		this.commentUpdatedDate = commentUpdatedDate;
 	}
 	
 	@Override
 	public String toString() {
-		return "MyCommentDTO [memberNumber=" + memberNumber + ", courseReviewNumber=" + courseReviewNumber
-				+ ", courseNumber=" + courseNumber + ", courseReviewTitle=" + courseReviewTitle
-				+ ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewUpdatedDate="
-				+ courseReviewUpdatedDate + ", courseReviewContent=" + courseReviewContent + ", routineReviewNumber="
-				+ routineReviewNumber + ", routineNumber=" + routineNumber + ", routineReviewTitle="
-				+ routineReviewTitle + ", routineReviewCreatedDate=" + routineReviewCreatedDate
-				+ ", routineReviewUpdatedDate=" + routineReviewUpdatedDate + ", routineReviewContent="
-				+ routineReviewContent + "]";
+		return "MyCommentDTO [memberNumber=" + memberNumber + ", postType=" + postType + ", reviewNumber="
+				+ reviewNumber + ", reviewTitle=" + reviewTitle + ", commentNumber=" + commentNumber
+				+ ", commentContent=" + commentContent + ", commentCreatedDate=" + commentCreatedDate
+				+ ", commentUpdatedDate=" + commentUpdatedDate + "]";
 	}
 }

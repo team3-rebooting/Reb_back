@@ -17,9 +17,6 @@ public class MyCourseRequestDTO {
 	private int expertNumber;
 	private int expertFieldNumber;
 	private String fieldName;
-	private int courseRecruitStatusNumber;
-	private String coursePostDate;
-	private String coursePostUpdateDate;
 	private int courseApplicantCount;
 	private int courseRecruitCount;
 	public int getMemberNumber() {
@@ -100,29 +97,17 @@ public class MyCourseRequestDTO {
 	public void setExpertNumber(int expertNumber) {
 		this.expertNumber = expertNumber;
 	}
+	public int getExpertFieldNumber() {
+		return expertFieldNumber;
+	}
+	public void setExpertFieldNumber(int expertFieldNumber) {
+		this.expertFieldNumber = expertFieldNumber;
+	}
 	public String getFieldName() {
 		return fieldName;
 	}
 	public void setFieldName(String fieldName) {
 		this.fieldName = fieldName;
-	}
-	public int getCourseRecruitStatusNumber() {
-		return courseRecruitStatusNumber;
-	}
-	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
-		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
-	}
-	public String getCoursePostDate() {
-		return coursePostDate;
-	}
-	public void setCoursePostDate(String coursePostDate) {
-		this.coursePostDate = coursePostDate;
-	}
-	public String getCoursePostUpdateDate() {
-		return coursePostUpdateDate;
-	}
-	public void setCoursePostUpdateDate(String coursePostUpdateDate) {
-		this.coursePostUpdateDate = coursePostUpdateDate;
 	}
 	public int getCourseApplicantCount() {
 		return courseApplicantCount;
@@ -136,12 +121,7 @@ public class MyCourseRequestDTO {
 	public void setCourseRecruitCount(int courseRecruitCount) {
 		this.courseRecruitCount = courseRecruitCount;
 	}
-	public int getExpertFieldNumber() {
-		return expertFieldNumber;
-	}
-	public void setExpertFieldNumber(int expertFieldNumber) {
-		this.expertFieldNumber = expertFieldNumber;
-	}
+	
 	@Override
 	public String toString() {
 		return "MyCourseRequestDTO [memberNumber=" + memberNumber + ", courseNumber=" + courseNumber
@@ -151,9 +131,6 @@ public class MyCourseRequestDTO {
 				+ ", courseRequestDate=" + courseRequestDate + ", courseResultDate=" + courseResultDate
 				+ ", courseRejectReason=" + courseRejectReason + ", courseTitle=" + courseTitle + ", expertNumber="
 				+ expertNumber + ", expertFieldNumber=" + expertFieldNumber + ", fieldName=" + fieldName
-				+ ", courseRecruitStatusNumber=" + courseRecruitStatusNumber + ", coursePostDate=" + coursePostDate
-				+ ", coursePostUpdateDate=" + coursePostUpdateDate + ", courseApplicantCount=" + courseApplicantCount
-				+ ", courseRecruitCount=" + courseRecruitCount + "]";
+				+ ", courseApplicantCount=" + courseApplicantCount + ", courseRecruitCount=" + courseRecruitCount + "]";
 	}
-	
 }

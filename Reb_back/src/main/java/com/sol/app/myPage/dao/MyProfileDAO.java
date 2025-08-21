@@ -14,15 +14,15 @@ public class MyProfileDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public void insertProfile(FileMemberProfileDTO fileMemberProfileDTO) {
+	public void insert(FileMemberProfileDTO fileMemberProfileDTO) {
 		sqlSession.insert("fileMemberProfile.insert", fileMemberProfileDTO);
 	}
 	
-	public void deleteProfile(int memberNumber) {
+	public void delete(int memberNumber) {
 		sqlSession.delete("fileMemberProfile.delete", memberNumber);
 	}
 	
-	public List<FileMemberProfileDTO> selectProfileList(int memberNumber) {
+	public List<FileMemberProfileDTO> selectList(int memberNumber) {
 		System.out.println("selectProfileList 진입");
 		System.out.println(sqlSession.selectList("fileMemberProfile.selectList", memberNumber));
 		

@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="routineReviewComment">
-	<select id="" parameterType="" resultType="">
-		
-	</select>
+	<update id="update" parameterType="RoutineReviewCommentDTO">
+		update TBL_ROUTINE_REVIEW_COMMENT
+		SET
+		ROUTINE_REVIEW_UPDATED_DATE = TO_DATE(sysdate,'YYYY-MM-DD'), 
+		ROUTINE_REVIEW_CONTENT = #{routineReviewContent}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from TBL_ROUTINE_REVIEW_COMMENT
+		where MEMBER_NUMBER = #{memberNumber}
+	</delete>
+	
+	<insert id="insert" parameterType="RoutineReviewCommentDTO">
+		INSERT INTO TBL_ROUTINE_REVIEW_COMMENT (ROUTINE_REVIEW_COMMENT_NUMBER, ROUTINE_REVIEW_NUMBER, MEMBER_NUMBER, ROUTINE_REVIEW_CREATED_DATE, ROUTINE_REVIEW_UPDATED_DATE, ROUTINE_REVIEW_CONTENT) 
+		VALUES (seq_routine_review_comment.nextval, #{routineReviewNumber}, #{memberNumber}, TO_DATE(sysdate,'YYYY-MM-DD'), TO_DATE(sysdate,'YYYY-MM-DD'), #{routineReviewContent});
+	</insert>
 </mapper>

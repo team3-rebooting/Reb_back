@@ -13,11 +13,11 @@ public class MyExpertDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public MyExpertDTO selectMyExepert(int memberNumber) {
+	public MyExpertDTO select(int memberNumber) {
 		return sqlSession.selectOne("myExpert.select", memberNumber);
 	}
 	
-	public String getExpertApplicantReason(int memberNumber) {
+	public String getReason(int memberNumber) {
 		return sqlSession.selectOne("expertApplicant.getReason", memberNumber);
 	}
 }

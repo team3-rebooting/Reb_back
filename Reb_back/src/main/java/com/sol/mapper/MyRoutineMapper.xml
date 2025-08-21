@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="myRoutine">
-	<select id="" parameterType="" resultType="">
-		
+	<select id="selectList" parameterType="int" resultType="MyRoutineDTO">
+		<![CDATA[
+		SELECT r.ROUTINE_NUMBER, a.MEMBER_NUMBER, a.ROUTINE_MEMBER_APPLY_DATE, l.ROUTINE_LEADER_NUMBER, l.ROUTINE_LEADER_NAME, r.ROUTINE_TITLE  
+			FROM 
+			(SELECT * FROM tbl_routine_member_applicant WHERE MEMBER_NUMBER = #{memberNumber}) a 
+			JOIN TBL_ROUTINE r 
+				ON a.ROUTINE_NUMBER = r.ROUTINE_NUMBER
+			LEFT JOIN tbl_routine_leader l 
+				ON l.ROUTINE_LEADER_NUMBER = r.ROUTINE_LEADER_NUMBER
+		]]>
 	</select>
 </mapper>

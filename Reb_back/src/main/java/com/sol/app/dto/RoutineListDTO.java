@@ -14,7 +14,6 @@ public class RoutineListDTO {
 	private String routineContent;
 	private int routineStatusNumber;
 	private String routineStatusInfo;
-	private List<FileRoutineDTO> fileRoutineList;
 	private String routineLocation;
 	private String routineCreatedDate;
 	private String routineUpdatedDate;
@@ -27,6 +26,9 @@ public class RoutineListDTO {
 	private String routineDayOfWeek;
 	private int routineApplicantCount;
 	private int routineRecruitCount;
+	
+	private List<FileRoutineDTO> fileRoutineList;
+	
 	private List<RoutineMemberApplicantDTO> applicantList = new ArrayList<>();
 	public int getRoutineNumber() {
 		return routineNumber;

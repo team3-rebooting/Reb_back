@@ -27,6 +27,26 @@
 			alias="AdminNoticeDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.NoticeDTO"
          alias="NoticeDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.MyRoutineDTO"
+         alias="MyRoutineDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.MyCourseDTO"
+         alias="MyCourseDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.MyReviewDTO"
+         alias="MyReviewDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.MyCommentDTO"
+         alias="MyCommentDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.MyCourseRequestDTO"
+         alias="MyCourseRequestDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.RoutineListDTO"
+         alias="RoutineListDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.RoutineMemberApplicantDTO"
+         alias="RoutineMemberApplicantDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.RoutineReviewLikeDTO"
+         alias="RoutineReviewLikeDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.RoutineReviewCommentDTO"
+         alias="RoutineReviewCommentDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.CourseReviewCommentDTO"
+         alias="CourseReviewCommentDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -48,6 +68,16 @@
 		<mapper resource="com/sol/mapper/AdminMapper.xml" />
 		<mapper resource="com/sol/mapper/MyMemberMapper.xml" />
 		<mapper resource="com/sol/mapper/AdminNoticeMapper.xml" />
+		<mapper resource="com/sol/mapper/MyRoutineMapper.xml" />
+		<mapper resource="com/sol/mapper/MyCourseMapper.xml" />
+		<mapper resource="com/sol/mapper/MyReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/MyCommentMapper.xml" />
+		<mapper resource="com/sol/mapper/MyCourseRequestMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineListMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineMemberApplicantMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewLikeMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewCommentMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" />
 		<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 
 			/> <mapper resource="com/sol/mapper/CourseRequestMapper.xml" /> <mapper resource="com/sol/mapper/CourseReviewCommentList.xml" 
 			/> <mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" /> <mapper 
