@@ -27,8 +27,7 @@
 
 <body>
   <!-- 헤더 -->
-  <div id="header">
-  </div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 사이드 메뉴 -->
     <aside id="mypage-sidemenu-container font-menu">
@@ -42,7 +41,6 @@
   <div id="footer">
   </div>
   <script src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
-  <script src="${pageContext.request.contextPath}/assets/js/header-login.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
 
