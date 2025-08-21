@@ -33,10 +33,10 @@
 	</select>
 	<insert id="create" parameterType="NoticeDTO">
 		<selectKey keyProperty="noticeNumber" resultType="int" order="BEFORE">
-			SELECT seq_notice.CURRVAL FROM DUAL
+			SELECT seq_notice.nextVal FROM DUAL
 		</selectKey>
     INSERT INTO TBL_NOTICE (NOTICE_NUMBER, NOTICE_TITLE, ADMIN_NUMBER, NOTICE_CONTENT) 
-    VALUES (SEQ_NOTICE.NEXTVAL, #{noticeTitle}, #{adminNumber}, #{noticeContent})
+    VALUES (#{noticeNumber}, #{noticeTitle}, #{adminNumber}, #{noticeContent})
 	</insert>
 	<update id="update" parameterType="NoticeDTO">
     UPDATE TBL_NOTICE
