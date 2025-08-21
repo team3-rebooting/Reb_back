@@ -6,10 +6,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/routine-meeting/routine-meeting-detail-after.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/routine-meeting/routine-meeting-detail-after.css">
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,11 +22,10 @@
     rel="stylesheet">
   <title>틈새빛</title>
 </head>
-<script defer src="./../../assets/js/routine-meeting/routine-meeting-detail.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/routine-meeting/routine-meeting-detail.js"></script>
 
 <body>
-  <div id="header">
-  </div>
+  <jsp:include page="/header.jsp" />
   <main>
     <div id="main-container">
       <div class="routine-detail-container">
@@ -85,7 +84,6 @@
   <div id="footer">
   </div>
 </body>
-<script src="./../../assets/js/header-login.js"></script>
-<script src="./../../assets/js/footer.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>

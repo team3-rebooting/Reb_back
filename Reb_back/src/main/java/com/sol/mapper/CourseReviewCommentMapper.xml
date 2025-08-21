@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="courseReviewComment">
-	<select id="" parameterType="" resultType="">
-		
-	</select>
+	<update id="update" parameterType="CourseReviewCommentDTO">
+		update TBL_COURSE_REVIEW_COMMENT
+		SET
+		COURSE_REVIEW_UPDATED_DATE = TO_DATE(sysdate,'YYYY-MM-DD'), 
+		COURSE_REVIEW_CONTENT = #{courseReviewContent}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from TBL_COURSE_REVIEW_COMMENT
+		where MEMBER_NUMBER = #{memberNumber}
+	</delete>
+	
+	<insert id="insert" parameterType="CourseReviewCommentDTO">
+		INSERT INTO TBL_COURSE_REVIEW_COMMENT (COURSE_REVIEW_COMMENT_NUMBER, COURSE_REVIEW_NUMBER, MEMBER_NUMBER, COURSE_REVIEW_CREATED_DATE, COURSE_REVIEW_UPDATED_DATE, COURSE_REVIEW_CONTENT) 
+		VALUES (seq_course_review_comment.nextval, #{courseReviewNumber}, #{memberNumber}, TO_DATE(sysdate,'YYYY-MM-DD'), TO_DATE(sysdate,'YYYY-MM-DD'), #{courseReviewContent});
+	</insert>
 </mapper>
