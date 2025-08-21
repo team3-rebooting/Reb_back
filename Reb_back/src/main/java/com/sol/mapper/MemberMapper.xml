@@ -41,7 +41,7 @@
 		WHERE MEMBER_NUMBER == #{memberNumber}
 	</update>
 	
-	<delete id="delete" parameterType="memberNumber">
+	<delete id="delete" parameterType="int">
 		DELETE FROM TBL_MEMBER 
 		WHERE MEMBER_NUMBER = #{memberNumber}
 	</delete>

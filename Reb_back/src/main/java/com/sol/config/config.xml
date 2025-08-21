@@ -20,6 +20,8 @@
          alias="AdminDTO"></typeAlias>
         <typeAlias type="com.sol.app.dto.MyMemberDTO"
          alias="MyMemberDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.MemberSignupDTO"
+         alias="MemberSignupDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
