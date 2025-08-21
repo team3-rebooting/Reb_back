@@ -1,6 +1,5 @@
 package com.sol.app.dto;
 
-import java.util.List;
 
 public class MemberDTO {
 	

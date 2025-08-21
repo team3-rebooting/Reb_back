@@ -1,10 +1,13 @@
 package com.sol.app.dto;
 
+import java.util.List;
 
-public class BannerDTO {
+public class AdminBannerDTO {
+	//bannerDTO, FileBannerDTO
 	private int bannerNumber;
 	private String bannerTitle;
- 	private int bannerOrderNumber;
+	private int bannerOrderNumber;
+	private List<FileBannerDTO> fileBannerList;
 	public int getBannerNumber() {
 		return bannerNumber;
 	}
@@ -23,10 +26,16 @@ public class BannerDTO {
 	public void setBannerOrderNumber(int bannerOrderNumber) {
 		this.bannerOrderNumber = bannerOrderNumber;
 	}
+	public List<FileBannerDTO> getFileBannerList() {
+		return fileBannerList;
+	}
+	public void setFileBannerList(List<FileBannerDTO> fileBannerList) {
+		this.fileBannerList = fileBannerList;
+	}
 	@Override
 	public String toString() {
-		return "BannerDTO [bannerNumber=" + bannerNumber + ", bannerTitle=" + bannerTitle + ", bannerOrderNumber="
-				+ bannerOrderNumber + "]";
+		return "AdminBannerDTO [bannerNumber=" + bannerNumber + ", bannerTitle=" + bannerTitle + ", bannerOrderNumber="
+				+ bannerOrderNumber + ", fileBannerList=" + fileBannerList + "]";
 	}
 	
 	

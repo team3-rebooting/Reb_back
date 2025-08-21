@@ -3,6 +3,7 @@ package com.sol.app.dto;
 import java.util.List;
 
 public class AdminCourseDTO {
+	//courseDTO, expertDTO, FileCourseDTO
 	private int courseNumber;
 	private String courseTitle;
 	private String courseContent;
