@@ -33,4 +33,31 @@
    	) WHERE rnum BETWEEN #{startRow} AND #{endRow} 
 	]]>
 	</select>
+	
+	<select id="getTotal" resultType="int">
+		select count(*)
+		from tbl_course
+	</select>
+	
+	<!-- 수업 내용 -->
+	<insert id="insert" parameterType="CourseDTO">
+		<selectKey keyProperty="courseNumber" resultType="int" order="BEFORE">
+			select seq_course.nextval from dual
+		</selectKey>
+		insert into tbl_course(course_number, course_title, course_content, expert_number, course_recruit_status_number,
+			COURSE_RECRUIT_START_DATE, COURSE_RECRUIT_END_DATE, COURSE_START_DATE, COURSE_END_DATE,
+			 COURSE_START_TIME, COURSE_END_TIME, COURSE_DAY_OF_WEEK, COURSE_RECRUIT_COUNT, COURSE_PRICE)
+		values(#{courseNumber}, #{courseTitle}, #{courseContent}, #{expertNumber}, #{courseRecruitStatusNumber},
+			#{courseRecruitStartDate}, #{courseRecruitEndDate}, #{courseStartDate}, #{courseEndDate},
+			#{courseStartTime}, #{courseEndTime}, #{courseDayOfWeek}, #{courseRecruitCount}, #{coursePrice})
+	</insert>
+	
+	<!-- 수업 개설 요청 -->
+	<insert id="request" parameterType="CourseRequestDTO">
+		insert into TBL_COURSE_REQUEST(course_number, COURSE_OPEN_STATUS_NUMBER, COURSE_REQUEST_TYPE_NUMBER, )
+	</insert>
+	
+	<insert id="delete" parameterType="CourseDTO">
+		
+	</insert>
 </mapper>

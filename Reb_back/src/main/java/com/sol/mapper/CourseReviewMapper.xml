@@ -1,7 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="courseReview">
-	<select id="" parameterType="" resultType="">
-		
+	<!-- 게시글 목록 조회 -->
+	<select id="list" parameterType="CourseReviewListDTO"
+		resultType="CourseReviewListDTO">
+		<!-- SELECT course_review_title, member_nickname, COURSE_REVIEW_CREATED_DATE, 
+			(SELECT count(*) FROM tbl_course_review_like crl WHERE crl.course_review_number 
+			= cr.COURSE_REVIEW_NUMBER) FROM tbl_course_review cr LEFT OUTER JOIN tbl_course 
+			c ON cr.course_number = c.COURSE_NUMBER LEFT OUTER JOIN tbl_member m ON cr.member_number 
+			= m.member_number ORDER BY cr.COURSE_REVIEW_CREATED_DATE desc; -->
+			<![CDATA[
+				SELECT * FROM (
+					SELECT ROWNUM AS rnum, subquery.*
+					FROM (
+						SELECT COURSE_REVIEW_TITLE, member_nickname, course_review_created_date,
+							(select count(*) from tbl_course_review_like crl where
+								crl.course_review_number = cr.course_review_number)
+						from tbl_course_review cr left outer join tbl_course c
+							on cr.course_number = c.course_number
+								left outer join tbl_member m
+							on cr.member_number = m.member_number
+						order by cr.course_review_created_date desc
+					) subquery
+				) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+			]]>
+	</select>
+
+	<!-- 게시글 총 개수 -->
+	<select id="getTotal" resultType="int">
+		select count(*)
+		from
+		tbl_course_review
+	</select>
+
+	<insert id="insert" parameterType="CourseReviewDTO">
+		<selectKey keyProperty="courseReviewNumber" resultType="int"
+			order="BEFORE">
+			select seq_course_review.nextval from dual
+		</selectKey>
+		insert into tbl_course_review(course_review_number, course_number,
+		course_review_title, member_number, course_review_content)
+		values(#{courseReviewNumber}, #{courseNumber}, #{courseReviewTitle},
+		#{memberNumber}, #{courseReviewContent})
+	</insert>
+
+	<!-- 게시물 수정 -->
+	<update id="update" parameterType="CourseReviewDTO">
+		update tbl_course_review
+		set
+		course_review_title = #{courseReviewTitle}, course_review_content =
+		#{courseReviewContent}
+		where member_number = #{memberNumber}
+	</update>
+
+	<!-- 게시글 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from tbl_course_review
+		where course_review_number = #{CourseReviewNumber}
+	</delete>
+	<!-- 게시글 상세 조회 -->
+	<select id="select" parameterType="int"
+		resultType="CourseReviewListDTO">
+	<![CDATA[
+		select cr.course_review_number, cr.course_number, cr.member_number, cr.course_review_title, m.member_nickname, cr.COURSE_REVIEW_CREATED_DATE
+			, (select count(*) from tbl_course_review_like crl where
+								crl.course_review_number = cr.course_review_number)
+			, cr.course_review_content, 
+			fmp.FILE_SYSTEM_NAME AS Member_Profile_File,
+    		fcr.FILE_SYSTEM_NAME AS Course_Review_File
+    		from tbl_course_review cr left outer join tbl_member m
+    			on cr.member_number = m.member_number
+    		left outer join tbl_file_member_profile fmp
+    			on m.member_number = fm.member_number
+    		left outer join tbl_file_course_review fcr
+    			on cr.COURSE_REVIEW_NUMBER = fcr.COURSE_REVIEW_NUMBER
+    		where cr.course_review_number = #{CourseReviewNumber}
+    ]]>
 	</select>
 </mapper>
