@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="courseList">
 	<select id="list" parameterType="CourseListDTO" resultType="CourseListDTO">
-
+		select course_number, course_title, COURSE_STATUS_INFO, course_post_date, member_name
+		from
 	</select>
 </mapper>
