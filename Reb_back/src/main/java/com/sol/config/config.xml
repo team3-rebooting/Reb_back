@@ -25,6 +25,8 @@
 			alias="AdminNoticeListDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.AdminNoticeDTO"
 			alias="AdminNoticeDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.NoticeDTO"
+         alias="NoticeDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
