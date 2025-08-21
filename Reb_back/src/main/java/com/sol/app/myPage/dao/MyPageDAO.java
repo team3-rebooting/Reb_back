@@ -17,8 +17,8 @@ public class MyPageDAO {
 		return sqlSession.selectOne("member.getId", memberNumber);
 	}
 	
-	public MemberDTO checkPassword(MemberDTO memberDTO) {
-		return sqlSession.selectOne("member.login", memberDTO);
+	public boolean checkPassword(MemberDTO memberDTO) {
+		return (Integer)sqlSession.selectOne("member.checkPassword", memberDTO) >= 1;
 	}
 	
 	public boolean login(MemberDTO memberDTO) {

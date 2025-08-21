@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,8 +29,7 @@
 
 <body>
   <!-- 헤더 -->
-  <div id="header">
-  </div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 메인 컨테이너 -->
     <div id="main-container">
@@ -49,7 +49,6 @@
   <!-- 푸터 -->
   <div id="footer">
   </div>
-  <script src="${pageContext.request.contextPath}/assets/js/header-login.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
 

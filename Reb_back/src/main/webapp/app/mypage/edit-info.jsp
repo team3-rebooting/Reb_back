@@ -33,8 +33,7 @@
 
 <body>
   <!-- 헤더 -->
-  <div id="header">
-  </div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 모달 -->
     <div class="mypage-modal">
@@ -206,7 +205,6 @@
   <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/mypage/expert-file-upload.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/mypage/profile-pic-upload.js"></script>
-  <script src="${pageContext.request.contextPath}/assets/js/header-login.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
 

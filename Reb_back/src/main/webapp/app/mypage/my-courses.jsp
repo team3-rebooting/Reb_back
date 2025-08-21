@@ -30,8 +30,7 @@
 </head>
 <body>
   <!-- 헤더 -->
-  <div id="header">
-  </div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 모달 -->
     <div class="mypage-modal">
@@ -57,7 +56,6 @@
   <script src="./../../assets/js/mypage/sidemenu.js"></script>
   <script src="./../../assets/js/mypage/mypage-list.js"></script>
   <script src="./../../assets/js/mypage/mypage-modal.js"></script>
-  <script src="./../../assets/js/header-login.js"></script>
   <script src="./../../assets/js/footer.js"></script>
 </body>
 
