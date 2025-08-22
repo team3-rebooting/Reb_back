@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="myMember">
-	<select id="read" parameterType="int" resultType="MyMemberDTO">
+	<select id="select" parameterType="int" resultType="MyMemberDTO">
 		<![CDATA[
 		SELECT m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_PASSWORD, a.ADDRESS_NUMBER, a.ZIP_CODE, a.ADDRESS, a.ADDRESS_DETAIL, m.MEMBER_EMAIL, m.MEMBER_NAME, m.MEMBER_GENDER, m.MEMBER_NICKNAME, m.MEMBER_PHONE_NUMBER, ec.EXPERT_CERT_STATUS_NUMBER, ec.EXPERT_CERT_STATUS_INFO, ea.EXPERT_APPLICANT_REASON, m.MEMBER_BIRTH_DATE
 			FROM TBL_MEMBER m 

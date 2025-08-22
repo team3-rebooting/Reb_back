@@ -25,8 +25,8 @@ public class MyPageDAO {
 		return sqlSession.selectOne("member.login", memberDTO) != null;
 	}
 	
-	public MyMemberDTO read(int memberNumber) {
-		return sqlSession.selectOne("myMember.read", memberNumber);
+	public MyMemberDTO select(int memberNumber) {
+		return sqlSession.selectOne("myMember.select", memberNumber);
 	}
 	
 	public void update(MemberDTO memberDTO) {
