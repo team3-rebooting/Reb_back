@@ -1,4 +1,4 @@
-package com.sol.app.dao;
+package com.sol.app.member.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -23,5 +23,7 @@ public class MemberDAO {
 	public void signup(MemberSignupDTO memberSignupDTO) {
 		sqlSession.insert("member.signup", memberSignupDTO);
 	}
+	
+	public 
 
 }

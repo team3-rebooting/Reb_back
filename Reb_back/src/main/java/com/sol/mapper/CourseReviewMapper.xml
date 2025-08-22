@@ -33,6 +33,7 @@
 		tbl_course_review
 	</select>
 
+	<!-- 수업 후기 게시글 작성 -->
 	<insert id="insert" parameterType="CourseReviewDTO">
 		<selectKey keyProperty="courseReviewNumber" resultType="int"
 			order="BEFORE">
@@ -77,4 +78,7 @@
     		where cr.course_review_number = #{CourseReviewNumber}
     ]]>
 	</select>
+	
+	
+	
 </mapper>

@@ -3,16 +3,8 @@
 <mapper namespace="courseList">
 	<select id="list" parameterType="CourseListDTO"
 		resultType="CourseListDTO">
-
-		<!-- INSERT INTO tbl_course(COURSE_NUMBER, COURSE_TITLE, COURSE_CONTENT, 
-			EXPERT_NUMBER, COURSE_RECRUIT_STATUS_NUMBER, COURSE_RECRUIT_START_DATE, COURSE_RECRUIT_END_DATE, 
-			COURSE_START_DATE, COURSE_END_DATE, COURSE_START_TIME,COURSE_END_TIME, COURSE_DAY_OF_WEEK, 
-			COURSE_RECRUIT_COUNT, COURSE_PRICE) values(SEQ_COURSE.NEXTVAL, '신밧드의 모험', 
-			'같이 떠나는 모험을 떠나요', 2, 3, TO_DATE('2025-08-30', 'YYYY-MM-DD'), TO_DATE('2025-08-30', 
-			'YYYY-MM-DD') , TO_DATE('2025-08-30', 'YYYY-MM-DD'), TO_DATE('2025-08-30', 
-			'YYYY-MM-DD'), TO_DATE('09:00', 'HH24:MI'), TO_DATE('16:30', 'HH24:MI'), 
-			'MT', 30, 29500); -->
 		<!-- 3 X 3으로 출력되어야함 추후 잡아보기 -->
+		<!-- 수업 내용 -->
 	<![CDATA[
 	SELECT * FROM (
       SELECT ROWNUM AS rnum, subquery.*
@@ -34,12 +26,13 @@
 	]]>
 	</select>
 	
+	<!-- 총 목록 개수 -->
 	<select id="getTotal" resultType="int">
 		select count(*)
 		from tbl_course
 	</select>
 	
-	<!-- 수업 내용 -->
+	<!-- 수업 요청 정보-->
 	<insert id="insert" parameterType="CourseDTO">
 		<selectKey keyProperty="courseNumber" resultType="int" order="BEFORE">
 			select seq_course.nextval from dual
@@ -54,20 +47,33 @@
 	
 	<!-- 수업 개설 요청 -->
 	<insert id="request" parameterType="CourseRequestDTO">
-		insert into TBL_COURSE_REQUEST(course_number, COURSE_OPEN_STATUS_NUMBER, COURSE_REQUEST_TYPE_NUMBER, )
+		insert into TBL_COURSE_REQUEST(course_number, COURSE_OPEN_STATUS_NUMBER, COURSE_REQUEST_TYPE_NUMBER, COURSE_REQUEST_DATE)
+		values(#{courseNumber}, 1, 1, to_date(sysdate, 'yyyy-mm-dd'))
 	</insert>
 	
-	<insert id="delete" parameterType="CourseDTO">
-		
+	<!-- 수업 수정 요청 -->
+	<insert id="update" parameterType="int">
+		insert into TBL_COURSE_REQUEST(course_number, COURSE_OPEN_STATUS_NUMBER, COURSE_REQUEST_TYPE_NUMBER, COURSE_REQUEST_DATE, prev_course_number)
+		values(#{courseNumber}, 1, 2, to_date(sysdate, 'yyyy-mm-dd'), #{prevCourseNumber});
 	</insert>
 	
-	<select id="select" parameterType="CourseListDTO">
+	<!-- 수업 삭제 요청 -->
+	<update id="delete" parameterType="int">
+		update tbl_course_request
+		set course_open_status_number = 1, course_request_type_number = 3
+		where course_number = #{courseNumber}
+	</update>
+	
+	<!-- 수업 상세 내용 -->
+	<select id="select" parameterType="CourseListDTO" resultType="CourseListDTO">
 		<![CDATA[
-			select course_number, m.member_number, e.expert_number, course_title, course_post_date, e.member_name, 
-				field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER, course_content, c.COURSE_RECRUIT_START_DATE
-				c.COURSE_RECRUIT_END_DATE, c.COURSE_START_DATE, c.COURSE_END_DATE, c.COURSE_START_TIME, c.COURSE_END_TIME
+			select course_number, e.expert_number, c.course_title, c.course_post_date, m.member_name, 
+				f.field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER, c.course_content, c.COURSE_RECRUIT_START_DATE,
+				c.COURSE_RECRUIT_END_DATE, c.COURSE_START_DATE, c.COURSE_END_DATE, c.COURSE_START_TIME, c.COURSE_END_TIME,
 				c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT, c.COURSE_PRICE
-				from
+				FROM tbl_course c LEFT OUTER JOIN tbl_expert e ON c.expert_number = e.expert_number
+					LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
+					LEFT OUTER JOIN tbl_field f ON f.field_number = e.expert_field_number
 		]]>
 	</select>
 </mapper>

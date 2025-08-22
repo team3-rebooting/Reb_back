@@ -9,8 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.dao.MemberDAO;
 import com.sol.app.dto.MemberDTO;
+import com.sol.app.member.dao.MemberDAO;
 
 public class LoginOkController implements Execute{
 
@@ -40,7 +40,7 @@ public class LoginOkController implements Execute{
 		
 		if(memberNumber != -1) {
 //			추후 main servlet으로 경로 변경
-			path = "/member/login.me";
+			path = "/main.jsp";
 			session.setAttribute("memberNumber", memberNumber);
 			System.out.println("세션 값 : " + memberNumber);
 			

@@ -6,10 +6,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/course/course-detail-user-ing.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/course/course-detail-user-ing.css">
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,12 +23,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
   <title>틈새빛</title>
 </head>
-<script defer src="./../../assets/js/course/course-detail.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/course/course-detail.js"></script>
 
 <body>
   <!-- 헤더 영역 -->
-  <div id="header">
-  </div>
+  <jsp:include page="/header.jsp" />
   <!-- 모달 전체 영역 -->
   <div class="modal-background">
     <!-- 모달 창 영역-->
@@ -150,7 +149,6 @@
   <div id="footer">
   </div>
 </body>
-<script src="./../../assets/js/header-login.js"></script>
-<script src="./../../assets/js/footer.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>
