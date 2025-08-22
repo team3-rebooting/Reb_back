@@ -15,4 +15,9 @@
 		delete from TBL_ROUTINE_REVIEW_LIKE
 		where MEMBER_NUMBER = #{memberNumber}
 	</delete>
+	
+	<select id="getCount" parameterType="int">
+		select count(routineReviewNumber) from TBL_ROUTINE_REVIEW_LIKE
+		where ROUTINE_REVIEW_NUMBER = #{routineReviewNumber}
+	</select>
 </mapper>
