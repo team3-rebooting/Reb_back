@@ -61,13 +61,16 @@
 		
 	</insert>
 	
+	<!-- 수업 상세 내용 -->
 	<select id="select" parameterType="CourseListDTO">
 		<![CDATA[
-			select course_number, m.member_number, e.expert_number, course_title, course_post_date, e.member_name, 
-				field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER, course_content, c.COURSE_RECRUIT_START_DATE
-				c.COURSE_RECRUIT_END_DATE, c.COURSE_START_DATE, c.COURSE_END_DATE, c.COURSE_START_TIME, c.COURSE_END_TIME
+			select course_number, e.expert_number, c.course_title, c.course_post_date, m.member_name, 
+				f.field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER, c.course_content, c.COURSE_RECRUIT_START_DATE,
+				c.COURSE_RECRUIT_END_DATE, c.COURSE_START_DATE, c.COURSE_END_DATE, c.COURSE_START_TIME, c.COURSE_END_TIME,
 				c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT, c.COURSE_PRICE
-				from
+				FROM tbl_course c LEFT OUTER JOIN tbl_expert e ON c.expert_number = e.expert_number
+					LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
+					LEFT OUTER JOIN tbl_field f ON f.field_number = e.expert_field_number
 		]]
 	</select>
 </mapper>
