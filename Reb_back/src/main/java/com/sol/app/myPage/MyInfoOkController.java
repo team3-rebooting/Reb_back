@@ -27,7 +27,7 @@ public class MyInfoOkController implements Execute{
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		myMemberDTO = myPageDAO.read(memberNumber);
+		myMemberDTO = myPageDAO.select(memberNumber);
 		
 		if(myMemberDTO != null) {
 			//myMemberDTO.setFileMemberProfileList(myPageDAO.selectProfileList(memberNumber));

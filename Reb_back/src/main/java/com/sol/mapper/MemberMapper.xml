@@ -39,6 +39,12 @@
 		WHERE MEMBER_NUMBER = #{memberNumber} and MEMBER_PASSWORD = #{memberPassword}
 	</select>
 	
+	<select id= "checkNickname" parameterType="string" resultType="int">
+		SELECT count(member_number)
+		FROM TBL_MEMBER
+		WHERE  MEMBER_NICKNAME = #{memberNickname}
+	</select>
+	
 	<update id="update" parameterType="MemberDTO">
 		UPDATE TBL_MEMBER 
 		SET MEMBER_PASSWORD = #{memberPassword}, MEMBER_NICKNAME = #{memberNickname}, 
