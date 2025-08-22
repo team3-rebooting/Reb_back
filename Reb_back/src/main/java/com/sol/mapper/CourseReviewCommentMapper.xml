@@ -6,11 +6,12 @@
 		SET
 		COURSE_REVIEW_UPDATED_DATE = TO_DATE(sysdate,'YYYY-MM-DD'), 
 		COURSE_REVIEW_CONTENT = #{courseReviewContent}
+		where MEMBER_NUMBER = #{memberNumber} and COURSE_REVIEW_COMMENT_NUMBER = #{courseReviewCommentNumber}
 	</update>
 	
-	<delete id="delete" parameterType="int">
+	<delete id="delete" parameterType="CourseReviewCommentDTO">
 		delete from TBL_COURSE_REVIEW_COMMENT
-		where MEMBER_NUMBER = #{memberNumber}
+		where MEMBER_NUMBER = #{memberNumber} and COURSE_REVIEW_COMMENT_NUMBER = #{courseReviewCommentNumber}
 	</delete>
 	
 	<insert id="insert" parameterType="CourseReviewCommentDTO">
