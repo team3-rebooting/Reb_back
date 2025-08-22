@@ -40,7 +40,7 @@ public class LoginOkController implements Execute{
 		
 		if(memberNumber != -1) {
 //			추후 main servlet으로 경로 변경
-			path = "/member/login.me";
+			path = "/main.jsp";
 			session.setAttribute("memberNumber", memberNumber);
 			System.out.println("세션 값 : " + memberNumber);
 			
