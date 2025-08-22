@@ -7,8 +7,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>관리자 로그인</title>
-  <link rel="stylesheet" href="./../../../assets/css/admin/login/admin-login.css">
-  <script defer src="./../../../assets/js/admin/login/admin-login.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/login/admin-login.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/admin/login/admin-login.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">

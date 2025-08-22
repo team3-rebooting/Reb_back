@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+ul{
+	list-style: none;
+}
+
 .font-menu {
   font-family: "IBM Plex Sans KR", sans-serif;
   font-weight: 400;
@@ -175,10 +179,13 @@ a>.main-routine-title:hover{
   font-size: 20px;
 }
 
-#main-page-number>a{
+#main-page-number>ul>li>a{
   margin: 0 28px;
   text-decoration: none;
   color: black;
+}
+#main-page-number>ul{
+	display:flex;
 }
 
 /* 검색 영역 */

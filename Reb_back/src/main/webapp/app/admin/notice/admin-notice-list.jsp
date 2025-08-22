@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>공지 사항 목록</title>
 <link rel="stylesheet"
-	href="./../../../assets/css/admin/notice/admin-notice-list.css">
+	href="${pageContext.request.contextPath}/assets/css/admin/notice/admin-notice-list.css">
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/admin/notice/admin-notice-list.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,26 +32,7 @@
 	<!-- 메인 -->
 	<main>
 		<!-- 사이드바 리스트 영역 -->
-		<section id="main-admin-list-menu">
-			<!-- 사이드바 리스트 -->
-			<ul id="main-admin-list">
-				<li><a href="./../notice/admin-notice-list.html"> <strong>공지
-							사항 목록</strong>
-				</a></li>
-				<li><a href="./../course/admin-course-request-list.html">
-						수업 목록 </a></li>
-				<li><a href="./../routine/admin-routine-list.html"> 루틴 모임
-						목록 </a></li>
-				<li><a href="./../member/admin-member-list.html"> 회원 목록 </a></li>
-				<li><a href="./../member/admin-sponsor-list.html"> 후원자 목록 </a>
-				</li>
-				<li><a href="./../member/admin-expert-list.html"> 전문가 승인 목록
-				</a></li>
-				<li><a href="./../review/admin-routine-review-list.html">
-						활동 후기 </a></li>
-				<li><a href="./../banner/admin-banner-list.html"> 배너 등록 </a></li>
-			</ul>
-		</section>
+		<jsp:include page="/adminSidebar.jsp"/>
 		<!-- 메인 영역 -->
 		<section id="main-notice">
 			<div id="main-notice-div">

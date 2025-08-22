@@ -18,7 +18,8 @@
 		select * from (
 			select rownum as rnum, subquery.* 
 					from (
-						select a.admin_number, a.admin_nickname, n.notice_number, n.notice_title, n.notice_content, n.notice_created_date
+						select a.admin_number, a.admin_nickname, n.notice_number, n.notice_title, n.notice_content, 
+						TO_CHAR(n.notice_created_date,'YY-MM-DD') AS notice_created_date 
 						from tbl_admin a join tbl_notice n
 						on a.admin_number = n.admin_number
 						order by n.notice_created_date desc
