@@ -6,10 +6,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/course/course-review-edit.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/course/course-review-edit.css">
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <script defer src="./../../assets/js/course/course-review-edit.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,8 +26,7 @@
 
 <body>
   <!-- 헤더 영역 -->
-  <div id="header">
-  </div>
+<jsp:include page="/header.jsp" />
   <!-- 메인 영역 -->
   <main>
     <!-- 메인 컨테이너 -->
@@ -64,6 +63,5 @@
   <div id="footer">
   </div>
 </body>
-<script src="./../../assets/js/header-login.js"></script>
-<script src="./../../assets/js/footer.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </html>

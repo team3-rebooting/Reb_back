@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.dao.MemberDAO;
+import com.sol.app.member.dao.MemberDAO;
 
 public class MyPasswordController implements Execute{
 
