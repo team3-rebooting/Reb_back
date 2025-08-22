@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="./../../assets/css/footer.css">
   <link rel="stylesheet" href="./../../assets/css/notice/notice-detail.css" />
 

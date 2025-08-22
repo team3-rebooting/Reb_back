@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./../../assets/css/mypage/mypage-modal.css">
     <link rel="stylesheet" href="./../../assets/css/mypage/mypage-list.css">
 
-    <link rel="stylesheet" href="./../../assets/css/header-login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
     <link rel="stylesheet" href="./../../assets/css/footer.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

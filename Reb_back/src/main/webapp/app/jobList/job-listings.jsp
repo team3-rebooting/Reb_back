@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./../../assets/css/jobList/job-listings.css" />
 
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="./../../assets/css/footer.css">
 
 

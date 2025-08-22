@@ -27,7 +27,7 @@
 
 <body>
   <!-- 헤더 -->
-  <div id="header" class="main-page">
+  <jsp:include page="/header.jsp" />
   </div>
   <main>
     <!-- 배너 영역 -->
@@ -167,7 +167,6 @@
   <div id="footer">
   </div>
   <script src="./assets/js/main.js"></script>
-  <script src="./assets/js/header-login.js"></script>
   <script src="./assets/js/footer.js"></script>
 </body>
 
