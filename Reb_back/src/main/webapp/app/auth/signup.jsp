@@ -10,7 +10,7 @@
 	href="${pageContext.request.contextPath}/assets/css/auth/signup.css">
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/header-login.css">
+	href="${pageContext.request.contextPath}/assets/css/header.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
 
@@ -176,8 +176,6 @@
 	<!-- 푸터 영역 -->
 	<div id="footer"></div>
 </body>
-<script
-	src="${pageContext.request.contextPath}/assets/js/header-nologin.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>

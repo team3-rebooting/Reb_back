@@ -6,10 +6,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/course/expert-course-delete-request-modal.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/course/expert-course-delete-request-modal.css">
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,11 +22,10 @@
     rel="stylesheet">
   <title>틈새빛</title>
 </head>
-<script defer src="./../../assets/js/course/expert-course-delete-request-modal.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/course/expert-course-delete-request-modal.js"></script>
 
 <body>
-  <div id="header">
-  </div>
+<jsp:include page="/header.jsp" />
   <div class="modal-background">
     <div class="cancel-modal">
       <form action="" method="get">
@@ -49,7 +48,7 @@
         <p class="pagetitle">틈새빛에 오신 여러분 환영합니다</p>
         <div class="div-detail-area">
           <div class="div-img">
-            <img src="./../../assets/img/karina.jpg" class="img-detail">
+            <img src="${pageContext.request.contextPath}/assets/img/karina.jpg" class="img-detail">
           </div>
           <div class="div-write-date">
             <p class="p-write-date">작성일 : 2025.08.03(일)</p>
@@ -104,6 +103,5 @@
   <div id="footer">
   </div>
 </body>
-<script src="./../../assets/js/header-login.js"></script>
-<script src="./../../assets/js/footer.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </html>

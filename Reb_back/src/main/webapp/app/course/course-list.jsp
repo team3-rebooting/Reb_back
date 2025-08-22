@@ -6,10 +6,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/course/course-list.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/course/course-list.css">
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,12 +24,11 @@
 
   <title>틈새빛</title>
 </head>
-<script defer src="./../../assets/js/course/course-list.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/course/course-list.js"></script>
 
 <body>
   <!-- 헤더 영역 -->
-  <div id="header">
-  </div>
+  <jsp:include page="/header.jsp" />
   <!-- 메인 영역 -->
   <main>
     <!-- 메인 컨테이너 -->
@@ -45,7 +44,7 @@
             <!-- detail로 넘어가는 a 태그 -> 일반 사용자가 보는 상세 화면-->
             <a href="./course-detail-user-ing.html">
               <!-- 이미지 -->
-              <img src="./../../assets/img/stone.jpg" class="img-box">
+              <img src="${pageContext.request.contextPath}/assets/img/stone.jpg" class="img-box">
               <!-- 제목 -->
               <p class="p-list-comment">틈새빛에 처음 오신 여러분 환영합니다.</p>
               <!-- 모집상태 & 작성자, 작성일 영역 -->
@@ -57,7 +56,7 @@
           <li class="li-course-list-box">
             <!-- detail로 넘어가는 a 태그 -> 일반 사용자가 보는 상세 화면-->
             <a href="./course-detail-user-ing.html">
-              <img src="./../../assets/img/stone.jpg" class="img-box">
+              <img src="${pageContext.request.contextPath}/assets/img/stone.jpg" class="img-box">
               <p class="p-list-comment">틈새빛에 처음 오신 여러분 환영합니다.</p>
               <div class="div-box-status"><button type="button" class="button-recruit-ing">모집중</button>
                 <p class="p-name-date"> 카리나 2025.08.03(일)</p>
@@ -67,7 +66,7 @@
           <li class="li-course-list-box">
             <!-- detail로 넘어가는 a 태그 -> 전문가가 보는 자기 자신의 수업 상세 화면-->
             <a href="./course-detail-expert-basic.html">
-              <img src="./../../assets/img/stone.jpg" class="img-box">
+              <img src="${pageContext.request.contextPath}/assets/img/stone.jpg" class="img-box">
               <p class="p-list-comment">틈새빛에 처음 오신 여러분 환영합니다.</p>
               <div class="div-box-status"><button type="button" class="button-recruit-ing">모집중</button>
                 <p class="p-name-date"> 카리나 2025.08.03(일)</p>
@@ -77,7 +76,7 @@
           <li class="li-course-list-box">
             <!-- detail로 넘어가는 a 태그 -> 일반 사용자가 보는 모집 종료 화면-->
             <a href="./course-detail-user-after.html">
-              <img src="./../../assets/img/stone.jpg" class="img-box">
+              <img src="${pageContext.request.contextPath}/assets/img/stone.jpg" class="img-box">
               <p class="p-list-comment">틈새빛에 처음 오신 여러분 환영합니다.</p>
               <div class="div-box-status"><button type="button" class="button-recruit-end">모집종료</button>
                 <p class="p-name-date"> 카리나 2025.08.03(일)</p>
@@ -87,7 +86,7 @@
           <li class="li-course-list-box">
             <!-- detail로 넘어가는 a 태그 -> 일반 사용자가 보는 모집 종료 화면-->
             <a href="./course-detail-user-after.html">
-              <img src="./../../assets/img/stone.jpg" class="img-box">
+              <img src="${pageContext.request.contextPath}/assets/img/stone.jpg" class="img-box">
               <p class="p-list-comment">틈새빛에 처음 오신 여러분 환영합니다.</p>
               <div class="div-box-status"><button type="button" class="button-recruit-end">모집종료</button>
                 <p class="p-name-date"> 카리나 2025.08.03(일)</p>
@@ -97,7 +96,7 @@
           <li class="li-course-list-box">
             <!-- detail로 넘어가는 a 태그 -> 일반 사용자가 보는 모집 종료 화면-->
             <a href="./course-detail-user-after.html">
-              <img src="./../../assets/img/stone.jpg" class="img-box">
+              <img src="${pageContext.request.contextPath}/assets/img/stone.jpg" class="img-box">
               <p class="p-list-comment">틈새빛에 처음 오신 여러분 환영합니다.</p>
               <div class="div-box-status"><button type="button" class="button-recruit-end">모집종료</button>
                 <p class="p-name-date"> 카리나 2025.08.03(일)</p>
@@ -107,7 +106,7 @@
           <li class="li-course-list-box">
             <!-- detail로 넘어가는 a 태그 -> 일반 사용자가 보는 모집 전 화면-->
             <a href="./course-detail-user-before.html">
-              <img src="./../../assets/img/stone.jpg" class="img-box">
+              <img src="${pageContext.request.contextPath}/assets/img/stone.jpg" class="img-box">
               <p class="p-list-comment">틈새빛에 처음 오신 여러분 환영합니다.</p>
               <div class="div-box-status"><button type="button" class="button-recruit-before">모집
                   전</button>
@@ -118,7 +117,7 @@
           <li class="li-course-list-box">
             <!-- detail로 넘어가는 a 태그 -> 일반 사용자가 보는 모집 전 화면-->
             <a href="./course-detail-user-before.html" class="a-list">
-              <img src="./../../assets/img/stone.jpg" class="img-box">
+              <img src="${pageContext.request.contextPath}/assets/img/stone.jpg" class="img-box">
               <p class="p-list-comment">틈새빛에 처음 오신 여러분 환영합니다.</p>
               <div class="div-box-status"><button type="button" class="button-recruit-before">모집
                   전</button>
@@ -129,7 +128,7 @@
           <li class="li-course-list-box">
             <!-- detail로 넘어가는 a 태그 -> 일반 사용자가 보는 모집 전 화면-->
             <a href="./course-detail-user-before.html">
-              <img src="./../../assets/img/stone.jpg" class="img-box">
+              <img src="${pageContext.request.contextPath}/assets/img/stone.jpg" class="img-box">
               <p class="p-list-comment">틈새빛에 처음 오신 여러분 환영합니다.</p>
               <div class="div-box-status"><button type="button" class="button-recruit-before">모집
                   전</button>
@@ -183,7 +182,6 @@
   <div id="footer">
   </div>
 </body>
-<script src="./../../assets/js/header-login.js"></script>
 <script src="./../../assets/js/footer.js"></script>
 
 </html>
