@@ -5,7 +5,9 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.sol.app.dto.AdminNoticeDTO;
 import com.sol.app.dto.AdminNoticeListDTO;
+import com.sol.app.dto.NoticeDTO;
 import com.sol.config.MyBatisConfig;
 
 public class AdminNoticeDAO {
@@ -15,7 +17,7 @@ public class AdminNoticeDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 
-	// 모든 공지사항 가져오기
+	// 공지사항 목록
 	public List<AdminNoticeListDTO> selectAll(Map<String, Integer> pageMap) {
 		List<AdminNoticeListDTO> list = sqlSession.selectList("adminNotice.selectAll", pageMap);
 		return list;
@@ -26,4 +28,18 @@ public class AdminNoticeDAO {
 		return sqlSession.selectOne("adminNotice.getTotal");
 	}
 
+	// 공지사항 상세
+	public AdminNoticeDTO select(int noticeNumber) {
+		return sqlSession.selectOne("adminNotice.select", noticeNumber);
+	}
+
+	// 공지사항 추가 후 자동으로 생성된 noticeNumber 반환 -> notice 파일 테이블에서도 써야됨
+	public int insert(NoticeDTO noticeDTO) {
+		return sqlSession.insert("adminNotice.insert", noticeDTO);
+	}
+
+	// 공지사항 삭제
+	public void delete(int noticeNumber) {
+		sqlSession.delete("adminNotice.delete", noticeNumber);
+	}
 }

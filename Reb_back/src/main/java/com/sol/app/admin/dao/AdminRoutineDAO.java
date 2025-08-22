@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.sol.app.dto.AdminRoutineDTO;
 import com.sol.app.dto.AdminRoutineListDTO;
 import com.sol.config.MyBatisConfig;
 
@@ -15,10 +16,15 @@ public class AdminRoutineDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 
-	// 모든 루틴모임 가져오기
+	// 루틴모임 목록
 	public List<AdminRoutineListDTO> selectAll(Map<String, Integer> pageMap) {
 		List<AdminRoutineListDTO> list = sqlSession.selectList("adminRoutine.selectAll", pageMap);
 		return list;
+	}
+
+	// 루틴모임 상세
+	public AdminRoutineDTO select(int routineNumber) {
+		return sqlSession.selectOne("adminRoutine.select", routineNumber);
 	}
 
 	// 루틴모임 총 개수 가져오기
@@ -26,4 +32,13 @@ public class AdminRoutineDAO {
 		return sqlSession.selectOne("adminRoutine.getTotal");
 	}
 
+	// 루틴모임 추가 후 자동으로 생성된 routineNumber 반환 -> routine 파일 테이블에서도 써야됨
+	public int insert(AdminRoutineDTO adminRoutineDTO) {
+		return sqlSession.insert("adminRoutine.insert", adminRoutineDTO);
+	}
+
+	// 루틴모임 삭제
+	public void delete(int routineNumber) {
+		sqlSession.delete("adminRoutine.delete", routineNumber);
+	}
 }
