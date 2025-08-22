@@ -6,9 +6,9 @@
 		VALUES (seq_routine_review.NEXTVAL, #{routineNumber}, #{routineReviewTitle}, #{memberNumber}, TO_DATE(#{routineReviewCreatedDate}, 'YYYY-MM-DD'), TO_DATE(#{rotineReviewUpdatedDate}, 'YYYY-MM-DD'), #{routineReviewContent})
 	</insert>
 	
-	<delete id="delete" parameterType="int">
+	<delete id="delete" parameterType="RoutineReviewDTO">
 		delete from TBL_ROUTINE_REVIEW
-		where ROUTINE_REVIEW_NUMBER = #{routineReviewNumber}
+		where ROUTINE_REVIEW_NUMBER = #{routineReviewNumber} and MEMBER_NUMBER = #{memberNumber}
 	</delete>
 	
 	<update id="update" parameterType="RoutineReviewDTO">

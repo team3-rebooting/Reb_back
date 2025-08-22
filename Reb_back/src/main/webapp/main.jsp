@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/main.css">
 
-  <link rel="stylesheet" href="./assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="./assets/css/footer.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,7 @@
 
 <body>
   <!-- 헤더 -->
-  <div id="header" class="main-page">
+  <jsp:include page="/header.jsp" />
   </div>
   <main>
     <!-- 배너 영역 -->
@@ -167,7 +167,6 @@
   <div id="footer">
   </div>
   <script src="./assets/js/main.js"></script>
-  <script src="./assets/js/header-login.js"></script>
   <script src="./assets/js/footer.js"></script>
 </body>
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="courseReviewCommentList">
+	<select id="selectList" parameterType="int" resultType="CourseReviewCommentListDTO">
+		<![CDATA[
+		SELECT c.COURSE_REVIEW_COMMENT_NUMBER, c.COURSE_REVIEW_NUMBER, m.MEMBER_NUMBER, m.MEMBER_NICKNAME, f.FILE_SYSTEM_NAME, c.COURSE_REVIEW_CREATED_DATE, c.COURSE_REVIEW_UPDATED_DATE, c.COURSE_REVIEW_CONTENT from tbl_course_review_comment c 
+		JOIN tbl_member m ON c.MEMBER_NUMBER = m.MEMBER_NUMBER
+		LEFT JOIN TBL_FILE_MEMBER_PROFILE f ON m.MEMBER_NUMBER = f.MEMBER_NUMBER
+		WHERE c.COURSE_REVIEW_NUMBER = #{courseReviewNumber}
+		]]>
+	</select>
+</mapper>

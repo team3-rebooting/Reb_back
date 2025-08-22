@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="adminBanner">
 	<select id="selectAll" resultType="AdminBannerDTO">
+		<![CDATA[
 		SELECT * FROM (
     			SELECT ROWNUM AS rnum, subquery.*
     			FROM (
@@ -13,5 +14,20 @@
 					 ) subquery
 					)	
 	WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	]]>
 	</select>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(banner_number)
+		FROM tbl_banner	
+	</select>
+	<insert id="insert" parameterType="AdminBannerDTO">
+		INSERT INTO TBL_BANNER(BANNER_NUMBER, BANNER_TITLE, BANNER_ORDER_NUMBER)
+		VALUES(SEQ.BANNER.NEXTVAL, #{bannerTitle}, #{bannerOrderNumber})
+	</insert>
+	<update id="update" parameterType="int">
+		UPDATE TBL_BANNER SET BANNER_ORDER_NUMBER = #{bannerOrderNumber}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM TBL_BANNER WHERE BANNER_NUMBER = #{bannerNumber}
+	</delete>
 </mapper>
