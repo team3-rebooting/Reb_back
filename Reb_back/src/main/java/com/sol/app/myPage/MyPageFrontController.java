@@ -70,7 +70,7 @@ public class MyPageFrontController extends HttpServlet {
 			break;
 		case "/mypage/checkNicknameOk.my":
 			System.out.println("닉네임 중복 확인 처리");
-			
+			result = new CheckNicknameOkController().execute(request, response);
 			break;
 		case "/myPage/accountDeletionOk.my":
 			System.out.println("회원 탈퇴 처리");
@@ -107,7 +107,7 @@ public class MyPageFrontController extends HttpServlet {
 			break;
 		}
 		
-		if (result != null) {
+		if (result != null && result.getPath() != null) {
 			if (result.isRedirect()) {
 				response.sendRedirect(result.getPath());
 			} else {

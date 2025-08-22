@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.dao.MemberDAO;
+import com.sol.app.member.dao.MemberDAO;
 
 public class CheckNicknameOkController implements Execute{
 
@@ -24,6 +24,8 @@ public class CheckNicknameOkController implements Execute{
 		String memberNickname = request.getParameter("memberNickname");
 		boolean isAvailable = memberDAO.checkNickname(memberNickname);
 
+		System.out.println(memberNickname + " "+ isAvailable);
+		
 		// JSON 형식 응답 설정
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");

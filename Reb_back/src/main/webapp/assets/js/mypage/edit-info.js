@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-	const form = document.getElementById("formEdit") || document.querySelector("form");
+	const form = document.getElementById("formEdit");
 	const base = (form && form.dataset.contextPath) ? form.dataset.contextPath : ""; // ★ 전역 없이 읽기
-
 	const pwWarning = document.querySelector(".edit-info-pw-warning");
 
 	const pwFirstWarning = document.querySelector("#edit-info-pw-first-warning");
@@ -133,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		const nickname = nicknameInput.value.trim();
 
 		if (nickname === originalNickname) {
-			nicknameAlert.textContent = "기존과 동일";
+			nicknameAlert.innerHTML = "기존과 동일";
 			nicknameAlert.style.display = "block";
 			checkNickname = true;
 			
@@ -161,18 +160,21 @@ document.addEventListener("DOMContentLoaded", function() {
 		})
 			.then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
 			.then(data => {
+				console.log("data.available ", data.available);
 				if (data.available) {
-					nicknameAlert.textContent = "사용 가능";
+					nicknameAlert.innerHTML = "사용 가능";
+					nicknameAlert.style.display = "block";
 					nicknameAlert.style.color = "green";
 				} else {
-					nicknameAlert.textContent = "존재하는 닉네임입니다";
-					nicknameAlert.style.color = "red";
+					nicknameAlert.innerHTML = "존재하는 닉네임";
+					nicknameAlert.style.display = "block";
+					nicknameAlert.style.color = "black";
 				}
 				
 				checkNickname = data.available;
 			})
 			.catch(() => {
-				nicknameAlert.textContent = "오류 발생";
+				nicknameAlert.innerHTML = "오류 발생";
 				nicknameAlert.style.color = "red";
 			});
 	}

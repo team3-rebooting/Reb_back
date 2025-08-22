@@ -24,6 +24,7 @@ public class MemberDAO {
 		sqlSession.insert("member.signup", memberSignupDTO);
 	}
 	
-	public 
-
+	public boolean checkNickname(String memberNickname) {
+		return (Integer) sqlSession.selectOne("member.checkNickname", memberNickname) < 1;
+	}
 }
