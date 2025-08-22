@@ -4,8 +4,8 @@
 	<select id="select" parameterType="int" resultType="AdminNoticeDTO">
 		<![CDATA[
 		SELECT  n.NOTICE_NUMBER, n.NOTICE_TITLE, n.ADMIN_NUMBER,a.ADMIN_NICKNAME,
-    	TO_CHAR(n.NOTICE_CREATED_DATE, 'YYYY-MM-DD HH24:MI:SS'),
-    	TO_CHAR(n.NOTICE_UPDATED_DATE, 'YYYY-MM-DD HH24:MI:SS'),
+    	TO_CHAR(n.NOTICE_CREATED_DATE, 'YYYY-MM-DD'),
+    	TO_CHAR(n.NOTICE_UPDATED_DATE, 'YYYY-MM-DD'),
     	n.NOTICE_CONTENT,f.FILE_SYSTEM_NAME, f.FILE_ORIGINAL_NAME
 		FROM TBL_NOTICE n JOIN TBL_ADMIN a ON n.ADMIN_NUMBER = a.ADMIN_NUMBER
 		LEFT JOIN TBL_FILE_NOTICE f 
@@ -17,8 +17,7 @@
 		<![CDATA[
 		select * from (
 			select rownum as rnum, subquery.* 
-			from (
-				select * from (
+					from (
 						select a.admin_number, a.admin_nickname, n.notice_number, n.notice_title, n.notice_content, n.notice_created_date
 						from tbl_admin a join tbl_notice n
 						on a.admin_number = n.admin_number
@@ -31,7 +30,7 @@
 		SELECT COUNT(notice_number)
 		FROM tbl_notice	
 	</select>
-	<insert id="create" parameterType="NoticeDTO">
+	<insert id="insert" parameterType="NoticeDTO">
 		<selectKey keyProperty="noticeNumber" resultType="int" order="BEFORE">
 			SELECT seq_notice.nextVal FROM DUAL
 		</selectKey>
