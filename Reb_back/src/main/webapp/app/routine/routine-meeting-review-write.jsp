@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/routine/routine-meeting-review-write.css">
 
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <script defer src="${pageContext.request.contextPath}/assets/js/routine-meeting/routine-meeting-review-write.js"></script>

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/routine/routine-meeting-review-comment-write.css">
 
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">

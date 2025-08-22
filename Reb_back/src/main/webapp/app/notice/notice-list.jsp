@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./../../assets/css/notice/notice-list.css" />
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="./../../assets/css/footer.css">
 
   <script defer src="./../../assets/js/notice/notice-list.js"></script>
@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <div id="main-container">
       <!-- 공지사항 -->
@@ -187,7 +187,5 @@
   </main>
   <div id="footer"></div>
 </body>
-<script src="./../../assets/js/header-login.js"></script>
 <script src="./../../assets/js/footer.js"></script>
-
 </html>

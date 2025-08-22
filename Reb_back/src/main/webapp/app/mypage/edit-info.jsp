@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/expert-file-upload.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/profile-pic-upload.css">
 
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
 
