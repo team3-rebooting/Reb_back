@@ -71,6 +71,6 @@
 				FROM tbl_course c LEFT OUTER JOIN tbl_expert e ON c.expert_number = e.expert_number
 					LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
 					LEFT OUTER JOIN tbl_field f ON f.field_number = e.expert_field_number
-		]]
+		]]>
 	</select>
 </mapper>

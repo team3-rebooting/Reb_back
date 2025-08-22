@@ -23,4 +23,8 @@ public class RoutineReviewLikeDAO {
 	public boolean select(int memberNumber) {
 		return (Integer)sqlSession.selectOne("routineReviewLike.select", memberNumber) >= 1;
 	}
+	
+	public int getCount(int routineReviewNumber) {
+		return sqlSession.selectOne("routineReviewLike.getCount", routineReviewNumber);
+	}
 }
