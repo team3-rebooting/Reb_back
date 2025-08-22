@@ -53,8 +53,8 @@
          alias="AdminRoutineListDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.AdminRoutineDTO"
          alias="AdminRoutineDTO"></typeAlias>
-        <typeAlias type="com.sol.app.dto.AdminMemberDTO"
-         alias="AdminMemberDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.AdminMemberListDTO"
+         alias="AdminMemberListDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
