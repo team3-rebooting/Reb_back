@@ -49,6 +49,10 @@
          alias="CourseReviewCommentDTO"></typeAlias>
         <typeAlias type="com.sol.app.dto.RoutineReviewListDTO"
          alias="RoutineReviewListDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.AdminRoutineListDTO"
+         alias="AdminRoutineListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminRoutineDTO"
+         alias="AdminRoutineDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -81,6 +85,8 @@
 		<mapper resource="com/sol/mapper/RoutineReviewCommentMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" />
 		<mapper resource="com/sol/mapper/RoutineReviewListMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminRoutineMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminMemberMapper.xml" />
 		<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 
 			/> <mapper resource="com/sol/mapper/CourseRequestMapper.xml" /> <mapper resource="com/sol/mapper/CourseReviewCommentList.xml" 
 			/> <mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" /> <mapper 
