@@ -16,8 +16,8 @@ public class RoutineReviewCommentDAO  {
 		sqlSession.insert("routineReviewComment.insert", routineReviewCommentDTO);
 	}
 	
-	public void delete(int memberNumber) {
-		sqlSession.delete("routineReviewComment.delete", memberNumber);
+	public void delete(RoutineReviewCommentDTO routineReviewCommentDTO) {
+		sqlSession.delete("routineReviewComment.delete", routineReviewCommentDTO);
 	}
 	
 	public void update(RoutineReviewCommentDTO routineReviewCommentDTO) {

@@ -16,8 +16,8 @@ public class CourseReviewCommentDAO {
 		sqlSession.insert("courseReviewComment.insert", courseReviewCommentDTO);
 	}
 	
-	public void delete(int memberNumber) {
-		sqlSession.delete("courseReviewComment.delete", memberNumber);
+	public void delete(CourseReviewCommentDTO courseReviewCommentDTO) {
+		sqlSession.delete("courseReviewComment.delete", courseReviewCommentDTO);
 	}
 	
 	public void update(CourseReviewCommentDTO courseReviewCommentDTO) {

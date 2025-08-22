@@ -9,7 +9,7 @@ public class CourseReviewCommentListDTO {
 	private int memberNumber;
 	private String memberNickname;
 	private List<FileMemberProfileDTO> fileMemberProFIleList;
-	private String filePath;
+	private String fileSystemName;
 	private String courseReviewCreatedDate;
 	private String courseReviewUpdatedDate;
 	private String courseReviewContent;
@@ -37,11 +37,17 @@ public class CourseReviewCommentListDTO {
 	public void setMemberNickname(String memberNickname) {
 		this.memberNickname = memberNickname;
 	}
-	public String getFilePath() {
-		return filePath;
+	public List<FileMemberProfileDTO> getFileMemberProFIleList() {
+		return fileMemberProFIleList;
 	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
+	public void setFileMemberProFIleList(List<FileMemberProfileDTO> fileMemberProFIleList) {
+		this.fileMemberProFIleList = fileMemberProFIleList;
+	}
+	public String getFileSystemName() {
+		return fileSystemName;
+	}
+	public void setFileSystemName(String fileSystemName) {
+		this.fileSystemName = fileSystemName;
 	}
 	public String getCourseReviewCreatedDate() {
 		return courseReviewCreatedDate;
@@ -61,19 +67,13 @@ public class CourseReviewCommentListDTO {
 	public void setCourseReviewContent(String courseReviewContent) {
 		this.courseReviewContent = courseReviewContent;
 	}
-	public List<FileMemberProfileDTO> getFileMemberProFIleList() {
-		return fileMemberProFIleList;
-	}
-	public void setFileMemberProFIleList(List<FileMemberProfileDTO> fileMemberProFIleList) {
-		this.fileMemberProFIleList = fileMemberProFIleList;
-	}
+	
 	@Override
 	public String toString() {
 		return "CourseReviewCommentListDTO [courseReviewCommentNumber=" + courseReviewCommentNumber
 				+ ", courseReviewNumber=" + courseReviewNumber + ", memberNumber=" + memberNumber + ", memberNickname="
-				+ memberNickname + ", fileMemberProFIleList=" + fileMemberProFIleList + ", filePath=" + filePath
-				+ ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewUpdatedDate="
+				+ memberNickname + ", fileMemberProFIleList=" + fileMemberProFIleList + ", fileSystemName="
+				+ fileSystemName + ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewUpdatedDate="
 				+ courseReviewUpdatedDate + ", courseReviewContent=" + courseReviewContent + "]";
 	}
-	
 }
