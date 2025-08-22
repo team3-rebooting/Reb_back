@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="adminCourse">
 	<select id="selectAll" resultType="AdminCourseListDTO">
+		<![CDATA[
 		SELECT * FROM (
     			SELECT ROWNUM AS rnum, subquery.*
     			FROM (
@@ -16,12 +17,14 @@
         				) subquery
 				)	
 			WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>	
 	</select>
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(course_number)
 		FROM tbl_course	
 	</select>
 	<select id="select" parameterType="int" resultType="adminCourseDTO">
+	<![CDATA[
 	SELECT
     c.COURSE_NUMBER, c.COURSE_TITLE, c.COURSE_CONTENT,
     e.EXPERT_NUMBER, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER, e.EXPERT_FIELD_NUMBER,
@@ -38,5 +41,9 @@
 	LEFT JOIN TBL_FILE_COURSE fc
     ON c.COURSE_NUMBER = fc.COURSE_NUMBER
 	WHERE c.COURSE_NUMBER = #{courseNumber}
+	]]>
 	</select>
+	<delete id="delete" parameterType="int">
+		delete from tbl_course where course_number = #{courseNumber}
+	</delete>
 </mapper>

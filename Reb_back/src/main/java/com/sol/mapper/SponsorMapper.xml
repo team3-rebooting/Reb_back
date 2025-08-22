@@ -37,4 +37,8 @@
 		WHERE MEMBER_NUMBER = #{memberNumber}
 
 	</select>
+	<insert id="spon" parameterType="SponsorDTO">
+		insert into tbl_sponsor(sponsor_number, member_number, sponsor_amount)
+		values(seq_sponsor.nextval,#{memberNumber}, #{sponsorAmount})
+	</insert>
 </mapper>

@@ -26,8 +26,6 @@
 			FROM (
     		SELECT ROWNUM AS rnum, subquery.*
     			FROM (
-        			SELECT *
-        		FROM (
            			 SELECT
                 	r.ROUTINE_REVIEW_NUMBER, r.ROUTINE_REVIEW_TITLE, r.MEMBER_NUMBER,
                 	m.MEMBER_NICKNAME, TO_CHAR(r.ROUTINE_REVIEW_CREATED_DATE, 'YYYY-MM-DD'),
@@ -36,8 +34,7 @@
             		JOIN TBL_MEMBER m
                 	ON r.MEMBER_NUMBER = m.MEMBER_NUMBER
            			 ORDER BY ROUTINE_REVIEW_CREATED_DATE DESC
-       			 ) subquery
-   			 )
+       			 ) subquery 
 		)
 		WHERE rnum BETWEEN #{startRow} AND #{endRow}
 	</select>

@@ -7,8 +7,6 @@
 			FROM (
     			SELECT ROWNUM AS rnum, subquery.*
     			FROM (
-        			SELECT *
-        			FROM (
             			SELECT
                 		m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME,
                 		e.EXPERT_FIELD_NUMBER, TO_CHAR(a.EXPERT_CHECK_DATE, 'YYYY-MM-DD')
@@ -19,7 +17,6 @@
                 		ON a.MEMBER_NUMBER = m.MEMBER_NUMBER
             			ORDER BY a.EXPERT_CHECK_DATE DESC
         				) subquery
-    					)
 					)
 		WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>
@@ -43,4 +40,10 @@
 		WHERE e.EXPERT_NUMBER = #{expertNumber}
 	]]>
 	</select>
+	<!-- status numer 다시 확인  -->
+	<update id="update" parameterType="expertApplicantDTO">
+		update tbl_expert_applicant 
+		set expert_applicant_reason = #{expertApplicantReason}, expert_status_number = 4
+		where member_number = #{memberNumber}
+	</update>
 </mapper>

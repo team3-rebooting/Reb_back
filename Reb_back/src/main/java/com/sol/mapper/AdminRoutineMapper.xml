@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="adminRoutine">
-	<select id="selectAll" parameterType="" resultType="AdminRoutineListDTO">
+	<select id="selectAll" resultType="AdminRoutineListDTO">
 		<![CDATA[
 		SELECT * FROM (
     		SELECT ROWNUM AS rnum, subquery.* 
@@ -25,7 +25,7 @@
 		SELECT COUNT(routine_number)
 		FROM tbl_routine	
 	</select>
-	<select id="select" parameterType="int" resultType="AdminRoutineListDTO">
+	<select id="select" parameterType="int" resultType="AdminRoutineDTO">
 	<![CDATA[
 		SELECT
     	r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, l.ROUTINE_LEADER_NAME,
@@ -38,9 +38,9 @@
 		WHERE r.ROUTINE_NUMBER = #{routineNumber}
 	]]>	
 	</select>
-	<insert id="create" parameterType="AdminRoutineDTO">
+	<insert id="insert" parameterType="AdminRoutineDTO">
 		<selectKey keyProperty="routineNumber" resultType="int" order="BEFORE">
-			SELECT seq_routine.nextVal FROM DUAL
+			SELECT seq_routine.nextval FROM DUAL
 		</selectKey>
     INSERT INTO TBL_ROUTINE (
         ROUTINE_NUMBER, ROUTINE_LEADER_NUMBER, ADMIN_NUMBER, ROUTINE_TITLE,
