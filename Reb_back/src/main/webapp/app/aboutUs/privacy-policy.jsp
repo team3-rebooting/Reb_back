@@ -28,8 +28,7 @@
 
 <body>
   <!-- 헤더 -->
-  <div id="header">
-  </div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 메인 컨테이너 -->
     <div id="main-container">
@@ -39,7 +38,6 @@
   <!-- 푸터 -->
   <div id="footer">
   </div>
-  <script src="./../../assets/js/header-login.js"></script>
   <script src="./../../assets/js/footer.js"></script>
 </body>
 
