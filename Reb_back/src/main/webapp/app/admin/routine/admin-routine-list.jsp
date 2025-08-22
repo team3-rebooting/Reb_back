@@ -25,50 +25,8 @@
   </header>
 
   <main>
-    <section id="main-admin-list-menu">
-      <ul id="main-admin-list">
-        <li>
-          <a href="./../notice/admin-notice-list.html">
-            공지 사항 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../course/admin-course-request-list.html">
-            수업 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../routine/admin-routine-list.html">
-            <strong>루틴 모임 목록</strong>
-          </a>
-        </li>
-        <li>
-          <a href="./../member/admin-member-list.html">
-            회원 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../member/admin-sponsor-list.html">
-            후원자 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../member/admin-expert-list.html">
-            전문가 승인 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../review/admin-routine-review-list.html">
-            활동 후기
-          </a>
-        </li>
-        <li>
-          <a href="./../banner/admin-banner-list.html">
-            배너 등록
-          </a>
-        </li>
-      </ul>
-    </section>
+    <jsp:include page="/adminSidebar.jsp"/>
+    
     <section id="main-routine">
       <div id="main-routine-div">
         <div id="main-routine-list-title">
