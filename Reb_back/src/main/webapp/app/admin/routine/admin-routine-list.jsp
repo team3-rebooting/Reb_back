@@ -74,7 +74,7 @@
 						</c:when>
 						<c:otherwise>
 							<div>
-								<div colspan="5" align="center">등록된 게시물이 없습니다.</div>
+								<div colspan="5" align="center">등록된 루틴모임이 없습니다.</div>
 							</div>
 						</c:otherwise>
 					</c:choose>

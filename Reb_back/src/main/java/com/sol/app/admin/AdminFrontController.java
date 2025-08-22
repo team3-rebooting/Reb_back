@@ -71,7 +71,7 @@ public class AdminFrontController extends HttpServlet {
             	  break;
                case "/admin/memberListOk.ad" :
             	  System.out.println("회원목록 리스트");
-//            	  result = new MemberListOkController().execute(request,response);
+            	  result = new MemberListOkController().execute(request,response);
             	  break;
             }
             

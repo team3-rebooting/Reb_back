@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="adminMember">
-	<select id="selectAll" resultType="MemberDTO">
+	<select id="selectAll" resultType="AdminMemberListDTO">
 	<![CDATA[
 		SELECT * FROM (
     		SELECT ROWNUM AS rnum, subquery.*
     			FROM (
-        			SELECT *
-        				FROM (
             				SELECT 
-                			m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_PASSWORD,
-                			m.MEMBER_ADDRESS_NUMBER, m.MEMBER_EMAIL, m.MEMBER_NAME,
-                			m.MEMBER_GENDER, m.MEMBER_NICKNAME, m.MEMBER_PHONE_NUMBER,
-                			TO_CHAR(m.MEMBER_BIRTH_DATE, 'YYYY-MM-DD')
+                			m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NICKNAME, 
+                			a.address, a.address_detail, m.member_signup_date   
             				FROM TBL_MEMBER m
-            				ORDER BY m.MEMBER_NUMBER DESC
+            				join tbl_address a on a.address_number = m.address_number 
+            				ORDER BY m.member_signup_date DESC
         					) subquery
-    				)
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 	]]>	
 	</select>
