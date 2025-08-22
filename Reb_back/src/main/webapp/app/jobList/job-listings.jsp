@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./../../assets/css/jobList/job-listings.css" />
 
 
-  <link rel="stylesheet" href="./../../assets/css/header-login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="./../../assets/css/footer.css">
 
 
@@ -29,7 +29,7 @@
 
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <div id="main-container">
 
@@ -334,7 +334,6 @@
   </main>
   <div id="footer"></div>
 </body>
-<script src="./../../assets/js/header-login.js"></script>
 <script src="./../../assets/js/footer.js"></script>
 
 
