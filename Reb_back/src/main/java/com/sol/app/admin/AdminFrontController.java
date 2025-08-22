@@ -57,9 +57,9 @@ public class AdminFrontController extends HttpServlet {
                   result = new LoginOkController().execute(request, response);
                   System.out.println("로그인오케이 돌아옴");
                   break;
-               case "/admin/noticeList.ad" :
+               case "/admin/noticeListOk.ad" :
                   System.out.println("공지사항 리스트");
-                  request.getRequestDispatcher("/app/admin/notice/admin-notice-list.jsp").forward(request, response);
+                  result = new NoticeListOkController().execute(request, response);
                   break;
                case "/admin/noticeCreate.ad" :
             	  System.out.println("공지사항 생성");

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="adminCourseRequest">
-	<select id="selectAll" resultType="AdminCourseRequsetListDTO">
+	<select id="selectAll" resultType="AdminCourseRequestListDTO">
 	<![CDATA[
 		SELECT * FROM (
     		SELECT ROWNUM AS rnum, subquery.* FROM (
@@ -28,6 +28,7 @@
 		FROM tbl_routine	
 	</select> -->
 	<select id="select" parameterType="int" resultType="AdminCourseRequestDTO">
+	<![CDATA[
 	SELECT 
     cr.COURSE_OPEN_STATUS_NUMBER, cr.COURSE_REQUEST_TYPE_NUMBER,
     TO_CHAR(cr.COURSE_REGISTER_DATE, 'YYYY-MM-DD'), TO_CHAR(cr.COURSE_REQUEST_DATE, 'YYYY-MM-DD'), TO_CHAR(cr.COURSE_RESULT_DATE, 'YYYY-MM-DD'),
@@ -43,6 +44,24 @@
 	JOIN TBL_COURSE c
     ON cr.COURSE_NUMBER = c.COURSE_NUMBER
 	WHERE cr.COURSE_NUMBER = #{courseNumber}
-
+	]]>
 	</select>
+	<!-- 여기 update 문 status number 다시 한번 확인  -->
+	<!-- 신청, 수정 승인 -->
+	<update id="approve" parameterType="int">
+		update tbl_course_request set COURSE_OPEN_STATUS_NUMBER = 2, 
+		COURSE_RESULT_DATE = to_date(sysdate, 'YYYY-MM-DD')
+		where course_number = #{courseNumber}
+	</update>
+	<!-- 삭제 승인  -->
+	<delete id="deleteApprove" parameterType="int">
+		delete from tbl_course where course_number = #{courseNumber}
+	</delete>
+	<!-- 반려 사유  -->
+	<update id="rejection" parameterType="AdminCourseRequestDTO">
+		update tbl_course_request set COURSE_OPEN_STATUS_NUMBER = 3, 
+		COURSE_RESULT_DATE = to_date(sysdate, 'YYYY-MM-DD'),
+		course_resect_reason = #{courseRejectReason}
+		where course_number = #{courseNumber}
+	</update>
 </mapper>

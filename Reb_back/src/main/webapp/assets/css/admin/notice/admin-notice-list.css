@@ -3,6 +3,10 @@
   margin: 0;
   padding: 0;
 }
+/* ul  */
+ul{
+	list-style: none;
+}
 
 /* 폰트 */
 .font-menu {
@@ -204,10 +208,13 @@ a>.main-notice-title:hover{
 }
 
 /* 페이지네이션 버튼 커스텀 */
-#main-page-number>a{
+#main-page-number>ul>li>a{
   margin: 0 28px;
   text-decoration: none;
   color: black;
+}
+#main-page-number>ul{
+	display:flex;
 }
 
 /* 검색 영역 */
