@@ -2,7 +2,7 @@ package com.sol.app.routine.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.sol.app.dto.RoutineDTO;
+import com.sol.app.dto.RoutineReviewDTO;
 import com.sol.config.MyBatisConfig;
 
 public class RoutineReviewDAO {
@@ -12,15 +12,15 @@ public class RoutineReviewDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public void insert(RoutineDTO routineDTO) {
-		sqlSession.insert("routineReview.insert", routineDTO);
+	public void insert(RoutineReviewDTO routineReviewDTO) {
+		sqlSession.insert("routineReview.insert", routineReviewDTO);
 	}
 	
-	public void delete(int routineReviewNumber) {
-		sqlSession.delete("routineReview.delete", routineReviewNumber);
+	public void delete(RoutineReviewDTO routineReviewDTO) {
+		sqlSession.delete("routineReview.delete", routineReviewDTO);
 	}
 	
-	public void update(RoutineDTO routineDTO) {
-		sqlSession.update("routineReview.update", routineDTO);
+	public void update(RoutineReviewDTO routineReviewDTO) {
+		sqlSession.update("routineReview.update", routineReviewDTO);
 	}
 }
