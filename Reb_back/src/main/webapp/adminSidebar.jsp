@@ -14,7 +14,10 @@
 				루틴 모임 목록 
 					</a>
 				</li>
-				<li><a href="./../member/admin-member-list.html"> 회원 목록 </a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/memberListOk.ad?page=1"> 
+				회원 목록 
+					</a>
+				</li>
 				<li><a href="./../member/admin-sponsor-list.html"> 후원자 목록 </a>
 				</li>
 				<li><a href="./../member/admin-expert-list.html"> 전문가 승인 목록

@@ -6,26 +6,28 @@
 		SELECT * FROM (
     		SELECT ROWNUM AS rnum, subquery.* 
     			FROM (
-        			SELECT * FROM (
-            			SELECT 
-                			r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, r.ADMIN_NUMBER,
+    					SELECT
+            				r.ROUTINE_NUMBER, rl.ROUTINE_LEADER_NAME, r.ADMIN_NUMBER,
                				r.ROUTINE_TITLE, r.ROUTINE_STATUS_NUMBER, s.ROUTINE_STATUS_INFO,
-                			TO_CHAR(r.ROUTINE_START_DATE, 'YYYY-MM-DD') AS ROUTINE_START_DATE,
-                			TO_CHAR(r.ROUTINE_END_DATE, 'YYYY-MM-DD') AS ROUTINE_END_DATE,
-                			r.ROUTINE_RECRUIT_COUNT 
+                			TO_CHAR(r.ROUTINE_START_DATE, 'YY-MM-DD') AS ROUTINE_START_DATE,
+                			TO_CHAR(r.ROUTINE_END_DATE, 'YY-MM-DD') AS ROUTINE_END_DATE,
+                			r.ROUTINE_RECRUIT_COUNT,
+                			(select count(*) from TBL_ROUTINE_MEMBER_APPLICANT rma where
+                        	rma.routine_number = r.routine_number) AS routine_count 
             				FROM TBL_ROUTINE r
             				JOIN TBL_ROUTINE_STATUS s ON r.ROUTINE_STATUS_NUMBER = s.ROUTINE_STATUS_NUMBER
-            				ORDER BY r.ROUTINE_NUMBER DESC
+            				JOIN tbl_routine_leader rl ON r.ROUTINE_LEADER_NUMBER = rl.ROUTINE_LEADER_NUMBER
+            				ORDER BY r.ROUTINE_START_DATE DESC
         			) subquery
-    			)
 			) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>
 	</select>
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(routine_number)
-		FROM tbl_routine	
+		FROM tbl_routine
 	</select>
-	<select id="select" parameterType="int" resultType="AdminRoutineDTO">
+	<select id="select" parameterType="int"
+		resultType="AdminRoutineDTO">
 	<![CDATA[
 		SELECT
     	r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, l.ROUTINE_LEADER_NAME,
@@ -36,41 +38,49 @@
 		JOIN TBL_ROUTINE_STATUS s ON r.ROUTINE_STATUS_NUMBER = s.ROUTINE_STATUS_NUMBER
 		JOIN TBL_ROUTINE_LEADER l ON r.ROUTINE_LEADER_NUMBER = l.ROUTINE_LEADER_NUMBER
 		WHERE r.ROUTINE_NUMBER = #{routineNumber}
-	]]>	
+	]]>
 	</select>
 	<insert id="insert" parameterType="AdminRoutineDTO">
-		<selectKey keyProperty="routineNumber" resultType="int" order="BEFORE">
+		<selectKey keyProperty="routineNumber" resultType="int"
+			order="BEFORE">
 			SELECT seq_routine.nextval FROM DUAL
 		</selectKey>
-    INSERT INTO TBL_ROUTINE (
-        ROUTINE_NUMBER, ROUTINE_LEADER_NUMBER, ADMIN_NUMBER, ROUTINE_TITLE,
-        ROUTINE_CONTENT, ROUTINE_STATUS_NUMBER, ROUTINE_LOCATION,
-        ROUTINE_CREATED_DATE, ROUTINE_RECRUIT_START_DATE, ROUTINE_RECRUIT_END_DATE,
-        ROUTINE_START_DATE, ROUTINE_END_DATE, ROUTINE_START_TIME, ROUTINE_END_TIME,
-        ROUTINE_DAY_OF_WEEK, ROUTINE_RECRUIT_COUNT
-    )
-    VALUES (
-        #{routineNumber}, #{routineLeaderNumber}, #{adminNumber}, #{routineTitle},
-        #{routineContent}, #{routineStatusNumber}, #{routineLocation},
-        SYSDATE, TO_DATE(#{routineRecruitStartDate}, 'YYYY-MM-DD'), TO_DATE(#{routineRecruitEndDate}, 'YYYY-MM-DD'),
-        TO_DATE(#{routineStartDate}, 'YYYY-MM-DD'), TO_DATE(#{routineEndDate}, 'YYYY-MM-DD'),
-        TO_DATE(#{routineStartTime}, 'HH24:MI'), TO_DATE(#{routineEndTime}, 'HH24:MI'),
-        #{routineDayOfWeek}, #{routineRecruitCount}
-    )
+		INSERT INTO TBL_ROUTINE (
+		ROUTINE_NUMBER, ROUTINE_LEADER_NUMBER, ADMIN_NUMBER, ROUTINE_TITLE,
+		ROUTINE_CONTENT, ROUTINE_STATUS_NUMBER, ROUTINE_LOCATION,
+		ROUTINE_CREATED_DATE, ROUTINE_RECRUIT_START_DATE, ROUTINE_RECRUIT_END_DATE,
+		ROUTINE_START_DATE, ROUTINE_END_DATE, ROUTINE_START_TIME,
+		ROUTINE_END_TIME,
+		ROUTINE_DAY_OF_WEEK, ROUTINE_RECRUIT_COUNT
+		)
+		VALUES (
+		#{routineNumber}, #{routineLeaderNumber}, #{adminNumber}, #{routineTitle},
+		#{routineContent}, #{routineStatusNumber}, #{routineLocation},
+		SYSDATE, TO_DATE(#{routineRecruitStartDate}, 'YYYY-MM-DD'),
+		TO_DATE(#{routineRecruitEndDate}, 'YYYY-MM-DD'),
+		TO_DATE(#{routineStartDate}, 'YYYY-MM-DD'), TO_DATE(#{routineEndDate},
+		'YYYY-MM-DD'),
+		TO_DATE(#{routineStartTime}, 'HH24:MI'), TO_DATE(#{routineEndTime}, 'HH24:MI'),
+		#{routineDayOfWeek}, #{routineRecruitCount}
+		)
 	</insert>
 	<update id="update" parameterType="AdminRoutineDTO">
-    UPDATE TBL_ROUTINE
-    SET ROUTINE_TITLE = #{routineTitle}, ROUTINE_CONTENT = #{routineContent}, ROUTINE_STATUS_NUMBER = #{routineStatusNumber},
-        ROUTINE_LOCATION = #{routineLocation}, ROUTINE_UPDATED_DATE = SYSDATE,
-        ROUTINE_RECRUIT_START_DATE = TO_DATE(#{routineRecruitStartDate}, 'YYYY-MM-DD'),
-        ROUTINE_RECRUIT_END_DATE = TO_DATE(#{routineRecruitEndDate}, 'YYYY-MM-DD'),
-        ROUTINE_START_DATE = TO_DATE(#{routineStartDate}, 'YYYY-MM-DD'), ROUTINE_END_DATE = TO_DATE(#{routineEndDate}, 'YYYY-MM-DD'),
-        ROUTINE_START_TIME = TO_DATE(#{routineStartTime}, 'HH24:MI'), ROUTINE_END_TIME = TO_DATE(#{routineEndTime}, 'HH24:MI'),
-        ROUTINE_DAY_OF_WEEK = #{routineDayOfWeek}, ROUTINE_RECRUIT_COUNT = #{routineRecruitCount}
-    	WHERE ROUTINE_NUMBER = #{routineNumber}
+		UPDATE TBL_ROUTINE
+		SET ROUTINE_TITLE = #{routineTitle}, ROUTINE_CONTENT = #{routineContent},
+		ROUTINE_STATUS_NUMBER = #{routineStatusNumber},
+		ROUTINE_LOCATION = #{routineLocation}, ROUTINE_UPDATED_DATE = SYSDATE,
+		ROUTINE_RECRUIT_START_DATE = TO_DATE(#{routineRecruitStartDate},
+		'YYYY-MM-DD'),
+		ROUTINE_RECRUIT_END_DATE = TO_DATE(#{routineRecruitEndDate}, 'YYYY-MM-DD'),
+		ROUTINE_START_DATE = TO_DATE(#{routineStartDate}, 'YYYY-MM-DD'), ROUTINE_END_DATE =
+		TO_DATE(#{routineEndDate}, 'YYYY-MM-DD'),
+		ROUTINE_START_TIME = TO_DATE(#{routineStartTime}, 'HH24:MI'), ROUTINE_END_TIME =
+		TO_DATE(#{routineEndTime}, 'HH24:MI'),
+		ROUTINE_DAY_OF_WEEK = #{routineDayOfWeek}, ROUTINE_RECRUIT_COUNT = #{routineRecruitCount}
+		WHERE ROUTINE_NUMBER = #{routineNumber}
 	</update>
 	<delete id="delete" parameterType="AdminRoutineDTO">
-    DELETE FROM TBL_ROUTINE WHERE ROUTINE_NUMBER = #{routineNumber}
-    </delete>
-    
+		DELETE FROM TBL_ROUTINE WHERE ROUTINE_NUMBER = #{routineNumber}
+	</delete>
+
 </mapper>

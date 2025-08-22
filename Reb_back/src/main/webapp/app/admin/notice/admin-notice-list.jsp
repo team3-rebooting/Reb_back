@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>공지 사항 목록</title>
 <link rel="stylesheet"
-	href="./../../../assets/css/admin/notice/admin-notice-list.css">
+	href="${pageContext.request.contextPath}/assets/css/admin/notice/admin-notice-list.css">
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/admin/notice/admin-notice-list.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">

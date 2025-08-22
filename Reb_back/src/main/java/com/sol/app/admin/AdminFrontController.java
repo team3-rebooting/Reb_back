@@ -69,7 +69,10 @@ public class AdminFrontController extends HttpServlet {
             	  System.out.println("루틴목록 리스트");
             	  result = new RoutineListOkController().execute(request, response); 
             	  break;
-            	  
+               case "/admin/memberListOk.ad" :
+            	  System.out.println("회원목록 리스트");
+//            	  result = new MemberListOkController().execute(request,response);
+            	  break;
             }
             
             if (result != null && result.getPath() != null) {
