@@ -42,7 +42,7 @@
     <!-- 메인 컨테이너 -->
     <div id="main-container">
       <div class="pagetitle">개인정보 조회</div>
-      <form action="/myPage/editInfo.my" method="post">
+      <form action="/myPage/editInfoOk.my" method="post">
         <!-- 개인정보 조회 -->
         <div id="personal-info-container">
           <!-- ID -->

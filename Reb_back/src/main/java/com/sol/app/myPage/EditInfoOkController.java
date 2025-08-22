@@ -12,7 +12,7 @@ import com.sol.app.Result;
 import com.sol.app.dto.MyMemberDTO;
 import com.sol.app.myPage.dao.MyPageDAO;
 
-public class EditInfoController  implements Execute {
+public class EditInfoOkController  implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
@@ -32,7 +32,7 @@ public class EditInfoController  implements Execute {
 			result.setRedirect(true);
 		}
 		else {
-			myMemberDTO = myPageDAO.read(memberNumber);
+			myMemberDTO = myPageDAO.select(memberNumber);
 			
 			if(myMemberDTO != null) {
 				//myMemberDTO.setFileMemberProfileList(myPageDAO.selectProfileList(memberNumber));
