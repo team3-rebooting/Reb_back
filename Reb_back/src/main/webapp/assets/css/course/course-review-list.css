@@ -232,3 +232,12 @@ a {
   text-decoration: underline;
 }
 
+.no-list{
+	display: flex;
+	justify-content: center;
+}
+
+li{
+	list-style: none;
+}
+
