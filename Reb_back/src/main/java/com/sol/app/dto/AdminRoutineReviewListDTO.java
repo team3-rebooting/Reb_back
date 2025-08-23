@@ -3,7 +3,6 @@ package com.sol.app.dto;
 public class AdminRoutineReviewListDTO {
 	private int routineReviewNumber;
 	private String routineReviewTitle;
-	private int memberNumber;
 	private String memberNickname;
 	private String routineReviewCreatedDate;
 	private String routineReviewUpdatedDate;
@@ -18,12 +17,6 @@ public class AdminRoutineReviewListDTO {
 	}
 	public void setRoutineReviewTitle(String routineReviewTitle) {
 		this.routineReviewTitle = routineReviewTitle;
-	}
-	public int getMemberNumber() {
-		return memberNumber;
-	}
-	public void setMemberNumber(int memberNumber) {
-		this.memberNumber = memberNumber;
 	}
 	public String getMemberNickname() {
 		return memberNickname;
@@ -46,10 +39,10 @@ public class AdminRoutineReviewListDTO {
 	@Override
 	public String toString() {
 		return "AdminRoutineReviewListDTO [routineReviewNumber=" + routineReviewNumber + ", routineReviewTitle="
-				+ routineReviewTitle + ", memberNumber=" + memberNumber + ", memberNickname=" + memberNickname
-				+ ", routineReviewCreatedDate=" + routineReviewCreatedDate + ", routineReviewUpdatedDate="
-				+ routineReviewUpdatedDate + "]";
+				+ routineReviewTitle + ", memberNickname=" + memberNickname + ", routineReviewCreatedDate="
+				+ routineReviewCreatedDate + ", routineReviewUpdatedDate=" + routineReviewUpdatedDate + "]";
 	}
+	
 	
 	
 }

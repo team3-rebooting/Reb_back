@@ -19,5 +19,9 @@ public class AdminDAO {
 		return sqlSession.selectOne("admin.login",adminDTO);
 	}
 	
+	public String getAdminId(int adminNumber) {
+		return sqlSession.selectOne("admin.getAdminId",adminNumber);
+	}
+	
 	
 }

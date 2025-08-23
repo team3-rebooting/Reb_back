@@ -16,8 +16,8 @@ public class AdminBannerDAO {
 	}
 
 	// 배너 목록
-	public List<AdminBannerDTO> selectAll(Map<String, Integer> pageMap) {
-		List<AdminBannerDTO> list = sqlSession.selectList("adminBanner.selectAll", pageMap);
+	public List<AdminBannerDTO> selectAll() {
+		List<AdminBannerDTO> list = sqlSession.selectList("adminBanner.selectAll");
 		return list;
 	}
 

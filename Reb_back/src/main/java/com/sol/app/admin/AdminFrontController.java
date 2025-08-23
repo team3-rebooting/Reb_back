@@ -66,10 +66,17 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("공지사항 리스트");
 			result = new NoticeListOkController().execute(request, response);
 			break;
-		case "/admin/noticeCreate.ad":
+		case "/admin/noticeWrite.ad":
 			System.out.println("공지사항 생성");
-			request.getRequestDispatcher("/app/admin/notice/admin-notice-create.jsp").forward(request, response);
+			result = new NoticeWriteController().execute(request,response);
 			break;
+		case "/admin/noticeWriteOk.ad" : 
+			System.out.println("공지사항 생성 완료");
+			result = new NoticeWriteOkController().execute(request, response);
+			break;
+		case "/admin/noticeReadOk.ad" :
+			System.out.println("공지사항 상세");
+			result = new NoticeReadOkController().execute(request,response);
 		case "/admin/courseRequestListOk.ad" :
 			System.out.println("수업 요청 리스트");
 			result = new CouresRequestListOkController().execute(request,response);
@@ -89,6 +96,27 @@ public class AdminFrontController extends HttpServlet {
 		case "/admin/sponsorListOk.ad" :
 			System.out.println("후원 목록 리스트");
 			result = new SponsorListOkController().execute(request,response);
+			break;
+		case "/admin/expertApplicantListOk.ad" :
+			System.out.println("전문가 승인 목록 리스트");
+			result = new ExpertApplicantListOkController().execute(request,response);
+			break;
+		case "/admin/expertListOk.ad" :
+			System.out.println("전문가 목록 리스트");
+			result = new ExpertListOkController().execute(request,response);
+			break;
+		case "/admin/routineReviewListOk.ad" :
+			System.out.println("루틴 모임 리뷰 목록");
+			result = new RoutineReviewListOkController().execute(request,response);
+			break;
+		case "/admin/courseReviewListOk.ad" :
+			System.out.println("수업 리뷰 목록");
+			result = new CourseReviewListOkController().execute(request,response);
+			break;
+		case "/admin/bannerListOk.ad" :
+			System.out.println("배너 목록");
+			result = new BannerListOkController().execute(request,response);
+			break;
 		}
 		
 		if (result != null && result.getPath() != null) {

@@ -22,10 +22,10 @@
 				 후원자 목록 
 				 </a>
 				</li>
-				<li><a href="./../member/admin-expert-list.html"> 전문가 승인 목록
+				<li><a href="${pageContext.request.contextPath}/admin/expertApplicantListOk.ad?page=1"> 전문가 승인 목록
 				</a></li>
-				<li><a href="./../review/admin-routine-review-list.html">
+				<li><a href="${pageContext.request.contextPath}/admin/routineReviewListOk.ad?page=1">
 						활동 후기 </a></li>
-				<li><a href="./../banner/admin-banner-list.html"> 배너 등록 </a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/bannerListOk.ad?page=1"> 배너 등록 </a></li>
 			</ul>
 		</section>

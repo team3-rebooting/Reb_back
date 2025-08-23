@@ -35,7 +35,9 @@ public class AdminNoticeDAO {
 
 	// 공지사항 추가 후 자동으로 생성된 noticeNumber 반환 -> notice 파일 테이블에서도 써야됨
 	public int insert(NoticeDTO noticeDTO) {
-		return sqlSession.insert("adminNotice.insert", noticeDTO);
+		int tf = sqlSession.insert("adminNotice.insert", noticeDTO);
+		System.out.println(tf);
+		return noticeDTO.getNoticeNumber(); 
 	}
 
 	// 공지사항 삭제
