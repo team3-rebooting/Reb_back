@@ -17,6 +17,8 @@ public class CourseReviewWriteController implements Execute{
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		System.out.println("CourseReviewWriteController 진입 성공");
+		
 		MemberDAO memberDAO = new MemberDAO();
 		Result result = new Result();
 		HttpSession session = request.getSession();
@@ -30,7 +32,10 @@ public class CourseReviewWriteController implements Execute{
 			request.setAttribute("memberId", memberDAO.getMemberId(memberNumber));
 		}
 		
-		return null;
+		result.setPath(path);
+		result.setRedirect(false);
+		
+		return result;
 	}
 
 	
