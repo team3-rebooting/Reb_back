@@ -143,35 +143,16 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	const list = document.querySelectorAll(`.mypage-list`);
-
-	list.forEach((item) => {
-		const listPageTitle = item.querySelector('.pagetitle');
-		const listColType = item.querySelector('.list-col-type');
-		const listContentList = item.querySelectorAll('.li-content');
-		const searchTypeFirst = item.querySelector('.search-type-first');
-		const searchTypeSecond = item.querySelector('.search-type-second');
-
-		let id = item.getAttribute("id");
-
-		item.querySelector('.button-search img').dataset.search = id;
-		item.querySelector('.select-search').dataset.search = id;
-
-		inputList(listPageTitle, listColType, listContentList, searchTypeFirst, searchTypeSecond, id);
-	});
-
-
-
 	// ====== 댓글 목록 로드 ======
 	async function loadReplies() {
 		if (!listType) return;
 		try {
-			const res = await fetch(`/mypage/mypageListOk.my?listType=${encodeURIComponent(listType)}`, {
+			const res = await fetch(`/mypage/mypageListLoadOk.my?listType=${encodeURIComponent(listType)}`, {
 				headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" },
 			});
 			if (!res.ok) throw new Error("목록을 불러오는 데 실패했습니다.");
-			const replies = await safeJson(res);
-			renderReplies(Array.isArray(replies) ? replies : []);
+			const listInfo = await safeJson(res);
+			renderList(listInfo);
 		} catch (error) {
 			console.error("목록 불러오기 실패:", error);
 			alert("목록을 불러오는데 실패했습니다.");
@@ -179,7 +160,44 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// ====== 댓글 렌더링 ======
-	function renderReplies(replies) {
+	function renderList(listInfo) {
+		
+		listInfo.
+		
+		`class="list-col-type"`
+		`	<p class="font-main list-title"></p>
+			<p class="font-main list-user-name"></p>
+			<p class="font-main list-date">
+		`
+		
+		`<ul class="mypage-ul-list" data-listCount="${rowCount}">`
+		`<li class="li-content"><a href="" class="font-main list-title"></a>
+			<p class="font-main"></p>
+			<p class="font-main"></p></li> `
+
+		const list = document.querySelectorAll(`.mypage-list`);
+
+		list.forEach((item) => {
+			/*const listPageTitle = item.querySelector('.pagetitle');
+			const listColType = item.querySelector('.list-col-type');
+			const listContentList = item.querySelectorAll('.li-content');
+			const searchTypeFirst = item.querySelector('.search-type-first');
+			const searchTypeSecond = item.querySelector('.search-type-second');*/
+
+			const col = item.querySelector('.list-col-type');
+			const table = item.querySelector('.mypage-ul-list');
+			
+			let id = item.getAttribute("id");
+
+			item.querySelector('.button-search img').dataset.search = id;
+			item.querySelector('.select-search').dataset.search = id;
+			
+			col.innerHTML = `
+				
+			`;
+
+			/*inputList(listPageTitle, listColType, listContentList, searchTypeFirst, searchTypeSecond, id);*/
+		});
 		/*if (!commentListEl) return;
 
 		commentListEl.innerHTML = "";
@@ -197,19 +215,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			// 템플릿 리터럴 유지 (JSP EL 충돌 없음: 클라이언트 템플릿이라 안전)
 			li.innerHTML = `
-	        <div class="comment-info">
-	          <span class="writer">${reply.memberId ?? ""}</span>
-	          <span class="date">${(reply.replyUpdateDate || reply.replyDate) ?? ""}</span>
-	        </div>
-	        <div class="comment-content-wrap">
-	          <div class="comment-content">${reply.replyContent ?? ""}</div>
-	          ${isMyComment ? `
-	            <div class="comment-btn-group">
-	              <button type="button" class="comment-modify-ready" data-number="${reply.replyNumber}">수정</button>
-	              <button type="button" class="comment-delete" data-number="${reply.replyNumber}">삭제</button>
-	            </div>` : ""}
-	        </div>
-	      `;
+			<div class="comment-info">
+			  <span class="writer">${reply.memberId ?? ""}</span>
+			  <span class="date">${(reply.replyUpdateDate || reply.replyDate) ?? ""}</span>
+			</div>
+			<div class="comment-content-wrap">
+			  <div class="comment-content">${reply.replyContent ?? ""}</div>
+			  ${isMyComment ? `
+				<div class="comment-btn-group">
+				  <button type="button" class="comment-modify-ready" data-number="${reply.replyNumber}">수정</button>
+				  <button type="button" class="comment-delete" data-number="${reply.replyNumber}">삭제</button>
+				</div>` : ""}
+			</div>
+		  `;
 			frag.appendChild(li);
 		});
 
