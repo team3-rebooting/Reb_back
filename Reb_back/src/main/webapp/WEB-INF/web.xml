@@ -41,4 +41,14 @@
      <url-pattern>*.me</url-pattern>
   </servlet-mapping>
   
+  
+  <servlet>
+     <servlet-name>Routine</servlet-name>
+     <servlet-class>com.sol.app.routine.RoutineFrontManager</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>Routine</servlet-name>
+     <url-pattern>*.ro</url-pattern>
+  </servlet-mapping>
 </web-app>

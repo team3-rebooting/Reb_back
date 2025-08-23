@@ -81,7 +81,7 @@
 							<a
 								href="${pageContext.request.contextPath}/app/routine/routine-meetings-list.jsp">루틴
 								모임 게시판</a> <a
-								href="${pageContext.request.contextPath}/app/routine/routine-meeting-review-list.jsp">루틴
+								href="${pageContext.request.contextPath}/routine/routineReviewOk.ro">루틴
 								모임 후기 게시판</a>
 						</div>
 					</div>

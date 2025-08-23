@@ -12,9 +12,19 @@
 	
 	<select id="selectAll" resultType="RoutineReviewListDTO">
 		<![CDATA[
-		SELECT rr.ROUTINE_REVIEW_NUMBER, rr.ROUTINE_NUMBER, rr.routine_review_title, m.MEMBER_NUMBER, m.MEMBER_NICKNAME, rr.ROUTINE_REVIEW_CREATED_DATE , rr.ROUTINE_REVIEW_UPDATED_DATE, rr.ROUTINE_REVIEW_CONTENT
-		FROM tbl_Routine_Review rr JOIN tbl_file_routine_review fr ON rr.ROUTINE_REVIEW_NUMBER = fr.ROUTINE_REVIEW_NUMBER
-		JOIN tbl_Member m ON rr.MEMBER_NUMBER = m.MEMBER_NUMBER
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+			SELECT rr.ROUTINE_REVIEW_NUMBER, rr.ROUTINE_NUMBER, rr.routine_review_title, m.MEMBER_NUMBER, m.MEMBER_NICKNAME, rr.ROUTINE_REVIEW_CREATED_DATE , rr.ROUTINE_REVIEW_UPDATED_DATE, rr.ROUTINE_REVIEW_CONTENT
+			FROM tbl_Routine_Review rr JOIN tbl_file_routine_review fr ON rr.ROUTINE_REVIEW_NUMBER = fr.ROUTINE_REVIEW_NUMBER
+			JOIN tbl_Member m ON rr.MEMBER_NUMBER = m.MEMBER_NUMBER
+			ORDER BY rr.ROUTINE_REVIEW_CREATED_DATE DESC
+		) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
 		]]>
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		SELECT count(ROUTINE_REVIEW_NUMBER) FROM tbl_Routine_Review
 	</select>
 </mapper>

@@ -50,13 +50,13 @@ public class RoutineReviewListDTO {
 		return routineReviewCreatedDate;
 	}
 	public void setRoutineReviewCreatedDate(String routineReviewCreatedDate) {
-		this.routineReviewCreatedDate = routineReviewCreatedDate;
+		this.routineReviewCreatedDate = routineReviewCreatedDate.split(" ")[0].replace('-', '.');
 	}
 	public String getRoutineReviewUpdatedDate() {
 		return routineReviewUpdatedDate;
 	}
 	public void setRoutineReviewUpdatedDate(String routineReviewUpdatedDate) {
-		this.routineReviewUpdatedDate = routineReviewUpdatedDate;
+		this.routineReviewUpdatedDate = routineReviewUpdatedDate.split(" ")[0].replace('-', '.');
 	}
 	public String getRoutineReviewContent() {
 		return routineReviewContent;
