@@ -27,4 +27,9 @@ public class MemberDAO {
 	public boolean checkNickname(String memberNickname) {
 		return (Integer) sqlSession.selectOne("member.checkNickname", memberNickname) < 1;
 	}
+	
+	// 회원번호 반환 메소드
+	public String getMemberId(int memberNumber) {
+		return sqlSession.selectOne("member.getId", memberNumber);
+	}
 }
