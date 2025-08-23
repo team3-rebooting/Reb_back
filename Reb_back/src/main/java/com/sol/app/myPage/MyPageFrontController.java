@@ -111,7 +111,7 @@ public class MyPageFrontController extends HttpServlet {
 			result = new MyPageListOkController().execute(request, response);
 			break;
 		case "/mypage/mypageListLoadOk.my":
-			System.out.println("나의 개설 수업 목록 처리");
+			System.out.println("나의 개설 수업 목록 로드 처리");
 			result = new MyPageListLoadOkController().execute(request, response);
 			break;
 		}

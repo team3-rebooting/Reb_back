@@ -143,95 +143,67 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	// ====== 댓글 목록 로드 ======
-	async function loadReplies() {
-		if (!listType) return;
+	// ====== 목록 로드 ======
+	async function loadListAsync(id, listType) {
+		console.log(listType);
 		try {
-			const res = await fetch(`/mypage/mypageListLoadOk.my?listType=${encodeURIComponent(listType)}`, {
+			const res = await fetch(`/mypage/mypageListLoadOk.my?listType=${encodeURIComponent(listType)}&page=1`, {
 				headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" },
 			});
 			if (!res.ok) throw new Error("목록을 불러오는 데 실패했습니다.");
 			const listInfo = await safeJson(res);
-			renderList(listInfo);
+			renderList(listInfo, id);
 		} catch (error) {
 			console.error("목록 불러오기 실패:", error);
 			alert("목록을 불러오는데 실패했습니다.");
 		}
 	}
 
-	// ====== 댓글 렌더링 ======
-	function renderList(listInfo) {
-		
-		listInfo.
-		
-		`class="list-col-type"`
-		`	<p class="font-main list-title"></p>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date">
-		`
-		
-		`<ul class="mypage-ul-list" data-listCount="${rowCount}">`
-		`<li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main"></p>
-			<p class="font-main"></p></li> `
-
+	function loadList() {
 		const list = document.querySelectorAll(`.mypage-list`);
 
 		list.forEach((item) => {
-			/*const listPageTitle = item.querySelector('.pagetitle');
-			const listColType = item.querySelector('.list-col-type');
-			const listContentList = item.querySelectorAll('.li-content');
-			const searchTypeFirst = item.querySelector('.search-type-first');
-			const searchTypeSecond = item.querySelector('.search-type-second');*/
-
-			const col = item.querySelector('.list-col-type');
-			const table = item.querySelector('.mypage-ul-list');
-			
-			let id = item.getAttribute("id");
-
-			item.querySelector('.button-search img').dataset.search = id;
-			item.querySelector('.select-search').dataset.search = id;
-			
-			col.innerHTML = `
-				
-			`;
-
-			/*inputList(listPageTitle, listColType, listContentList, searchTypeFirst, searchTypeSecond, id);*/
+			loadListAsync(item.getAttribute("id"), item.dataset.listType);
 		});
-		/*if (!commentListEl) return;
+	}
 
-		commentListEl.innerHTML = "";
+	// ====== 댓글 렌더링 ======
+	function renderList(listInfo, id) {
+		const list = document.querySelector(`#${id}`);
 
-		if (!replies.length) {
-			commentListEl.innerHTML = "<li>-</li>";
-			return;
-		}
+		const listPageTitle = list.querySelector('.pagetitle');
+		const col = list.querySelector('.list-col-type');
+		const ul = list.querySelector('.mypage-ul-list');
 
-		const frag = document.createDocumentFragment();
+		list.querySelector('.button-search img').dataset.search = id;
+		list.querySelector('.select-search').dataset.search = id;
 
-		replies.forEach((reply) => {
-			const isMyComment = String(reply.memberNumber) === String(memberNumber);
-			const li = document.createElement("li");
+		listPageTitle.innerHTML = listInfo.listTitle;
 
-			// 템플릿 리터럴 유지 (JSP EL 충돌 없음: 클라이언트 템플릿이라 안전)
-			li.innerHTML = `
-			<div class="comment-info">
-			  <span class="writer">${reply.memberId ?? ""}</span>
-			  <span class="date">${(reply.replyUpdateDate || reply.replyDate) ?? ""}</span>
-			</div>
-			<div class="comment-content-wrap">
-			  <div class="comment-content">${reply.replyContent ?? ""}</div>
-			  ${isMyComment ? `
-				<div class="comment-btn-group">
-				  <button type="button" class="comment-modify-ready" data-number="${reply.replyNumber}">수정</button>
-				  <button type="button" class="comment-delete" data-number="${reply.replyNumber}">삭제</button>
-				</div>` : ""}
-			</div>
-		  `;
-			frag.appendChild(li);
+		col.innerHTML = ``;
+		ul.innerHTML = ``;
+
+		listInfo.cols.forEach(function(c, i) {
+			if(i === 0)
+				col.innerHTML += `<p class="font-main list-title">${c}</p>`;
+			else
+				col.innerHTML += `<p class="font-main list-content">${c}</p>`;
 		});
 
-		commentListEl.appendChild(frag);*/
+		listInfo.list.forEach(function(l) {
+			let li = ``;
+			l.forEach(function(item, index) {
+				if (index === 0)
+					li += `<li class="li-content"><a href="" class="font-main list-title" data-boardNumber="${l[l.length - 1]}">${item}</a>`;
+				else if (index === (l.length - 2))
+					li += `<p class="font-main list-content">${item}</p></li>`;
+				else if(index === (l.length - 1))
+					return;
+				else
+					li += `<p class="font-main list-content">${item}</p>`;
+			})
+			ul.innerHTML += li;
+		});
 	}
 
 	// ====== 유틸 ======
@@ -241,6 +213,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// 초기 로드
-	loadReplies();
+	loadList();
 })
 

@@ -42,20 +42,17 @@
 		<!-- 메인 컨테이너 -->
 		<div id="main-container">
 			<!-- 나의 루틴 모임 목록 -->
-			<div id="my-courses-routine" class="mypage-list">
+			<div id="my-courses-routine" class="mypage-list" data-listType="myRoutine">
 				<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-list.jsp" />
 			</div>
 			<!-- 나의 수강 수업 목록 -->
-			<div id="my-courses-courses" class="mypage-list">
+			<div id="my-courses-courses" class="mypage-list" data-listType="myCourse">
 				<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-list.jsp" />
 			</div>
 		</div>
 	</main>
 	<!-- 푸터 -->
 	<div id="footer"></div>
-	<script>
-		let listType=1;
-	</script>
 	<script
 		src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
 	<script

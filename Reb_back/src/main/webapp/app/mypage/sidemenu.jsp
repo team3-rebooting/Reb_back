@@ -33,7 +33,7 @@
 					href="${pageContext.request.contextPath}/app/mypage/my-courses.jsp">활동내역</a>
 					<ul class="ul-subsidemenu">
 						<li class="li-subsidemenu"><a
-							href="${pageContext.request.contextPath}/app/mypage/my-courses.jsp">나의
+							href="${pageContext.request.contextPath}/mypage/mypageListOk.my">나의
 								신청/수강 정보</a></li>
 						<li class="li-subsidemenu"><a
 							href="${pageContext.request.contextPath}/app/mypage/my-posts.jsp">나의

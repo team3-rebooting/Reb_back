@@ -15,8 +15,8 @@ public class MyCourseDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public List<MyCourseDTO> selectList(Map<String, Integer> pageMap){
-		return sqlSession.selectList("myCourse.selectList", pageMap);
+	public List<MyCourseDTO> selectList(Map<String, Integer> map){
+		return sqlSession.selectList("myCourse.selectList", map);
 	}
 	
 	public int getTotal(int memberNumber) {
