@@ -70,6 +70,14 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("공지사항 생성");
 			request.getRequestDispatcher("/app/admin/notice/admin-notice-create.jsp").forward(request, response);
 			break;
+		case "/admin/courseRequestListOk.ad" :
+			System.out.println("수업 요청 리스트");
+			result = new CouresRequestListOkController().execute(request,response);
+			break;
+		case "/admin/courseListOk.ad" :
+			System.out.println("수업 리스트");
+			result = new CourseListOkController().execute(request,response);
+			break;
 		case "/admin/routineListOk.ad":
 			System.out.println("루틴목록 리스트");
 			result = new RoutineListOkController().execute(request, response);
@@ -82,7 +90,7 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("후원 목록 리스트");
 			result = new SponsorListOkController().execute(request,response);
 		}
-
+		
 		if (result != null && result.getPath() != null) {
 			if (result.isRedirect()) {
 				response.sendRedirect(result.getPath());

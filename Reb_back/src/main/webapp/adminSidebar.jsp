@@ -8,7 +8,7 @@
 				<strong>공지사항 목록</strong>
 					</a>
 				</li>
-				<li><a href="./../course/admin-course-request-list.html">
+				<li><a href="${pageContext.request.contextPath}/admin/courseRequestListOk.ad?page=1">
 						수업 목록 </a></li>
 				<li><a href="${pageContext.request.contextPath}/admin/routineListOk.ad?page=1">
 				루틴 모임 목록 
@@ -18,7 +18,9 @@
 				회원 목록 
 					</a>
 				</li>
-				<li><a href="./../member/admin-sponsor-list.html"> 후원자 목록 </a>
+				<li><a href="${pageContext.request.contextPath}/admin/sponsorListOk.ad?page=1">
+				 후원자 목록 
+				 </a>
 				</li>
 				<li><a href="./../member/admin-expert-list.html"> 전문가 승인 목록
 				</a></li>

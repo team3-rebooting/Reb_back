@@ -42,13 +42,13 @@
 					<div>
 						<p>총 후원 금액 :</p>
 						<p>
-							<c:set var="total" value=0 />
+							<c:set var="total" value="0" />
 							<c:choose>
 								<c:when test="${not empty sponsorList}">
 									<c:forEach var="sponsor" items="${sponsorList}">
 										<c:set var="total" value="${total + sponsor.sponsorAmount}" />
 									</c:forEach>
-									<c:out value="${total}"></c:out>
+									<c:out value="${total}"></c:out>원
 								</c:when>
 								<c:otherwise>
 								후원 금액이 없습니다
@@ -59,27 +59,7 @@
 					<div>
 						<p>최근 1년간 후원 금액 :</p>
 						<p>
-							<c:choose>
-								<c:when test="${not empty sponsorList}">
-									<c:set var="totalYear" value="0" />
-									<jsp:useBean id="now" class="java.util.Date" />
-									<fmt:parseNumber value="${now.time / (1000*60*60*24)}"
-										integerOnly="true" var="nowDays" />
-									<c:forEach var="sponsor" items="${sponsorList}">
-										<fmt:parseNumber
-											value="${sponsor.sponsorDate.time / (1000*60*60*24)}"
-											integerOnly="true" var="sponsorDays" />
-										<c:if test="${(nowDays - sponsorDays) <= 365}">
-											<c:set var="totalYear" value="${totalYear + sponsor.sponsorAmount}" />
-										</c:if>
-									</c:forEach>
-
-									<c:out value="${totalYear}" />
-								</c:when>
-								<c:otherwise>
-               						후원 금액이 없습니다
-           						</c:otherwise>
-							</c:choose>
+							<!-- 보류 -->
 						</p>
 					</div>
 					<div>

@@ -22,7 +22,7 @@ public class SponsorDAO {
 	}
 	// 후원 총 개수 가져오기
 		public int getTotal() {
-			return sqlSession.selectOne("getTotal.getTotal");
+			return sqlSession.selectOne("sponsor.getTotal");
 		}
 
 }
