@@ -7,10 +7,10 @@
     		SELECT ROWNUM AS rnum, subquery.*
     			FROM (
             				SELECT 
-                			m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NICKNAME, 
+                			m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NICKNAME,m.member_phone_number,  
                 			a.address, a.address_detail, m.member_signup_date   
             				FROM TBL_MEMBER m
-            				join tbl_address a on a.address_number = m.address_number 
+            				join tbl_address a on m.member_address_number = a.address_number
             				ORDER BY m.member_signup_date DESC
         					) subquery
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}

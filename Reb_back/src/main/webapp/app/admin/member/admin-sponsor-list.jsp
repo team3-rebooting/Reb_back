@@ -1,201 +1,185 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>후원자 목록</title>
-  <link rel="stylesheet" href="./../../../assets/css/admin/member/admin-sponsor-list.css">
-  <script defer src="./../../../assets/js/admin/member/admin-sponsor-list.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
-    rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>후원자 목록</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/admin/member/admin-sponsor-list.css">
+<script defer
+	src="${pageContext.request.contextPath}/assets/js/admin/member/admin-sponsor-list.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
+	rel="stylesheet">
 </head>
 
 <body class="font-menu">
-  <!-- 헤더 -->
-  <header>
-    <!-- 상단 목록 -->
-    <p><strong>후원자 목록</strong></p>
-    <!-- 로그아웃 -->
-    <button>
-      logout
-    </button>
-  </header>
-  <!-- 메인 -->
-  <main>
-    <!-- 사이드바 리스트 영역 -->
-    <section id="main-admin-list-menu">
-      <!-- 사이드바 리스트 -->
-      <ul id="main-admin-list">
-        <li>
-          <a href="./../notice/admin-notice-list.html">
-            공지 사항 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../course/admin-course-request-list.html">
-            수업 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../routine/admin-routine-list.html">
-            루틴 모임 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../member/admin-member-list.html">
-            회원 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../member/admin-sponsor-list.html">
-            <strong>후원자 목록</strong>
-          </a>
-        </li>
-        <li>
-          <a href="./../member/admin-expert-list.html">
-            전문가 승인 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../review/admin-routine-review-list.html">
-            활동 후기
-          </a>
-        </li>
-        <li>
-          <a href="./../banner/admin-banner-list.html">
-            배너 등록
-          </a>
-        </li>
-      </ul>
-    </section>
-    <!-- 메인 영역 -->
-    <section id="main-sponsor">
-      <div id="main-sponsor-div">
-        <!-- 후원 금액 영역 -->
-        <div id="main-support-money">
-          <div>
-            <p>총 후원 금액 : </p>
-            <p>100,000,000원</p>
-          </div>
-          <div>
-            <p>최근 1년간 후원 금액 : </p>
-            <p>80,000,000원</p>
-          </div>
-          <div>
-            <p>최근 1달간 후원 금액 : </p>
-            <p>10,000,000원</p>
-          </div>
-        </div>
-        <!-- 후원자 리스트 제목 -->
-        <div id="main-sponsor-list-title">
-          <!-- 아이디 영역 -->
-          <p class="main-sponsor-list-id">아이디</p>
-          <!-- 닉네임 영역 -->
-          <p class="main-sponsor-list-nickname">닉네임</p>
-          <!-- 후원금액 영역 -->
-          <p class="main-sponsor-list-support">총 후원금액(원)</p>
-          <p class="main-sponsor-list-date">후원날짜</p>
-        </div>
-        <!-- 후원자 목록 리스트 -->
-        <ul id="main-sponsor-list">
-          <!-- 후원자 리스트 목록 -->
-          <li>
-            <p class="main-sponsor-list-id">gildong123</p>
-            <p class="main-sponsor-list-nickname">gildong</p>
-            <p class="main-sponsor-list-support">10,000,000</p>
-            <p class="main-sponsor-list-date">2025-08-15</p>
-          </li>
-          <li>
-            <p class="main-sponsor-list-id">gildong123</p>
-            <p class="main-sponsor-list-nickname">gildong</p>
-            <p class="main-sponsor-list-support">10,000,000</p>
-            <p class="main-sponsor-list-date">2525-08-15</p>
-          </li>
-          <li>
-            <p class="main-sponsor-list-id">gildong123</p>
-            <p class="main-sponsor-list-nickname">gildong</p>
-            <p class="main-sponsor-list-support">10,000,000</p>
-            <p class="main-sponsor-list-date">2525-08-15</p>
-          </li>
-          <li>
-            <p class="main-sponsor-list-id">gildong123</p>
-            <p class="main-sponsor-list-nickname">gildong</p>
-            <p class="main-sponsor-list-support">10,000,000</p>
-            <p class="main-sponsor-list-date">2525-08-15</p>
-          </li>
-          <li>
-            <p class="main-sponsor-list-id">gildong123</p>
-            <p class="main-sponsor-list-nickname">gildong</p>
-            <p class="main-sponsor-list-support">10,000,000</p>
-            <p class="main-sponsor-list-date">2525-08-15</p>
-          </li>
-          <li>
-            <p class="main-sponsor-list-id">gildong123</p>
-            <p class="main-sponsor-list-nickname">gildong</p>
-            <p class="main-sponsor-list-support">10,000,000</p>
-            <p class="main-sponsor-list-date">2525-08-15</p>
-          </li>
-          <li>
-            <p class="main-sponsor-list-id">gildong123</p>
-            <p class="main-sponsor-list-nickname">gildong</p>
-            <p class="main-sponsor-list-support">10,000,000</p>
-            <p class="main-sponsor-list-date">2525-08-15</p>
-          </li>
-          <li>
-            <p class="main-sponsor-list-id">gildong123</p>
-            <p class="main-sponsor-list-nickname">gildong</p>
-            <p class="main-sponsor-list-support">10,000,000</p>
-            <p class="main-sponsor-list-date">2525-08-15</p>
-          </li>
-          <li>
-            <p class="main-sponsor-list-id">gildong123</p>
-            <p class="main-sponsor-list-nickname">gildong</p>
-            <p class="main-sponsor-list-support">10,000,000</p>
-            <p class="main-sponsor-list-date">2525-08-15</p>
-          </li>
-          <li>
-            <p class="main-sponsor-list-id">gildong123</p>
-            <p class="main-sponsor-list-nickname">gildong</p>
-            <p class="main-sponsor-list-support">10,000,000</p>
-            <p class="main-sponsor-list-date">2525-08-15</p>
-          </li>
-        </ul>
-        <!-- 페이지네이션 -->
-        <div id="main-page-number">
-          <p>&lt</p>
-          <a href="">1</a>
-          <a href="">2</a>
-          <a href="">3</a>
-          <a href="">4</a>
-          <a href="">5</a>
-          <p>&gt</p>
-        </div>
-        <!-- 검색 영역 -->
-        <div id="main-search">
-          <!-- 검색 종류 -->
-          <div id="main-search-basic">
-            <select class="select-find">
-              <option value="title">회원 번호</option>
-              <option value="name">아이디</option>
-              <option value="name">닉네임</option>
-            </select>
-          </div>
-          <!-- 검색 입력 창 -->
-          <form action="" method="">
-            <input type="text" id="main-search-input">
-            <!-- 돋보기 이미지 -->
-            <button><img src="./../../../assets/img/search.jpg" alt="돋보기"></button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
+	<!-- 헤더 -->
+	<header>
+		<!-- 상단 목록 -->
+		<p>
+			<strong>후원자 목록</strong>
+		</p>
+		<!-- 로그아웃 -->
+		<button>logout</button>
+	</header>
+	<!-- 메인 -->
+	<main>
+		<!-- 사이드바 리스트 영역 -->
+		<jsp:include page="/adminSidebar.jsp" />
+		<!-- 메인 영역 -->
+		<section id="main-sponsor">
+			<div id="main-sponsor-div">
+				<!-- 후원 금액 영역 -->
+				<div id="main-support-money">
+					<div>
+						<p>총 후원 금액 :</p>
+						<p>
+							<c:set var="total" value=0 />
+							<c:choose>
+								<c:when test="${not empty sponsorList}">
+									<c:forEach var="sponsor" items="${sponsorList}">
+										<c:set var="total" value="${total + sponsor.sponsorAmount}" />
+									</c:forEach>
+									<c:out value="${total}"></c:out>
+								</c:when>
+								<c:otherwise>
+								후원 금액이 없습니다
+								</c:otherwise>
+							</c:choose>
+						</p>
+					</div>
+					<div>
+						<p>최근 1년간 후원 금액 :</p>
+						<p>
+							<c:choose>
+								<c:when test="${not empty sponsorList}">
+									<c:set var="totalYear" value="0" />
+									<jsp:useBean id="now" class="java.util.Date" />
+									<fmt:parseNumber value="${now.time / (1000*60*60*24)}"
+										integerOnly="true" var="nowDays" />
+									<c:forEach var="sponsor" items="${sponsorList}">
+										<fmt:parseNumber
+											value="${sponsor.sponsorDate.time / (1000*60*60*24)}"
+											integerOnly="true" var="sponsorDays" />
+										<c:if test="${(nowDays - sponsorDays) <= 365}">
+											<c:set var="totalYear" value="${totalYear + sponsor.sponsorAmount}" />
+										</c:if>
+									</c:forEach>
+
+									<c:out value="${totalYear}" />
+								</c:when>
+								<c:otherwise>
+               						후원 금액이 없습니다
+           						</c:otherwise>
+							</c:choose>
+						</p>
+					</div>
+					<div>
+						<p>최근 1달간 후원 금액 :</p>
+						<p>10,000,000원</p>
+					</div>
+				</div>
+				<!-- 후원자 리스트 제목 -->
+				<div id="main-sponsor-list-title">
+					<!-- 아이디 영역 -->
+					<p class="main-sponsor-list-id">아이디</p>
+					<!-- 닉네임 영역 -->
+					<p class="main-sponsor-list-nickname">닉네임</p>
+					<!-- 후원금액 영역 -->
+					<p class="main-sponsor-list-support">총 후원금액(원)</p>
+					<p class="main-sponsor-list-date">후원날짜</p>
+				</div>
+				<!-- 후원자 목록 리스트 -->
+				<ul id="main-sponsor-list">
+					<!-- 후원자 리스트 목록 -->
+					<c:choose>
+						<c:when test="${not empty sponsorList}">
+							<c:forEach var="sponsor" items="${sponsorList}">
+								<li>
+									<p class="main-sponsor-list-id">
+										<c:out value="${sponsor.memberId}" />
+									</p>
+									<p class="main-sponsor-list-nickname">
+										<c:out value="${sponsor.memberNickname}" />
+									</p>
+									<p class="main-sponsor-list-support">
+										<c:out value="${sponsor.sponsorAmount}" />
+									</p>
+									<p class="main-sponsor-list-date">
+										<c:out value="${sponsor.sponsorDate}" />
+									</p>
+								</li>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<div>
+								<div colspan="5" align="center">등록된 게시물이 없습니다.</div>
+							</div>
+						</c:otherwise>
+					</c:choose>
+
+				</ul>
+				<!-- 페이지네이션 -->
+				<div id="main-page-number">
+					<ul>
+						<c:if test="${prev}">
+							<li><a
+								href="${pageContext.request.contextPath}/admin/sponsorListOk.ad?page=${startPage - 1}"
+								class="prev">&lt;</a></li>
+						</c:if>
+						<c:set var="realStartPage"
+							value="${startPage < 0 ? 0 : startPage}" />
+						<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+							<c:choose>
+								<c:when test="${!(i == page) }">
+									<li><a
+										href="${pageContext.request.contextPath}/admin/sponsorListOk.ad?page=${i}">
+											<c:out value="${i}" />
+									</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="#" class="active"> <c:out value="${i}" />
+									</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${next}">
+							<li><a
+								href="${pageContext.request.contextPath}/admin/sponsorListOk.ad?page=${endPage + 1}"
+								class="next">&gt;</a>
+						</c:if>
+					</ul>
+				</div>
+				<!-- 검색 영역 -->
+				<div id="main-search">
+					<!-- 검색 종류 -->
+					<div id="main-search-basic">
+						<select class="select-find">
+							<option value="title">회원 번호</option>
+							<option value="name">아이디</option>
+							<option value="name">닉네임</option>
+						</select>
+					</div>
+					<!-- 검색 입력 창 -->
+					<form action="" method="">
+						<input type="text" id="main-search-input">
+						<!-- 돋보기 이미지 -->
+						<button>
+							<img src="./../../../assets/img/search.jpg" alt="돋보기">
+						</button>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
 </body>
 
 </html>
