@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.course.dao.CourseReviewDAO;
@@ -45,6 +47,8 @@ public class CourseReviewWriteOkController implements Execute{
 		// MulpartRequest를 이용한 데이터 파싱
 		MultipartRequest multipartRequest = new MultipartRequest(request, UPLOAD_PATH, FILE_SIZE, "utf-8", new DefaultFileRenamePolicy());
 		
+		courseReviewDTO.setCourseReviewTitle(multipartRequest.getParameter("courseReviewTitle"));
+		courseReviewDTO.setCourseReviewContent(multipartRequest.getParameter("courseReviewContent"));
 		
 		
 		return null;
