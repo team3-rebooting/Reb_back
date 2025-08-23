@@ -39,8 +39,7 @@
     <div class="mypage-modal">
     </div>
     <!-- 사이드 메뉴 -->
-    <aside id="mypage-sidemenu-container">
-    </aside>
+    <jsp:include page="${pageContext.request.contextPath}/app/mypage/sidemenu.jsp" />
     <!-- 메인 컨테이너 -->
     <div id="main-container">
       <div class="pagetitle">개인정보 수정</div>
@@ -201,8 +200,8 @@
   <!-- 푸터 -->
   <div id="footer">
   </div>
-  <script src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/mypage/expert-file-upload.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/mypage/profile-pic-upload.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>

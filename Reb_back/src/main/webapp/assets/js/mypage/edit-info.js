@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			nicknameAlert.innerHTML = "기존과 동일";
 			nicknameAlert.style.display = "block";
 			checkNickname = true;
-			
+
 			return;
 		}
 
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					nicknameAlert.style.display = "block";
 					nicknameAlert.style.color = "black";
 				}
-				
+
 				checkNickname = data.available;
 			})
 			.catch(() => {
@@ -230,16 +230,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 	function editCompleteUserInfo() {
-		let checkMsg = checkAllInfo();
-		if (checkMsg !== "") {
-			alert(checkMsg);
-			return;
-		}
 
-		checkMsg = checkAdditinalInfo();
-		if (confirm(checkMsg + "개인정보를 수정하시겠습니까?")) {
-			moveToPersonalInfo();
-		}
 
 		return checkMsg;
 	}
@@ -255,6 +246,19 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 	form.addEventListener("submit", function(e) {
-		editCompleteUserInfo();
+		let checkMsg = checkAllInfo();
+		if (checkMsg !== "") {
+			e.preventDefault();
+			alert(checkMsg);
+			return;
+		}
+
+		checkMsg = checkAdditinalInfo();
+		if (confirm(checkMsg + "개인정보를 수정하시겠습니까?")) {
+			moveToPersonalInfo();
+		}
+		else{
+			e.preventDefault();
+		}
 	});
 });
