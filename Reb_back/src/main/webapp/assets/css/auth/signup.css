@@ -139,6 +139,15 @@ button {
   align-items: center;
 }
 
+.div-signup-address-zip-code {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  align-items: center;
+}
+
+
 .input-basic {
   border-radius: 15px;
   border: 0px;
@@ -163,6 +172,16 @@ button {
   border-radius: 15px;
   border: 0px;
   width: 60%;
+  font-size: 18px;
+  height: 45px;
+  padding: 10px;
+  text-align: center;
+}
+
+.input-zip-code {
+  border-radius: 15px;
+  border: 0px;
+  width: 80%;
   font-size: 18px;
   height: 45px;
   padding: 10px;

@@ -6,13 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../../assets/css/mypage/my-sponsorship.css">
-    <link rel="stylesheet" href="./../../assets/css/mypage/sidemenu.css">
-    <link rel="stylesheet" href="./../../assets/css/mypage/mypage-modal.css">
-    <link rel="stylesheet" href="./../../assets/css/mypage/mypage-list.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/my-sponsorship.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/sidemenu.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/mypage-modal.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/mypage-list.css">
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
-    <link rel="stylesheet" href="./../../assets/css/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,8 +36,7 @@
         <div class="mypage-modal">
         </div>
         <!-- 사이드 메뉴 -->
-        <aside id="mypage-sidemenu-container">
-        </aside>
+        <jsp:include page="${pageContext.request.contextPath}/app/mypage/sidemenu.jsp" />
         <!-- 메인 컨테이너 -->
         <div id="main-container">
             <div class="pagetitle">후원 정보</div>
@@ -95,10 +94,10 @@
     <!-- 푸터 -->
     <div id="footer">
     </div>
-    <script src="./../../assets/js/mypage/sidemenu.js"></script>
-    <script src="./../../assets/js/mypage/mypage-list.js"></script>
-    <script src="./../../assets/js/mypage/mypage-modal.js"></script>
-    <script src="./../../assets/js/footer.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-list.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
 
 </html>

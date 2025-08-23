@@ -36,117 +36,77 @@
           <p class="font-main review-date">작성일</p>
           <p class="font-main review-like">좋아요</p>
         </div>
+        <!-- <ul class="ul-review-list">
+          <li class="li-review-content">
+            <a href="./course-review-detail.html">
+              <div class="div-review-content">
+                <p class="review-title">웹 보안 수업 후기</p>
+                <p class="review-author">홍길동</p>
+                <p class="review-date">2025.08.02</p>
+                <p class="review-like">32</p>
+              </div>
+            </a>
+          </li>
+        </ul> -->
         <ul class="ul-review-list">
-          <li class="li-review-content">
-            <a href="./course-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">웹 보안 수업 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./course-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">웹 보안 수업 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./course-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">웹 보안 수업 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./course-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">웹 보안 수업 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./course-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">웹 보안 수업 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./course-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">웹 보안 수업 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./course-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">웹 보안 수업 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./course-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">웹 보안 수업 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./course-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">웹 보안 수업 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./course-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">웹 보안 수업 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
+          <c:choose>
+          	<c:when test="${not empty courseReviewList}">
+          		<c:forEach var="courseReview" items="${courseReviewList}">
+          			<li class="li-review-content">
+          				<a href="${pageContext.request.contextPath}/course/courseReviewDetailOk.cr?courseReviewNumber=${courseReview.courseReviewNumber}">
+          					<div class="review-title">
+          						<c:out value="${courseReview.getCourseReviewTitle()}" />
+          					</div>
+          					<div class="review-author">
+          						<c:out value="${courseReview.getMemberNickname()}" />
+          					</div>
+          					<div class="review-date">
+          						<c:out value="${courseReview.getCourseReviewCreatedDate()}" />
+          					</div>
+          					<div class="review-like">
+          						<c:out value="${courseReview.getCourseReviewLike()}" />
+          					</div>
+          				</a>
+          			</li>
+          		</c:forEach>
+          	</c:when>
+          	<c:otherwise>
+          		<div>
+          			<div colspan="5" align="center">등록된 게시물이 없습니다.</div>
+          		</div>
+          	</c:otherwise>
+          </c:choose>
         </ul>
         <div class="div-page">
           <div class="div-pagenation">
-            <a href="#">&lt;</a>
+            <!-- <a href="#">&lt;</a>
             <a href="#">1</a>
             <a href="#">2</a>
             <a href="#">3</a>
             <a href="#">4</a>
             <a href="#">5</a>
-            <a href="#">&gt;</a>
+            <a href="#">&gt;</a> -->
+            <c:if test="${prev }">
+            	<a href="${pageContext.request.contextPath}/course/courseReviewListOk.cr?page=${startPage - 1}" class="prev">&lt;</a>
+            </c:if>
+            <c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
+            <c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+            	<c:choose>
+            		<c:when test="${!(i == page)}">
+            			<a href="${pageContext.request.contextPath}/course/courseReviewListOk.cr?page=${i}">
+            				<c:out value="${i}" />
+            			</a>
+            		</c:when>
+            		<c:otherwise>
+            			<a href="#" class="active">
+            				<c:out value="${i}" />
+            			</a>
+            		</c:otherwise>
+            	</c:choose>
+            </c:forEach>
+            <c:if test="${next}">
+            	<a href="${pageContext.request.contextPath}/course/courseReviewListOk.cr?page=${endPage + 1}" class="next">&gt;</a>
+            </c:if>
           </div>
         </div>
         <div class="div-find">
@@ -173,6 +133,9 @@
   </main>
   <div id="footer">
   </div>
+  <script>
+  	let memberNumber = "{sessionScope.memberNumber}";
+  </script>
 </body>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 

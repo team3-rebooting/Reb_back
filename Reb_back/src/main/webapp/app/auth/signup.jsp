@@ -86,15 +86,17 @@
 						<span class="span-signup">* 주소 : </span>
 						<!-- 기본 주소, 추가 주소 입력 영역 -->
 						<div class="div-signup-address ">
-							<input class="input-zip-code input-essential" type="test" name="zip-code" placeholder="우편 번호" readonly required>
-							<input class="input-address-basic input-essential" type="text"
-								name="addressBasic" placeholder="기본 주소">
+							<div class="div-signup-address-zip-code">
+								<input class="input-zip-code input-essential" type="test" name="zip-code" placeholder="우편 번호" readonly required>
+								<button class="button-find" type="button">찾기</button>
+							</div>
+							<input class="input-address-basic input-essential" type="text" name="addressBasic" placeholder="기본 주소">
 							<p class="p-warning">기본 주소는 필수 입력입니다</p>
 							<!-- 추가 주소 입력 영역 -->
 							<div class="div-signup-address-add">
 								<input class="input-address-add" type="text" name="addressAdd"
 									placeholder="추가 주소">
-								<button class="button-find" type="button">찾기</button>
+								
 							</div>
 						</div>
 					</div>

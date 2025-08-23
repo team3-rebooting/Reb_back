@@ -23,7 +23,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
-  <script defer src="./../../assets/js/mypage/expert-course-info.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/mypage/expert-course-info.js"></script>
   <title>틈새빛</title>
 </head>
 
@@ -34,8 +34,7 @@
     <div class="mypage-modal">
     </div>
     <!-- 사이드 메뉴 -->
-    <aside id="mypage-sidemenu-container">
-    </aside>
+    <jsp:include page="${pageContext.request.contextPath}/app/mypage/sidemenu.jsp" />
     <!-- 메인 컨테이너 -->
     <div id="main-container">
       <div class="pagetitle">나의 수업 개설 내역</div>
@@ -147,9 +146,9 @@
   <!-- 푸터 -->
   <div id="footer">
   </div>
-  <script src="./../../assets/js/mypage/sidemenu.js"></script>
-  <script src="./../../assets/js/mypage/mypage-modal.js"></script>
-  <script src="./../../assets/js/footer.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
 
 </html>
