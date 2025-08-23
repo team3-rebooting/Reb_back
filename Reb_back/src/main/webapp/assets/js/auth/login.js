@@ -43,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	closeFindIdModal.addEventListener('click', () => {
 		idModal.style.display = "none";
+		inputModalNameId.value= "";
+		inputModalPnId.value= "";
+		inputPhoneNumberId.value= "";
 	});
 
 	/*buttonIdFind.addEventListener('click', () => {
