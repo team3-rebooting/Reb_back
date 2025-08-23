@@ -31,7 +31,7 @@
   <div class="modal-id-background">
     <!-- 아이디 찾기 모달 창 -->
     <div class="div-findid-modal">
-      <form action="" method="post">
+      <form action="${pageContext.request.contextPath}/member/findIdOk.me" method="post">
         <!-- x 버튼 영역 -->
         <div class="div-modal-x"><button class="button-id-x" type="button">X</button></div>
         <!-- 모달 이름 영역 -->
