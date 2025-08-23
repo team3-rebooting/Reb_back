@@ -59,7 +59,7 @@
 	</delete>
 	<!-- 게시글 상세 조회 -->
 	<select id="select" parameterType="int"
-		resultType="CourseReviewListDTO">
+		resultType="CourseReviewDTO">
 	<![CDATA[
 		select cr.course_review_number, cr.course_number, cr.member_number, cr.course_review_title, m.member_nickname, cr.COURSE_REVIEW_CREATED_DATE
 			, (select count(*) from tbl_course_review_like crl where

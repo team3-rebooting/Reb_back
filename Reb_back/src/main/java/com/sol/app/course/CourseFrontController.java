@@ -46,13 +46,24 @@ public class CourseFrontController extends HttpServlet {
 		Result result = new Result();
 		
 		switch(target) {
-		case "/course/courseReviewListOk.cr":
+		case "/course/courseReviewListOk.co":
 			System.out.println("수업 후기 목록 처리 요청");
 			result = new CourseReviewListOkController().execute(request, response);
 			break;
-		case "/course/courseReviewDetailOk.cr":
+		case "/course/courseReviewDetailOk.co":
 			System.out.println("수업 후기 상세 페이지 요청");
 			result = new CourseReviewDetailOkController().execute(request, response);
+			break;
+		case "/course/courseReviewWrite.co":
+			System.out.println("수업 후기 작성 페이지 요청");
+			result = new CourseReviewWriteController().execute(request, response);
+			System.out.println("수업 후기 작성 페이지 요청 완료");
+			break;
+		case "/course/courseReviewWriteOk.co":
+			System.out.println("수업 후기 작성 처리 요청");
+			result = new CourseReviewWriteOkController().execute(request, response);
+			System.out.println("수업 후기 작성 처리 요청 완료");
+			break;
 		}
 		
 		if(result != null) {

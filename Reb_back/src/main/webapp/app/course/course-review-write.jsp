@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +30,7 @@
   <main>
     <div id="main-container">
       <p class="pagetitle">수업 후기 작성</p>
-      <form action="" method="post">
+      <form action="${pageContext.request.contextPath}/course/courseReviewWriteOk.co" method="post">
         <div class="div-create-course">
           <input type="text" class="input-title input-bundle" name="courseTitle" placeholder="제목을 입력해주세요">
         </div>
@@ -44,7 +45,7 @@
 
         <div class="div-create-course">
           <div class="div-button-line">
-            <button class="button-ok" type="button">확인</button>
+            <button class="button-ok" type="submit">확인</button>
             <a href="./course-review-list.html"><button class="button-cancel" type="button">취소</button></a>
           </div>
         </div>
