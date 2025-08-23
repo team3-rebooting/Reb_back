@@ -1,119 +1,78 @@
 document.addEventListener("DOMContentLoaded", function() {
 	const form = document.getElementById("joinForm") || document.querySelector("form");
 	const base = (form && form.dataset.contextPath) ? form.dataset.contextPath : "";
-	let dupliButton = document.querySelector(".button-no-duplication");
-	let noDupliP = document.querySelector(".p-no-duplication");
-	let dupliP = document.querySelector(".p-duplication");
-	let id = document.querySelector("input[name='memberId']");
-	let pw = document.querySelector("input[name='memberPassword']");
-	let pwRe = document.querySelector("input[name='pwRe']");
-	let birth = document.querySelector("input[name='memberBirthDate']");
-	let addressBasic = document.querySelector("input[name='addressBasic']");
-	let addressAdd = document.querySelector("input[name='addressAdd']");
-	let userName = document.querySelector("input[name='name']");
-	let nickName = document.querySelector("input[name='nickName']");
-	let gender = document.querySelector("input[name='gender']");
-	let email = document.querySelector("input[name='email']");
-	let phoneNumber = document.querySelector("input[name='phoneNumber']");
-	let injungPhone = document.querySelector(".input-cert");
-	let injunging = document.querySelector(".button-injunging");
-	let inputTerms = document.querySelectorAll(".input-terms");
+	const codeInput = document.querySelector(".input-cert");
 
-	const buttonBack = document.querySelector('.button-back');
-	const buttonSignUp = document.querySelector(".button-signup");
-	const buttonInjung = document.querySelector(".button-injung");
-	const inputEssential = document.querySelectorAll(".input-essential");
-	const retry = document.querySelector(".button-retry");
-
-	buttonBack.addEventListener('click', () => {
-		history.back();
-	});
-
+	const inputId = document.querySelector("input[name='memberId']");
+	const idSame = document.querySelector(".p-nodupli-id");
+	const idNotSame = document.querySelector(".p-dupli-id");
 	const idRegex = /^[a-z0-9]{5,19}$/;
+
+	inputId.addEventListener("blur", function() {
+		const nearWarning = inputId.closest(".div-signup");
+		const warning = nearWarning.querySelector(".p-warning");
+		const memberId = inputId.value.trim();
+
+		if (idRegex.test(memberId)) {
+			warning.style.display = "none";
+		} else {
+			warning.style.display = "block";
+		}
+		fetch(`${base}/member/checkIdOk.me?memberId=${encodeURIComponent(memberId)}`, {
+			headers: { "Accept": "application/json" }
+		})
+			.then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+			.then(data => {
+				if (data.available) {
+					idSame.style.display = "none";
+					idNotSame.style.display = "block";
+				} else {
+					idSame.style.display = "block";
+					idNotSame.style.display = "none";
+				}
+			})
+			.catch(() => {
+				console.log("예외 발생");
+			});
+	});
+
+	const inputPw = document.querySelector(".input-password-first");
+	const checkPw = document.querySelector(".input-password-second");
 	const pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$])[A-Za-z\d!@#$]{8,20}$/;
-	const emailRegex = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
-	let pwSameOrNo = true;
 
-	buttonSignUp.addEventListener("click", (e) => {
-
-		if (confirm("회원가입 하시겠습니까?")) {
-			let isWrite = true;
-			for (let i = 0; i < inputEssential.length; i++) {
-				if (!inputEssential[i].value) {
-					isWrite = false;
-					break;
-				}
-			}
-			if (injungPhone.value !== '111111') {
-				isWrite = false;
-			}
-			if (nickName.value === '가나다') {
-				isWrite = false;
-			}
-			for (let z = 0; z < inputTerms.length; z++) {
-				if (!inputTerms[z].checked) {
-					isWrite = false;
-					break;
-				}
-			}
-			if (!pwSameOrNo) {
-				isWrite = false;
-			}
-			if (isWrite) {
-				alert("회원가입 완료");
-				location.href = "./../../main.html";
-			} else {
-				alert("필수 입력 확인해주세요");
-			}
-		} else {
-			e.preventDefault();
-		}
-	});
-
-
-
-	id.addEventListener('blur', () => {
-		let nearWarning = id.closest(".div-signup");
-		let warning = nearWarning.querySelector(".p-warning");
-		if (!idRegex.test(id.value)) {
-			warning.style.display = "block";
-		} else {
+	inputPw.addEventListener("blur", function() {
+		console.log("pw 입력 진입 완료");
+		const pw = inputPw.value.trim();
+		const nearWarning = inputPw.closest(".div-signup");
+		const warning = nearWarning.querySelector(".p-warning");
+		if (pwRegex.test(pw)) {
 			warning.style.display = "none";
-		}
-	});
-
-	pw.addEventListener('blur', () => {
-		let nearWarning = pw.closest(".div-signup");
-		let warning = nearWarning.querySelector(".p-warning");
-		if (!pwRegex.test(pw.value)) {
-			warning.style.display = "block";
 		} else {
-			warning.style.display = "none";
+			warning.style.display = "block";
 		}
 	});
 
-	pwRe.addEventListener('blur', () => {
-		let nearWarning = pw.closest(".div-signup");
-		let nosame = nearWarning.querySelector(".p-nosame");
-		let same = nearWarning.querySelector(".p-same");
-		if (pw.value.length !== 0) {
-			if (pw.value !== pwRe.value) {
-				nosame.style.display = "block";
-				same.style.display = "none";
-				pwSameOrNo = false;
-			}
-			else {
-				nosame.style.display = "none";
-				same.style.display = "block";
-				pwSameOrNo = true;
-			}
+	checkPw.addEventListener("blur", function() {
+		const pw = inputPw.value.trim();
+		const pwRe = checkPw.value.trim();
+		const nearWarning = inputPw.closest(".div-signup");
+		const nosame = nearWarning.querySelector(".p-nosame");
+		const same = nearWarning.querySelector(".p-same");
 
+		if (pw && pw === pwRe) {
+			same.style.display = "block";
+			nosame.style.display = "none";
+		} else {
+			same.style.display = "none";
+			nosame.style.display = "block";
 		}
 	});
+
+	const birth = document.querySelector("input[name='memberBirthDate']");
 
 	birth.addEventListener('blur', () => {
-		let nearWarning = birth.closest(".div-signup");
-		let warning = nearWarning.querySelector(".p-warning");
+		const nearWarning = birth.closest(".div-signup");
+		const warning = nearWarning.querySelector(".p-warning");
 		if (!birth.value) {
 			warning.style.display = "block";
 		} else {
@@ -121,58 +80,65 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
-	/*addressBasic.addEventListener('blur', () => {
-		let nearWarning = addressBasic.closest(".div-signup");
-		let warning = nearWarning.querySelector(".p-warning");
-		if (!addressBasic.value) {
-			warning.style.display = "block";
-		} else {
-			warning.style.display = "none";
-		}
-	});*/
-	
-	const zipCode = document.querySelector(".input-zip-code");
-const serchBtn = document.getElementsByClassName("button-find");
-if(serchBtn){
-	searchBtn.addEventListener('click', function(){
-		new daum.Postcode({
-			oncomplete: function(data){
-				// 우편번호
-				zipCode.value = data.zonecode || "";
-				
-				var isRoad = data.userSelectedType ==='R';
-				var base = isRoad ? (data.roadAddress || "") : (data.jibunAddress || "");
-				var extra = "";
-				
-				if(isRoad){
-					if(data.bname && /[동|로|가]$/.test(data.bname)) extra += data.bname;
-					if(data.buildingName && data.apartment ==="y"){
-						extra += (extra ? ", " : "") + data.buildingName;
+	const searchBtn = document.querySelector(".button-find");
+	if (searchBtn) {
+		searchBtn.addEventListener("click", function() {
+			new daum.Postcode({
+				oncomplete: function(data) {
+					// 우편번호
+					document.querySelector(".input-zip-code").value = data.zonecode || "";
+
+					// 메인 주소(도로명 또는 지번 한 칸만)
+					var isRoad = data.userSelectedType === "R";
+					var base = isRoad ? (data.roadAddress || "") : (data.jibunAddress || "");
+					var extra = "";
+
+					if (isRoad) {
+						if (data.bname && /[동|로|가]$/.test(data.bname)) extra += data.bname;
+						if (data.buildingName && data.apartment === "Y") {
+							extra += (extra ? ", " : "") + data.buildingName;
+						}
 					}
-				}
-				
-				var main = base + (dxtra ? " (" + extra + ") " : "");
-				addressBasic.value = main;
-				
-				addressAdd.focus();
-			}
-		}).open({popupTitle: "우편번호 검색"});
-	});
-}
 
-	userName.addEventListener('blur', () => {
-		let nearWarning = userName.closest(".div-signup");
-		let warning = nearWarning.querySelector(".p-warning");
-		if (!userName.value) {
+					var main = base + (extra ? " (" + extra + ")" : "");
+					document.querySelector(".input-address-basic").value = main;
+
+					// 상세주소 포커스
+					document.querySelector(".input-address-add").focus();
+				}
+			}).open({ popupTitle: "우편번호 검색" });
+		});
+	}
+
+	const emailRegex = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
+	const email = document.querySelector("input[name='email']");
+
+	email.addEventListener('blur', () => {
+		const nearWarning = email.closest(".div-signup");
+		const warning = nearWarning.querySelector(".p-warning");
+		if (!emailRegex.test(email.value)) {
 			warning.style.display = "block";
 		} else {
 			warning.style.display = "none";
 		}
 	});
 
+	const name = document.querySelector("input[name='name']");
+	name.addEventListener('blur', function() {
+		inputName = name.value.trim();
+		const nearWarning = name.closest(".div-signup");
+		const warning = nearWarning.querySelector(".p-warning");
+		if (inputName) {
+			warning.style.display = "none";
+		} else {
+			warning.style.display = "block";
+		}
+	});
+
+	const gender = document.querySelector("input[name='gender']");
 	gender.addEventListener('blur', () => {
-		let nearWarning = gender.closest(".div-signup");
-		let warning = nearWarning.querySelector(".p-warning");
+		const nearWarning = gender.closest(".div-signup");
+		const warning = nearWarning.querySelector(".p-warning");
 		if (!gender.value) {
 			warning.style.display = "block";
 		} else {
@@ -180,71 +146,50 @@ if(serchBtn){
 		}
 	});
 
-	nickName.addEventListener('blur', () => {
-		let nearWarning = nickName.closest(".div-signup");
-		let warning = nearWarning.querySelector(".p-warning");
-		if (!nickName.value) {
-			warning.style.display = "block";
+	const inputNickname = document.querySelector("input[name='memberNickname']");
+	const nicknameRequired = document.querySelector(".nickname-required");
+	const nicknameDupli = document.querySelector(".nickname-dupli");
+	const nicknameNoDupli = document.querySelector(".nickname-nodupli");
+
+	inputNickname.addEventListener('blur', function() {
+		const memberNickname = inputNickname.value.trim();
+		if (memberNickname) {
+			nicknameRequired.style.display = "none";
 		} else {
-			warning.style.display = "none";
+			nicknameRequired.style.display = "block";
 		}
 	});
 
-	phoneNumber.addEventListener('blur', () => {
-		let nearWarning = phoneNumber.closest(".div-signup");
-		let warning = nearWarning.querySelector(".p-warning");
-		if (!phoneNumber.value) {
-			warning.style.display = "block";
-		} else {
-			warning.style.display = "none";
-		}
+	const nicknameBtn = document.querySelector(".button-no-duplication");
+
+	nicknameBtn.addEventListener("click", function() {
+		const memberNickname = inputNickname.value.trim();
+		fetch(`${base}/mypage/checkNicknameOk.my?memberNickname=${encodeURIComponent(memberNickname)}`, {
+			headers: { "Accept": "application/json" }
+		})
+			.then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+			.then(data => {
+				if (data.available) {
+					nicknameNoDupli.style.display = "block";
+					nicknameDupli.style.display = "none";
+				} else {
+					nicknameNoDupli.style.display = "none";
+					nicknameDupli.style.display = "block";
+				}
+			});
 	});
 
-	dupliButton.addEventListener('click', () => {
-		if (nickName.value.length !== 0) {
-			if (nickName.value === '가나다') {
-				noDupliP.style.display = 'none';
-				dupliP.style.display = 'block';
-			} else {
-				noDupliP.style.display = 'block';
-				dupliP.style.display = 'none';
-			}
-		}
-	});
-
-	/*buttonInjung.addEventListener('click', () => { 
-		alert("인증번호 전송");
-		phoneNumber.readOnly = true;
-		phoneNumber.style.backgroundColor = "#d9d9d9";
-		buttonInjung.disabled = true;
-		buttonInjung.style.color = "#d9d9d9";
-		injungPhone.readOnly = false;
-		injungPhone.style.backgroundColor = "white";
-		injunging.disabled = false;
-		injunging.style.color = "white";
-		retry.disabled = false;
-		retry.style.color = "white";
-	});
-	
-	injunging.addEventListener("click", () => {
-	  if (injungPhone.value === '111111') {
-		injungPhone.readOnly = true;
-		injungPhone.style.backgroundColor = "#d9d9d9";
-		injunging.disabled = true;
-		injunging.style.color = "#d9d9d9";
-		alert("인증 성공");
-	  } else {
-		alert("인증번호가 맞지 않습니다");
-	  }
-	});*/
 
 	let tempCode = "";
+	const buttonInjung = document.querySelector(".button-injung");
+	let phoneNumber = document.querySelector("input[name='phoneNumber']");
+	let injungPhone = document.querySelector(".input-cert");
+	let injunging = document.querySelector(".button-injunging");
+	const retry = document.querySelector(".button-retry");
 
 	buttonInjung.addEventListener('click', function() {
-		console.log("ㅁㅁ");
 		const phoneNumberValue = phoneNumber.value.trim();
 		if (!phoneNumberValue) {
-			
 			alert("핸드폰 번호를 입력해주세요");
 			return;
 		}
@@ -280,7 +225,7 @@ if(serchBtn){
 		} else {
 			alert("인증번호가 맞지 않습니다");
 		}
-	})
+	});
 
 	retry.addEventListener('click', () => {
 		phoneNumber.readOnly = false;
@@ -297,14 +242,12 @@ if(serchBtn){
 		phoneNumber.value = "";
 	});
 
-
-	email.addEventListener('blur', () => {
-		let nearWarning = email.closest(".div-signup");
-		let warning = nearWarning.querySelector(".p-warning");
-		if (!emailRegex.test(email.value)) {
-			warning.style.display = "block";
-		} else {
-			warning.style.display = "none";
+	form.addEventListener("submit", function(e){
+		const agree = document.getElementById("id-terms");
+		if(!agree.checked){
+			e.preventDefault();
+			alert("약관에 동의해주세요.");
+			return;
 		}
 	});
 });

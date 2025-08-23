@@ -171,7 +171,7 @@ button {
 .input-address-add {
   border-radius: 15px;
   border: 0px;
-  width: 60%;
+  width: 80%;
   font-size: 18px;
   height: 45px;
   padding: 10px;
@@ -181,11 +181,12 @@ button {
 .input-zip-code {
   border-radius: 15px;
   border: 0px;
-  width: 80%;
+  width: 60%;
   font-size: 18px;
   height: 45px;
   padding: 10px;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .span-signup {
@@ -214,7 +215,8 @@ button {
 .p-same{
   color : green;
 }
-.p-no-duplication{
+.p-no-duplication,
+.p-dupli-id{
    display: none;
   font-size: 16px;
   font-family: "IBM Plex Sans KR", sans-serif;

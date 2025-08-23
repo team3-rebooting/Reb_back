@@ -8,11 +8,17 @@
 		WHERE MEMBER_ID = #{memberId} and MEMBER_PASSWORD = #{memberPassword}
 	</select>
 	
-	<insert id="signup" parameterType="MemberSignupDTO">
+	<insert id="signupAddress" parameterType="memberSignupDTO">
+		<selectKey keyProperty="addressNumber" resultType="int" order="BEFORE">
+			SELECT seq_address.nextval from dual
+		</selectKey>
 		INSERT INTO TBL_ADDRESS
-		VALUES(SEQ_ADDRESS.NEXTVAL, #{zipCode}, #{address}, #{addressDetail})
-		INSERT INTO TBL_MEMBER
-		VALUES(SEQ_MEMBER.NEXTVAL, #{memberNumber}, #{memberId}, #{memberPassword}, #{addressNumber}, #{memberEmail},  #{memberGender}, #{memberNickname}, #{memberPhoneNumber}, #{memberBirthDate})
+		VALUES(#{addressNumber}, #{zipCode}, #{address}, #{addressAdd})
+	</insert>
+	
+	<insert id="signup" parameterType="MemberSignupDTO">
+		INSERT INTO TBL_MEMBER(member_number, member_id, member_password, member_address_number, member_email, member_name, member_gender, member_nickname, member_phone_number, member_birth_date, member_signup_date)
+		VALUES(SEQ_MEMBER.NEXTVAL, #{memberId}, #{memberPassword}, #{addressNumber}, #{memberEmail}, #{memberName},  #{memberGender}, #{memberNickname}, #{memberPhoneNumber}, #{memberBirthDate}, to_date(sysdate, 'yyyy-mm-dd'))
 	</insert>
 	
 	<select id="findId" parameterType="MemberSignupDTO" resultType="String">
@@ -31,6 +37,11 @@
 		SELECT MEMBER_ID
 		FROM TBL_MEMBER
 		WHERE MEMBER_NUMBER = #{memberNumber}
+	</select>
+	
+	<select id="checkId" parameterType="String" resultType="int">
+		select count(member_number) from tbl_member
+		where member_id = #{memberId}
 	</select>
 	
 	<select id= "checkPassword" parameterType="MemberDTO" resultType="int">
