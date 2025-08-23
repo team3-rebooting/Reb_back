@@ -49,8 +49,7 @@
 </div>
 <div class="page-list">
 	<div class="pagenation">
-		<a href="#">&lt;</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a>
-		<a href="#">4</a> <a href="#">5</a> <a href="#">&gt;</a>
+		
 	</div>
 </div>
 <div class="search-container">

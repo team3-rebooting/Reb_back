@@ -119,12 +119,12 @@ public class MyMemberDTO {
 		this.memberBirthDate = memberBirthDate;
 	}
 	
-	public List<FileMemberProfileDTO> getFileMemberProfileList() {
-		return fileMemberProfileList;
-	}
-	public void setFileMemberProfileList(List<FileMemberProfileDTO> fileMemberProfileList) {
-		this.fileMemberProfileList = fileMemberProfileList;
-	}
+	
+	 public List<FileMemberProfileDTO> getFileMemberProfileList() { return
+	 fileMemberProfileList; } public void
+	 setFileMemberProfileList(List<FileMemberProfileDTO> fileMemberProfileList) {
+	 this.fileMemberProfileList = fileMemberProfileList; }
+	 
 	
 	@Override
 	public String toString() {
@@ -134,7 +134,7 @@ public class MyMemberDTO {
 				+ ", memberGender=" + memberGender + ", memberNickname=" + memberNickname + ", memberPhoneNumber="
 				+ memberPhoneNumber + ", expertCertStatusNumber=" + expertCertStatusNumber + ", expertCertStatusInfo="
 				+ expertCertStatusInfo + ", expertApplicantReason=" + expertApplicantReason + ", memberBirthDate="
-				+ memberBirthDate + ", fileMemberProFileList=" + fileMemberProfileList + "]";
+				+ memberBirthDate + ", fileMemberProFileList="+ fileMemberProfileList + "]";
 	}
 	
 }

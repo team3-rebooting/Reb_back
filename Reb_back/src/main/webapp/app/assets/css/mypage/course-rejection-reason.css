@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/* 반려된 수업 신청 유형 */
+#course-request-type{
+    color : #A39E9E;
+    position: relative;
+    left : 200px;
+    bottom : 50px;
+}

@@ -93,26 +93,29 @@ public class MyPageFrontController extends HttpServlet {
 		case "/myPage/courseReasonOk.my":
 			System.out.println("수업 신청 반려 사유 조회 처리");
 			break;
-		case "/myPage/myApplicantOk.my":
-			System.out.println("나의 신청/수강 목록 처리");
+		case "/mypage/myApplicant.my":
+			System.out.println("나의 신청/수강 목록");
+			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/my-applicant.jsp").forward(request, response);
 			break;
-		case "/myPage/myPostOk.my":
+		case "/mypage/myReview.my":
 			System.out.println("나의 후기/댓글 목록 처리");
+			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/my-review.jsp").forward(request, response);
 			break;
 		case "/myPage/myCourseRequest.my":
 			System.out.println("나의 개설 수업 목록 페이지");
+			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/my-review.jsp").forward(request, response);
 			break;
 		case "/myPage/myCourseRequestOk.my":
 			System.out.println("나의 개설 수업 목록 처리");
 			break;
 			
+		/*
+		 * case "/mypage/mypageListOk.my": System.out.println("나의 개설 수업 목록 처리"); result
+		 * = new MyPageListOkController().execute(request, response); break;
+		 */
 		case "/mypage/mypageListOk.my":
-			System.out.println("나의 개설 수업 목록 처리");
-			result = new MyPageListOkController().execute(request, response);
-			break;
-		case "/mypage/mypageListLoadOk.my":
 			System.out.println("나의 개설 수업 목록 로드 처리");
-			result = new MyPageListLoadOkController().execute(request, response);
+			result = new MyPageListOkController().execute(request, response);
 			break;
 		}
 		

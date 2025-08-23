@@ -26,7 +26,10 @@ public class MyPageDAO {
 	}
 	
 	public MyMemberDTO select(int memberNumber) {
-		return sqlSession.selectOne("myMember.select", memberNumber);
+		MyMemberDTO myMemberDTO = sqlSession.selectOne("myMember.select", memberNumber);
+		myMemberDTO.setFileMemberProfileList(sqlSession.selectList("fileMemberProfile.selectList", memberNumber));
+		
+		return myMemberDTO;
 	}
 	
 	public void update(MemberDTO memberDTO) {

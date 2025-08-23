@@ -18,4 +18,8 @@
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
 		]]>
 	</select>
+	
+	<select id="getTotal" parameterType="int" resultType="int">
+	SELECT count(MEMBER_NUMBER) FROM tbl_routine_member_applicant WHERE MEMBER_NUMBER = #{memberNumber}
+	</select>
 </mapper>

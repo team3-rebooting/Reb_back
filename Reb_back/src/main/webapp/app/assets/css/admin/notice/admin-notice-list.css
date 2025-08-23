@@ -1,0 +1,269 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+/* ul  */
+ul{
+	list-style: none;
+}
+
+/* 폰트 */
+.font-menu {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 바디 */
+body {
+  background-color: #757575;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 헤더 */
+header {
+  display: flex;
+  margin: auto;
+  position: fixed;
+  transform: translateX(155px);
+  z-index: 2;
+  background-color: #bebebe;
+  height: 80px;
+  width: 895px;
+  font-size: 20px;
+  line-height: 80px;
+  justify-content: space-between;
+}
+
+/* 마우스 호버시 손가락 모양 */
+button{
+  cursor: pointer;
+}
+
+/* 상단 목록 */
+header>p{
+  margin : 0 30px;
+} 
+
+/* 로그아웃 버튼 */
+header>button {
+  height: 30px;
+  width: 50px;
+  border-radius: 10px;
+  margin: 25px 20px;
+  background-color: black;
+  color: white;
+  border: 0;
+  font-size: 16px;
+}
+
+/* 메인 */
+main{
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  top: 80px;
+  margin-bottom: 0;
+}
+
+/* 사이드바 리스트 영역 */
+#main-admin-list-menu{
+  background-color: #d9d9d9;
+  height: 100vh;
+  width: 310px;
+  position: fixed;
+  transform: translate(-155px, -80px);
+}
+
+/* 사이드바 리스트 */
+#main-admin-list{
+  margin: 150px 55px;
+  width: 200px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* 사이드바 리스트 목록 */
+#main-admin-list>li{
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+/* 리스트 마우스 호버 시 폰트 사이즈 증가 */
+#main-admin-list>li:hover{
+  font-size: 24px;
+}
+
+/* 텍스트 효과 삭제 */
+#main-admin-list>li>a{
+  text-decoration: none;
+  color: black;
+}
+
+/* 메인 영역 */
+#main-notice{
+  background-color: white;
+  height: 100vh;
+  width: 895px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(155px);
+}
+
+#main-notice-div{
+  width: 895px;
+  display: flex;
+  flex-direction: column;
+  align-items : center;
+  background-color: white;
+}
+
+/* 공지사항 리스트 제목 */
+#main-notice-list-title{
+  background-color: #d9d9d9;
+  margin-top: 100px;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 0 17px;
+  font-size: 20px;
+}
+
+/* 공지사항 리스트 */
+#main-notice-list{
+  width: 875px;
+  font-size: 18px;
+}
+
+
+/* 마우스 호버시 리스트에 밑줄 */
+a>.main-notice-title:hover{
+  text-decoration: underline;
+}
+
+/* 제목 영역 */
+.main-notice-title{
+  width: 600px;
+  text-align: center;
+}
+
+/* 작성자 영역 */
+.main-notice-author{
+  width:115px;
+  text-align: center;
+}
+
+/* 작성 날짜 영역 */
+.main-notice-create-date{
+  width: 126px;
+  text-align: center;
+}
+
+/* 공지사항 리스트 목록 */
+#main-notice-list>li{
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 0 17px;
+  border-bottom: 3px solid #a7a7a7;
+}
+
+/* 디테일 페이지 이동 */
+.main-must-read-link{
+  display: flex;
+  text-decoration: none;
+  color: black;
+}
+
+/* 제목 왼쪽 정렬 */
+#main-notice-list>li>a>p:first-child{
+  text-align: left;
+}
+
+/* 등록 버튼 */
+#main-create-notice{
+  background-color: #818181;
+  height: 55px;
+  width: 160px;
+  border-radius: 15px;
+  border: 0;
+  font-size: 20px;
+  margin: 70px 0 28px;
+  color: white;
+}
+
+/* 페이지네이션 */
+#main-page-number{
+  display: flex;
+  width: 370px;
+  font-size: 20px;
+}
+
+/* 페이지네이션 버튼 커스텀 */
+#main-page-number>ul>li>a{
+  margin: 0 28px;
+  text-decoration: none;
+  color: black;
+}
+#main-page-number>ul{
+	display:flex;
+}
+
+/* 검색 영역 */
+#main-search{
+  height: 45px;
+  width: 840px;
+  font-size: 20px;
+  display: flex;
+  align-self: start;
+  margin: 30px 28px;
+}
+
+/* 검색 조건 영역 */
+.select-find {
+    border-radius: 10px;
+    border: 1px solid black;
+    height: 45px;
+    font-family: "IBM Plex Sans KR", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 입력창 */
+#main-search-input{
+  width: 370px;
+  height: 45px;
+  border-radius: 10px;
+  margin: 0 5px;
+  border: 1px solid black;
+}
+
+/* 검색 form */
+form{
+  display: flex;
+  align-items: center;
+}
+
+/* 돋보기 이미지 버튼 */
+form>button{
+  background-color: white;
+  border: 0;
+  transform: translateX(-40px);
+}
+
+/* 돋보기 이미지 */
+form>button>img{
+  height: 30px;
+  width: 30px;
+  border: 0px;
+}

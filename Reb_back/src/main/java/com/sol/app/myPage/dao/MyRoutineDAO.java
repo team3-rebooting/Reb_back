@@ -18,4 +18,8 @@ public class MyRoutineDAO {
 	public List<MyRoutineDTO> selectList(Map<String, Integer> map){
 		return sqlSession.selectList("myRoutine.selectList", map);
 	}
+	
+	public int getTotal(int memberNumber) {
+		return sqlSession.selectOne("myRoutine.getTotal", memberNumber);
+	}
 }

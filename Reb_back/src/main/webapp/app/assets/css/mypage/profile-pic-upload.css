@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* 프로필 사진 모달 영역 */
+#profile-pic-upload-middle{
+    display: flex;
+    justify-content: space-around;
+    height: 45px;
+    top:50px;
+    left: 90px;
+    position: relative;
+    line-height: 45px;
+}
+
+/* 첨부파일 글자 */
+#label-profile-pic{
+    color:  #F38A6E;
+}
+
+/* 프로필 사진 첨부파일 불러오기 버튼 */
+#input-profile-pic-search{
+    display: none;
+}
+
+/* 프로필 사진 첨부파일 불러오기 버튼 */
+#label-profile-pic-search{
+    padding: 6px 20px;
+    background-color:  #F38A6E;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+/* 프로필 사진 등록 버튼 */
+#button-profile-pic-upload{
+    color: white;
+    top: 120px;
+    left: 405px;
+    position: relative;
+}

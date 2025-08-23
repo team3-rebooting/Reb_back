@@ -59,6 +59,8 @@
 			alias="CourseReviewDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.CourseReviewListDTO"
 			alias="CourseReviewListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileMemberProfileDTO"
+			alias="FileMemberProfileDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -95,7 +97,10 @@
 		<mapper resource="com/sol/mapper/RoutineReviewListMapper.xml" />
 		<mapper resource="com/sol/mapper/AdminRoutineMapper.xml" />
 		<mapper resource="com/sol/mapper/AdminMemberMapper.xml" />
-		<mapper resource="com/sol/mapper/CourseReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseReviewMapper.xml" /> 
+		<mapper resource="com/sol/mapper/FileMemberProfileMapper.xml" />
+	</mappers>
+		<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/>  -->
 		<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 
 			/> <mapper resource="com/sol/mapper/CourseRequestMapper.xml" /> <mapper resource="com/sol/mapper/CourseReviewCommentList.xml" 
 			/> <mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" /> <mapper 
@@ -112,7 +117,6 @@
 			/> <mapper resource="com/sol/mapper/RoutineReviewListMapper.xml" /> <mapper 
 			resource="com/sol/mapper/RoutineReviewMapper.xml" /> <mapper resource="com/sol/mapper/SponsorMapper.xml" 
 			/> -->
-	</mappers>
 </configuration>
 
 

@@ -1,0 +1,255 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  height: 110px;
+  width: 100%;
+  position: fixed;
+  background-color: #f59d85;
+}
+
+#footer {
+  width: 100%;
+  height: 125px;
+  background-color: #f59d85;
+}
+
+#main-container {
+  width: 1200px;
+  height: 100%;
+  /*알아서 넣기*/
+  background-color: #FFFEF1;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  background-color: #FFFEF1;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  min-height: calc(100vh - 235px);
+}
+
+button {
+  border-radius: 13px;
+  padding: 0px 20px;
+  height: 40px;
+  background-color: #f59d85;
+  border: 0px;
+}
+
+.font-main {
+  font-size: 18px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.font-menu {
+  font-family: "Yeon Sung", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pagetitle {
+  font-size: 30px;
+  color: #F38A6E;
+
+  padding-top: 50px;
+  height: 110px;
+  line-height: 110px;
+
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.course-list-container {
+  background-color: #FFFEF1;
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  height: 100%;
+}
+
+.p-title {
+  font-size: 48px;
+  color: #F38A6E;
+}
+
+.ul-course-list {
+  width: 100%;
+  height: 1200px;
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.img-box {
+  width: 340px;
+  height: 266px;
+}
+
+.div-page {
+  display: flex;
+  justify-content: center;
+}
+
+.div-find-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom : 30px;
+}
+
+.div-pagenation {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+.li-course-list-box:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+.div-box-status {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-list-comment {
+  text-align: center;
+  font-size: 18px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.p-name-date {
+  line-height: 40px;
+  opacity: 20%;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.button-recruit-ing {
+  border-radius: 13px;
+  padding: 0px 20px;
+  height: 40px;
+  border: 0px;
+  background-color: #009000;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.button-recruit-end {
+  border-radius: 13px;
+  padding: 0px 20px;
+  height: 40px;
+  border: 0px;
+  background-color: #ff0000;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.button-recruit-before {
+  border-radius: 13px;
+  padding: 0px 20px;
+  height: 40px;
+  border: 0px;
+  background-color: #FFFF00;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.find-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.select-find {
+  border: 1px solid black;
+  height: 50px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+
+.input-group {
+  border-radius: 15px;
+  height: 50px;
+  display: flex;
+  position: relative;
+}
+
+.input-find {
+  border: 1px solid black;
+  background-color:white;
+  border-radius: 15px;
+  height: 50px;
+  padding: 0 0 0 20px; 
+  outline: none;
+  font-size: 16px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  width: 365px;
+
+}
+
+
+.button-find {
+  position: absolute;
+  top: 50%;
+  right: 10px; 
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+}
+
+.button-write {
+  border-radius: 15px;
+  border: 0px;
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  background-color: #F38A6E;
+  color: white;
+  float: right;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  /* display: none; */
+}
+
+.button-write:hover {
+  cursor: pointer;
+}

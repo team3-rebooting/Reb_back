@@ -1,0 +1,488 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  height: 110px;
+  width: 100%;
+  position: fixed;
+  background-color: #f59d85;
+}
+
+#footer {
+  width: 100%;
+  height: 125px;
+  background-color: #f59d85;
+}
+
+#main-container {
+  width: 1200px;
+  height: 100%;
+  /*알아서 넣기*/
+  background-color: #FFFEF1;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  height: 718px;
+  width: 100%;
+  background-color: #FFFEF1;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-style: normal;
+  min-height: calc(100vh - 235px);
+}
+
+button {
+  border-radius: 13px;
+  padding: 0px 20px;
+  height: 50px;
+  background-color: #f59d85;
+  border: 0px;
+  font-size: 20px;
+  color: white;
+}
+
+.font-main {
+  font-size: 20px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+}
+
+.font-menu {
+  font-family: "Yeon Sung", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pagetitle {
+  font-size: 30px;
+  color: #F38A6E;
+
+  padding-top: 100px;
+  height: 110px;
+  line-height: 110px;
+
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.button-pw {
+  width: 184px;
+  height: 50px;
+  background-color: #F59D85;
+  border: 0;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.form-pw {
+  display: flex;
+  justify-content: center;
+  margin-top: 130px;
+  height: 45px;
+  line-height: 50px;
+}
+
+.form-pw input {
+  margin: 0px 30px;
+  width: 550px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 17px;
+}
+
+.label-pw {
+  text-align: right;
+  font-size: 20px;
+
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.wrongpw {
+  margin-top: 30px;
+  font-size: 20px;
+  margin-left: 545px;
+  color: red;
+  display: none;
+}
+
+
+label>.font-main {
+  width: 100px;
+  line-height: 65px;
+  color: black;
+  padding-right: 15px;
+}
+
+.login-container {
+  width: 800px;
+  height: 600px;
+  background-color: #FFFACD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+hr {
+  width: 100%;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 70%;
+}
+
+.div-id,
+.div-pw {
+  display: flex;
+  margin: 20px;
+  width: 100%;
+}
+
+.div-id>label,
+.div-pw>label {
+  text-align: end;
+}
+
+
+input {
+  border-radius: 15px;
+  border: 0px;
+  width: 80%;
+  height: 45px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+
+button:hover {
+  cursor: pointer;
+}
+
+.button-basic {
+  width: 100%;
+  margin: 20px;
+  background-color: #f59d85;
+  color: white;
+}
+
+.button-kakao {
+  width: 100%;
+  background-color: #FEE500;
+  color: black;
+}
+
+.kakao {
+  width: 20px;
+  height: 20px;
+  padding-right: 30px;
+}
+
+button>.font-menu {
+  line-height: 30px;
+}
+
+a {
+  color: #929292;
+  text-decoration-line: none;
+}
+
+.div-login-etc {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.div-login-etc>p {
+  color: #929292;
+}
+
+.div-login-etc>a>p {
+  color: #929292;
+}
+
+.div-login-etc>a>p:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.div-login-etc>p:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.modal-id-background {
+  height: 100vh;
+  width: 100%;
+  background-color: #0000003e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.div-findid-modal {
+  background-color: #FFFEF1;
+  width: 80%;
+  max-width: 700px;
+  height: auto;
+  max-height: 80vh;
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.span-modal-title {
+  color: #F38A6E;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24px;
+  text-align: center;
+}
+
+.input-delete-modal {
+  width: 100%;
+  height: 250px;
+  font-size: 20px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+.textarea-delete-modal {
+  width: 100%;
+  height: 250px;
+  font-size: 20px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  resize: none;
+  border-radius: 13px;
+}
+
+.div-modal-head {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.div-modal-x {
+  text-align: end;
+}
+
+.button-id-x,
+.button-pw-x {
+  background-color: #FFFEF1;
+  color: black;
+}
+
+.button-modal-find-id,
+.button-modal-find-pw {
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  background-color: #F38A6E;
+  border-radius: 13px;
+  padding: 0px 20px;
+  margin-top: 50px;
+  font-size: 20px;
+  color: white;
+}
+
+.span-modal {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width: 65px;
+  line-height: 65px;
+  text-align: end;
+  padding-right: 30px;
+  white-space: nowrap;
+  padding-top: 10px;
+}
+
+.div-modal-name,
+.div-modal-pn,
+.div-modal-id {
+  display: flex;
+  margin: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.div-modal-pn {
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.input-modal-name-id,
+.input-modal-name-pw,
+.input-modal-id-pw,
+.input-modal-pn-id,
+.input-modal-pn-pw {
+  border-radius: 15px;
+  border: 0px;
+  width: 80%;
+  height: 45px;
+  padding: 10px;
+  font-size: 18px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.button-injung-id,
+.button-injung-pw {
+  border-radius: 13px;
+  padding: 0px 20px;
+  height: 45px;
+  background-color: #f59d85;
+  border: 0px;
+  font-size: 14px;
+  color: white;
+  white-space: nowrap;
+}
+
+.div-phone-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+}
+
+.div-phone-input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.input-modal-pn-injung {
+  border-radius: 15px;
+  border: 0px;
+  width: 80%;
+  height: 45px;
+  padding: 10px;
+  font-size: 18px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #d9d9d9;
+}
+
+.button-injung-do-id,
+.button-retry-id,
+.button-injung-do-pw,
+.button-retry-pw {
+  border-radius: 13px;
+  padding: 0px 20px;
+  height: 45px;
+  background-color: #d9d9d9;
+  border: 0px;
+  font-size: 14px;
+  color: black;
+  white-space: nowrap;
+}
+
+.modal-id-end-background,
+.modal-pw-end-background {
+  height: 100vh;
+  width: 100%;
+  background-color: #0000003e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.div-findid-end-modal,
+.div-findpw-end-modal {
+  background-color: #FFFEF1;
+  height: 500px;
+  width: 700px;
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.div-modal-main-findid-end {
+  height: 284px;
+  text-align: center;
+}
+
+.span-findid-end {
+  font-size: 24px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.button-modal-find-end-id,
+.button-modal-find-end-pw {
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  background-color: #F38A6E;
+  border-radius: 13px;
+  padding: 0px 20px;
+  margin-top: 50px;
+  font-size: 20px;
+  color: white;
+}
+
+.modal-pw-background {
+  height: 100vh;
+  width: 100%;
+  background-color: #0000003e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.div-findpw-modal {
+  background-color: #FFFEF1;
+  width: 80%;
+  max-width: 700px;
+  height: auto;
+  max-height: 80vh;
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.kakao-img {
+  width: 30px;
+  height: 20px;
+  background-color: #FEE500;
+}

@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* 컨텐츠 영역 */
+#expert-file-upload-middle{
+    display: flex;
+    justify-content: space-around;
+    height: 45px;
+    top:50px;
+    left: 90px;
+    position: relative;
+    line-height: 45px;
+}
+
+/* 첨부파일 글자 */
+#label-expert-file{
+    color:  #F38A6E;
+}
+
+/* 첨부 파일 불러오기 버튼 */
+#input-expert-file-search{
+    display: none;
+}
+
+/* 첨부 파일 불러오기 버튼 */
+#label-expert-file-search{
+    padding: 6px 20px;
+    background-color:  #F38A6E;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+/* 첨부 파일 등록 버튼 */
+#button-expert-file-upload{
+    color: white;
+    top: 120px;
+    left: 405px;
+    position: relative;
+}

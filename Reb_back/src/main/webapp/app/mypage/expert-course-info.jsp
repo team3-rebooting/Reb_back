@@ -6,13 +6,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/mypage/expert-course-info.css">
-  <link rel="stylesheet" href="./../../assets/css/mypage/sidemenu.css">
-  <link rel="stylesheet" href="./../../assets/css/mypage/mypage-modal.css">
-  <link rel="stylesheet" href="./../../assets/css/mypage/course-rejection-reason.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/expert-course-info.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/sidemenu.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/mypage-modal.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/course-rejection-reason.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/mypage-list.css">
 
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,19 +38,23 @@
     <jsp:include page="${pageContext.request.contextPath}/app/mypage/sidemenu.jsp" />
     <!-- 메인 컨테이너 -->
     <div id="main-container">
+    <div id="my-course-request" class="mypage-list" data-listType="myCourseRequest">
+		<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-list.jsp" />
+	</div>
+    <!-- 
       <div class="pagetitle">나의 수업 개설 내역</div>
-      <!-- 수업 개설 내역 -->
+      수업 개설 내역
       <div class="expert-course-list">
-        <!-- 수업 속성 값 -->
+        수업 속성 값
         <div class="expert-course-col-type">
           <p class="font-main expert-course-title">제목</p>
           <p class="font-main expert-course-status">진행 사항</p>
           <p class="font-main expert-course-count">인원</p>
           <p class="font-main expert-course-date">신청일자</p>
         </div>
-        <!-- 수업 목록 -->
+        수업 목록
         <ul class="ul-expert-course-list">
-          <!-- 수업 정보 행 -->
+          수업 정보 행
           <li class="li-expert-course-content">
             <a href="./../course/course-detail-expert-basic.html" class="font-main expert-course-title">[IT]Java의 정석1</a>
             <p class="font-main expert-course-status">개설 신청</p>
@@ -113,7 +118,7 @@
           </li>
         </ul>
       </div>
-      <!-- 목록 페이지 번호 -->
+      목록 페이지 번호
       <div class="page-list">
         <div class="pagenation">
           <a href="#">&lt;</a>
@@ -125,29 +130,30 @@
           <a href="#">&gt;</a>
         </div>
       </div>
-      <!-- 검색 창 -->
+      검색 창
       <div class="search-container">
         <form action="" method="get">
           <div class="search-form">
-            <!-- 검색 유형 -->
+            검색 유형
             <select class="select-search">
               <option value="title" name="seachTitle">제목</option>
               <option value="courseStatus" name="searchCourseStatus">진행사항</option>
             </select>
-            <!-- 검색 입력 -->
+            검색 입력
             <input class="input-search" type="text">
             <button type="button" class="button-search" name="searchList" onclick="search(event)"><img
                 src="./../../assets/img/search.jpg" alt=""></button>
           </div>
         </form>
-      </div>
-    </div>
+      </div>-->
+    </div> 
   </main>
   <!-- 푸터 -->
   <div id="footer">
   </div>
   <script src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-list.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
 
