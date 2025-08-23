@@ -21,6 +21,7 @@ public class MemberDAO {
 	}
 	
 	public void signup(MemberSignupDTO memberSignupDTO) {
+		sqlSession.insert("member.signupAddress", memberSignupDTO);
 		sqlSession.insert("member.signup", memberSignupDTO);
 	}
 	
@@ -31,5 +32,9 @@ public class MemberDAO {
 	// 회원번호 반환 메소드
 	public String getMemberId(int memberNumber) {
 		return sqlSession.selectOne("member.getId", memberNumber);
+	}
+	
+	public boolean checkId(String memberId) {
+		return (Integer) sqlSession.selectOne("member.checkId", memberId) < 1;
 	}
 }

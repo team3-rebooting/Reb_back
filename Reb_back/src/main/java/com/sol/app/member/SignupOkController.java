@@ -25,12 +25,14 @@ public class SignupOkController implements Execute{
 		memberSignupDTO.setMemberId(request.getParameter("memberId"));
 		memberSignupDTO.setMemberPassword(request.getParameter("memberPassword"));
 		memberSignupDTO.setMemberBirthDate(request.getParameter("memberBirthDate"));
-		memberSignupDTO.setAddress(request.getParameter("addressBasic"));
-		memberSignupDTO.setAddressDetail(request.getParameter("addressAdd"));
+//		memberSignupDTO.setAddress(request.getParameter("addressBasic"));
+		memberSignupDTO.setZipCode(request.getParameter("zipCode"));
+		memberSignupDTO.setAddress(request.getParameter("address"));
+		memberSignupDTO.setAddressAdd(request.getParameter("addressAdd"));
 		memberSignupDTO.setMemberEmail(request.getParameter("email"));
 		memberSignupDTO.setMemberName(request.getParameter("name"));
 		memberSignupDTO.setMemberGender(request.getParameter("gender"));
-		memberSignupDTO.setMemberNickname(request.getParameter("nickName"));
+		memberSignupDTO.setMemberNickname(request.getParameter("memberNickname"));
 		memberSignupDTO.setMemberPhoneNumber(request.getParameter("phoneNumber"));
 		
 		memberDAO.signup(memberSignupDTO);
