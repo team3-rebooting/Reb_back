@@ -224,8 +224,9 @@ button{
 
 /* 닉네임 사용가능 여부 텍스트 */
 #possible-nickname-text{
-  margin-left: 115px;
   display: none;
+  width : 190px;
+  text-align : right;
 }
 
 /* 2행으로 이루어진 정보 */

@@ -1,5 +1,5 @@
 /* 헤더 */
-#header {
+header {
   height: 110px;
   width: 100%;
   top : 0px;
@@ -11,7 +11,6 @@
   flex-wrap: wrap;
   background-color: #f59d85;
 }
-
 
 /* 메뉴 */
 .header-container-menu {

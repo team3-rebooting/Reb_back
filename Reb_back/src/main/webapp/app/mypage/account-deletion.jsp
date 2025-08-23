@@ -29,9 +29,6 @@
   <!-- 헤더 -->
   <jsp:include page="/header.jsp" />
   <main>
-    <!-- 사이드 메뉴 -->
-    <aside id="mypage-sidemenu-container font-menu">
-    </aside>
     <!-- 메인 컨테이너 -->
     <div id="main-container">
       <div id="account-deletion">회원 탈퇴가 완료되었습니다.<br>그동안 감사했습니다.</div>
@@ -40,7 +37,6 @@
   <!-- 푸터 -->
   <div id="footer">
   </div>
-  <script src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
 
