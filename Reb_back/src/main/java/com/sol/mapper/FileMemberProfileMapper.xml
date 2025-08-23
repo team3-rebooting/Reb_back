@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="fileMemberProfile">
-	<select id="selectList" parameterType="int" resultType="FileMemberProfileDTO">
+	<select id="select" parameterType="int" resultType="FileMemberProfileDTO">
 		<![CDATA[
 		SELECT file_system_name, file_original_name, member_number
 		FROM TBL_FILE_MEMBER_PROFILE where Member_NUMBER = #{memberNumber}

@@ -67,6 +67,7 @@ public class MyPageFrontController extends HttpServlet {
 			break;
 		case "/myPage/editCompleteOk.my":
 			System.out.println("개인정보 수정 처리");
+			result = new EditCompleteOkController().execute(request, response);
 			break;
 		case "/mypage/checkNicknameOk.my":
 			System.out.println("닉네임 중복 확인 처리");
@@ -74,9 +75,11 @@ public class MyPageFrontController extends HttpServlet {
 			break;
 		case "/myPage/accountDeletionOk.my":
 			System.out.println("회원 탈퇴 처리");
+			result = new AccountDeletionOkController().execute(request, response);
 			break;
 		case "/myPage/accountDeletion.my":
 			System.out.println("회원 탈퇴 완료 페이지");
+			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/account-deletion.jsp").forward(request, response);
 			break;
 		case "/myPage/mySponsorshipOk.my":
 			System.out.println("후원 정보 처리");
@@ -105,16 +108,8 @@ public class MyPageFrontController extends HttpServlet {
 			System.out.println("나의 개설 수업 목록 페이지");
 			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/my-review.jsp").forward(request, response);
 			break;
-		case "/myPage/myCourseRequestOk.my":
-			System.out.println("나의 개설 수업 목록 처리");
-			break;
-			
-		/*
-		 * case "/mypage/mypageListOk.my": System.out.println("나의 개설 수업 목록 처리"); result
-		 * = new MyPageListOkController().execute(request, response); break;
-		 */
 		case "/mypage/mypageListOk.my":
-			System.out.println("나의 개설 수업 목록 로드 처리");
+			System.out.println("마에페이지 목록 분기 처리");
 			result = new MyPageListOkController().execute(request, response);
 			break;
 		}

@@ -61,6 +61,8 @@
 			alias="CourseReviewListDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.FileMemberProfileDTO"
 			alias="FileMemberProfileDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.SponsorDTO"
+			alias="SponsorDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -99,6 +101,7 @@
 		<mapper resource="com/sol/mapper/AdminMemberMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseReviewMapper.xml" /> 
 		<mapper resource="com/sol/mapper/FileMemberProfileMapper.xml" />
+		<mapper resource="com/sol/mapper/SponsorMapper.xml" />
 	</mappers>
 		<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/>  -->
 		<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 

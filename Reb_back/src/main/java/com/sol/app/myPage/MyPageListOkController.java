@@ -43,6 +43,9 @@ public class MyPageListOkController implements Execute {
 		case "my-course-request":
 			new MyCourseRequestOKController().execute(request, response);
 			break;
+		case "my-sponsor":
+			new MySponsorOKController().execute(request, response);
+			break;
 		}
 		
 		return null;
