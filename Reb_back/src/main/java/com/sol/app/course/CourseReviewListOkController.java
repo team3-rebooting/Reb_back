@@ -34,7 +34,7 @@ public class CourseReviewListOkController implements Execute{
 		int endRow = startRow + rowCount - 1;
 		
 		Map<String, Integer> pageMap = new HashMap<>();
-		pageMap.put("StartRow", startRow);
+		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
 		
 		// 게시글 목록 조회

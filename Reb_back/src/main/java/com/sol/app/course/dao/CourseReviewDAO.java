@@ -20,7 +20,6 @@ public class CourseReviewDAO {
 		System.out.println("모든 게시글 조회하기" + pageMap);
 		List<CourseReviewListDTO> list = sqlSession.selectList("courseReview.selectAll", pageMap);
 		System.out.println("조회 결과 : " + list);
-		
 		return list;
 	}
 	
