@@ -56,8 +56,11 @@ public class RoutineFrontManager extends HttpServlet {
 		case "/routine/routineReviewReadOk.ro":
 			result = new RoutineReviewReadOkController().execute(request, response);
 			break;
+		case "/routine/routineReviewWrite.ro":
+			result = new RoutineReviewWriteController().execute(request, response);
+			break;
 		case "/routine/routineReviewWriteOk.ro":
-			result = new RoutineReviewReadOkController().execute(request, response);
+			result = new RoutineReviewWriteOkController().execute(request, response);
 			break;
 		}
 		

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,11 +46,11 @@
                 <!-- 후원 상세 정보 -->
                 <div class="my-sponsorship-data">
                     <div class="my-sponsorship-data-title">총 후원 금액</div>
-                    <div class="my-sponsorship-data-content">1,150,000원</div>
+                    <div class="my-sponsorship-data-content"><c:out value=" ${totalAmount}"/>원</div>
                 </div>
                 <div class="my-sponsorship-data">
                     <div class="my-sponsorship-data-title">총 후원 횟수</div>
-                    <div class="my-sponsorship-data-content">3회</div>
+                    <div class="my-sponsorship-data-content"><c:out value=" ${totalCount}"/>회</div>
                 </div>
             </div>
             <!-- 후원 목록 -->
