@@ -54,16 +54,16 @@
 						<!-- 수업 메뉴 -->
 						<div class="header-menu-dropdown-menu">
 							<a
-								href="${pageContext.request.contextPath}/app/course/course-list.jsp">수업</a>
+								href="${pageContext.request.contextPath}/course/courseListOk.co">수업</a>
 						</div>
 						<!-- 드롭 다운 배경 -->
 						<div class="header-menu-dropdown-bg"></div>
 						<!-- 수업 드롭다운 메뉴 -->
 						<div class="header-menu-dropdown-menu-content">
 							<a
-								href="${pageContext.request.contextPath}/app/course/course-list.jsp">수업
+								href="${pageContext.request.contextPath}/course/courseListOk.co">수업
 								게시판</a> <a
-								href="${pageContext.request.contextPath}/app/course/course-review-list.jsp">수업
+								href="${pageContext.request.contextPath}/course/courseReviewListOk.co">수업
 								후기 게시판</a>
 						</div>
 					</div>
