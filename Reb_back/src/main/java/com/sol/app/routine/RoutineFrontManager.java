@@ -50,17 +50,28 @@ public class RoutineFrontManager extends HttpServlet {
 
 		switch (target) {
 		case "/routine/routineReviewOk.ro":
+			System.out.println("루틴 후기 목록 처리");
 			result = new RoutineReviewOkController().execute(request, response);
 			break;
-			
 		case "/routine/routineReviewReadOk.ro":
+			System.out.println("루틴 후기 상세 처리");
 			result = new RoutineReviewReadOkController().execute(request, response);
 			break;
 		case "/routine/routineReviewWrite.ro":
+			System.out.println("루틴 후기 작성");
 			result = new RoutineReviewWriteController().execute(request, response);
 			break;
 		case "/routine/routineReviewWriteOk.ro":
+			System.out.println("루틴 후기 작성 처리");
 			result = new RoutineReviewWriteOkController().execute(request, response);
+			break;
+		case "/routine/routineOk.ro" :
+			System.out.println("루틴 모임 목록 처리");
+			result = new RoutineOkController().execute(request, response);
+			break;
+		case "/routine/routineReadOk.ro" :
+			System.out.println("루틴 모임 상세 처리");
+			result = new RoutineReadOkController().execute(request, response);
 			break;
 		}
 		

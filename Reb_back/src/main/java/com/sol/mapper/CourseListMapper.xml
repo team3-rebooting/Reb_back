@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="courseList">
-	<select id="list" parameterType="CourseListDTO"
-		resultType="CourseListDTO">
-		<!-- 3 X 3으로 출력되어야함 추후 잡아보기 -->
-		<!-- 수업 내용 -->
+	<select id="selectList" parameterType="map" resultType="CourseListDTO">
 	<![CDATA[
 	SELECT * FROM (
       SELECT ROWNUM AS rnum, subquery.*
       FROM (
-		SELECT c.course_title, cr.COURSE_STATUS_INFO ,c.course_post_date, m.member_name
-		FROM tbl_course c LEFT OUTER JOIN tbl_expert e
-		ON c.expert_number = e.EXPERT_NUMBER
-		LEFT OUTER JOIN  TBL_COURSE_RECRUIT_STATUS cr
-			ON c.course_recruit_status_number = cr.COURSE_RECRUIT_STATUS_NUMBER 
-		LEFT OUTER JOIN tbl_member m
-		ON e.member_number = m.member_number
-		ORDER BY c.course_post_date DESC
+		SELECT c.COURSE_NUMBER, c.expert_number, m.member_name as expert_name, c.COURSE_TITLE, c.COURSE_CONTENT, c.COURSE_RECRUIT_STATUS_NUMBER, cs.COURSE_STATUS_INFO, 
+			to_char(c.COURSE_POST_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_DATE, to_char(c.COURSE_POST_UPDATE_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_UPDATE_DATE, to_char(c.COURSE_RECRUIT_START_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_START_DATE, 
+			to_char(c.COURSE_RECRUIT_END_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_END_DATE, to_char(c.COURSE_START_DATE, 'yyyy.mm.dd(day)') as COURSE_START_DATE, to_char(c.COURSE_END_DATE, 'yyyy.mm.dd(day)') as COURSE_END_DATE, to_char(c.COURSE_START_TIME,'hh:mi') as COURSE_START_TIME,  to_char(c.COURSE_END_TIME,'hh:mi') as COURSE_END_TIME, c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT,
+			c.COURSE_PRICE, f.field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER
+			FROM tbl_course c
+			FULL OUTER JOIN TBL_COURSE_RECRUIT_STATUS cs ON c.COURSE_RECRUIT_STATUS_NUMBER = cs.COURSE_RECRUIT_STATUS_NUMBER
+			FULL OUTER JOIN tbl_expert e ON c.expert_number = e.expert_number
+			LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
+			LEFT JOIN TBL_FILE_course fc ON fc.course_NUMBER = c.course_NUMBER			
+			LEFT OUTER JOIN tbl_field f ON f.field_number = e.expert_field_number
+			ORDER BY c.COURSE_POST_DATE DESC
       ) subquery
    	) WHERE rnum BETWEEN #{startRow} AND #{endRow} 
 	]]>
@@ -61,15 +61,19 @@
 	</update>
 	
 	<!-- 수업 상세 내용 -->
-	<select id="select" parameterType="CourseListDTO" resultType="CourseListDTO">
+	<select id="select" parameterType="int" resultType="CourseListDTO">
 		<![CDATA[
-			select course_number, e.expert_number, c.course_title, c.course_post_date, m.member_name, 
-				f.field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER, c.course_content, c.COURSE_RECRUIT_START_DATE,
-				c.COURSE_RECRUIT_END_DATE, c.COURSE_START_DATE, c.COURSE_END_DATE, c.COURSE_START_TIME, c.COURSE_END_TIME,
-				c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT, c.COURSE_PRICE
-				FROM tbl_course c LEFT OUTER JOIN tbl_expert e ON c.expert_number = e.expert_number
-					LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
-					LEFT OUTER JOIN tbl_field f ON f.field_number = e.expert_field_number
+			SELECT c.COURSE_NUMBER, c.expert_number, m.member_name as expert_name, c.COURSE_TITLE, c.COURSE_CONTENT, c.COURSE_RECRUIT_STATUS_NUMBER, cs.COURSE_STATUS_INFO, 
+			to_char(c.COURSE_POST_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_DATE, to_char(c.COURSE_POST_UPDATE_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_UPDATE_DATE, to_char(c.COURSE_RECRUIT_START_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_START_DATE, 
+			to_char(c.COURSE_RECRUIT_END_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_END_DATE, to_char(c.COURSE_START_DATE, 'yyyy.mm.dd(day)') as COURSE_START_DATE, to_char(c.COURSE_END_DATE, 'yyyy.mm.dd(day)') as COURSE_END_DATE, to_char(c.COURSE_START_TIME,'hh:mi') as COURSE_START_TIME,  to_char(c.COURSE_END_TIME,'hh:mi') as COURSE_END_TIME, c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT,
+			c.COURSE_PRICE, f.field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER
+			FROM tbl_course c
+			FULL OUTER JOIN TBL_COURSE_RECRUIT_STATUS cs ON c.COURSE_RECRUIT_STATUS_NUMBER = cs.COURSE_RECRUIT_STATUS_NUMBER
+			FULL OUTER JOIN tbl_expert e ON c.expert_number = e.expert_number
+			LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
+			LEFT JOIN TBL_FILE_course fc ON fc.course_NUMBER = c.course_NUMBER			
+			LEFT OUTER JOIN tbl_field f ON f.field_number = e.expert_field_number
+			WHERE c.COURSE_NUMBER = #{courseNumber}
 		]]>
 	</select>
 </mapper>

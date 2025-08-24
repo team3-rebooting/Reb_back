@@ -156,12 +156,21 @@ public class RoutineListDTO {
 	public void setApplicantList(List<RoutineMemberApplicantDTO> applicantList) {
 		this.applicantList = applicantList;
 	}
+	public FileRoutineDTO getFileRoutine() {
+		if(fileRoutineList == null)
+			return null;
+		if(fileRoutineList.size() == 0)
+			return null;
+		
+		return fileRoutineList.get(0);
+	}
 	public List<FileRoutineDTO> getFileRoutineList() {
 		return fileRoutineList;
 	}
 	public void setFileRoutineList(List<FileRoutineDTO> fileRoutineList) {
 		this.fileRoutineList = fileRoutineList;
 	}
+	
 	@Override
 	public String toString() {
 		return "RoutineListDTO [routineNumber=" + routineNumber + ", routineLeaderNumber=" + routineLeaderNumber
@@ -176,6 +185,4 @@ public class RoutineListDTO {
 				+ routineApplicantCount + ", routineRecruitCount=" + routineRecruitCount + ", applicantList="
 				+ applicantList + "]";
 	}
-	
-	
 }

@@ -71,7 +71,7 @@
 						<!-- 루틴 모임 메뉴 -->
 						<div class="header-menu-dropdown-menu">
 							<a
-								href="${pageContext.request.contextPath}/app/routine/routine-meetings-list.jsp">루틴
+								href="${pageContext.request.contextPath}/routine/routineOk.ro">루틴
 								모임</a>
 						</div>
 						<!-- 드롭 다운 배경 -->
@@ -79,7 +79,7 @@
 						<!-- 루틴 모임 드롭다운 메뉴 -->
 						<div class="header-menu-dropdown-menu-content">
 							<a
-								href="${pageContext.request.contextPath}/app/routine/routine-meetings-list.jsp">루틴
+								href="${pageContext.request.contextPath}/routine/routineOk.ro">루틴
 								모임 게시판</a> <a
 								href="${pageContext.request.contextPath}/routine/routineReviewOk.ro">루틴
 								모임 후기 게시판</a>

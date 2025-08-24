@@ -1,4 +1,4 @@
-package com.sol.app.course;
+package com.sol.app.routine;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,16 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.course.dao.CourseListDAO;
-import com.sol.app.dto.CourseListDTO;
+import com.sol.app.dto.RoutineListDTO;
+import com.sol.app.routine.dao.FileRoutineDAO;
+import com.sol.app.routine.dao.RoutineListDAO;
 
-public class CourseListOkController  implements Execute {
+public class RoutineOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("====CourseListOkController 실행====");
-		CourseListDAO courseListDAO = new CourseListDAO();
+		System.out.println("====RoutineOkController 실행====");
+		RoutineListDAO routineListDAO = new RoutineListDAO();
 		Result result = new Result();
+		FileRoutineDAO fileRoutineDAO = new FileRoutineDAO();
 
 		String temp = request.getParameter("page");
 		System.out.println("page : " + temp);
@@ -37,18 +39,25 @@ public class CourseListOkController  implements Execute {
 		pageMap.put("endRow", endRow);
 
 		// 게시글 목록 조회
-		List<CourseListDTO> courseList = courseListDAO.selectList(pageMap);
-		request.setAttribute("courseList", courseList);
-
-		for (CourseListDTO c : courseList) {
-			System.out.println("CourseListDTO " + c);
+		List<RoutineListDTO> routineList = routineListDAO.selectAll(pageMap);
+		request.setAttribute("routineList", routineList);
+		
+		for(RoutineListDTO routine : routineList) {
+			if(routine.getRoutineNumber() != 0)
+				routine.setFileRoutineList(fileRoutineDAO.selectList(routine.getRoutineNumber()));
+		}
+		
+		
+		
+		for (RoutineListDTO r : routineList) {
+			System.out.println("getRoutineCreatedDate " + r.getRoutineCreatedDate());
 		}
 
 		// 페이징 정보 설정
 		// BoardMapper.xml의 getTotal을 이용하여 전체 게시글 개수 조회
 		// 실제 마지막 페이지 번호(realEndPage)를 계산함
 
-		int total = courseListDAO.getTotal();
+		int total = routineListDAO.getTotal();
 		System.out.println("total : " + total);
 		int realEndPage = (int) Math.ceil(total / (double) rowCount); // 실제 마지막 페이지(전체 게시글 기준으로 계산)
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount); // 현재 페이지 그룹에서의 마지막 페이지
@@ -69,12 +78,12 @@ public class CourseListOkController  implements Execute {
 
 		System.out.println("====페이징정보 확인====");
 		System.out.println("pageMap : " + pageMap);
-		System.out.println("courseList : " + courseList);
+		System.out.println("routineList : " + routineList);
 		System.out.println(
 				"startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
 
-		result.setPath("/app/course/course-list.jsp");
+		result.setPath("/app/routine/routine-meeting-list.jsp");
 		result.setRedirect(false);
 
 		return result;
