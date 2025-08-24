@@ -81,8 +81,9 @@ public class MyPageFrontController extends HttpServlet {
 			System.out.println("회원 탈퇴 완료 페이지");
 			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/account-deletion.jsp").forward(request, response);
 			break;
-		case "/myPage/mySponsorshipOk.my":
-			System.out.println("후원 정보 처리");
+		case "/myPage/mySponsorship.my":
+			System.out.println("후원 정보 페이지");
+			result = new MySponsorController().execute(request, response);
 			break;
 		case "/myPage/expertStatusOk.my":
 			System.out.println("전문가 인증 정보 조회 처리");
