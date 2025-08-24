@@ -5,15 +5,19 @@
 		SELECT * FROM TBL_FILE_routine WHERE routine_NUMBER = #{routineNumber}
 	</select>
 	
+	<select id="selectList" parameterType="int" resultType="FileRoutineDTO">
+		<![CDATA[
+		SELECT * FROM TBL_FILE_ROUTINE WHERE routine_number = #{routineNumber}
+		]]>
+	</select>
+	
 	<insert id="insert" parameterType="FileRoutineDTO">
-		<!-- fileSystemName 어떻게 지정해야하는지 -->
-		INSERT INTO TBL_FILE_routine(file_system_name, file_original_name, routine_number)
+		INSERT INTO TBL_FILE_ROUTINE(file_system_name, file_original_name, routine_number)
 		VALUES(#{fileSystemName}, #{fileOriginalName}, #{routineNumber})
 	</insert>
 	
 	<delete id="delete" parameterType="int">
-		<!-- fileSystemName 어떻게 지정해야하는지 -->
-		DELETE FROM TBL_FILE_routine
+		DELETE FROM TBL_FILE_ROUTINE
 		WHERE routine_number = #{routineNumber}
 	</delete>
 </mapper>

@@ -24,7 +24,7 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
 
-  <script defer src="./../../assets/js/mypage/expert-status.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/expert-status.js"></script>
   <title>틈새빛</title>
 </head>
 
@@ -33,8 +33,7 @@
   <jsp:include page="/header.jsp" />
   <main>
     <!-- 모달 -->
-    <div class="mypage-modal">
-    </div>
+    <jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-modal.jsp" />
     <!-- 사이드 메뉴 -->
     <jsp:include page="${pageContext.request.contextPath}/app/mypage/sidemenu.jsp" />
     <!-- 메인 컨테이너 -->
@@ -55,7 +54,7 @@
           <div id="expert-file" class="expert-status-info">
             <div class="expert-status-title">첨부 파일</div>
             <div class="expert-status-text" id="expert-file-text">
-              <a  href="./../../assets/img/yujin.jpg" download="expertfile.zip" id="a-expert-status-file">expertfile.zip</a>
+              <a  href="${pageContext.request.contextPath}/assets/img/yujin.jpg" download="expertfile.zip" id="a-expert-status-file">expertfile.zip</a>
               <div id="expert-status-file-date">등록일자 : 2025.08.15 18:07</div>
               <div>
                 <button class="button-modal-open" type="button" onclick="openModal('expertFileUpload')">변경</button>

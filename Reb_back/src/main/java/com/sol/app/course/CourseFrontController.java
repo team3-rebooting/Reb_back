@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sol.app.Result;
+import com.sol.app.routine.RoutineOkController;
+import com.sol.app.routine.RoutineReadOkController;
 
 /**
  * Servlet implementation class CourseFrontController
@@ -71,6 +73,10 @@ public class CourseFrontController extends HttpServlet {
 		case "/course/courseListOk.co":
 			System.out.println("수업 목록 처리 요청");
 			result = new CourseListOkController().execute(request, response);
+			break;
+		case "/course/courseDetailOk.co" :
+			System.out.println("수업 상세 처리");
+			result = new CourseDetailOkController().execute(request, response);
 			break;
 		}
 		

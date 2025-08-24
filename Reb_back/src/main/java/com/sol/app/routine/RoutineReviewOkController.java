@@ -19,7 +19,7 @@ public class RoutineReviewOkController  implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("====boardListOkController 실행====");
+		System.out.println("====RoutineReviewOkController 실행====");
 		RoutineReviewListDAO routineReviewListDAO = new RoutineReviewListDAO();
 		Result result = new Result();
 
@@ -38,10 +38,10 @@ public class RoutineReviewOkController  implements Execute {
 		pageMap.put("endRow", endRow);
 
 		// 게시글 목록 조회
-		List<RoutineReviewListDTO> routineList = routineReviewListDAO.selectAll(pageMap);
-		request.setAttribute("routineList", routineList);
+		List<RoutineReviewListDTO> routineReviewList = routineReviewListDAO.selectAll(pageMap);
+		request.setAttribute("routineReviewList", routineReviewList);
 		
-		for(RoutineReviewListDTO r : routineList) {
+		for(RoutineReviewListDTO r : routineReviewList) {
 			 System.out.println("getRoutineReviewCreatedDate " + r.getRoutineReviewCreatedDate()); 
 		}
 
@@ -70,7 +70,7 @@ public class RoutineReviewOkController  implements Execute {
 
 		System.out.println("====페이징정보 확인====");
 		System.out.println("pageMap : " + pageMap);
-		System.out.println("boardList : " + routineList);
+		System.out.println("routineList : " + routineReviewList);
 		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
 

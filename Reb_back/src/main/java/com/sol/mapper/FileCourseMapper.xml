@@ -8,10 +8,12 @@
 	</insert>
 	
 	<!-- 파일 조회 -->
-	<select id="select" parameterType="int" resultType="FileCourseDTO">
+	<select id="selectList" parameterType="int" resultType="FileCourseDTO">
+	<![CDATA[
 		select file_system_name, file_original_name, course_number
 		from tbl_file_course
 		where course_number = #{courseNumber}
+	]]>
 	</select>
 	
 	<delete id="delete" parameterType="int">

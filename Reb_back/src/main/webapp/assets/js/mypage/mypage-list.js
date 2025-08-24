@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	
 				count++;
 			});
-		}*/
+		}
 
 	function search(e) {
 		let id = e.target.getAttribute('value').split('_')[0];
@@ -141,7 +141,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			count++;
 		});
-	}
+	}*/
 
 	// ====== 목록 로드 ======
 	async function loadListAsync(id, page) {
@@ -184,7 +184,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	// ====== 댓글 렌더링 ======
+	// ====== 목록 렌더링 ======
 	function renderList(listInfo, id, rowCount) {
 		const pageNum = document.querySelectorAll(`.a-page-number`);
 		pageNum.forEach((e) => {

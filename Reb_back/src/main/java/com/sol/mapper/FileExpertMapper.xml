@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="fileExpert">
-	<select id="select" parameterType="int" resultType="FileExpertDTO">
-		SELECT * FROM TBL_FILE_EXPERT WHERE MEMBER_NUMBER = #{memberNumber}
+	<select id="select" parameterType="memberNumber" resultType="FileExpertDTO">
+	<![CDATA[
+		SELECT * FROM TBL_FILE_EXPERT WHERE MEMBER_NUMBER = ${memberNumber}
+	]]>
 	</select>
 	
 	<insert id="insert" parameterType="FileExpertDTO">

@@ -87,6 +87,8 @@ public class MyPageFrontController extends HttpServlet {
 			break;
 		case "/myPage/expertStatusOk.my":
 			System.out.println("전문가 인증 정보 조회 처리");
+			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/expert-status.jsp").forward(request, response);
+			
 			break;
 		case "/myPage/expertFileUploadOk.my":
 			System.out.println("전문가 인증 파일 처리");
@@ -102,7 +104,7 @@ public class MyPageFrontController extends HttpServlet {
 			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/my-applicant.jsp").forward(request, response);
 			break;
 		case "/mypage/myReview.my":
-			System.out.println("나의 후기/댓글 목록 처리");
+			System.out.println("나의 후기/댓글 목록 페이지");
 			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/my-review.jsp").forward(request, response);
 			break;
 		case "/myPage/myCourseRequest.my":
@@ -110,7 +112,7 @@ public class MyPageFrontController extends HttpServlet {
 			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/my-review.jsp").forward(request, response);
 			break;
 		case "/mypage/mypageListOk.my":
-			System.out.println("마에페이지 목록 분기 처리");
+			System.out.println("마이페이지 목록 분기 처리");
 			result = new MyPageListOkController().execute(request, response);
 			break;
 		}
