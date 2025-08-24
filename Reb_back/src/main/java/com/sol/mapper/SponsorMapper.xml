@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sponsor">
   
-	<select id="selectAll" resultType="AdminSponsorListDTO">
+
+	<select id="selectAll" parameterType="map" resultType="SponsorDTO">
 	<![CDATA[
 		SELECT * FROM (
     		SELECT ROWNUM AS rnum, subquery.*
@@ -31,11 +32,16 @@
 		WHERE MEMBER_NUMBER = #{memberNumber}
 	</select>
 	
-	<select id="selectList" parameterType="int" resultType="SponsorDTO">
-		SELECT sponsor_number, member_number, sponsor_amount, sponsor_date  FROM TBL_SPONSOR 
-		WHERE MEMBER_NUMBER = #{memberNumber}
-
+	<select id="selectList" parameterType="map" resultType="SponsorDTO">
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+			SELECT sponsor_number, member_number, sponsor_amount, TO_CHAR(sponsor_date, 'YYYY.MM.DD') AS SPONSOR_DATE   FROM TBL_SPONSOR 
+			WHERE MEMBER_NUMBER = #{memberNumber} ORDER BY sponsor_date
+		) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
 	</select>
+	
 	<insert id="spon" parameterType="SponsorDTO">
 		insert into tbl_sponsor(sponsor_number, member_number, sponsor_amount)
 		values(seq_sponsor.nextval,#{memberNumber}, #{sponsorAmount})

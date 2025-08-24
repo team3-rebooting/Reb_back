@@ -44,7 +44,8 @@ public class EditInfoOkController  implements Execute {
 				result.setRedirect(true);
 			}
 		}
-
+		
+		request.setAttribute("myMember", myMemberDTO);
 		result.setPath(request.getContextPath() + path);
 		
 		return result;

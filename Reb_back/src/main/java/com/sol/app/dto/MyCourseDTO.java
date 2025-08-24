@@ -49,7 +49,7 @@ public class MyCourseDTO {
 		return courseMemberApplyDate;
 	}
 	public void setCourseMemberApplyDate(String courseMemberApplyDate) {
-		this.courseMemberApplyDate = courseMemberApplyDate;
+		this.courseMemberApplyDate = courseMemberApplyDate.split(" ")[0].replace('-', '.');
 	}
 	
 	@Override

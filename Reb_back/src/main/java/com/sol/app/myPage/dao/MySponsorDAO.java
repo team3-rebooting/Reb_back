@@ -1,6 +1,7 @@
 package com.sol.app.myPage.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -18,11 +19,11 @@ public class MySponsorDAO {
 		return sqlSession.selectOne("sponsor.getTotalAmount", memberNumber);
 	}
 	
-	public int getSponsorTotalCount(int memberNumber) {
-		return sqlSession.selectOne("sponsor.getTotalCount", memberNumber);
+	public List<SponsorDTO> selectList(Map map) {
+		return sqlSession.selectList("sponsor.selectList", map);
 	}
 	
-	public List<SponsorDTO> selectSponsorList(int memberNumber) {
-		return sqlSession.selectList("sponsor.selectList", memberNumber);
+	public int getTotal(int memberNumber) {
+		return sqlSession.selectOne("sponsor.getTotalCount", memberNumber);
 	}
 }

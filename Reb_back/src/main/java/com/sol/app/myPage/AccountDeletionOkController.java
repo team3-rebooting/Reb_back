@@ -9,43 +9,39 @@ import javax.servlet.http.HttpSession;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.dto.MyMemberDTO;
+import com.sol.app.myPage.dao.MyCourseRequestDAO;
 import com.sol.app.myPage.dao.MyPageDAO;
 
-public class MyInfoOkController implements Execute {
+public class AccountDeletionOkController  implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		MyPageDAO myPageDAO = new MyPageDAO();
-		MyMemberDTO myMemberDTO = new MyMemberDTO();
-
+		MyCourseRequestDAO myCourseRequestDAO = new MyCourseRequestDAO();
+		
 		HttpSession session = request.getSession();
 		Integer memberNumber = (Integer) session.getAttribute("memberNumber");
 
 		Result result = new Result();
-
 		request.setCharacterEncoding("UTF-8");
+		
 		if (memberNumber == null) {
 			result.setPath(request.getContextPath() + "/member/login.me");
 			result.setRedirect(true);
 		} else {
-			myMemberDTO = myPageDAO.select(memberNumber);
+			if(myCourseRequestDAO.getTotal(memberNumber) > 0) {
+				System.out.println("수업 존재해서 삭제 불가");
+			}else {
+				myPageDAO.delete(memberNumber);
 
-			if (myMemberDTO != null) {
-				// myMemberDTO.setFileMemberProfileList(myPageDAO.selectProfileList(memberNumber));
-
-				request.setAttribute("myMemberDTO", myMemberDTO);
-
-				System.out.println(myMemberDTO.toString());
-				result.setPath(request.getContextPath() + "/app/mypage/personal-info.jsp");
-				result.setRedirect(false);
-			} else {
-				result.setPath(request.getContextPath() + "/myPage/myPassword.my?pw=fail");
+				request.getSession().invalidate();
+				
+				result.setPath(request.getContextPath() + "/myPage/accountDeletion.my");
 				result.setRedirect(true);
 			}
 		}
+		
 		return result;
 	}
-
 }
