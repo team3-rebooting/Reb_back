@@ -1,13 +1,12 @@
 package com.sol.app.dto;
 
 public class AdminCourseListDTO {
-	//memberDTO, courseDTO
-	private int memberNumber;
+	private String memberNumber;
 	private String memberId;
-	private String memberNickname;
+	private String memberName;
 	private int courseNumber;
 	private String courseTitle;
-	private int courseRecruitStatusNumber;
+	private String courseStatusInfo;
 	private String courseStartDate;
 	private String courseEndDate;
 	public int getCourseNumber() {
@@ -21,14 +20,7 @@ public class AdminCourseListDTO {
 	}
 	public void setCourseTitle(String courseTitle) {
 		this.courseTitle = courseTitle;
-	}
-	public int getCourseRecruitStatusNumber() {
-		return courseRecruitStatusNumber;
-	}
-	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
-		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
-	}
-	
+	}	
 	public String getCourseStartDate() {
 		return courseStartDate;
 	}
@@ -41,32 +33,38 @@ public class AdminCourseListDTO {
 	public void setCourseEndDate(String courseEndDate) {
 		this.courseEndDate = courseEndDate;
 	}
-	
-	public int getMemberNumber() {
-		return memberNumber;
-	}
-	public void setMemberNumber(int memberNumber) {
-		this.memberNumber = memberNumber;
-	}
 	public String getMemberId() {
 		return memberId;
 	}
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	public String getMemberNickname() {
-		return memberNickname;
+	public String getMemberName() {
+		return memberName;
 	}
-	public void setMemberNickname(String memberNickname) {
-		this.memberNickname = memberNickname;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+	public String getMemberNumber() {
+		return memberNumber;
+	}
+	public void setMemberNumber(String memberNumber) {
+		this.memberNumber = memberNumber;
+	}
+	public String getCourseStatusInfo() {
+		return courseStatusInfo;
+	}
+	public void setCourseStatusInfo(String courseStatusInfo) {
+		this.courseStatusInfo = courseStatusInfo;
 	}
 	@Override
 	public String toString() {
-		return "AdminCourseListDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberNickname="
-				+ memberNickname + ", courseNumber=" + courseNumber + ", courseTitle=" + courseTitle
-				+ ", courseRecruitStatusNumber=" + courseRecruitStatusNumber + ", courseStartDate=" + courseStartDate
-				+ ", courseEndDate=" + courseEndDate + "]";
+		return "AdminCourseListDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberName="
+				+ memberName + ", courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", courseStatusInfo="
+				+ courseStatusInfo + ", courseStartDate=" + courseStartDate + ", courseEndDate=" + courseEndDate + "]";
 	}
+	
+	
 	
 
 	

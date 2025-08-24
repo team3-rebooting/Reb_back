@@ -8,13 +8,15 @@
     			SELECT ROWNUM AS rnum, subquery.*
     			FROM (
             			SELECT
-                		m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME,
-                		e.EXPERT_FIELD_NUMBER, TO_CHAR(a.EXPERT_CHECK_DATE, 'YYYY-MM-DD')
-            			FROM TBL_EXPERT_APPLICANT a
-            			JOIN TBL_EXPERT e
-                		ON a.MEMBER_NUMBER = e.MEMBER_NUMBER
-            			JOIN TBL_MEMBER m
-                		ON a.MEMBER_NUMBER = m.MEMBER_NUMBER
+                		m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_nickNAME,
+                		f.field_name, TO_CHAR(a.EXPERT_CHECK_DATE, 'YYYY-MM-DD') AS EXPERT_CHECK_DATE
+            			FROM TBL_EXPERT e
+            			JOIN tbl_expert_applicant a 
+            			ON e.member_number = a.member_number 
+                		JOIN tbl_field f 
+                		ON e.expert_field_number = f.field_number 
+            			JOIN TBL_MEMBER m 
+                		ON a.MEMBER_NUMBER = m.MEMBER_NUMBER 
             			ORDER BY a.EXPERT_CHECK_DATE DESC
         				) subquery
 					)
@@ -41,7 +43,7 @@
 	]]>
 	</select>
 	<!-- status numer 다시 확인  -->
-	<update id="update" parameterType="expertApplicantDTO">
+	<update id="update" parameterType="ExpertApplicantDTO">
 		update tbl_expert_applicant 
 		set expert_applicant_reason = #{expertApplicantReason}, expert_status_number = 4
 		where member_number = #{memberNumber}

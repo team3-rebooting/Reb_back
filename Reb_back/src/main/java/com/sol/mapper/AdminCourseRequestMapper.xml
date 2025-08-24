@@ -5,28 +5,31 @@
 	<![CDATA[
 		SELECT * FROM (
     		SELECT ROWNUM AS rnum, subquery.* FROM (
-        	SELECT  c.COURSE_NUMBER, c.COURSE_TITLE,TO_CHAR(c.COURSE_START_DATE, 'YYYY-MM-DD'),
-            TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD'), s.COURSE_STATUS_INFO, t.COURSE_REQUEST_TYPE,
-            cr.COURSE_REGISTER_DATE, cr.COURSE_REQUEST_DATE, cr.COURSE_RESULT_DATE, cr.COURSE_REJECT_REASON
-        	FROM TBL_COURSE_REQUEST cr
+        	SELECT cr.course_number, m.member_number, m.member_id, m.member_name, c.COURSE_TITLE,TO_CHAR(c.COURSE_START_DATE, 'YYYY-MM-DD') AS COURSE_START_DATE,
+            TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD') AS COURSE_END_DATE,t.COURSE_REQUEST_TYPE 
+        	FROM TBL_COURSE_request cr
         	JOIN TBL_COURSE c
         	ON cr.COURSE_NUMBER = c.COURSE_NUMBER
         	JOIN TBL_COURSE_OPEN_STATUS s
         	ON cr.COURSE_OPEN_STATUS_NUMBER = s.COURSE_OPEN_STATUS_NUMBER
         	JOIN TBL_COURSE_REQUEST_TYPE t
             ON cr.COURSE_REQUEST_TYPE_NUMBER = t.COURSE_REQUEST_TYPE_NUMBER
-        	ORDER BY c.COURSE_START_DATE
+        	JOIN TBL_EXPERT e
+    		ON c.EXPERT_NUMBER = e.EXPERT_NUMBER
+			JOIN TBL_MEMBER m
+    		ON e.MEMBER_NUMBER = m.MEMBER_NUMBER
+            ORDER BY c.COURSE_START_DATE 
     	) subquery
 	)
 	WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		
 	]]>
 	</select>
-	<!-- 보류  -->
-	<!-- <select id="getTotal" resultType="int">
-		SELECT COUNT(routine_number)
-		FROM tbl_routine	
-	</select> -->
+
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(course_number)
+		FROM tbl_course_request	
+	</select> 
 	<select id="select" parameterType="int" resultType="AdminCourseRequestDTO">
 	<![CDATA[
 	SELECT 

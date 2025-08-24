@@ -6,24 +6,28 @@
 		SELECT * FROM (
     			SELECT ROWNUM AS rnum, subquery.*
     			FROM (
-            			SELECT
-                			m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NICKNAME,
-                			c.COURSE_NUMBER, c.COURSE_TITLE, c.COURSE_RECRUIT_STATUS_NUMBER,
-                			TO_CHAR(c.COURSE_START_DATE, 'YYYY-MM-DD'), TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD')
-           					FROM TBL_COURSE c
-            				JOIN TBL_MEMBER m
-                			ON c.EXPERT_NUMBER = m.MEMBER_NUMBER
-            				ORDER BY c.COURSE_START_DATE DESC
-        				) subquery
+                		SELECT c.course_number, m.member_number, m.member_id, m.member_name, c.COURSE_TITLE,
+						TO_CHAR(c.COURSE_START_DATE, 'YYYY-MM-DD') AS COURSE_START_DATE,
+            			TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD') AS COURSE_END_DATE,crs.course_status_info 
+        				FROM TBL_course c
+        				JOIN tbl_course_recruit_status crs
+            			ON c.COURSE_RECRUIT_STATUS_NUMBER = crs.COURSE_RECRUIT_STATUS_NUMBER 
+        				JOIN TBL_EXPERT e 
+    					ON c.EXPERT_NUMBER = e.EXPERT_NUMBER 
+						JOIN TBL_MEMBER m 
+    					ON e.MEMBER_NUMBER = m.MEMBER_NUMBER 
+            			ORDER BY c.COURSE_START_DATE 
+        			) subquery
 				)	
 			WHERE rnum BETWEEN #{startRow} AND #{endRow}
-		]]>	
+		]]>
 	</select>
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(course_number)
-		FROM tbl_course	
+		FROM tbl_course
 	</select>
-	<select id="select" parameterType="int" resultType="adminCourseDTO">
+	<select id="select" parameterType="int"
+		resultType="adminCourseDTO">
 	<![CDATA[
 	SELECT
     c.COURSE_NUMBER, c.COURSE_TITLE, c.COURSE_CONTENT,
@@ -44,6 +48,7 @@
 	]]>
 	</select>
 	<delete id="delete" parameterType="int">
-		delete from tbl_course where course_number = #{courseNumber}
+		delete from tbl_course where
+		course_number = #{courseNumber}
 	</delete>
 </mapper>

@@ -3,6 +3,19 @@
   margin: 0;
   padding: 0;
 }
+/* ul  */
+ul{
+	list-style: none;
+}
+/* 페이지네이션 버튼 커스텀 */
+#main-page-number>ul>li>a{
+  margin: 0 28px;
+  text-decoration: none;
+  color: black;
+}
+#main-page-number>ul{
+	display:flex;
+}
 
 /* 폰트 */
 .font-menu {
