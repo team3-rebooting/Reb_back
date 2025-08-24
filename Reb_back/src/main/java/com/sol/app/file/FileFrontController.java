@@ -1,4 +1,4 @@
-package com.sole.app.file;
+package com.sol.app.file;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
