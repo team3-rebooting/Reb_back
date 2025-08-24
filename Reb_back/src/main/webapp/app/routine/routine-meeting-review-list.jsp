@@ -125,14 +125,13 @@
 						class="prev">&lt;</a>
 				</c:if>
 
-
 				<c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
 				<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
 					<c:choose>
 						<c:when test="${!(i == page) }">
 							<a
 								href="${pageContext.request.contextPath}/routine/routineReviewOk.ro?page=${i}">
-									<c:out value="${i}" />
+								<c:out value="${i}" />
 							</a>
 						</c:when>
 						<c:otherwise>
@@ -164,13 +163,15 @@
 							</button>
 						</div>
 					</div>
-					<button type="button" class="button-write">
-						<a href="./routine-meeting-review-write.html" class="a-write">글
-							쓰기</a>
-					</button>
 				</div>
 			</form>
 		</div>
+
+		<form action="/routine/routineReviewWrite.ro" method="get">
+			<c:if test="${not empty sessionScope.memberNumber}">
+				<button class="button-write a-write">글 쓰기</button>
+			</c:if>
+		</form>
 		<!-- 
       <div class="div-review-list">
         <div class="div-review-title">
@@ -294,5 +295,4 @@
 	<div id="footer"></div>
 </body>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
-
 </html>

@@ -29,7 +29,8 @@ public class RoutineReviewListDAO {
 	}
 	
 	public int insert(RoutineReviewDTO routineReviewListDTO) {
-		return sqlSession.insert("routineReview.insert", routineReviewListDTO);
+		sqlSession.insert("routineReview.insert", routineReviewListDTO);
+		return routineReviewListDTO.getRoutineReviewNumber();
 	}
 	
 	public void delete(int routineReviewNumber) {
