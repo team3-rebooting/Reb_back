@@ -5,7 +5,7 @@ import java.util.List;
 public class CourseReviewListDTO {
 	private int courseReviewNumber;
 	private int courseNumber;
-	private String courseReviewTItle;
+	private String courseReviewTitle;
 	private String memberNickname;
 	private String courseReviewCreatedDate;
 	private int courseReviewLike;
@@ -35,11 +35,11 @@ public class CourseReviewListDTO {
 	public void setCourseNumber(int courseNumber) {
 		this.courseNumber = courseNumber;
 	}
-	public String getCourseReviewTItle() {
-		return courseReviewTItle;
+	public String getCourseReviewTitle() {
+		return courseReviewTitle;
 	}
-	public void setCourseReviewTItle(String courseReviewTItle) {
-		this.courseReviewTItle = courseReviewTItle;
+	public void setCourseReviewTitle(String courseReviewTItle) {
+		this.courseReviewTitle = courseReviewTItle;
 	}
 	public String getMemberNickname() {
 		return memberNickname;
@@ -80,7 +80,7 @@ public class CourseReviewListDTO {
 	@Override
 	public String toString() {
 		return "CourseReviewListDTO [courseReviewNumber=" + courseReviewNumber + ", courseNumber=" + courseNumber
-				+ ", courseReviewTItle=" + courseReviewTItle + ", memberNickname=" + memberNickname
+				+ ", courseReviewTItle=" + courseReviewTitle + ", memberNickname=" + memberNickname
 				+ ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewLike=" + courseReviewLike
 				+ ", fileWriterPriFileList=" + fileWriterPriFileList + ", fileCommentPriFileList="
 				+ fileCommentPriFileList + ", fileCourseReviewList=" + fileCourseReviewList + "]";

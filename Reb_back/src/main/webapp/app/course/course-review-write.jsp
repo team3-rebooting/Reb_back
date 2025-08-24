@@ -32,7 +32,7 @@
       <p class="pagetitle">수업 후기 작성</p>
       <form action="${pageContext.request.contextPath}/course/courseReviewWriteOk.co" method="post">
         <div class="div-create-course">
-          <input type="text" class="input-title input-bundle" name="courseTitle" placeholder="제목을 입력해주세요">
+          <input type="text" class="input-title input-bundle" name="courseReviewTitle" placeholder="제목을 입력해주세요">
         </div>
         <div class="div-create-course">
           <span class="font-main little-title">대표 이미지 : </span>
@@ -40,7 +40,7 @@
         </div>
         <div class="div-create-course">
           <p class="font-main little-title">내용(summernote 자리)</p>
-          <textarea class="textarea-text input-bundle" name="courseText" rows="20" cols="100"></textarea>
+          <textarea class="textarea-text input-bundle" name="courseReviewContent" rows="20" cols="100"></textarea>
         </div>
 
         <div class="div-create-course">

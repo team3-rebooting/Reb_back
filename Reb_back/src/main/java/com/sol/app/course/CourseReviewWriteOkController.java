@@ -1,6 +1,7 @@
 package com.sol.app.course;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -49,9 +50,34 @@ public class CourseReviewWriteOkController implements Execute{
 		
 		courseReviewDTO.setCourseReviewTitle(multipartRequest.getParameter("courseReviewTitle"));
 		courseReviewDTO.setCourseReviewContent(multipartRequest.getParameter("courseReviewContent"));
+		courseReviewDTO.setMemberNumber(memberNumber);
 		
+		int courseReviewNumber = courseReviewDAO.insertCourseReview(courseReviewDTO);
+		System.out.println("생성된 게시글 번호 : " + courseReviewNumber);
 		
-		return null;
+		Enumeration<String> fileNames = multipartRequest.getFileNames();
+		while(fileNames.hasMoreElements()) {
+			String name = fileNames.nextElement();
+			String fileSystemName = multipartRequest.getFilesystemName(name);
+			String fileOriginalName = multipartRequest.getOriginalFileName(name);
+			
+			if(fileSystemName == null) {
+				continue;
+			}
+			
+			fileCourseReviewDTO.setFileSystemName(fileSystemName);
+			fileCourseReviewDTO.setFileOriginalName(fileOriginalName);
+			fileCourseReviewDTO.setCourseReviewNumber(courseReviewNumber);
+			
+			System.out.println("업로드 된 파일 정보 : " + fileCourseReviewDTO);
+			fileCourseReviewDAO.insert(fileCourseReviewDTO);
+			
+		}
+		
+		result.setPath("/course/courseListOk.co");
+		result.setRedirect(false);
+		
+		return result;
 	}
 
 	
