@@ -11,13 +11,11 @@ import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.member.dao.MemberDAO;
 
-public class CourseReviewWriteController implements Execute{
+public class CourseListOkController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		System.out.println("CourseReviewWriteController 진입 성공");
 		
 		MemberDAO memberDAO = new MemberDAO();
 		Result result = new Result();
@@ -25,13 +23,17 @@ public class CourseReviewWriteController implements Execute{
 		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
 		String path = null;
 		
+		if(memberNumber == null) {
+			path = "/app/course/course-review-list.jsp";
+		} else {
+			path = "/app/course/course-review-write.jsp";
+			request.setAttribute("memberId", memberDAO.getMemberId(memberNumber));
+		}
 		
-		
-		result.setPath("/app/course/course-write.jsp");
+		result.setPath(path);
 		result.setRedirect(false);
 		
 		return result;
 	}
 
-	
 }

@@ -89,30 +89,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	const findBtn = document.querySelector(".button-modal-find-id");
 	const findIdOkModal = document.querySelector(".modal-id-end-background");
+	let resultId = document.querySelector("#aa");
 
-	findBtn.addEventListener("click", function() {
-	fetch("/member/findIdOk.me", {
-		headers: { "Accept": "application/json" }
-	})
-		.then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-		.then(data => {
-				idModal.style.display = "none";
-				inputModalNameId.value = "";
-				inputModalPnId.readOnly = false;
-				inputModalPnId.style.backgroundColor = "white";
-				inputModalPnId.value = "";
-				sendSMSBtn.style.backgroundColor = "#F38A6E";
-				sendSMSBtn.style.color = "white";
-				sendSMSBtn.disabled = false;
-				inputPhoneNumberId.style.backgroundColor = "#d9d9d9";
-				inputPhoneNumberId.readOnly = true;
-				inputPhoneNumberId.value = "";
-				veriId.style.color = "black";
-				veriId.style.backgroundColor = "#d9d9d9";
-				veriId.disabled = true;
-				reIdPn.disabled = true;
-				findIdOkModal.style.display = "block";
-			});
-		});
 
+
+	findBtn.addEventListener("click", function()	 {
+		const abc = data.available.getMemberId();
+		console.log(abc);
+		idModal.style.display = "none";
+		inputModalNameId.value = "";
+		inputModalPnId.readOnly = false;
+		inputModalPnId.style.backgroundColor = "white";
+		inputModalPnId.value = "";
+		sendSMSBtn.style.backgroundColor = "#F38A6E";
+		sendSMSBtn.style.color = "white";
+		sendSMSBtn.disabled = false;
+		inputPhoneNumberId.style.backgroundColor = "#d9d9d9";
+		inputPhoneNumberId.readOnly = true;
+		inputPhoneNumberId.value = "";
+		veriId.style.color = "black";
+		veriId.style.backgroundColor = "#d9d9d9";
+		veriId.disabled = true;
+		reIdPn.disabled = true;
+		findIdOkModal.style.display = "block";
+	});
 });
