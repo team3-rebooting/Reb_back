@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.member.dao.MemberDAO;
 
 public class CourseReviewWriteController implements Execute{
 
@@ -18,16 +17,19 @@ public class CourseReviewWriteController implements Execute{
 			throws ServletException, IOException {
 		
 		System.out.println("CourseReviewWriteController 진입 성공");
-		
-		MemberDAO memberDAO = new MemberDAO();
+
 		Result result = new Result();
 		HttpSession session = request.getSession();
 		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
 		String path = null;
 		
+		if(memberNumber == null) {
+			path = "/app/auth/login.jsp";
+		} else {
+			path = "/app/course/course-review-write.jsp";
+		}
 		
-		
-		result.setPath("/app/course/course-write.jsp");
+		result.setPath(path);
 		result.setRedirect(false);
 		
 		return result;

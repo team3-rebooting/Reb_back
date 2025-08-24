@@ -58,21 +58,22 @@
 					<c:choose>
 						<c:when test="${not empty courseReviewList}">
 							<c:forEach var="courseReview" items="${courseReviewList}">
-								<li class="li-review-content"><a
-									href="${pageContext.request.contextPath}/course/courseReviewDetailOk.co?courseReviewNumber=${courseReview.courseReviewNumber}">
-										<div class="review-title">
+								<li class="li-review-content"  class="course-list">
+									<div class="review-title">
+										<a href="${pageContext.request.contextPath}/course/courseReviewDetailOk.co?courseReviewNumber=${courseReview.courseReviewNumber}">
 											<c:out value="${courseReview.getCourseReviewTitle()}" />
-										</div>
-										<div class="review-author">
-											<c:out value="${courseReview.getMemberNickname()}" />
-										</div>
-										<div class="review-date">
-											<c:out value="${courseReview.getCourseReviewCreatedDate()}" />
-										</div>
-										<div class="review-like">
-											<c:out value="${courseReview.getCourseReviewLike()}" />
-										</div>
-								</a></li>
+										</a>
+									</div>
+									<div class="review-author">
+										<c:out value="${courseReview.getMemberNickname()}" />
+									</div>
+									<div class="review-date">
+										<c:out value="${courseReview.getCourseReviewCreatedDate()}" />
+									</div>
+									<div class="review-like">
+										<c:out value="${courseReview.getCourseReviewLike()}" />
+									</div>
+								</li>
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
@@ -93,26 +94,30 @@
             <a href="#">&gt;</a> -->
 						<ul>
 							<c:if test="${prev }">
-								<li><a href="${pageContext.request.contextPath}/course/courseListOk.co?page=${startPage - 1}" class="prev">&lt;</a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/course/courseListOk.co?page=${startPage - 1}"
+									class="prev">&lt;</a></li>
 							</c:if>
-							<c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage }" />
+							<c:set var="realStartPage"
+								value="${startPage < 0 ? 0 : startPage }" />
 							<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
 								<c:choose>
 									<c:when test="${!(i == page) }">
-										<li><a href="${pageContext.request.contextPath}/course/courseReviewListOk.co?page=${i}">
-											<c:out value="${i}" />
+										<li><a
+											href="${pageContext.request.contextPath}/course/courseReviewListOk.co?page=${i}">
+												<c:out value="${i}" />
 										</a></li>
 									</c:when>
 									<c:otherwise>
-										<li><a href="#" class="active">
-											<c:out value="${i}" />
+										<li><a href="#" class="active"> <c:out value="${i}" />
 										</a></li>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
 							<c:if test="${next}">
-								<li><a href="${pageContext.request.contextPath}/course/courseReviewListOk.co?page=${endPage + 1}" class="next">&ge;</a>
-								</li>
+								<li><a
+									href="${pageContext.request.contextPath}/course/courseReviewListOk.co?page=${endPage + 1}"
+									class="next">&ge;</a></li>
 							</c:if>
 						</ul>
 					</div>
