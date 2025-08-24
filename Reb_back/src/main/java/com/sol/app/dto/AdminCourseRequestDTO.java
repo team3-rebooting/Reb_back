@@ -15,6 +15,10 @@ public class AdminCourseRequestDTO {
 	private String courseTitle;
 	private String courseContent;
 	private int expertNumber;
+	private String memberName;
+	private String expertLicenseInfo;
+	private String expertCareer;
+	private String fieldName;
 	private int courseRecruitStatusNumber;
 	private List<FileCourseDTO> fileCourseList;
 	private String coursePostDate;
@@ -26,6 +30,7 @@ public class AdminCourseRequestDTO {
 	private String courseStartTime;
 	private String courseEndTime;
 	private String courseDayOfWeek;
+	private int courseCount;
 	private int courseRecruitCount;
 	private int coursePrice;
 	
@@ -173,6 +178,36 @@ public class AdminCourseRequestDTO {
 	public void setFileCourseList(List<FileCourseDTO> fileCourseList) {
 		this.fileCourseList = fileCourseList;
 	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+	public String getExpertLicenseInfo() {
+		return expertLicenseInfo;
+	}
+	public void setExpertLicenseInfo(String expertLicenseInfo) {
+		this.expertLicenseInfo = expertLicenseInfo;
+	}
+	public String getExpertCareer() {
+		return expertCareer;
+	}
+	public void setExpertCareer(String expertCareer) {
+		this.expertCareer = expertCareer;
+	}
+	public String getFieldName() {
+		return fieldName;
+	}
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
+	}
+	public int getCourseCount() {
+		return courseCount;
+	}
+	public void setCourseCount(int courseCount) {
+		this.courseCount = courseCount;
+	}
 	@Override
 	public String toString() {
 		return "AdminCourseRequestDTO [prevCourseNumber=" + prevCourseNumber + ", courseOpenStatusNumber="
@@ -180,14 +215,17 @@ public class AdminCourseRequestDTO {
 				+ ", courseRegisterDate=" + courseRegisterDate + ", courseRequestDate=" + courseRequestDate
 				+ ", courseResultDate=" + courseResultDate + ", courseRejectReason=" + courseRejectReason
 				+ ", courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", courseContent=" + courseContent
-				+ ", expertNumber=" + expertNumber + ", courseRecruitStatusNumber=" + courseRecruitStatusNumber
-				+ ", fileCourseList=" + fileCourseList + ", coursePostDate=" + coursePostDate
-				+ ", coursePostUpdateDate=" + coursePostUpdateDate + ", courseRecruitStartDate="
-				+ courseRecruitStartDate + ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate="
-				+ courseStartDate + ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime
-				+ ", courseEndTime=" + courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount="
-				+ courseRecruitCount + ", coursePrice=" + coursePrice + "]";
+				+ ", expertNumber=" + expertNumber + ", memberName=" + memberName + ", expertLicenseInfo="
+				+ expertLicenseInfo + ", expertCareer=" + expertCareer + ", fieldName=" + fieldName
+				+ ", courseRecruitStatusNumber=" + courseRecruitStatusNumber + ", fileCourseList=" + fileCourseList
+				+ ", coursePostDate=" + coursePostDate + ", coursePostUpdateDate=" + coursePostUpdateDate
+				+ ", courseRecruitStartDate=" + courseRecruitStartDate + ", courseRecruitEndDate="
+				+ courseRecruitEndDate + ", courseStartDate=" + courseStartDate + ", courseEndDate=" + courseEndDate
+				+ ", courseStartTime=" + courseStartTime + ", courseEndTime=" + courseEndTime + ", courseDayOfWeek="
+				+ courseDayOfWeek + ", courseCount=" + courseCount + ", courseRecruitCount=" + courseRecruitCount
+				+ ", coursePrice=" + coursePrice + "]";
 	}
+	
 	
 	
 

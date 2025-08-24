@@ -89,6 +89,10 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("수업 요청 리스트");
 			result = new CouresRequestListOkController().execute(request,response);
 			break;
+		case "/admin/courseRequsetReadOk.ad" :
+			System.out.println("수업 상세");
+			result = new CourseRequestReadOkController().execute(request,response);
+			break;
 		case "/admin/courseListOk.ad" :
 			System.out.println("수업 리스트");
 			result = new CourseListOkController().execute(request,response);

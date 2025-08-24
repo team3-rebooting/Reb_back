@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../../assets/css/admin/course/admin-course-request-detail.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/course/admin-course-request-detail.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&display=swap"
@@ -18,15 +19,15 @@
     rel="stylesheet">
   <title>전문가 수업 요청</title>
 </head>
-<script defer src="./../../../assets/js/admin/course/admin-course-request-detail.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/admin/course/admin-course-request-detail.js"></script>
 
 <body>
   <!-- 헤더 -->
   <header>
     <!-- 목록으로 이동 -->
-    <a href="./admin-course-request-list.html">
+    <a href="${pageContext.request.contextPath}/admin/courseRequestListOk.ad?page=1">
       <!-- 사이트 로고 -->
-      <img src="./../../../assets/img/team_logo.png" alt="사이트 로고 사진">
+      <img src="${pageContext.request.contextPath}/assets/img/team_logo.png" alt="사이트 로고 사진">
     </a>
   </header>
   <!-- 반려 모달 뒷배경 -->
@@ -58,7 +59,9 @@
         <!-- 제목, 목록 이동 버튼 영역 -->
         <div id="detail-container-list">
           <!-- 제목 -->
-          <p class="pagetitle">틈새빛에 오신 여러분 환영합니다</p>
+          <p class="pagetitle">
+          	<c:out value="${course.courseTitle}" />
+          </p>
           <!-- 목록 이동 버튼 -->
           <div class="back-list">
             목록
@@ -69,20 +72,23 @@
           <!-- 이미지 영역 -->
           <div class="div-img">
             <!-- 대표 이미지 -->
-            <img src="./../../../assets/img/karina.jpg" class="img-detail">
+            <img 
+            src="${pageContext.request.contextPath}/upload/${courseFile.getFileSystemName()}" 
+            class="img-detail">
           </div>
           <!-- 작성날짜 영역 -->
           <div class="div-write-date">
             <!-- 작성 날짜 -->
-            <p class="p-write-date">작성일 : 2025.08.03(일)</p>
+            <p class="p-write-date">작성일 : <c:out value="${course.coursePostDate}"/></p>
           </div>
           <!-- 전문가 정보 영역 -->
           <div class="div-expert-detail">
             <p class="p-expert-info-title">전문가 정보</p>
             <div class="div-expert-info-detail">
-              <p class="p-expert-name">성함 : 카리나 전문가님</p>
-              <p class="p-expert-qualifi">보유 자격증 : 정보처리기사, SQLD, 네트워크관리사 1급</p>
-              <p class="p-expert-field">주요 분야 : IT</p>
+              <p class="p-expert-name">성함 : <c:out value="${course.memberName}"/></p>
+              <p class="p-expert-qualifi">보유 자격증 : <c:out value="${course.expertLicenseInfo}"/></p>
+              <p class="p-expert-qualifi">경력 : <c:out value="${course.expertCareer}"/></p>
+              <p class="p-expert-field">주요 분야 : <c:out value="${course.fieldName}"/></p>
             </div>
           </div>
           <!-- 수업 내용 설명 -->
@@ -90,11 +96,7 @@
             <p class="p-expert-info-title">내용</p>
             <div class="div-expert-info-detail">
               <p class="p-expert-detail-comment">
-                안녕하세요 이건 어떤 강의이고
-                이 강의를 들으면 당신도 이런느낌으로 이렇게 이렇게 이렇게 이렇게 이렇게 이렇게 해서
-                당신도 달인이 될 수 있습니다
-                이런이런내용으로
-                이러이런걸 가르칠 예정입니다
+               <c:out value="${course.courseContent}"/>
               </p>
             </div>
           </div>
@@ -109,11 +111,11 @@
           <div class="div-expert-detail">
             <p class="p-expert-info-title">모집 정보</p>
             <div class="div-expert-info-detail">
-              <p>모집 기간 : 2025.08.03 ~ 2025.08.27</p>
-              <p>강의일 : 2025.08.28 ~ 2025.09.03</p>
-              <p>시간 : 09:00 ~ 13 : 00 [월,화,수]</p>
-              <p>모집 인원 : 15/30 명</p>
-              <p>가격 : 24,000 원</p>
+              <p>모집 기간 :<c:out value="${course.courseRecruitStartDate}"/> ~ <c:out value="${course.courseRecruitEndDate}"/></p>
+              <p>강의일 : <c:out value="${course.courseStartDate}"/> ~ <c:out value="${course.courseEndDate}"/></p>
+              <p>시간 : <c:out value="${course.courseStartTime}"/> ~ <c:out value="${course.courseEndTime}"/> [<c:out value="${course.courseDayOfWeek}"/>]</p>
+              <p>모집 인원 : <c:out value="${course.courseCount}"/>/<c:out value="${course.courseRecruitCount}"/> 명</p>
+              <p>가격 : <c:out value="${course.coursePrice}"/> 원</p>
             </div>
           </div>
           <!-- 개설 버튼 영역 -->
