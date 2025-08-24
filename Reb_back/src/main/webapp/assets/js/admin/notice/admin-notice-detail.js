@@ -1,23 +1,32 @@
-const updateBtn = document.querySelector(".main-btn:first-child");
-const deleteBtn = document.querySelector(".main-btn:last-child");
-const backListBtn = document.querySelector(".back-list");
+document.addEventListener("DOMContentLoaded", () => {
 
-updateBtn.addEventListener('click', ()=>{
-  location.href= "./../../../app/admin/notice/admin-notice-edit.html";
-});
+	const updateBtn = document.querySelector(".main-btn:first-child");
+	const deleteBtn = document.querySelector(".main-btn:last-child");
+	const backListBtn = document.querySelector(".back-list");
+	
+	const noticeNumber = backListBtn?.dataset.noticeNumber ?? window.noticeNumber;
+	const adminNumber = backListBtn?.dataset.adminNumber ?? window.adminNumber;
 
-deleteBtn.addEventListener('click', ()=>{
-  if(confirm("삭제하시겠습니까?")){
-    alert("삭제 완료되었습니다.");
-    location.href= "./../../../app/admin/notice/admin-notice-list.html";
-  }
-});
+	updateBtn.addEventListener('click', () => {
+		console.log(noticeNumber);
+		if (!noticeNumber) return alert("noticeNumber가 없습니다");
+		window.location.href = `/admin/noticeUpdate.ad?noticeNumber=${encodeURIComponent(noticeNumber)}`;
+	});
 
-const moveBtn = document.querySelector(".back-list");
-moveBtn.addEventListener('click', ()=>{
-  location.href= "./../../../app/admin/notice/admin-notice-list.html"
-});
+	deleteBtn.addEventListener('click', () => {
+		if (!noticeNumber) return alert("noticeNumber가 없습니다");
+		if (!confirm("정말 삭제하시겠습니까?")) return;
+		window.location.href = `/admin/noticeDeleteOk.ad?noticeNumber=${encodeURIComponent(noticeNumber)}`;
+		
+	});
 
-backListBtn.addEventListener('click', ()=>{
-  location.href= "./../../../app/admin/notice/admin-notice-list.html";
+	const moveBtn = document.querySelector(".back-list");
+	moveBtn.addEventListener('click', () => {
+		window.location.href = "/admin/noticeListOk.ad?page=1";
+	});
+
+	backListBtn.addEventListener('click', () => {
+		location.href = "/admin/noticeListOk.ad?page=1";
+	});
+
 });

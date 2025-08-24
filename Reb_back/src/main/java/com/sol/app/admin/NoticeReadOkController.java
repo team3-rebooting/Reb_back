@@ -10,9 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminNoticeDAO;
+import com.sol.app.dto.AdminDTO;
 import com.sol.app.dto.AdminNoticeDTO;
+import com.sol.app.dto.FileAdminDTO;
 import com.sol.app.dto.FileNoticeDTO;
 import com.sol.app.dto.NoticeDTO;
+import com.sol.app.file.dao.FileAdminDAO;
 import com.sol.app.file.dao.FileNoticeDAO;
 
 public class NoticeReadOkController implements Execute {
@@ -31,15 +34,16 @@ public class NoticeReadOkController implements Execute {
 			return result;
 		}
 		
-		int noticeNumber = Integer.parseInt(noticeNumberStr);
-		
 		AdminNoticeDAO noticeDAO = new AdminNoticeDAO();
-		FileNoticeDAO fileDAO = new FileNoticeDAO();
+		int noticeNumber = Integer.parseInt(noticeNumberStr);
+		FileNoticeDAO fileNoticeDAO = new FileNoticeDAO();
+		FileAdminDAO fileAdminDAO = new FileAdminDAO();
 
 		//DB에서 게시글 가져오기
 		AdminNoticeDTO noticeDTO = noticeDAO.select(noticeNumber);
-		
+		int adminNumber = noticeDTO.getAdminNumber();
 		//게시글이 존재하지 않을 경우 처리
+
 		if(noticeDTO == null) {
 			System.out.println("존재하지 않는 게시글입니다. " + noticeNumber);
 			result.setPath("/app/admin/notice/admin-notice-list.jsp");
@@ -48,22 +52,20 @@ public class NoticeReadOkController implements Execute {
 		}
 		
 		//첨부파일 가져오기
-		List<FileNoticeDTO> files = fileDAO.select(noticeNumber);
+		List<FileNoticeDTO> noticefiles = fileNoticeDAO.select(noticeNumber);
+		//관리자 사진 가져오기
+		List<FileAdminDTO> adminfiles = fileAdminDAO.select(adminNumber);
 		System.out.println("======파일 확인======");
-		System.out.println(files);
+		System.out.println(noticefiles);
+		System.out.println(adminfiles);
 		System.out.println("===================");
 		
 		//첨부파일 붙이기
-		noticeDTO.setFileNoticeList(files);
-		
+		noticeDTO.setFileNoticeList(noticefiles);
+		noticeDTO.setFileAdminList(adminfiles);
 		//로그인한 사용자 번호 가져오기
 		Integer loginAdminNumber = (Integer) request.getSession().getAttribute("adminNumber");
 		System.out.println("로그인 한 관리자 번호 : " + loginAdminNumber);
-		
-		//현재 게시글의 작성자 번호 가져오기
-		int boardWriterNumber = noticeDTO.getAdminNumber();
-		System.out.println("현재 게시글 작성자 번호 : " + boardWriterNumber);
-		
 		
 		request.setAttribute("notice", noticeDTO);
 		result.setPath("/app/admin/notice/admin-notice-detail.jsp");

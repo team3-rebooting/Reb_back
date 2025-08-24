@@ -170,10 +170,3 @@
 		resource="com/sol/mapper/RoutineReviewMapper.xml" /> <mapper resource="com/sol/mapper/SponsorMapper.xml" 
 		/> -->
 </configuration>
-
-
-
-
-
-
-

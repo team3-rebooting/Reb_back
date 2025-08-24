@@ -45,25 +45,32 @@
 						<!-- 목록 이동 버튼 -->
 					</div>
 					<!-- </div> -->
-					<div class="back-list">목록</div>
+					<div class="back-list"
+					data-noticeNumber="${notice.getNoticeNumber()}"
+					data-adminNumber="${sessionScope.adminNumber}"
+						>목록</div>
 				</div>
 				<div class="notice-detail-admin-image-containter">
 					<div class="logo">
-						<img
-							src="${pageContext.request.contextPath}/assets/img/team_logo.png"
-							class="logo-image" alt="로고" />
+						<c:forEach var="adminFile" items="${board.fileAdminList}">
+							<img
+								src="${pageContext.request.contextPath}/upload/${adminFile.getFileSystemName()}"
+								class="logo-image" alt="관리자 프로필 사진" />
+						</c:forEach>
 					</div>
 					<div class="notice-detail-admin-containter">
-						<div class="board-box-writer font-main">${notice.memberNickname}</div>
+						<div class="board-box-writer font-main">${notice.adminNickname}</div>
 						<div class="board-box-day font-main">
-							<c:if
+							<c:choose>
+							<c:when
 								test="${notice.noticeCreatedDate ne notice.noticeUpdatedDate}">
 								<c:out value="${notice.noticeUpdatedDate}" />(수정됨)
-							</c:if>
-							<c:if
-								test="${notice.noticeCreatedDate eq notice.noticeUpdatedDate}">
-								<c:out value="${courseReview.noticeCreatedDate}" />
-							</c:if>
+							</c:when>
+							<c:otherwise>
+								<c:out value="${notice.noticeCreatedDate}" />
+							</c:otherwise>
+							
+							</c:choose>
 						</div>
 					</div>
 				</div>
@@ -80,15 +87,27 @@
 						<li class="attachment-item">
 							<!-- 파일명 링크(밑줄) --> <a class="attachment-name"
 							href="./../../../assets/img/karina.jpg" download="첨부파일">
-								UI_수정사항.pdf </a>
+								UI_수정사항.pdf </a> <c:forEach var="noticeFile"
+								items="${board.fileNoticeList}">
+								<img
+									src="${pageContext.request.contextPath}/upload/${noticeFile.getFileSystemName()}"
+									class="logo-image" alt="첨부파일" />
+							</c:forEach>
 						</li>
 					</ul>
 				</section>
 				<div id="main-btn-div">
 					<!-- 작성 버튼 -->
-					<button class="main-btn">수정</button>
+					<c:if
+					test="${sessionScope.adminNumber == notice.getAdminNumber() }">
+					<button class="main-btn"
+					data-notice-number="${notice.noticeNumber}"
+					data-admin-number="${sessionScope.adminNumber}">수정</button>
 					<!-- 취소 버튼 -->
-					<button class="main-btn">삭제</button>
+					<button class="main-btn"
+					data-notice-number="${notice.noticeNumber}"
+					data-admin-number="${sessionScope.adminNumber}">삭제</button>					
+					</c:if>
 				</div>
 			</div>
 
