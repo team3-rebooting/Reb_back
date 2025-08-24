@@ -71,7 +71,7 @@ button {
 #detail-container-list {
   display: flex;
   margin-top: 100px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .pagetitle {
@@ -196,4 +196,15 @@ button {
   font-size: 20px;
   color: #ff0000;
   border: 3px solid #ff0000;
+}
+.div-expert-info-detail > p{
+  padding-top : 15px;
+}
+.p-host{
+  font-size: 20px;
+  text-align: end;
+  margin-bottom: 30px;
+}
+.span-host-name{
+  color: #F38A6E;
 }

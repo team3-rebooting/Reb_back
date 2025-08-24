@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="fileExpert">
-	<select id="select" parameterType="memberNumber" resultType="FileExpertDTO">
+	<select id="select" parameterType="int" resultType="FileExpertDTO">
 	<![CDATA[
 		SELECT * FROM TBL_FILE_EXPERT WHERE MEMBER_NUMBER = ${memberNumber}
 	]]>
@@ -10,12 +10,12 @@
 	<insert id="insert" parameterType="FileExpertDTO">
 		<!-- fileSystemName 어떻게 지정해야하는지 -->
 		INSERT INTO TBL_FILE_EXPERT(file_system_name, file_original_name, member_number)
-		VALUES(${fileSystemName}, ${fileOriginalName}, ${memberNumber})
+		VALUES(#{fileSystemName}, #{fileOriginalName}, #{memberNumber})
 	</insert>
 	
 	<delete id="delete" parameterType="int">
 		<!-- fileSystemName 어떻게 지정해야하는지 -->
 		DELETE FROM TBL_FILE_EXPERT
-		WHERE member_number = ${memberNumber}
+		WHERE member_number = #{memberNumber}
 	</delete>
 </mapper>
