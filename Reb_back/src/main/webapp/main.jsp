@@ -65,11 +65,11 @@
     <div id="main-container">
       <!-- 메뉴 링크 -->
       <div id="main-link-box">
-        <a href="./app/aboutUs/site-introduction.html">게시판 소개글</a>
-        <a href="./app/routine-meeting/routine-meeting-review-list.html">루틴 모임 후기 바로가기</a>
-        <a href="./app/routine-meeting/routine-meetings-list.html">루틴 모임 바로가기</a>
-        <a href="./app/course/course-list.html">수업 신청 바로가기</a>
-        <a href="./app/course/course-review-list.html">수업 후기 바로가기</a>
+        <a href="${pageContext.request.contextPath}/app/aboutUs/site-introduction.jsp">게시판 소개글</a>
+        <a href="${pageContext.request.contextPath}/routine/routineReviewOk.ro">루틴 모임 후기 바로가기</a>
+        <a href="${pageContext.request.contextPath}/routine/routineOk.ro">루틴 모임 바로가기</a>
+        <a href="${pageContext.request.contextPath}/course/courseListOk.co">수업 신청 바로가기</a>
+        <a href="${pageContext.request.contextPath}/course/courseReviewListOk.co">수업 후기 바로가기</a>
       </div>
       <!-- 모집중인 루틴 모임 후기글 -->
       <div class="review-container">
@@ -78,10 +78,10 @@
         <div id="review-list">
           <!-- 리뷰 -->
           <div class="review-box">
-            <a href="./app/routine-meeting/routine-meeting-review-detail.html" clas="a-review-box">
+            <a href="${pageContext.request.contextPath}/app/routine/routine-meeting-review-detail.jsp" clas="a-review-box">
               <!-- 리뷰 이미지 -->
               <div class="review-img-box">
-                <img src="./assets/img/routine.png" alt="">
+                <img src="${pageContext.request.contextPath}/assets/img/routine.png" alt="">
               </div>
               <!-- 리뷰 정보 -->
               <!-- 리뷰 제목 -->
@@ -95,9 +95,9 @@
             </a>
           </div>
           <div class="review-box">
-            <a href="./app/routine-meeting/routine-meeting-review-detail.html" class="a-review-box">
+            <a href="${pageContext.request.contextPath}/app/routine/routine-meeting-review-detail.jsp" class="a-review-box">
               <div class="review-img-box">
-                <img src="./assets/img/routine.png" alt="">
+                <img src="${pageContext.request.contextPath}/assets/img/routine.png" alt="">
               </div>
               <div class="review-title">즐거운 루틴 모임 시간이었습니다!</div>
               <div class="review-text">
@@ -107,9 +107,9 @@
             </a>
           </div>
           <div class="review-box">
-            <a href="./app/routine-meeting/routine-meeting-review-detail.html" class="a-review-box">
+            <a href="${pageContext.request.contextPath}/app/routine/routine-meeting-review-detail.jsp" class="a-review-box">
               <div class="review-img-box">
-                <img src="./assets/img/routine.png" alt="">
+                <img src="${pageContext.request.contextPath}/assets/img/routine.png" alt="">
               </div>
               <div class="review-title">즐거운 루틴 모임 시간이었습니다!</div>
               <div class="review-text">
@@ -124,9 +124,9 @@
         <div class="pagetitle">모집중인 수업 후기글</div>
         <div id="review-list">
           <div class="review-box">
-            <a href="./app/course/course-review-detail.html" class="a-review-box">
+            <a href="${pageContext.request.contextPath}/app/course/course-review-detail.jsp" class="a-review-box">
               <div class="review-img-box">
-                <img src="./assets/img/routine.png" alt="">
+                <img src="${pageContext.request.contextPath}/assets/img/routine.png" alt="">
               </div>
               <div class="review-title">알찬 구성 수업과 실력있는 선생님~</div>
               <div class="review-text">
@@ -136,9 +136,9 @@
             </a>
           </div>
           <div class="review-box">
-            <a href="./app/course/course-review-detail.html" class="a-review-box">
+            <a href="${pageContext.request.contextPath}/app/course/course-review-detail.jsp" class="a-review-box">
               <div class="review-img-box">
-                <img src="./assets/img/routine.png" alt="">
+                <img src="${pageContext.request.contextPath}/assets/img/routine.png" alt="">
               </div>
               <div class="review-title">알찬 구성 수업과 실력있는 선생님~</div>
               <div class="review-text">
@@ -148,9 +148,9 @@
             </a>
           </div>
           <div class="review-box">
-            <a href="./app/course/course-review-detail.html" class="a-review-box">
+            <a href="${pageContext.request.contextPath}/app/course/course-review-detail.jsp" class="a-review-box">
               <div class="review-img-box">
-                <img src="./assets/img/routine.png" alt="">
+                <img src="${pageContext.request.contextPath}/assets/img/routine.png" alt="">
               </div>
               <div class="review-title">알찬 구성 수업과 실력있는 선생님~</div>
               <div class="review-text">

@@ -170,6 +170,7 @@ public class RoutineListDTO {
 	public void setFileRoutineList(List<FileRoutineDTO> fileRoutineList) {
 		this.fileRoutineList = fileRoutineList;
 	}
+	
 	@Override
 	public String toString() {
 		return "RoutineListDTO [routineNumber=" + routineNumber + ", routineLeaderNumber=" + routineLeaderNumber
@@ -184,6 +185,4 @@ public class RoutineListDTO {
 				+ routineApplicantCount + ", routineRecruitCount=" + routineRecruitCount + ", applicantList="
 				+ applicantList + "]";
 	}
-	
-	
 }

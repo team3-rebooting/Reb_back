@@ -12,7 +12,7 @@ import com.sol.app.dto.RoutineListDTO;
 import com.sol.app.routine.dao.FileRoutineDAO;
 import com.sol.app.routine.dao.RoutineListDAO;
 
-public class RoutineReadOkController  implements Execute {
+public class RoutineReadOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.dto.RoutineListDTO;
+import com.sol.app.routine.dao.FileRoutineDAO;
 import com.sol.app.routine.dao.RoutineListDAO;
 
 public class RoutineOkController implements Execute {
@@ -21,6 +22,7 @@ public class RoutineOkController implements Execute {
 		System.out.println("====RoutineOkController 실행====");
 		RoutineListDAO routineListDAO = new RoutineListDAO();
 		Result result = new Result();
+		FileRoutineDAO fileRoutineDAO = new FileRoutineDAO();
 
 		String temp = request.getParameter("page");
 		System.out.println("page : " + temp);
@@ -39,7 +41,14 @@ public class RoutineOkController implements Execute {
 		// 게시글 목록 조회
 		List<RoutineListDTO> routineList = routineListDAO.selectAll(pageMap);
 		request.setAttribute("routineList", routineList);
-
+		
+		for(RoutineListDTO routine : routineList) {
+			if(routine.getRoutineNumber() != 0)
+				routine.setFileRoutineList(fileRoutineDAO.selectList(routine.getRoutineNumber()));
+		}
+		
+		
+		
 		for (RoutineListDTO r : routineList) {
 			System.out.println("getRoutineCreatedDate " + r.getRoutineCreatedDate());
 		}

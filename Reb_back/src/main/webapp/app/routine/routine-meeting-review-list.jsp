@@ -74,184 +74,68 @@
 						</c:otherwise>
 					</c:choose>
 				</ul>
-			</div>
 
 
-		</div>
-		<div class="div-page">
-			<div class="div-pagenation">
-				<c:if test="${prev}">
-					<a
-						href="${pageContext.request.contextPath}/routine/routineReviewOk.ro?page=${startPage - 1}"
-						class="prev">&lt;</a>
-				</c:if>
-
-				<c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
-				<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
-					<c:choose>
-						<c:when test="${!(i == page) }">
+				<div class="div-page">
+					<div class="div-pagenation">
+						<c:if test="${prev}">
 							<a
-								href="${pageContext.request.contextPath}/routine/routineReviewOk.ro?page=${i}">
-								<c:out value="${i}" />
-							</a>
-						</c:when>
-						<c:otherwise>
-							<a href="#" class="active"> <c:out value="${i}" />
-							</a>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-				<c:if test="${next}">
-					<a
-						href="${pageContext.request.contextPath}/routine/routineReviewOk.ro?page=${endPage + 1}"
-						class="next">&gt;</a>
-				</c:if>
-			</div>
-		</div>
+								href="${pageContext.request.contextPath}/routine/routineReviewOk.ro?page=${startPage - 1}"
+								class="prev">&lt;</a>
+						</c:if>
 
-		<div class="div-find">
-			<form action="" method="get">
-				<div class="div-find-form">
-					<div class="find-container">
-						<select class="select-find">
-							<option value="title">제목</option>
-							<option value="name">작성자명</option>
-						</select>
-						<div class="input-group">
-							<input class="input-find" type="text" />
-							<button type="button" class="button-find">
-								<i class="fa-solid fa-magnifying-glass"></i>
-							</button>
-						</div>
+						<c:set var="realStartPage"
+							value="${startPage < 0 ? 0 : startPage}" />
+						<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+							<c:choose>
+								<c:when test="${!(i == page) }">
+									<a
+										href="${pageContext.request.contextPath}/routine/routineReviewOk.ro?page=${i}">
+										<c:out value="${i}" />
+									</a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="active"> <c:out value="${i}" />
+									</a>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${next}">
+							<a
+								href="${pageContext.request.contextPath}/routine/routineReviewOk.ro?page=${endPage + 1}"
+								class="next">&gt;</a>
+						</c:if>
 					</div>
 				</div>
-			</form>
+
+				<div class="div-find">
+					<form action="" method="get">
+						<div class="div-find-form">
+							<div class="find-container">
+								<select class="select-find">
+									<option value="title">제목</option>
+									<option value="name">작성자명</option>
+								</select>
+								<div class="input-group">
+									<input class="input-find" type="text" />
+									<button type="button" class="button-find">
+										<i class="fa-solid fa-magnifying-glass"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
+					<form action="/routine/routineReviewWrite.ro" method="get">
+						<c:if test="${not empty sessionScope.memberNumber}">
+							<button class="button-write a-write">글 쓰기</button>
+						</c:if>
+					</form>
+				</div>
+
+			</div>
 		</div>
 
-		<form action="/routine/routineReviewWrite.ro" method="get">
-			<c:if test="${not empty sessionScope.memberNumber}">
-				<button class="button-write a-write">글 쓰기</button>
-			</c:if>
-		</form>
-		<!-- 
-      <div class="div-review-list">
-        <div class="div-review-title">
-          <p class="font-main review-title-title">제목</p>
-          <p class="font-main review-author">작성자</p>
-          <p class="font-main review-date">작성일</p>
-          <p class="font-main review-like">좋아요</p>
-        </div>
-        <ul class="ul-review-list">
-          <li class="li-review-content">
-            <a href="./routine-meeting-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">26기 사진찍기 모임 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./routine-meeting-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">26기 사진찍기 모임 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./routine-meeting-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">26기 사진찍기 모임 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./routine-meeting-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">26기 사진찍기 모임 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./routine-meeting-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">26기 사진찍기 모임 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./routine-meeting-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">26기 사진찍기 모임 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./routine-meeting-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">26기 사진찍기 모임 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./routine-meeting-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">26기 사진찍기 모임 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./routine-meeting-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">26기 사진찍기 모임 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          <li class="li-review-content">
-            <a href="./routine-meeting-review-detail.html">
-              <div class="div-review-content">
-                <p class="review-title">26기 사진찍기 모임 후기</p>
-                <p class="review-author">홍길동</p>
-                <p class="review-date">2025.08.02</p>
-                <p class="review-like">32</p>
-              </div>
-            </a>
-          </li>
-          
 
-        </ul>
-        
-       
-        
-      </div>
-    
-     -->
-		</div>
 	</main>
 	<div id="footer"></div>
 </body>

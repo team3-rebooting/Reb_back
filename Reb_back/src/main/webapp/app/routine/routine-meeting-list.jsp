@@ -49,7 +49,7 @@
 										<c:choose>
 											<c:when test="${empty routine.getFileRoutine() }">
 												<img
-													src="${pageContext.request.contextPath}/assets/img/team-logo.png"
+													src="${pageContext.request.contextPath}/assets/img/team_logo.png"
 													class="img-box">
 											</c:when>
 											<c:otherwise>
