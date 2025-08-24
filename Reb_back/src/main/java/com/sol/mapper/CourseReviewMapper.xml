@@ -34,7 +34,7 @@
 		</selectKey>
 		insert into tbl_course_review(course_review_number, course_number,
 		course_review_title, member_number, course_review_content)
-		values(#{courseReviewNumber}, #{courseNumber}, #{courseReviewTitle},
+		values(#{courseReviewNumber}, 1, #{courseReviewTitle},
 		#{memberNumber}, #{courseReviewContent})
 	</insert>
 
@@ -52,10 +52,10 @@
 	</delete>
 	<!-- 게시글 상세 조회 -->
 	<select id="select" parameterType="int"
-		resultType="CourseReviewDTO">
+		resultType="CourseReviewListDTO">
 	<![CDATA[
-		select cr.course_review_number, cr.course_number, cr.member_number, cr.course_review_title, m.member_nickname, cr.COURSE_REVIEW_CREATED_DATE
-			, (select count(*) from tbl_course_review_like crl where
+		select cr.course_review_number, cr.course_number, cr.member_number, cr.course_review_title, m.member_nickname, to_char(cr.COURSE_REVIEW_CREATED_DATE, 'YYYY-MM-DD') as COURSE_REVIEW_CREATED_DATE
+			,to_char(cr.COURSE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD') as COURSE_REVIEW_UPDATED_DATE , (select count(*) from tbl_course_review_like crl where
 								crl.course_review_number = cr.course_review_number)
 			, cr.course_review_content, 
 			fmp.FILE_SYSTEM_NAME AS Member_Profile_File,
@@ -63,7 +63,7 @@
     		from tbl_course_review cr left outer join tbl_member m
     			on cr.member_number = m.member_number
     		left outer join tbl_file_member_profile fmp
-    			on m.member_number = fm.member_number
+    			on m.member_number = fmp.member_number
     		left outer join tbl_file_course_review fcr
     			on cr.COURSE_REVIEW_NUMBER = fcr.COURSE_REVIEW_NUMBER
     		where cr.course_review_number = #{CourseReviewNumber}

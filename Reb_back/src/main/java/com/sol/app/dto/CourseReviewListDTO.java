@@ -6,11 +6,14 @@ public class CourseReviewListDTO {
 	private int courseReviewNumber;
 	private int courseNumber;
 	private String courseReviewTitle;
+	private String courseReviewContent;
+	private int memberNumber;
 	private String memberNickname;
 	private String courseReviewCreatedDate;
+	private String courseReviewUpdatedDate;
 	private int courseReviewLike;
-	private List<FileMemberProfileDTO> fileWriterPriFileList;
-	private List<FileMemberProfileDTO> fileCommentPriFileList; 
+	private List<FileMemberProfileDTO> fileWriterProFileList;
+	private List<FileMemberProfileDTO> fileCommentProFileList; 
 	private List<FileCourseReviewDTO> fileCourseReviewList;
 	/*
 	 * //작성자 프로필 사진 private String profileFilePath; private
@@ -38,8 +41,20 @@ public class CourseReviewListDTO {
 	public String getCourseReviewTitle() {
 		return courseReviewTitle;
 	}
-	public void setCourseReviewTitle(String courseReviewTItle) {
-		this.courseReviewTitle = courseReviewTItle;
+	public void setCourseReviewTitle(String courseReviewTitle) {
+		this.courseReviewTitle = courseReviewTitle;
+	}
+	public String getCourseReviewContent() {
+		return courseReviewContent;
+	}
+	public void setCourseReviewContent(String courseReviewContent) {
+		this.courseReviewContent = courseReviewContent;
+	}
+	public int getMemberNumber() {
+		return memberNumber;
+	}
+	public void setMemberNumber(int memberNumber) {
+		this.memberNumber = memberNumber;
 	}
 	public String getMemberNickname() {
 		return memberNickname;
@@ -53,23 +68,29 @@ public class CourseReviewListDTO {
 	public void setCourseReviewCreatedDate(String courseReviewCreatedDate) {
 		this.courseReviewCreatedDate = courseReviewCreatedDate;
 	}
+	public String getCourseReviewUpdatedDate() {
+		return courseReviewUpdatedDate;
+	}
+	public void setCourseReviewUpdatedDate(String courseReviewUpdatedDate) {
+		this.courseReviewUpdatedDate = courseReviewUpdatedDate;
+	}
 	public int getCourseReviewLike() {
 		return courseReviewLike;
 	}
 	public void setCourseReviewLike(int courseReviewLike) {
 		this.courseReviewLike = courseReviewLike;
 	}
-	public List<FileMemberProfileDTO> getFileWriterPriFileList() {
-		return fileWriterPriFileList;
+	public List<FileMemberProfileDTO> getFileWriterProFileList() {
+		return fileWriterProFileList;
 	}
-	public void setFileWriterPriFileList(List<FileMemberProfileDTO> fileWriterPriFileList) {
-		this.fileWriterPriFileList = fileWriterPriFileList;
+	public void setFileWriterProFileList(List<FileMemberProfileDTO> fileWriterProFileList) {
+		this.fileWriterProFileList = fileWriterProFileList;
 	}
-	public List<FileMemberProfileDTO> getFileCommentPriFileList() {
-		return fileCommentPriFileList;
+	public List<FileMemberProfileDTO> getFileCommentProFileList() {
+		return fileCommentProFileList;
 	}
-	public void setFileCommentPriFileList(List<FileMemberProfileDTO> fileCommentPriFileList) {
-		this.fileCommentPriFileList = fileCommentPriFileList;
+	public void setFileCommentProFileList(List<FileMemberProfileDTO> fileCommentProFileList) {
+		this.fileCommentProFileList = fileCommentProFileList;
 	}
 	public List<FileCourseReviewDTO> getFileCourseReviewList() {
 		return fileCourseReviewList;
@@ -80,13 +101,12 @@ public class CourseReviewListDTO {
 	@Override
 	public String toString() {
 		return "CourseReviewListDTO [courseReviewNumber=" + courseReviewNumber + ", courseNumber=" + courseNumber
-				+ ", courseReviewTItle=" + courseReviewTitle + ", memberNickname=" + memberNickname
-				+ ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewLike=" + courseReviewLike
-				+ ", fileWriterPriFileList=" + fileWriterPriFileList + ", fileCommentPriFileList="
-				+ fileCommentPriFileList + ", fileCourseReviewList=" + fileCourseReviewList + "]";
+				+ ", courseReviewTitle=" + courseReviewTitle + ", courseReviewContent=" + courseReviewContent
+				+ ", memberNumber=" + memberNumber + ", memberNickname=" + memberNickname + ", courseReviewCreatedDate="
+				+ courseReviewCreatedDate + ", courseReviewUpdatedDate=" + courseReviewUpdatedDate
+				+ ", courseReviewLike=" + courseReviewLike + ", fileWriterProFileList=" + fileWriterProFileList
+				+ ", fileCommentProFileList=" + fileCommentProFileList + ", fileCourseReviewList="
+				+ fileCourseReviewList + "]";
 	}
-	
-	
-	
 	
 }

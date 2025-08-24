@@ -30,7 +30,7 @@
   <main>
     <div id="main-container">
       <p class="pagetitle">수업 후기 작성</p>
-      <form action="${pageContext.request.contextPath}/course/courseReviewWriteOk.co" method="post">
+      <form action="${pageContext.request.contextPath}/course/courseReviewWriteOk.co" method="post" enctype="multipart/form-data">
         <div class="div-create-course">
           <input type="text" class="input-title input-bundle" name="courseReviewTitle" placeholder="제목을 입력해주세요">
         </div>
