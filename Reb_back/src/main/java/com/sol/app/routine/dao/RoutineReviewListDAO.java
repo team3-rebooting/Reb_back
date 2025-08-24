@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.sol.app.dto.RoutineReviewDTO;
 import com.sol.app.dto.RoutineReviewListDTO;
 import com.sol.config.MyBatisConfig;
 
@@ -25,5 +26,13 @@ public class RoutineReviewListDAO {
 	
 	public int getTotal() {
 		return sqlSession.selectOne("routineReviewList.getTotal");
+	}
+	
+	public int insert(RoutineReviewDTO routineReviewListDTO) {
+		return sqlSession.insert("routineReview.insert", routineReviewListDTO);
+	}
+	
+	public void delete(int routineReviewNumber) {
+		sqlSession.delete("routineReview.delete", routineReviewNumber);
 	}
 }
