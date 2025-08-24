@@ -76,6 +76,11 @@ public class MemberFrontController extends HttpServlet {
 			System.out.println("회원가입 처리 요청");
 			result = new SignupOkController().execute(request, response);
 			break;
+		case "/member/checkIdOk.me":
+			System.out.println("아이디 중복 확인 요청");
+			result = new CheckIdOkController().execute(request, response);
+			System.out.println("아이디 중복 확인 완료");
+			break;
 		}
 		
 		if(result != null && result.getPath() != null) {

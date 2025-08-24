@@ -5,7 +5,7 @@ public class MemberSignupDTO {
 	int memberNumber;
 	String memberId;
 	String memberPassword;
-	int memberAddressNumber;
+	int addressNumber;
 	String memberEmail;
 	String memberName;
 	String memberGender;
@@ -14,7 +14,7 @@ public class MemberSignupDTO {
 	String memberBirthDate;
 	String zipCode;
 	String address;
-	String addressDetail;
+	String addressAdd;
 	public int getMemberNumber() {
 		return memberNumber;
 	}
@@ -33,11 +33,11 @@ public class MemberSignupDTO {
 	public void setMemberPassword(String memberPassword) {
 		this.memberPassword = memberPassword;
 	}
-	public int getMemberAddressNumber() {
-		return memberAddressNumber;
+	public int getAddressNumber() {
+		return addressNumber;
 	}
-	public void setMemberAddressNumber(int memberAddressNumber) {
-		this.memberAddressNumber = memberAddressNumber;
+	public void setAddressNumber(int addressNumber) {
+		this.addressNumber = addressNumber;
 	}
 	public String getMemberEmail() {
 		return memberEmail;
@@ -87,20 +87,22 @@ public class MemberSignupDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getAddressDetail() {
-		return addressDetail;
+	public String getAddressAdd() {
+		return addressAdd;
 	}
-	public void setAddressDetail(String addressDetail) {
-		this.addressDetail = addressDetail;
+	public void setAddressAdd(String addressAdd) {
+		this.addressAdd = addressAdd;
 	}
 	@Override
 	public String toString() {
 		return "MemberSignupDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberPassword="
-				+ memberPassword + ", memberAddressNumber=" + memberAddressNumber + ", memberEmail=" + memberEmail
-				+ ", memberName=" + memberName + ", memberGender=" + memberGender + ", memberNickname=" + memberNickname
+				+ memberPassword + ", addressNumber=" + addressNumber + ", memberEmail=" + memberEmail + ", memberName="
+				+ memberName + ", memberGender=" + memberGender + ", memberNickname=" + memberNickname
 				+ ", memberPhoneNumber=" + memberPhoneNumber + ", memberBirthDate=" + memberBirthDate + ", zipCode="
-				+ zipCode + ", address=" + address + ", addressDetail=" + addressDetail + "]";
+				+ zipCode + ", address=" + address + ", addressAdd=" + addressAdd + "]";
 	}
+	
+	
 	
 	
 }

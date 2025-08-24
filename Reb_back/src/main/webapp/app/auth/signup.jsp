@@ -51,9 +51,10 @@
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-hide">
 							<input class="input-basic input-essential" type="text"
-								placeholder="아이디 입력" name="memberId">
+								placeholder="아이디 입력" name="memberId" required>
 							<p class="p-warning">아이디는 6~20자 사이 영문자,숫자를 사용해야합니다</p>
 							<p class="p-nodupli-id">중복된 아이디입니다</p>
+							<p class="p-dupli-id">사용 가능한 아이디입니다.</p>
 						</div>
 					</div>
 					<!-- 비밀번호 입력 영역 -->
@@ -62,9 +63,9 @@
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-hide">
 							<input class="input-basic input-password-first input-essential"
-								type="password" placeholder="비밀번호 입력" name="memberPassword">
-							<input class="input-basic" type="password" placeholder="비밀번호 재입력"
-								name="pwRe">
+								type="password" placeholder="비밀번호 입력" name="memberPassword" required>
+							<input class="input-basic input-password-second" type="password" placeholder="비밀번호 재입력"
+								name="pwRe" required>
 							<p class="p-warning">비밀번호는 최소 8자, 최대 20자 영문과 숫자, !@#$ 1개씩 반드시
 								포함되어야 합니다</p>
 							<p class="p-nosame">입력한 비밀번호와 다릅니다</p>
@@ -77,7 +78,7 @@
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-hide">
 							<input class="input-basic input-essential" type="date"
-								name="memberBirthDate">
+								name="memberBirthDate" required>
 							<p class="p-warning">생년월일은 필수 입력입니다</p>
 						</div>
 					</div>
@@ -87,10 +88,10 @@
 						<!-- 기본 주소, 추가 주소 입력 영역 -->
 						<div class="div-signup-address ">
 							<div class="div-signup-address-zip-code">
-								<input class="input-zip-code input-essential" type="test" name="zip-code" placeholder="우편 번호" readonly required>
+								<input class="input-zip-code input-essential" type="test" name="zipCode" placeholder="우편 번호" readonly required>
 								<button class="button-find" type="button">찾기</button>
 							</div>
-							<input class="input-address-basic input-essential" type="text" name="addressBasic" placeholder="기본 주소">
+							<input class="input-address-basic input-essential" type="text" name="address" placeholder="기본 주소" required>
 							<p class="p-warning">기본 주소는 필수 입력입니다</p>
 							<!-- 추가 주소 입력 영역 -->
 							<div class="div-signup-address-add">
@@ -117,7 +118,7 @@
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-hide">
 							<input class="input-basic input-essential" type="text"
-								name="name">
+								name="name" required>
 							<p class="p-warning">이름은 필수 입력입니다</p>
 						</div>
 					</div>
@@ -126,9 +127,9 @@
 						<span class="span-signup">* 성별 :</span>
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-radio">
-							<input type='radio' name='gender' value='male' id="male" /><label
+							<input type='radio' name='gender' value='M' id="male" required /><label
 								for="male">남자</label> <input type='radio' name='gender'
-								value='female' id="female" /><label for="female">여자</label>
+								value='F' id="female" /><label for="female">여자</label>
 							<p class="p-warning">성별은 필수 입력입니다</p>
 						</div>
 					</div>
@@ -138,11 +139,11 @@
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-hide">
 							<input class="input-basic input-essential" type="text"
-								name="nickName">
+								name="memberNickname" required>
 							<button class="button-no-duplication" type="button">중복확인</button>
-							<p class="p-warning">닉네임은 필수 입력입니다</p>
-							<p class="p-duplication">중복입니다</p>
-							<p class="p-no-duplication">사용가능</p>
+							<p class="p-warning nickname-required">닉네임은 필수 입력입니다</p>
+							<p class="p-duplication nickname-dupli">중복입니다</p>
+							<p class="p-no-duplication nickname-nodupli">사용가능</p>
 						</div>
 					</div>
 					<!-- 전화번호 입력 영역 -->
@@ -150,12 +151,12 @@
 						<span class="span-signup">* 전화번호 :</span>
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-hide">
-							<input class="input-basic" type="text" name="phoneNumber">
+							<input class="input-basic" type="text" name="phoneNumber" required>
 							<div>
 								<button type="button" class="button-retry" disabled>초기화</button>
 								<button class="button-injung" type="button">인증번호받기</button>
 							</div>
-							<input class="input-cert input-essential" type="text" readonly>
+							<input class="input-cert input-essential" type="text" readonly required>
 							<button class="button-injunging" type="button" disabled>인증하기</button>
 							<p class="p-warning">전화번호는 필수 입력입니다</p>
 						</div>
