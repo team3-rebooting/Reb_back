@@ -1,128 +1,103 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>공지 사항 목록</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/admin/notice/admin-notice-list.css">
-<script defer
-	src="${pageContext.request.contextPath}/assets/js/admin/notice/admin-notice-list.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	href="${pageContext.request.contextPath}/assets/css/header-login.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/footer.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/notice/notice-detail.css" />
+
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&display=swap"
+	rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
-	rel="stylesheet">
+	rel="stylesheet" />
+<title>공지사항 상세페이지</title>
 </head>
 
-<body class="font-menu">
-	<!-- 헤더 -->
+<body>
 	<jsp:include page="/header.jsp" />
-	<!-- 메인 -->
 	<main>
-		<!-- 메인 영역 -->
-		<section id="main-notice">
-			<div id="main-notice-div">
-				<!-- 공지사항 리스트 제목 -->
-				<div id="main-notice-list-title">
-					<!-- 제목 영역 -->
-					<p class="main-notice-title">제목</p>
-					<!-- 작성자 영역 -->
-					<p class="main-notice-author">작성자</p>
-					<!-- 작성 날짜 영역 -->
-					<p class="main-notice-create-date">작성날짜</p>
-				</div>
-				<!-- 공지사항 리스트 -->
-				<ul id="main-notice-list">
-					<!-- 공지사항 리스트 목록 -->
-					<c:choose>
-						<c:when test="${not empty noticeList}">
-							<c:forEach var="notice" items="${noticeList}">
-								<li class="main-notice-list-li"><a
-									href="${pageContext.request.contextPath}/admin/noticeReadOk.ad?noticeNumber=${notice.noticeNumber}"
-									class="main-must-read-link">
-										<p class="main-notice-title">
-											<c:out value="${notice.noticeTitle}" />
-										</p>
-										<p class="main-notice-author">
-											<c:out value="${notice.adminNickname}" />
-										</p>
-										<p class="main-notice-create-date">
-											<c:out value="${notice.noticeCreatedDate}" />
-										</p>
-								</a></li>
-							</c:forEach>
-						</c:when>
-						<c:otherwise>
-							<div>
-								<div colspan="5" align="center">등록된 게시물이 없습니다.</div>
-							</div>
-						</c:otherwise>
-					</c:choose>
+		<div id="main-container">
 
-
-				</ul>
-				<!-- 등록 버튼 -->
-				<button type="button" id="main-create-notice">등록</button>
-				<!-- 페이지네이션 -->
-				<div id="main-page-number">
-					<ul>
-						<c:if test="${prev}">
-							<li><a
-								href="${pageContext.request.contextPath}/admin/noticeListOk.ad?page=${startPage - 1}"
-								class="prev">&lt;</a></li>
-						</c:if>
-						<c:set var="realStartPage"
-							value="${startPage < 0 ? 0 : startPage}" />
-						<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
-							<c:choose>
-								<c:when test="${!(i == page) }">
-									<li><a
-										href="${pageContext.request.contextPath}/admin/noticeListOk.ad?page=${i}">
-											<c:out value="${i}" />
-									</a></li>
-								</c:when>
-								<c:otherwise>
-									<li><a href="#" class="active"> <c:out value="${i}" />
-									</a></li>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-						<c:if test="${next}">
-							<li><a
-								href="${pageContext.request.contextPath}/admin/noticeListOk.ad?page=${endPage + 1}"
-								class="next">&gt;</a>
-						</c:if>
-					</ul>
-					<!-- <p>&lt</p>
-					<a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a>
-					<a href="">5</a>
-					<p>&gt</p> -->
-				</div>
-				<!-- 검색 영역 -->
-				<div id="main-search">
-					<!-- 검색 종류 -->
-					<div id="main-search-basic">
-						<select class="select-find">
-							<option value="title">제목</option>
-						</select>
+			<!-- 게시글상세 -->
+			<div class="notice-detail-containter">
+				<div class="notice-detail-title-text-containter">
+					<div class="notice-detail-title-text pagetitle font-main">
+						<c:out value="${notice.noticeTitle}" />
 					</div>
-					<!-- 검색 입력 창 -->
-					<form action="" method="">
-						<input type="text" id="main-search-input">
-						<!-- 돋보기 이미지 -->
-						<button>
-							<img src="./../../../assets/img/search.jpg" alt="돋보기">
-						</button>
-					</form>
+					<!-- 목록 이동  -->
+					<div class="back-list">목록</div>
 				</div>
+				<div class="notice-detail-admin-image-containter">
+					<div class="logo">
+						<c:forEach var="adminFile" items="${board.fileAdminList}">
+							<img
+								src="${pageContext.request.contextPath}/upload/${adminFile.getFileSystemName()}"
+								class="logo-image" alt="관리자 프로필 사진" />
+						</c:forEach>
+					</div>
+					<div class="notice-detail-admin-containter">
+						<div class="board-box-writer font-main">>${notice.adminNickname}</div>
+						<div class="board-box-day font-main">
+						<c:choose>
+							<c:when
+								test="${notice.noticeCreatedDate ne notice.noticeUpdatedDate}">
+								<c:out value="${notice.noticeUpdatedDate}" />(수정됨)
+							</c:when>
+							<c:otherwise>
+								<c:out value="${notice.noticeCreatedDate}" />
+							</c:otherwise>
+							
+							</c:choose>
+						</div>
+					</div>
+				</div>
+
+				<div class="notice-detail-text-content-containter">
+					<div class="notice-detail-text font-main">
+						<c:out value="${notice.noticeContent}" />
+					</div>
+				</div>
+
+				<section id="attachment-section">
+					<p class="attachment-title font-main">첨부파일</p>
+					<ul id="attachment-list" class="font-main">
+						<!-- 파일 1 -->
+						<li class="attachment-item">
+							<!-- 파일명 링크(밑줄) --> <a class="attachment-name"
+							href="./../../../assets/img/karina.jpg" download="첨부파일">
+								UI_수정사항.pdf </a> <c:forEach var="noticeFile"
+								items="${board.fileNoticeList}">
+								<img
+									src="${pageContext.request.contextPath}/upload/${noticeFile.getFileSystemName()}"
+									class="logo-image" alt="첨부파일" />
+							</c:forEach>
+						</li>
+					</ul>
+				</section>
+
 			</div>
-		</section>
+		</div>
 	</main>
+	<jsp:include page="/footer.jsp" />
 </body>
+<script src="${pageContext.request.contextPath}/assets/js/header-login.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/notice/notice-detail.js"></script>
 
 </html>

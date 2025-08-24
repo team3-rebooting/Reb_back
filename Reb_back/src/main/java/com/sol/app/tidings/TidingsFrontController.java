@@ -46,9 +46,20 @@ public class TidingsFrontController extends HttpServlet {
 		Result result = new Result();
 		
 		switch(target) {
-		case "/tidings/noticeListOkController.ti":
+		case "/tidings/noticeListOk.ti" :
 			result = UserNoticeListOkController().execute(request,response);
 			break;
+		case "/tidings/noticeReadOk.ti" :
+			result = UserNoticeReadOkController().excute(request,response);
+			break;
+		}
+		
+		if (result != null && result.getPath() != null) {
+			if (result.isRedirect()) {
+				response.sendRedirect(result.getPath());
+			} else {
+				request.getRequestDispatcher(result.getPath()).forward(request, response);
+			}
 		}
 	}
 
