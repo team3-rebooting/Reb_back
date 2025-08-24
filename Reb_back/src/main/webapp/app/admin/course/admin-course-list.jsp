@@ -36,8 +36,9 @@
 			<!-- 하단 목록 리스트 -->
 			<ul>
 				<li><a href="${pageContext.request.contextPath}/admin/courseRequestListOk.ad?page=1">
-						<strong>요청 목록</strong> </a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/courseListOk.ad?page=1"> 수업 목록 리스트
+						요청 목록 </a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/courseListOk.ad?page=1"> 
+				<strong>수업 목록 리스트</strong>
 				</a></li>
 			</ul>
 		</section>

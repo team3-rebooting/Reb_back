@@ -42,7 +42,6 @@ public class NoticeReadOkController implements Execute {
 		AdminNoticeDTO noticeDTO = noticeDAO.select(noticeNumber);
 		int adminNumber = noticeDTO.getAdminNumber();
 		// 게시글이 존재하지 않을 경우 처리
-
 		if (noticeDTO == null) {
 			System.out.println("존재하지 않는 게시글입니다. " + noticeNumber);
 			result.setPath("/app/admin/notice/admin-notice-list.jsp");

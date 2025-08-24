@@ -1,7 +1,7 @@
 const updateBtn = document.querySelector(".button-update");
 const deleteBtn = document.querySelector(".button-delete");
 
-updateBtn.addEventListener('click', ()=>{
+/*updateBtn.addEventListener('click', ()=>{
   location.href= "./../../../app/admin/routine/admin-routine-create.html";
 });
 
@@ -11,8 +11,8 @@ deleteBtn.addEventListener('click', ()=>{
     location.href= "./../../../app/admin/routine/admin-routine-list.html";
   }
 });
-
+*/
 const moveBtn = document.querySelector(".back-list");
 moveBtn.addEventListener('click', ()=>{
-  location.href= "./../../../app/admin/routine/admin-routine-list.html";
+  location.href= "/admin/routineListOk.ad?page=1";
 });

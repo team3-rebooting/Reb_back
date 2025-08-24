@@ -72,9 +72,11 @@
           <!-- 이미지 영역 -->
           <div class="div-img">
             <!-- 대표 이미지 -->
+            <c:forEach var="courseFile" items="${course.fileCourseList}">
             <img 
             src="${pageContext.request.contextPath}/upload/${courseFile.getFileSystemName()}" 
-            class="img-detail">
+            class="img-detail">            
+            </c:forEach>
           </div>
           <!-- 작성날짜 영역 -->
           <div class="div-write-date">
@@ -119,12 +121,16 @@
             </div>
           </div>
           <!-- 개설 버튼 영역 -->
+          <c:choose>
+          	<c:when test="${course.courseRequestTypeNumber == 1}">
           <div id="div-admin-detail-button-create">
             <!-- 개설 승인 버튼 -->
             <button class="button-application" type="button">개설 승인</button>
             <!-- 개설 반려 버튼 -->
             <button class="button-cancel" type="button">개설 반려</button>
-          </div>
+          </div>          	
+          	</c:when>
+          	<c:when test="${course.courseRequestTypeNumber == 2}">
           <!-- 수정 버튼 영역 -->
           <div id="div-admin-detail-button-update">
             <!-- 수정 승인 버튼 -->
@@ -132,17 +138,17 @@
             <!-- 수정 반려 버튼 -->
             <button class="button-cancel" type="button">수정 반려</button>
           </div>
+          	</c:when>
+          	<c:when test="${course.courseRequestTypeNumber == 3}">
           <!-- 삭제 버튼 영역 -->
           <div id="div-admin-detail-button-delete">
             <!-- 삭제 승인 버튼 -->
             <button class="button-application" type="button">삭제 승인</button>
             <!-- 삭제 반려 버튼 -->
             <button class="button-cancel" type="button">삭제 반려</button>
-          </div>
-          <!-- 개설 버튼만 보이게하는 버튼 -->
-          <button id="choose-create">create</button>
-          <!-- 숨겨져있는 버튼 보이게 하는 버튼 -->
-          <button id="view-button">view</button>
+          </div>          	
+          	</c:when>
+          </c:choose>
         </div>
       </div>
     </div>
