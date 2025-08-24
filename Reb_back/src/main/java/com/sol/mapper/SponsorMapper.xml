@@ -3,7 +3,7 @@
 <mapper namespace="sponsor">
   
 
-	<select id="selectAll" parameterType="map" resultType="SponsorDTO">
+	<select id="selectAll" parameterType="map" resultType="AdminSponsorListDTO">
 	<![CDATA[
 		SELECT * FROM (
     		SELECT ROWNUM AS rnum, subquery.*

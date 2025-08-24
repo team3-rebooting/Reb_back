@@ -16,6 +16,6 @@
 	
 	<delete id="delete" parameterType="int">
 		delete from tbl_file_banner
-		where banner_number = #{banner_number}
+		where banner_number = #{bannerNumber}
 	</delete>
 </mapper>
