@@ -33,10 +33,17 @@ p{
 }
 
 /* 목록 사람 이름 열 */
-.list-user-name {
+/* .list-user-name {
+  text-align: center;
+  width: 15%;
+} */
+
+/* 목록 사람 이름 열 */
+.list-content{
   text-align: center;
   width: 15%;
 }
+
 
 /* 목록 제목 열 */
 .list-title {

@@ -8,14 +8,14 @@
 <div class="list">
 	<!-- 목록 속성 값 -->
 	<div class="list-col-type">
-		<p class="font-main list-title"></p>
+		<!-- <p class="font-main list-title"></p>
 		<p class="font-main list-user-name"></p>
-		<p class="font-main list-date"></p>
+		<p class="font-main list-date"></p> -->
 	</div>
 	<!-- 목록 -->
-	<ul class="mypage-ul-list">
+	<ul class="mypage-ul-list" data-listCount="${rowCount}">
 		<!-- 목록 행 -->
-		<li class="li-content"><a href="" class="font-main list-title"></a>
+		<!-- <li class="li-content"><a href="" class="font-main list-title"></a>
 			<p class="font-main list-user-name"></p>
 			<p class="font-main list-date"></p></li>
 		<li class="li-content"><a href="" class="font-main list-title"></a>
@@ -44,13 +44,12 @@
 			<p class="font-main list-date"></p></li>
 		<li class="li-content"><a href="" class="font-main list-title"></a>
 			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li>
+			<p class="font-main list-date"></p></li> -->
 	</ul>
 </div>
 <div class="page-list">
 	<div class="pagenation">
-		<a href="#">&lt;</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a>
-		<a href="#">4</a> <a href="#">5</a> <a href="#">&gt;</a>
+		
 	</div>
 </div>
 <div class="search-container">

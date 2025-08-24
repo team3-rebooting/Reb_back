@@ -12,7 +12,7 @@ const inputIn = document.querySelectorAll(".input-in");
 cancelBtn.addEventListener('click', ()=>{
   if(confirm("작성하신 내용은 사라집니다.작성을 취소하시겠습니까?")){
     alert("작성을 취소하셨습니다.");
-    location.href= "./../../../app/admin/notice/admin-notice-list.html";
+    window.location.href= "/admin/noticeListOk.ad";
   }
 });
 
@@ -25,8 +25,7 @@ addBtn.addEventListener("click", (e) => {
       }
     }
     if (tf === true) {
-      alert("등록 완료되었습니다.");
-      location.href = "./../../../app/admin/notice/admin-notice-detail.html";
+      alert("작성 완료");
     }
     else {
       alert("모든 정보가 입력되어야 합니다");

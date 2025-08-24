@@ -6,4 +6,7 @@
 		SELECT ADMIN_NUMBER, ADMIN_ID FROM TBL_ADMIN
 		WHERE ADMIN_ID = #{adminId} and ADMIN_PASSWORD = #{adminPassword}
 	</select>
+	<select id="getAdminId" parameterType="int" resultType="String">
+		select admin_id from tbl_admin where admin_number = #{adminNumber}
+	</select>
 </mapper>

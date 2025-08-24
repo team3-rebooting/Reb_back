@@ -23,22 +23,18 @@
 	</select>
 	<select id="selectAll" resultType="AdminCourseReviewListDTO">
 	<![CDATA[
-		SELECT *
-			FROM (
+		SELECT *  FROM (
     		SELECT ROWNUM AS rnum, subquery.*
-    		FROM (
-        		SELECT *
-        		FROM (
+    		FROM (        		
             		SELECT
                 	r.COURSE_REVIEW_NUMBER, r.COURSE_REVIEW_TITLE, r.MEMBER_NUMBER,
-                	m.MEMBER_NICKNAME, TO_CHAR(r.COURSE_REVIEW_CREATED_DATE, 'YYYY-MM-DD'),
-                	TO_CHAR(r.COURSE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD')
+                	m.MEMBER_NICKNAME, TO_CHAR(r.COURSE_REVIEW_CREATED_DATE, 'YYYY-MM-DD') AS COURSE_REVIEW_CREATED_DATE,
+                	TO_CHAR(r.COURSE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD') AS COURSE_REVIEW_UPDATED_DATE 
             		FROM TBL_COURSE_REVIEW r
             		JOIN TBL_MEMBER m
                 	ON r.MEMBER_NUMBER = m.MEMBER_NUMBER
             		ORDER BY r.COURSE_REVIEW_NUMBER DESC
         		) subquery
-    		)
 		)
 		WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>

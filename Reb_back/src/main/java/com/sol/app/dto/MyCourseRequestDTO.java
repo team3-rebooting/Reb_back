@@ -65,19 +65,19 @@ public class MyCourseRequestDTO {
 		return courseRegisterDate;
 	}
 	public void setCourseRegisterDate(String courseRegisterDate) {
-		this.courseRegisterDate = courseRegisterDate;
+		this.courseRegisterDate = courseRegisterDate.split(" ")[0].replace('-', '.');
 	}
 	public String getCourseRequestDate() {
 		return courseRequestDate;
 	}
 	public void setCourseRequestDate(String courseRequestDate) {
-		this.courseRequestDate = courseRequestDate;
+		this.courseRequestDate = courseRequestDate.split(" ")[0].replace('-', '.');
 	}
 	public String getCourseResultDate() {
 		return courseResultDate;
 	}
 	public void setCourseResultDate(String courseResultDate) {
-		this.courseResultDate = courseResultDate;
+		this.courseResultDate = courseResultDate.split(" ")[0].replace('-', '.');
 	}
 	public String getCourseRejectReason() {
 		return courseRejectReason;

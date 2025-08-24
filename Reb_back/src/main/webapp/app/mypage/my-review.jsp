@@ -41,12 +41,12 @@
     <!-- 메인 컨테이너 -->
     <div id="main-container">
       <!-- 나의 게시글 목록 -->
-      <div class="mypage-list" id="my-post">
-
+      <div class="mypage-list" id="my-review">
+			<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-list.jsp" />
       </div>
       <!-- 나의 댓글 목록 -->
       <div class="mypage-list" id="my-comment">
-
+			<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-list.jsp" />
       </div>
     </div>
   </main>

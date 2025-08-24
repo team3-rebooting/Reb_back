@@ -6,6 +6,7 @@ public class AdminMemberListDTO {
 	private String memberNickname;
 	private String address;
 	private String addressDetail;
+	private String memberPhoneNumber;
 	public int getMemberNumber() {
 		return memberNumber;
 	}
@@ -36,10 +37,18 @@ public class AdminMemberListDTO {
 	public void setAddressDetail(String addressDetail) {
 		this.addressDetail = addressDetail;
 	}
+	public String getMemberPhoneNumber() {
+		return memberPhoneNumber;
+	}
+	public void setMemberPhoneNumber(String memberPhoneNumber) {
+		this.memberPhoneNumber = memberPhoneNumber;
+	}
 	@Override
 	public String toString() {
 		return "AdminMemberListDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberNickname="
-				+ memberNickname + ", address=" + address + ", addressDetail=" + addressDetail + "]";
+				+ memberNickname + ", address=" + address + ", addressDetail=" + addressDetail + ", memberPhoneNumber="
+				+ memberPhoneNumber + "]";
 	}
+	
 	
 }

@@ -30,14 +30,14 @@
 				</li>
 				<!-- 활동내역 -->
 				<li class="li-mainsidemenu"><a class="a-mainsidemenu-title"
-					href="${pageContext.request.contextPath}/app/mypage/my-courses.jsp">활동내역</a>
+					href="${pageContext.request.contextPath}/mypage/myApplicant.my">활동내역</a>
 					<ul class="ul-subsidemenu">
 						<li class="li-subsidemenu"><a
-							href="${pageContext.request.contextPath}/app/mypage/my-courses.jsp">나의
+							href="${pageContext.request.contextPath}/mypage/myApplicant.my">나의
 								신청/수강 정보</a></li>
 						<li class="li-subsidemenu"><a
-							href="${pageContext.request.contextPath}/app/mypage/my-posts.jsp">나의
-								게시글/댓글</a></li>
+							href="${pageContext.request.contextPath}/mypage/myReview.my">나의
+								후기/댓글</a></li>
 					</ul></li>
 				<!-- 수업 -->
 				<li class="li-mainsidemenu" id="li-expert-course-menu"><a

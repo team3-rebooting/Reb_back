@@ -3,37 +3,44 @@ package com.sol.app.dto;
 import java.util.List;
 
 public class AdminExpertApplicantListDTO {
-	private int expertApplicantNumber;
-	private int memberNumber;
+	
+	private String expertCertStatusInfo;
 	private String memberId;
-	private int addressNumber;
+	private String memberNickname;
+	private String address;
+	private String addressDetail;
 	private String memberPhoneNumber;
-	private int expertCertStatusNumber;
-	private String expertCheckDate;
 	private List<FileExpertDTO> fileExpertList;
-	public int getExpertApplicantNumber() {
-		return expertApplicantNumber;
+	
+	public String getExpertCertStatusInfo() {
+		return expertCertStatusInfo;
 	}
-	public void setExpertApplicantNumber(int expertApplicantNumber) {
-		this.expertApplicantNumber = expertApplicantNumber;
+	public void setExpertCertStatusInfo(String expertCertStatusInfo) {
+		this.expertCertStatusInfo = expertCertStatusInfo;
 	}
-	public int getMemberNumber() {
-		return memberNumber;
+	public String getMemberId() {
+		return memberId;
 	}
-	public void setMemberNumber(int memberNumber) {
-		this.memberNumber = memberNumber;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
-	public String getExpertCheckDate() {
-		return expertCheckDate;
+	public String getMemberNickname() {
+		return memberNickname;
 	}
-	public void setExpertCheckDate(String expertCheckDate) {
-		this.expertCheckDate = expertCheckDate;
+	public void setMemberNickname(String memberNickname) {
+		this.memberNickname = memberNickname;
 	}
-	public int getExpertCertStatusNumber() {
-		return expertCertStatusNumber;
+	public String getAddress() {
+		return address;
 	}
-	public void setExpertCertStatusNumber(int expertCertStatusNumber) {
-		this.expertCertStatusNumber = expertCertStatusNumber;
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getAddressDetail() {
+		return addressDetail;
+	}
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
 	}
 	public String getMemberPhoneNumber() {
 		return memberPhoneNumber;
@@ -49,11 +56,11 @@ public class AdminExpertApplicantListDTO {
 	}
 	@Override
 	public String toString() {
-		return "AdminExpertApplicantListDTO [expertApplicantNumber=" + expertApplicantNumber + ", memberNumber="
-				+ memberNumber + ", memberId=" + memberId + ", addressNumber=" + addressNumber + ", memberPhoneNumber="
-				+ memberPhoneNumber + ", expertCertStatusNumber=" + expertCertStatusNumber + ", expertCheckDate="
-				+ expertCheckDate + ", fileExpertList=" + fileExpertList + "]";
+		return "AdminExpertApplicantListDTO [expertCertStatusInfo=" + expertCertStatusInfo + ", memberId=" + memberId
+				+ ", memberNickname=" + memberNickname + ", address=" + address + ", addressDetail=" + addressDetail
+				+ ", memberPhoneNumber=" + memberPhoneNumber + ", fileExpertList=" + fileExpertList + "]";
 	}
+	
 	
 
 	

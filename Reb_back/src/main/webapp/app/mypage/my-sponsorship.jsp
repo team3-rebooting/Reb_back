@@ -54,13 +54,14 @@
             </div>
             <!-- 후원 목록 -->
             <div class="my-sponsorship-list-container font-main" id="my-sponsorship">
-                <div class="my-sponsorship-list">
+                <div class="mypage-list" id="my-sponsor">
+                	<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-list.jsp" />
                     <!-- 목록 속성 -->
-                    <div class="my-sponsorship-list-col-type">
+                    <!-- <div class="my-sponsorship-list-col-type">
                         <p class="font-main list-money">후원 금액</p>
                         <p class="font-main list-date">후원일자</p>
                     </div>
-                    <!-- 후원 목록 -->
+                    후원 목록
                     <ul class="my-sponsorship-ul-list">
                         <li class="li-sponsorship-content">
                             <p class="font-main list-money">700,000원</p>
@@ -74,10 +75,10 @@
                             <p class="font-main list-money">150,000원</p>
                             <p class="font-main list-date">2025.08.01</p>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <!-- 페이지 번호 -->
-                <div class="page-list">
+                <!-- <div class="page-list">
                     <div class="pagenation">
                         <a href="#">&lt;</a>
                         <a href="#">1</a>
@@ -87,7 +88,7 @@
                         <a href="#">5</a>
                         <a href="#">&gt;</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
