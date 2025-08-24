@@ -36,8 +36,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
 	rel="stylesheet">
-<script
-	src="${pageContext.request.contextPath}/assets/js/mypage/edit-info.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/mypage/edit-info.js"></script>
 <title>틈새빛</title>
 </head>
 
@@ -214,8 +213,7 @@
 							<c:if test="${not empty file}">
 								<div id="profile-picture">
 									<img id="img-edit-profile-pic"
-										src="${pageContext.request.contextPath}/upload/profile/${file.getFileSystemName()}"
-										alt="프로필">
+										src="${pageContext.request.contextPath}/upload/profile/${file.getFileSystemName()}">
 								</div>
 							</c:if>
 							<!-- 프로필 사진 수정 버튼 -->

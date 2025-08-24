@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fileRoutine">
+	<select id="selectList" parameterType="int" resultType="FileRoutineDTO">
+		<![CDATA[
+		SELECT * FROM TBL_FILE_ROUTINE WHERE routine_number = #{routineNumber}
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="FileRoutineDTO">
+		INSERT INTO TBL_FILE_ROUTINE(file_system_name, file_original_name, routine_number)
+		VALUES(#{fileSystemName}, #{fileOriginalName}, #{routineNumber})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM TBL_FILE_ROUTINE
+		WHERE routine_number = #{routineNumber}
+	</delete>
+</mapper>

@@ -11,22 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.dto.RoutineReviewListDTO;
-import com.sol.app.routine.dao.RoutineReviewListDAO;
+import com.sol.app.dto.RoutineListDTO;
+import com.sol.app.routine.dao.RoutineListDAO;
 
-public class RoutineReviewOkController  implements Execute {
-
+public class RoutineOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("====RoutineReviewOkController 실행====");
-		RoutineReviewListDAO routineReviewListDAO = new RoutineReviewListDAO();
+		System.out.println("====RoutineOkController 실행====");
+		RoutineListDAO routineListDAO = new RoutineListDAO();
 		Result result = new Result();
 
 		String temp = request.getParameter("page");
 		System.out.println("page : " + temp);
 		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
-		int rowCount = 10; // 한 페이지당 게시글 수
+		int rowCount = 9; // 한 페이지당 게시글 수
 		int pageCount = 5; // 페이지 버튼 수
 
 		// 페이징 처리
@@ -38,18 +37,18 @@ public class RoutineReviewOkController  implements Execute {
 		pageMap.put("endRow", endRow);
 
 		// 게시글 목록 조회
-		List<RoutineReviewListDTO> routineReviewList = routineReviewListDAO.selectAll(pageMap);
-		request.setAttribute("routineReviewList", routineReviewList);
-		
-		for(RoutineReviewListDTO r : routineReviewList) {
-			 System.out.println("getRoutineReviewCreatedDate " + r.getRoutineReviewCreatedDate()); 
+		List<RoutineListDTO> routineList = routineListDAO.selectAll(pageMap);
+		request.setAttribute("routineList", routineList);
+
+		for (RoutineListDTO r : routineList) {
+			System.out.println("getRoutineCreatedDate " + r.getRoutineCreatedDate());
 		}
 
 		// 페이징 정보 설정
 		// BoardMapper.xml의 getTotal을 이용하여 전체 게시글 개수 조회
 		// 실제 마지막 페이지 번호(realEndPage)를 계산함
 
-		int total = routineReviewListDAO.getTotal();
+		int total = routineListDAO.getTotal();
 		System.out.println("total : " + total);
 		int realEndPage = (int) Math.ceil(total / (double) rowCount); // 실제 마지막 페이지(전체 게시글 기준으로 계산)
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount); // 현재 페이지 그룹에서의 마지막 페이지
@@ -70,14 +69,14 @@ public class RoutineReviewOkController  implements Execute {
 
 		System.out.println("====페이징정보 확인====");
 		System.out.println("pageMap : " + pageMap);
-		System.out.println("routineList : " + routineReviewList);
-		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
+		System.out.println("routineList : " + routineList);
+		System.out.println(
+				"startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
 
-		result.setPath("/app/routine/routine-meeting-review-list.jsp");
+		result.setPath("/app/routine/routine-meeting-list.jsp");
 		result.setRedirect(false);
 
 		return result;
 	}
-
 }

@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		else if (expertRejectionReason === modalType) {
 			modalTitle.innerHTML = "전문가 인증 반려 사유"
 
-			fetch("./../../app/mypage/expert-rejection-reason.html")
+			fetch("/app/mypage/expert-rejection-reason.jsp")
 				.then(response => response.text())
 				.then(data => {
 					modalContent.innerHTML = data;
@@ -58,7 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		} else if (courseRejectionReason === modalType) {
 			modalTitle.innerHTML = "반려 사유"
 
-			fetch("./../../app/mypage/course-rejection-reason.html")
+			fetch("/app/mypage/course-rejection-reason.jsp")
 				.then(response => response.text())
 				.then(data => {
 					modalContent.innerHTML = data;

@@ -46,8 +46,8 @@
 			<div class="board-body">
 				<ul class="ul-review-list">
 					<c:choose>
-						<c:when test="${not empty routineList}">
-							<c:forEach var="routine" items="${routineList}">
+						<c:when test="${not empty routineReviewList}">
+							<c:forEach var="routine" items="${routineReviewList}">
 								<li class="li-review-content">
 									<p class="review-title">
 										<a
@@ -78,45 +78,6 @@
 
 
 		</div>
-		<%-- <div class="pagination">
-			<!-- <ul> -->
-			<!-- 페이징 처리 -->
-			<!--           <li><a href="#" class="prev">&lt;</a></li>
-          <li><a href="#" class="active">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#" class="next">&gt;</a></li> -->
-
-			<c:if test="${prev}">
-				<li><a
-					href="${pageContext.request.contextPath}/routine/routineReviewReadOk.ro?page=${startPage - 1}"
-					class="prev">&lt;</a></li>
-			</c:if>
-			<c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
-			<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
-				<c:choose>
-					<c:when test="${!(i == page) }">
-						<li><a
-							href="${pageContext.request.contextPath}/routine/routineReviewOk.ro?page=${i}">
-								<c:out value="${i}" />
-						</a></li>
-					</c:when>
-					<c:otherwise>
-						<li><a href="#" class="active"> <c:out value="${i}" />
-						</a></li>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-			<c:if test="${next}">
-				<li><a
-					href="${pageContext.request.contextPath}/routine/routineReviewOk.ro?page=${endPage + 1}"
-					class="next">&gt;</a>
-			</c:if>
-			<!-- </ul> -->
-		</div> --%>
-
 		<div class="div-page">
 			<div class="div-pagenation">
 				<c:if test="${prev}">

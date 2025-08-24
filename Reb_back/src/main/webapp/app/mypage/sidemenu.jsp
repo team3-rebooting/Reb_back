@@ -15,16 +15,16 @@
 				<ul class="ul-mainsidemenu">
 					<!-- 개인정보 -->
 					<li class="li-mainsidemenu"><a class="a-mainsidemenu-title"
-						href="${pageContext.request.contextPath}/app/mypage/personal-info.jsp">개인정보</a>
+						href="${pageContext.request.contextPath}/myPage/myInfoOk.my">개인정보</a>
 						<ul class="ul-subsidemenu">
 							<li class="li-subsidemenu"><a
-								href="${pageContext.request.contextPath}/app/mypage/edit-info.jsp">개인정보
+								href="${pageContext.request.contextPath}/myPage/editInfoOk.my">개인정보
 									수정</a></li>
 							<li class="li-subsidemenu"><a
 								href="${pageContext.request.contextPath}/myPage/mySponsorship.my">후원
 									정보</a></li>
 							<li class="li-subsidemenu"><a
-								href="${pageContext.request.contextPath}/app/mypage/expert-status.jsp">전문가
+								href="${pageContext.request.contextPath}/myPage/expertStatusOk.my">전문가
 									인증 정보</a></li></li>
 				</ul>
 				</li>
@@ -42,10 +42,10 @@
 				<!-- 수업 -->
 				<li class="li-mainsidemenu" id="li-expert-course-menu"><a
 					class="a-mainsidemenu-title"
-					href="${pageContext.request.contextPath}/app/mypage/expert-course-info.jsp">수업</a>
+					href="${pageContext.request.contextPath}/myPage/myCourseRequest.my">수업</a>
 					<ul class="ul-subsidemenu">
 						<li class="li-subsidemenu"><a
-							href="${pageContext.request.contextPath}/app/mypage/expert-course-info.jsp">나의
+							href="${pageContext.request.contextPath}/myPage/myCourseRequest.my">나의
 								수업 개설 정보</a></li>
 					</ul></li>
 				</ul>
