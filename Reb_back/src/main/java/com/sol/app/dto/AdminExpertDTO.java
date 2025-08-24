@@ -1,5 +1,7 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class AdminExpertDTO {
 	private int expertNumber;
 	private int memberNumber;
@@ -11,6 +13,7 @@ public class AdminExpertDTO {
 	private String expertLicenseInfo;
 	private String expertCareer;
 	private int expertFieldNumber;
+	private List<FileExpertDTO> fileExpertList;
 	public int getExpertNumber() {
 		return expertNumber;
 	}
@@ -71,13 +74,20 @@ public class AdminExpertDTO {
 	public void setExpertFieldNumber(int expertFieldNumber) {
 		this.expertFieldNumber = expertFieldNumber;
 	}
+	public List<FileExpertDTO> getFileExpertList() {
+		return fileExpertList;
+	}
+	public void setFileExpertList(List<FileExpertDTO> fileExpertList) {
+		this.fileExpertList = fileExpertList;
+	}
 	@Override
 	public String toString() {
 		return "AdminExpertDTO [expertNumber=" + expertNumber + ", memberNumber=" + memberNumber + ", memberName="
 				+ memberName + ", memberGender=" + memberGender + ", memberPhoneNumber=" + memberPhoneNumber
 				+ ", memberEmail=" + memberEmail + ", expertFileNumber=" + expertFileNumber + ", expertLicenseInfo="
 				+ expertLicenseInfo + ", expertCareer=" + expertCareer + ", expertFieldNumber=" + expertFieldNumber
-				+ "]";
+				+ ", fileExpertList=" + fileExpertList + "]";
 	}
+	
 	
 }

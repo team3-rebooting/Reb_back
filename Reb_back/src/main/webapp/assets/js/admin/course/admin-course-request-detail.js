@@ -36,7 +36,7 @@ closeModal.addEventListener(('click'), () => {
 
 const moveBtn = document.querySelector(".back-list");
 moveBtn.addEventListener('click', () => {
-  location.href = "./../../../app/admin/course/admin-course-request-list.html";
+  location.href = "/admin/courseRequestListOk.ad?page=1";
 });
 
 chooseBtn.addEventListener('click', () => {

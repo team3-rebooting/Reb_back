@@ -73,7 +73,7 @@
 					<c:choose>
 						<c:when test="${not empty courseRequestList}">
 							<c:forEach var="courseRequestList" items="${courseRequestList}">
-								<li><a href="${pageContext.request.contextPath}/admin/courseRequsetReadOk.ad?courseRequestNumber=${courseRequsetList.courseNumber}"
+								<li><a href="${pageContext.request.contextPath}/admin/courseRequestReadOk.ad?courseNumber=${courseRequestList.courseNumber}"
 									class="main-course-request-link">
 										<p class="main-course-request-number">
 											<c:out value="${courseRequestList.memberNumber}" />

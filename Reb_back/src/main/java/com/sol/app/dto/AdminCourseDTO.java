@@ -8,10 +8,11 @@ public class AdminCourseDTO {
 	private String courseTitle;
 	private String courseContent;
 	private int expertNumber;
+	private String memberName;
 	private String expertLicenseInfo;
 	private String expertCareer;
-	private int expertFieldNumber;
-	private int courseRecruitStatusNumber;
+	private String fieldName;
+	private String courseStatusInfo;
 	private List<FileCourseDTO> fileCourseList;
 	private String coursePostDate;
 	private String coursePostUpdateDate;
@@ -22,6 +23,7 @@ public class AdminCourseDTO {
 	private String courseStartTime;
 	private String courseEndTime;
 	private String courseDayOfWeek;
+	private int courseCount;
 	private int courseRecruitCount;
 	private int coursePrice;
 	public int getCourseNumber() {
@@ -60,18 +62,7 @@ public class AdminCourseDTO {
 	public void setExpertCareer(String expertCareer) {
 		this.expertCareer = expertCareer;
 	}
-	public int getExpertFieldNumber() {
-		return expertFieldNumber;
-	}
-	public void setExpertFieldNumber(int expertFieldNumber) {
-		this.expertFieldNumber = expertFieldNumber;
-	}
-	public int getCourseRecruitStatusNumber() {
-		return courseRecruitStatusNumber;
-	}
-	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
-		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
-	}
+	
 	public List<FileCourseDTO> getFileCourseList() {
 		return fileCourseList;
 	}
@@ -144,18 +135,45 @@ public class AdminCourseDTO {
 	public void setCoursePrice(int coursePrice) {
 		this.coursePrice = coursePrice;
 	}
+	public String getFieldName() {
+		return fieldName;
+	}
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
+	}
+	public String getCourseStatusInfo() {
+		return courseStatusInfo;
+	}
+	public void setCourseStatusInfo(String courseStatusInfo) {
+		this.courseStatusInfo = courseStatusInfo;
+	}
+	public int getCourseCount() {
+		return courseCount;
+	}
+	public void setCourseCount(int courseCount) {
+		this.courseCount = courseCount;
+	}
+	
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
 	@Override
 	public String toString() {
 		return "AdminCourseDTO [courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", courseContent="
-				+ courseContent + ", expertNumber=" + expertNumber + ", expertLicenseInfo=" + expertLicenseInfo
-				+ ", expertCareer=" + expertCareer + ", expertFieldNumber=" + expertFieldNumber
-				+ ", courseRecruitStatusNumber=" + courseRecruitStatusNumber + ", fileCourseList=" + fileCourseList
+				+ courseContent + ", expertNumber=" + expertNumber + ", memberName=" + memberName
+				+ ", expertLicenseInfo=" + expertLicenseInfo + ", expertCareer=" + expertCareer + ", fieldName="
+				+ fieldName + ", courseStatusInfo=" + courseStatusInfo + ", fileCourseList=" + fileCourseList
 				+ ", coursePostDate=" + coursePostDate + ", coursePostUpdateDate=" + coursePostUpdateDate
 				+ ", courseRecruitStartDate=" + courseRecruitStartDate + ", courseRecruitEndDate="
 				+ courseRecruitEndDate + ", courseStartDate=" + courseStartDate + ", courseEndDate=" + courseEndDate
 				+ ", courseStartTime=" + courseStartTime + ", courseEndTime=" + courseEndTime + ", courseDayOfWeek="
-				+ courseDayOfWeek + ", courseRecruitCount=" + courseRecruitCount + ", coursePrice=" + coursePrice + "]";
+				+ courseDayOfWeek + ", courseCount=" + courseCount + ", courseRecruitCount=" + courseRecruitCount
+				+ ", coursePrice=" + coursePrice + "]";
 	}
+	
 	
 	
 }

@@ -94,7 +94,7 @@
 						<c:when test="${not empty expertList}">
 							<c:forEach var="expertList" items="${expertList}">
 								<li><a
-									href="${pageContext.request.contextPath}/admin/expertReadOk.ad?memberNumber=${expertList.memberNumber}">
+									href="${pageContext.request.contextPath}/admin/expertReadOk.ad?expertNumber=${expertList.expertNumber}">
 										<p class="main-expert-access-list-number">
 											<c:out value="${expertList.memberNumber}" />
 										</p>

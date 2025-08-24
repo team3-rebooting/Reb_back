@@ -68,7 +68,7 @@
 						<c:when test="${not empty routineReviewList}">
 							<c:forEach var="routineReviewList" items="${routineReviewList}">
 								<li><a
-									href="${pageContext.request.contextPath}/admin/routineReadOk.ad?routineReviewNumber=${routineReviewList.routineReviewNumber}">
+									href="${pageContext.request.contextPath}/admin/routineReviewReadOk.ad?routineReviewNumber=${routineReviewList.routineReviewNumber}">
 										<p class="main-rt-review-name">
 											<c:out value="${routineReviewList.routineReviewTitle}" />
 										</p>

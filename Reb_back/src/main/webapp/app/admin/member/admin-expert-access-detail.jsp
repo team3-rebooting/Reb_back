@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../../assets/css/admin/member/admin-expert-access-detail.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/member/admin-expert-access-detail.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&display=swap"
@@ -18,15 +19,15 @@
     rel="stylesheet">
   <title>수업 디테일</title>
 </head>
-<script defer src="./../../../assets/js/admin/member/admin-expert-access-detail.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/admin/member/admin-expert-access-detail.js"></script>
 
 <body class="font-menu">
   <!-- 헤더 -->
   <header>
     <!-- 수업 목록 이동 -->
-    <a href="./../../../app/admin/member/admin-expert-access-list.html">
+    <a href="${pageContext.request.contextPath}/admin/expertListOk.ad?page=1">
       <!-- 사이드 로고 -->
-      <img src="./../../../assets/img/team_logo.png" alt="사이트 로고 사진">
+      <img src="${pageContext.request.contextPath}/assets/img/team_logo.png" alt="사이트 로고 사진">
     </a>
   </header>
   <!-- 반려 모달 뒷배경 -->
@@ -71,19 +72,19 @@
           <p class="main-expert-info-title">전문가 기본정보</p>
           <div>
             <p>이름 : </p>
-            <p>신짱구</p>
+            <p> <c:out value="${expert.memberName}"/></p>
           </div>
           <div>
             <p>성별 : </p>
-            <p>남</p>
+            <p><c:out value="${expert.memberGender == M ? '남자' : '여자'}"/></p>
           </div>
           <div>
             <p>전화번호 : </p>
-            <p>010-1234-5678</p>
+            <p><c:out value="${expert.memberPhoneNumber}"/></p>
           </div>
           <div>
             <p>이메일 : </p>
-            <p>admin123@abcde.com</p>
+            <p><c:out value="${expert.memberEmail}"/></p>
           </div>
           <div class="main-expert-list-file">
             <p>첨부파일 : </p>
@@ -98,36 +99,16 @@
       <div class="main-expert-info">
         <p class="main-expert-info-title">전문가 자격증 정보</p>
         <div>
-          <p>정보처리 기사</p>
+          <p><c:out value="${expert.expertLicenseInfo}"/></p>
         </div>
-        <div>
-          <p>정보보안 기사</p>
-        </div>
-        <div>
-          <p>네트워크 관리사</p>
-        </div>
-        <div>
-          <p>리눅스 마스터</p>
-        </div>
+        
       </div>
       <div class="main-expert-info">
         <p class="main-expert-info-title">전문가 경력 정보</p>
         <div>
-          <p>주식회사 김삼보 : </p>
-          <p>1년 6개월 </p>
+          <p><c:out value="${expert.expertCareer}"/></p>
         </div>
-        <div>
-          <p>(주)플러스휴먼리소스 : </p>
-          <p>3년</p>
-        </div>
-        <div>
-          <p>탑커리어인사이트 : </p>
-          <p>1년</p>
-        </div>
-        <div>
-          <p>주식회사 제이엠파트너스 : </p>
-          <p>1년 6개월</p>
-        </div>
+        
       </div>
       <div id="div-admin-detail-button-delete">
         <!-- 삭제 반려 버튼 -->
