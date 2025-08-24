@@ -9,17 +9,13 @@
 	SELECT * FROM (
       SELECT ROWNUM AS rnum, subquery.*
       FROM (
-		select c.course_number,fc.file_system_name , c.course_title ,
-		cr.COURSE_STATUS_INFO, c.course_post_date, m.member_name
-		FROM tbl_course c
-			LEFT OUTER JOIN tbl_expert e
-				ON c.expert_number = e.EXPERT_NUMBER
-			LEFT OUTER JOIN tbl_member m
-				ON e.MEMBER_NUMBER = m.MEMBER_NUMBER
-			LEFT OUTER JOIN tbl_course_recruit_status cr
-				ON c.COURSE_RECRUIT_STATUS_NUMBER = cr.COURSE_RECRUIT_STATUS_NUMBER
-			LEFT OUTER JOIN tbl_file_course fc
-				ON c.course_number = fc.course_number
+		SELECT c.course_title, cr.COURSE_STATUS_INFO ,c.course_post_date, m.member_name
+		FROM tbl_course c LEFT OUTER JOIN tbl_expert e
+		ON c.expert_number = e.EXPERT_NUMBER
+		LEFT OUTER JOIN  TBL_COURSE_RECRUIT_STATUS cr
+			ON c.course_recruit_status_number = cr.COURSE_RECRUIT_STATUS_NUMBER 
+		LEFT OUTER JOIN tbl_member m
+		ON e.member_number = m.member_number
 		ORDER BY c.course_post_date DESC
       ) subquery
    	) WHERE rnum BETWEEN #{startRow} AND #{endRow} 

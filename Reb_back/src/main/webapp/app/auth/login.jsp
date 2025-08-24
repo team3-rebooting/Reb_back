@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +43,7 @@
         <div class="div-modal-main">
           <!-- 이름 작성 영역 -->
           <div class="div-modal-name"><span class="span-modal">이름 : </span>
-            <input type="text" placeholder="이름을 입력해주세요" name="modalIdName" class="input-modal-name-id">
+            <input type="text" placeholder="이름을 입력해주세요" name="modalIdName" class="input-modal-name-id" required>
           </div>
           <!-- 전화번호 인증 영역 -->
           <div class="div-modal-pn"><span class="span-modal">전화번호 : </span>
@@ -55,7 +56,7 @@
               </div>
               <!-- 인증번호 입력 영역 -->
               <div class="div-phone-input">
-                <input type="text" placeholder="" name="modalIdPhoneInjung" class="input-modal-pn-injung" readonly>
+                <input type="text" placeholder="" name="modalIdPhoneInjung" class="input-modal-pn-injung" readonly required>
                 <button type="button" class="button-injung-do-id" disabled>인증하기</button>
               </div>
             </div>
@@ -63,7 +64,7 @@
         </div>
         <!-- 아이디 찾기 버튼 영역 -->
         <div class="div-modal-button-area">
-          <button class="button-modal-find-id" type="button">아이디 찾기</button>
+          <button class="button-modal-find-id" type="submit">아이디 찾기</button>
         </div>
       </form>
     </div>
@@ -79,8 +80,11 @@
       </div>
       <!-- ID 알려주는 text 영역 -->
       <div class="div-modal-main-findid-end">
-        <span class="span-findid-end">ID : <span class="findid">test1234</span> (가입일자 : 2025.07.07)</span>
-      </div>
+        	<span class="findid" id="aa">
+        	</span> <span class="span-findid-end">ID : 
+        	가입일자 : <c:out value="${member.getMemberBirthDate()}" />
+				</span>
+			</div>
       <!-- 버튼 영역  -->
       <div class="div-modal-button-area">
         <button class="button-modal-find-end-id" type="button">로그인 창으로 돌아가기</button>
