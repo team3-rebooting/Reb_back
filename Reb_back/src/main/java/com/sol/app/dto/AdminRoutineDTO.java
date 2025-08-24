@@ -6,6 +6,7 @@ public class AdminRoutineDTO {
 	private String routineStatusInfo;
 	private int routineNumber;
 	private int routineLeaderNumber;
+	private String routineLeaderName;
 	private int adminNumber;
 	private String routineTitle;
 	private String routineContent;
@@ -21,6 +22,7 @@ public class AdminRoutineDTO {
 	private String routineStartTime;
 	private String routineEndTime;
 	private String routineDayOfWeek;
+	private int routineCount;
 	private int routineRecruitCount;
 	public String getRoutineStatusInfo() {
 		return routineStatusInfo;
@@ -136,18 +138,33 @@ public class AdminRoutineDTO {
 	public void setFileRoutineList(List<FileRoutineDTO> fileRoutineList) {
 		this.fileRoutineList = fileRoutineList;
 	}
+	public int getRoutineCount() {
+		return routineCount;
+	}
+	public void setRoutineCount(int routineCount) {
+		this.routineCount = routineCount;
+	}
+	public String getRoutineLeaderName() {
+		return routineLeaderName;
+	}
+	public void setRoutineLeaderName(String routineLeaderName) {
+		this.routineLeaderName = routineLeaderName;
+	}
 	@Override
 	public String toString() {
 		return "AdminRoutineDTO [routineStatusInfo=" + routineStatusInfo + ", routineNumber=" + routineNumber
-				+ ", routineLeaderNumber=" + routineLeaderNumber + ", adminNumber=" + adminNumber + ", routineTitle="
-				+ routineTitle + ", routineContent=" + routineContent + ", routineStatusNumber=" + routineStatusNumber
-				+ ", fileRoutineList=" + fileRoutineList + ", routineLocation=" + routineLocation
-				+ ", routineCreatedDate=" + routineCreatedDate + ", routineUpdatedDate=" + routineUpdatedDate
-				+ ", routineRecruitStartDate=" + routineRecruitStartDate + ", routineRecruitEndDate="
-				+ routineRecruitEndDate + ", routineStartDate=" + routineStartDate + ", routineEndDate="
-				+ routineEndDate + ", routineStartTime=" + routineStartTime + ", routineEndTime=" + routineEndTime
-				+ ", routineDayOfWeek=" + routineDayOfWeek + ", routineRecruitCount=" + routineRecruitCount + "]";
+				+ ", routineLeaderNumber=" + routineLeaderNumber + ", routineLeaderName=" + routineLeaderName
+				+ ", adminNumber=" + adminNumber + ", routineTitle=" + routineTitle + ", routineContent="
+				+ routineContent + ", routineStatusNumber=" + routineStatusNumber + ", fileRoutineList="
+				+ fileRoutineList + ", routineLocation=" + routineLocation + ", routineCreatedDate="
+				+ routineCreatedDate + ", routineUpdatedDate=" + routineUpdatedDate + ", routineRecruitStartDate="
+				+ routineRecruitStartDate + ", routineRecruitEndDate=" + routineRecruitEndDate + ", routineStartDate="
+				+ routineStartDate + ", routineEndDate=" + routineEndDate + ", routineStartTime=" + routineStartTime
+				+ ", routineEndTime=" + routineEndTime + ", routineDayOfWeek=" + routineDayOfWeek + ", routineCount="
+				+ routineCount + ", routineRecruitCount=" + routineRecruitCount + "]";
 	}
+	
+	
 	
 	
 	

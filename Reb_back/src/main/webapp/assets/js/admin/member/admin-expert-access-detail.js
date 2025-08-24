@@ -7,7 +7,7 @@ const returnMsg = document.querySelector("#return-message");
 
 
 moveBtn.addEventListener('click', () => {
-  location.href = "./../../../app/admin/member/admin-expert-access-list.html";
+  location.href = "/admin/expertListOk.ad?page=1";
 });
 
 deleteBtn.addEventListener('click', () => {

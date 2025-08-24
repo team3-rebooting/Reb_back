@@ -89,13 +89,25 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("수업 요청 리스트");
 			result = new CouresRequestListOkController().execute(request,response);
 			break;
+		case "/admin/courseRequestReadOk.ad" :
+			System.out.println("수업 요청 상세");
+			result = new CourseRequestReadOkController().execute(request,response);
+			break;
 		case "/admin/courseListOk.ad" :
 			System.out.println("수업 리스트");
 			result = new CourseListOkController().execute(request,response);
 			break;
+		case "/admin/courseReadOk.ad" :
+			System.out.println("수업 상세");
+			result = new CourseReadOkController().execute(request,response);
+			break;
 		case "/admin/routineListOk.ad":
-			System.out.println("루틴목록 리스트");
+			System.out.println("루틴모임 리스트");
 			result = new RoutineListOkController().execute(request, response);
+			break;
+		case "/admin/routineReadOk.ad":
+			System.out.println("루틴모임 상세");
+			result = new RoutineReadOkController().execute(request, response);
 			break;
 		case "/admin/memberListOk.ad":
 			System.out.println("회원목록 리스트");
@@ -113,13 +125,25 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("전문가 목록 리스트");
 			result = new ExpertListOkController().execute(request,response);
 			break;
+		case "/admin/expertReadOk.ad" :
+			System.out.println("전문가 상세");
+			result = new ExpertReadOkController().execute(request,response);
+			break;
 		case "/admin/routineReviewListOk.ad" :
 			System.out.println("루틴 모임 리뷰 목록");
 			result = new RoutineReviewListOkController().execute(request,response);
 			break;
+		case "/admin/routineReviewReadOk.ad" :
+			System.out.println("루틴 모임 리뷰 상세");
+			result = new AdminRoutineReviewReadOkController().execute(request,response);
+			break;
 		case "/admin/courseReviewListOk.ad" :
 			System.out.println("수업 리뷰 목록");
 			result = new CourseReviewListOkController().execute(request,response);
+			break;
+		case "/admin/courseReviewReadOk.ad" :
+			System.out.println("수업 리뷰 상세");
+			result = new AdminCourseReviewListOkController().execute(request, response);
 			break;
 		case "/admin/bannerListOk.ad" :
 			System.out.println("배너 목록");

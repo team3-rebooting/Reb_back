@@ -7,13 +7,13 @@ const returnMsg = document.querySelector("#return-message");
 
 
 moveBtn.addEventListener('click', () => {
-  location.href = "./../../../app/admin/course/admin-course-list.html";
+  location.href = "/admin/courseListOk.ad?page=1";
 });
 
 deleteBtn.addEventListener('click', () => {
   if(confirm("정말로 삭제하시겠습니까?")){
     alert("수업이 삭제되었습니다.");
-    location.href= "./../../../app/admin/notice/admin-notice-create.html";
+    location.href= "/admin/courseListOk.ad?page=1";
   }
 });
 

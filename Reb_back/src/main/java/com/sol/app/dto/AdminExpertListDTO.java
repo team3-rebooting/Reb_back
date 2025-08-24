@@ -1,6 +1,7 @@
 package com.sol.app.dto;
 
 public class AdminExpertListDTO {
+	private int expertNumber;
 	private int memberNumber;
 	private String memberId;
 	private String memberNickname;
@@ -37,11 +38,19 @@ public class AdminExpertListDTO {
 	public void setMemberNickname(String memberNickname) {
 		this.memberNickname = memberNickname;
 	}
+	public int getExpertNumber() {
+		return expertNumber;
+	}
+	public void setExpertNumber(int expertNumber) {
+		this.expertNumber = expertNumber;
+	}
 	@Override
 	public String toString() {
-		return "AdminExpertListDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberNickname="
-				+ memberNickname + ", fieldName=" + fieldName + ", expertCheckDate=" + expertCheckDate + "]";
+		return "AdminExpertListDTO [expertNumber=" + expertNumber + ", memberNumber=" + memberNumber + ", memberId="
+				+ memberId + ", memberNickname=" + memberNickname + ", fieldName=" + fieldName + ", expertCheckDate="
+				+ expertCheckDate + "]";
 	}
+	
 	
 	
 	

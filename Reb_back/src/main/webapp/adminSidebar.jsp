@@ -5,7 +5,7 @@
 			<!-- 사이드바 리스트 -->
 			<ul id="main-admin-list">
 				<li><a href="${pageContext.request.contextPath}/admin/noticeListOk.ad?page=1"> 
-				<strong>공지사항 목록</strong>
+				공지사항 목록
 					</a>
 				</li>
 				<li><a href="${pageContext.request.contextPath}/admin/courseRequestListOk.ad?page=1">

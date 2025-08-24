@@ -29,11 +29,22 @@
 	<select id="select" parameterType="int"
 		resultType="AdminRoutineDTO">
 	<![CDATA[
-		SELECT
+		SELECT 
     	r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, l.ROUTINE_LEADER_NAME,
-    	r.ADMIN_NUMBER, r.ROUTINE_TITLE, r.ROUTINE_STATUS_NUMBER,
-    	s.ROUTINE_STATUS_INFO, TO_CHAR(r.ROUTINE_START_DATE, 'YYYY-MM-DD'),
-    	TO_CHAR(r.ROUTINE_END_DATE, 'YYYY-MM-DD'), r.ROUTINE_RECRUIT_COUNT
+    	r.ADMIN_NUMBER, r.ROUTINE_TITLE, r.routine_content, r.ROUTINE_STATUS_NUMBER,r.routine_location,
+    	s.ROUTINE_STATUS_INFO, 
+    	TO_CHAR(r.routine_created_DATE, 'YYYY-MM-DD') AS routine_created_DATE, 
+   		TO_CHAR(r.routine_updated_DATE, 'YYYY-MM-DD') AS routine_updated_DATE,
+    	TO_CHAR(r.routine_RECRUIT_START_DATE, 'YYYY-MM-DD') AS routine_RECRUIT_START_DATE, 
+    	TO_CHAR(r.routine_RECRUIT_END_DATE, 'YYYY-MM-DD') AS routine_RECRUIT_END_DATE,
+    	TO_CHAR(r.routine_START_DATE, 'YYYY-MM-DD') AS routine_START_DATE, 
+    	TO_CHAR(r.routine_END_DATE, 'YYYY-MM-DD') AS routine_END_DATE,
+    	TO_CHAR(r.routine_START_TIME, 'HH24:MI') AS routine_START_TIME, 
+    	TO_CHAR(r.routine_END_TIME, 'HH24:MI') AS routine_END_TIME,
+    	r.routine_DAY_OF_WEEK,
+    	(select count(*) from tbl_routine_member_applicant rma where
+    	rma.routine_number = r.routine_number) AS routine_count, 
+    	r.ROUTINE_RECRUIT_COUNT
 		FROM TBL_ROUTINE r
 		JOIN TBL_ROUTINE_STATUS s ON r.ROUTINE_STATUS_NUMBER = s.ROUTINE_STATUS_NUMBER
 		JOIN TBL_ROUTINE_LEADER l ON r.ROUTINE_LEADER_NUMBER = l.ROUTINE_LEADER_NUMBER

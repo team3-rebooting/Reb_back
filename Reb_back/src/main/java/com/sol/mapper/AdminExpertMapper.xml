@@ -8,7 +8,7 @@
     			SELECT ROWNUM AS rnum, subquery.*
     			FROM (
             			SELECT
-                		m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_nickNAME,
+                		e.expert_number, m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_nickNAME,
                 		f.field_name, TO_CHAR(a.EXPERT_CHECK_DATE, 'YYYY-MM-DD') AS EXPERT_CHECK_DATE
             			FROM TBL_EXPERT e
             			JOIN tbl_expert_applicant a 

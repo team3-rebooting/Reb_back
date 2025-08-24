@@ -4,20 +4,14 @@
 	<select id="select" parameterType="int" resultType="AdminRoutineReviewDTO">
 		<![CDATA[
 		SELECT
-   		 r.Routine_Review_Number, r.Routine_Number, r.Routine_Review_Title,
-   		 m.MEMBER_NUMBER, m.MEMBER_NICKNAME,
-    	TO_CHAR(r.Routine_Review_Created_Date, 'YYYY-MM-DD'),
-   		 TO_CHAR(r.Routine_Review_Updated_Date, 'YYYY-MM-DD'),
-  		  r.Routine_Review_Content,
-   		  fmp.FILE_SYSTEM_NAME AS Member_Profile_File,
-  		  frr.FILE_SYSTEM_NAME AS Routine_Review_File
+   		r.Routine_Review_Number, r.Routine_Number, r.Routine_Review_Title,
+   		m.MEMBER_NUMBER, m.MEMBER_NICKNAME,
+    	TO_CHAR(r.Routine_Review_Created_Date, 'YYYY-MM-DD') AS Routine_Review_Created_Date,
+   		TO_CHAR(r.Routine_Review_Updated_Date, 'YYYY-MM-DD') AS Routine_Review_Updated_Date,
+  		r.Routine_Review_Content 
 		FROM TBL_ROUTINE_REVIEW r
 		JOIN TBL_MEMBER m
     	ON r.MEMBER_NUMBER = m.MEMBER_NUMBER
-		LEFT JOIN TBL_FILE_MEMBER_PROFILE fmp
-    	ON r.MEMBER_NUMBER = fmp.MEMBER_NUMBER
-		LEFT JOIN TBL_FILE_ROUTINE_REVIEW frr
-    	ON r.Routine_Review_Number = frr.Routine_Review_Number
 		WHERE r.Routine_Review_Number = #{routineReviewNumber}
 		]]>
 	</select>
