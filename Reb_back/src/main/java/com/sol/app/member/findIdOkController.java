@@ -29,7 +29,7 @@ public class findIdOkController implements Execute {
 //		memberDTO = memberDAO.findId(memberDTO);
 
 		memberDTO = memberDAO.findId(memberDTO);
-		ObjectMapper mapper = new ObjectMapper();
+		
 
 		
 
