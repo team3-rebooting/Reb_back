@@ -102,6 +102,8 @@
 			alias="RoutineReviewDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.FileRoutineReviewDTO"
 			alias="FileRoutineReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileAdminDTO"
+         alias="FileAdminDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -151,6 +153,8 @@
 		<mapper resource="com/sol/mapper/AdminBannerMapper.xml" />
 		<mapper resource="com/sol/mapper/RoutineReviewMapper.xml" />
 		<mapper resource="com/sol/mapper/FileRoutineReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/FileAdminMapper.xml" />
+		<mapper resource="com/sol/mapper/FileNoticeMapper.xml" />
 	</mappers>
 	<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/> -->
 	<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 
