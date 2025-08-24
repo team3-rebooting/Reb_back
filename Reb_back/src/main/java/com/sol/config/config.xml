@@ -59,6 +59,51 @@
 			alias="CourseReviewDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.CourseReviewListDTO"
 			alias="CourseReviewListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileMemberProfileDTO"
+			alias="FileMemberProfileDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.SponsorDTO"
+			alias="SponsorDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseRequestListDTO"
+			alias="AdminCourseRequestListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseRequestDTO"
+			alias="AdminCourseRequestDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseListDTO"
+			alias="AdminCourseListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseDTO"
+			alias="AdminCourseDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminSponsorListDTO"
+			alias="AdminSponsorListDTO"></typeAlias>
+		<typeAlias
+			type="com.sol.app.dto.AdminExpertApplicantListDTO"
+			alias="AdminExpertApplicantListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminExpertApplicantDTO"
+			alias="AdminExpertApplicantDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.ExpertApplicantDTO"
+			alias="ExpertApplicantDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminExpertListDTO"
+			alias="AdminExpertListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminExpertDTO"
+			alias="AdminExpertDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.ExpertApplicantDTO"
+			alias="ExpertApplicantDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminRoutineReviewDTO"
+			alias="AdminRoutineReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminRoutineReviewListDTO"
+			alias="AdminRoutineReviewListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseReviewDTO"
+			alias="AdminCourseReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseReviewListDTO"
+			alias="AdminCourseReviewListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminBannerDTO"
+			alias="AdminBannerDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileNoticeDTO"
+			alias="FileNoticeDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.RoutineReviewDTO"
+			alias="RoutineReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileRoutineReviewDTO"
+			alias="FileRoutineReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileAdminDTO"
+         alias="FileAdminDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -96,28 +141,36 @@
 		<mapper resource="com/sol/mapper/AdminRoutineMapper.xml" />
 		<mapper resource="com/sol/mapper/AdminMemberMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseReviewMapper.xml" />
-		<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 
-			/> <mapper resource="com/sol/mapper/CourseRequestMapper.xml" /> <mapper resource="com/sol/mapper/CourseReviewCommentList.xml" 
-			/> <mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" /> <mapper 
-			resource="com/sol/mapper/CourseReviewMapper.xml" /> <mapper resource="com/sol/mapper/ExpertApplicantMapper.xml" 
-			/> <mapper resource="com/sol/mapper/ExpertFileMapper.xml" /> <mapper resource="com/sol/mapper/ExpertMapper.xml" 
-			/> <mapper resource="com/sol/mapper/ExpertMapper.xml" /> <mapper resource="com/sol/mapper/FileMapper.xml" 
-			/> <mapper resource="com/sol/mapper/MemberMapper.xml" /> <mapper resource="com/sol/mapper/MyCommentMapper.xml" 
-			/> <mapper resource="com/sol/mapper/MyCourseMapper.xml" /> <mapper resource="com/sol/mapper/MyCourseRequestMapper.xml" 
-			/> <mapper resource="com/sol/mapper/MyExpertMapper.xml" /> <mapper resource="com/sol/mapper/MyPageMapper.xml" 
-			/> <mapper resource="com/sol/mapper/MyReviewMapper.xml" /> <mapper resource="com/sol/mapper/MyRoutineMapper.xml" 
-			/> <mapper resource="com/sol/mapper/RoutineListMapper.xml" /> <mapper resource="com/sol/mapper/RoutineMemberApplicantMapper.xml" 
-			/> <mapper resource="com/sol/mapper/RoutineReviewCommentList.xml" /> <mapper 
-			resource="com/sol/mapper/RoutineReviewCommentMapper.xml" /> <mapper resource="com/sol/mapper/RoutineReviewLikeMapper.xml" 
-			/> <mapper resource="com/sol/mapper/RoutineReviewListMapper.xml" /> <mapper 
-			resource="com/sol/mapper/RoutineReviewMapper.xml" /> <mapper resource="com/sol/mapper/SponsorMapper.xml" 
-			/> -->
+		<mapper resource="com/sol/mapper/FileMemberProfileMapper.xml" />
+		<mapper resource="com/sol/mapper/SponsorMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminCourseRequestMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminCourseMapper.xml" />
+		<mapper
+			resource="com/sol/mapper/AdminExpertApplicantMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminExpertMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminRoutineReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminCourseReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminBannerMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/FileRoutineReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/FileAdminMapper.xml" />
+		<mapper resource="com/sol/mapper/FileNoticeMapper.xml" />
 	</mappers>
+	<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/> -->
+	<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 
+		/> <mapper resource="com/sol/mapper/CourseRequestMapper.xml" /> <mapper resource="com/sol/mapper/CourseReviewCommentList.xml" 
+		/> <mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" /> <mapper 
+		resource="com/sol/mapper/CourseReviewMapper.xml" /> <mapper resource="com/sol/mapper/ExpertApplicantMapper.xml" 
+		/> <mapper resource="com/sol/mapper/ExpertFileMapper.xml" /> <mapper resource="com/sol/mapper/ExpertMapper.xml" 
+		/> <mapper resource="com/sol/mapper/ExpertMapper.xml" /> <mapper resource="com/sol/mapper/FileMapper.xml" 
+		/> <mapper resource="com/sol/mapper/MemberMapper.xml" /> <mapper resource="com/sol/mapper/MyCommentMapper.xml" 
+		/> <mapper resource="com/sol/mapper/MyCourseMapper.xml" /> <mapper resource="com/sol/mapper/MyCourseRequestMapper.xml" 
+		/> <mapper resource="com/sol/mapper/MyExpertMapper.xml" /> <mapper resource="com/sol/mapper/MyPageMapper.xml" 
+		/> <mapper resource="com/sol/mapper/MyReviewMapper.xml" /> <mapper resource="com/sol/mapper/MyRoutineMapper.xml" 
+		/> <mapper resource="com/sol/mapper/RoutineListMapper.xml" /> <mapper resource="com/sol/mapper/RoutineMemberApplicantMapper.xml" 
+		/> <mapper resource="com/sol/mapper/RoutineReviewCommentList.xml" /> <mapper 
+		resource="com/sol/mapper/RoutineReviewCommentMapper.xml" /> <mapper resource="com/sol/mapper/RoutineReviewLikeMapper.xml" 
+		/> <mapper resource="com/sol/mapper/RoutineReviewListMapper.xml" /> <mapper 
+		resource="com/sol/mapper/RoutineReviewMapper.xml" /> <mapper resource="com/sol/mapper/SponsorMapper.xml" 
+		/> -->
 </configuration>
-
-
-
-
-
-
-
