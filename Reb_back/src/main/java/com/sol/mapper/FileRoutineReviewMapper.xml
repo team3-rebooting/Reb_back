@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fileRoutineReview">
+	<select id="selectList" parameterType="int" resultType="FileRoutineReviewDTO">
+		<![CDATA[
+		SELECT * FROM TBL_FILE_ROUTINE_REVIEW WHERE routine_review_number = #{routineReviewNumber}
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="FileRoutineReviewDTO">
+		INSERT INTO TBL_FILE_ROUTINE_REVIEW(file_system_name, file_original_name, routine_review_number)
+		VALUES(#{fileSystemName}, #{fileOriginalName}, #{routineReviewNumber})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM TBL_FILE_ROUTINE_REVIEW
+		WHERE routine_review_number = #{routineReviewNumber}
+	</delete>
+</mapper>

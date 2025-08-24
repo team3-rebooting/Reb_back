@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.dto.RoutineReviewListDTO;
+import com.sol.app.routine.dao.FileRoutineReviewDAO;
 import com.sol.app.routine.dao.RoutineReviewListDAO;
 
 public class RoutineReviewReadOkController implements Execute {
@@ -19,13 +20,18 @@ public class RoutineReviewReadOkController implements Execute {
 		RoutineReviewListDAO routineReviewListDAO = new RoutineReviewListDAO();
 		RoutineReviewListDTO routineReviewListDTO = new RoutineReviewListDTO();
 		
+		FileRoutineReviewDAO fileRoutineReviewDAO = new FileRoutineReviewDAO();
 		Result result = new Result();
 		
 		routineReviewListDTO = routineReviewListDAO.select(Integer.valueOf(request.getParameter("routineReviewNumber")));
 		
+		if(routineReviewListDTO.getRoutineReviewNumber() != 0)
+			routineReviewListDTO.setFileRoutineReviewList(fileRoutineReviewDAO.selectList(routineReviewListDTO.getRoutineReviewNumber()));
+		
+		System.out.println("routineReviewListDTO : " + routineReviewListDTO);
+		
 		request.setAttribute("routineReview", routineReviewListDTO);
 		result.setPath("/app/routine/routine-meeting-review-detail.jsp");
-		
 		result.setRedirect(false);
 		
 		return result;

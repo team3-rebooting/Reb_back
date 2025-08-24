@@ -16,7 +16,7 @@
 				crc.COURSE_REVIEW_CREATED_DATE AS comment_created_date,
 				crc.COURSE_REVIEW_UPDATED_DATE AS comment_updated_date
 				FROM tbl_course_review_comment crc JOIN tbl_course_review cr ON crc.COURSE_REVIEW_NUMBER = cr.COURSE_REVIEW_NUMBER
-			union
+			union all
 			select
 				rrc.MEMBER_NUMBER, '루틴 모임 후기' AS post_type, 
 				rr.ROUTINE_REVIEW_NUMBER AS review_number, 
@@ -36,7 +36,7 @@
 	<select id="getTotal" parameterType="int" resultType="int">
 	select count(*) from(
 		select member_number from tbl_course_review_comment WHERE member_number = #{memberNumber}
-		union 
+		union all
 		select member_number from tbl_routine_review_comment WHERE member_number = #{memberNumber})
 	</select>
 </mapper>

@@ -21,7 +21,7 @@
 								href="${pageContext.request.contextPath}/app/mypage/edit-info.jsp">개인정보
 									수정</a></li>
 							<li class="li-subsidemenu"><a
-								href="${pageContext.request.contextPath}/app/mypage/my-sponsorship.jsp">후원
+								href="${pageContext.request.contextPath}/myPage/mySponsorship.my">후원
 									정보</a></li>
 							<li class="li-subsidemenu"><a
 								href="${pageContext.request.contextPath}/app/mypage/expert-status.jsp">전문가

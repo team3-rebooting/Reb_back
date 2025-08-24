@@ -1,5 +1,7 @@
 package com.sol.app.routine.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.sol.app.dto.FileRoutineReviewDTO;
@@ -12,8 +14,8 @@ public class FileRoutineReviewDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public FileRoutineReviewDTO select(int routineReviewNumber) {
-		return sqlSession.selectOne("fileRoutineReview.select", routineReviewNumber);
+	public List<FileRoutineReviewDTO> selectList(int routineReviewNumber) {
+		return sqlSession.selectList("fileRoutineReview.selectList", routineReviewNumber);
 	}
 
 	public void insert(FileRoutineReviewDTO fileRoutineReviewDTO) {

@@ -8,7 +8,6 @@ public class RoutineReviewDTO {
 	private String routineReviewCreatedDate;
 	private String routineReviewUpdatedDate;
 	private String routineReviewContent;
-	
 	public int getRoutineReviewNumber() {
 		return routineReviewNumber;
 	}
@@ -51,6 +50,7 @@ public class RoutineReviewDTO {
 	public void setRoutineReviewContent(String routineReviewContent) {
 		this.routineReviewContent = routineReviewContent;
 	}
+	
 	@Override
 	public String toString() {
 		return "RoutineReviewDTO [routineReviewNumber=" + routineReviewNumber + ", routineNumber=" + routineNumber
@@ -58,6 +58,4 @@ public class RoutineReviewDTO {
 				+ ", routineReviewCreatedDate=" + routineReviewCreatedDate + ", routineReviewUpdatedDate="
 				+ routineReviewUpdatedDate + ", routineReviewContent=" + routineReviewContent + "]";
 	}
-	
-	
 }
