@@ -27,8 +27,9 @@
   justify-content: center;
 }
 
-main {
-  height: 100%;
+main { 
+  height: 1700px; 
+  min-height: calc(100vh - 235px);
   width: 100%;
   background-color: #FFFEF1;
   font-family: "IBM Plex Sans KR", sans-serif;
