@@ -64,6 +64,10 @@ public class CourseFrontController extends HttpServlet {
 			result = new CourseReviewWriteOkController().execute(request, response);
 			System.out.println("수업 후기 작성 처리 요청 완료");
 			break;
+		case "/course/courseListOk.co":
+			System.out.println("수업 목록 처리 요청");
+			result = new CourseListOkController().execute(request, response);
+			break;
 		}
 		
 		if(result != null) {
