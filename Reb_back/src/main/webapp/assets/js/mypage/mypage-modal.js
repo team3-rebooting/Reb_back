@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded', () => {
 	const modalCloseBtn = document.querySelector(`.button-modal-close`);
 	const modal = document.querySelector(`.mypage-modal`);
@@ -13,8 +12,6 @@ window.addEventListener('DOMContentLoaded', () => {
 			openModal(e.target.name);
 		});
 	});
-
-	
 	
 
 	const expertFileUpload = "expertFileUpload";
@@ -27,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		if (expertFileUpload === modalType) {
 			modalTitle.innerHTML = "전문가 인증";
 
-			fetch("./../../app/mypage/expert-file-upload.html")
+			fetch("/app/mypage/expert-file-upload.jsp")
 				.then(response => response.text())
 				.then(data => {
 					modalContent.innerHTML = data;
@@ -35,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		} else if (profilePicUpload === modalType) {
 			modalTitle.innerHTML = "프로필 사진";
 
-			fetch("./../../app/mypage/profile-pic-upload.html")
+			fetch("/app/mypage/profile-pic-upload.jsp")
 				.then(response => response.text())
 				.then(data => {
 					modalContent.innerHTML = data;

@@ -7,10 +7,11 @@ public class AdminNoticeDTO {
 	private String noticeTitle;
 	private int adminNumber;
 	private String adminNickname;
+	private List<FileNoticeDTO> fileNoticeList; 
 	private String noticeCreatedDate;
 	private String noticeUpdatedDate;
 	private String noticeContent;
-	private List<FileNoticeDTO> fileNoticeList; 
+	private List<FileAdminDTO> fileAdminList;
 	
 	public int getNoticeNumber() {
 		return noticeNumber;
@@ -60,12 +61,20 @@ public class AdminNoticeDTO {
 	public void setFileNoticeList(List<FileNoticeDTO> fileNoticeList) {
 		this.fileNoticeList = fileNoticeList;
 	}
+	
+	public List<FileAdminDTO> getFileAdminList() {
+		return fileAdminList;
+	}
+	public void setFileAdminList(List<FileAdminDTO> fileAdminList) {
+		this.fileAdminList = fileAdminList;
+	}
 	@Override
 	public String toString() {
 		return "AdminNoticeDTO [noticeNumber=" + noticeNumber + ", noticeTitle=" + noticeTitle + ", adminNumber="
 				+ adminNumber + ", adminNickname=" + adminNickname + ", noticeCreatedDate=" + noticeCreatedDate
-				+ ", noticeUpdatedDate=" + noticeUpdatedDate + ", noticeContent=" + noticeContent + ", fileNoticeList="
-				+ fileNoticeList + "]";
+				+ ", noticeUpdatedDate=" + noticeUpdatedDate + ", noticeContent=" + noticeContent + ", fileAdminList="
+				+ fileAdminList + ", fileNoticeList=" + fileNoticeList + "]";
 	}
+	
 	
 }

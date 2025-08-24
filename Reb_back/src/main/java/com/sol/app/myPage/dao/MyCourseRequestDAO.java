@@ -1,6 +1,7 @@
 package com.sol.app.myPage.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -14,7 +15,12 @@ public class MyCourseRequestDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public List<MyCourseRequestDTO> selectList(int memberNumber){
-		return sqlSession.selectList("myCourseRequest.selectList", memberNumber);
+	public List<MyCourseRequestDTO> selectList(Map map){
+		return sqlSession.selectList("myCourseRequest.selectList", map);
+	}
+	
+	public int getTotal(int memberNumber){
+		System.out.println("MyCourseRequestDAO getTotal 진입");
+		return sqlSession.selectOne("myCourseRequest.getTotal", memberNumber);
 	}
 }

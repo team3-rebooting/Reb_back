@@ -1,3 +1,4 @@
+
 function loadImage(e) {
     const inputProfilePic = document.querySelector('#input-profile-pic-file');
 

@@ -50,13 +50,13 @@ public class RoutineReviewListDTO {
 		return routineReviewCreatedDate;
 	}
 	public void setRoutineReviewCreatedDate(String routineReviewCreatedDate) {
-		this.routineReviewCreatedDate = routineReviewCreatedDate;
+		this.routineReviewCreatedDate = routineReviewCreatedDate.split(" ")[0].replace('-', '.');
 	}
 	public String getRoutineReviewUpdatedDate() {
 		return routineReviewUpdatedDate;
 	}
 	public void setRoutineReviewUpdatedDate(String routineReviewUpdatedDate) {
-		this.routineReviewUpdatedDate = routineReviewUpdatedDate;
+		this.routineReviewUpdatedDate = routineReviewUpdatedDate.split(" ")[0].replace('-', '.');
 	}
 	public String getRoutineReviewContent() {
 		return routineReviewContent;
@@ -76,12 +76,27 @@ public class RoutineReviewListDTO {
 	public void setLikeList(List<RoutineReviewLikeDTO> likeList) {
 		this.likeList = likeList;
 	}
+	
+	public FileRoutineReviewDTO getFileRoutineReview() {
+		if(fileRoutineReviewList == null)
+			return null;
+		if(fileRoutineReviewList.size() == 0)
+			return null;
+		
+		return fileRoutineReviewList.get(0);
+	}
+	
 	public List<FileRoutineReviewDTO> getFileRoutineReviewList() {
 		return fileRoutineReviewList;
 	}
 	public void setFileRoutineReviewList(List<FileRoutineReviewDTO> fileRoutineReviewList) {
 		this.fileRoutineReviewList = fileRoutineReviewList;
 	}
+	
+	public boolean isUpdated() {
+		return !routineReviewUpdatedDate.equals(routineReviewCreatedDate);
+	}
+	
 	@Override
 	public String toString() {
 		return "RoutineReviewListDTO [routineReviewNumber=" + routineReviewNumber + ", routineNumber=" + routineNumber

@@ -1,7 +1,11 @@
 package com.sol.app.myPage.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
+import com.sol.app.dto.FileMemberProfileDTO;
 import com.sol.app.dto.MemberDTO;
 import com.sol.app.dto.MyMemberDTO;
 import com.sol.config.MyBatisConfig;
@@ -26,7 +30,15 @@ public class MyPageDAO {
 	}
 	
 	public MyMemberDTO select(int memberNumber) {
-		return sqlSession.selectOne("myMember.select", memberNumber);
+		MyMemberDTO myMemberDTO = sqlSession.selectOne("myMember.select", memberNumber);
+		List<FileMemberProfileDTO> file = new ArrayList<>();
+		file.add(sqlSession.selectOne("fileMemberProfile.select", memberNumber));
+		
+		myMemberDTO.setFileMemberProfileList(file);
+		
+		System.out.println(myMemberDTO);
+		
+		return myMemberDTO;
 	}
 	
 	public void update(MemberDTO memberDTO) {

@@ -25,14 +25,9 @@ public class CourseReviewWriteController implements Execute{
 		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
 		String path = null;
 		
-		if(memberNumber == null) {
-			path = "/app/course/course-review-list.jsp";
-		} else {
-			path = "/app/course/course-review-write.jsp";
-			request.setAttribute("memberId", memberDAO.getMemberId(memberNumber));
-		}
 		
-		result.setPath(path);
+		
+		result.setPath("/app/course/course-write.jsp");
 		result.setRedirect(false);
 		
 		return result;

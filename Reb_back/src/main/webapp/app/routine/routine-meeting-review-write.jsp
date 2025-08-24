@@ -27,24 +27,26 @@
 <body>
   <jsp:include page="/header.jsp" />
   <main>
+  		
     <div id="main-container">
       <p class="pagetitle">루틴 모임 후기 작성</p>
-      <form action="" method="post">
+      <form action="/routine/routineReviewWriteOk.ro" method="post" enctype="multipart/form-data">
         <div class="div-create-course">
-          <input type="text" class="input-title input-bundle" name="courseTitle" placeholder="제목을 입력해주세요">
+          <input type="text" class="input-title input-bundle" name="routineReviewTitle" placeholder="제목을 입력해주세요">
         </div>
         <div class="div-create-course">
           <span class="font-main little-title">대표 이미지 : </span>
-          <input type="file" name="courseFile" class="input-bundle">
+          <input type="file" name="fileRoutineReview" class="input-bundle">
         </div>
         <div class="div-create-course">
           <p class="font-main little-title">내용(summernote 자리)</p>
-          <textarea class="textarea-text input-bundle" name="courseText" rows="20" cols="100"></textarea>
+          <textarea class="textarea-text input-bundle" name="routineReviewContent" rows="20" cols="100"></textarea>
         </div>
-
+		<input type="hidden" name="routineNumber" value="${routineNumber}">
+		
         <div class="div-create-course">
           <div class="div-button-line">
-            <button class="button-ok" type="button">확인</button>
+            <button class="button-ok">확인</button>
             <button class="button-cancel" type="button">취소</button>
           </div>
         </div>

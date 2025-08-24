@@ -8,6 +8,7 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
+    <welcome-file>main.jsp</welcome-file>
   </welcome-file-list>
   
   <servlet>
@@ -41,4 +42,24 @@
      <url-pattern>*.me</url-pattern>
   </servlet-mapping>
   
+  
+  <servlet>
+     <servlet-name>Routine</servlet-name>
+     <servlet-class>com.sol.app.routine.RoutineFrontManager</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>Routine</servlet-name>
+     <url-pattern>*.ro</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>Course</servlet-name>
+     <servlet-class>com.sol.app.course.CourseFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>Course</servlet-name>
+     <url-pattern>*.co</url-pattern>
+  </servlet-mapping>
 </web-app>

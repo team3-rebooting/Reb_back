@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="myReview">
-	<select id="selectList" parameterType="int" resultType="MyReviewDTO">
+	<select id="selectList" parameterType="map" resultType="MyReviewDTO">
 		<![CDATA[
-		SELECT * FROM
-			(SELECT '수업 후기' as post_type, COURSE_REVIEW_NUMBER  as review_number, 
-			COURSE_NUMBER  AS post_number ,COURSE_REVIEW_TITLE  as review_title, 
-			COURSE_REVIEW_CREATED_DATE AS created_date, COURSE_REVIEW_UPDATED_DATE  AS updated_date,
-			MEMBER_NUMBER 
-			from tbl_course_review WHERE member_number = #{memberNumber}
-		UNION
-			SELECT '루틴 모임 후기' as post_type, ROUTINE_REVIEW_NUMBER  as review_number, 
-			ROUTINE_NUMBER  AS post_number ,ROUTINE_REVIEW_TITLE  as review_title, 
-			ROUTINE_REVIEW_CREATED_DATE AS created_date, ROUTINE_REVIEW_UPDATED_DATE  AS updated_date,
-			MEMBER_NUMBER
-			from tbl_routine_review WHERE member_number = #{memberNumber}) sub
-		ORDER BY sub.CREATED_DATE DESC
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+			SELECT * FROM
+				(SELECT '수업 후기' as post_type, COURSE_REVIEW_NUMBER  as review_number, 
+				COURSE_NUMBER  AS post_number ,COURSE_REVIEW_TITLE  as review_title, 
+				COURSE_REVIEW_CREATED_DATE AS created_date, COURSE_REVIEW_UPDATED_DATE  AS updated_date,
+				MEMBER_NUMBER 
+				from tbl_course_review WHERE member_number = #{memberNumber}
+			UNION ALL
+				SELECT '루틴 모임 후기' as post_type, ROUTINE_REVIEW_NUMBER  as review_number, 
+				ROUTINE_NUMBER  AS post_number ,ROUTINE_REVIEW_TITLE  as review_title, 
+				ROUTINE_REVIEW_CREATED_DATE AS created_date, ROUTINE_REVIEW_UPDATED_DATE  AS updated_date,
+				MEMBER_NUMBER
+				from tbl_routine_review WHERE member_number = #{memberNumber}) sub
+			ORDER BY sub.CREATED_DATE DESC
+		) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
 		]]>
+	</select>
+	
+	<select id="getTotal" parameterType="int" resultType="int">
+		SELECT count(*) from (
+			SELECT member_number FROM tbl_course_review WHERE member_number = #{memberNumber}
+			UNION ALL
+			SELECT member_number FROM tbl_routine_review WHERE member_number = #{memberNumber})
 	</select>
 </mapper>

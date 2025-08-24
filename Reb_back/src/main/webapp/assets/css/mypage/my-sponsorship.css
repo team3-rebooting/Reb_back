@@ -17,7 +17,7 @@
 /* 메인 */
 main {
     /* height는 컨텐츠에 따라 */
-    height: 700px; 
+    height: 1000px; 
     min-height: calc(100vh - 235px);
     width: 100%;
     background-color: #FFFEF1;
@@ -76,9 +76,9 @@ button{
 }
 
 /* 후원 상세 정보 제목 */
-.my-sponsorship-data-title{
+/* .my-sponsorship-data-title{
   width: 500px;
-}
+} */
 
 /* 후원 목록 속성 값 */
 .my-sponsorship-list-col-type {
@@ -90,9 +90,9 @@ button{
 }
 
 /* 후원 목록 */
-.my-sponsorship-list-container{
+/* .my-sponsorship-list-container{
     margin-top: 50px;
-}
+} */
 
 /* 후원 목록 */
 .my-sponsorship-list{

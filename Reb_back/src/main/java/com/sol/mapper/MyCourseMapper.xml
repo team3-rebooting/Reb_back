@@ -3,7 +3,10 @@
 <mapper namespace="myCourse">
 	<select id="selectList" parameterType="int" resultType="MyCourseDTO">
 		<![CDATA[
-		SELECT c.COURSE_NUMBER, a.MEMBER_NUMBER, a.COURSE_MEMBER_APPLY_DATE , e.EXPERT_NUMBER, m.MEMBER_NUMBER AS EXPERT_MEMBER_NUMBER, m.MEMBER_NAME AS EXPERT_NAME, c.COURSE_TITLE  
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+			SELECT c.COURSE_NUMBER, a.MEMBER_NUMBER, a.COURSE_MEMBER_APPLY_DATE , e.EXPERT_NUMBER, m.MEMBER_NUMBER AS EXPERT_MEMBER_NUMBER, m.MEMBER_NAME AS EXPERT_NAME, c.COURSE_TITLE  
 			FROM (SELECT * FROM tbl_course_member_applicant WHERE MEMBER_NUMBER = #{memberNumber}) a 
 			JOIN tbl_course c 
 				ON a.COURSE_NUMBER = c.COURSE_NUMBER
@@ -11,6 +14,15 @@
 				ON e.EXPERT_NUMBER = c.EXPERT_NUMBER
 			LEFT JOIN tbl_member m 
 				ON e.MEMBER_NUMBER = m.MEMBER_NUMBER
+			ORDER BY a.COURSE_MEMBER_APPLY_DATE DESC
+		) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
 		]]>
+	</select>
+	
+	<select id="getTotal" parameterType="int" resultType="int">
+		SELECT count(MEMBER_NUMBER) 
+			FROM tbl_course_member_applicant 
+			WHERE MEMBER_NUMBER = #{memberNumber}
 	</select>
 </mapper>

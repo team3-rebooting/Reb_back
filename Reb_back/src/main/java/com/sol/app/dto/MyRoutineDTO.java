@@ -25,7 +25,7 @@ public class MyRoutineDTO {
 		return routineMemberApplyDate;
 	}
 	public void setRoutineMemberApplyDate(String routineMemberApplyDate) {
-		this.routineMemberApplyDate = routineMemberApplyDate;
+		this.routineMemberApplyDate = routineMemberApplyDate.split(" ")[0].replace('-', '.');
 	}
 	public int getRoutineLeaderNumber() {
 		return routineLeaderNumber;

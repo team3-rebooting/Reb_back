@@ -1,6 +1,7 @@
 package com.sol.app.myPage.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -14,7 +15,11 @@ public class MyRoutineDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public List<MyRoutineDTO> selectList(int memberNumber){
-		return sqlSession.selectList("myRoutine.selectList", memberNumber);
+	public List<MyRoutineDTO> selectList(Map<String, Integer> map){
+		return sqlSession.selectList("myRoutine.selectList", map);
+	}
+	
+	public int getTotal(int memberNumber) {
+		return sqlSession.selectOne("myRoutine.getTotal", memberNumber);
 	}
 }

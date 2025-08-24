@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 	function moveToPersonalInfo() {
-		location.href = "personal-info.html";
+		location.href = "/myPage/myInfoOk.my";
 	}
 
 	function cacelEditUserInfo() {
