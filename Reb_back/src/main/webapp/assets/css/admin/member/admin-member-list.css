@@ -4,6 +4,19 @@
   padding: 0;
 }
 
+/* ul  */
+ul{
+	list-style: none;
+}
+/* 페이지네이션 버튼 커스텀 */
+#main-page-number>ul>li>a{
+  margin: 0 28px;
+  text-decoration: none;
+  color: black;
+}
+#main-page-number>ul{
+	display:flex;
+}
 /* 폰트 */
 .font-menu {
   font-family: "IBM Plex Sans KR", sans-serif;
@@ -190,6 +203,7 @@ main{
   font-size: 20px;
   margin-top: 10px;
 }
+
 
 /* 스타일 제거 */
 #main-page-number>a{

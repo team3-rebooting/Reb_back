@@ -3,30 +3,25 @@ package com.sol.app.dto;
 public class AdminCourseRequestListDTO {
 	private String memberNumber;
 	private String memberId;
+	private String memberName;
 	private int courseNumber;
-	private int courseOpenStatusNumber;
-	private int courseRequestTypeNumber;
+	private String courseTitle;
+	private String courseRequestType;
 	private String courseStartDate;
 	private String courseEndDate;
-	public int getCourseNumber() {
-		return courseNumber;
-	}
-	public void setCourseNumber(int courseNumber) {
-		this.courseNumber = courseNumber;
-	}
-	public int getCourseOpenStatusNumber() {
-		return courseOpenStatusNumber;
-	}
-	public void setCourseOpenStatusNumber(int courseOpenStatusNumber) {
-		this.courseOpenStatusNumber = courseOpenStatusNumber;
-	}
-	public int getCourseRequestTypeNumber() {
-		return courseRequestTypeNumber;
-	}
-	public void setCourseRequestTypeNumber(int courseRequestTypeNumber) {
-		this.courseRequestTypeNumber = courseRequestTypeNumber;
-	}
 	
+	public String getCourseTitle() {
+		return courseTitle;
+	}
+	public void setCourseTitle(String courseTitle) {
+		this.courseTitle = courseTitle;
+	}
+	public String getCourseRequestType() {
+		return courseRequestType;
+	}
+	public void setCourseRequestType(String courseRequestType) {
+		this.courseRequestType = courseRequestType;
+	}
 	public String getCourseStartDate() {
 		return courseStartDate;
 	}
@@ -51,13 +46,27 @@ public class AdminCourseRequestListDTO {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	@Override
-	public String toString() {
-		return "AdminCourseRequestListDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", courseNumber="
-				+ courseNumber + ", courseOpenStatusNumber=" + courseOpenStatusNumber + ", courseRequestTypeNumber="
-				+ courseRequestTypeNumber + ", courseStartDate=" + courseStartDate + ", courseEndDate=" + courseEndDate
-				+ "]";
+	
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 	
+	public int getCourseNumber() {
+		return courseNumber;
+	}
+	public void setCourseNumber(int courseNumber) {
+		this.courseNumber = courseNumber;
+	}
+	@Override
+	public String toString() {
+		return "AdminCourseRequestListDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberName="
+				+ memberName + ", courseNumber=" + courseNumber + ", courseTitle=" + courseTitle
+				+ ", courseRequestType=" + courseRequestType + ", courseStartDate=" + courseStartDate
+				+ ", courseEndDate=" + courseEndDate + "]";
+	}
+		
 	
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fileNotice">
+	<select id="select" parameterType="int" resultType="FileNoticeDTO">
+		SELECT * FROM TBL_FILE_notice WHERE notice_NUMBER = #{noticeNumber}
+	</select>
+	
+	<insert id="insert" parameterType="FileNoticeDTO">
+		<!-- fileSystemName 어떻게 지정해야하는지 -->
+		INSERT INTO TBL_FILE_notice(file_system_name, file_original_name, notice_number)
+		VALUES(#{fileSystemName}, #{fileOriginalName}, #{noticeNumber})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		<!-- fileSystemName 어떻게 지정해야하는지 -->
+		DELETE FROM TBL_FILE_notice
+		WHERE notice_number = #{noticeNumber}
+	</delete>
+</mapper>
