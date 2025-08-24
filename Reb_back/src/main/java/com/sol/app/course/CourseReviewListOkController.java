@@ -67,7 +67,7 @@ public class CourseReviewListOkController implements Execute{
 		result.setPath("/app/course/course-review-list.jsp");
 		result.setRedirect(false);
 		
-		return null;
+		return result;
 	}
 
 	
