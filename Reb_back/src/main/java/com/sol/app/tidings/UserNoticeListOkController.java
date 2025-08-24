@@ -1,4 +1,4 @@
-package com.sol.app.news;
+package com.sol.app.tidings;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,18 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.dao.NoticeListDAO;
-import com.sol.app.dto.NoticeListDTO;
+import com.sol.app.admin.dao.AdminNoticeDAO;
+import com.sol.app.dto.AdminNoticeListDTO;
 
-public class noticeListOkController implements Execute {
+public class UserNoticeListOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("====noticeListOkController 실행====");
-		NoticeListDAO noticeDAO = new NoticeListDAO();
+		AdminNoticeDAO noticeDAO = new AdminNoticeDAO();
 		Result result = new Result();
-		
+
 		String temp = request.getParameter("page");
 		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
 		int rowCount = 10; // 한 페이지당 게시글 수
@@ -36,9 +35,8 @@ public class noticeListOkController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
 
-		// 게시글 목록 조회
-		List<NoticeListDTO> boardList = noticeDAO.selectAll(pageMap);
-		request.setAttribute("boardList", boardList);
+		List<AdminNoticeListDTO> noticeList = noticeDAO.selectAll(pageMap);
+		request.setAttribute("noticeList", noticeList);
 
 		// 페이징 정보 설정
 		// BoardMapper.xml의 getTotal을 이용하여 전체 게시글 개수 조회
@@ -61,17 +59,12 @@ public class noticeListOkController implements Execute {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("prev", prev);
 		request.setAttribute("next", next);
-
-		System.out.println("====페이징정보 확인====");
-		System.out.println("pageMap : " + pageMap);
-		System.out.println("boardList : " + boardList);
-		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
-		System.out.println("====================");
-
-		result.setPath("/app/board/boardList.jsp");
+		
+		result.setPath("/app/admin/notice/admin-notice-list.jsp");
 		result.setRedirect(false);
 
-		return null;
+
+		return result;
 	}
 
 }

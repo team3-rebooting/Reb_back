@@ -17,5 +17,5 @@ deleteCommentBtn.forEach(btn => {
 
 const moveBtn = document.querySelector(".back-list");
 moveBtn.addEventListener('click', ()=>{
-  location.href= "/admin/routineReviewReadOk.ad?page=1";
+  location.href= "/admin/routineReviewListOk.ad?page=1";
 });

@@ -25,7 +25,7 @@
   <!-- 헤더 -->
   <header>
     <!-- 목록 이동 -->
-    <a href="${pageContext.request.contextPath}/admin/routineReviewReadOk.ad">
+    <a href="${pageContext.request.contextPath}/admin/routineReviewListOk.ad">
       <!-- 사이트 로고 -->
       <img src="${pageContext.request.contextPath}/assets/img/team_logo.png" alt="사이트 로고">
     </a>

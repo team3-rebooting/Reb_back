@@ -68,7 +68,7 @@
 						<c:when test="${not empty courseReviewList}">
 							<c:forEach var="courseReview" items="${courseReviewList}">
 								<li><a
-									href="${pageContext.request.contextPath}/admin/courseReadOk.ad?courseReviewNumber=${courseReview.courseReviewNumber}">
+									href="${pageContext.request.contextPath}/admin/courseReviewReadOk.ad?courseReviewNumber=${courseReview.courseReviewNumber}">
 										<p class="main-course-review-name">
 											<c:out value="${courseReview.courseReviewTitle}" />
 										</p>

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminCourseReviewDAO;
-import com.sol.app.course.dao.FileCourseReviewDAO;
+import com.sol.app.admin.dao.AdminFileCourseReviewDAO;
 import com.sol.app.dto.AdminCourseReviewDTO;
 import com.sol.app.dto.FileCourseReviewDTO;
 
@@ -30,7 +30,7 @@ public class AdminCourseReviewListOkController implements Execute {
 
 		AdminCourseReviewDAO reviewDAO = new AdminCourseReviewDAO();
 		int reviewNumber = Integer.parseInt(reviewNumberStr);
-		FileCourseReviewDAO fileDAO = new FileCourseReviewDAO();
+		AdminFileCourseReviewDAO fileDAO = new AdminFileCourseReviewDAO();
 
 		// DB에서 게시글 가져오기
 		AdminCourseReviewDTO reviewDTO = reviewDAO.select(reviewNumber);
@@ -43,19 +43,19 @@ public class AdminCourseReviewListOkController implements Execute {
 		}
 
 		// 첨부파일 가져오기
-		List<FileCourseReviewDTO> files = fileDAO.selectList(reviewNumber);
+		List<FileCourseReviewDTO> files = fileDAO.select(reviewNumber);
 		System.out.println("======파일 확인======");
 		System.out.println(files);
 		System.out.println("===================");
 
 		// 첨부파일 붙이기
-		reviewDTO.setFileRoutineReviewList(files);
+		reviewDTO.setFileCourseReviewList(files);
 		// 로그인한 사용자 번호 가져오기
 		Integer loginAdminNumber = (Integer) request.getSession().getAttribute("adminNumber");
 		System.out.println("로그인 한 관리자 번호 : " + loginAdminNumber);
 
 		request.setAttribute("review", reviewDTO);
-		result.setPath("/app/admin/review/admin-routine-review-detail.jsp");
+		result.setPath("/app/admin/review/admin-course-review-detail.jsp");
 		result.setRedirect(false);
 
 		return result;
