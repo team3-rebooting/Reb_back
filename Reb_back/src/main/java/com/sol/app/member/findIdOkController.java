@@ -11,22 +11,29 @@ import com.sol.app.Result;
 import com.sol.app.dto.MemberDTO;
 import com.sol.app.member.dao.MemberDAO;
 
-public class PhoneVerificationOkController implements Execute{
+public class findIdOkController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		System.out.println("PhoneVerificationOkController 진입 완료");
+		
 		MemberDTO memberDTO = new MemberDTO();
 		MemberDAO memberDAO = new MemberDAO();
 		Result result = new Result();
-		int memberNumber = 0;
 		
 		memberDTO.setMemberName(request.getParameter("modalIdName"));
+		memberDTO.setMemberPhoneNumber(request.getParameter("modalIdPhone"));
+
+//		memberDTO = memberDAO.findId(memberDTO);
+		
+		request.setAttribute("member", memberDAO.findId(memberDTO));
+		result.setPath(null);
+		result.setRedirect(false);
 		
 		
-		
-		return null;
+		return result;
 	}
 
 	

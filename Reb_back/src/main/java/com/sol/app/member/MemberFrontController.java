@@ -81,9 +81,12 @@ public class MemberFrontController extends HttpServlet {
 			result = new CheckIdOkController().execute(request, response);
 			System.out.println("아이디 중복 확인 완료");
 			break;
-		case "/member/phoneVerificationOk.me":
-			System.out.println("핸드폰 번호 인증");
-			result = new PhoneVerificationOkController().execute(request, response);
+		case "/member/findIdOk.me":
+			System.out.println("아이디 찾기 처리 요청");
+			result = new findIdOkController().execute(request, response);
+			System.out.println("아이디 찾기 처리 요청 완료");
+			return;
+//			break;
 		}
 		
 		if(result != null && result.getPath() != null) {

@@ -8,6 +8,7 @@
 		WHERE MEMBER_ID = #{memberId} and MEMBER_PASSWORD = #{memberPassword}
 	</select>
 	
+	<!-- 회원가입 주소 입력 -->
 	<insert id="signupAddress" parameterType="memberSignupDTO">
 		<selectKey keyProperty="addressNumber" resultType="int" order="BEFORE">
 			SELECT seq_address.nextval from dual
@@ -16,13 +17,15 @@
 		VALUES(#{addressNumber}, #{zipCode}, #{address}, #{addressAdd})
 	</insert>
 	
+	<!-- 회원 가입 -->
 	<insert id="signup" parameterType="MemberSignupDTO">
 		INSERT INTO TBL_MEMBER(member_number, member_id, member_password, member_address_number, member_email, member_name, member_gender, member_nickname, member_phone_number, member_birth_date, member_signup_date)
 		VALUES(SEQ_MEMBER.NEXTVAL, #{memberId}, #{memberPassword}, #{addressNumber}, #{memberEmail}, #{memberName},  #{memberGender}, #{memberNickname}, #{memberPhoneNumber}, #{memberBirthDate}, to_date(sysdate, 'yyyy-mm-dd'))
 	</insert>
 	
-	<select id="findId" parameterType="MemberSignupDTO" resultType="String">
-		select member_id
+	<!-- 아이디 전화번호 인증 -->
+	<select id="findId" parameterType="MemberDTO" resultType="MemberDTO">
+		select member_id, member_birth_date
 		from tbl_member
 		where member_name = #{memberName} and member_phone_number = #{memberPhoneNumber}
 	</select>
