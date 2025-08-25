@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sol.app.Result;
-import com.sol.app.admin.NoticeListOkController;
 
 /**
  * Servlet implementation class TidingsFrontController

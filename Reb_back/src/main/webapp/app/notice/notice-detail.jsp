@@ -52,7 +52,7 @@
 						</c:forEach>
 					</div>
 					<div class="notice-detail-admin-containter">
-						<div class="board-box-writer font-main">>${notice.adminNickname}</div>
+						<div class="board-box-writer font-main">${notice.adminNickname}</div>
 						<div class="board-box-day font-main">
 						<c:choose>
 							<c:when
