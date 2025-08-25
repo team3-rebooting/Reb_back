@@ -9,6 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/course/course-review-detail.css">
+>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/comment/comment.css">
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/header.css">
@@ -112,70 +115,26 @@
 					<!-- 댓글 영역 -->
 					<div class="div-comment-area">
 						<!-- 댓글 영역 ul -->
-						<ul class="ul-comment-list">
-							<!-- 댓글 li -->
-							<li class="li-comment">
-								<!-- 프로필사진 -->
-								<div class="div-user-profile">
-									<img src="./../../assets/img/karina.jpg"
-										class="img-user-profile">
-								</div> <!-- 유저 정보(닉네임, 수정하기 버튼) -->
-								<div class="div-user-info">
-									<div class="div-user-name-area">
-										<p class="p-user-name">곰융</p>
-										<span class="span-comment-edit">수정</span>
-									</div>
-									<!-- 댓글/삭제 -->
-									<div class="div-user-text-area">
-										<p class="p-comment-text">저도 한번 배워보고싶네요asddddddzzddd</p>
-										<span class="span-comment-delete">삭제</span>
-									</div>
-									<!-- 날짜/수정 여부 -->
-									<p class="p-update-date">
-										2025.07.02<span class="p-update-status">(수정됨)</span>
-									</p>
-								</div>
-							</li>
-							<li class="li-comment">
-								<div class="div-user-profile">
-									<img src="./../../assets/img/karina.jpg"
-										class="img-user-profile">
-								</div>
-								<div class="div-user-info">
-									<div class="div-user-name-area">
-										<p class="p-user-name">곰융</p>
-										<span class="span-comment-edit">수정</span>
-									</div>
-									<div class="div-user-text-area">
-										<p class="p-comment-text">저도 한번 배워보고싶네요asddddddddaad</p>
-										<span class="span-comment-delete">삭제</span>
-									</div>
-									<p class="p-update-date">
-										2025.07.02<span class="p-update-status">(수정됨)</span>
-									</p>
-								</div>
-							</li>
-						</ul>
-						<!-- 댓글 작성 영역 -->
-						<div class="div-comment-write">
-							<!-- 댓글 작성 form -->
-							<form action="" method="get" class="form-comment-write">
-								<!-- 댓글 작성 input -->
-								<input type="text" placeholder="댓글을 입력해주세요" name="comment"
-									class="input-comment">
-								<!-- 등록 버튼 -->
-								<button class="button-write" type="button">등록</button>
-							</form>
+						<div id="course" class="comment-list" data-listType="course"
+							data-reviewnumber="${courseReview.courseReviewNumber}">
+							<jsp:include
+								page="${pageContext.request.contextPath}/app/comment/comment.jsp" />
+						</div>
 
-						</div>
-						<!-- 페이지네이션 -->
-						<div class="div-page">
-							<!-- a 태그 영역 -->
-							<div class="div-pagenation">
-								<a href="#">&lt;</a> <a href="#">1</a> <a href="#">2</a> <a
-									href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">&gt;</a>
+						<c:if test="${ not empty sessionScope.memberNumber }">
+							<!-- 댓글 작성 영역 -->
+							<div class="div-comment-write">
+								<!-- 댓글 작성 form -->
+								<form action="" method="get" class="form-comment-write">
+									<!-- 댓글 작성 input -->
+									<input type="text" placeholder="댓글을 입력해주세요" name="comment"
+										class="input-comment">
+									<!-- 등록 버튼 -->
+									<button class="button-write" type="button">등록</button>
+								</form>
+
 							</div>
-						</div>
+						</c:if>
 					</div>
 
 				</div>
@@ -186,5 +145,7 @@
 	<div id="footer"></div>
 </body>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/comment/comment.js"></script>
 
 </html>

@@ -1,6 +1,7 @@
 package com.sol.app.course.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -14,7 +15,11 @@ public class CourseReviewCommentListDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public List<CourseReviewCommentListDTO> selectAll(int courseReviewNumber) {
-		return sqlSession.selectList("courseReviewCommentList.selectList", courseReviewNumber);
+	public List<CourseReviewCommentListDTO> selectList(Map map) {
+		return sqlSession.selectList("courseReviewCommentList.selectList", map);
+	}
+	
+	public int getTotal(int courseReviewNumber) {
+		return sqlSession.selectOne("courseReviewCommentList.getTotal", courseReviewNumber);
 	}
 }

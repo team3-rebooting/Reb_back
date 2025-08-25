@@ -107,46 +107,6 @@
 							<jsp:include
 								page="${pageContext.request.contextPath}/app/comment/comment.jsp" />
 						</div>
-						<!-- <ul class="ul-comment-list">
-							<li class="li-comment">
-								<div class="div-user-profile">
-									<img src="./../../assets/img/karina.jpg"
-										class="img-user-profile">
-								</div>
-								<div class="div-user-info">
-									<div class="div-user-name-area">
-										<p class="p-user-name">곰융</p>
-										<span class="span-comment-edit">수정</span>
-									</div>
-									<div class="div-user-text-area">
-										<p class="p-comment-text">저도 한번 배워보고싶네요asddddddddd</p>
-										<span class="span-comment-delete">삭제</span>
-									</div>
-									<p class="p-update-date">
-										2025.07.02<span class="p-update-status">(수정됨)</span>
-									</p>
-								</div>
-							</li>
-							<li class="li-comment">
-								<div class="div-user-profile">
-									<img src="./../../assets/img/karina.jpg"
-										class="img-user-profile">
-								</div>
-								<div class="div-user-info">
-									<div class="div-user-name-area">
-										<p class="p-user-name">곰융</p>
-										<span class="span-comment-edit">수정</span>
-									</div>
-									<div class="div-user-text-area">
-										<p class="p-comment-text">저도 한번 배워보고싶네요asddddddddd</p>
-										<span class="span-comment-delete">삭제</span>
-									</div>
-									<p class="p-update-date">
-										2025.07.02<span class="p-update-status">(수정됨)</span>
-									</p>
-								</div>
-							</li>
-						</ul> -->
 						<c:if test="${not empty sessionScope.memberNumber}">
 							<div class="div-comment-write">
 								<form action="" method="get" class="form-comment-write">
