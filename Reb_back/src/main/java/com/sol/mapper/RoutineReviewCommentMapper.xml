@@ -4,7 +4,7 @@
 	<update id="update" parameterType="RoutineReviewCommentDTO">
 		update TBL_ROUTINE_REVIEW_COMMENT
 		SET
-		ROUTINE_REVIEW_UPDATED_DATE = TO_DATE(sysdate,'YYYY-MM-DD'), 
+		ROUTINE_REVIEW_UPDATED_DATE = sysdate, 
 		ROUTINE_REVIEW_CONTENT = #{routineReviewContent}
 	</update>
 	
@@ -15,6 +15,6 @@
 	
 	<insert id="insert" parameterType="RoutineReviewCommentDTO">
 		INSERT INTO TBL_ROUTINE_REVIEW_COMMENT (ROUTINE_REVIEW_COMMENT_NUMBER, ROUTINE_REVIEW_NUMBER, MEMBER_NUMBER, ROUTINE_REVIEW_CREATED_DATE, ROUTINE_REVIEW_UPDATED_DATE, ROUTINE_REVIEW_CONTENT) 
-		VALUES (seq_routine_review_comment.nextval, #{routineReviewNumber}, #{memberNumber}, TO_DATE(sysdate,'YYYY-MM-DD'), TO_DATE(sysdate,'YYYY-MM-DD'), #{routineReviewContent});
+		VALUES (SEQ_ROUTINE_REVIEW_COMMENT.nextval, #{routineReviewNumber}, #{memberNumber}, sysdate, sysdate, #{routineReviewContent})
 	</insert>
 </mapper>

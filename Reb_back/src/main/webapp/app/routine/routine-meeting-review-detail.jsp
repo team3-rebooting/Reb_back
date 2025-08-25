@@ -10,6 +10,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/routine/routine-meeting-review-detail.css">
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/comment/comment.css">
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/header.css">
 <link rel="stylesheet"
@@ -99,7 +101,10 @@
 						</div>
 					</c:if>
 					<div class="div-comment-area">
-						<ul class="ul-comment-list">
+						<div id="routine" class="comment-list" data-listType="routine" data-reviewnumber="${routineReview.routineReviewNumber}">
+							<jsp:include page="${pageContext.request.contextPath}/app/comment/comment.jsp" />
+						</div>
+						<!-- <ul class="ul-comment-list">
 							<li class="li-comment">
 								<div class="div-user-profile">
 									<img src="./../../assets/img/karina.jpg"
@@ -138,9 +143,11 @@
 									</p>
 								</div>
 							</li>
-						</ul>
+						</ul> -->
 						<div class="div-comment-write">
 							<form action="" method="get" class="form-comment-write">
+								<input type="hidden" name="routineReviewNumber" value="${routineReview.routineReviewNumber}">
+								<input type="hidden" name="memberNumber" value="${sessionScope.memberNumber}">
 								<input type="text" placeholder="댓글을 입력해주세요" name="comment"
 									class="input-comment">
 								<button class="button-write" type="button">등록</button>
@@ -162,5 +169,6 @@
 	<div id="footer"></div>
 </body>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/comment/comment.js"></script>
 
 </html>

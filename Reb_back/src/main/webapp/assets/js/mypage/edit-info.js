@@ -57,9 +57,47 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	);
 
-	buttonSearchAddress.addEventListener('click', () => {
+	/*buttonSearchAddress.addEventListener('click', () => {
 		editInfoAddressText.innerHTML = prompt("(API 대체 예정)주소 입력");
+	});*/
+
+
+	buttonSearchAddress.addEventListener('click', function() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				// 우편번호
+				document.querySelector("#edit-info-address-post").innerHTML = data.zonecode || "";
+				document.querySelector("#input-edit-info-address-post").value = data.zonecode || "";
+
+				// 메인 주소(도로명 또는 지번 한 칸만)
+				var isRoad = data.userSelectedType === "R";
+				var base = isRoad ? (data.roadAddress || "") : (data.jibunAddress || "");
+				var extra = "";
+
+				if (isRoad) {
+					if (data.bname && /[동|로|가]$/.test(data.bname)) extra += data.bname;
+					if (data.buildingName && data.apartment === "Y") {
+						extra += (extra ? ", " : "") + data.buildingName;
+					}
+				}
+
+				var main = base + (extra ? " (" + extra + ")" : "");
+				document.querySelector("#edit-info-address-text").innerHTML = main;
+				document.querySelector("#input-edit-info-address-text").value = main;
+				
+				// 상세주소 포커스
+				document.querySelector("#address-re-input input").focus();
+			}
+		}).open({ popupTitle: "우편번호 검색" });
 	});
+
+
+
+
+
+
+
+
 
 	let checkPhoneNumber = false;
 
@@ -257,7 +295,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (confirm(checkMsg + "개인정보를 수정하시겠습니까?")) {
 			moveToPersonalInfo();
 		}
-		else{
+		else {
 			e.preventDefault();
 		}
 	});
