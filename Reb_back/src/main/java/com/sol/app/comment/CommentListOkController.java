@@ -21,6 +21,7 @@ public class CommentListOkController implements Execute {
 			new RoutineCommentOkController().execute(request, response);
 			break;
 		case "course":
+			new CourseCommentOkController().execute(request, response);
 			break;
 		}
 		

@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-	let id;
+	const id = document.querySelector('.comment-list').getAttribute("id");
 	
 	// ====== 목록 로드 ======
 	async function loadListAsync(id, reviewNumber, page) {
@@ -12,7 +12,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			const listInfo = await safeJson(res);
 			
-			this.id = id;
 			this.reviewNumber = reviewNumber;
 			
 			renderList(listInfo, id, listInfo.page.rowCount);
@@ -32,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			page = 1;
 
 			const commentList = document.querySelectorAll('.comment-list');
-
+			
 			console.log(commentList);
 			commentList.forEach((i) => {
 				reviewNumber = i.dataset.reviewnumber;
@@ -64,8 +63,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			console.log(listInfo);
 			let updated = '';
-			if (l.routineReviewCreatedDate !== l.routineReviewUpdatedDate)
-				updated = '(수정됨)';
+			if (l.reviewCreatedDate !== l.reviewUpdatedDate)
+				if(l.reviewUpdatedDate !== null && l.reviewUpdatedDate !== undefined)
+					updated = '(수정됨)';
+				
 			let li = `				<li class="li-comment">
 										<div class="div-user-profile">
 											<img src="./../../assets/img/karina.jpg" class="img-user-profile">
@@ -76,11 +77,11 @@ window.addEventListener('DOMContentLoaded', () => {
 												<span class="span-comment-edit">수정</span>
 											</div>
 											<div class="div-user-text-area">
-												<p class="p-comment-text">${l.routineReviewContent}</p>
+												<p class="p-comment-text">${l.reviewContent}</p>
 												<span class="span-comment-delete">삭제</span>
 											</div>
 											<p class="p-update-date">
-												${l.routineReviewCreatedDate}<span class="p-update-status">${updated}</span>
+												${l.reviewCreatedDate}<span class="p-update-status">${updated}</span>
 											</p>
 										</div>
 									</li>`;
@@ -131,7 +132,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	
 	const submitBtn = document.querySelector(".button-write");
 	
-	submitBtn?.addEventListener("click", async () => {
+	submitBtn.addEventListener("click", async () => {
 		const contentEl = document.querySelector(".input-comment");
 		const content = contentEl?.value.trim();
 
