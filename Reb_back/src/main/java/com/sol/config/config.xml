@@ -114,6 +114,10 @@
 			alias="CourseRequestDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.FileCourseDTO"
 			alias="FileCourseDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.FileExpertDTO"
+         alias="FileExpertDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.FileCourseReviewDTO"
+         alias="FileCourseReviewDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -168,6 +172,8 @@
 		<mapper resource="com/sol/mapper/FileRoutineMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseListMapper.xml" />
 		<mapper resource="com/sol/mapper/FileCourseMapper.xml" />
+      	<mapper resource="com/sol/mapper/FileExpertMapper.xml" />
+      	<mapper resource="com/sol/mapper/FileCourseReviewMapper.xml" />
 	</mappers>
 	<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/> -->
 	<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 
