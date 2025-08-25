@@ -78,6 +78,18 @@ public class CourseFrontController extends HttpServlet {
 			System.out.println("수업 상세 처리");
 			result = new CourseDetailOkController().execute(request, response);
 			break;
+		case "/course/courseReviewEdit.co":
+			System.out.println("수업 수정 페이지 요청");
+			result = new CourseReviewEditController().execute(request, response);
+			break;
+		case "/course/courseReviewEditOk.co":
+			System.out.println("수업 후기 수정 처리 요청");
+			result = new CourseReviewEditOkController().execute(request, response);
+			break;
+		case "/course/courseReviewDeleteOk.co":
+			System.out.println("수업 후기 삭제 처리 요청");
+			result = new CourseReviewDeleteOkController().execute(request, response);
+			break;
 		}
 		
 		if(result != null) {
