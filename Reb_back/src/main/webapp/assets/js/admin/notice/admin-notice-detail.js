@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	const backListBtn = document.querySelector(".back-list");
 	
 
-	updateBtn.addEventListener('click', (e) => {
-		const noticeNumber = e.target.dataset.noticeNumber;
+	updateBtn.addEventListener('click', () => {
+		const noticeNumber = updateBtn.dataset.noticeNumber;
 		console.log(noticeNumber);
 		if (!noticeNumber) return alert("noticeNumber가 없습니다");
 		window.location.href = `/admin/noticeUpdate.ad?noticeNumber=${encodeURIComponent(noticeNumber)}`;
