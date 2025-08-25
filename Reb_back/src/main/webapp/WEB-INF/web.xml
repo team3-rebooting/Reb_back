@@ -62,4 +62,14 @@
      <servlet-name>Course</servlet-name>
      <url-pattern>*.co</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>Tidings</servlet-name>
+     <servlet-class>com.sol.app.tidings.TidingsFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>Tidings</servlet-name>
+     <url-pattern>*.ti</url-pattern>
+  </servlet-mapping>
 </web-app>

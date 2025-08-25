@@ -57,26 +57,23 @@
             연결될 수 있도록 돕고 싶습니다.<br />
             당신의 속도대로, 함께 걸을 준비가 되어 있습니다.지금, 작은 연결을
             시작해보세요.<br /><br />
-            이곳에서 여러분은 루틴 모임을 모집하거나 참여하시고,<br />원하시는
+            <!-- 이곳에서 여러분은 루틴 모임을 모집하거나 참여하시고,<br />원하시는
             수업을 들으실 수 있습니다.<br /><br />
             루틴 모임에 주기적으로 참여하면서 사람에 대한 불안감을 점차
             지워나가고,<br />
             수업을 수강하시면서 자신이 하고싶은 일을 찾아나가보시는건
-            어떨까요?
+            어떨까요? -->
           </div>
         </div>
 
         <!-- 루틴 모임 모집 소개 -->
-        <div class="introduction-routine-meeting-title font-main">· 루틴 모임 모집?</div>
+        <div class="introduction-title font-main">· 루틴 모임 모집</div>
         <div class="introduction-routine-meeting-container">
 
           <div class="introduction-routine-meeting-image-container">
             <div id="introduction-routine-meeting">
-              <img src="./../../assets/img/routine.png" width="340" height="266"
+              <img src="/assets/img/routine-img.png" width="700"
                 class="introduction-routine-meeting-image" alt="첫번째루틴모임소개이미지" />
-              <div class="introduction-routine-meeting-image-text font-main">
-                틈새빛에 처음 오신 여러분 환영합니다.
-              </div>
             </div>
           </div>
 
@@ -95,17 +92,14 @@
         </div>
 
         <!-- 수업 수강 소개 -->
-         <div class="introduction-class-title font-main">· 수업 수강?</div>
+         <div class="introduction-title font-main">· 수업 수강</div>
         <div class="introduction-class-container">
           
 
           <div class="introduction-class-image-container">
             <div class="first-class">
-              <img src="./../../assets/img/routine.png" width="340" height="266" class="introduction-class-image"
+              <img src="/assets/img/course-img.png" width="1000" class="introduction-class-image"
                 alt="첫번째수업수강소개이미지" />
-              <div id="introduction-class-image-container-text font-main">
-                틈새빛에 처음 오신 여러분 환영합니다.
-              </div>
             </div>
           </div>
 
@@ -130,11 +124,6 @@
           응원합니다.<br />
           이곳에서 사람과의 만남에 대한 부담이 줄어들고 본인이 원하는 일을
           찾으실 수 있기를 바랍니다.
-        </div>
-
-        <div class="introduction-closing-image-container">
-          <img src="./../../assets/img/walkTogether.png" width="340" height="266" class="introduction-closing-image"
-            alt="클로징이미지" />
         </div>
       </div>
     </div>
