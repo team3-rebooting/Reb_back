@@ -120,6 +120,8 @@
          alias="FileCourseReviewDTO"></typeAlias>
       <typeAlias type="com.sol.app.dto.AddressDTO"
          alias="AddressDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.RoutineReviewCommentListDTO"
+         alias="RoutineReviewCommentListDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -176,7 +178,8 @@
 		<mapper resource="com/sol/mapper/FileCourseMapper.xml" />
       	<mapper resource="com/sol/mapper/FileExpertMapper.xml" />
       	<mapper resource="com/sol/mapper/FileCourseReviewMapper.xml" />
-      	<mapper resource="com/sol/mapper/AddressMapper.xml" />
+      	<mapper resource="com/sol/mapper/AddressMapper.xml" />      	
+      	<mapper resource="com/sol/mapper/RoutineReviewCommentListMapper.xml" />
 	</mappers>
 	<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/> -->
 	<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 

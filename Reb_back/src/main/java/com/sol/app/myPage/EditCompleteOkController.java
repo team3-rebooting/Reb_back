@@ -83,10 +83,13 @@ public class EditCompleteOkController implements Execute {
 					myMemberDTO.setMemberAddressNumber(Integer.parseInt(paramValue));   
 				}else if("address".equals(paramName)) {
 					addressDTO.setAddress(paramValue);
+					myMemberDTO.setAddress(paramValue);
 				}else if("addressDetail".equals(paramName)) {
 					addressDTO.setAddressDetail(paramValue);
+					myMemberDTO.setAddressDetail(paramValue);
 				}else if("zipCode".equals(paramName)) {
 					addressDTO.setZipCode(paramValue);
+					myMemberDTO.setZipCode(paramValue);
 				}
 			} else if (part.isFile() && !isFileUpload) {
 				FilePart filePart = (FilePart) part;
@@ -146,6 +149,7 @@ public class EditCompleteOkController implements Execute {
 		memberDTO.setMemberPassword(myMemberDTO.getMemberPassword());
 		memberDTO.setMemberAddressNumber(myMemberDTO.getMemberAddressNumber());
 		
+		System.out.println("updated : " + memberDTO);
 		myPageDAO.update(memberDTO);
 
 		// 수정 완료 후 리스트 페이지로 이동

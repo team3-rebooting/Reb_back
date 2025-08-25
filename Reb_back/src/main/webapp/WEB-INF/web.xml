@@ -1,75 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>Red_backend1</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>main.jsp</welcome-file>
-  </welcome-file-list>
-  
-  <servlet>
-     <servlet-name>Admin</servlet-name>
-     <servlet-class>com.sol.app.admin.AdminFrontController</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-     <servlet-name>Admin</servlet-name>
-     <url-pattern>*.ad</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-     <servlet-name>MyPage</servlet-name>
-     <servlet-class>com.sol.app.myPage.MyPageFrontController</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-     <servlet-name>MyPage</servlet-name>
-     <url-pattern>*.my</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-     <servlet-name>Member</servlet-name>
-     <servlet-class>com.sol.app.member.MemberFrontController</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-     <servlet-name>Member</servlet-name>
-     <url-pattern>*.me</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-     <servlet-name>Routine</servlet-name>
-     <servlet-class>com.sol.app.routine.RoutineFrontManager</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-     <servlet-name>Routine</servlet-name>
-     <url-pattern>*.ro</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-     <servlet-name>Course</servlet-name>
-     <servlet-class>com.sol.app.course.CourseFrontController</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-     <servlet-name>Course</servlet-name>
-     <url-pattern>*.co</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-     <servlet-name>Tidings</servlet-name>
-     <servlet-class>com.sol.app.tidings.TidingsFrontController</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-     <servlet-name>Tidings</servlet-name>
-     <url-pattern>*.ti</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>Red_backend1</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>main.jsp</welcome-file>
+	</welcome-file-list>
+
+
+	<servlet>
+		<servlet-name>Comment</servlet-name>
+		<servlet-class>com.sol.app.comment.CommentFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Comment</servlet-name>
+		<url-pattern>*.cm</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Admin</servlet-name>
+		<servlet-class>com.sol.app.admin.AdminFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Admin</servlet-name>
+		<url-pattern>*.ad</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>MyPage</servlet-name>
+		<servlet-class>com.sol.app.myPage.MyPageFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MyPage</servlet-name>
+		<url-pattern>*.my</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Member</servlet-name>
+		<servlet-class>com.sol.app.member.MemberFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Member</servlet-name>
+		<url-pattern>*.me</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Routine</servlet-name>
+		<servlet-class>com.sol.app.routine.RoutineFrontManager</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Routine</servlet-name>
+		<url-pattern>*.ro</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Course</servlet-name>
+		<servlet-class>com.sol.app.course.CourseFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Course</servlet-name>
+		<url-pattern>*.co</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Tidings</servlet-name>
+		<servlet-class>com.sol.app.tidings.TidingsFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Tidings</servlet-name>
+		<url-pattern>*.ti</url-pattern>
+	</servlet-mapping>
+
 </web-app>
