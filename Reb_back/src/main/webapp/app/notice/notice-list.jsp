@@ -15,7 +15,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
 
-<script defer src="./../../assets/js/notice/notice-list.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/notice/notice-list.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
