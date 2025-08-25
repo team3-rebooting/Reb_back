@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-	let id;
+	const id = document.querySelector('.comment-list').getAttribute("id");
 	
 	// ====== 목록 로드 ======
 	async function loadListAsync(id, reviewNumber, page) {
@@ -12,7 +12,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			const listInfo = await safeJson(res);
 			
-			this.id = id;
 			this.reviewNumber = reviewNumber;
 			
 			renderList(listInfo, id, listInfo.page.rowCount);
@@ -32,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			page = 1;
 
 			const commentList = document.querySelectorAll('.comment-list');
-
+			
 			console.log(commentList);
 			commentList.forEach((i) => {
 				reviewNumber = i.dataset.reviewnumber;
@@ -131,7 +130,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	
 	const submitBtn = document.querySelector(".button-write");
 	
-	submitBtn?.addEventListener("click", async () => {
+	submitBtn.addEventListener("click", async () => {
 		const contentEl = document.querySelector(".input-comment");
 		const content = contentEl?.value.trim();
 
