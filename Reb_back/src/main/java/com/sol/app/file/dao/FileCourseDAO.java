@@ -30,7 +30,7 @@ public class FileCourseDAO {
 
 	// 파일 조회 메소드
 	public List<FileCourseDTO> select(int courseNumber) {
-		return sqlSession.selectList("fileCourse.select", courseNumber);
+		return sqlSession.selectList("fileCourse.selectList", courseNumber);
 	}
 
 	// 파일 삭제 메소드

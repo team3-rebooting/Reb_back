@@ -93,7 +93,7 @@
 					<c:if
 						test="${sessionScope.memberNumber == routineReview.getMemberNumber()}">
 						<div class="div-button-area">
-							<a href="./routine-meeting-review-edit.html"><button
+							<a href="/app/routine/routine-meeting-review-edit.jsp"><button
 									class="button-application">수정</button></a>
 							<button class="button-cancel">삭제</button>
 						</div>

@@ -15,7 +15,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
 
-<script defer src="./../../assets/js/notice/notice-list.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/notice/notice-list.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -51,7 +51,7 @@
 						<c:when test="${not empty noticeList}">
 							<c:forEach var="notice" items="${noticeList}">
 								<li class="notice-item"><a
-									href="${pageContext.request.contextPath}/tidings/noticeReadOkController.ti?noticeNumber=${notice.noticeNumber}">
+									href="${pageContext.request.contextPath}/tidings/noticeReadOk.ti?noticeNumber=${notice.noticeNumber}">
 										<div class="class-notice-list-container">
 											<p class="notice-list-title font-main">
 												<c:out value="${notice.noticeTitle}" />
@@ -127,6 +127,6 @@
 				</div>
 			</div>
 	</main>
-	<jsp:include page="/header.jsp" />
+	<jsp:include page="/footer.jsp" />
 </body>
 </html>

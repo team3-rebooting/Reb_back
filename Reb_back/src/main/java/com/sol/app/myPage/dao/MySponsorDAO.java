@@ -16,7 +16,8 @@ public class MySponsorDAO {
 	}
 	
 	public int getSponsorTotalAmount(int memberNumber) {
-		return sqlSession.selectOne("sponsor.getTotalAmount", memberNumber);
+		Integer amount = (Integer)sqlSession.selectOne("sponsor.getTotalAmount", memberNumber);
+		return amount == null? 0 : amount;
 	}
 	
 	public List<SponsorDTO> selectList(Map map) {

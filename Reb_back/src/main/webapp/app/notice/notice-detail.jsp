@@ -11,8 +11,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/header-login.css">
+	href="${pageContext.request.contextPath}/assets/css/header.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
 <link rel="stylesheet"
@@ -52,7 +53,7 @@
 						</c:forEach>
 					</div>
 					<div class="notice-detail-admin-containter">
-						<div class="board-box-writer font-main">>${notice.adminNickname}</div>
+						<div class="board-box-writer font-main">${notice.adminNickname}</div>
 						<div class="board-box-day font-main">
 						<c:choose>
 							<c:when

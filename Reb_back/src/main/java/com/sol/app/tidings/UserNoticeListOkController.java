@@ -60,7 +60,7 @@ public class UserNoticeListOkController implements Execute {
 		request.setAttribute("prev", prev);
 		request.setAttribute("next", next);
 		
-		result.setPath("/app/admin/notice/admin-notice-list.jsp");
+		result.setPath("/app/notice/notice-list.jsp");
 		result.setRedirect(false);
 
 
