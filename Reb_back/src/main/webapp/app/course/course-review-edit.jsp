@@ -35,10 +35,10 @@
       <!-- 제목 -->
       <p class="pagetitle">수업 후기 작성</p>
       <!-- 수정 form -->
-      <form action="" method="post">
+      <form action="${pageContext.request.contextPath}/course/courseReviewEditOk.co" method="post" enctype="multipart/form-data">
         <!-- 제목 입력 input -->
         <div class="div-create-course">
-          <input type="text" class="input-title input-bundle" name="courseTitle" placeholder="제목을 입력해주세요">
+          <input type="text" class="input-title input-bundle" name="courseTitle" placeholder="제목을 입력해주세요" value="${courseReview.getCourseReviewTitle() }" required />
         </div>
         <!-- 대표 이미지 input -->
         <div class="div-create-course">
@@ -48,15 +48,15 @@
         <!-- 리뷰 작성 textarea -->
         <div class="div-create-course">
           <p class="font-main little-title">내용(summernote 자리)</p>
-          <textarea class="textarea-text input-bundle" name="courseText" rows="20" cols="100">
+          <textarea class="textarea-text input-bundle" name="courseText" rows="20" cols="100" required>
           	<c:out value="${courseReview.getCourseReviewContent()}" />
           </textarea>
         </div>
         <!-- 버튼 영역 -->
         <div class="div-create-course">
           <div class="div-button-line">
-            <a href="${pageContext.request.contextPath}/course/courseRevieEditOk.co"><button class="button-ok" type="button">확인</button></a>
-            <a href="./course-review-list.html"><button class="button-cancel" type="button">취소</button></a>
+            <button class="button-ok" type="submit">확인</button>
+            <button class="button-cancel" type="button" onclick="history.back()">취소</button>
           </div>
         </div>
       </form>
