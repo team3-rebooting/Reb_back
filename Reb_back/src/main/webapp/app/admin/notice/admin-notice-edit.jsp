@@ -39,6 +39,7 @@
 		<form
 			action="${pageContext.request.contextPath}/admin/adminUpdateOk.ad"
 			method="post" enctype="multipart/form-data">
+			<input type="hidden" name="noticeNumber" value ="${notice.getNoticeNumber()}">
 			<!-- 제목 입력 -->
 			<input type="text" name="noticeTitle"
 				id="main-admin-notice-create-title" placeholder="제목을 입력해 주세요"
@@ -46,7 +47,7 @@
 			<!-- 파일 입력 -->
 			<c:forEach var="file" items="${notice.fileNoticeList}">
 			<input type="file" name="fileNoticeList"
-				id="main-admin-notice-create-file" placeholder="파일 변경" value="${file.getFileSystemName()}">
+				id="main-admin-notice-create-file" placeholder="파일 변경" >
 			<!-- 내용 입력 -->			
 			</c:forEach>
 			<textarea name="noticeContent" id="main-admin-notice-create-content"
