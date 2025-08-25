@@ -36,6 +36,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
 	rel="stylesheet">
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/mypage/edit-info.js"></script>
 <title>틈새빛</title>
 </head>
@@ -126,6 +127,8 @@
 						<div class="edit-info-type">실거주지</div>
 						<div class="edit-info-data edit-info-input-two-row">
 							<div id="edit-info-address-main">
+								<input type="hidden" id="input-edit-info-address-text" name="address" value="${myMemberDTO.address}">
+								<input type="hidden" id="input-edit-info-address-post" name="zipCode" value="${myMemberDTO.zipCode}">
 								<div id="edit-info-address-text">${myMemberDTO.address}</div>
 								<div id="edit-info-address-post">${myMemberDTO.zipCode}</div>
 								<!-- 주소 검색 -->
@@ -134,8 +137,8 @@
 							</div>
 							<!-- 실거주지 입력 -->
 							<div id="address-re-input">
-								<input type="text" name="detailAddress"
-									value="<c:if test="${not empty myMemberDTO.addressDetail}">${myMemberDTO.addressDetail}</c:if>"
+								<input type="text" name="addressDetail"
+									value=<c:if test="${not empty myMemberDTO.addressDetail}">"${myMemberDTO.addressDetail}"</c:if>
 									placeholder="상세 주소">
 							</div>
 						</div>
