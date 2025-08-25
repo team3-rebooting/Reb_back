@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	const base = (form && form.dataset.contextPath) ? form.dataset.contextPath : "";
 	const codeInput = document.querySelector(".input-cert");
 
+	const checkInput = false;
+
 	const inputId = document.querySelector("input[name='memberId']");
 	const idSame = document.querySelector(".p-nodupli-id");
 	const idNotSame = document.querySelector(".p-dupli-id");
@@ -15,8 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		if (idRegex.test(memberId)) {
 			warning.style.display = "none";
+			checkInput = false;
 		} else {
 			warning.style.display = "block";
+			checkInput = true;
 		}
 		fetch(`${base}/member/checkIdOk.me?memberId=${encodeURIComponent(memberId)}`, {
 			headers: { "Accept": "application/json" }
@@ -26,9 +30,11 @@ document.addEventListener("DOMContentLoaded", function() {
 				if (data.available) {
 					idSame.style.display = "none";
 					idNotSame.style.display = "block";
+					checkInput = false;
 				} else {
 					idSame.style.display = "block";
 					idNotSame.style.display = "none";
+					checkInput = true;
 				}
 			})
 			.catch(() => {
@@ -47,8 +53,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		const warning = nearWarning.querySelector(".p-warning");
 		if (pwRegex.test(pw)) {
 			warning.style.display = "none";
+			checkInput = false;
 		} else {
 			warning.style.display = "block";
+			checkInput = true;
 		}
 	});
 
@@ -62,9 +70,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (pw && pw === pwRe) {
 			same.style.display = "block";
 			nosame.style.display = "none";
+			checkInput = false;
 		} else {
 			same.style.display = "none";
 			nosame.style.display = "block";
+			checkInput = true;
 		}
 	});
 
@@ -75,8 +85,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		const warning = nearWarning.querySelector(".p-warning");
 		if (!birth.value) {
 			warning.style.display = "block";
+			checkInput = true;
 		} else {
 			warning.style.display = "none";
+			checkInput = false;
 		}
 	});
 
@@ -110,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	}
 
+	const checkEmail = false;
 	const emailRegex = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
 	const email = document.querySelector("input[name='email']");
 
@@ -118,8 +131,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		const warning = nearWarning.querySelector(".p-warning");
 		if (!emailRegex.test(email.value)) {
 			warning.style.display = "block";
+			const checkEmail = true;
 		} else {
 			warning.style.display = "none";
+			const checkEmail = false;
 		}
 	});
 
@@ -130,8 +145,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		const warning = nearWarning.querySelector(".p-warning");
 		if (inputName) {
 			warning.style.display = "none";
+			checkInput = false;
 		} else {
 			warning.style.display = "block";
+			checkInput = true;
 		}
 	});
 
@@ -141,8 +158,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		const warning = nearWarning.querySelector(".p-warning");
 		if (!gender.value) {
 			warning.style.display = "block";
+			checkInput = true;
 		} else {
 			warning.style.display = "none";
+			checkInput = false;
 		}
 	});
 
@@ -155,8 +174,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		const memberNickname = inputNickname.value.trim();
 		if (memberNickname) {
 			nicknameRequired.style.display = "none";
+			checkInput = false;
 		} else {
 			nicknameRequired.style.display = "block";
+			checkInput = true;
 		}
 	});
 
@@ -172,9 +193,11 @@ document.addEventListener("DOMContentLoaded", function() {
 				if (data.available) {
 					nicknameNoDupli.style.display = "block";
 					nicknameDupli.style.display = "none";
+					checkInput = false;
 				} else {
 					nicknameNoDupli.style.display = "none";
 					nicknameDupli.style.display = "block";
+					checkInput = true;
 				}
 			});
 	});
@@ -222,8 +245,10 @@ document.addEventListener("DOMContentLoaded", function() {
 			injunging.disabled = true;
 			injunging.style.color = "#d9d9d9";
 			alert("인증 성공");
+			checkInput = false;
 		} else {
 			alert("인증번호가 맞지 않습니다");
+			checkInput = true;
 		}
 	});
 
@@ -242,12 +267,16 @@ document.addEventListener("DOMContentLoaded", function() {
 		phoneNumber.value = "";
 	});
 
-	form.addEventListener("submit", function(e){
+
+
+	form.addEventListener("submit", function(e) {
 		const agree = document.getElementById("id-terms");
-		if(!agree.checked){
+		if (!agree.checked || !idRegex.test(memberId) || !data.available || !pwRegex.test(pw) || !(pw && pw === pwRe) || !birth.value || !emailRegex.test(email.value) || !inputName || !gender.value || !memberNickname || !data.available || !(code === tempCode)) {
 			e.preventDefault();
 			alert("약관에 동의해주세요.");
 			return;
-		}
+		}		
 	});
+
+
 });
