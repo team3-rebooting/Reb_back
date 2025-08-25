@@ -100,11 +100,11 @@
 						<c:if
 							test="${sessionScope.memberNumber == courseReview.getMemberNumber() }">
 							<button class="button-application" type="button"
-								data-course-review-number="${courseReview.getCourseReviewNumber()}"
+								data-course-review-number="${courseReview.courseReviewNumber}"
 								data-member-number="${sessionScope.memberNumber}">수정</button>
 
 							<button class="button-cancel" type="button"
-								data-course-review-number="${courseReview.getCourseReviewNumber()}"
+								data-course-review-number="${courseReview.courseReviewNumber}"
 								data-member-number="${sessionScope.memberNumber}">삭제</button>
 
 						</c:if>

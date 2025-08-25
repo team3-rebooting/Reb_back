@@ -2,20 +2,24 @@ document.addEventListener("DOMContentLoaded", () => {
 	const deleteBtn = document.querySelector(".button-cancel");
 	const heart = document.querySelector(".fa-heart");
 	const back = document.querySelector(".p-back");
-	const editBtn = document.querySelector(".button-application")
+	const editBtn = document.querySelector(".button-application");
+
+	const courseReviewNumber = editBtn?.dataset.courseReviewNumber ?? window.courseReviewNumber;
+	const memberNumber = editBtn?.dataset.memberNumber ?? window.memberNumber;
 
 	back.addEventListener("click", () => {
 		history.back();
 	});
 
 	editBtn?.addEventListener("click", () => {
+		console.log("수정 버튼 클릭");
+		console.log(memberNumber);
 		if (!courseReviewNumber) return alert("courseReviewNumber가 없습니다");
 		window.location.href = `/course/courseReviewEdit.co?courseReviewNumber=${encodeURIComponent(courseReviewNumber)}`;
 	});
 
 
 	deleteBtn?.addEventListener("click", async () => {
-		S
 		if (!courseReviewNumber) return alert("courseReviewNumber가 없습니다");
 		if (!confirm("정말로 삭제하시겠습니까?")) return;
 
@@ -86,6 +90,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 });
-
 
 
