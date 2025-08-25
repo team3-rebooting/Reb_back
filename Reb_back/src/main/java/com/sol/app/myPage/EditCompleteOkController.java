@@ -15,10 +15,12 @@ import com.oreilly.servlet.multipart.ParamPart;
 import com.oreilly.servlet.multipart.Part;
 import com.sol.app.Execute;
 import com.sol.app.Result;
+import com.sol.app.dto.AddressDTO;
 import com.sol.app.dto.FileMemberProfileDTO;
 import com.sol.app.dto.MemberDTO;
 import com.sol.app.dto.MyMemberDTO;
 import com.sol.app.myPage.dao.FileMemberProfileDAO;
+import com.sol.app.myPage.dao.MyAddressDAO;
 import com.sol.app.myPage.dao.MyPageDAO;
 
 public class EditCompleteOkController implements Execute {
@@ -30,6 +32,9 @@ public class EditCompleteOkController implements Execute {
 		MyPageDAO myPageDAO = new MyPageDAO();
 		MyMemberDTO myMemberDTO = new MyMemberDTO();
 		FileMemberProfileDAO fileDAO = new FileMemberProfileDAO();
+		MyAddressDAO addressDAO = new MyAddressDAO();
+		AddressDTO addressDTO = new AddressDTO();
+		
 		Result result = new Result();
 
 		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/profile";
@@ -76,6 +81,12 @@ public class EditCompleteOkController implements Execute {
 					myMemberDTO.setMemberEmail(paramValue);
 				} else if ("memberAddressNumber".equals(paramName)) {
 					myMemberDTO.setMemberAddressNumber(Integer.parseInt(paramValue));   
+				}else if("address".equals(paramName)) {
+					addressDTO.setAddress(paramValue);
+				}else if("addressDetail".equals(paramName)) {
+					addressDTO.setAddressDetail(paramValue);
+				}else if("zipCode".equals(paramName)) {
+					addressDTO.setZipCode(paramValue);
 				}
 			} else if (part.isFile() && !isFileUpload) {
 				FilePart filePart = (FilePart) part;
@@ -122,10 +133,12 @@ public class EditCompleteOkController implements Execute {
 			}
 		}
 
+		int addressNumber = addressDAO.insert(addressDTO);
 		myMemberDTO.setMemberNumber(memberNumber);
 		
 		MemberDTO memberDTO = new MemberDTO();
 		
+		memberDTO.setMemberAddressNumber(addressNumber);
 		memberDTO.setMemberNumber(myMemberDTO.getMemberNumber());
 		memberDTO.setMemberEmail(myMemberDTO.getMemberEmail());
 		memberDTO.setMemberNickname(myMemberDTO.getMemberNickname());

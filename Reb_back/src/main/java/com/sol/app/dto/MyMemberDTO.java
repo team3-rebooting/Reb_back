@@ -148,7 +148,7 @@ public class MyMemberDTO {
 	}
 
 	public void setMemberBirthDate(String memberBirthDate) {
-		this.memberBirthDate = memberBirthDate;
+		this.memberBirthDate = memberBirthDate.split(" ")[0].replace('-', '.');
 	}
 
 	public FileMemberProfileDTO getFileMemberProfile() {

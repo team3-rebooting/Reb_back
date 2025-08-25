@@ -31,7 +31,9 @@ public class AccountDeletionOkController  implements Execute {
 			result.setRedirect(true);
 		} else {
 			if(myCourseRequestDAO.getTotal(memberNumber) > 0) {
-				System.out.println("수업 존재해서 삭제 불가");
+				System.out.println("수업 존재로 회원 탈퇴 불가");
+				result.setPath(request.getContextPath() + "/myPage/myInfoOk.my");
+				result.setRedirect(false);
 			}else {
 				myPageDAO.delete(memberNumber);
 
