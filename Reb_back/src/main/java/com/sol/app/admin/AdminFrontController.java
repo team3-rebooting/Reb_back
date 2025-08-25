@@ -84,6 +84,7 @@ public class AdminFrontController extends HttpServlet {
 			break;
 		case "/admin/noticeUpdateOk.ad" :
 			System.out.println("공지사항 수정완료");
+			result = new NoticeUpdateOkController().execute(request,response);
 			break;
 		case "/admin/courseRequestListOk.ad" :
 			System.out.println("수업 요청 리스트");
@@ -93,6 +94,14 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("수업 요청 상세");
 			result = new CourseRequestReadOkController().execute(request,response);
 			break;
+		case "/admin/courseRequestApproveOk.ad" :
+			System.out.println("수업 상태 승인");
+			result = new CourseRequestApproveOkController().execute(request,response);
+			break;
+		case "/admin/courseRequestDeleteOk.ad" :
+			System.out.println("수업 삭제 승인");
+			result = new CourseRequestDeleteOkController().execute(request, response);
+			break;
 		case "/admin/courseListOk.ad" :
 			System.out.println("수업 리스트");
 			result = new CourseListOkController().execute(request,response);
@@ -101,7 +110,7 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("수업 상세");
 			result = new CourseReadOkController().execute(request,response);
 			break;
-		case "/admin/routineListOk.ad":
+		case "/admin/routineListOk.ad" :
 			System.out.println("루틴모임 리스트");
 			result = new RoutineListOkController().execute(request, response);
 			break;
@@ -109,6 +118,14 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("루틴모임 상세");
 			result = new RoutineReadOkController().execute(request, response);
 			break;
+		case "/admin/routineWrite.ad" :
+			System.out.println("루틴 모임 생성");
+			result = new RoutineWriteController().execute(request,response);
+			break;
+//		case "/admin/routineWriteOk.ad" :
+//			System.out.println("루틴 모임 생성 완료");
+//			result = new RoutineWriteOkController().execute(request,response);
+//			break;
 		case "/admin/memberListOk.ad":
 			System.out.println("회원목록 리스트");
 			result = new MemberListOkController().execute(request, response);

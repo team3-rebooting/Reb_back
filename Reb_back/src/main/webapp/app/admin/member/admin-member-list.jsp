@@ -87,16 +87,16 @@
 				<!-- 페이지네이션 -->
 				<div id="main-page-number">
 					<ul>
-						<c:if test="${paging.prev}">
+						<c:if test="${prev}">
 							<li><a
-								href="${pageContext.request.contextPath}/admin/memberListOk.ad?page=${paging.startPage - 1}"
+								href="${pageContext.request.contextPath}/admin/memberListOk.ad?page=${startPage - 1}"
 								class="prev">&lt;</a></li>
 						</c:if>
 						<c:set var="realStartPage"
 							value="${startPage < 0 ? 0 : startPage}" />
-						<c:forEach var="i" begin="${paging.realStartPage}" end="${paging.endPage}">
+						<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
 							<c:choose>
-								<c:when test="${!(i == paging.page) }">
+								<c:when test="${!(i == page) }">
 									<li><a
 										href="${pageContext.request.contextPath}/admin/memberListOk.ad?page=${i}">
 											<c:out value="${i}" />
@@ -108,9 +108,9 @@
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
-						<c:if test="${paging.next}">
+						<c:if test="${next}">
 							<li><a
-								href="${pageContext.request.contextPath}/admin/memberListOk.ad?page=${paging.endPage + 1}"
+								href="${pageContext.request.contextPath}/admin/memberListOk.ad?page=${endPage + 1}"
 								class="next">&gt;</a>
 						</c:if>
 					</ul>

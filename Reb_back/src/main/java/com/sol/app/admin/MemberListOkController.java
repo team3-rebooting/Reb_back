@@ -21,20 +21,39 @@ public class MemberListOkController implements Execute {
 			throws ServletException, IOException {
 		AdminMemberDAO memberDAO = new AdminMemberDAO();
 		Result result = new Result();
-		PagingService ps = new PagingService();
 
 		String temp = request.getParameter("page");
-		int total = memberDAO.getTotal();
-		//여기서 페이징 처리 페이지 총합 10개씩 보여지고 숫자는 5개 
-		Map<String, Object> paging = ps.Paging(temp, total, 10, 5);
+		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
+		int rowCount = 10; // 한 페이지당 게시글 수
+		int pageCount = 5; // 페이지 버튼 수
+
+		// 페이징 처리
+		int startRow = (page - 1) * rowCount + 1; // 시작행(1, 11, 21, ..)
+		int endRow = startRow + rowCount - 1; // 끝 행(10, 20, 30, ..)
+
 		Map<String, Integer> pageMap = new HashMap<>();
-		
-		pageMap.put("startRow", (Integer)paging.get("startRow"));
-		pageMap.put("endRow",  (Integer)paging.get("endRow"));
-		
+		pageMap.put("startRow", startRow);
+		pageMap.put("endRow", endRow);
+
 		List<AdminMemberListDTO> memberList = memberDAO.selectAll(pageMap);
 		request.setAttribute("memberList", memberList);
-		request.setAttribute("paging", paging);
+		int total = memberDAO.getTotal();
+		int realEndPage = (int) Math.ceil(total / (double) rowCount); // 실제 마지막 페이지(전체 게시글 기준으로 계산)
+		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount); // 현재 페이지 그룹에서의 마지막 페이지
+		int startPage = endPage - (pageCount - 1); // 현재 페이지 그룹에서의 첫 페이지
+
+		// endPage가 실제 존재하는 마지막 페이지보다 크면 조정
+		endPage = Math.min(endPage, realEndPage);
+
+		// prev, next 버튼 활성화 여부 확인
+		boolean prev = startPage > 1;
+		boolean next = endPage < realEndPage;
+
+		request.setAttribute("page", page);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("prev", prev);
+		request.setAttribute("next", next);
 		
 		result.setPath("/app/admin/member/admin-member-list.jsp");
 		result.setRedirect(false);

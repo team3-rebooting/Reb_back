@@ -2,6 +2,19 @@
   margin: 0;
   padding: 0;
 }
+/* ul  */
+ul{
+	list-style: none;
+}
+/* 페이지네이션 버튼 커스텀 */
+.div-pagenation>ul>li>a{
+  margin: 0 28px;
+  text-decoration: none;
+  color: black;
+}
+.div-pagenation>ul{
+	display:flex;
+}
 
 #main-container {
   width: 1200px;

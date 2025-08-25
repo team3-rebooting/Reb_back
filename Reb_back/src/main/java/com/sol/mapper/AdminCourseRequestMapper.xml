@@ -18,6 +18,7 @@
     		ON c.EXPERT_NUMBER = e.EXPERT_NUMBER
 			JOIN TBL_MEMBER m
     		ON e.MEMBER_NUMBER = m.MEMBER_NUMBER
+    		where cr.course_open_status_number = 1 
             ORDER BY c.COURSE_START_DATE 
     	) subquery
 	)

@@ -89,7 +89,7 @@
 							<c:choose>
 								<c:when test="${!(i == page) }">
 									<li><a
-										href="${pageContext.request.contextPath}/tidings/noticeListOk.ti.ad?page=${i}">
+										href="${pageContext.request.contextPath}/tidings/noticeListOk.ti?page=${i}">
 											<c:out value="${i}" />
 									</a></li>
 								</c:when>
@@ -101,7 +101,7 @@
 						</c:forEach>
 						<c:if test="${next}">
 							<li><a
-								href="${pageContext.request.contextPath}/tidings/noticeListOk.ad?page=${endPage + 1}"
+								href="${pageContext.request.contextPath}/tidings/noticeListOk.ti?page=${endPage + 1}"
 								class="next">&gt;</a>
 						</c:if>
 					</ul>
