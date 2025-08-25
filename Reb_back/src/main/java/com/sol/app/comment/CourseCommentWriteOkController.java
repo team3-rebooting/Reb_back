@@ -15,16 +15,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.dto.RoutineReviewCommentDTO;
-import com.sol.app.routine.dao.RoutineReviewCommentDAO;
+import com.sol.app.course.dao.CourseReviewCommentDAO;
+import com.sol.app.dto.CourseReviewCommentDTO;
 
-public class RoutineCommentWriteOkController implements Execute {
+public class CourseCommentWriteOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		RoutineReviewCommentDTO commentDTO = new RoutineReviewCommentDTO();
-		RoutineReviewCommentDAO commentDAO = new RoutineReviewCommentDAO();
+		CourseReviewCommentDTO commentDTO = new CourseReviewCommentDTO();
+		CourseReviewCommentDAO commentDAO = new CourseReviewCommentDAO();
 		System.out.println("세션에 저장된 멤버" + session.getAttribute("memberNumber"));
 		
 		int memberNumber = (Integer)session.getAttribute("memberNumber");
@@ -38,7 +38,6 @@ public class RoutineCommentWriteOkController implements Execute {
 		BufferedReader reader = request.getReader();
 		JsonObject jsonObject = JsonParser.parseString(reader.lines().collect(Collectors.joining())).getAsJsonObject();
 
-		
 		// 필수 파라미터 확인
 		if (!jsonObject.has("reviewNumber") || !jsonObject.has("comment")) {
 			response.setContentType("application/json; charset=utf-8");
@@ -47,9 +46,9 @@ public class RoutineCommentWriteOkController implements Execute {
 		}
 
 		// DTO 설정
-		commentDTO.setRoutineReviewNumber(jsonObject.get("reviewNumber").getAsInt());
+		commentDTO.setCourseReviewNumber(jsonObject.get("reviewNumber").getAsInt());
 		commentDTO.setMemberNumber(memberNumber);
-		commentDTO.setRoutineReviewContent(jsonObject.get("comment").getAsString());
+		commentDTO.setCourseReviewContent(jsonObject.get("comment").getAsString());
 		System.out.println("replyDTO 확인 :" + commentDTO);
 
 		// DB 저장

@@ -15,15 +15,19 @@ public class CommentWriteOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//String listType = request.getParameter("listType");
-		//System.out.println(listType);
-		
+		String listType = request.getParameter("listType");
+		System.out.println("commentListType : " + listType);
 
-		new RoutineCommentWriteOkController().execute(request, response);
-		/*
-		 * switch(listType) { case "routine": break; case "course": break; }
-		 */
+		switch (listType) {
+		case "routine":
+			new RoutineCommentWriteOkController().execute(request, response);
+			break;
+		case "course":
+			new CourseCommentWriteOkController().execute(request, response);
+			break;
+		}
+
 		return null;
 	}
-	
+
 }
