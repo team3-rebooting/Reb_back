@@ -10,7 +10,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/routine/routine-meeting-review-detail.css">
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/comment/comment.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/comment/comment.css">
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/header.css">
@@ -101,8 +102,10 @@
 						</div>
 					</c:if>
 					<div class="div-comment-area">
-						<div id="routine" class="comment-list" data-listType="routine" data-reviewnumber="${routineReview.routineReviewNumber}">
-							<jsp:include page="${pageContext.request.contextPath}/app/comment/comment.jsp" />
+						<div id="routine" class="comment-list" data-listType="routine"
+							data-reviewnumber="${routineReview.routineReviewNumber}">
+							<jsp:include
+								page="${pageContext.request.contextPath}/app/comment/comment.jsp" />
 						</div>
 						<!-- <ul class="ul-comment-list">
 							<li class="li-comment">
@@ -144,22 +147,26 @@
 								</div>
 							</li>
 						</ul> -->
-						<div class="div-comment-write">
-							<form action="" method="get" class="form-comment-write">
-								<input type="hidden" name="routineReviewNumber" value="${routineReview.routineReviewNumber}">
-								<input type="hidden" name="memberNumber" value="${sessionScope.memberNumber}">
-								<input type="text" placeholder="댓글을 입력해주세요" name="comment"
-									class="input-comment">
-								<button class="button-write" type="button">등록</button>
-							</form>
-						</div>
-						<div class="div-page">
-							<!-- a 태그 영역 -->
+						<c:if test="${not empty sessionScope.memberNumber}">
+							<div class="div-comment-write">
+								<form action="" method="get" class="form-comment-write">
+									<input type="hidden" name="routineReviewNumber"
+										value="${routineReview.routineReviewNumber}"> <input
+										type="hidden" name="memberNumber"
+										value="${sessionScope.memberNumber}"> <input
+										type="text" placeholder="댓글을 입력해주세요" name="comment"
+										class="input-comment">
+									<button class="button-write" type="button">등록</button>
+								</form>
+							</div>
+						</c:if>
+						<!-- <div class="div-page">
+							a 태그 영역
 							<div class="div-pagenation">
 								<a href="#">&lt;</a> <a href="#">1</a> <a href="#">2</a> <a
 									href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">&gt;</a>
 							</div>
-						</div>
+						</div> -->
 					</div>
 
 				</div>
@@ -169,6 +176,7 @@
 	<div id="footer"></div>
 </body>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/comment/comment.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/comment/comment.js"></script>
 
 </html>
