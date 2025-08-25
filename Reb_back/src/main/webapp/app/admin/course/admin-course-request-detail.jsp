@@ -125,25 +125,33 @@
           	<c:when test="${course.courseRequestTypeNumber == 1}">
           <div id="div-admin-detail-button-create">
             <!-- 개설 승인 버튼 -->
-            <button class="button-application" type="button">개설 승인</button>
+            <button class="button-application" type="button" 
+            data-course-number="${course.courseNumber}"
+            data-course-request-type="${course.courseRequestTypeNumber}">개설 승인</button>
             <!-- 개설 반려 버튼 -->
-            <button class="button-cancel" type="button">개설 반려</button>
+            <button class="button-cancel" type="button"
+            data-course-number="${course.courseNumber}">개설 반려</button>
           </div>          	
           	</c:when>
           	<c:when test="${course.courseRequestTypeNumber == 2}">
           <!-- 수정 버튼 영역 -->
           <div id="div-admin-detail-button-update">
             <!-- 수정 승인 버튼 -->
-            <button class="button-application" type="button">수정 승인</button>
+            <button class="button-application" type="button"
+            data-course-number="${course.courseNumber}"
+            data-course-request-type="${course.courseRequestTypeNumber}">수정 승인</button>
             <!-- 수정 반려 버튼 -->
-            <button class="button-cancel" type="button">수정 반려</button>
+            <button class="button-cancel" type="button"
+            data-course-number="${course.courseNumber}">수정 반려</button>
           </div>
           	</c:when>
           	<c:when test="${course.courseRequestTypeNumber == 3}">
           <!-- 삭제 버튼 영역 -->
           <div id="div-admin-detail-button-delete">
             <!-- 삭제 승인 버튼 -->
-            <button class="button-application" type="button">삭제 승인</button>
+            <button class="button-application" type="button"
+            data-course-number="${course.courseNumber}"
+            data-course-request-type="${course.courseRequestTypeNumber}">삭제 승인</button>
             <!-- 삭제 반려 버튼 -->
             <button class="button-cancel" type="button">삭제 반려</button>
           </div>          	

@@ -8,21 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.admin.dao.AdminCourseRequestDAO;
 
-public class CourseRequestApproveOkController implements Execute{
+public class NoticeUpdateOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
-		AdminCourseRequestDAO requestDAO = new AdminCourseRequestDAO();
-		
-		int requestNumber = Integer.valueOf(request.getParameter("courseNumber"));
-		requestDAO.approve(requestNumber);
-		
-		result.setPath("/admin/courseRequestListOk.ad");
-		result.setRedirect(true);
+		result.setRedirect(false);
+		result.setPath("/admin/noticeListOk.ad");
 		return result;
 	}
 

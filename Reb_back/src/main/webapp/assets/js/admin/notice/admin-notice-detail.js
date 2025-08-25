@@ -4,10 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	const deleteBtn = document.querySelector(".main-btn:last-child");
 	const backListBtn = document.querySelector(".back-list");
 	
-	const noticeNumber = backListBtn?.dataset.noticeNumber ?? window.noticeNumber;
-	const adminNumber = backListBtn?.dataset.adminNumber ?? window.adminNumber;
 
-	updateBtn.addEventListener('click', () => {
+	updateBtn.addEventListener('click', (e) => {
+		const noticeNumber = e.target.dataset.noticeNumber;
 		console.log(noticeNumber);
 		if (!noticeNumber) return alert("noticeNumber가 없습니다");
 		window.location.href = `/admin/noticeUpdate.ad?noticeNumber=${encodeURIComponent(noticeNumber)}`;

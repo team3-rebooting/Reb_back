@@ -1,4 +1,3 @@
-const createBtn = document.querySelector(".button-application");
 const dropBtn = document.querySelector(".button-cancel");
 const dropModal = document.querySelector("#modal-background");
 const submitBtn = document.querySelector("#submit");
@@ -8,11 +7,25 @@ const updateBtn = document.querySelector("#div-admin-detail-button-update");
 const deleteBtn = document.querySelector("#div-admin-detail-button-delete");
 const chooseBtn = document.querySelector("#choose-create");
 const viewBtn = document.querySelector("#view-button");
+const approveButtons = document.querySelectorAll('.button-application');
 
-createBtn.addEventListener('click', () => {
-  alert("개설을 승인하였습니다.");
-  location.href = "./../../../app/admin/course/admin-course-detail.html";
+approveButtons.forEach(button => {
+    button.addEventListener('click', () => {
+		if(confirm("정말 승인하시겠습니까?")){	
+        const courseNumber = button.dataset.courseNumber;
+		const state = button.dataset.courseRequestType;
+		if(state === '1'){
+			alert("승인되었습니다");
+			window.location.href = `/admin/courseRequestApproveOk.ad?courseNumber=${courseNumber}`								
+		}
+		/*if(state === '3'){
+			window.location.href = `/admin/courseRequestDeleteOk.ad?courseNumber=${courseNumber}`
+		}*/
+		
+		}
+    });
 });
+
 
 dropBtn.addEventListener('click', () => {
   dropModal.style.display = "flex";
@@ -39,12 +52,3 @@ moveBtn.addEventListener('click', () => {
   location.href = "/admin/courseRequestListOk.ad?page=1";
 });
 
-chooseBtn.addEventListener('click', () => {
-  updateBtn.style.display = "none";
-  deleteBtn.style.display = "none";
-});
-
-viewBtn.addEventListener('click', () => {
-  updateBtn.style.display = "flex";
-  deleteBtn.style.display = "flex";
-});

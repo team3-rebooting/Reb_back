@@ -55,7 +55,7 @@
 						<c:forEach var="adminFile" items="${board.fileAdminList}">
 							<img
 								src="${pageContext.request.contextPath}/upload/${adminFile.getFileSystemName()}"
-								class="logo-image" alt="관리자 프로필 사진" />
+								class="logo-image" alt="공지사항 파일" />
 						</c:forEach>
 					</div>
 					<div class="notice-detail-admin-containter">
@@ -81,17 +81,17 @@
 					</div>
 				</div>
 				<section id="attachment-section">
-					<p class="attachment-title font-main">첨부파일</p>
+					<p class="attachment-title font-main"></p>
 					<ul id="attachment-list" class="font-main">
 						<!-- 파일 1 -->
 						<li class="attachment-item">
-							<!-- 파일명 링크(밑줄) --> <a class="attachment-name"
-							href="./../../../assets/img/karina.jpg" download="첨부파일">
-								UI_수정사항.pdf </a> <c:forEach var="noticeFile"
-								items="${board.fileNoticeList}">
-								<img
+						<c:forEach var="noticeFile" items="${notice.fileNoticeList}">
+							<%-- <!-- 파일명 링크(밑줄) --> <a class="attachment-name"
+							href="/file/download.file?fileSystemName=${noticeFile.getFileSystemName()}&fileOriginalName=${noticeFile.getFileOriginalName()}" download="첨부파일">
+								${noticeFile.getFileSystemName()}</a>  --%>
+								 <img
 									src="${pageContext.request.contextPath}/upload/${noticeFile.getFileSystemName()}"
-									class="logo-image" alt="첨부파일" />
+									class="logo-image" alt="첨부파일" /> 
 							</c:forEach>
 						</li>
 					</ul>

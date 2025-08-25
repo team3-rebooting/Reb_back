@@ -44,12 +44,10 @@
 				class="input-in" value="${notice.getNoticeTitle()}">
 			<!-- 파일 입력 -->
 			<input type="file" name="fileNoticeList"
-				id="main-admin-notice-create-file" placeholder="추가 파일"
-				value="${notice.getFileNoticeList()}">
+				id="main-admin-notice-create-file" placeholder="추가 파일">
 			<!-- 내용 입력 -->
 			<textarea name="noticeContent" id="main-admin-notice-create-content"
-				placeholder="내용을 입력해주세요" class="input-in"
-				value="${notice.getNoticeContent()}"></textarea>
+				placeholder="내용을 입력해주세요" class="input-in" >${notice.getNoticeContent()}</textarea>
 			<div>
 				<!-- 확인 버튼 -->
 				<button class="main-btn" type="submit">확인</button>
