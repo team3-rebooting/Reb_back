@@ -33,7 +33,7 @@ public class CourseReviewEditOkController implements Execute{
 		FileCourseReviewDAO fileCourseReviewDAO = new FileCourseReviewDAO();
 		Result result = new Result();
 		
-		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload";
+		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
 		final int FILE_SIZE = 1024 * 1024 * 5;
 		
 		MultipartParser parser = new MultipartParser(request, FILE_SIZE);
