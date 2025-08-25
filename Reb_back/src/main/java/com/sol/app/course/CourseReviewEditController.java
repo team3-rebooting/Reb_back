@@ -15,7 +15,9 @@ public class CourseReviewEditController implements Execute{
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		System.out.println("CourseReviewEditController 진입 성공");
+		System.out.println(request.getParameter("courseReviewNumber"));
+		
 		int courseReviewNumber = Integer.valueOf(request.getParameter("courseReviewNumber"));
 		CourseReviewDAO courseReviewDAO = new CourseReviewDAO();
 		Result result = new Result();
@@ -25,7 +27,7 @@ public class CourseReviewEditController implements Execute{
 		result.setPath("/app/course/course-review-edit.jsp");
 		result.setRedirect(false);
 		
-		return null;
+		return result;
 	}
 
 	

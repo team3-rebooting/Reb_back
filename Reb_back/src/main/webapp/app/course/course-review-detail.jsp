@@ -74,9 +74,12 @@
 				<!--상세 글 영역 -->
 				<div class="div-detail-area">
 					<!-- 대표 사진 영역 -->
-					<c:forEach var="file" items="${courseReview.getFileCourseReviewList()}">
+					<c:forEach var="file"
+						items="${courseReview.getFileCourseReviewList()}">
 						<div class="div-img">
-							<img src="${pageContext.request.contextPath}/upload/${file.getFileSystemName()}" class="img-detail" />
+							<img
+								src="${pageContext.request.contextPath}/upload/${file.getFileSystemName()}"
+								class="img-detail" />
 						</div>
 					</c:forEach>
 					<!-- 글 영역 -->
@@ -84,7 +87,7 @@
 						<!-- 글 영역  -->
 						<div class="div-expert-info-detail">
 							<p class="p-expert-detail-comment">
-							<c:out value="${courseReview.getCourseReviewContent()}" />
+								<c:out value="${courseReview.getCourseReviewContent()}" />
 								<!-- 강사님이 너무 친절하기구 수업도 열정적으로 알려주셔요! 과제도 그만큼 열정적으로 내주셔요!!!
                 이분 수업 강력하게 추천합니다!
                 저는 다음에 또 들을 기회가 생긴다면 또 듣고싶어요
@@ -94,9 +97,17 @@
 					</div>
 					<!-- 버튼 영역 -->
 					<div class="div-button-area">
-						<a href="${pageContext.request.contextPath}/course/courseRevieEdit.co"><button
-								class="button-application">수정</button></a>
-						<button class="button-cancel">삭제</button>
+						<c:if
+							test="${sessionScope.memberNumber == courseReview.getMemberNumber() }">
+							<button class="button-application" type="button"
+								data-course-review-number="${courseReview.courseReviewNumber}"
+								data-member-number="${sessionScope.memberNumber}">수정</button>
+
+							<button class="button-cancel" type="button"
+								data-course-review-number="${courseReview.courseReviewNumber}"
+								data-member-number="${sessionScope.memberNumber}">삭제</button>
+
+						</c:if>
 					</div>
 					<!-- 댓글 영역 -->
 					<div class="div-comment-area">

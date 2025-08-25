@@ -41,14 +41,14 @@ public class CourseReviewDAO {
 	}
 
 	// 수업 후기 삭제
-	public void deleteRequest(int courseReviewNumber) {
+	public void delete(int courseReviewNumber) {
 		System.out.println("수업 후기 삭제 : " + courseReviewNumber);
 		sqlSession.delete("courseReview.deleteRequest", courseReviewNumber);
 		System.out.println("수업 후기 삭제 완료");
 	}
 	
 	// 수업 후기 수정
-	public void updateRequest(CourseReviewDTO courseReviewDTO) {
+	public void update(CourseReviewDTO courseReviewDTO) {
 		System.out.println("수업 후기 수정 : " + courseReviewDTO.getCourseReviewNumber());
 		sqlSession.update("courseReview.update", courseReviewDTO);
 	}
