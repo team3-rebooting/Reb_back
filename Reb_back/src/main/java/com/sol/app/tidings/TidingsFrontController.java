@@ -28,7 +28,7 @@ public class TidingsFrontController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doProcess(request, response);
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class TidingsFrontController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		doProcess(request, response);
 	}
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -47,10 +47,10 @@ public class TidingsFrontController extends HttpServlet {
 		
 		switch(target) {
 		case "/tidings/noticeListOk.ti" :
-			result = UserNoticeListOkController().execute(request,response);
+			result = new UserNoticeListOkController().execute(request,response);
 			break;
 		case "/tidings/noticeReadOk.ti" :
-			result = UserNoticeReadOkController().excute(request,response);
+			result = new UserNoticeReadOkController().execute(request,response);
 			break;
 		}
 		
