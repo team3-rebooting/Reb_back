@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,21 +39,24 @@
 		<form
 			action="${pageContext.request.contextPath}/admin/adminUpdateOk.ad"
 			method="post" enctype="multipart/form-data">
+			<input type="hidden" name="noticeNumber" value ="${notice.getNoticeNumber()}">
 			<!-- 제목 입력 -->
 			<input type="text" name="noticeTitle"
 				id="main-admin-notice-create-title" placeholder="제목을 입력해 주세요"
 				class="input-in" value="${notice.getNoticeTitle()}">
 			<!-- 파일 입력 -->
+			<c:forEach var="file" items="${notice.fileNoticeList}">
 			<input type="file" name="fileNoticeList"
-				id="main-admin-notice-create-file" placeholder="추가 파일">
-			<!-- 내용 입력 -->
+				id="main-admin-notice-create-file" placeholder="파일 변경" >
+			<!-- 내용 입력 -->			
+			</c:forEach>
 			<textarea name="noticeContent" id="main-admin-notice-create-content"
 				placeholder="내용을 입력해주세요" class="input-in" >${notice.getNoticeContent()}</textarea>
 			<div>
 				<!-- 확인 버튼 -->
 				<button class="main-btn" type="submit">확인</button>
 				<!-- 취소 버튼 -->
-				<button class="main-btn">취소</button>
+				<button class="main-btn" type="button">취소</button>
 			</div>
 		</form>
 		<!-- 확인 취소 버튼 영역 -->
