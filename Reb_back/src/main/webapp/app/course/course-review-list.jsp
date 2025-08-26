@@ -58,9 +58,10 @@
 					<c:choose>
 						<c:when test="${not empty courseReviewList}">
 							<c:forEach var="courseReview" items="${courseReviewList}">
-								<li class="li-review-content"  class="course-list">
+								<li class="li-review-content" class="course-list">
 									<div class="review-title">
-										<a href="${pageContext.request.contextPath}/course/courseReviewDetailOk.co?courseReviewNumber=${courseReview.courseReviewNumber}">
+										<a
+											href="${pageContext.request.contextPath}/course/courseReviewDetailOk.co?courseReviewNumber=${courseReview.courseReviewNumber}">
 											<c:out value="${courseReview.getCourseReviewTitle()}" />
 										</a>
 									</div>
@@ -137,9 +138,9 @@
 									</button>
 								</div>
 							</div>
-							<button type="button" class="button-write">
-								<a href="${pageContext.request.contextPath}/course/courseReviewWrite.co" class="a-write">글 쓰기</a>
-							</button>
+							<a href="${pageContext.request.contextPath}/course/courseReviewWrite.co" class="a-write">
+								<button type="button" class="button-write">글 쓰기</button>
+							</a>
 						</div>
 					</form>
 				</div>

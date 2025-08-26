@@ -92,10 +92,54 @@ document.addEventListener("DOMContentLoaded", function() {
 	let resultId = document.querySelector("#aa");
 
 
+	findBtn.addEventListener("click", async function() loadResult{
+		try{
+			const res = await fetch(`member/findIdOk.me`, {
+				headers : {"Accept": "application/json", "X-Requested-With" : "XMLHttpRequest"},
+			});
+			if(!res.ok) throw new Error("회원 목록을 불러오는데 실패했습니다.");
+			const result = await safeJson(res);
+		}
+	})
 
-	findBtn.addEventListener("click", function()	 {
-		const abc = data.available.getMemberId();
-		console.log(abc);
+	/*findBtn.addEventListener("click", function() {
+		const name = document.querySelector('.input-modal-name-id').value.trim();
+		const phone = document.querySelector('.input-modal-pn-id').value.trim();
+
+		if (!name || !phone) {
+			alert("이름과 전화번호를 입력해주세요.");
+			return;
+		}
+
+		fetch("/member/findIdOk.me", {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			body: new URLSearchParams({
+				modalIdName: name,
+				modalIdPhone: phone
+			})
+		})
+			.then(res => res.json())
+			.then(data => {
+				const Id = data.resultId;
+				const birthdate = data.resultBirth;
+
+				console.log("아이디:", Id);
+				console.log("가입일자:", birthdate);
+
+				document.getElementById("resultId").textContent = Id;
+				document.getElementById("resultIdBirth").textContent = `가입일자: ${birthdate}`;
+
+
+				findIdOkModal.style.display = "block";
+			})
+			.catch(err => {
+				console.error("조회 실패:", err);
+				alert("조회 중 오류가 발생했습니다.");
+			});
+
 		idModal.style.display = "none";
 		inputModalNameId.value = "";
 		inputModalPnId.readOnly = false;
@@ -112,5 +156,5 @@ document.addEventListener("DOMContentLoaded", function() {
 		veriId.disabled = true;
 		reIdPn.disabled = true;
 		findIdOkModal.style.display = "block";
-	});
+	});*/
 });

@@ -43,7 +43,7 @@ public class CourseReviewDAO {
 	// 수업 후기 삭제
 	public void delete(int courseReviewNumber) {
 		System.out.println("수업 후기 삭제 : " + courseReviewNumber);
-		sqlSession.delete("courseReview.deleteRequest", courseReviewNumber);
+		sqlSession.delete("courseReview.delete", courseReviewNumber);
 		System.out.println("수업 후기 삭제 완료");
 	}
 	
