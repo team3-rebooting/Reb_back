@@ -25,7 +25,6 @@ okButton.addEventListener("click", (e) => {
       }
     }
     if (tf === true) {
-      location.href = "./course-list.html";
     }
     else {
       alert("모든 정보가 입력되어야 합니다");
@@ -36,7 +35,7 @@ okButton.addEventListener("click", (e) => {
 
 cancelButton.addEventListener("click", (e) => {
   if (confirm("정말로 취소하시겠습니까? 내용은 전부 삭제됩니다")) {
-    location.href = "./course-list.html";
+    window.location.href = "/app/course/expert-course-create-request.jsp";
   }
   else{
     e.preventDefault();
