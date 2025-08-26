@@ -3,10 +3,10 @@
 <mapper namespace="courseRequest">
 	<insert id="create" parameterType="courseDTO">
 		<selectKey keyProperty="courseNumber" resultType="int" order="BEFORE">
-			SEQ_COURSE.NEXTVAL FROM DUAL
+			select SEQ_COURSE.NEXTVAL FROM DUAL
 		</selectKey>
 		INSERT INTO TBL_COURSE(course_number, course_title, course_content, expert_number, course_recruit_status_number, course_post_date, course_recruit_start_date, course_start_date, course_end_date,course_start_time, course_end_time, course_day_of_week, course_price)
-		VALUES(#{courseNumber}, #{courseTitle}, #{courseContent}, #{expertNumber}, 1, to_char(sysdate, 'yyyy-mm-dd'), to_char(#{courseStartDate} - 30, 'yyyy-mm-dd'), to_char(#{courseStartDate}, 'yyyy-mm-dd'), to_char(#{courseEndDate}, 'yyyy-mm-dd'), #{courseStartTime}, #{courseEndTime}, #{courseDayOfWeek}, #{coursePrice})
+		VALUES(#{courseNumber}, #{courseTitle}, #{courseContent}, #{expertNumber}, 1, to_char(sysdate, 'yyyy-mm-dd'), to_date(#{courseStartDate}, 'yyyy-mm-dd') - 30, to_char(#{courseStartDate}, 'yyyy-mm-dd'), to_char(#{courseEndDate}, 'yyyy-mm-dd'), #{courseStartTime}, #{courseEndTime}, #{courseDayOfWeek}, #{coursePrice})
 	</insert>
 	
 	<insert id="createRequest" parameterType="int">

@@ -13,9 +13,10 @@ public class CourseDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 
-	public void createRequest(CourseDTO courseDTO) {
+	public int createRequest(CourseDTO courseDTO) {
 		int insert = sqlSession.insert("courseRequest.create", courseDTO);
 		sqlSession.insert("courseRequest.createRequest", insert);
+		return insert;
 	}
 	
 	
