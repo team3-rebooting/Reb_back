@@ -15,6 +15,7 @@ import com.sol.app.Result;
 import com.sol.app.dto.FileExpertDTO;
 import com.sol.app.dto.RoutineReviewDTO;
 import com.sol.app.myPage.dao.FileExpertDAO;
+import com.sol.app.myPage.dao.MyExpertDAO;
 import com.sol.app.routine.dao.RoutineReviewListDAO;
 
 public class ExpertFileUploadOkController implements Execute {
@@ -24,7 +25,8 @@ public class ExpertFileUploadOkController implements Execute {
 			throws ServletException, IOException {
 		FileExpertDAO fileExpertDAO = new FileExpertDAO();
 		FileExpertDTO fileExpertDTO = new FileExpertDTO();
-
+		MyExpertDAO myExpertDAO = new MyExpertDAO();
+		
 		HttpSession session = request.getSession();
 		Integer memberNumber = (Integer) session.getAttribute("memberNumber");
 
@@ -85,8 +87,12 @@ public class ExpertFileUploadOkController implements Execute {
 			fileExpertDTO.setMemberNumber(memberNumber);
 
 			System.out.println("업로드 된 파일 정보 : " + fileExpertDTO);
+			
 			fileExpertDAO.delete(memberNumber);
 			fileExpertDAO.insert(fileExpertDTO);
+			
+			myExpertDAO.delete(memberNumber);
+			myExpertDAO.insert(memberNumber);
 		}
 		
 		result.setPath(request.getContextPath() + "/myPage/expertStatusOk.my");
