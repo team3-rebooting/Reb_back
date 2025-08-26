@@ -2,6 +2,7 @@ package com.sol.app.dto;
 
 public class CourseMemberApplicantDTO {
 	private int courseNumber;
+	private String courseTitle;
 	private int memberNumber;
 	private String courseMemberApplyDate;
 	public int getCourseNumber() {
@@ -12,6 +13,12 @@ public class CourseMemberApplicantDTO {
 	}
 	public int getMemberNumber() {
 		return memberNumber;
+	}
+	public String getCourseTitle() {
+		return courseTitle;
+	}
+	public void setCourseTitle(String courseTitle) {
+		this.courseTitle = courseTitle;
 	}
 	public void setMemberNumber(int memberNumber) {
 		this.memberNumber = memberNumber;
@@ -24,8 +31,9 @@ public class CourseMemberApplicantDTO {
 	}
 	@Override
 	public String toString() {
-		return "CourseMemberApplicantDTO [courseNumber=" + courseNumber + ", memberNumber=" + memberNumber
-				+ ", courseMemberApplyDate=" + courseMemberApplyDate + "]";
+		return "CourseMemberApplicantDTO [courseNumber=" + courseNumber + ", courseTitle=" + courseTitle
+				+ ", memberNumber=" + memberNumber + ", courseMemberApplyDate=" + courseMemberApplyDate + "]";
 	}
+	
 	
 }

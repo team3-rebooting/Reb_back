@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="courseMemberApplicant">
-	<select id="" parameterType="" resultType="">
-		
+	<select id="selectAll" parameterType="int" resultType="CourseMemberApplicantDTO">
+		SELECT TC.COURSE_NUMBER as courseNumber, TC.COURSE_TITLE as courseTitle
+		FROM TBL_COURSE_MEMBER_APPLICANT TM LEFT OUTER JOIN TBL_COURSE TC
+			ON TM.COURSE_NUMBER = TC.COURSE_NUMBER
+		WHERE TM.MEMBER_NUMBER = #{memberNumber}
 	</select>
 </mapper>
