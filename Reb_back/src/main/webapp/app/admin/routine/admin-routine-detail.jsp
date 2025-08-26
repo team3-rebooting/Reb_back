@@ -75,7 +75,9 @@
           </div>
           <div class="div-expert-detail-button">
           	<c:if test="${routine.adminNumber == sessionScope.adminNumber}">
-            <button class="button-update" type="button">수정</button>
+            <button class="button-update" type="button"
+            data-routine-number="${routine.routineNumber}"
+			data-admin-number="${sessionScope.adminNumber}">수정</button>
             <button class="button-delete" type="button">삭제</button>          	
           	</c:if>
           </div>

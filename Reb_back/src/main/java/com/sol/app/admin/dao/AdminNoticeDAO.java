@@ -39,7 +39,11 @@ public class AdminNoticeDAO {
 		System.out.println(tf);
 		return noticeDTO.getNoticeNumber(); 
 	}
-
+	//공지사항 수정
+	public void update(AdminNoticeDTO noticeDTO) {
+		sqlSession.update("adminNotice.update",noticeDTO);
+	}
+	
 	// 공지사항 삭제
 	public void delete(int noticeNumber) {
 		sqlSession.delete("adminNotice.delete", noticeNumber);
