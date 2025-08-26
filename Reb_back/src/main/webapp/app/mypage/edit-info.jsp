@@ -36,8 +36,10 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
 	rel="stylesheet">
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/mypage/edit-info.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/mypage/edit-info.js"></script>
 <title>틈새빛</title>
 </head>
 
@@ -46,7 +48,8 @@
 	<jsp:include page="/header.jsp" />
 	<main>
 		<!-- 모달 -->
-		<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-modal.jsp" />
+		<jsp:include
+			page="${pageContext.request.contextPath}/app/mypage/mypage-modal.jsp" />
 		<!-- 사이드 메뉴 -->
 		<jsp:include
 			page="${pageContext.request.contextPath}/app/mypage/sidemenu.jsp" />
@@ -54,7 +57,8 @@
 		<div id="main-container">
 			<div class="pagetitle">개인정보 수정</div>
 			<!-- 개인정보 수정 form -->
-			<form action="${pageContext.request.contextPath}/myPage/editCompleteOk.my"
+			<form
+				action="${pageContext.request.contextPath}/myPage/editCompleteOk.my"
 				method="post" id="formEdit" enctype="multipart/form-data">
 				<div class="edit-info-container">
 					<!-- ID -->
@@ -127,8 +131,10 @@
 						<div class="edit-info-type">실거주지</div>
 						<div class="edit-info-data edit-info-input-two-row">
 							<div id="edit-info-address-main">
-								<input type="hidden" id="input-edit-info-address-text" name="address" value="${myMemberDTO.address}">
-								<input type="hidden" id="input-edit-info-address-post" name="zipCode" value="${myMemberDTO.zipCode}">
+								<input type="hidden" id="input-edit-info-address-text"
+									name="address" value="${myMemberDTO.address}"> <input
+									type="hidden" id="input-edit-info-address-post" name="zipCode"
+									value="${myMemberDTO.zipCode}">
 								<div id="edit-info-address-text">${myMemberDTO.address}</div>
 								<div id="edit-info-address-post">${myMemberDTO.zipCode}</div>
 								<!-- 주소 검색 -->
@@ -207,10 +213,16 @@
 						<div class="edit-info-data">
 							<!-- 프로필 사진 이미지 -->
 							<c:set var="file" value="${myMember.getFileMemberProfile()}"></c:set>
-							<c:if test="${empty file}">
+							<div id="profile-picture">
+								<img id="img-edit-profile-pic"
+									src="${pageContext.request.contextPath}/assets/img/profilePicture/dog.jpg"
+									alt="프로필">
+							</div>
+							<%-- <c:if test="${empty file}">
 								<div id="profile-picture">
 									<img id="img-edit-profile-pic"
-										src="${pageContext.request.contextPath}/assets/img/profilePicture/dog.jpg" alt="프로필">
+										src="${pageContext.request.contextPath}/assets/img/profilePicture/dog.jpg"
+										alt="프로필">
 								</div>
 							</c:if>
 							<c:if test="${not empty file}">
@@ -218,9 +230,10 @@
 									<img id="img-edit-profile-pic"
 										src="${pageContext.request.contextPath}/upload/profile/${file.getFileSystemName()}">
 								</div>
-							</c:if>
+							</c:if> --%>
 							<!-- 프로필 사진 수정 버튼 -->
-							<button type="button" id="button-edit-profile-pic" class="button-modal-open" name="profilePicUpload">수정</button>
+							<!-- <button type="button" id="button-edit-profile-pic"
+								class="button-modal-open" name="profilePicUpload">수정</button> -->
 						</div>
 					</div>
 				</div>
