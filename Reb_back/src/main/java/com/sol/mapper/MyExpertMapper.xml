@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="myExpert">
-	<select id="select" parameterType="memberNumber" resultType="MyExpertDTO">
+	<select id="select" parameterType="int" resultType="MyExpertDTO">
 		<![CDATA[
 		SELECT e.EXPERT_NUMBER, e.MEMBER_NUMBER, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER, e.EXPERT_FIELD_NUMBER, fi.FIELD_NAME, ec.EXPERT_CERT_STATUS_NUMBER, ec.EXPERT_CERT_STATUS_INFO, a.EXPERT_APPLICANT_REASON, a.EXPERT_CHECK_DATE
 			FROM tbl_expert_applicant a 
@@ -9,7 +9,7 @@
 			LEFT JOIN tbl_expert_cert_status ec ON ec.EXPERT_CERT_STATUS_NUMBER = a.EXPERT_STATUS_NUMBER
 			LEFT JOIN tbl_file_expert fe ON fe.MEMBER_NUMBER  = a.MEMBER_NUMBER
 			LEFT JOIN tbl_field fi ON fi.FIELD_NUMBER = e.EXPERT_FIELD_NUMBER 
-			WHERE a.MEMBER_NUMBER = 100
+			WHERE a.MEMBER_NUMBER = ${memberNumber}
 		]]>
 	</select>
 </mapper>

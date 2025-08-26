@@ -63,6 +63,7 @@
 						</p>
 					</div>
 					<div class="div-font-awesome-line">
+						<span>루틴 모임 : ${routineReview.routineTitle}</span><br>
 						<span class="span-likes">좋아요 수 : <c:out
 								value="${routineReview.getLikeCount()}" />
 						</span><i class="fa-regular fa-heart"></i>
@@ -85,7 +86,7 @@
 					</div>
 					<div class="div-expert-detail">
 						<div class="div-expert-info-detail">
-							<p class="p-expert-detail-comment">
+							<p class="p-expert-detail-comment" style="white-space:pre-line; word-break: break-all;">
 								<c:out value="${routineReview.getRoutineReviewContent()}" />
 							</p>
 						</div>

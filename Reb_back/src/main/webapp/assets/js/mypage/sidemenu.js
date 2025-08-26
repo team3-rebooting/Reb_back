@@ -7,6 +7,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	const expertCourseSubMenuLi = document.querySelectorAll(`#li-expert-course-menu .li-subsidemenu`);
 	const expertCourseSubMenuA = document.querySelectorAll(`#li-expert-course-menu .li-subsidemenu a`);
 
+	const expertNumber = document.querySelector("#expertNumber");
+	
 	sideMenuBtnClose.addEventListener('click', () => { moveSideMenu("-300px"); });
 	sideMenuBtnOpen.addEventListener('click', () => { moveSideMenu("0px"); });
 
@@ -14,10 +16,11 @@ window.addEventListener('DOMContentLoaded', () => {
 		openModal('expertStatus');
 	});*/
 
-	const expertStatusText = getExpertStatus();
+	/*const expertStatusText = getExpertStatus();
 	if (expertStatusText !== null) {
 		setActiveExpertMenu(expertStatusText === "인증 완료");
 	}
+	*/
 	
 	function moveSideMenu(left) {
 		sideMenu.style.left = left;
@@ -26,8 +29,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		sideMenuBtnClose.innerHTML = "&lt;";
 	}
 
-	function setActiveExpertMenu(isExpert) {
-		if (isExpert) {
+	function setActiveExpertMenu() {
+		console.log("exmpertNumber : ", expertNumber.value);
+		if (expertNumber.value !== null && expertNumber.value !== undefined && expertNumber.value !== "") {
 			expertCourseMainMenu.forEach((e) => {
 				e.style.color = "#F38A6E"
 				e.style.pointerEvents = "auto";
@@ -57,7 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 
-	function getExpertStatus() {
+	/*function getExpertStatus() {
 		let expertStatus = document.querySelector("#personal-info-expert-status");
 		if (expertStatus !== null)
 			return expertStatus.innerHTML;
@@ -68,7 +72,9 @@ window.addEventListener('DOMContentLoaded', () => {
 				return expertStatus.innerHTML;
 		}
 		return null;
-	}
+	}*/
+	
+	setActiveExpertMenu();
 })
 
 

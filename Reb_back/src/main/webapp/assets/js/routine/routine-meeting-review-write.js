@@ -31,8 +31,21 @@
 })*/
 
 
-function cancel() {
-	if (confirm("정말로 취소하시겠습니까? 내용은 전부 삭제됩니다")) {
-		location.href = "/routine/routineOk.ro";
+window.addEventListener('DOMContentLoaded', () => {
+	function cancel() {
+		if (confirm("정말로 취소하시겠습니까? 내용은 전부 삭제됩니다")) {
+			location.href = "/routine/routineOk.ro";
+		}
 	}
-}
+})
+
+
+
+
+
+
+
+
+
+
+

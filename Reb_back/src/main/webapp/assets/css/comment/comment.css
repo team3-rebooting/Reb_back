@@ -25,7 +25,7 @@
   white-space: nowrap;
 }
 
-p{
+.comment-list p{
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
