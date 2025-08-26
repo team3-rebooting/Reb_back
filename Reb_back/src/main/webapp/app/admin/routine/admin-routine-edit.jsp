@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/routine/admin-routine-create.css">
-  <script defer src="${pageContext.request.contextPath}/assets/js/admin/routine/admin-routine-create.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/routine/admin-routine-edit.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/admin/routine/admin-routine-edit.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&display=swap"
@@ -17,7 +18,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
-  <title>루틴 모임 개설</title>
+  <title>루틴 모임 수정</title>
 </head>
 
 <body>
@@ -35,11 +36,11 @@
     <div id="main-container">
       <p class="pagetitle">루틴 모임 개설</p>
       <!-- 내용 입력 영역 -->
-      <form action="${pageContext.request.contextPath}/admin/routineWriteOk.ad" method="post" 
+      <form action="${pageContext.request.contextPath}/admin/routineUpdateOk.ad" method="post" 
        enctype="multipart/form-data">
         <!-- 제목 입력 영역 -->
         <div class="div-create-routine">
-          <input type="text" class="input-title" name="routineTitle" placeholder="제목을 입력해주세요" class="input-in">
+          <input type="text" class="input-title" name="routineTitle" placeholder="제목을 입력해주세요" class="input-in" value="${routine.getRoutineTitle()}">
         </div>
         <!-- 이미지 파일 입력 영역 -->
         <div class="div-create-routine">
@@ -49,7 +50,9 @@
         <!-- 내용 입력 영역 -->
         <div class="div-create-routine">
           <p class="font-main little-title">내용</p>
-          <textarea class="textarea-text" name="routineContent" rows="20" cols="130" class="input-in"></textarea>
+          <textarea class="textarea-text" name="routineContent" rows="20" cols="130" class="input-in">
+         	${routine.getRoutineContent()}
+          </textarea>
         </div>
         <!-- 지도 입력 영역 -->
         <div class="div-create-routine">
@@ -64,24 +67,24 @@
               <p class="font-main">모집 기간</p>
               <!-- 모집기간 입력 영역 -->
               <div class="div-input-info">
-                <input type="date" name="routineRecruitStartDate" id="start-date" class="input-in">
-                <input type="date" name="routineRecruitEndDate" id="end-date" class="input-in">
+                <input type="date" name="routineRecruitStartDate" id="start-date" class="input-in" value="${routine.getRoutineRecruitStartDate()}">
+                <input type="date" name="routineRecruitEndDate" id="end-date" class="input-in" value="${routine.getRoutineRecruitEndDate()}">
               </div>
             </div>
             <div class="div-info-line">
               <p class="font-main">모임 날짜</p>
               <!-- 모임 날짜 입력 영역 -->
               <div class="div-input-info">
-                <input type="date" name="routineStartDate" id="routine-start-date" class="input-in" readonly="readonly">
-                <input type="date" name="routineEndDate" id="routine-end-date" class="input-in" readonly="readonly">
+                <input type="date" name="routineStartDate" id="routine-start-date" class="input-in" readonly="readonly" value="${routine.getRoutineStartDate()}">
+                <input type="date" name="routineEndDate" id="routine-end-date" class="input-in" readonly="readonly" value="${routine.getRoutineStartDate()}">
               </div>
             </div>
             <div class="div-info-line">
               <p class="font-main">시간</p>
               <!-- 모임 시간 입력 영역 -->
               <div class="div-input-info">
-                <input type="time" name="routineStartTime" id="start-time" class="input-in" readonly="readonly">
-                <input type="time" name="routineEndTime" id="end-time" class="input-in" readonly="readonly">
+                <input type="time" name="routineStartTime" id="start-time" class="input-in" readonly="readonly" value="${routine.getRoutineStartTime()}">
+                <input type="time" name="routineEndTime" id="end-time" class="input-in" readonly="readonly" value="${routine.getRoutineEndTime()}">
               </div>
             </div>
             <!-- 요일 선택 영역 -->
@@ -102,14 +105,14 @@
               <p class="font-main">모집 인원</p>
               <!-- 모집 인원 입력 영역 -->
               <div class="div-input-info">
-                <input type="number" name="routineRecruitCount" class="input-in">
+                <input type="number" name="routineRecruitCount" class="input-in" value="${routine.getRoutineRecruitCount()}">
               </div>
             </div>
             <div class="div-info-line">
               <p class="font-main">모임장 번호</p>
               <!-- 모집 인원 입력 영역 -->
               <div class="div-input-info">
-                <input type="number" name="routineLeaderNumber" class="input-in" placeholder="모임장 번호">
+                <input type="number" name="routineLeaderNumber" class="input-in" placeholder="모임장 번호" value="${routine.getRoutineLeaderNumber()}">
               </div>
             </div>
             

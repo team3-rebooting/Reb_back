@@ -133,6 +133,12 @@ public class AdminFrontController extends HttpServlet {
 		case "/admin/routineUpdate.ad" :
 			System.out.println("루틴 모임 수정");
 			result = new RoutineUpdateController().execute(request,response);
+			break;
+		case "/admin/routineDeleteOk.ad" :
+			System.out.println("루틴 모임 삭제");
+			result = new RoutineDeleteOkController().execute(request, response);
+			break;
+			
 		case "/admin/memberListOk.ad":
 			System.out.println("회원목록 리스트");
 			result = new MemberListOkController().execute(request, response);
@@ -144,6 +150,18 @@ public class AdminFrontController extends HttpServlet {
 		case "/admin/expertApplicantListOk.ad" :
 			System.out.println("전문가 승인 목록 리스트");
 			result = new ExpertApplicantListOkController().execute(request,response);
+			break;
+		case "/admin/expertAcceptWrite.ad" :
+			System.out.println("전문가 승인 및 작성");
+			result = new ExpertAcceptWriteController().execute(request,response);
+			break;
+		case "/admin/expertAcceptWriteOk.ad" :
+			System.out.println("전문가 승인 및 작성 완료");
+			result = new ExpertAccpetWriteOkController().execute(request,response);
+			break;
+		case "/admin/expertCompanionOk.ad" :
+			System.out.println("전문가 승인 반려");
+			result = new ExpertCompanionOkController().execute(request,response);
 			break;
 		case "/admin/expertListOk.ad" :
 			System.out.println("전문가 목록 리스트");

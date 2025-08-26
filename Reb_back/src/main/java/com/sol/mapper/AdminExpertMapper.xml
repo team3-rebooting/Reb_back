@@ -48,4 +48,16 @@
 		set expert_applicant_reason = #{expertApplicantReason}, expert_status_number = 4
 		where member_number = #{memberNumber}
 	</update>
+	<!--전문가 생성 -->
+	<insert id="insert" parameterType="ExpertDTO">
+		<selectKey keyProperty="expertNumber" resultType="int" order="BEFORE">
+			SELECT seq_expert.nextval FROM DUAL
+		</selectKey>
+		insert into tbl_expert(expert_number,member_number,expert_license_info,expert_career,expert_field_number) 
+		values(#{expertNumber},#{memberNumber},#{expertLicenseInfo},#{expertCareer},#{expertFieldNumber})
+	
+	</insert>
+	<update id="updateExpert" parameterType="int">
+		update tbl_expert_applicant set expert_status_number = 2 where member_number = #{memberNumber}
+	</update>
 </mapper>

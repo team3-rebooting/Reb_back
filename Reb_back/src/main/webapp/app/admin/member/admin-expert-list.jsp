@@ -54,7 +54,7 @@
 			<div id="cancel-modal-in">
 				<p>전문가 승인 반려 사유</p>
 				<!-- 반려 모달 입력 form  -->
-				<form action="" method="get" id="cancel-input">
+				<form action="${pageContext.request.contextPath}/admin/expertCompanionOk.ad" method="get" id="cancel-input">
 					<!-- 반려 모달 입력 영역 -->
 					<textarea name="modal" placeholder="사유 입력" id="return-message"
 						autofocus></textarea>
@@ -117,9 +117,11 @@
 									</div>
 									<div class="main-expert-list-approval">
 										<!-- 승인 버튼 -->
-										<button type="button" class="accept">승인</button>
+										<button type="button" class="accept"
+										data-member-number="${applicant.memberNumber}">승인</button>
 										<!-- 반려 버튼 -->
-										<button type="button" class="cancel">반려</button>
+										<button type="button" class="cancel"
+										data-member-number="${applicant.memberNumber}">반려</button>
 									</div>
 									<div class="main-expert-list-file">
 										<a href="./../../../assets/img/yujin.jpg" download="유진.jpg">

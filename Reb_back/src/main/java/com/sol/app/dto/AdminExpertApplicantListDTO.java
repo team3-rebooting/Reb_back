@@ -5,6 +5,7 @@ import java.util.List;
 public class AdminExpertApplicantListDTO {
 	
 	private String expertCertStatusInfo;
+	private int memberNumber;
 	private String memberId;
 	private String memberNickname;
 	private String address;
@@ -54,12 +55,20 @@ public class AdminExpertApplicantListDTO {
 	public void setFileExpertList(List<FileExpertDTO> fileExpertList) {
 		this.fileExpertList = fileExpertList;
 	}
+	public int getMemberNumber() {
+		return memberNumber;
+	}
+	public void setMemberNumber(int memberNumber) {
+		this.memberNumber = memberNumber;
+	}
 	@Override
 	public String toString() {
-		return "AdminExpertApplicantListDTO [expertCertStatusInfo=" + expertCertStatusInfo + ", memberId=" + memberId
-				+ ", memberNickname=" + memberNickname + ", address=" + address + ", addressDetail=" + addressDetail
-				+ ", memberPhoneNumber=" + memberPhoneNumber + ", fileExpertList=" + fileExpertList + "]";
+		return "AdminExpertApplicantListDTO [expertCertStatusInfo=" + expertCertStatusInfo + ", memberNumber="
+				+ memberNumber + ", memberId=" + memberId + ", memberNickname=" + memberNickname + ", address="
+				+ address + ", addressDetail=" + addressDetail + ", memberPhoneNumber=" + memberPhoneNumber
+				+ ", fileExpertList=" + fileExpertList + "]";
 	}
+	
 	
 	
 

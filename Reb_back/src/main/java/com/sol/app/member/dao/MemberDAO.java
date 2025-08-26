@@ -41,4 +41,7 @@ public class MemberDAO {
 	public boolean checkId(String memberId) {
 		return (Integer) sqlSession.selectOne("member.checkId", memberId) < 1;
 	}
+	public MemberDTO findExpert(int memberNumber) {
+		return sqlSession.selectOne("member.findExpert",memberNumber);
+	}
 }

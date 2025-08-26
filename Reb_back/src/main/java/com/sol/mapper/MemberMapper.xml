@@ -71,4 +71,9 @@
 		DELETE FROM TBL_MEMBER 
 		WHERE MEMBER_NUMBER = #{memberNumber}
 	</delete>
+	
+	<select id="findExpert" parameterType="int" resultType="MemberDTO">
+		select member_name , member_gender, member_phone_number, member_email 
+		from tbl_member where member_number = #{memberNumber}
+	</select>
 </mapper>

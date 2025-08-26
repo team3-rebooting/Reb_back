@@ -27,7 +27,7 @@ public class AdminRoutineDAO {
 	public AdminRoutineDTO select(int routineNumber) {
 		return sqlSession.selectOne("adminRoutine.select", routineNumber);
 	}
-
+	
 	// 루틴모임 총 개수 가져오기
 	public int getTotal() {
 		return sqlSession.selectOne("adminRoutine.getTotal");
