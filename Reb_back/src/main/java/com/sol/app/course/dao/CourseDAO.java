@@ -15,11 +15,7 @@ public class CourseDAO {
 	public CourseDAO() {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
-	
-	public List<CourseListDTO> selectAll(Map<String, Integer> pageMap){
-		
-		return null;
-	}
+
 	
 	
 	
