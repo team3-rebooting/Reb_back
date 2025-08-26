@@ -3,8 +3,8 @@
 <mapper namespace="routineReviewList">
 	<select id="select" parameterType="int" resultType="RoutineReviewListDTO">
 		<![CDATA[
-		SELECT rr.ROUTINE_REVIEW_NUMBER, rr.ROUTINE_NUMBER, rr.routine_review_title, m.MEMBER_NUMBER, m.MEMBER_NICKNAME, rr.ROUTINE_REVIEW_CREATED_DATE , rr.ROUTINE_REVIEW_UPDATED_DATE, rr.ROUTINE_REVIEW_CONTENT
-		FROM tbl_Routine_Review rr LEFT JOIN tbl_file_routine_review fr ON rr.ROUTINE_REVIEW_NUMBER = fr.ROUTINE_REVIEW_NUMBER
+		SELECT rr.ROUTINE_REVIEW_NUMBER, rr.ROUTINE_NUMBER, r.routine_title, rr.routine_review_title, m.MEMBER_NUMBER, m.MEMBER_NICKNAME, rr.ROUTINE_REVIEW_CREATED_DATE , rr.ROUTINE_REVIEW_UPDATED_DATE, rr.ROUTINE_REVIEW_CONTENT
+		FROM tbl_Routine_Review rr JOIN tbl_routine r on rr.routine_number = r.routine_number LEFT JOIN tbl_file_routine_review fr ON rr.ROUTINE_REVIEW_NUMBER = fr.ROUTINE_REVIEW_NUMBER
 		JOIN tbl_Member m ON rr.MEMBER_NUMBER = m.MEMBER_NUMBER
 		WHERE rr.routine_review_number = #{routineReviewNumber}
 		]]>

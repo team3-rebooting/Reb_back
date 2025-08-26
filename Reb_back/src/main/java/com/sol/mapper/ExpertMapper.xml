@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="expert">
-	<select id="" parameterType="" resultType="">
-		
+	<select id="select" parameterType="int" resultType="ExpertDTO">
+		SELECT expert_number, member_number, expert_license_info, expert_career, expert_field_number FROM tbl_expert WHERE member_number = ${memberNumber}
 	</select>
 </mapper>

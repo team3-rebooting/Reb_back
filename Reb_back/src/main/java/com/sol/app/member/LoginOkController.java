@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSession;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
+import com.sol.app.dto.ExpertDTO;
 import com.sol.app.dto.MemberDTO;
+import com.sol.app.member.dao.ExpertDAO;
 import com.sol.app.member.dao.MemberDAO;
 
 public class LoginOkController implements Execute{
@@ -20,6 +22,9 @@ public class LoginOkController implements Execute{
 		// TODO Auto-generated method stub
 		MemberDTO memberDTO = new MemberDTO();
 		MemberDAO memberDAO = new MemberDAO();
+		
+		ExpertDAO expertDAO = new ExpertDAO();
+		
 		int memberNumber = 0;
 		Result result = new Result();
 		// 로그인 시도 결과에 따른 경로를 알려주기 위해 사용
@@ -42,7 +47,14 @@ public class LoginOkController implements Execute{
 //			추후 main servlet으로 경로 변경
 			path = "/main.jsp";
 			session.setAttribute("memberNumber", memberNumber);
-			System.out.println("세션 값 : " + memberNumber);
+			System.out.println("세션 값 memberNumber : " + memberNumber);
+			
+			ExpertDTO expertDTO = expertDAO.select(memberNumber);
+			
+			if(expertDTO != null) {
+				session.setAttribute("expertNumber", expertDTO.getExpertNumber());
+				System.out.println("세션 값 expertNumber : " + expertDTO.getExpertNumber());
+			}			
 			
 			/*
 			 * if(remember != null) { 
