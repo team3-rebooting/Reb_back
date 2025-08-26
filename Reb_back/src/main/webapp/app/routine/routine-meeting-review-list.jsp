@@ -40,7 +40,7 @@
 				<p class="font-main review-title-title">제목</p>
 				<p class="font-main review-author">작성자</p>
 				<p class="font-main review-date">작성일</p>
-				<p class="font-main review-like">좋아요</p>
+				<p class="font-main review-like" style="display:none">좋아요</p>
 			</div>
 			<!-- 게시글 목록 -->
 			<div class="board-body">
@@ -61,7 +61,7 @@
 									<p class="review-date">
 										<c:out value="${routine.routineReviewCreatedDate}" />
 									</p>
-									<p class="review-like">
+									<p class="review-like" style="display:none">
 										<c:out value="${routine.likeCount}" />
 									</p>
 								</li>

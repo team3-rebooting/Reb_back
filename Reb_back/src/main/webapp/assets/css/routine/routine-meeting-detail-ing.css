@@ -175,13 +175,25 @@ button:hover {
 	border: 1px solid #ff0000;
 }
 
-.div-expert-before-button, .div-expert-after-button {
+.button-before{
+	width: 50%;
+	height: 50px;
+	font-size: 30px;
+	background-color: gray;
+	border-radius: 13px;
+	padding: 0px 20px;
+	font-size: 20px;
+	color: black;
+	border: 1px solid gray;
+}
+
+/* .div-expert-before-button, .div-expert-after-button {
 	margin-top: 50px;
 	justify-content: center;
 	margin-bottom: 100px;
-}
+} */
 
-.button-before, .button-after {
+.button-after {
 	height: 50px;
 	color: black;
 	border-radius: 13px;

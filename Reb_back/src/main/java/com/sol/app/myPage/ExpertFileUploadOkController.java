@@ -12,11 +12,10 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.sol.app.Execute;
 import com.sol.app.Result;
+import com.sol.app.dto.ExpertDTO;
 import com.sol.app.dto.FileExpertDTO;
-import com.sol.app.dto.RoutineReviewDTO;
 import com.sol.app.myPage.dao.FileExpertDAO;
 import com.sol.app.myPage.dao.MyExpertDAO;
-import com.sol.app.routine.dao.RoutineReviewListDAO;
 
 public class ExpertFileUploadOkController implements Execute {
 
@@ -89,10 +88,16 @@ public class ExpertFileUploadOkController implements Execute {
 			System.out.println("업로드 된 파일 정보 : " + fileExpertDTO);
 			
 			fileExpertDAO.delete(memberNumber);
-			fileExpertDAO.insert(fileExpertDTO);
 			
+			System.out.println("myExpert : " + myExpertDAO.select(memberNumber));
 			myExpertDAO.delete(memberNumber);
 			myExpertDAO.insert(memberNumber);
+			fileExpertDAO.insert(fileExpertDTO);
+			
+			ExpertDTO expertDTO = new ExpertDTO();
+			expertDTO.setMemberNumber(memberNumber);
+			
+			myExpertDAO.update(expertDTO);
 		}
 		
 		result.setPath(request.getContextPath() + "/myPage/expertStatusOk.my");

@@ -14,9 +14,15 @@ public class CourseDAO {
 	}
 
 	public int createRequest(CourseDTO courseDTO) {
-		int insert = sqlSession.insert("courseRequest.create", courseDTO);
-		sqlSession.insert("courseRequest.createRequest", insert);
-		return insert;
+		sqlSession.insert("expertCourseRequest.create", courseDTO);
+		
+		int courseNumber = courseDTO.getCourseNumber();
+		
+		System.out.println("courseNumber=================" + courseNumber);
+		
+		sqlSession.insert("expertCourseRequest.createRequest", courseNumber);
+		
+		return courseNumber;
 	}
 	
 	

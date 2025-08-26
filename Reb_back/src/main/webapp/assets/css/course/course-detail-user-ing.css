@@ -174,7 +174,6 @@ button:hover {
 }
 
 .button-cancel {
-  display: none;
   width: 50%;
   height: 50px;
   font-size: 30px;
@@ -216,9 +215,39 @@ button:hover {
   font-style: normal;
 }
 
+
+.button-before{
+  width: 50%;
+  height: 50px;
+  font-size: 30px;
+  background-color: gray;
+  border-radius: 13px;
+  padding: 0px 20px;
+  font-size: 20px;
+  color: black;
+  border: 1px solid gray;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.button-status{
+  width: 50%;
+  height: 50px;
+  font-size: 30px;
+  background-color: #c0c0c0;
+  border-radius: 13px;
+  padding: 0px 20px;
+  font-size: 20px;
+  color: black;
+  border: 1px solid gray;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .button-edit-ing,
 .button-delete-ing,
-.button-before,
 .button-after {
   height: 50px;
   color: black;

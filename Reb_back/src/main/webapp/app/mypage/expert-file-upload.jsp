@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- 전문가 인증 첨부파일 등록 -->
-<form action="/myPage/expertFileUploadOk.my" method="post"
-	id="form-expert-file-upload" enctype="multipart/form-data">
+<form action="/myPage/expertFileUploadOk.my" method="post" name="form-expert-file-upload" enctype="multipart/form-data" onsubmit="saveFile(event)">
 	<div id="expert-file-upload-middle">
 		<label for="input-expert-file" id="label-expert-file"
 			class="font-main"> 첨부파일 </label>
@@ -13,7 +12,7 @@
 		<label for="input-expert-file-search" id="label-expert-file-search"
 			class="font-main">...</label> <input type="file"
 			name="expertFileSearch" id="input-expert-file-search"
-			class="font-main">
+			class="font-main" onchange="loadFile(event)">
 	</div>
 	<!-- 등록 버튼 -->
 	<div id="expert-file-upload-bottom">
@@ -21,6 +20,3 @@
 			name="expertFileUpload">등록</button>
 	</div>
 </form>
-
-<script
-	src="${pageContext.request.contextPath}/assets/js/mypage/expert-file-upload.js"></script>

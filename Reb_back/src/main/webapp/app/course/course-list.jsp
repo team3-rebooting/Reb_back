@@ -68,9 +68,19 @@
 											<c:out value="${course.courseTitle}" />
 										</p>
 										<div class="div-box-status">
-											<button type="button" class="button-recruit-ing">
-												<c:out value="${course.courseStatusInfo}" />
-											</button>
+											<c:choose>
+												<c:when test="${course.courseRecruitStatusNumber == 1}">
+													<button type="button" class="button-recruit-ing">
+														<c:out value="${course.courseStatusInfo}" />
+													</button>
+												</c:when>
+												<c:otherwise>
+													<button type="button" class="button-recruit-ing"
+														style="background-color: gray;">
+														<c:out value="${course.courseStatusInfo}" />
+													</button>
+												</c:otherwise>
+											</c:choose>
 											<p class="p-name-date">
 												<c:out value="${course.expertName}" />
 												<c:out value="${course.coursePostDate}" />
@@ -140,7 +150,7 @@
 						</div>
 					</form>
 					<form action="${pageContext.request.contextPath}/course/expertCourseCreateRequest.co" method="post">
-						<c:if test="${not empty sessionScope.memberNumber}">
+						<c:if test="${not empty sessionScope.expertNumber}">
 								<button class="button-write a-write" type="submit">글 쓰기</button>
 						</c:if>
 					</form>

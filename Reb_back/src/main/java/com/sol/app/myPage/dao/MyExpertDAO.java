@@ -2,7 +2,7 @@ package com.sol.app.myPage.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.sol.app.dto.FileExpertDTO;
+import com.sol.app.dto.ExpertDTO;
 import com.sol.app.dto.MyExpertDTO;
 import com.sol.config.MyBatisConfig;
 
@@ -27,5 +27,9 @@ public class MyExpertDAO {
 	
 	public void delete(int memberNumber) {
 		sqlSession.delete("expertApplicant.delete", memberNumber);
+	}
+	
+	public void update(ExpertDTO expert) {
+		//sqlSession.update("expert.update", expert);
 	}
 }
