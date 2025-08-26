@@ -22,6 +22,7 @@ public class CourseDTO {
 	private String courseDayOfWeek;
 	private int courseRecruitCount;
 	private int coursePrice;
+	private String courseLocation;
 	public int getCourseNumber() {
 		return courseNumber;
 	}
@@ -142,6 +143,12 @@ public class CourseDTO {
 	public void setCoursePrice(int coursePrice) {
 		this.coursePrice = coursePrice;
 	}
+	public String getCourseLocation() {
+		return courseLocation;
+	}
+	public void setCourseLocation(String courseLocation) {
+		this.courseLocation = courseLocation;
+	}
 	@Override
 	public String toString() {
 		return "CourseDTO [courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", courseContent="
@@ -152,8 +159,9 @@ public class CourseDTO {
 				+ courseRecruitStartDate + ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate="
 				+ courseStartDate + ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime
 				+ ", courseEndTime=" + courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount="
-				+ courseRecruitCount + ", coursePrice=" + coursePrice + "]";
+				+ courseRecruitCount + ", coursePrice=" + coursePrice + ", courseLocation=" + courseLocation + "]";
 	}
+
 	
 	
 }
