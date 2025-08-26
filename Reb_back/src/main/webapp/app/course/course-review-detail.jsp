@@ -80,6 +80,7 @@
 					</div>
 					<!-- 좋아요 fontawesome -->
 					<div class="div-font-awesome-line">
+						<span>수업:<c:out value="${courseReview.getCourseTitle()}" /></span></br>
 						<span class="span-likes">좋아요 수 : 30 </span><i
 							class="fa-regular fa-heart"></i>
 					</div>
