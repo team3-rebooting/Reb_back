@@ -1,32 +1,36 @@
-const okButton = document.querySelector(".button-ok");
-const cancelButton = document.querySelector(".button-cancel");
-const inputBundle = document.querySelectorAll(".input-bundle");
-
-okButton.addEventListener("click",(e)=>{
-  let isWrite = true;
-  if(confirm("정말로 수정하시겠습니까?")){
-    for(let i = 0 ; i<inputBundle.length;i++){
-      if(inputBundle[i].value === null || inputBundle[i].value.length === 0 ){
-        isWrite = false;
-      } 
-    }
-    if(isWrite){
-      alert("수정 완료");
-      location.href="./course-review-list.html";
-    }
-    else{
-      alert("제목, 이미지, 내용 확인해주세요");
-    }
-  }
-  else{
-    e.preventDefault();
-  }
-});
-cancelButton.addEventListener("click",(e)=>{
-  if(confirm("정말로 취소하시겠습니까? 내용은 전부 삭제됩니다")){
-    location.href="./course-review-detail.html";
-  }
-  else{
-    e.preventDefault();
-  }
-});
+$(document).ready(function(){
+	let $fileInput = $('#file');
+	let $fileList = $('.file-list');
+	let $cnt = $('.cnt');
+	let cnt = 0;
+	
+	console.log($fileInput);
+	
+	// 기존 이미지 삭제 기능
+	$(".delete-file-btn").on("click", function(){
+		let fileName = $(this).data("filename");
+		let confirmDelete = confirm("정말로 이 이미지를 삭제하시겠습니까?");
+		
+		if(confirmDelete){
+			$(this).closest(".img-box").remove();
+			$("<input>")
+				.attr("type", "hidden")
+				.attr("name", "deletedFiles")
+				.val(fileName)
+				.appendTo("#update-form");
+		}
+	});
+	
+	// 새 파일 추가 및 미리보기
+	$fileInput.on('change', function(){
+		let files = this.files;
+		
+		$fileList.html('');
+		
+		if(files.length > 1){
+			alert("파일은 최대 1개까지만 첨부 가능합니다.");
+			let dt = new DataTransfer();
+		}	
+		)
+	})
+})

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			checkInput = true;
 		}
 		fetch(`${base}/member/checkIdOk.me?memberId=${encodeURIComponent(memberId)}`, {
-			headers: { "Accept": "application/json" }
+			headers: { "Content-type": "application/json" }
 		})
 			.then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
 			.then(data => {

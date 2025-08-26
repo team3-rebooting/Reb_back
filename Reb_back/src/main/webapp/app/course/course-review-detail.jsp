@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/course/course-review-detail.css">
->
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/comment/comment.css">
 
@@ -63,7 +63,7 @@
 					</div>
 					<!-- 유저 개인 정보(닉네임, 작성일) 영역 -->
 					<div class="div-user-info">
-						<p class="p-user-name">곰융</p>
+						<p class="p-user-name"><c:out value="${courseReview.getMemberNickname()}" /></p>
 						<p class="p-update-date">
 							2025.07.02<span class="p-update-status">(수정됨)</span>
 						</p>
@@ -89,13 +89,11 @@
 					<div class="div-expert-detail">
 						<!-- 글 영역  -->
 						<div class="div-expert-info-detail">
-							<p class="p-expert-detail-comment">
-								<c:out value="${courseReview.getCourseReviewContent()}" />
+							<p class="p-expert-detail-comment"><c:out value="${courseReview.getCourseReviewContent()}" /></p>
 								<!-- 강사님이 너무 친절하기구 수업도 열정적으로 알려주셔요! 과제도 그만큼 열정적으로 내주셔요!!!
                 이분 수업 강력하게 추천합니다!
                 저는 다음에 또 들을 기회가 생긴다면 또 듣고싶어요
                 짧은 글 읽어주셔서 감사합니다 -->
-							</p>
 						</div>
 					</div>
 					<!-- 버튼 영역 -->
