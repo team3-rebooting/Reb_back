@@ -4,7 +4,7 @@
 	<update id="update" parameterType="CourseReviewCommentDTO">
 		update TBL_COURSE_REVIEW_COMMENT
 		SET
-		COURSE_REVIEW_UPDATED_DATE = TO_DATE(sysdate,'YYYY-MM-DD'), 
+		COURSE_REVIEW_UPDATED_DATE = sysdate, 
 		COURSE_REVIEW_CONTENT = #{courseReviewContent}
 		where MEMBER_NUMBER = #{memberNumber} and COURSE_REVIEW_COMMENT_NUMBER = #{courseReviewCommentNumber}
 	</update>
@@ -16,6 +16,6 @@
 	
 	<insert id="insert" parameterType="CourseReviewCommentDTO">
 		INSERT INTO TBL_COURSE_REVIEW_COMMENT (COURSE_REVIEW_COMMENT_NUMBER, COURSE_REVIEW_NUMBER, MEMBER_NUMBER, COURSE_REVIEW_CREATED_DATE, COURSE_REVIEW_UPDATED_DATE, COURSE_REVIEW_CONTENT) 
-		VALUES (seq_course_review_comment.nextval, #{courseReviewNumber}, #{memberNumber}, TO_DATE(sysdate,'YYYY-MM-DD'), TO_DATE(sysdate,'YYYY-MM-DD'), #{courseReviewContent});
+		VALUES (seq_course_review_comment.nextval, #{courseReviewNumber}, #{memberNumber}, sysdate, sysdate, #{courseReviewContent})
 	</insert>
 </mapper>

@@ -29,8 +29,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 <title>틈새빛</title>
 </head>
-<script defer
-	src="${pageContext.request.contextPath}/assets/js/routine-meeting/routine-meeting-detail.js"></script>
 
 <body>
 	<jsp:include page="/header.jsp" />
@@ -138,6 +136,8 @@
 	</main>
 	<div id="footer"></div>
 </body>
+
+<script src="${pageContext.request.contextPath}/assets/js/routine/routine-meeting-detail.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>

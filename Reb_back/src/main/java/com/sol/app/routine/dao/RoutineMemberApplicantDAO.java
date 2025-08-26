@@ -1,5 +1,7 @@
 package com.sol.app.routine.dao;
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.sol.app.dto.RoutineMemberApplicantDTO;
@@ -16,15 +18,15 @@ public class RoutineMemberApplicantDAO {
 		return sqlSession.selectOne("routineMemberApplicant.getCount", boardNumber);
 	}
 	
-	public boolean select(int boardNumber) {
-		return (Integer)sqlSession.selectOne("routineMemberApplicant.select", boardNumber) >= 1;
+	public boolean select(Map map) {
+		return (Integer)sqlSession.selectOne("routineMemberApplicant.select", map) >= 1;
 	}
 	
 	public void insert(RoutineMemberApplicantDTO routineMemberApplicantDTO) {
 		sqlSession.insert("routineMemberApplicant.insert", routineMemberApplicantDTO);
 	}
 	
-	public void delete(int memberNumber) {
-		sqlSession.delete("routineMemberApplicant.delete", memberNumber);
+	public void delete(Map map) {
+		sqlSession.delete("routineMemberApplicant.delete", map);
 	}
 }
