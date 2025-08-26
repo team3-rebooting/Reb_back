@@ -12,15 +12,15 @@ public class FileExpertDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public FileExpertDTO selectFileExpert(int memberNumber) {
+	public FileExpertDTO select(int memberNumber) {
 		return sqlSession.selectOne("fileExpert.select", memberNumber);
 	}
 
-	public void insertFileExpert(FileExpertDTO fileExpertDTO) {
+	public void insert(FileExpertDTO fileExpertDTO) {
 		 sqlSession.insert("fileExpert.insert", fileExpertDTO);
 	}
 	
-	public void deleteFileExpert(int memberNumber) {
+	public void delete(int memberNumber) {
 		sqlSession.delete("fileExpert.delete", memberNumber);
 	}
 }

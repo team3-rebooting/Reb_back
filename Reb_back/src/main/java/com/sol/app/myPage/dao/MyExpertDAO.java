@@ -20,4 +20,12 @@ public class MyExpertDAO {
 	public String getReason(int memberNumber) {
 		return sqlSession.selectOne("expertApplicant.getReason", memberNumber);
 	}
+	
+	public void insert(int memberNumber) {
+		sqlSession.insert("expertApplicant.insert", memberNumber);
+	}
+	
+	public void delete(int memberNumber) {
+		sqlSession.delete("expertApplicant.delete", memberNumber);
+	}
 }

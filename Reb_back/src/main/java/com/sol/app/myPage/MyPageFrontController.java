@@ -95,6 +95,7 @@ public class MyPageFrontController extends HttpServlet {
 			break;
 		case "/myPage/expertFileUploadOk.my":
 			System.out.println("전문가 인증 파일 처리");
+			result = new ExpertFileUploadOkController().execute(request, response);
 			break;
 		case "/myPage/expertReasonOk.my":
 			System.out.println("전문가 반려 사유 조회 처리");
