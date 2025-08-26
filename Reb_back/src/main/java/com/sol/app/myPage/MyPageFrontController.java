@@ -87,8 +87,11 @@ public class MyPageFrontController extends HttpServlet {
 			break;
 		case "/myPage/expertStatusOk.my":
 			System.out.println("전문가 인증 정보 조회 처리");
+			result = new ExpertStatusOkController().execute(request, response);				
+			break;
+		case "/myPage/expertStatus.my":
+			System.out.println("전문가 인증 정보 조회 페이지");		
 			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/expert-status.jsp").forward(request, response);
-			
 			break;
 		case "/myPage/expertFileUploadOk.my":
 			System.out.println("전문가 인증 파일 처리");

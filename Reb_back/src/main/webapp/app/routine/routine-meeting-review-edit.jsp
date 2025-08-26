@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,14 +32,15 @@
       <p class="pagetitle">루틴 모임 후기 수정</p>
       <form action="" method="post">
         <div class="div-create-course">
-          <input type="text" class="input-title input-bundle" name="courseTitle" placeholder="제목을 입력해주세요">
+          <input type="text" class="input-title input-bundle" name="courseTitle" placeholder="제목을 입력해주세요"
+          value= "${routineReview.routineReviewTitle}">
         </div>
         <div class="div-create-course">
           <span class="font-main little-title">대표 이미지 : </span>
           <input type="file" name="courseFile" class="input-bundle">
         </div>
         <div class="div-create-course">
-          <p class="font-main little-title">내용</p>
+          <p class="font-main little-title">${routineReview.routineReviewContent}</p>
           <textarea class="textarea-text input-bundle" name="courseText" rows="20" cols="100"></textarea>
         </div>
 

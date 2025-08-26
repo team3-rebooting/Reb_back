@@ -4,7 +4,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	const heart = document.querySelector(".fa-heart");
 	const back = document.querySelector(".p-back");
-
+	
+	// ====== 유틸 ======
+	async function safeJson(res) {
+		const text = await res.text();
+		try { return text ? JSON.parse(text) : null; } catch { return null; }
+	}
+	
 	back.addEventListener("click", () => {
 		history.back();
 	});
@@ -26,6 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
 				const result = await safeJson(response);
 				if (result?.status === "success") {
 					alert("삭제 완료");
+					location.href = `/routine/routineReviewOk.ro`;
 				} else {
 					alert("삭제 실패");
 				}

@@ -75,6 +75,16 @@ public class MyExpertDTO {
 	public void setExpertFieldNumber(int expertFieldNumber) {
 		this.expertFieldNumber = expertFieldNumber;
 	}
+	
+	public FileExpertDTO getFileExpert() {
+		if(fileExpertList == null)
+			return null;
+		if(fileExpertList.size() == 0)
+			return null;
+		
+		return fileExpertList.get(0);
+	}
+	
 	public List<FileExpertDTO> getFileExpertList() {
 		return fileExpertList;
 	}

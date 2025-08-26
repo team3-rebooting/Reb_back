@@ -7,6 +7,7 @@ public class RoutineReviewListDTO {
 	//RoutineReviewDTO, FileDTO, MemberDTO, RoutineReviewLikeDTO 
 	private int routineReviewNumber;
 	private int routineNumber;
+	private String routineTitle;
 	private String routineReviewTitle;
 	private int memberNumber;
 	private String memberNickname;
@@ -27,6 +28,12 @@ public class RoutineReviewListDTO {
 	}
 	public void setRoutineNumber(int routineNumber) {
 		this.routineNumber = routineNumber;
+	}
+	public String getRoutineTitle() {
+		return routineTitle;
+	}
+	public void setRoutineTitle(String routineTitle) {
+		this.routineTitle = routineTitle;
 	}
 	public String getRoutineReviewTitle() {
 		return routineReviewTitle;
@@ -100,11 +107,10 @@ public class RoutineReviewListDTO {
 	@Override
 	public String toString() {
 		return "RoutineReviewListDTO [routineReviewNumber=" + routineReviewNumber + ", routineNumber=" + routineNumber
-				+ ", routineReviewTitle=" + routineReviewTitle + ", memberNumber=" + memberNumber + ", memberNickname="
-				+ memberNickname + ", routineReviewCreatedDate=" + routineReviewCreatedDate
-				+ ", routineReviewUpdatedDate=" + routineReviewUpdatedDate + ", routineReviewContent="
-				+ routineReviewContent + ", fileRoutineReviewList=" + fileRoutineReviewList + ", likeCount=" + likeCount
-				+ ", likeList=" + likeList + "]";
+				+ ", routineTitle=" + routineTitle + ", routineReviewTitle=" + routineReviewTitle + ", memberNumber="
+				+ memberNumber + ", memberNickname=" + memberNickname + ", routineReviewCreatedDate="
+				+ routineReviewCreatedDate + ", routineReviewUpdatedDate=" + routineReviewUpdatedDate
+				+ ", routineReviewContent=" + routineReviewContent + ", fileRoutineReviewList=" + fileRoutineReviewList
+				+ ", likeCount=" + likeCount + ", likeList=" + likeList + "]";
 	}
-	
 }
