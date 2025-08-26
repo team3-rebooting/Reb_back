@@ -1,16 +1,9 @@
-
-
-
-
-
-
-
-
 window.addEventListener('DOMContentLoaded', () => {
 	const buttonApp = document.querySelector(".button-application");
 	const buttonCancel = document.querySelector(".button-cancel");
 	const back = document.querySelector(".p-back");
 	const courseNumber = document.querySelector("#courseNumber").value;
+	const applicantCount = document.querySelector('#applicant-count');
 	
 	
 	back.addEventListener("click", () => {
@@ -38,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 				const result = await safeJson(response);
 				if (result?.status === "success") {
 					alert("신청 취소 완료");
-
+					applicantCount.innerHTML = parseInt(applicantCount.innerHTML) - 1;
 					buttonCancel.style.display = 'none';
 					buttonApp.style.display = 'block';
 				} else {
@@ -66,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
 				const result = await safeJson(response);
 				if (result?.status === "success") {
 					alert("신청 완료");
-
+					applicantCount.innerHTML = parseInt(applicantCount.innerHTML) + 1;
 					buttonApp.style.display = 'none';
 					buttonCancel.style.display = 'block';
 				} else {

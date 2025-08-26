@@ -10,7 +10,7 @@
 	
 	<delete id="delete" parameterType="int">
 		delete from TBL_ROUTINE_REVIEW_COMMENT
-		where MEMBER_NUMBER = #{memberNumber}
+		where ROUTINE_REVIEW_COMMENT_NUMBER = #{routineReviewCommentNumber}
 	</delete>
 	
 	<insert id="insert" parameterType="RoutineReviewCommentDTO">

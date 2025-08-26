@@ -5,9 +5,8 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.sol.app.dto.CourseDTO;
 import com.sol.app.dto.CourseMemberApplicantDTO;
-import com.sol.app.dto.RoutineDTO;
-import com.sol.app.dto.RoutineMemberApplicantDTO;
 import com.sol.config.MyBatisConfig;
 
 public class CourseMemberApplicantDAO {
@@ -23,25 +22,25 @@ public class CourseMemberApplicantDAO {
 		return list;
 	}
 
-	public int getApplicantCount(int boardNumber) {
-		return sqlSession.selectOne("courseMemberApplicant.getCount", boardNumber);
+	public int getCount(int courseNumber) {
+		return sqlSession.selectOne("courseMemberApplicant.getCount", courseNumber);
 	}
 
 	public boolean select(Map map) {
 		return (Integer) sqlSession.selectOne("courseMemberApplicant.select", map) >= 1;
 	}
 
-	public void insert(RoutineMemberApplicantDTO routineMemberApplicantDTO) {
-		System.out.println("inser : " + routineMemberApplicantDTO);
-		sqlSession.insert("routineMemberApplicant.insert", routineMemberApplicantDTO);
+	public void insert(CourseMemberApplicantDTO courseMemberApplicantDTO) {
+		System.out.println("insert : " + courseMemberApplicantDTO);
+		sqlSession.insert("courseMemberApplicant.insert", courseMemberApplicantDTO);
 	}
 
 	public void delete(Map map) {
-		sqlSession.delete("routineMemberApplicant.delete", map);
+		sqlSession.delete("courseMemberApplicant.delete", map);
 	}
 
-	public List<RoutineDTO> getRoutineList(int memberNumber) {
-		return sqlSession.selectList("routineMemberApplicant.getRoutineList", memberNumber);
+	public List<CourseDTO> getCourseList(int memberNumber) {
+		return sqlSession.selectList("courseMemberApplicant.getCourseList", memberNumber);
 	}
 
 }

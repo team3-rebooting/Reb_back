@@ -16,10 +16,14 @@ public class RoutineReviewCommentDAO  {
 		sqlSession.insert("routineReviewComment.insert", routineReviewCommentDTO);
 	}
 	
-	public void delete(RoutineReviewCommentDTO routineReviewCommentDTO) {
-		sqlSession.delete("routineReviewComment.delete", routineReviewCommentDTO);
-	}
+	/*
+	 * public void delete(RoutineReviewCommentDTO routineReviewCommentDTO) {
+	 * sqlSession.delete("routineReviewComment.delete", routineReviewCommentDTO); }
+	 */
 	
+	public void delete(int routineReviewCommentNumber) {
+		sqlSession.delete("routineReviewComment.delete", routineReviewCommentNumber);
+	}
 	public void update(RoutineReviewCommentDTO routineReviewCommentDTO) {
 		sqlSession.update("routineReviewComment.update", routineReviewCommentDTO);
 	}

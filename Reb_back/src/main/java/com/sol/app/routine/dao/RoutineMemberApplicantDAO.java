@@ -16,8 +16,8 @@ public class RoutineMemberApplicantDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public int getApplicantCount(int boardNumber) {
-		return sqlSession.selectOne("routineMemberApplicant.getCount", boardNumber);
+	public int getCount(int routineNumber) {
+		return sqlSession.selectOne("routineMemberApplicant.getCount", routineNumber);
 	}
 	
 	public boolean select(Map map) {

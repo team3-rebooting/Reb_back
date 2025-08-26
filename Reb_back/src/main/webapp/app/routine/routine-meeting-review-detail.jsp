@@ -62,7 +62,7 @@
 							</c:if>
 						</p>
 					</div>
-					<div class="div-font-awesome-line">
+					<div class="div-font-awesome-line" style="display:none">
 						<span>루틴 모임 : ${routineReview.routineTitle}</span><br>
 						<span class="span-likes">좋아요 수 : <c:out
 								value="${routineReview.getLikeCount()}" />

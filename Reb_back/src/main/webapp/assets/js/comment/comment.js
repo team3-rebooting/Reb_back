@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
 	const id = document.querySelector('.comment-list').getAttribute("id");
-	
+
 	// ====== 목록 로드 ======
 	async function loadListAsync(id, reviewNumber, page) {
 		try {
@@ -11,9 +11,9 @@ window.addEventListener('DOMContentLoaded', () => {
 			if (!res.ok) throw new Error("목록을 불러오는 데 실패했습니다.");
 
 			const listInfo = await safeJson(res);
-			
+
 			this.reviewNumber = reviewNumber;
-			
+
 			renderList(listInfo, id, listInfo.page.rowCount);
 			renderPage(listInfo.page, reviewNumber, id);
 		} catch (error) {
@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			page = 1;
 
 			const commentList = document.querySelectorAll('.comment-list');
-			
+
 			console.log(commentList);
 			commentList.forEach((i) => {
 				reviewNumber = i.dataset.reviewnumber;
@@ -44,6 +44,28 @@ window.addEventListener('DOMContentLoaded', () => {
 			loadListAsync(e.target.dataset.listtype, e.target.dataset.reviewnumber, page);
 		}
 	}
+
+	function deleteComment(e){
+		deleteCommentAsync(e);
+	}
+	
+	async function deleteCommentAsync(e) {
+		let num = e.target.dataset.num;
+		let id = e.target.dataset.listtype;
+		
+		try {
+			const res = await fetch(`/comment/commentDeleteOk.cm?listType=${encodeURIComponent(id)}&commentNumber=${num}`, {
+				headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" },
+			});
+
+			if (!res.ok) throw new Error("댓글 삭제 실패");
+			
+		} catch (error) {
+			console.error("댓글 삭제 실패:", error);
+			alert("댓글 삭제를 실패 했습니다.");
+		}
+	}
+
 
 	// ====== 목록 렌더링 ======
 	function renderList(listInfo, id, rowCount) {
@@ -58,15 +80,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		const ul = list.querySelector('.comment-ul-list');
 		ul.innerHTML = '';
-		
+
 		listInfo.list.forEach(function(l, i) {
 
 			console.log(listInfo);
 			let updated = '';
 			if (l.reviewCreatedDate !== l.reviewUpdatedDate)
-				if(l.reviewUpdatedDate !== null && l.reviewUpdatedDate !== undefined)
+				if (l.reviewUpdatedDate !== null && l.reviewUpdatedDate !== undefined)
 					updated = '(수정됨)';
-				
+
 			let li = `				<li class="li-comment">
 										<div class="div-user-profile">
 											<img src="./../../assets/img/karina.jpg" class="img-user-profile">
@@ -74,11 +96,13 @@ window.addEventListener('DOMContentLoaded', () => {
 										<div class="div-user-info">
 											<div class="div-user-name-area">
 												<p class="p-user-name">${l.memberNickname}</p>
-												<span class="span-comment-edit">수정</span>
 											</div>
 											<div class="div-user-text-area">
 												<p class="p-comment-text">${l.reviewContent}</p>
-												<span class="span-comment-delete">삭제</span>
+												<c:if test="` +"${l.mem == sessionScope.memberNumber}" + `"
+													<span class="span-comment-delete" data-num="${l.reviewCommentNumber}"
+													data-mem="${l.memberNumber}" data-listtype="${id}">삭제</span>
+												</c:if>
 											</div>
 											<p class="p-update-date">
 												${l.reviewCreatedDate}<span class="p-update-status">${updated}</span>
@@ -87,6 +111,10 @@ window.addEventListener('DOMContentLoaded', () => {
 									</li>`;
 			ul.innerHTML += li;
 		});
+		
+		document.querySelectorAll('.span-comment-delete').forEach((e)=>{
+					e.addEventListener('click', deleteComment);
+				})
 	}
 
 	function renderPage(pageInfo, reviewNumber, id) {
@@ -129,9 +157,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		const text = await res.text();
 		try { return text ? JSON.parse(text) : null; } catch { return null; }
 	}
-	
+
 	const submitBtn = document.querySelector(".button-write");
-	
+
 	submitBtn.addEventListener("click", async () => {
 		const contentEl = document.querySelector(".input-comment");
 		const content = contentEl?.value.trim();
@@ -146,7 +174,7 @@ window.addEventListener('DOMContentLoaded', () => {
 					"Content-Type": "application/json; charset=utf-8",
 					"X-Requested-With": "XMLHttpRequest",
 				},
-				body: JSON.stringify({reviewNumber: reviewNumber, comment: content }),
+				body: JSON.stringify({ reviewNumber: reviewNumber, comment: content }),
 			});
 
 			const result = await safeJson(response);
