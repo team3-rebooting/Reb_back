@@ -42,7 +42,7 @@
 		WHERE e.EXPERT_NUMBER = #{expertNumber}
 	]]>
 	</select>
-	<!-- status numer 다시 확인  -->
+	<!-- 전문가 반려 -->
 	<update id="update" parameterType="ExpertApplicantDTO">
 		update tbl_expert_applicant 
 		set expert_applicant_reason = #{expertApplicantReason}, expert_status_number = 4

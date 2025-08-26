@@ -38,7 +38,14 @@
         </div>
         <div>
           <p>성별 : </p>
-          <p><c:out value="${expert.memberGender}"/></p>
+          <p>
+          <c:if test="${expert.memberGender eq 'M'}">
+			남자
+          </c:if>
+          <c:if test="${expert.memberGender eq 'F'}">
+			여자
+          </c:if>
+          </p>
         </div>
         <div>
           <p>전화번호 : </p>
