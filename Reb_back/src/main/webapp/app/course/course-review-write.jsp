@@ -34,6 +34,13 @@
         <div class="div-create-course">
           <input type="text" class="input-title input-bundle" name="courseReviewTitle" placeholder="제목을 입력해주세요">
         </div>
+        <div>
+        	<select class="course">
+        		<c:forEach var="courselist" items="${courseMemberApplicant}">
+        			<option value="${courselist.getCourseNumber()}"><c:out value="${courselist.getCourseTitle()}" /></option>
+        		</c:forEach>
+        	</select>
+        </div>
         <div class="div-create-course">
           <span class="font-main little-title">대표 이미지 : </span>
           <input type="file" name="courseFile" class="input-bundle">

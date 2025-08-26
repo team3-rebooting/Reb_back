@@ -69,7 +69,7 @@
 										<c:out value="${courseReview.getMemberNickname()}" />
 									</div>
 									<div class="review-date">
-										<c:out value="${courseReview.getCourseReviewCreatedDate()}" />
+												<c:out value="${courseReview.getCourseReviewCreatedDate()}" />
 									</div>
 									<div class="review-like">
 										<c:out value="${courseReview.getCourseReviewLike()}" />
