@@ -34,6 +34,7 @@ public class ExpertCourseCreateRequestOkController implements Execute{
 		courseDTO.setCourseEndDate(request.getParameter("courseEndDate"));
 		courseDTO.setCourseStartTime(request.getParameter("courseStartTime"));
 		courseDTO.setCourseEndTime(request.getParameter("courseEndTime"));
+		courseDTO.setMemberNumber(memberNumber);
 //		요일 선택 위치
 		courseDTO.setCourseDayOfWeek("");
 		courseDTO.setCourseRecruitCount(Integer.parseInt(request.getParameter("recruitmentNumber")));
