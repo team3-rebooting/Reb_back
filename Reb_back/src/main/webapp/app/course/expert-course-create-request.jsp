@@ -31,7 +31,7 @@
       <p class="pagetitle">수업 개설 요청</p>
       <form action="" method="post">
         <div class="div-create-course">
-          <input type="text" class="input-title" name="courseTitle" placeholder="제목을 입력해주세요">
+          <input type="text" class="input-title" name="courseTitle" placeholder="제목을 입력해주세요" required>
         </div>
         <div class="div-create-course">
           <span class="font-main little-title">대표 이미지 : </span>
@@ -48,13 +48,13 @@
         <div class="div-create-course">
           <p class="font-main little-title">모집 관련 정보</p>
           <div class="div-recruit-info">
-            <div class="div-info-line">
+            <!-- <div class="div-info-line">
               <p class="font-main">모집 기간</p>
               <div class="div-input-info">
                 <input type="date" name="recruitmentStartDate">
                 <input type="date" name="recruitmentEndDate">
               </div>
-            </div>
+            </div> -->
             <div class="div-info-line">
               <p class="font-main">강의일</p>
               <div class="div-input-info">
@@ -73,14 +73,14 @@
             <div class="div-info-line">
               <p class="font-main">요일</p>
               <div class="div-input-info">
-                <label for="monday">월요일</label><input type="checkbox" id="monday" name="dow" class="checkbox-input">
-                <label for="tuesday">화요일</label><input type="checkbox" id="tuesday" name="dow" class="checkbox-input">
+                <label for="monday">월요일</label><input type="checkbox" id="monday" name="dow" class="checkbox-input" value="mon">
+                <label for="tuesday">화요일</label><input type="checkbox" id="tuesday" name="dow" class="checkbox-input" value="tue">
                 <label for="wednesday">수요일</label><input type="checkbox" id="wednesday" name="dow"
-                  class="checkbox-input">
-                <label for="thursday">목요일</label><input type="checkbox" id="thursday" name="dow" class="checkbox-input">
-                <label for="friday">금요일</label><input type="checkbox" id="friday" name="dow" class="checkbox-input">
-                <label for="saturday">토요일</label><input type="checkbox" id="saturday" name="dow" class="checkbox-input">
-                <label for="sunday">일요일</label><input type="checkbox" id="sunday" name="dow" class="checkbox-input">
+                  class="checkbox-input" value="wen">
+                <label for="thursday">목요일</label><input type="checkbox" id="thursday" name="dow" class="checkbox-input" value="thu">
+                <label for="friday">금요일</label><input type="checkbox" id="friday" name="dow" class="checkbox-input" value="fri">
+                <label for="saturday">토요일</label><input type="checkbox" id="saturday" name="dow" class="checkbox-input" value="sat"> 
+                <label for="sunday">일요일</label><input type="checkbox" id="sunday" name="dow" class="checkbox-input" value="sun">
               </div>
             </div>
             <div class="div-info-line">
