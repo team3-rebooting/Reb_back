@@ -10,7 +10,7 @@
 	
 	<insert id="insert" parameterType="RoutineMemberApplicantDTO">
 		insert into tbl_routine_member_applicant(ROUTINE_NUMBER, MEMBER_NUMBER, ROUTINE_MEMBER_APPLY_DATE)
-		values(#{routineNumber}, #{memberNubmer}, #{routineMemberApplyDate})
+		values(#{routineNumber}, #{memberNumber}, sysdate)
 	</insert>
 	
 	<delete id="delete" parameterType="map">
@@ -18,9 +18,8 @@
 		where ROUTINE_NUMBER = #{routineNumber} and member_number = #{memberNumber}
 	</delete>
 	
-	<select id="select" parameterType="map">
-		delete count(ROUTINE_NUMBER) from tbl_routine_member_applicant
+	<select id="select" parameterType="map" resultType="int">
+		select count(ROUTINE_NUMBER) from tbl_routine_member_applicant
 		where ROUTINE_NUMBER = #{routineNumber} and member_number = #{memberNumber}
 	</select>
-	
 </mapper>

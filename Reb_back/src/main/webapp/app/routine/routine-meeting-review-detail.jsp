@@ -32,8 +32,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 <title>틈새빛</title>
 </head>
-<script defer
-	src="${pageContext.request.contextPath}/assets/js/routine-meeting/routine-meeting-review-detail.js"></script>
 
 <body>
 	<jsp:include page="/header.jsp" />
@@ -85,7 +83,6 @@
 							</c:otherwise>
 						</c:choose>
 					</div>
-
 					<div class="div-expert-detail">
 						<div class="div-expert-info-detail">
 							<p class="p-expert-detail-comment">
@@ -96,9 +93,8 @@
 					<c:if
 						test="${sessionScope.memberNumber == routineReview.getMemberNumber()}">
 						<div class="div-button-area">
-							<a href="/app/routine/routine-meeting-review-edit.jsp"><button
-									class="button-application">수정</button></a>
-							<button class="button-cancel">삭제</button>
+							<button class="button-application" data-reviewnumber ="${routineReview.routineReviewNumber}">수정</button>
+							<button class="button-cancel" data-reviewnumber ="${routineReview.routineReviewNumber}">삭제</button>
 						</div>
 					</c:if>
 					<div class="div-comment-area">
@@ -120,13 +116,6 @@
 								</form>
 							</div>
 						</c:if>
-						<!-- <div class="div-page">
-							a 태그 영역
-							<div class="div-pagenation">
-								<a href="#">&lt;</a> <a href="#">1</a> <a href="#">2</a> <a
-									href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">&gt;</a>
-							</div>
-						</div> -->
 					</div>
 
 				</div>
@@ -136,7 +125,7 @@
 	<div id="footer"></div>
 </body>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
-<script
-	src="${pageContext.request.contextPath}/assets/js/comment/comment.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/comment/comment.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/routine/routine-meeting-review-detail.js"></script>
 
 </html>
