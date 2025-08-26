@@ -69,6 +69,10 @@ public class RoutineFrontManager extends HttpServlet {
 			System.out.println("루틴 모임 목록 처리");
 			result = new RoutineOkController().execute(request, response);
 			break;
+		case "/routine/routineUpdate.ro":
+			System.out.println("루틴 모임 후기 수정 페이지");
+			request.getRequestDispatcher("/app/routine/routine-meeting-review-edit.jsp").forward(request, response);
+			break;
 		case "/routine/routineReadOk.ro" :
 			System.out.println("루틴 모임 상세 처리");
 			result = new RoutineReadOkController().execute(request, response);
@@ -76,6 +80,14 @@ public class RoutineFrontManager extends HttpServlet {
 		case "/routine/routineApplyOk.ro" :
 			System.out.println("루틴 모임 신청/취소 처리");
 			result = new RoutineApplyOkController().execute(request, response);
+			break;
+		case "/routine/routineReviewDeleteOk.ro" :
+			System.out.println("루틴 모임 삭제 처리");
+			result = new RoutineReviewDeleteOkController().execute(request, response);
+			break;
+		case "/routine/routineReviewUpdateOk.ro" :
+			System.out.println("루틴 모임 수정 처리");
+			result = new RoutineReviewUpdateOkController().execute(request, response);
 			break;
 		}
 		

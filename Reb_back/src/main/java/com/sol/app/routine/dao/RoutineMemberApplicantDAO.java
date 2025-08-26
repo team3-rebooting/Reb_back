@@ -23,6 +23,7 @@ public class RoutineMemberApplicantDAO {
 	}
 	
 	public void insert(RoutineMemberApplicantDTO routineMemberApplicantDTO) {
+		System.out.println("inser : " + routineMemberApplicantDTO);
 		sqlSession.insert("routineMemberApplicant.insert", routineMemberApplicantDTO);
 	}
 	
