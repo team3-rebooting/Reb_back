@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.sol.app.dto.AdminExpertDTO;
 import com.sol.app.dto.AdminExpertListDTO;
 import com.sol.app.dto.ExpertApplicantDTO;
+import com.sol.app.dto.ExpertDTO;
 import com.sol.config.MyBatisConfig;
 
 public class AdminExpertDAO {
@@ -34,6 +35,15 @@ public class AdminExpertDAO {
 	//전문가 승인 취소
 	public void update(ExpertApplicantDTO expertApplicantDTO) {
 		sqlSession.update("adminExpert.update",expertApplicantDTO);
+	}
+	
+	//전문가 생성
+	public void insert(ExpertDTO expertDTO) {
+		sqlSession.insert("adminExpert.insert",expertDTO);
+	}
+	//전문가 생성 시 상태 변경
+	public void updateExpert(int memberNumber) {
+		sqlSession.update("adminExpert.updateExpert",memberNumber);
 	}
 	
 }

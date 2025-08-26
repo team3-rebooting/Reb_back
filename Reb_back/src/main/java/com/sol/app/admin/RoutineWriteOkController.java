@@ -81,7 +81,7 @@ public class RoutineWriteOkController implements Execute {
 		}
 		routineDTO.setRoutineDayOfWeek(day);
 		routineDTO.setAdminNumber(adminNumber);
-		routineDTO.setRoutineLocation("강원도");
+		routineDTO.setRoutineLocation("지도 api 추가 후 수정");
 		//모집 전으로 고정
 		routineDTO.setRoutineStatusNumber(2);
 		System.out.println("게시글 추가 - routineDTO : " + routineDTO);

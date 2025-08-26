@@ -8,19 +8,22 @@ const logoutBtn = document.querySelector("header>button");
 
 
 acceptBtn.forEach(btn => {
-  btn.addEventListener('click', function (e) {
-    location.href = "./../../../app/admin/member/admin-expert-input-info.html";
+  btn.addEventListener('click', function () {
+	const memberNumber = btn.dataset.memberNumber;
+	if (!memberNumber) return alert("memberNumber가 없습니다");
+    window.location.href = `/admin/expertAcceptWrite.ad?memberNumber=${memberNumber}`;
   });
 });
 
 
 cancelBtn.forEach(btn => {
   btn.addEventListener('click', function (e) {
+	const memberNumber = btn.dataset.memberNumber;
     modalBackground.style.display = "flex";
     modalBackground.style.zIndex = 5;
     submitBtn.addEventListener('click', () => {
       if (returnMsg.value == "") {
-        alert("사유를 입력해주세요")
+        alert("사유를 입력해주세요");
       } else {
         alert("취소/반려 사유 등록 완료");
         returnMsg.value = "";

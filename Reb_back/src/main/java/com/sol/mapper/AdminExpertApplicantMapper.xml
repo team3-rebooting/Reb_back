@@ -7,7 +7,7 @@
 				SELECT ROWNUM AS rnum, subquery.*
 					FROM (			
 					SELECT
-						ecs.EXPERT_CERT_STATUS_INFO, m.MEMBER_ID, m.member_nickname,
+						ecs.EXPERT_CERT_STATUS_INFO, m.MEMBER_ID, m.member_nickname,m.member_number, 
 						ad.address, ad.address_detail,
 						TO_CHAR(ea.EXPERT_CHECK_DATE,'YYYY-MM-DD') AS EXPERT_CHECK_DATE,
 						fe.file_system_name , m.MEMBER_PHONE_NUMBER 

@@ -78,7 +78,9 @@
             <button class="button-update" type="button"
             data-routine-number="${routine.routineNumber}"
 			data-admin-number="${sessionScope.adminNumber}">수정</button>
-            <button class="button-delete" type="button">삭제</button>          	
+            <button class="button-delete" type="button"
+            data-routine-number="${routine.routineNumber}"
+			data-admin-number="${sessionScope.adminNumber}">삭제</button>          	
           	</c:if>
           </div>
         </div>
