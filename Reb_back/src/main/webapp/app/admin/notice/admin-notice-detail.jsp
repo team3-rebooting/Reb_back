@@ -103,7 +103,7 @@
 					<button class="main-btn"
 					data-notice-number="${notice.noticeNumber}"
 					data-admin-number="${sessionScope.adminNumber}">수정</button>
-					<!-- 취소 버튼 -->
+					<!-- 삭제 버튼 -->
 					<button class="main-btn"
 					data-notice-number="${notice.noticeNumber}"
 					data-admin-number="${sessionScope.adminNumber}">삭제</button>					

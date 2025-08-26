@@ -12,10 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
 		window.location.href = `/admin/noticeUpdate.ad?noticeNumber=${encodeURIComponent(noticeNumber)}`;
 	});
 
-	deleteBtn.addEventListener('click', () => {
+	deleteBtn.addEventListener('click', async () => {
+		const noticeNumber = deleteBtn.dataset.noticeNumber;
 		if (!noticeNumber) return alert("noticeNumber가 없습니다");
+	
 		if (!confirm("정말 삭제하시겠습니까?")) return;
-		window.location.href = `/admin/noticeDeleteOk.ad?noticeNumber=${encodeURIComponent(noticeNumber)}`;
+		try{
+			const res = await fetch(`/admin/noticeDeleteOk.ad?noticeNumber=${encodeURIComponent(noticeNumber)}`,{
+				method : "GET",
+				headers : {"X-Requested-With": "XMLHttpRequest"},
+			});
+		if (!res.ok) throw new Error("삭제 실패");	
+		window.location.href = "/admin/noticeListOk.ad";
+		}
+		catch(err){
+			console.error("공지사항 삭제 실패 :", err);
+			alert("공지사항 삭제에 실패했습니다.");
+		}
 		
 	});
 
