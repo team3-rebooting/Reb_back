@@ -32,7 +32,9 @@ cancelBtn.forEach(btn => {
 							"Content-Type": "application/json; charset=utf-8",
 							"X-Requested-With": "XMLHttpRequest",
 						},
-						body: JSON.stringify({ memberNumber : memberNumber, returnMsg: returnMsg.value}),
+						body: JSON.stringify({ memberNumber : memberNumber, returnMsg: returnMsg.value,
+							isExpert : false
+						}),
 					});
 					const result = await safeJson(response);
 					if (result?.status === "success") {
