@@ -25,6 +25,7 @@ public class ExpertAcceptWriteController implements Execute {
 		int memberNumber = Integer.valueOf(request.getParameter("memberNumber"));
 		MemberDAO memberDAO = new MemberDAO();
 		//가져온 memberNumber 로 Expert 에 들어갈 member 정보를 memberDTO에 담는다
+		System.out.println(memberNumber);
 		MemberDTO memberDTO = memberDAO.findExpert(memberNumber);
 		
 		String path = null;

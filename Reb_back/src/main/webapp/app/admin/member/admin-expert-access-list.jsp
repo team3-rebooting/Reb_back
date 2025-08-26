@@ -46,26 +46,7 @@
 			</ul>
 		</section>
 	</header>
-	<!-- 반려 모달 전체 창 -->
-	<div id="modal-background">
-		<!-- 반려 모달 -->
-		<div id="cancel-modal">
-			<!-- 반려 모달 입력창 -->
-			<div id="cancel-modal-in">
-				<p>전문가 승인 반려/승인 취소 사유</p>
-				<!-- 반려 모달 입력 form  -->
-				<form action="" method="get" id="cancel-input">
-					<!-- 반려 모달 입력 영역 -->
-					<textarea name="modal" placeholder="사유 입력" id="return-message"
-						autofocus></textarea>
-					<!-- 반려 모달 등록 버튼 -->
-					<button type="button" id="submit">등록</button>
-				</form>
-			</div>
-			<!-- 반려 모달 나가기 버튼 -->
-			<button type="button" id="close-modal">X</button>
-		</div>
-	</div>
+	
 	<!-- 메인 -->
 	<main>
 		<!-- 사이드바 리스트 영역 -->

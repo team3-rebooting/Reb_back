@@ -123,7 +123,8 @@
         <div id="div-admin-detail-button-delete">
           <!-- 삭제 반려 버튼 -->
           <c:if test="${course.courseStatusInfo=='모집전'}">
-          <button class="button-cancel" type="button">삭제</button>          
+          <button class="button-cancel" type="button"
+          data-course-number="${course.courseNumber}">삭제</button>          
           </c:if>
         </div>
       </div>
