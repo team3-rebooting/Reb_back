@@ -6,6 +6,10 @@ public class CourseDTO {
 	private String courseTitle;
 	private String courseContent;
 	private int expertNumber;
+	private int memberNumber;
+	private String expertLicenseInfo;
+	private String expertCareer;
+	private int expertFieldNumber;
 	private int courseRecruitStatusNumber;
 	private String coursePostDate;
 	private String coursePostUpdateDate;
@@ -41,6 +45,30 @@ public class CourseDTO {
 	}
 	public void setExpertNumber(int expertNumber) {
 		this.expertNumber = expertNumber;
+	}
+	public int getMemberNumber() {
+		return memberNumber;
+	}
+	public void setMemberNumber(int memberNumber) {
+		this.memberNumber = memberNumber;
+	}
+	public String getExpertLicenseInfo() {
+		return expertLicenseInfo;
+	}
+	public void setExpertLicenseInfo(String expertLicenseInfo) {
+		this.expertLicenseInfo = expertLicenseInfo;
+	}
+	public String getExpertCareer() {
+		return expertCareer;
+	}
+	public void setExpertCareer(String expertCareer) {
+		this.expertCareer = expertCareer;
+	}
+	public int getExpertFieldNumber() {
+		return expertFieldNumber;
+	}
+	public void setExpertFieldNumber(int expertFieldNumber) {
+		this.expertFieldNumber = expertFieldNumber;
 	}
 	public int getCourseRecruitStatusNumber() {
 		return courseRecruitStatusNumber;
@@ -117,13 +145,14 @@ public class CourseDTO {
 	@Override
 	public String toString() {
 		return "CourseDTO [courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", courseContent="
-				+ courseContent + ", expertNumber=" + expertNumber + ", courseRecruitStatusNumber="
-				+ courseRecruitStatusNumber + ", coursePostDate=" + coursePostDate + ", coursePostUpdateDate="
-				+ coursePostUpdateDate + ", courseRecruitStartDate=" + courseRecruitStartDate
-				+ ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate=" + courseStartDate
-				+ ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime + ", courseEndTime="
-				+ courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount=" + courseRecruitCount
-				+ ", coursePrice=" + coursePrice + "]";
+				+ courseContent + ", expertNumber=" + expertNumber + ", memberNumber=" + memberNumber
+				+ ", expertLicenseInfo=" + expertLicenseInfo + ", expertCareer=" + expertCareer + ", expertFieldNumber="
+				+ expertFieldNumber + ", courseRecruitStatusNumber=" + courseRecruitStatusNumber + ", coursePostDate="
+				+ coursePostDate + ", coursePostUpdateDate=" + coursePostUpdateDate + ", courseRecruitStartDate="
+				+ courseRecruitStartDate + ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate="
+				+ courseStartDate + ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime
+				+ ", courseEndTime=" + courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount="
+				+ courseRecruitCount + ", coursePrice=" + coursePrice + "]";
 	}
 	
 	

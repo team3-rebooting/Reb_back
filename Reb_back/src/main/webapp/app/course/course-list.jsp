@@ -139,11 +139,9 @@
 							</div>
 						</div>
 					</form>
-					<form action="#" method="get">
+					<form action="${pageContext.request.contextPath}/course/expertCourseCreateRequest.co" method="post">
 						<c:if test="${not empty sessionScope.memberNumber}">
-							<a href="${pageContext.request.contextPath}/course/expertCourseCreateRequest.co">
-								<button class="button-write a-write">글 쓰기</button>
-							</a>
+								<button class="button-write a-write" type="submit">글 쓰기</button>
 						</c:if>
 					</form>
 				</div>

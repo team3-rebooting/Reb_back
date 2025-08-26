@@ -23,7 +23,7 @@ public class ExpertCourseCreateRequestController implements Execute{
 		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
 		String path = null;
 		
-		path = "/course/export-course-crete-request.jsp";
+		path = "/app/course/expert-course-create-request.jsp";
 		
 		result.setPath(path);
 		result.setRedirect(true);
