@@ -32,7 +32,8 @@
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
 	rel="stylesheet">
 
-<script src="${pageContext.request.contextPath}/assets/js/mypage/personal-info.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/mypage/personal-info.js"></script>
 <title>틈새빛</title>
 </head>
 
@@ -124,12 +125,11 @@
 					<div class="personal-info-list">
 						<div class="personal-info-type">프로필 사진</div>
 						<div class="personal-info-data">
-							<c:if test="${not empty myMemberDTO.addressDetail}">
-								<div id="profile-picture">
-									<img src="../../assets/img/profilePicture/dog.jpg" alt="프로필">
-								</div>
-							</c:if>
-
+							<div id="profile-picture">
+								<img
+									src="${pageContext.request.contextPath}/assets/img/profilePicture/dog.jpg"
+									alt="프로필">
+							</div>
 						</div>
 					</div>
 				</div>
