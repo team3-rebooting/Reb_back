@@ -104,8 +104,21 @@ public class MyCommentOkController implements Execute {
 
 				JsonObject etc = new JsonObject();
 				
-				etc.addProperty("listtype", data.getAsJsonObject().get("postType").getAsString().equals("루틴 모임 후기")? "routine" : "course");
+				boolean isRoutine = data.getAsJsonObject().get("postType").getAsString().equals("루틴 모임 후기");
+				
+				etc.addProperty("listtype", isRoutine? "routine" : "course");
 				etc.add("reviewnumber", data.getAsJsonObject().get("reviewNumber")); 
+				
+				
+				String href;
+
+				if (isRoutine) {
+					href = "/routine/routineReviewReadOk.ro?routineReviewNumber=" + data.getAsJsonObject().get("reviewNumber");
+				} else {
+					href = "/course/courseReviewDetailOk.co?courseReviewNumber=" + data.getAsJsonObject().get("reviewNumber");
+				}
+
+				etc.addProperty("href", href);
 				
 				etcArr.add(etc);
 			});
@@ -113,7 +126,7 @@ public class MyCommentOkController implements Execute {
 			obj.addProperty("listTitle", "나의 댓글 내역");
 			obj.add("cols", cols);
 			obj.add("list", list);
-			obj.add("datasetArr", etcArr);
+			obj.add("etcArr", etcArr);
 
 			System.out.println(obj.toString());
 

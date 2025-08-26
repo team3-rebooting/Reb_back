@@ -5,12 +5,10 @@
 		SELECT EXPERT_APPLICANT_REASON FROM TBL_EXPERT_APPLICANT
 		WHERE MEMBER_NUMBER = #{memberNumber}
 	</select>
-	
 	<delete id="delete" parameterType="int">
-		delete from TBL_EXPERT_APPLICANT where member_number = #{memberNumber}
+		delete from TBL_EXPERT_APPLICANT WHERE MEMBER_NUMBER = #{memberNumber}
 	</delete>
-	
 	<insert id="insert" parameterType="int">
-		INSERT INTO TBL_EXPERT_APPLICANT (MEMBER_NUMBER, EXPERT_STATUS_NUMBER, EXPERT_CHECK_DATE) VALUES (#{memberNumber}, 1, sysdate);
+		INSERT INTO TBL_EXPERT_APPLICANT (MEMBER_NUMBER, EXPERT_STATUS_NUMBER, EXPERT_CHECK_DATE) VALUES (#{memberNumber}, 1, sysdate)
 	</insert>
 </mapper>

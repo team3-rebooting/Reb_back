@@ -194,6 +194,7 @@
       	<mapper resource="com/sol/mapper/ExpertMapper.xml" />
       	<mapper resource="com/sol/mapper/MyExpertMapper.xml" />
       	<mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" />
+      	<mapper resource="com/sol/mapper/ExpertApplicantMapper.xml"/> 
 	</mappers>
 	<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/> -->
 	<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 

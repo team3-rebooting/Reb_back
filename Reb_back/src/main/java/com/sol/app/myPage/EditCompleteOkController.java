@@ -147,7 +147,6 @@ public class EditCompleteOkController implements Execute {
 		memberDTO.setMemberNickname(myMemberDTO.getMemberNickname());
 		memberDTO.setMemberPhoneNumber(myMemberDTO.getMemberPhoneNumber());
 		memberDTO.setMemberPassword(myMemberDTO.getMemberPassword());
-		memberDTO.setMemberAddressNumber(myMemberDTO.getMemberAddressNumber());
 		
 		System.out.println("updated : " + memberDTO);
 		myPageDAO.update(memberDTO);

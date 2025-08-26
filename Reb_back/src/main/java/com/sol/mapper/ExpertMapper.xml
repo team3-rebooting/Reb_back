@@ -4,4 +4,16 @@
 	<select id="select" parameterType="int" resultType="ExpertDTO">
 		SELECT expert_number, member_number, expert_license_info, expert_career, expert_field_number FROM tbl_expert WHERE member_number = ${memberNumber}
 	</select>
+	<delete id="delete" parameterType="int">
+		delete from tbl_expert WHERE member_number = ${memberNumber}
+	</delete>
+	<update id="update" parameterType="ExpertDTO">
+		update tbl_expert
+		set 
+			expert_number = #{expertNumber},
+		 	expert_license_info = #{expertLicenseInfo}, 
+		 	expert_career = #{expertCareer}, 
+		 	expert_field_number = #{expertFieldNumber}
+		 	WHERE member_number = ${memberNumber}
+	</update>
 </mapper>

@@ -170,27 +170,29 @@
 						</div>
 					</c:if>
 					<!-- 전문가가 자기 자신의 수업을 보는 버튼 영역 -->
-					<div class="div-expert-edit-button">
-						<a href="./expert-course-edit-request.html"><button
-								class="button-edit" type="button">수정 요청하기</button></a>
-						<button class="button-delete" type="button">삭제 요청하기</button>
-					</div>
-					<!-- 전문가가 자기 자신 수업 수정 요청 시 보여지는 버튼 영역 -->
-					<div class="div-expert-edit-ing-button">
-						<button class="button-edit-ing" type="button">수정 요청중</button>
-					</div>
-					<!-- 전문가가 자기 자신 수업 삭제 요청 시 보여지는 버튼 영역 -->
-					<div class="div-expert-delete-ing-button">
-						<button class="button-delete-ing" type="button">삭제 요청중</button>
-					</div>
-					<!-- 모집 전인 수업 시 보여지는 버튼 영역 -->
-					<div class="div-expert-before-button">
-						<button class="button-before" type="button">모집 전</button>
-					</div>
-					<!-- 모집 종료 시 보여지는 버튼 영역 -->
-					<div class="div-expert-after-button">
-						<button class="button-after" type="button">모집 종료</button>
-					</div>
+					<c:if test="${ course.expertNumber == sessionScope.expertNumber }">
+						<div class="div-expert-edit-button">
+							<a href="./expert-course-edit-request.html"><button
+									class="button-edit" type="button">수정 요청하기</button></a>
+							<button class="button-delete" type="button">삭제 요청하기</button>
+						</div>
+						<!-- 전문가가 자기 자신 수업 수정 요청 시 보여지는 버튼 영역 -->
+						<div class="div-expert-edit-ing-button">
+							<button class="button-edit-ing" type="button">수정 요청중</button>
+						</div>
+						<!-- 전문가가 자기 자신 수업 삭제 요청 시 보여지는 버튼 영역 -->
+						<div class="div-expert-delete-ing-button">
+							<button class="button-delete-ing" type="button">삭제 요청중</button>
+						</div>
+						<!-- 모집 전인 수업 시 보여지는 버튼 영역 -->
+						<div class="div-expert-before-button">
+							<button class="button-before" type="button">모집 전</button>
+						</div>
+						<!-- 모집 종료 시 보여지는 버튼 영역 -->
+						<div class="div-expert-after-button">
+							<button class="button-after" type="button">모집 종료</button>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>

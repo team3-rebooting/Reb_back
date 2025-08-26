@@ -68,9 +68,19 @@
 											<c:out value="${course.courseTitle}" />
 										</p>
 										<div class="div-box-status">
-											<button type="button" class="button-recruit-ing">
-												<c:out value="${course.courseStatusInfo}" />
-											</button>
+											<c:choose>
+												<c:when test="${course.courseRecruitStatusNumber == 1}">
+													<button type="button" class="button-recruit-ing">
+														<c:out value="${course.courseStatusInfo}" />
+													</button>
+												</c:when>
+												<c:otherwise>
+													<button type="button" class="button-recruit-ing"
+														style="background-color: gray;">
+														<c:out value="${course.courseStatusInfo}" />
+													</button>
+												</c:otherwise>
+											</c:choose>
 											<p class="p-name-date">
 												<c:out value="${course.expertName}" />
 												<c:out value="${course.coursePostDate}" />
