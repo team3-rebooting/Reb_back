@@ -38,7 +38,7 @@
           <input type="file" name="courseFile" class="input-bundle">
         </div>
         <div class="div-create-course">
-          <p class="font-main little-title">내용(summernote 자리)</p>
+          <p class="font-main little-title">내용</p>
           <textarea class="textarea-text input-bundle" name="courseText" rows="20" cols="100"></textarea>
         </div>
 

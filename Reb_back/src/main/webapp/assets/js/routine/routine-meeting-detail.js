@@ -2,11 +2,18 @@ window.addEventListener('DOMContentLoaded', () => {
 	const buttonApp = document.querySelector(".button-application");
 	const buttonCancel = document.querySelector(".button-cancel");
 	const back = document.querySelector(".p-back");
-
+	const routineNumber = document.querySelector("#routineName").value;
+	
+	
 	back.addEventListener("click", () => {
 		history.back();
 	});
 
+	// ====== 유틸 ======
+	async function safeJson(res) {
+		const text = await res.text();
+		try { return text ? JSON.parse(text) : null; } catch { return null; }
+	}
 
 	/*buttonApp.addEventListener("click", () => {
 		if (confirm("신청하시겠습니까?")) {
@@ -41,9 +48,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 					buttonCancel.style.display = 'none';
 					buttonApp.style.display = 'block';
-
-					if (contentEl) contentEl.value = "";
-					loadList();
 				} else {
 					alert("신청 취소  실패");
 				}
@@ -72,9 +76,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 					buttonApp.style.display = 'none';
 					buttonCancel.style.display = 'block';
-
-					if (contentEl) contentEl.value = "";
-					loadList();
 				} else {
 					alert("신청 실패");
 				}

@@ -12,7 +12,7 @@
 			c.COURSE_PRICE, f.field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER
 			FROM tbl_course c
 			FULL OUTER JOIN TBL_COURSE_RECRUIT_STATUS cs ON c.COURSE_RECRUIT_STATUS_NUMBER = cs.COURSE_RECRUIT_STATUS_NUMBER
-			FULL OUTER JOIN tbl_expert e ON c.expert_number = e.expert_number
+			LEFT JOIN tbl_expert e ON c.expert_number = e.expert_number
 			LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
 			LEFT JOIN TBL_FILE_course fc ON fc.course_NUMBER = c.course_NUMBER			
 			LEFT OUTER JOIN tbl_field f ON f.field_number = e.expert_field_number

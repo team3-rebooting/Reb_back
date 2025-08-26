@@ -34,6 +34,8 @@
 	<jsp:include page="/header.jsp" />
 	<main>
 		<div id="main-container">
+			<input type="hidden" id="routineName"
+				value="${routine.routineNumber}">
 			<div class="routine-detail-container">
 				<div>
 					<p class="p-back">
@@ -121,14 +123,24 @@
 					<c:if test="${not empty sessionScope.memberNumber}">
 						<c:if test="${routine.routineStatusNumber == 1}">
 							<div class="div-expert-detail-button">
-								<button class="button-application" type="button">신청하기</button>
-								<button class="button-cancel" type="button">취소</button>
+								<c:choose>
+									<c:when test="${applicant}">
+										<button class="button-cancel" type="button">취소</button>
+										<button class="button-application" type="button" style="display: none;">신청하기</button>
+									</c:when>
+									<c:otherwise>
+										<button class="button-cancel" type="button" style="display: none;">취소</button>
+										<button class="button-application" type="button">신청하기</button>
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</c:if>
 					</c:if>
 					<c:if test="${routine.routineStatusNumber != 1}">
 						<div class="div-expert-before-button">
-							<button class="button-before" type="button"><c:out value="${routine.routineStatusInfo}"/></button>
+							<button class="button-before" type="button">
+								<c:out value="${routine.routineStatusInfo}" />
+							</button>
 						</div>
 					</c:if>
 				</div>
@@ -136,8 +148,8 @@
 	</main>
 	<div id="footer"></div>
 </body>
-
-<script src="${pageContext.request.contextPath}/assets/js/routine/routine-meeting-detail.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/routine/routine-meeting-detail.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>
