@@ -118,8 +118,8 @@
         <!-- 버튼 배치 영역 -->
         <div class="div-create-routine">
           <div class="div-button-line">
-            <!-- 등록 버튼 -->
-            <button class="button-ok" type="submit">등록</button>
+            <!-- 수정 버튼 -->
+            <button class="button-ok" type="submit">수정</button>
             <!-- 취소 버튼 -->
             <button class="button-cancel" type="button">취소</button>
           </div>

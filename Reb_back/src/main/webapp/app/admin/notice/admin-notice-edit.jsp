@@ -37,7 +37,7 @@
 		</div>
 		<!-- 제목, 파일, 내용 입력 영역 -->
 		<form
-			action="${pageContext.request.contextPath}/admin/adminUpdateOk.ad"
+			action="${pageContext.request.contextPath}/admin/noticeUpdateOk.ad"
 			method="post" enctype="multipart/form-data">
 			<input type="hidden" name="noticeNumber" value ="${notice.getNoticeNumber()}">
 			<!-- 제목 입력 -->

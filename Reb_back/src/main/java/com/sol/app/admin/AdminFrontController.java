@@ -86,6 +86,10 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("공지사항 수정완료");
 			result = new NoticeUpdateOkController().execute(request,response);
 			break;
+		case "/admin/noticeDeleteOk.ad" :
+			System.out.println("공지사항 삭제");
+			result = new NoticeDeleteOkController().execute(request,response);
+			break;
 		case "/admin/courseRequestListOk.ad" :
 			System.out.println("수업 요청 리스트");
 			result = new CouresRequestListOkController().execute(request,response);
@@ -122,10 +126,13 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("루틴 모임 생성");
 			result = new RoutineWriteController().execute(request,response);
 			break;
-//		case "/admin/routineWriteOk.ad" :
-//			System.out.println("루틴 모임 생성 완료");
-//			result = new RoutineWriteOkController().execute(request,response);
-//			break;
+		case "/admin/routineWriteOk.ad" :
+			System.out.println("루틴 모임 생성 완료");
+			result = new RoutineWriteOkController().execute(request,response);
+			break;
+		case "/admin/routineUpdate.ad" :
+			System.out.println("루틴 모임 수정");
+			result = new RoutineUpdateController().execute(request,response);
 		case "/admin/memberListOk.ad":
 			System.out.println("회원목록 리스트");
 			result = new MemberListOkController().execute(request, response);

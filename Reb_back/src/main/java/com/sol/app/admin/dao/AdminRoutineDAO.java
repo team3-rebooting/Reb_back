@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.sol.app.dto.AdminRoutineDTO;
 import com.sol.app.dto.AdminRoutineListDTO;
+import com.sol.app.dto.RoutineDTO;
 import com.sol.config.MyBatisConfig;
 
 public class AdminRoutineDAO {
@@ -33,8 +34,9 @@ public class AdminRoutineDAO {
 	}
 
 	// 루틴모임 추가 후 자동으로 생성된 routineNumber 반환 -> routine 파일 테이블에서도 써야됨
-	public int insert(AdminRoutineDTO adminRoutineDTO) {
-		return sqlSession.insert("adminRoutine.insert", adminRoutineDTO);
+	public int insert(RoutineDTO routineDTO) {
+		sqlSession.insert("adminRoutine.insert", routineDTO);
+		return routineDTO.getRoutineNumber();
 	}
 
 	// 루틴모임 삭제
