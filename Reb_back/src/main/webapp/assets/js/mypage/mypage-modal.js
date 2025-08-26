@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	openModalButtonList.forEach((button) => {
 		button.addEventListener('click', (e) => {
-			openModal(e.target.name);
+			openModal(e.target.dataset.type);
 		});
 	});
 	
@@ -21,6 +21,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	const courseRejectionReason = "courseRejectionReason";
 
 	function openModal(modalType) {
+		console.log(modalType);
+		
 		if (expertFileUpload === modalType) {
 			modalTitle.innerHTML = "전문가 인증";
 
@@ -49,12 +51,14 @@ window.addEventListener('DOMContentLoaded', () => {
 		// }
 		else if (expertRejectionReason === modalType) {
 			modalTitle.innerHTML = "전문가 인증 반려 사유"
-
-			fetch("/app/mypage/expert-rejection-reason.jsp")
+			
+			modalContent.innerHTML = document.querySelector('#expert-applicant-reason').value;
+			
+			/*fetch("/app/mypage/expert-rejection-reason.jsp")
 				.then(response => response.text())
 				.then(data => {
 					modalContent.innerHTML = data;
-				});
+				});	*/		
 		} else if (courseRejectionReason === modalType) {
 			modalTitle.innerHTML = "반려 사유"
 
