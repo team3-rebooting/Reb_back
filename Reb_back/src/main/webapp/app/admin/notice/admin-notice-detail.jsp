@@ -86,12 +86,12 @@
 						<!-- 파일 1 -->
 						<li class="attachment-item">
 						<c:forEach var="noticeFile" items="${notice.fileNoticeList}">
-							<%-- <!-- 파일명 링크(밑줄) --> <a class="attachment-name"
-							href="/file/download.file?fileSystemName=${noticeFile.getFileSystemName()}&fileOriginalName=${noticeFile.getFileOriginalName()}" download="첨부파일">
-								${noticeFile.getFileSystemName()}</a>  --%>
-								 <img
+							 <!-- 파일명 링크(밑줄) --> <a class="attachment-name"
+							href="${pageContext.request.contextPath}/file/download.file?fileSystemName=${noticeFile.getFileSystemName()}&fileOriginalName=${noticeFile.getFileOriginalName()}">
+								${noticeFile.getFileSystemName()}</a>  
+								<%--  <img
 									src="${pageContext.request.contextPath}/upload/${noticeFile.getFileSystemName()}"
-									class="logo-image" alt="첨부파일" /> 
+									class="logo-image" alt="첨부파일" />  --%>
 							</c:forEach>
 						</li>
 					</ul>

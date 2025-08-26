@@ -6,7 +6,7 @@ const inputIn = document.querySelectorAll(".input-in");
 cancelBtn.addEventListener('click', ()=>{
   if(confirm("수정하신 내용은 사라집니다.수정을 취소하시겠습니까?")){
     alert("수정을 취소하셨습니다.");
-    location.href= "/admin/noticeListOk.ad";
+    window.location.href= `${pageContext.request.contextPath}/admin/noticeReadOk.ad`;
   }
 });
 
@@ -20,7 +20,6 @@ addBtn.addEventListener("click", (e) => {
     }
     if (tf === true) {
       alert("수정 완료되었습니다.");
-      windowlocation.href = "/admin/noticeListOk.ad";
     }
     else {
       alert("모든 정보가 입력되어야 합니다");
