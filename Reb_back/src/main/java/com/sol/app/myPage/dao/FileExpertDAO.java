@@ -1,5 +1,7 @@
 package com.sol.app.myPage.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.sol.app.dto.FileExpertDTO;
@@ -23,4 +25,5 @@ public class FileExpertDAO {
 	public void delete(int memberNumber) {
 		sqlSession.delete("fileExpert.delete", memberNumber);
 	}
+	
 }

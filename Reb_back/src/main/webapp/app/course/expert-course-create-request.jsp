@@ -29,17 +29,17 @@
   <main>
     <div id="main-container">
       <p class="pagetitle">수업 개설 요청</p>
-      <form action="/course/expertCourseCreateRequestOk.co" method="post"  enctype="multipart/form-data">
+      <form action="/course/expertCourseCreateRequestOk.co" method="post" enctype="multipart/form-data">
         <div class="div-create-course">
           <input type="text" class="input-title" name="courseTitle" placeholder="제목을 입력해주세요" required>
         </div>
         <div class="div-create-course">
           <span class="font-main little-title">대표 이미지 : </span>
-          <input type="file" name="courseFile">
+          <input type="file" name="courseFile" required>
         </div>
         <div class="div-create-course">
-          <p class="font-main little-title">내용(summernote 자리)</p>
-          <textarea class="textarea-text" name="courseText" rows="20" cols="130"></textarea>
+          <p class="font-main little-title">내용</p>
+          <textarea class="textarea-text" name="courseText" rows="20" cols="130" required></textarea>
         </div>
         <div class="div-create-course">
           <p class="font-main little-title">장소</p>
@@ -58,41 +58,41 @@
             <div class="div-info-line">
               <p class="font-main">강의일</p>
               <div class="div-input-info">
-                <input type="date" name="courseStartDate">
-                <input type="date" name="courseEndDate">
+                <input type="date" name="courseStartDate" required>
+                <input type="date" name="courseEndDate" required>
               </div>
               <p class="p-warning">강의일이 모집기간보다 빠를 수 없습니다</p>
             </div>
             <div class="div-info-line">
               <p class="font-main">시간</p>
               <div class="div-input-info">
-                <input type="time" name="courseStartTime" class="input-in">
-                <input type="time" name="courseEndTime" class="input-in">
+                <input type="time" name="courseStartTime" class="input-in" required>
+                <input type="time" name="courseEndTime" class="input-in" required>
               </div>
             </div>
             <div class="div-info-line">
               <p class="font-main">요일</p>
               <div class="div-input-info">
-                <label for="monday">월요일</label><input type="checkbox" id="monday" name="dow" class="checkbox-input" value="mon">
-                <label for="tuesday">화요일</label><input type="checkbox" id="tuesday" name="dow" class="checkbox-input" value="tue">
+                <label for="monday">월요일</label><input type="checkbox" id="monday" name="dow" class="checkbox-input input-day" value="mon">
+                <label for="tuesday">화요일</label><input type="checkbox" id="tuesday" name="dow" class="checkbox-input input-day" value="tue">
                 <label for="wednesday">수요일</label><input type="checkbox" id="wednesday" name="dow"
                   class="checkbox-input" value="wen">
-                <label for="thursday">목요일</label><input type="checkbox" id="thursday" name="dow" class="checkbox-input" value="thu">
-                <label for="friday">금요일</label><input type="checkbox" id="friday" name="dow" class="checkbox-input" value="fri">
-                <label for="saturday">토요일</label><input type="checkbox" id="saturday" name="dow" class="checkbox-input" value="sat"> 
-                <label for="sunday">일요일</label><input type="checkbox" id="sunday" name="dow" class="checkbox-input" value="sun">
+                <label for="thursday">목요일</label><input type="checkbox" id="thursday" name="dow" class="checkbox-input input-day" value="thu">
+                <label for="friday">금요일</label><input type="checkbox" id="friday" name="dow" class="checkbox-input input-day" value="fri">
+                <label for="saturday">토요일</label><input type="checkbox" id="saturday" name="dow" class="checkbox-input input-day" value="sat"> 
+                <label for="sunday">일요일</label><input type="checkbox" id="sunday" name="dow" class="checkbox-input input-day" value="sun">
               </div>
             </div>
             <div class="div-info-line">
               <p class="font-main">모집 인원</p>
               <div class="div-input-info">
-                <input type="number" name="recruitmentNumber">
+                <input type="number" name="recruitmentNumber" required>
               </div>
             </div>
             <div class="div-info-line">
               <p class="font-main">가격</p>
               <div class="div-input-info">
-                <input type="number" name="recruitmentPrice">
+                <input type="number" name="recruitmentPrice" required>
               </div>
             </div>
           </div>

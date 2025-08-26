@@ -150,12 +150,12 @@ window.addEventListener('DOMContentLoaded', () => {
 			const res = await fetch(`/mypage/mypageListOk.my?listType=${encodeURIComponent(id)}&page=${page}`, {
 				headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" },
 			});
-			
+
 			if (!res.ok) throw new Error("목록을 불러오는 데 실패했습니다.");
-			
+
 			const listInfo = await safeJson(res);
-			
-			renderList(listInfo, id, listInfo.page.rowCount);
+
+			renderList(listInfo, id, listInfo.page.rowCount, listInfo.etcArr);
 			renderPage(listInfo.page, id);
 		} catch (error) {
 			console.error("목록 불러오기 실패:", error);
@@ -185,7 +185,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// ====== 목록 렌더링 ======
-	function renderList(listInfo, id, rowCount) {
+	function renderList(listInfo, id, rowCount, etcArr) {
+
 		const pageNum = document.querySelectorAll(`.a-page-number`);
 		pageNum.forEach((e) => {
 			e.addEventListener('click', (e) => {
@@ -218,13 +219,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		listInfo.list.forEach(function(l, i) {
 			let li = ``;
-			console.log(listInfo);
 			
+			console.log("href : ", etcArr[i]?.href);
 			l.forEach(function(item, index) {
-				console.log(item);
-				if (index === 0)
-					li += `<li class="li-content"><a href="" class="font-main list-title">${item}</a>`;
-				else if (index === (l.length  -1))
+				if (index === 0) {
+					if (etcArr[i]?.href !== undefined) {
+						li += `<li class="li-content"><a href="${etcArr[i].href}" class="font-main list-title">${item}</a>`;
+					} else {
+						li += `<li class="li-content"><p class="font-main list-title">${item}</p>`;
+					}
+				}
+				else if (index === (l.length - 1))
 					li += `<p class="font-main list-content">${item}</p></li>`;
 				else
 					li += `<p class="font-main list-content">${item}</p>`;
@@ -245,7 +250,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	function renderPage(pageInfo, id) {
 		const pagenation = document.querySelector(`#${id}`).querySelector(".pagenation");
 
-		console.log('pageInfo', pageInfo);
 		let innerHTML = ``;
 		let page = pageInfo.page;
 		let startPage = pageInfo.startPage;

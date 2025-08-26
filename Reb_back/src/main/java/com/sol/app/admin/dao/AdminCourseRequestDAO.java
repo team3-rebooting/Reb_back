@@ -36,10 +36,15 @@ public class AdminCourseRequestDAO {
 	}
 	//수업 삭제 요청 승인
 	public void deleteApprove(int courseNumber) {
-		sqlSession.delete("adminCourseRequest.deleteApprove",courseNumber);
+		sqlSession.update("adminCourseRequest.deleteApprove",courseNumber);
 	}
 	//반려 처리
 	public void rejection(AdminCourseRequestDTO adminCourseRequestDTO) {
 		sqlSession.update("adminCourseRequest.rejection",adminCourseRequestDTO);
 	}
+	//이전 번호 가져오기
+	public int selectPrev(int courseNumber) {
+		return sqlSession.selectOne("adminCourseRequest.selectPrev", courseNumber);
+	}
+	
 }

@@ -9,9 +9,9 @@
 		where MEMBER_NUMBER = #{memberNumber} and COURSE_REVIEW_COMMENT_NUMBER = #{courseReviewCommentNumber}
 	</update>
 	
-	<delete id="delete" parameterType="CourseReviewCommentDTO">
+	<delete id="delete" parameterType="int">
 		delete from TBL_COURSE_REVIEW_COMMENT
-		where MEMBER_NUMBER = #{memberNumber} and COURSE_REVIEW_COMMENT_NUMBER = #{courseReviewCommentNumber}
+		where COURSE_REVIEW_COMMENT_NUMBER = #{courseReviewCommentNumber}
 	</delete>
 	
 	<insert id="insert" parameterType="CourseReviewCommentDTO">

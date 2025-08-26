@@ -29,6 +29,7 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 		Result result = new Result();
 
 		Integer memberNumber = (Integer) request.getSession().getAttribute("memberNumber");
+		Integer expertNumber = (Integer) request.getSession().getAttribute("expertNumber");
 
 		// 파일 업로드 환경 설정
 		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
@@ -37,6 +38,7 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 		MultipartRequest multipartRequest = new MultipartRequest(request, UPLOAD_PATH, FILE_SIZE, "utf-8",
 				new DefaultFileRenamePolicy());
 
+		courseDTO.setExpertNumber(expertNumber);
 		courseDTO.setMemberNumber(memberNumber);
 		courseDTO.setCourseTitle(multipartRequest.getParameter("courseTitle"));
 		courseDTO.setCourseContent(multipartRequest.getParameter("courseText"));
@@ -49,29 +51,32 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 		courseDTO.setCourseLocation("지도 api 추가 후 수정");
 		String[] days = multipartRequest.getParameterValues("dow");
 		String day = "";
-		for (int i = 0; i < days.length; i++) {
-			switch (days[i]) {
-			case "mon":
-				day += "월";
-				break;
-			case "tue":
-				day += "화";
-				break;
-			case "wed":
-				day += "수";
-				break;
-			case "thu":
-				day += "목";
-				break;
-			case "fri":
-				day += "금";
-				break;
-			case "sat":
-				day += "토";
-				break;
-			case "sun":
-				day += "일";
-				break;
+
+		if (days != null) {
+			for (int i = 0; i < days.length; i++) {
+				switch (days[i]) {
+				case "mon":
+					day += "월";
+					break;
+				case "tue":
+					day += "화";
+					break;
+				case "wed":
+					day += "수";
+					break;
+				case "thu":
+					day += "목";
+					break;
+				case "fri":
+					day += "금";
+					break;
+				case "sat":
+					day += "토";
+					break;
+				case "sun":
+					day += "일";
+					break;
+				}
 			}
 		}
 		courseDTO.setCourseDayOfWeek(day);
@@ -98,7 +103,7 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 			System.out.println("업로드 된 파일 정보 : " + fileCourseDTO);
 			fileCourseDAO.insert(fileCourseDTO);
 		}
-		
+
 		result.setPath("/course/courseListOk.co");
 		result.setRedirect(true);
 

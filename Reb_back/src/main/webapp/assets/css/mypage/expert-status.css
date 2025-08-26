@@ -101,13 +101,13 @@ button {
 }
 
 #a-expert-status-file{
-  width : 840px;
+	margin-left : 20px;
 }
 
 
 
 #expert-file-text{
-  line-height: 60px;;
+  line-height: 60px;
 }
 
 #button-expert-status-rejection-reason{

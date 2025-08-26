@@ -6,21 +6,24 @@
 	SELECT * FROM (
       SELECT ROWNUM AS rnum, subquery.*
       FROM (
-		SELECT c.COURSE_NUMBER, c.expert_number, m.member_name as expert_name, c.COURSE_TITLE, c.COURSE_CONTENT, c.COURSE_RECRUIT_STATUS_NUMBER, cs.COURSE_STATUS_INFO, 
+      	SELECT * FROM
+      	(
+			SELECT c.COURSE_NUMBER, c.expert_number, m.member_name as expert_name, c.COURSE_TITLE, c.COURSE_CONTENT, c.COURSE_RECRUIT_STATUS_NUMBER, cs.COURSE_STATUS_INFO, 
 			to_char(c.COURSE_POST_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_DATE, to_char(c.COURSE_POST_UPDATE_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_UPDATE_DATE, to_char(c.COURSE_RECRUIT_START_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_START_DATE, 
 			to_char(c.COURSE_RECRUIT_END_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_END_DATE, to_char(c.COURSE_START_DATE, 'yyyy.mm.dd(day)') as COURSE_START_DATE, to_char(c.COURSE_END_DATE, 'yyyy.mm.dd(day)') as COURSE_END_DATE, to_char(c.COURSE_START_TIME,'hh:mi') as COURSE_START_TIME,  to_char(c.COURSE_END_TIME,'hh:mi') as COURSE_END_TIME, c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT,
 			c.COURSE_PRICE, f.field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER
 			FROM tbl_course c
 			FULL OUTER JOIN TBL_COURSE_RECRUIT_STATUS cs ON c.COURSE_RECRUIT_STATUS_NUMBER = cs.COURSE_RECRUIT_STATUS_NUMBER
-			LEFT JOIN tbl_expert e ON c.expert_number = e.expert_number
+			FULL OUTER JOIN tbl_expert e ON c.expert_number = e.expert_number
 			LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
 			LEFT JOIN TBL_FILE_course fc ON fc.course_NUMBER = c.course_NUMBER			
 			LEFT OUTER JOIN tbl_field f ON f.field_number = e.expert_field_number
-			ORDER BY c.COURSE_POST_DATE DESC
+			ORDER BY c.COURSE_POST_DATE DESC ) ORDER BY COURSE_RECRUIT_STATUS_NUMBER
       ) subquery
    	) WHERE rnum BETWEEN #{startRow} AND #{endRow} 
 	]]>
 	</select>
+
 	
 	<!-- 총 목록 개수 -->
 	<select id="getTotal" resultType="int">

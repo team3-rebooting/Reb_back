@@ -107,6 +107,9 @@ public class MyApplicantCourseOkController implements Execute {
 				etc.addProperty("listtype", "course");
 				etc.add("coursenumber", data.getAsJsonObject().get("courseNumber"));
 
+				String href = "/course/courseDetailOk.co?courseNumber=" + data.getAsJsonObject().get("courseNumber");
+				etc.addProperty("href", href);
+				
 				etcArr.add(etc);
 			});
 

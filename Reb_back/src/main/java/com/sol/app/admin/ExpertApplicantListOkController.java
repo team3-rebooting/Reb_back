@@ -13,6 +13,8 @@ import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminExpertApplicantDAO;
 import com.sol.app.dto.AdminExpertApplicantListDTO;
+import com.sol.app.dto.FileExpertDTO;
+import com.sol.app.file.dao.FileExpertDAO;
 
 public class ExpertApplicantListOkController implements Execute {
 
@@ -35,8 +37,12 @@ public class ExpertApplicantListOkController implements Execute {
 		Map<String, Integer> pageMap = new HashMap<>();
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
-
+		
+		FileExpertDAO expertDAO = new FileExpertDAO();
 		List<AdminExpertApplicantListDTO> applicantList = applicantDAO.selectAll(pageMap);
+		for(int i=0;i<applicantList.size();i++) {
+			applicantList.get(i).setFileExpertList((expertDAO.select(applicantList.get(i).getMemberNumber())));
+		}
 		request.setAttribute("applicantList", applicantList);
 
 		// 페이징 정보 설정

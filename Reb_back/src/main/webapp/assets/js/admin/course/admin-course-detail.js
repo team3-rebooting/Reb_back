@@ -11,9 +11,10 @@ moveBtn.addEventListener('click', () => {
 });
 
 deleteBtn.addEventListener('click', () => {
+	const courseNumber = deleteBtn.dataset.courseNumber;
   if(confirm("정말로 삭제하시겠습니까?")){
+    window.location.href= `/admin/courseDeleteOk.ad?courseNumber=${courseNumber}`;
     alert("수업이 삭제되었습니다.");
-    location.href= "/admin/courseListOk.ad?page=1";
   }
 });
 

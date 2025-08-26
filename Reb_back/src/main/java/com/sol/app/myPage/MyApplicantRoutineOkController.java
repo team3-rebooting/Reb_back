@@ -107,7 +107,10 @@ public class MyApplicantRoutineOkController implements Execute {
 				
 				etc.addProperty("listtype", "course");
 				etc.add("routinenumber", data.getAsJsonObject().get("routineNumber"));
-
+				
+				String href = "/routine/routineReadOk.ro?routineNumber=" + data.getAsJsonObject().get("routineNumber");
+				etc.addProperty("href", href);
+				
 				etcArr.add(etc);
 			});
 

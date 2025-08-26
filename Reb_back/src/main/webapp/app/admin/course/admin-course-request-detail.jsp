@@ -130,6 +130,7 @@
             data-course-request-type="${course.courseRequestTypeNumber}">개설 승인</button>
             <!-- 개설 반려 버튼 -->
             <button class="button-cancel" type="button"
+            data-companion-type="create" 
             data-course-number="${course.courseNumber}">개설 반려</button>
           </div>          	
           	</c:when>
@@ -142,6 +143,7 @@
             data-course-request-type="${course.courseRequestTypeNumber}">수정 승인</button>
             <!-- 수정 반려 버튼 -->
             <button class="button-cancel" type="button"
+            data-companion-type="update" 
             data-course-number="${course.courseNumber}">수정 반려</button>
           </div>
           	</c:when>
@@ -153,7 +155,9 @@
             data-course-number="${course.courseNumber}"
             data-course-request-type="${course.courseRequestTypeNumber}">삭제 승인</button>
             <!-- 삭제 반려 버튼 -->
-            <button class="button-cancel" type="button">삭제 반려</button>
+            <button class="button-cancel" type="button"
+            data-companion-type="delete" 
+            data-course-number="${course.courseNumber}">삭제 반려</button>
           </div>          	
           	</c:when>
           </c:choose>

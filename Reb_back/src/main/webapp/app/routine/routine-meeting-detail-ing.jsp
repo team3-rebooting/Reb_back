@@ -34,7 +34,7 @@
 	<jsp:include page="/header.jsp" />
 	<main>
 		<div id="main-container">
-			<input type="hidden" id="routineName"
+			<input type="hidden" id="routineNumber"
 				value="${routine.routineNumber}">
 			<div class="routine-detail-container">
 				<div>
@@ -111,8 +111,7 @@
 								]
 							</p>
 							<p>
-								모집 인원 :
-								<c:out value="${routine.routineApplicantCount}" />
+								모집 인원 : <span id="applicant-count">${routine.routineApplicantCount}</span>
 								/
 								<c:out value="${routine.routineRecruitCount}" />
 								명
@@ -120,29 +119,30 @@
 
 						</div>
 					</div>
-					<c:if test="${not empty sessionScope.memberNumber}">
-						<c:if test="${routine.routineStatusNumber == 1}">
-							<div class="div-expert-detail-button">
+					<div class="div-expert-detail-button">
+						<c:if test="${not empty sessionScope.memberNumber}">
+							<c:if test="${routine.routineStatusNumber == 1}">
 								<c:choose>
 									<c:when test="${applicant}">
 										<button class="button-cancel" type="button">취소</button>
-										<button class="button-application" type="button" style="display: none;">신청하기</button>
+										<button class="button-application" type="button"
+											style="display: none;">신청하기</button>
 									</c:when>
 									<c:otherwise>
-										<button class="button-cancel" type="button" style="display: none;">취소</button>
+										<button class="button-cancel" type="button"
+											style="display: none;">취소</button>
 										<button class="button-application" type="button">신청하기</button>
 									</c:otherwise>
 								</c:choose>
-							</div>
+							</c:if>
+							<c:if test="${routine.routineStatusNumber != 1}">
+								<button class="button-before" type="button">
+									<c:out value="${routine.routineStatusInfo}" />
+								</button>
+							</c:if>
 						</c:if>
-					</c:if>
-					<c:if test="${routine.routineStatusNumber != 1}">
-						<div class="div-expert-before-button">
-							<button class="button-before" type="button">
-								<c:out value="${routine.routineStatusInfo}" />
-							</button>
-						</div>
-					</c:if>
+
+					</div>
 				</div>
 			</div>
 	</main>

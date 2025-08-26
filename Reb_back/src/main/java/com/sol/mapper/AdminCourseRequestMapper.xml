@@ -73,14 +73,18 @@
 		where course_number = #{courseNumber}
 	</update>
 	<!-- 삭제 승인  -->
-	<delete id="deleteApprove" parameterType="int">
-		delete from tbl_course where course_number = #{courseNumber}
-	</delete>
+	<update id="deleteApprove" parameterType="int">
+		update tbl_course set course_title = '삭제됨' , course_content = '삭제됨' where course_number = #{courseNumber}
+	</update>
 	<!-- 반려 사유  -->
 	<update id="rejection" parameterType="AdminCourseRequestDTO">
 		update tbl_course_request set COURSE_OPEN_STATUS_NUMBER = 3, 
 		COURSE_RESULT_DATE = to_date(sysdate, 'YYYY-MM-DD'),
-		course_resect_reason = #{courseRejectReason}
+		course_reject_reason = #{courseRejectReason}
 		where course_number = #{courseNumber}
 	</update>
+	<!-- 이전 번호 가져오기 -->
+	<select id="selectPrev" parameterType="int" resultType="int">
+		select prev_course_number from tbl_course_request where course_number = #{courseNumber}
+	</select>
 </mapper>

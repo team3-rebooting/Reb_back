@@ -42,7 +42,8 @@
 	<jsp:include page="/header.jsp" />
 	<main>
 		<!-- 모달 -->
-		<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-modal.jsp" />
+		<jsp:include
+			page="${pageContext.request.contextPath}/app/mypage/mypage-modal.jsp" />
 		<!-- 사이드 메뉴 -->
 		<jsp:include
 			page="${pageContext.request.contextPath}/app/mypage/sidemenu.jsp" />
@@ -51,15 +52,20 @@
 			<!-- 페이지 제목 -->
 			<div class="pagetitle">전문가 인증 정보</div>
 			<form action="" method="post">
-				<input type="hidden" id="expert-cert-status_number" value="${expert.expertCertStatusNumber}"> 
-				<input type="hidden" id="expert-applicant-reason" value="${expert.expertApplicantReason}"> 
+				<input type="hidden" id="expert-cert-status_number"
+					value="${expert.expertCertStatusNumber}"> <input
+					type="hidden" id="expert-applicant-reason"
+					value="${expert.expertApplicantReason}">
 				<div class="expert-status-content-box">
 					<div id="expert-progress-status" class="expert-status-info">
 						<div class="expert-status-title">승인 상태</div>
 						<div class="expert-status-text" id="expert-progress-status-text">
 							<div>
-								<button class="button-modal-open" type="button" id="button-expert-status-rejection-reason"
-								data-type="expertRejectionReason"><c:out value="${expert.expertCertStatusInfo}" /></button>
+								<button class="button-modal-open" type="button"
+									id="button-expert-status-rejection-reason"
+									data-type="expertRejectionReason">
+									<c:out value="${expert.expertCertStatusInfo}" />
+								</button>
 							</div>
 							<div>
 								(일자 :
@@ -71,22 +77,23 @@
 					<div id="expert-file" class="expert-status-info">
 						<div class="expert-status-title">첨부 파일</div>
 						<div class="expert-status-text" id="expert-file-text">
-							<c:choose>
-							<c:when test="${ not empty expert.getFileExpert()}">
-								<a
-									href="${pageContext.request.contextPath}/upload/${expert.getFileExpert().getFileSystemName()}"
-									download="${expert.getFileExpert().getFileOriginalName()}"
-									id="a-expert-status-file">${expert.getFileExpert().getFileOriginalName()}</a>
-							</c:when>
-							<c:otherwise>
-								등록한 첨부 파일이 없습니다.
-							</c:otherwise>
-							</c:choose>
-							<%-- <div id="expert-status-file-date">등록일자 : <c:out value="${expert}"/></div> --%>
 							<div>
 								<button class="button-modal-open" type="button"
 									data-type="expertFileUpload">변경</button>
 							</div>
+							<c:choose>
+								<c:when test="${ not empty expert.getFileExpert()}">
+									<a
+										href="${pageContext.request.contextPath}/upload/${expert.getFileExpert().getFileSystemName()}"
+										download="${expert.getFileExpert().getFileOriginalName()}"
+										id="a-expert-status-file">${expert.getFileExpert().getFileOriginalName()}</a>
+								</c:when>
+								<c:otherwise>
+								등록한 첨부 파일이 없습니다.
+							</c:otherwise>
+							</c:choose>
+							<%-- <div id="expert-status-file-date">등록일자 : <c:out value="${expert}"/></div> --%>
+
 						</div>
 					</div>
 					<div id="expert-specialization" class="expert-status-info">
@@ -125,6 +132,8 @@
 	<script
 		src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/mypage/expert-file-upload.js"></script>
 </body>
 
 </html>

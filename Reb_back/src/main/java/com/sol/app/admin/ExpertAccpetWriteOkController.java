@@ -22,6 +22,7 @@ public class ExpertAccpetWriteOkController implements Execute {
 		//전문가 DAO
 		AdminExpertDAO expertDAO = new AdminExpertDAO();
 		//전문가 DTO(DB에 들어갈 값)
+		System.out.println(request.getParameter("memberNumber"));
 		ExpertDTO expertDTO = new ExpertDTO();
 		expertDTO.setMemberNumber(Integer.valueOf(request.getParameter("memberNumber")));
 		expertDTO.setExpertLicenseInfo(request.getParameter("expertLicenseInfo"));
@@ -34,7 +35,7 @@ public class ExpertAccpetWriteOkController implements Execute {
 		expertDAO.updateExpert(expertDTO.getMemberNumber());
 		
 		result.setPath("/admin/expertApplicantListOk.ad");
-		result.setRedirect(false);
+		result.setRedirect(true);
 		return result;
 	}
 

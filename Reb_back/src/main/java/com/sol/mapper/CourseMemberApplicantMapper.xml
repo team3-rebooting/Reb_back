@@ -7,4 +7,43 @@
 			ON TM.COURSE_NUMBER = TC.COURSE_NUMBER
 		WHERE TM.MEMBER_NUMBER = #{memberNumber}
 	</select>
+	
+	<select id="getCount" parameterType="int" resultType="int">
+		SELECT
+		count(a.MEMBER_NUMBER)
+		FROM TBL_COURSE_MEMBER_APPLICANT a
+		JOIN (SELECT COURSE_NUMBER FROM TBL_COURSE WHERE COURSE_NUMBER =
+		#{courseNumber}) r
+		ON r.COURSE_NUMBER = a.COURSE_NUMBER
+	</select>
+
+	<insert id="insert" parameterType="CourseMemberApplicantDTO">
+		insert into
+		tbl_course_member_applicant(COURSE_NUMBER, MEMBER_NUMBER,
+		COURSE_MEMBER_APPLY_DATE)
+		values(#{courseNumber}, #{memberNumber},
+		sysdate)
+	</insert>
+
+	<delete id="delete" parameterType="map">
+		delete from
+		tbl_course_member_applicant
+		where COURSE_NUMBER = #{courseNumber}
+		and member_number = #{memberNumber}
+	</delete>
+
+	<select id="select" parameterType="map" resultType="int">
+		select
+		count(COURSE_NUMBER) from tbl_course_member_applicant
+		where
+		COURSE_NUMBER = #{courseNumber} and member_number = #{memberNumber}
+	</select>
+
+	<select id="getCourseList" parameterType="int" resultType="CourseDTO">
+		select a.COURSE_NUMBER, c.course_title
+		from tbl_course_member_applicant a
+		JOIN tbl_course c
+		ON a.course_number = c.routine_number
+		where member_number = #{memberNumber}
+	</select>
 </mapper>
