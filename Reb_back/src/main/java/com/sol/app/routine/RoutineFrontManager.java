@@ -73,6 +73,10 @@ public class RoutineFrontManager extends HttpServlet {
 			System.out.println("루틴 모임 상세 처리");
 			result = new RoutineReadOkController().execute(request, response);
 			break;
+		case "/routine/routineApplyOk.ro" :
+			System.out.println("루틴 모임 신청/취소 처리");
+			result = new RoutineApplyOkController().execute(request, response);
+			break;
 		}
 		
 		

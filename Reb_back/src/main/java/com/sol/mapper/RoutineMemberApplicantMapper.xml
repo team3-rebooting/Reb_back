@@ -13,14 +13,14 @@
 		values(#{routineNumber}, #{memberNubmer}, #{routineMemberApplyDate})
 	</insert>
 	
-	<delete id="delete" parameterType="int">
+	<delete id="delete" parameterType="map">
 		delete from tbl_routine_member_applicant
-		where member_number = #{memberNumber}
+		where ROUTINE_NUMBER = #{routineNumber} and member_number = #{memberNumber}
 	</delete>
 	
-	<select id="select" parameterType="int">
+	<select id="select" parameterType="map">
 		delete count(ROUTINE_NUMBER) from tbl_routine_member_applicant
-		where ROUTINE_NUMBER = #{routineNumber}
+		where ROUTINE_NUMBER = #{routineNumber} and member_number = #{memberNumber}
 	</select>
 	
 </mapper>
