@@ -69,7 +69,12 @@
 										<c:out value="${courseReview.getMemberNickname()}" />
 									</div>
 									<div class="review-date">
-										<c:out value="${courseReview.getCourseReviewCreatedDate()}" />
+										<c:when test="${not empty courseReview.getCourseReviewUpdatedDate()}">
+											<c:out value="${courseReview.getCourseReviewUpdatedDate() }" />
+										</c:when>
+										<c:otherwise>
+											<c:out value="${courseReview.getCourseReviewCreatedDate()}" />
+										</c:otherwise>
 									</div>
 									<div class="review-like">
 										<c:out value="${courseReview.getCourseReviewLike()}" />
