@@ -99,8 +99,12 @@ public class AdminFrontController extends HttpServlet {
 			result = new CourseRequestReadOkController().execute(request,response);
 			break;
 		case "/admin/courseRequestApproveOk.ad" :
-			System.out.println("수업 상태 승인");
+			System.out.println("수업 개설 승인");
 			result = new CourseRequestApproveOkController().execute(request,response);
+			break;
+		case "/admin/courseRequestCompanionOk.ad" :
+			System.out.println("수업 개설 반려");
+			result = new CourseRequestCompanionOkController().execute(request,response);
 			break;
 		case "/admin/courseRequestDeleteOk.ad" :
 			System.out.println("수업 삭제 승인");
@@ -114,6 +118,9 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("수업 상세");
 			result = new CourseReadOkController().execute(request,response);
 			break;
+		case "/admin/courseDeleteOk.ad" :
+			System.out.println("수업 삭제");
+			result = new CourseDeleteOkController().execute(request,response);
 		case "/admin/routineListOk.ad" :
 			System.out.println("루틴모임 리스트");
 			result = new RoutineListOkController().execute(request, response);
@@ -170,6 +177,8 @@ public class AdminFrontController extends HttpServlet {
 		case "/admin/expertReadOk.ad" :
 			System.out.println("전문가 상세");
 			result = new ExpertReadOkController().execute(request,response);
+			break;
+		case "/admin/expert":
 			break;
 		case "/admin/routineReviewListOk.ad" :
 			System.out.println("루틴 모임 리뷰 목록");

@@ -41,8 +41,6 @@
 //        // 파일, 텍스트 데이터 처리
 //        Part part;
 //        while ((part = parser.readNextPart()) != null) {
-//            System.out.println("Part: " + part.getClass().getSimpleName());
-//
 //            if (part.isParam()) {
 //                // 텍스트 파라미터 처리
 //                ParamPart paramPart = (ParamPart) part;

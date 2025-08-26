@@ -16,6 +16,9 @@
     					ON c.EXPERT_NUMBER = e.EXPERT_NUMBER 
 						JOIN TBL_MEMBER m 
     					ON e.MEMBER_NUMBER = m.MEMBER_NUMBER 
+    					JOIN tbl_course_request cr
+    					ON cr.course_number = c.course_number
+    					WHERE cr.course_open_status_number = 2 
             			ORDER BY c.COURSE_START_DATE 
         			) subquery
 				)	
@@ -62,4 +65,11 @@
 		delete from tbl_course where
 		course_number = #{courseNumber}
 	</delete>
+	<!-- <select id="selectCourse" parameterType="int" resultType="CourseDTO">
+		select * from tbl_course where course_number = #{courseNumber}
+	</select>
+	 -->
+	 <update id="updateDelete" parameterType="int">
+	 	update tbl_course set course_title = '삭제됨' , course_content = '삭제됨' where course_number = #{courseNumber}
+	 </update>
 </mapper>

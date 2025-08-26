@@ -60,4 +60,8 @@
 	<update id="updateExpert" parameterType="int">
 		update tbl_expert_applicant set expert_status_number = 2 where member_number = #{memberNumber}
 	</update>
+	<!-- 전문가 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from tbl_expert where member_number = #{memberNumber}
+	</delete>
 </mapper>

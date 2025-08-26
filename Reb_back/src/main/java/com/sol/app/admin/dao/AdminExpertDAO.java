@@ -32,9 +32,13 @@ public class AdminExpertDAO {
 	public AdminExpertDTO select(int expertNumber) {
 		return sqlSession.selectOne("adminExpert.select", expertNumber);
 	}
-	//전문가 승인 취소
+	//전문가 신청 반려
 	public void update(ExpertApplicantDTO expertApplicantDTO) {
 		sqlSession.update("adminExpert.update",expertApplicantDTO);
+	}
+	//전문가 승인 반려
+	public void updateExpertNo(ExpertApplicantDTO expertApplicantDTO) {
+		sqlSession.update("AdminExpertApplicant.updateExpertNo",expertApplicantDTO);
 	}
 	
 	//전문가 생성
@@ -44,6 +48,10 @@ public class AdminExpertDAO {
 	//전문가 생성 시 상태 변경
 	public void updateExpert(int memberNumber) {
 		sqlSession.update("adminExpert.updateExpert",memberNumber);
+	}
+	//전문가 삭제
+	public void delete(int memberNumber) {
+		sqlSession.delete("adminExpert.delete",memberNumber);
 	}
 	
 }

@@ -1,74 +1,40 @@
-const moneyButtons = document.querySelectorAll('.div-money-button');
-const inputMoney = document.querySelector("#input-donation-money");
+document.addEventListener("DOMContentLoaded", () => {
+    const moneyButtons = document.querySelectorAll('.div-money-button');
+    const inputMoney = document.querySelector("#input-donation-money");
 
+    moneyButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            moneyButtons.forEach(b => b.style.backgroundColor = '#f59d85');
+            btn.style.backgroundColor = '#F38A6E';
+            inputMoney.value = btn.value;
+        });
+    });
 
-document.querySelector("#button-cancle-donation").addEventListener('click', ()=>{
-    cancelDonation();
-});
-
-document.querySelector("#button-ok-donation").addEventListener('click', ()=>{
-    okDonation();
-});
-
-moneyButtons.forEach((m) => {
-    m.addEventListener('click', (e) => {
-        const pushed = e.target.value;
-
-        moneyButtons.forEach((item) => {
-            item.style.backgroundColor = '#f59d85';
-            item.value = item.value.split('-')[0];
-        })
-        
-
-        if (!pushed.includes('-pushed')) {
-            m.style.backgroundColor = '#F38A6E';
-            inputMoney.value = '';
-            inputMoney.setAttribute('disabled', true);
-            e.target.value = pushed + '-pushed';
-        } else {
-            e.target.value = '';
-            m.style.backgroundColor = '#f59d85';
-            inputMoney.removeAttribute('disabled');
-
-            e.target.value = pushed.split('-')[0];
+    document.querySelector("#button-ok-donation").addEventListener('click', () => {
+        let money = parseInt(inputMoney.value);
+        if(!money || money <= 0){
+            alert("후원 금액을 선택 또는 입력해주세요.");
+            return;
         }
-    })
-});
 
-function okDonation(){
-
-    let money = 0;
-
-    if(inputMoney.getAttribute('disabled')){
-        moneyButtons.forEach((item) => {
-            if(item.value.includes('pushed')){
-                money = item.value.split('-')[0];
-            }
+        fetch('./DonationServlet', {
+            method: 'POST',
+            headers: {'Content-Type':'application/x-www-form-urlencoded'},
+            body: 'amount=' + money
         })
-    }else{
-        if(inputMoney.value !== '')
-            money = inputMoney.value;
-    }
+        .then(res => res.json())
+        .then(data => {
+            if(data.next_redirect_pc_url){
+                location.href = data.next_redirect_pc_url;
+            } else {
+                alert('결제 준비 실패');
+            }
+        });
+    });
 
-    if(money === 0){
-        alert('후원 금액을 선택 또는 입력해주세요.');
-        return;
-    }
-
-    const confirmMsg = 
-`${money}원 후원을 선택하셨습니다.
-후원하시겠습니까?`;
-
-    if(confirm(confirmMsg)){
-        movePage('sponsorship-complete.html');
-    }
-}
-
-function cancelDonation(){
-    if(confirm(`정말로 취소하시겠습니까?`))
-        movePage('./../../main.html');
-}
-
-function movePage(href) {
-    location.href = href;
-}
+    document.querySelector("#button-cancle-donation").addEventListener('click', () => {
+        if(confirm('정말로 취소하시겠습니까?')){
+            location.href = './../../main.html';
+        }
+    });
+});

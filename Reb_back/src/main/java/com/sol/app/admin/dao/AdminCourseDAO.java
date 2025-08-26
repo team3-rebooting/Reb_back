@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.sol.app.dto.AdminCourseDTO;
 import com.sol.app.dto.AdminCourseListDTO;
+import com.sol.app.dto.CourseDTO;
 import com.sol.config.MyBatisConfig;
 
 public class AdminCourseDAO {
@@ -35,5 +36,13 @@ public class AdminCourseDAO {
 	// 수업 강제 삭제
 	public void delete(int courseNumber) {
 		sqlSession.delete("adminCourse.delete", courseNumber);
+	}
+	// 수업 조회(courseDTO)
+	public CourseDTO selectCourse(int courseNumber) {
+		return sqlSession.selectOne("adminCourse.selectCourse",courseNumber);
+	}
+	// 수업 삭제(삭제됨)
+	public void updateDelete(int courseNumber) {
+		sqlSession.update("adminCourse.updateDelete",courseNumber);
 	}
 }

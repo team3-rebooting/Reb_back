@@ -124,9 +124,11 @@
 										data-member-number="${applicant.memberNumber}">반려</button>
 									</div>
 									<div class="main-expert-list-file">
-										<a href="./../../../assets/img/yujin.jpg" download="유진.jpg">
+									<c:forEach var="file" items="${applicant.fileExpertList}">
+										<a href="${pageContext.request.contextPath}/file/download.file?fileSystemName=${file.getFileSystemName()}&fileOriginalName=${file.getFileOriginalName()}">
 											<button type="button" class="file">다운로드</button>
-										</a>
+										</a>									
+									</c:forEach>
 									</div>
 								</li>
 							</c:forEach>

@@ -39,11 +39,11 @@
         <!-- 반려 모달 제목 -->
         <p>승인 취소 사유</p>
         <!-- 반려 모달 입력 영역 -->
-        <form action="" method="get" id="cancel-input">
+        <form action="#" method="get" id="cancel-input">
           <!-- 반려 모달 입력 -->
           <textarea name="modal" placeholder="사유 입력" id="return-message"></textarea>
           <!-- 반려 모달 등록 버튼 -->
-          <button type="button" id="submit">등록</button>
+          <button type="button" id="submit" data-member-number="${expert.memberNumber}">등록</button>
         </form>
       </div>
       <!-- 반려 모달 닫기 버튼 -->
