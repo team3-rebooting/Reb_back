@@ -43,7 +43,7 @@
         <!-- 대표 이미지 input -->
         <div class="div-create-course">
           <span class="font-main little-title">대표 이미지 : </span>
-          <input type="file" name="courseFile" class="input-bundle">
+          <input type="file" name="courseFile" class="input-bundle" id="file">
         </div>
         <!-- 리뷰 작성 textarea -->
         <div class="div-create-course">

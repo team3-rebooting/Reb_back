@@ -64,7 +64,7 @@
         </div>
         <!-- 아이디 찾기 버튼 영역 -->
         <div class="div-modal-button-area">
-          <button class="button-modal-find-id" type="submit">아이디 찾기</button>
+          <button class="button-modal-find-id" type="button">아이디 찾기</button>
         </div>
       </form>
     </div>
@@ -80,10 +80,8 @@
       </div>
       <!-- ID 알려주는 text 영역 -->
       <div class="div-modal-main-findid-end">
-        	<span class="findid" id="aa">
-        	</span> <span class="span-findid-end">ID : 
-        	가입일자 : <c:out value="${member.getMemberBirthDate()}" />
-				</span>
+        	<span class="findid" id="resultId"> ID :</span> 
+        	<span class="span-findid-end" id="resultIdBirth">가입일자 : <c:out value="${member.getMemberBirthDate()}" /></span>
 			</div>
       <!-- 버튼 영역  -->
       <div class="div-modal-button-area">
