@@ -55,13 +55,13 @@
 				<div class="div-create-course">
 					<p class="font-main little-title">모집 관련 정보</p>
 					<div class="div-recruit-info">
-						<div class="div-info-line">
+						<!-- <div class="div-info-line">
 							<p class="font-main">모집 기간</p>
 							<div class="div-input-info">
 								<input type="date" name="recruitmentStartDate" class="input-in">
 								<input type="date" name="recruitmentEndDate" class="input-in">
 							</div>
-						</div>
+						</div> -->
 						<div class="div-info-line">
 							<p class="font-main">강의일</p>
 							<div class="div-input-info">

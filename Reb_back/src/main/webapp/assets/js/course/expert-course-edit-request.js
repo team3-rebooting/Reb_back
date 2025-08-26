@@ -7,9 +7,11 @@ const rStartDate = document.querySelector("input[name='courseStartDate']");
 const rEndDate = document.querySelector("input[name='courseEndDate']");
 const cStartTime = document.querySelector("input[name='courseStartTime']");
 const cEndTime = document.querySelector("input[name='courseEndTime']");
-const today = new Date().toISOString().split('T')[0];
-startDate.setAttribute('min', today);
-rStartDate.setAttribute('min', today);
+const today = new Date();
+today.setDate(today.getDate() + 60);
+const futureday = today.toISOString().split('T')[0];
+/*startDate.setAttribute('min', today);*/
+rStartDate.setAttribute('min', futureday);
 
 const okButton = document.querySelector(".button-ok");
 const cancelButton = document.querySelector(".button-cancel");

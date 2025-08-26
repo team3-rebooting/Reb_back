@@ -29,7 +29,7 @@
   <main>
     <div id="main-container">
       <p class="pagetitle">수업 개설 요청</p>
-      <form action="" method="post">
+      <form action="/course/expertCourseCreateRequestOk.co" method="post"  enctype="multipart/form-data">
         <div class="div-create-course">
           <input type="text" class="input-title" name="courseTitle" placeholder="제목을 입력해주세요" required>
         </div>
@@ -99,7 +99,7 @@
         </div>
         <div class="div-create-course">
           <div class="div-button-line">
-            <button class="button-ok" type="button">확인</button>
+            <button class="button-ok" type="submit">확인</button>
             <button class="button-cancel" type="button">취소</button>
           </div>
         </div>
