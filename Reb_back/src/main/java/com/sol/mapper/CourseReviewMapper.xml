@@ -41,8 +41,8 @@
 	<!-- 게시물 수정 -->
 	<update id="update" parameterType="CourseReviewDTO">
 		update tbl_course_review
-		set course_review_title = #{courseReviewTitle}, course_review_content = #{courseReviewContent}
-		where member_number = #{memberNumber}
+		set course_review_title = #{courseReviewTitle}, course_review_content = #{courseReviewContent}, COURSE_REVIEW_UPDATED_DATE = sysdate
+		where course_review_number = #{courseReviewNumber}
 	</update>
 
 	<!-- 게시글 삭제 -->

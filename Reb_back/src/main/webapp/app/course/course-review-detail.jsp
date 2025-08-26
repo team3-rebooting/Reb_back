@@ -69,8 +69,8 @@
 						<p class="p-update-date">
 							<c:choose>
 								<c:when
-									test="${not empty courseReview.getCourseReviewUpdatedDate()}">
-									<c:out value="${courseReview.getCourseReviewUpdatedDate() }" />
+									test="${not empty courseReview.courseReviewUpdatedDate}">
+									<c:out value="${courseReview.getCourseReviewUpdatedDate() }" />(수정됨)
 								</c:when>
 								<c:otherwise>
 									<c:out value="${courseReview.getCourseReviewCreatedDate()}" />
