@@ -13,72 +13,75 @@ rStartDate.setAttribute('min', today);
 const inputIn = document.querySelectorAll(".input-in");
 
 cancelBtn.addEventListener('click', () => {
-  if (confirm("작성하신 내용을 지우시겠습니까?")) {
-    alert("작성을 취소하셨습니다.");
-    location.href = "./../../../app/admin/routine/admin-routine-list.html";
-  }
+	if (confirm("작성하신 내용을 지우시겠습니까?")) {
+		alert("작성을 취소하셨습니다.");
+		window.location.href = "/admin/routineListOk.ad";
+	}
 });
 
-startDate.addEventListener('change', function () {
-  if (startDate.value) {
-    endDate.min = startDate.value;
-  }
+startDate.addEventListener('change', function() {
+	if (startDate.value) {
+		endDate.min = startDate.value;
+	}
 }, false);
 
-endDate.addEventListener('change', function () {
-  if (endDate.value) {
-    startDate.max = endDate.value;
-    rStartDate.setAttribute('min', endDate.value);
-  }
-  rStartDate.readOnly = false;
-  rEndDate.readOnly = false;
+endDate.addEventListener('change', function() {
+	if (endDate.value) {
+		startDate.max = endDate.value;
+		rStartDate.setAttribute('min', endDate.value);
+	}
+	rStartDate.readOnly = false;
+	rEndDate.readOnly = false;
 }, false);
 
-rStartDate.addEventListener('change', function () {
-  if (rStartDate.value) {
-    rEndDate.min = rStartDate.value;
-  }
+rStartDate.addEventListener('change', function() {
+	if (rStartDate.value) {
+		rEndDate.min = rStartDate.value;
+	}
 }, false);
 
-rEndDate.addEventListener('change', function () {
-  if (rEndDate.value) {
-    rStartDate.max = rEndDate.value;
-  }
-  startTime.readOnly= false;
-  endTime.readOnly= false;
+rEndDate.addEventListener('change', function() {
+	if (rEndDate.value) {
+		rStartDate.max = rEndDate.value;
+	}
+	startTime.readOnly = false;
+	endTime.readOnly = false;
 }, false);
 
-startTime.addEventListener('input', function () {
-  endTime.min = startTime.value;
+startTime.addEventListener('input', function() {
+	endTime.min = startTime.value;
 
-  if (endTime.value && endTime.value < startTime.value) {
-    endTime.value = "";
-  }
+	if (endTime.value && endTime.value < startTime.value) {
+		endTime.value = "";
+	}
 });
 
-endTime.addEventListener('input', function () {
-  startTime.max = endTime.value;
+endTime.addEventListener('input', function() {
+	startTime.max = endTime.value;
 
-  if (startTime.value && startTime.value > endTime.value) {
-    startTime.value = "";
-  }
+	if (startTime.value && startTime.value > endTime.value) {
+		startTime.value = "";
+	}
 });
 
 okBtn.addEventListener("click", (e) => {
-  let tf = true;
-  if (confirm("정말로 개설하시겠습니까?")) {
-    for (let i = 0; i < inputIn.length; i++) {
-      if (inputIn[i].value === null || inputIn[i].value.length === 0) {
-        tf = false;
-      }
-    }
-    if (tf === true) {
-      alert("등록 완료되었습니다.");
-      location.href = "./../../../app/admin/routine/admin-routine-detail.html";
-    }
-    else {
-      alert("모든 정보가 입력되어야 합니다");
-    }
-  }
+	let tf = true;
+	if (confirm("정말로 개설하시겠습니까?")) {
+		for (let i = 0; i < inputIn.length; i++) {
+			if (inputIn[i].value === null || inputIn[i].value.length === 0) {
+				tf = false;
+			}
+		}
+		if (tf === true) {
+			alert("등록 완료되었습니다.");
+		}
+		else {
+			alert("모든 정보가 입력되어야 합니다");
+			e.preventDefault();
+		}
+	}
+	else{
+		e.preventDefault();
+	}
 
 });
