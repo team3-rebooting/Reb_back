@@ -90,6 +90,10 @@ public class CourseFrontController extends HttpServlet {
 			System.out.println("수업 후기 삭제 처리 요청");
 			result = new CourseReviewDeleteOkController().execute(request, response);
 			break;
+		case "/course/expertCourseCreateRequest.co":
+			System.out.println("수업 개설 요청 페이지 요청");
+			result = new ExpertCourseCreateRequestController().execute(request, response);
+			break;
 		}
 		
 		if(result != null) {
