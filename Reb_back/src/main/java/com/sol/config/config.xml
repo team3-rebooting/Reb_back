@@ -124,6 +124,8 @@
          alias="RoutineReviewCommentListDTO"></typeAlias>
       <typeAlias type="com.sol.app.dto.CourseReviewCommentListDTO"
          alias="CourseReviewCommentListDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.RoutineDTO"
+         alias="RoutineDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
