@@ -76,7 +76,7 @@
           </div>
           <div>
             <p>성별 : </p>
-            <p><c:out value="${expert.memberGender == M ? '남자' : '여자'}"/></p>
+            <p><c:out value="${expert.memberGender eq 'M' ? '남자' : '여자'}"/></p>
           </div>
           <div>
             <p>전화번호 : </p>
