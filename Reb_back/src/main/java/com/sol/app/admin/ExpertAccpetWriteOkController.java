@@ -29,8 +29,7 @@ public class ExpertAccpetWriteOkController implements Execute {
 		expertDTO.setExpertCareer(request.getParameter("expertCareer"));
 		expertDTO.setExpertFieldNumber(Integer.valueOf(request.getParameter("expertFieldNumber")));
 		//전문가 추가
-		expertDAO.insert(expertDTO);
-		
+		expertDAO.insert(expertDTO);		
 		//신청 상태 변경
 		expertDAO.updateExpert(expertDTO.getMemberNumber());
 		

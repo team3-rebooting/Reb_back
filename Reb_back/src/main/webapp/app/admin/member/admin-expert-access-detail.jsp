@@ -129,7 +129,8 @@
 			</div>
 			<div id="div-admin-detail-button-delete">
 				<!-- 삭제 반려 버튼 -->
-				<button class="button-cancel" type="button">승인 취소</button>
+				<button class="button-cancel" type="button"
+				data-member-number="${expert.memberNumber}">승인 취소</button>
 			</div>
 		</div>
 	</main>

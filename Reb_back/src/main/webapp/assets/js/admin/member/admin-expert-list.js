@@ -4,10 +4,10 @@ const cancelBtn = document.querySelectorAll(".cancel");
 const submitBtn = document.querySelector("#submit");
 const closeModal = document.querySelector("#close-modal");
 const returnMsg = document.querySelector("#return-message");
-const logoutBtn = document.querySelector("header>button");
+const logoutBtn = document.querySelector("#logout");
 
 
-acceptBtn.forEach(btn => {
+acceptBtn?.forEach(btn => {
 	btn.addEventListener('click', function() {
 		const memberNumber = btn.dataset.memberNumber;
 		if (!memberNumber) return alert("memberNumber가 없습니다");
@@ -16,12 +16,12 @@ acceptBtn.forEach(btn => {
 });
 
 
-cancelBtn.forEach(btn => {
+cancelBtn?.forEach(btn => {
 	btn.addEventListener('click', function() {
 		const memberNumber = btn.dataset.memberNumber;
 		modalBackground.style.display = "flex";
 		modalBackground.style.zIndex = 5;
-		submitBtn.addEventListener('click', async() => {
+		submitBtn.addEventListener('click', async () => {
 			if (returnMsg.value == "") {
 				alert("사유를 입력해주세요");
 			} else {
@@ -32,8 +32,9 @@ cancelBtn.forEach(btn => {
 							"Content-Type": "application/json; charset=utf-8",
 							"X-Requested-With": "XMLHttpRequest",
 						},
-						body: JSON.stringify({ memberNumber : memberNumber, returnMsg: returnMsg.value,
-							isExpert : false
+						body: JSON.stringify({
+							memberNumber: memberNumber, returnMsg: returnMsg.value,
+							isExpert: false
 						}),
 					});
 					const result = await safeJson(response);
@@ -46,13 +47,15 @@ cancelBtn.forEach(btn => {
 				} catch (error) {
 					console.error("반려 실패:", error);
 					alert("반려 중 오류가 발생했습니다.");
-				}
-				returnMsg.value = "";
-				modalBackground.style.display = "none";
+				} finally {
+					returnMsg.value = "";
+					modalBackground.style.display = "none";
+				};
 			}
 		});
 	});
 });
+
 
 
 closeModal.addEventListener(('click'), () => {
@@ -68,7 +71,7 @@ logoutBtn.addEventListener('click', () => {
 
 // 성공 실패 확인
 async function safeJson(res) {
-  const text = await res.text();
-  try { return text ? JSON.parse(text) : null; } catch { return null; }
+	const text = await res.text();
+	try { return text ? JSON.parse(text) : null; } catch { return null; }
 }
 
