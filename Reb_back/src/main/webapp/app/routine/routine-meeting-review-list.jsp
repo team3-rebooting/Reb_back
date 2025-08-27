@@ -108,9 +108,9 @@
 					</div>
 				</div>
 
-				<div class="div-find" style="display:none;">
+				<div class="div-find">
 					<form action="" method="get">
-						<div class="div-find-form">
+						<div class="div-find-form" style="display:none;">
 							<div class="find-container">
 								<select class="select-find">
 									<option value="title">제목</option>

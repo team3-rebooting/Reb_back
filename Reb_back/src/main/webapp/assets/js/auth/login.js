@@ -228,9 +228,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			veriPw.disabled = false;
 			rePwPn.disabled = false;
 		});
-
+let veriPw;
 		// ===== 인증번호 확인 (서버 대신 로컬 비교) =====
-		veriPw.addEventListener("click", function() {
+		veriPw?.addEventListener("click", function() {
 			const code = inputPhoneNumberId.value.trim();
 			if (!code) {
 				alert("인증번호를 입력해주세요.");

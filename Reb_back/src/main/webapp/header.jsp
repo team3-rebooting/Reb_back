@@ -101,6 +101,6 @@
 			</div>
 		</div>
 	</div>
-	<script
-		src="${pageContext.request.contextPath}/assets/js/header-login.js"></script>
+	<%-- <script
+		src="${pageContext.request.contextPath}/assets/js/header-login.js"></script> --%>
 </header>
