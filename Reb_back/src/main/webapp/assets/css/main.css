@@ -20,7 +20,7 @@ a:-webkit-any-link{
 /* 메인 */
 main {
     /* height는 컨텐츠에 따라 */
-    height: 2000px; 
+    height: 2100px; 
     min-height: calc(100vh - 235px);
     width: 100%;
     background-color: #FFFEF1;

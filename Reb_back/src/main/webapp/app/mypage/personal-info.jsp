@@ -127,7 +127,7 @@
 						<div class="personal-info-data">
 							<div id="profile-picture">
 								<img
-									src="${pageContext.request.contextPath}/assets/img/profilePicture/dog.jpg"
+									src="${pageContext.request.contextPath}/assets/img/profile.png"
 									alt="프로필">
 							</div>
 						</div>

@@ -52,7 +52,7 @@
 		
 	</div>
 </div>
-<div class="search-container">
+<div class="search-container" style="display:none;">
 	<form action="" method="get">
 		<div class="search-form">
 			<select class="select-search" name="selectSearch">

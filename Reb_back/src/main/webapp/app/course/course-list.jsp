@@ -132,7 +132,7 @@
 						</c:if>
 					</div>
 				</div>
-				<div class="div-find">
+				<div class="div-find" style="display:none;">
 					<form action="" method="get">
 						<div class="div-find-form">
 							<div class="find-container">
