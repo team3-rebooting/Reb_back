@@ -83,9 +83,13 @@ public class MemberFrontController extends HttpServlet {
 			break;
 		case "/member/findIdOk.me":
 			System.out.println("아이디 찾기 처리 요청");
-			result = new findIdOkController().execute(request, response);
+			result = new FindIdOkController().execute(request, response);
 			System.out.println("아이디 찾기 처리 요청 완료");
 			break;
+		case "/member/findPwOk.me":
+			System.out.println("비밀번호 찾기 처리 요청");
+			result = new FindPwOkController().execute(request, response);
+			System.out.println("비밀번호 찾기 처리 요청 완료");
 		}
 		
 		if(result != null && result.getPath() != null) {

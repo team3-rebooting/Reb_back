@@ -130,11 +130,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			if (!res.ok) throw new Error("서버에 오류가 발생했습니다.");
 			const data = await res.json();
-			console.log(`${data.memberId}sss`);
+			console.log(`${data.memberId}`);
+			console.log(`${data.memberSignupDate}`)
 
 			// 결과 모달에 값 추가
 			document.getElementById('resultId').textContent = `ID : ${data.memberId}`;
-			document.getElementById('resultIdBirth').textContent = `가입일자 : ${data.memberBirthDate}`;
+			document.getElementById('resultIdBirth').textContent = `가입일자 : ${data.memberSignupDate}`;
 
 			idModal.style.display = "none";
 			idResultModal.style.display = "flex";
@@ -163,131 +164,174 @@ document.addEventListener("DOMContentLoaded", function() {
 		veriId.disabled = true;
 		reIdPn.disabled = true;
 	});
+	/*--------------------------------------------------------------------*/
 
-
-	const findPwBtn = document.querySelector(".p-findpw");
+	const findPwModal = document.querySelector(".p-findpw");
 	const pwModal = document.querySelector(".modal-pw-background");
-	
-	const rePwPn = document.querySelector(".button-retry-pw");
-	const inputModalPnPw = document.querySelector(".input-modal-pn-pw");
-	const sendSMSBtnPw = document.querySelector(".button-injung-pw");
-	const inputPhoneNumberPw = document.querySelector(".input-modal-pn-injung");
-	const vdriPw = document.querySelector(".input-modal-pn-injung");
 	const closeFindPwModal = document.querySelector(".button-pw-x");
-	
-	findPwBtn.addEventListener('click', ()=>{
-		pwModal.style.display= "flex";
+	const pwResultModal = document.querySelector(".modal-pw-end-background");
+	const inputModalNamePw = document.querySelector(".input-modal-name-pw");
+	const inputModalPnPw = document.querySelector(".input-modal-pn-pw");
+	const inputPhoneNumberPw = document.querySelector("input[name='modalPwPhoneInjung']");
+	const inputModalIdPw = document.querySelector(".input-modal-id-pw");
+
+	findPwModal.addEventListener('click', () => {
+		pwModal.style.display = "flex";
 	});
-	
-	closeFindPwModal.addEventListener('click', ()=>{
-		pwModal.style.display= "none";
+
+	closeFindPwModal.addEventListener('click', () => {
+		pwModal.style.display = "none";
+		inputModalNamePw.value= "";
+		inputModalPnPw.readOnly = false;
+		inputModalPnPw.style.backgroundColor = "white";
+		inputModalPnPw.value = "";
+		sendSMSPwBtn.style.backgroundColor = "#F38A6E";
+		sendSMSPwBtn.style.color = "white";
+		sendSMSPwBtn.disabled = false;
+		inputPhoneNumberPw.style.backgroundColor = "#d9d9d9";
+		inputPhoneNumberPw.readOnly = true;
+		inputPhoneNumberPw.value = "";
+		veriPw.style.color = "black";
+		veriPw.style.backgroundColor = "#d9d9d9";
+		veriPw.disabled = true;
+		rePwPn.disabled = true;
+		inputModalIdPw.value= "";
 	})
-	
-	
-	rePwPn.addEventListener("click", function() {
-			inputModalPnPw.readOnly = false;
-			inputModalPnPw.style.backgroundColor = "white";
-			inputModalPnPw.value = "";
-			sendSMSBtnPw.style.backgroundColor = "#F38A6E";
-			sendSMSBtnPw.style.color = "white";
-			sendSMSBtnPw.disabled = false;
+
+	const sendSMSPwBtn = document.querySelector(".button-injung-pw");
+	const veriPw = document.querySelector(".button-injung-do-pw");
+	const rePwPn = document.querySelector(".button-retry-pw");
+
+	// let tempCode = "";   // 임시 발급 코드 저장할 변수
+
+	sendSMSPwBtn.addEventListener("click", function() {
+		const phoneNumber = inputModalPnPw.value.trim();
+		if (!phoneNumber) {
+			alert("핸드폰 번호를 입력해주세요.");
+			return;
+		}
+
+		// 6자리 난수 생성
+		tempCode = String(Math.floor(100000 + Math.random() * 900000));
+		console.log("임시 인증번호:", tempCode); // 콘솔 확인용
+
+
+
+		alert("임시 인증번호는 [" + tempCode + "] 입니다.");
+		inputModalPnPw.readOnly = true;
+		inputModalPnPw.style.backgroundColor = "#d9d9d9";
+		sendSMSPwBtn.style.backgroundColor = "#d9d9d9";
+		sendSMSPwBtn.style.color = "black";
+		sendSMSPwBtn.disabled = true;
+		inputPhoneNumberPw.style.backgroundColor = "white";
+		inputPhoneNumberPw.readOnly = false;
+		veriPw.style.color = "white";
+		veriPw.style.backgroundColor = "#F38A6E";
+		veriPw.disabled = false;
+		rePwPn.disabled = false;
+	});
+
+	// ===== 인증번호 확인 (서버 대신 로컬 비교) =====
+	veriPw.addEventListener("click", function() {
+		const code = inputPhoneNumberPw.value.trim();
+		if (!code) {
+			alert("인증번호를 입력해주세요.");
+		}
+
+		if (code === tempCode) {
+			alert("인증에 성공하였습니다.");
 			inputPhoneNumberPw.style.backgroundColor = "#d9d9d9";
 			inputPhoneNumberPw.readOnly = true;
-			inputPhoneNumberPw.value = "";
 			veriPw.style.color = "black";
 			veriPw.style.backgroundColor = "#d9d9d9";
 			veriPw.disabled = true;
-			reIdPn.disabled = true;
-		});
-		
-		let tempCodePw = "";   // 임시 발급 코드 저장할 변수
-
-		sendSMSBtnPw.addEventListener("click", function() {
-			const phoneNumber = inputModalPnPw.value.trim();
-			if (!phoneNumber) {
-				alert("핸드폰 번호를 입력해주세요.");
-				return;
-			}
-
-			// 6자리 난수 생성
-			tempCode = String(Math.floor(100000 + Math.random() * 900000));
-			console.log("임시 인증번호:", tempCode); // 콘솔 확인용
+		} else {
+			alert("인증에 실패하였습니다.");
+		}
+	});
 
 
+	rePwPn.addEventListener("click", function() {
+		inputModalPnPw.readOnly = false;
+		inputModalPnPw.style.backgroundColor = "white";
+		inputModalPnPw.value = "";
+		sendSMSPwBtn.style.backgroundColor = "#F38A6E";
+		sendSMSPwBtn.style.color = "white";
+		sendSMSPwBtn.disabled = false;
+		inputPhoneNumberPw.style.backgroundColor = "#d9d9d9";
+		inputPhoneNumberPw.readOnly = true;
+		inputPhoneNumberPw.value = "";
+		veriPw.style.color = "black";
+		veriPw.style.backgroundColor = "#d9d9d9";
+		veriPw.disabled = true;
+		rePwPn.disabled = true;
+	});
 
-			alert("임시 인증번호는 [" + tempCode + "] 입니다.");
-			inputModalPnPw.readOnly = true;
-			inputModalPnPw.style.backgroundColor = "#d9d9d9";
-			sendSMSBtnPw.style.backgroundColor = "#d9d9d9";
-			sendSMSBtnPw.style.color = "black";
-			sendSMSBtnPw.disabled = true;
-			inputPhoneNumberPw.style.backgroundColor = "white";
-			inputPhoneNumberPw.readOnly = false;
-			veriPw.style.color = "white";
-			veriPw.style.backgroundColor = "#F38A6E";
-			veriPw.disabled = false;
-			rePwPn.disabled = false;
-		});
+	const findPwBtn = document.querySelector(".button-modal-find-pw");
+	// let resultId = document.querySelector("#aa");
+	const findPwEndBtn = document.querySelector(".button-modal-find-end-pw");
+	
 
-		// ===== 인증번호 확인 (서버 대신 로컬 비교) =====
-		veriPw.addEventListener("click", function() {
-			const code = inputPhoneNumberId.value.trim();
-			if (!code) {
-				alert("인증번호를 입력해주세요.");
-			}
+	findPwBtn.addEventListener("click", async () => {
+		const name = inputModalNamePw.value.trim();
+		const phoneNumber = inputModalPnPw.value.trim();
+		const id = inputModalIdPw.value.trim();
+		console.log(name);
+		console.log(phoneNumber);
+		console.log(id);
 
-			if (code === tempCode) {
-				alert("인증에 성공하였습니다.");
-				inputPhoneNumberPw.style.backgroundColor = "#d9d9d9";
-				inputPhoneNumberPw.readOnly = true;
-				veriPw.style.color = "black";
-				veriPw.style.backgroundColor = "#d9d9d9";
-				veriPw.disabled = true;
-			} else {
-				alert("인증에 실패하였습니다.");
-			}
-		});
-		
-		const findPwBtn = document.querySelector(".button-modal-find-pw");
-		let resultPw = document.querySelector("#aa");
-		const findPwEndBtn = document.querySelector(".button-modal-find-end-Pw");
+		if (!name || !phoneNumber || !id) {
+			alert("이름과 전화번호를 입력해주세요.");
+			return;
+		}
 
-		findPwBtn.addEventListener("click", async () => {
-			const name = inputModalNameId.value.trim();
-			const phoneNumber = inputModalPnId.value.trim();
-			console.log(name);
-			console.log(phoneNumber);
+		try {
+			const res = await fetch("/member/findPwOk.me", {
+				method: 'POST',
+				headers: {
+					'content-Type': "application/x-www-form-urlencoded"
+				},
+				body: new URLSearchParams({
+					modalPwName: name,
+					modalPwPhone: phoneNumber,
+					modalPwId: id
+				})
+			});
 
-			if (!name || !phoneNumber) {
-				alert("이름과 전화번호를 입력해주세요.");
-				return;
-			}
+			if (!res.ok) throw new Error("서버에 오류가 발생했습니다.");
+			const data = await res.json();
+			console.log(`${data.memberPw}`);
 
-			try {
-				const res = await fetch("/member/findIdOk.me", {
-					method: 'POST',
-					headers: {
-						'content-Type': "application/x-www-form-urlencoded"
-					},
-					body: new URLSearchParams({
-						modalIdName: name,
-						modalIdPhone: phoneNumber
-					})
-				});
+			// 결과 모달에 값 추가
+			document.getElementById('resultPw').textContent = `[ ${data.memberPassword} ]`;
+			document.getElementById('resultName').textContent = `${data.memberName}`;
 
-				if (!res.ok) throw new Error("서버에 오류가 발생했습니다.");
-				const data = await res.json();
-				console.log(`${data.memberId}sss`);
+			pwModal.style.display = "none";
+			pwResultModal.style.display = "flex";
+		} catch (err) {
+			console.error(err);
+			alert("비밀번호를 찾을 수 없습니다.");
+		}
+	});
 
-				// 결과 모달에 값 추가
-				document.getElementById('resultId').textContent = `ID : ${data.memberId}`;
-				document.getElementById('resultIdBirth').textContent = `가입일자 : ${data.memberBirthDate}`;
+	findPwEndBtn.addEventListener("click", () => {
+		pwResultModal.style.display = "none";
+		putModalNamePw.value = "";
+		inputModalPnPw.value = "";
+		inputPhoneNumberPw.value = "";
+		inputModalPnPw.readOnly = false;
+		inputModalPnPw.style.backgroundColor = "white";
+		inputModalPnPw.value = "";
+		sendSMSPwBtn.style.backgroundColor = "#F38A6E";
+		sendSMSBPwtn.style.color = "white";
+		sendSMSBPwtn.disabled = false;
+		inputPhoneNumberPw.style.backgroundColor = "#d9d9d9";
+		inputPhoneNumberPw.readOnly = true;
+		inputPhoneNumberPw.value = "";
+		veriPw.style.color = "black";
+		veriPw.style.backgroundColor = "#d9d9d9";
+		veriPw.disabled = true;
+		rePwPn.disabled = true;
+	});
 
-				idModal.style.display = "none";
-				idResultModal.style.display = "flex";
-			} catch (err) {
-				console.error(err);
-				alert("아이디를 찾을 수 없습니다.");
-			}
-		});
 });

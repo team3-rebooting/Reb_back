@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 	const form = document.getElementById("joinForm") || document.querySelector("form");
 	const base = (form && form.dataset.contextPath) ? form.dataset.contextPath : "";
-	const codeInput = document.querySelector(".input-cert");
 
 	let checkIdRegex = false;
 	let checkAvailable = false;
@@ -130,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		const warning = nearWarning.querySelector(".p-warning");
 		if (!emailRegex.test(email.value) && email.value != "") {
 			warning.style.display = "block";
-			const checkEmail = true;
+			checkEmail = true;
 		} else {
 			warning.style.display = "none";
 		}
