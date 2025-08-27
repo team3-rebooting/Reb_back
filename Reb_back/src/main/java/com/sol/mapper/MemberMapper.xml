@@ -30,8 +30,8 @@
 		where member_name = #{memberName} and member_phone_number = #{memberPhoneNumber}
 	</select>
 	
-	<select id="findPw" parameterType="MemberSignupDTO" resultType="String">
-		select member_Password
+	<select id="findPw" parameterType="MemberDTO" resultType="MemberDTO">
+		select member_password
 		from tbl_member
 		where member_name = #{memberName} and member_phone_number = #{memberPhoneNumber} and member_id = #{memberId}
 	</select>

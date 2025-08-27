@@ -314,7 +314,7 @@
         <div class="div-find">
           <form action="" method="get">
             <div class="div-find-form">
-              <div class="find-container">
+              <div class="find-container" style="display: none;">
                 <select class="select-find">
                   <option value="title">제목</option>
                   <option value="name">작성자명</option>

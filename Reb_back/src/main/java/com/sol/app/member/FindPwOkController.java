@@ -12,26 +12,29 @@ import com.sol.app.Result;
 import com.sol.app.dto.MemberDTO;
 import com.sol.app.member.dao.MemberDAO;
 
-public class findIdOkController implements Execute {
+public class FindPwOkController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		System.out.println("PhoneVerificationOkController 진입 완료");
 		
-		String name = request.getParameter("modalIdName");
-		String phone = request.getParameter("modalIdPhone");
+		System.out.println("FindPwOkController 진입 완료");
+		
+		String name = request.getParameter("modalPwName");
+		String phone = request.getParameter("modalPwPhone");
+		String id = request.getParameter("modalPwId");
 		
 		MemberDTO memberDTO = new MemberDTO();
 		MemberDAO memberDAO = new MemberDAO();
 		
 		request.setCharacterEncoding("UTF-8");
-
+		
 		memberDTO.setMemberName(name);
 		memberDTO.setMemberPhoneNumber(phone);
-
-		MemberDTO findMemberDTO = memberDAO.findId(memberDTO);
+		memberDTO.setMemberId(id);
+		
+		MemberDTO findMemberDTO = memberDAO.findPw(memberDTO);
+		findMemberDTO.setMemberName(name);
 		
 		response.setContentType("application/json; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -45,10 +48,8 @@ public class findIdOkController implements Execute {
 			response.getWriter().write("{}");
 		}
 		
-
-		// Result 객체 반환(JSON 응답 처리 후 페이지 이동 없음)
-
 		return null;
 	}
 
+	
 }
