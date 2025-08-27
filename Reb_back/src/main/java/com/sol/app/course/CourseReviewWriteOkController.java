@@ -56,6 +56,7 @@ public class CourseReviewWriteOkController implements Execute{
 		courseReviewDTO.setCourseReviewTitle(multipartRequest.getParameter("courseReviewTitle"));
 		courseReviewDTO.setCourseReviewContent(multipartRequest.getParameter("courseReviewContent"));
 		courseReviewDTO.setMemberNumber(memberNumber);
+		courseReviewDTO.setCourseNumber(Integer.valueOf(multipartRequest.getParameter("courseNumber")));
 		
 		// 게시글 추가
 		int courseReviewNumber = courseReviewDAO.insertCourseReview(courseReviewDTO);

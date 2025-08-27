@@ -36,9 +36,10 @@
       <p class="pagetitle">수업 후기 작성</p>
       <!-- 수정 form -->
       <form action="${pageContext.request.contextPath}/course/courseReviewEditOk.co" method="post" enctype="multipart/form-data">
+      	<input type="hidden" name="courseReviewNumber" value="${courseReview.courseReviewNumber}" />
         <!-- 제목 입력 input -->
         <div class="div-create-course">
-          <input type="text" class="input-title input-bundle" name="courseTitle" placeholder="제목을 입력해주세요" value="${courseReview.getCourseReviewTitle() }" required />
+          <input type="text" class="input-title input-bundle" name="courseReviewTitle" placeholder="제목을 입력해주세요" value="${courseReview.getCourseReviewTitle() }" required />
         </div>
         <!-- 대표 이미지 input -->
         <div class="div-create-course">
@@ -48,7 +49,7 @@
         <!-- 리뷰 작성 textarea -->
         <div class="div-create-course">
           <p class="font-main little-title">내용(summernote 자리)</p>
-          <textarea class="textarea-text input-bundle" name="courseText" rows="20" cols="100" required><c:out value="${courseReview.getCourseReviewContent()}" /></textarea>
+          <textarea class="textarea-text input-bundle" name="courseReviewContent" rows="20" cols="100" required><c:out value="${courseReview.getCourseReviewContent()}" /></textarea>
         </div>
         <!-- 버튼 영역 -->
         <div class="div-create-course">

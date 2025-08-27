@@ -433,8 +433,11 @@ a {
 }
 
 .div-modal-main-findid-end {
+  display: flex;
+  flex-direction: column;
   height: 284px;
   text-align: center;
+  justify-content: center;
 }
 
 .span-findid-end {
@@ -485,4 +488,8 @@ a {
   width: 30px;
   height: 20px;
   background-color: #FEE500;
+}
+
+#resultId{
+	font-size : 24px;
 }
