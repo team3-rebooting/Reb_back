@@ -41,8 +41,8 @@
 	<!-- 게시물 수정 -->
 	<update id="update" parameterType="CourseReviewDTO">
 		update tbl_course_review
-		set course_review_title = #{courseReviewTitle}, course_review_content = #{courseReviewContent}
-		where member_number = #{memberNumber}
+		set course_review_title = #{courseReviewTitle}, course_review_content = #{courseReviewContent}, COURSE_REVIEW_UPDATED_DATE = sysdate
+		where course_review_number = #{courseReviewNumber}
 	</update>
 
 	<!-- 게시글 삭제 -->
@@ -54,7 +54,7 @@
 	<select id="select" parameterType="int"
 		resultType="CourseReviewListDTO">
 	<![CDATA[
-		select cr.course_review_number, cr.course_number, cr.member_number, cr.course_review_title, m.member_nickname, to_char(cr.COURSE_REVIEW_CREATED_DATE, 'YYYY-MM-DD') as COURSE_REVIEW_CREATED_DATE
+		select cr.course_review_number, cr.course_number, c.course_title, cr.member_number, cr.course_review_title, m.member_nickname, to_char(cr.COURSE_REVIEW_CREATED_DATE, 'YYYY-MM-DD') as COURSE_REVIEW_CREATED_DATE
 			,to_char(cr.COURSE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD') as COURSE_REVIEW_UPDATED_DATE , (select count(*) from tbl_course_review_like crl where
 								crl.course_review_number = cr.course_review_number)
 			, cr.course_review_content, 
@@ -66,6 +66,8 @@
     			on m.member_number = fmp.member_number
     		left outer join tbl_file_course_review fcr
     			on cr.COURSE_REVIEW_NUMBER = fcr.COURSE_REVIEW_NUMBER
+    		left outer join tbl_course c
+    			on c.course_number = cr.course_number
     		where cr.course_review_number = #{CourseReviewNumber}
     ]]>
 	</select>

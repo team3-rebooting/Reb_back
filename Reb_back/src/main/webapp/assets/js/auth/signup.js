@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	const base = (form && form.dataset.contextPath) ? form.dataset.contextPath : "";
 	const codeInput = document.querySelector(".input-cert");
 
-	const checkInput = false;
+	let checkIdRegex = false;
+	let checkAvailable = false;
+	let checkpwRegex = false;
+	let checkPwSame = false;
 
 	const inputId = document.querySelector("input[name='memberId']");
 	const idSame = document.querySelector(".p-nodupli-id");
@@ -17,10 +20,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		if (idRegex.test(memberId)) {
 			warning.style.display = "none";
-			checkInput = false;
 		} else {
 			warning.style.display = "block";
-			checkInput = true;
+			idNotSame.style.display = "none";
+			checkIdRegex = true;
 		}
 		fetch(`${base}/member/checkIdOk.me?memberId=${encodeURIComponent(memberId)}`, {
 			headers: { "Content-type": "application/json" }
@@ -30,11 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
 				if (data.available) {
 					idSame.style.display = "none";
 					idNotSame.style.display = "block";
-					checkInput = false;
 				} else {
 					idSame.style.display = "block";
 					idNotSame.style.display = "none";
-					checkInput = true;
+					checkAvailable = true;
 				}
 			})
 			.catch(() => {
@@ -53,10 +55,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		const warning = nearWarning.querySelector(".p-warning");
 		if (pwRegex.test(pw)) {
 			warning.style.display = "none";
-			checkInput = false;
 		} else {
 			warning.style.display = "block";
-			checkInput = true;
+			checkpwRegex = true;
 		}
 	});
 
@@ -70,25 +71,24 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (pw && pw === pwRe) {
 			same.style.display = "block";
 			nosame.style.display = "none";
-			checkInput = false;
 		} else {
 			same.style.display = "none";
 			nosame.style.display = "block";
-			checkInput = true;
+			checkPwSame = true;
 		}
 	});
 
 	const birth = document.querySelector("input[name='memberBirthDate']");
+	let checkBirth = false;
 
 	birth.addEventListener('blur', () => {
 		const nearWarning = birth.closest(".div-signup");
 		const warning = nearWarning.querySelector(".p-warning");
 		if (!birth.value) {
 			warning.style.display = "block";
-			checkInput = true;
+			checkBirth = true;
 		} else {
 			warning.style.display = "none";
-			checkInput = false;
 		}
 	});
 
@@ -122,22 +122,22 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	}
 
-	const checkEmail = false;
+	let checkEmail = false;
 	const emailRegex = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
 	const email = document.querySelector("input[name='email']");
 
 	email.addEventListener('blur', () => {
 		const nearWarning = email.closest(".div-signup");
 		const warning = nearWarning.querySelector(".p-warning");
-		if (!emailRegex.test(email.value)) {
+		if (!emailRegex.test(email.value) && email.value != "") {
 			warning.style.display = "block";
 			const checkEmail = true;
 		} else {
 			warning.style.display = "none";
-			const checkEmail = false;
 		}
 	});
 
+	let checkName = false;
 	const name = document.querySelector("input[name='name']");
 	name.addEventListener('blur', function() {
 		inputName = name.value.trim();
@@ -145,12 +145,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		const warning = nearWarning.querySelector(".p-warning");
 		if (inputName) {
 			warning.style.display = "none";
-			checkInput = false;
 		} else {
 			warning.style.display = "block";
-			checkInput = true;
+			checkName = true;
 		}
 	});
+	
+	let checkGender = false;
 
 	const gender = document.querySelector("input[name='gender']");
 	gender.addEventListener('blur', () => {
@@ -158,10 +159,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		const warning = nearWarning.querySelector(".p-warning");
 		if (!gender.value) {
 			warning.style.display = "block";
-			checkInput = true;
+			checkGender = true;
 		} else {
 			warning.style.display = "none";
-			checkInput = false;
 		}
 	});
 
@@ -169,19 +169,20 @@ document.addEventListener("DOMContentLoaded", function() {
 	const nicknameRequired = document.querySelector(".nickname-required");
 	const nicknameDupli = document.querySelector(".nickname-dupli");
 	const nicknameNoDupli = document.querySelector(".nickname-nodupli");
+	let checkNickname = false;
 
 	inputNickname.addEventListener('blur', function() {
 		const memberNickname = inputNickname.value.trim();
 		if (memberNickname) {
 			nicknameRequired.style.display = "none";
-			checkInput = false;
 		} else {
 			nicknameRequired.style.display = "block";
-			checkInput = true;
+			checkNickname = true;
 		}
 	});
 
 	const nicknameBtn = document.querySelector(".button-no-duplication");
+	let checkNicknameSame = false;
 
 	nicknameBtn.addEventListener("click", function() {
 		const memberNickname = inputNickname.value.trim();
@@ -193,11 +194,10 @@ document.addEventListener("DOMContentLoaded", function() {
 				if (data.available) {
 					nicknameNoDupli.style.display = "block";
 					nicknameDupli.style.display = "none";
-					checkInput = false;
 				} else {
 					nicknameNoDupli.style.display = "none";
 					nicknameDupli.style.display = "block";
-					checkInput = true;
+					checkNicknameSame = true;
 				}
 			});
 	});
@@ -235,6 +235,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	});
 
+	let checkPhone = false;
+	
 	injunging.addEventListener('blur', function() {
 		const code = injungPhone.value.trim();
 
@@ -245,10 +247,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			injunging.disabled = true;
 			injunging.style.color = "#d9d9d9";
 			alert("인증 성공");
-			checkInput = false;
 		} else {
 			alert("인증번호가 맞지 않습니다");
-			checkInput = true;
+			checkPhone = true;
 		}
 	});
 
@@ -271,11 +272,55 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	form.addEventListener("submit", function(e) {
 		const agree = document.getElementById("id-terms");
-		if (!agree.checked || !idRegex.test(memberId) || !data.available || !pwRegex.test(pw) || !(pw && pw === pwRe) || !birth.value || !emailRegex.test(email.value) || !inputName || !gender.value || !memberNickname || !data.available || !(code === tempCode)) {
+		if (!agree.checked) {
 			e.preventDefault();
 			alert("약관에 동의해주세요.");
 			return;
-		}		
+		} else if(checkIdRegex){
+			e.preventDefault();
+			alert("아이디 형식을 지켜주세요.");
+			reurn;
+		} else if(checkAvailable){
+			e.preventDefault();
+			alert("사용 불가능한 아이디입니다");
+			return;
+		} else if(checkpwRegex){
+			e.preventDefault();
+			alert("비밀번호 형식을 지켜주세요.");
+			return;
+		} else if(checkPwSame){
+			e.preventDefault();
+			alert("비밀번호가 동일하지 않습니다.");
+			return;
+		} else if(checkBirth){
+			e.preventDefault();
+			alert("생년월일을 입력해주세요");
+			return;
+		} else if(checkEmail){
+			e.preventDefault();
+			alert("이메일 형식을 지켜주세요.");
+			return;
+		} else if(checkName){
+			e.preventDefault();
+			alert("이름을 입력해주세요.");
+			return;
+		} else if(checkGender){
+			e.preventDefault();
+			alert("성별을 선택해주세요.");
+			return;
+		} else if(checkNickname){
+			e.preventDefault();
+			alert("닉네임을 입력해주세요.");
+			return;
+		} else if(checkNicknameSame){
+			e.preventDefault();
+			alert("중복된 닉네임입니다.");
+			return;
+		} else if(checkPhone){
+			e.preventDefault();
+			alert("전화번호 인증을 해주세요.");
+			return;
+		} 
 	});
 
 
