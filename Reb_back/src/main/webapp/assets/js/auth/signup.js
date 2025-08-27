@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			warning.style.display = "none";
 		} else {
 			warning.style.display = "block";
-			idNotSame.style.display = "none";
 			checkIdRegex = true;
 		}
 		fetch(`${base}/member/checkIdOk.me?memberId=${encodeURIComponent(memberId)}`, {

@@ -247,4 +247,47 @@ document.addEventListener("DOMContentLoaded", function() {
 				alert("인증에 실패하였습니다.");
 			}
 		});
+		
+		const findPwBtn = document.querySelector(".button-modal-find-pw");
+		let resultPw = document.querySelector("#aa");
+		const findPwEndBtn = document.querySelector(".button-modal-find-end-Pw");
+
+		findPwBtn.addEventListener("click", async () => {
+			const name = inputModalNameId.value.trim();
+			const phoneNumber = inputModalPnId.value.trim();
+			console.log(name);
+			console.log(phoneNumber);
+
+			if (!name || !phoneNumber) {
+				alert("이름과 전화번호를 입력해주세요.");
+				return;
+			}
+
+			try {
+				const res = await fetch("/member/findIdOk.me", {
+					method: 'POST',
+					headers: {
+						'content-Type': "application/x-www-form-urlencoded"
+					},
+					body: new URLSearchParams({
+						modalIdName: name,
+						modalIdPhone: phoneNumber
+					})
+				});
+
+				if (!res.ok) throw new Error("서버에 오류가 발생했습니다.");
+				const data = await res.json();
+				console.log(`${data.memberId}sss`);
+
+				// 결과 모달에 값 추가
+				document.getElementById('resultId').textContent = `ID : ${data.memberId}`;
+				document.getElementById('resultIdBirth').textContent = `가입일자 : ${data.memberBirthDate}`;
+
+				idModal.style.display = "none";
+				idResultModal.style.display = "flex";
+			} catch (err) {
+				console.error(err);
+				alert("아이디를 찾을 수 없습니다.");
+			}
+		});
 });
