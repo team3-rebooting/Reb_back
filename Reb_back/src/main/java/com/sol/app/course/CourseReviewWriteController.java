@@ -29,13 +29,13 @@ public class CourseReviewWriteController implements Execute{
 		CourseMemberApplicantDAO courseMemberApplicantDAO = new CourseMemberApplicantDAO();
 		
 		if(memberNumber == null) {
-			path = "/app/auth/login.jsp";
+			path = request.getContextPath() + "/member/login.me";
 		} else {
 			path = "/app/course/course-review-write.jsp";
+			List<CourseMemberApplicantDTO> list = courseMemberApplicantDAO.selectAll(memberNumber);
+			request.setAttribute("courseMemberApplicant", list);
 		}
 		
-		List<CourseMemberApplicantDTO> list = courseMemberApplicantDAO.selectAll(memberNumber);
-		request.setAttribute("courseMemberApplicant", list);
 		
 		result.setPath(path);
 		result.setRedirect(false);

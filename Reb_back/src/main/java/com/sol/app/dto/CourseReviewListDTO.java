@@ -5,6 +5,7 @@ import java.util.List;
 public class CourseReviewListDTO {
 	private int courseReviewNumber;
 	private int courseNumber;
+	private String courseTitle;
 	private String courseReviewTitle;
 	private String courseReviewContent;
 	private int memberNumber;
@@ -37,6 +38,12 @@ public class CourseReviewListDTO {
 	}
 	public void setCourseNumber(int courseNumber) {
 		this.courseNumber = courseNumber;
+	}
+	public String getCourseTitle() {
+		return courseTitle;
+	}
+	public void setCourseTitle(String courseTitle) {
+		this.courseTitle = courseTitle;
 	}
 	public String getCourseReviewTitle() {
 		return courseReviewTitle;
@@ -101,12 +108,13 @@ public class CourseReviewListDTO {
 	@Override
 	public String toString() {
 		return "CourseReviewListDTO [courseReviewNumber=" + courseReviewNumber + ", courseNumber=" + courseNumber
-				+ ", courseReviewTitle=" + courseReviewTitle + ", courseReviewContent=" + courseReviewContent
-				+ ", memberNumber=" + memberNumber + ", memberNickname=" + memberNickname + ", courseReviewCreatedDate="
-				+ courseReviewCreatedDate + ", courseReviewUpdatedDate=" + courseReviewUpdatedDate
-				+ ", courseReviewLike=" + courseReviewLike + ", fileWriterProFileList=" + fileWriterProFileList
-				+ ", fileCommentProFileList=" + fileCommentProFileList + ", fileCourseReviewList="
-				+ fileCourseReviewList + "]";
+				+ ", courseTitle=" + courseTitle + ", courseReviewTitle=" + courseReviewTitle + ", courseReviewContent="
+				+ courseReviewContent + ", memberNumber=" + memberNumber + ", memberNickname=" + memberNickname
+				+ ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewUpdatedDate="
+				+ courseReviewUpdatedDate + ", courseReviewLike=" + courseReviewLike + ", fileWriterProFileList="
+				+ fileWriterProFileList + ", fileCommentProFileList=" + fileCommentProFileList
+				+ ", fileCourseReviewList=" + fileCourseReviewList + "]";
 	}
+	
 	
 }

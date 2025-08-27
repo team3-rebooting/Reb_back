@@ -69,8 +69,8 @@
 						<p class="p-update-date">
 							<c:choose>
 								<c:when
-									test="${not empty courseReview.getCourseReviewUpdatedDate()}">
-									<c:out value="${courseReview.getCourseReviewUpdatedDate() }" />
+									test="${not empty courseReview.courseReviewUpdatedDate}">
+									<c:out value="${courseReview.getCourseReviewUpdatedDate() }" />(수정됨)
 								</c:when>
 								<c:otherwise>
 									<c:out value="${courseReview.getCourseReviewCreatedDate()}" />
@@ -80,6 +80,7 @@
 					</div>
 					<!-- 좋아요 fontawesome -->
 					<div class="div-font-awesome-line">
+						<span>수업:<c:out value="${courseReview.getCourseTitle()}" /></span></br>
 						<span class="span-likes">좋아요 수 : 30 </span><i
 							class="fa-regular fa-heart"></i>
 					</div>

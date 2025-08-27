@@ -1,13 +1,12 @@
 package com.sol.app.member;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.dto.MemberDTO;
@@ -20,33 +19,36 @@ public class findIdOkController implements Execute {
 			throws ServletException, IOException {
 
 		System.out.println("PhoneVerificationOkController 진입 완료");
-
+		
+		String name = request.getParameter("modalIdName");
+		String phone = request.getParameter("modalIdPhone");
+		
 		MemberDTO memberDTO = new MemberDTO();
 		MemberDAO memberDAO = new MemberDAO();
-		Result result = new Result();
+		
+		request.setCharacterEncoding("UTF-8");
 
-		memberDTO.setMemberName(request.getParameter("modalIdName"));
-		memberDTO.setMemberPhoneNumber(request.getParameter("modalIdPhone"));
+		memberDTO.setMemberName(name);
+		memberDTO.setMemberPhoneNumber(phone);
 
-		memberDTO = memberDAO.findId(memberDTO);
-		// JSON 형식 응답 설정
-		response.setContentType("application/json");
+		MemberDTO findMemberDTO = memberDAO.findId(memberDTO);
+		
+		response.setContentType("application/json; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-
-		// JSON 응답 작성
-		try (PrintWriter out = response.getWriter()) {
-			out.print("{");
-			out.print("\"resultId\": \"" + memberDTO.getMemberId() + "\",");
-			out.print("\"resultBirth\": \"" + memberDTO.getMemberBirthDate() + "\"");
-			out.print("}");
-			out.flush();
+		
+		Gson gson = new Gson();
+		
+		if(findMemberDTO != null) {
+			String json = gson.toJson(findMemberDTO);
+			response.getWriter().write(json);
+		} else {
+			response.getWriter().write("{}");
 		}
+		
 
 		// Result 객체 반환(JSON 응답 처리 후 페이지 이동 없음)
-		result.setPath(null);
-		result.setRedirect(false);
 
-		return result;
+		return null;
 	}
 
 }
