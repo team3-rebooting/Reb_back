@@ -78,8 +78,16 @@
 						<div class="expert-status-title">첨부 파일</div>
 						<div class="expert-status-text" id="expert-file-text">
 							<div>
-								<button class="button-modal-open" type="button"
-									data-type="expertFileUpload">변경</button>
+								<c:choose>
+									<c:when test="${empty sessionScope.expertNumber}">
+										<button class="button-modal-open" type="button"
+											data-type="expertFileUpload">변경</button>
+									</c:when>
+									<c:otherwise>
+										<button class="button-modal-open" type="button"
+											data-type="expertFileUpload" disabled style="background-color:gray;">-</button>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<c:choose>
 								<c:when test="${ not empty expert.getFileExpert()}">
