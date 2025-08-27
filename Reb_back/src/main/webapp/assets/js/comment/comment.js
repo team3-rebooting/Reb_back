@@ -91,7 +91,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			let li = `				<li class="li-comment">
 										<div class="div-user-profile">
-											<img src="./../../assets/img/karina.jpg" class="img-user-profile">
+											<img src="/assets/img/profile.png" class="img-user-profile">
 										</div>
 										<div class="div-user-info">
 											<div class="div-user-name-area">
@@ -101,7 +101,7 @@ window.addEventListener('DOMContentLoaded', () => {
 												<p class="p-comment-text">${l.reviewContent}</p>
 												<c:if test="` +"${l.mem == sessionScope.memberNumber}" + `"
 													<span class="span-comment-delete" data-num="${l.reviewCommentNumber}"
-													data-mem="${l.memberNumber}" data-listtype="${id}">삭제</span>
+													data-mem="${l.memberNumber}" data-listtype="${id}"></span>
 												</c:if>
 											</div>
 											<p class="p-update-date">

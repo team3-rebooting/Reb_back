@@ -30,15 +30,19 @@ public class ReviewListOkController implements Execute {
 
 		List<RoutineReviewListDTO> routineReviewList = routineReviewListDAO.selectAll(pageMap);
 
-		request.setAttribute("routine", routineReviewList);
+		request.setAttribute("routineList", routineReviewList);
 
+		System.out.println("routineList " + routineReviewList);
 		CourseReviewDAO courseReviewDAO = new CourseReviewDAO();
 
 		List<CourseReviewListDTO> courseReviewList = courseReviewDAO.selectAll(pageMap);
-		request.setAttribute("course", courseReviewList);
+		request.setAttribute("courseList", courseReviewList);
+		
+		System.out.println("courseList " + courseReviewList);
 
-		result.setPath("/main.jsp");
+		result.setPath(request.getContextPath() + "/main.jsp");
 		result.setRedirect(false);
-		return null;
+		
+		return result;
 	}
 }

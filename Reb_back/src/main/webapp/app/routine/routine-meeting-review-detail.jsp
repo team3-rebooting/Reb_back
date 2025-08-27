@@ -49,7 +49,7 @@
 				</p>
 				<div class="div-user-integration">
 					<div class="div-user-profile">
-						<img src="./../../assets/img/stone.jpg" class="img-user-profile">
+						<img src="${pageContext.request.contextPath}/assets/img/profile.png" class="img-user-profile">
 					</div>
 					<div class="div-user-info">
 						<p class="p-user-name">
