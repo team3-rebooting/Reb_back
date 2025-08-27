@@ -215,7 +215,7 @@
 							<c:set var="file" value="${myMember.getFileMemberProfile()}"></c:set>
 							<div id="profile-picture">
 								<img id="img-edit-profile-pic"
-									src="${pageContext.request.contextPath}/assets/img/profilePicture/dog.jpg"
+									src="${pageContext.request.contextPath}/assets/img/profile.png"
 									alt="프로필">
 							</div>
 							<%-- <c:if test="${empty file}">

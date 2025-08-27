@@ -52,10 +52,7 @@ public class MainFrontController extends HttpServlet {
 
 		switch (target) {
 		case "/main/reviewListOk.ma":
-			break;
-		case "/comment/commentWriteOk.ma":
-			break;
-		case "/comment/commentDelteOk.ma":
+			result = new ReviewListOkController().execute(request, response);
 			break;
 		}
 		
