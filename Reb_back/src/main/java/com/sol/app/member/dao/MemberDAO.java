@@ -38,6 +38,10 @@ public class MemberDAO {
 		return sqlSession.selectOne("member.findId", memberDTO);
 	}
 	
+	public MemberDTO findPw(MemberDTO memberDTO) {
+		return sqlSession.selectOne("member.findPw", memberDTO);
+	}
+	
 	public boolean checkId(String memberId) {
 		return (Integer) sqlSession.selectOne("member.checkId", memberId) < 1;
 	}
