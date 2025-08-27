@@ -201,6 +201,12 @@
    flex: 1;
    text-align: right;
  }
+ 
+ .span-likes,
+ .fa-regular,
+ .fa-heart{
+ 	display: none;
+ }
 
  .li-comment {
    display: flex;

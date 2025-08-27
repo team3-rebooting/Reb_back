@@ -138,9 +138,11 @@
 									</button>
 								</div>
 							</div>
-							<a href="${pageContext.request.contextPath}/course/courseReviewWrite.co" class="a-write">
-								<button type="button" class="button-write">글 쓰기</button>
-							</a>
+							<c:if test="${not empty sessionScope.memberNumber}">
+								<a href="${pageContext.request.contextPath}/course/courseReviewWrite.co" class="a-write">
+									<button type="button" class="button-write">글 쓰기</button>
+								</a>
+							</c:if>
 						</div>
 					</form>
 				</div>
