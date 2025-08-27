@@ -6,5 +6,5 @@ createBtn.addEventListener('click', ()=>{
 
 const logoutBtn = document.querySelector("header>button");
 logoutBtn.addEventListener('click', ()=>{
-  location.href= "/admin/login.ad";
+  location.href= "/admin/logoutOk.ad";
 });

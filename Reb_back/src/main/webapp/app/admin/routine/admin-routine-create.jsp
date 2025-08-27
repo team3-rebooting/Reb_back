@@ -17,6 +17,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
+   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4247a9e82daba2d9da253742861fb022"></script>
   <title>루틴 모임 개설</title>
 </head>
 
@@ -54,7 +55,7 @@
         <!-- 지도 입력 영역 -->
         <div class="div-create-routine">
           <p class="font-main little-title">장소</p>
-          <h1>지도 자리</h1>
+          <div id="map" style="width: 500px; height: 400px;"></div>
         </div>
         <!-- 모집 관련 정보 영역 -->
         <div class="div-create-routine">

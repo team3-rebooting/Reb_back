@@ -24,8 +24,8 @@
 		]]>
 	</select>
 	<select id="getTotal" resultType="int">
-		SELECT COUNT(member_number)
-		FROM tbl_member	
+		SELECT COUNT(expert_number)
+		FROM tbl_expert	
 	</select>
 	<select id="select" parameterType="int" resultType="AdminExpertDTO">
 	<![CDATA[
