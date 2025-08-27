@@ -80,13 +80,11 @@
 					<ul id="attachment-list" class="font-main">
 						<!-- 파일 1 -->
 						<li class="attachment-item">
-							<!-- 파일명 링크(밑줄) --> <a class="attachment-name"
-							href="./../../../assets/img/karina.jpg" download="첨부파일">
-								UI_수정사항.pdf </a> <c:forEach var="noticeFile"
-								items="${board.fileNoticeList}">
-								<img
-									src="${pageContext.request.contextPath}/upload/${noticeFile.getFileSystemName()}"
-									class="logo-image" alt="첨부파일" />
+							<c:forEach var="noticeFile" items="${notice.fileNoticeList}">
+							 <!-- 파일명 링크(밑줄) --> <a class="attachment-name"
+							href="${pageContext.request.contextPath}/file/download.file?fileSystemName=${noticeFile.getFileSystemName()}&fileOriginalName=${noticeFile.getFileOriginalName()}">
+								${noticeFile.getFileSystemName()}</a>  
+								
 							</c:forEach>
 						</li>
 					</ul>

@@ -59,9 +59,9 @@ closeModal.addEventListener(('click'), () => {
 	modalBackground.style.display = "none";
 });
 
-/*logoutBtn.addEventListener('click', () => {
-	location.href = "./../login/admin-login.html";
-});*/
+logoutBtn.addEventListener('click', () => {
+	location.href = "/admin/logoutOk.ad";
+});
 
 
 

@@ -107,4 +107,14 @@
       <servlet-name>Main</servlet-name>
       <url-pattern>*.ma</url-pattern>
    </servlet-mapping>
+   
+   <servlet>
+      <servlet-name>Donation</servlet-name>
+      <servlet-class>com.sol.app.donation.DonationFrontController</servlet-class>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>Donation</servlet-name>
+      <url-pattern>*.do</url-pattern>
+   </servlet-mapping>
 </web-app>

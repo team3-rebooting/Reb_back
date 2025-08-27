@@ -7,8 +7,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>배너 등록</title>
-  <link rel="stylesheet" href="./../../../assets/css/admin/banner/admin-banner-create.css">
-  <script defer src="./../../../assets/js/admin/banner/admin-banner-create.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/banner/admin-banner-create.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/admin/banner/admin-banner-create.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link

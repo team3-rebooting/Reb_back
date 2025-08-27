@@ -91,7 +91,7 @@
 					<!-- 후원 버튼 -->
 					<div id="div-a-donation-link">
 						<a
-							href="${pageContext.request.contextPath}/app/donation/sponsorship-input.jsp">후원</a>
+							href="${pageContext.request.contextPath}/donation/donate.do">후원</a>
 					</div>
 					<!-- 마이페이지 버튼 -->
 					<a href="${pageContext.request.contextPath}/myPage/myPassword.my"><img

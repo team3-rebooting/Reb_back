@@ -10,31 +10,36 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    document.querySelector("#button-ok-donation").addEventListener('click', () => {
+    document.querySelector("#button-ok-donation").addEventListener('click', async() => {
         let money = parseInt(inputMoney.value);
         if(!money || money <= 0){
             alert("후원 금액을 선택 또는 입력해주세요.");
             return;
         }
 
-        fetch('./DonationServlet', {
-            method: 'POST',
-            headers: {'Content-Type':'application/x-www-form-urlencoded'},
-            body: 'amount=' + money
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.next_redirect_pc_url){
-                location.href = data.next_redirect_pc_url;
-            } else {
-                alert('결제 준비 실패');
-            }
-        });
+		try {
+			//보내는 정보
+		    const res = await fetch('/donation/readyOk.do', {
+		        method: 'POST',
+		        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+		        body: 'amount=' + money
+		    });
+			//받는 정보
+		    const data = await res.json();
+		    if (data.next_redirect_pc_url) {
+		        window.location.href = data.next_redirect_pc_url;
+		    } else {
+		        alert('결제 준비 실패');
+		    }
+		} catch (err) {
+		    console.error(err);
+		    alert('결제 준비 중 오류가 발생했습니다.');
+		}
     });
 
     document.querySelector("#button-cancle-donation").addEventListener('click', () => {
         if(confirm('정말로 취소하시겠습니까?')){
-            location.href = './../../main.html';
+            window.location.href = '/';
         }
     });
 });

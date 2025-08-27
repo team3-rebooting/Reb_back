@@ -91,7 +91,7 @@ public class RoutineWriteOkController implements Execute {
 		System.out.println("생성된 게시글 번호 : " + routineNumber);
 		
 		//파일 업로드 처리
-		//Enumeration : java.util 패키지에 포함된 인터페이스, Iterator와 비슷한 역할함
+		//Enumeration : java.util 패키지에 포함된 인터페이스, Iterator와 비슷한 역할
 		Enumeration<String> fileNames = multipartRequest.getFileNames();
 		while(fileNames.hasMoreElements()) {
 			String name = fileNames.nextElement();

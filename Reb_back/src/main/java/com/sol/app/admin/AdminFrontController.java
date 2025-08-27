@@ -53,14 +53,13 @@ public class AdminFrontController extends HttpServlet {
 
 		switch (target) {
 		case "/admin/login.ad":
-			System.out.println("login으로 가야됨");
 			request.getRequestDispatcher("/app/admin/login/admin-login.jsp").forward(request, response);
-			System.out.println("login에서 돌아옴");
 			break;
 		case "/admin/loginOk.ad":
-			System.out.println("로그인오케이 가야됨");
 			result = new LoginOkController().execute(request, response);
-			System.out.println("로그인오케이 돌아옴");
+			break;
+		case "/admin/logoutOk.ad" :
+			result = new AdminLogoutOkController().execute(request, response);
 			break;
 		case "/admin/noticeListOk.ad":
 			System.out.println("공지사항 리스트");
@@ -177,8 +176,6 @@ public class AdminFrontController extends HttpServlet {
 		case "/admin/expertReadOk.ad" :
 			System.out.println("전문가 상세");
 			result = new ExpertReadOkController().execute(request,response);
-			break;
-		case "/admin/expert":
 			break;
 		case "/admin/routineReviewListOk.ad" :
 			System.out.println("루틴 모임 리뷰 목록");
