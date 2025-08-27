@@ -6,5 +6,5 @@ createBtn.addEventListener('click', ()=>{
 });
 
 logoutBtn.addEventListener('click', ()=>{
-  location.href= "./../login/admin-login.html";
+  location.href= "/admin/logoutOk.ad";
 });

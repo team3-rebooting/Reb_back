@@ -109,7 +109,7 @@
 						</c:if>
 					</ul>
 				</div>
-				<div id="main-search">
+				<div id="main-search" style="display:none;" >
 					<div id="main-search-basic">
 						<select class="select-find">
 							<option value="title">제목</option>

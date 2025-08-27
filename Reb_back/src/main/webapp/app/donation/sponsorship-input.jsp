@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+    
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../assets/css/donation/sponsorship-input.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/donation/sponsorship-input.css">
 
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
@@ -20,7 +22,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
-  <script defer src="./../../assets/js/donation/sponsorship-input.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/donation/sponsorship-input.js"></script>
   <title>틈새빛</title>
 </head>
 
@@ -61,7 +65,7 @@
   <div id="footer">
   </div>
 </body>
-<script src="./../../assets/js/header-login.js"></script>
-<script src="./../../assets/js/footer.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/header-login.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>

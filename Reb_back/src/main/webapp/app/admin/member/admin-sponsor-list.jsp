@@ -58,13 +58,13 @@
 					</div>
 					<div>
 						<p>최근 1년간 후원 금액 :</p>
-						<p>
+						<p>${total}원
 							<!-- 보류 -->
 						</p>
 					</div>
 					<div>
 						<p>최근 1달간 후원 금액 :</p>
-						<p>10,000,000원</p>
+						<p>${total}원</p>
 					</div>
 				</div>
 				<!-- 후원자 리스트 제목 -->
@@ -139,7 +139,7 @@
 					</ul>
 				</div>
 				<!-- 검색 영역 -->
-				<div id="main-search">
+				<div id="main-search" style="display:none;">
 					<!-- 검색 종류 -->
 					<div id="main-search-basic">
 						<select class="select-find">

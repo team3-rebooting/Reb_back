@@ -135,7 +135,7 @@
 					</ul>
 				</div>
 				<!-- 검색 영역 -->
-				<div id="main-search">
+				<div id="main-search" style="display:none;" >
 					<!-- 검색 종류 -->
 					<select class="select-find">
 						<option value="title">아이디</option>
