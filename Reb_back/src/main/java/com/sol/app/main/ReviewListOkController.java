@@ -1,6 +1,7 @@
 package com.sol.app.main;
 
 import java.io.IOException;
+import java.net.http.HttpHeaders;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +43,14 @@ public class ReviewListOkController implements Execute {
 
 		result.setPath(request.getContextPath() + "/main.jsp");
 		result.setRedirect(false);
+		
+		/*
+		 * String code = request.getParameter("code");
+		 * System.out.println("====================code : " + code) ;
+		 * 
+		 * Cookie cookie = new Cookie("authorize-access-token", code);
+		 * cookie.setMaxAge(60 * 60 * 24); // 1일 response.addCookie(cookie);
+		 */
 		
 		return result;
 	}

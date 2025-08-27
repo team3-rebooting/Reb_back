@@ -98,7 +98,6 @@
       <url-pattern>*.file</url-pattern>
    </servlet-mapping>
    
-   
    <servlet>
       <servlet-name>Main</servlet-name>
       <servlet-class>com.sol.app.main.MainFrontController</servlet-class>

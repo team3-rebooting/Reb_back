@@ -18,17 +18,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		bannerPageNumber.innerHTML = (currentIdx + 1) + '/' + bannerImgList.length;
 	}
-})
 
-async function loadList() {
-	try {
-		const response = await fetch(`/main/reviewListOk.ma`, {
-			method: "GET"
-		});
-	} catch (error) {
-		console.error("실패:", error);
-		alert("오류가 발생했습니다.");
+	async function loadList() {
+		try {
+			const response = await fetch(`/main/reviewListOk.ma`, {
+				method: "GET"
+			});
+		} catch (error) {
+			console.error("실패:", error);
+			alert("오류가 발생했습니다.");
+		}
 	}
-}
 
-loadList();
+	loadList();	
+})

@@ -267,6 +267,28 @@ document.addEventListener("DOMContentLoaded", function() {
 		rePwPn.disabled = true;
 	});
 
+<<<<<<< HEAD
+			alert("임시 인증번호는 [" + tempCode + "] 입니다.");
+			inputModalPnPw.readOnly = true;
+			inputModalPnPw.style.backgroundColor = "#d9d9d9";
+			sendSMSBtnPw.style.backgroundColor = "#d9d9d9";
+			sendSMSBtnPw.style.color = "black";
+			sendSMSBtnPw.disabled = true;
+			inputPhoneNumberPw.style.backgroundColor = "white";
+			inputPhoneNumberPw.readOnly = false;
+			veriPw.style.color = "white";
+			veriPw.style.backgroundColor = "#F38A6E";
+			veriPw.disabled = false;
+			rePwPn.disabled = false;
+		});
+let veriPw;
+		// ===== 인증번호 확인 (서버 대신 로컬 비교) =====
+		veriPw?.addEventListener("click", function() {
+			const code = inputPhoneNumberId.value.trim();
+			if (!code) {
+				alert("인증번호를 입력해주세요.");
+			}
+=======
 	const findPwBtn = document.querySelector(".button-modal-find-pw");
 	// let resultId = document.querySelector("#aa");
 	const findPwEndBtn = document.querySelector(".button-modal-find-end-pw");
@@ -333,5 +355,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		veriPw.disabled = true;
 		rePwPn.disabled = true;
 	});
+>>>>>>> main
 
 });

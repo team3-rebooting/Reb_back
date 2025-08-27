@@ -26,8 +26,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
 	rel="stylesheet">
-<script defer src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-
+<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 <title>틈새빛</title>
 </head>
 
@@ -107,7 +106,6 @@
 				<!-- 리뷰 리스트 -->
 				<div id="review-list">
 					<!-- 리뷰 -->
-
 					<c:choose>
 						<c:when test="${not empty routineList}">
 							<c:forEach var="routine" items="${routineList}">
@@ -199,49 +197,6 @@
 							</div>
 						</c:otherwise>
 					</c:choose>
-
-					<%-- 
-					<div class="review-box">
-            <a href="${pageContext.request.contextPath}/app/routine/routine-meeting-review-detail.jsp" clas="a-review-box">
-              <!-- 리뷰 이미지 -->
-              <div class="review-img-box">
-                <img src="${pageContext.request.contextPath}/assets/img/routine.png" alt="">
-              </div>
-              <!-- 리뷰 정보 -->
-              <!-- 리뷰 제목 -->
-              <div class="review-title">즐거운 루틴 모임 시간이었습니다!</div>
-              <div class="review-text">
-                <!-- 리뷰 작성자 -->
-                <div class="routine-review-person">전보라</div>
-                <!-- 작성일자 -->
-                <div class="routine-review-date">2025.08.03(일)</div>
-              </div>
-            </a>
-          </div>
-          <div class="review-box">
-            <a href="${pageContext.request.contextPath}/app/routine/routine-meeting-review-detail.jsp" class="a-review-box">
-              <div class="review-img-box">
-                <img src="${pageContext.request.contextPath}/assets/img/routine.png" alt="">
-              </div>
-              <div class="review-title">즐거운 루틴 모임 시간이었습니다!</div>
-              <div class="review-text">
-                <div class="review-person">전보라</div>
-                <div class="review-date">2025.08.03(일)</div>
-              </div>
-            </a>
-          </div>
-          <div class="review-box">
-            <a href="${pageContext.request.contextPath}/app/routine/routine-meeting-review-detail.jsp" class="a-review-box">
-              <div class="review-img-box">
-                <img src="${pageContext.request.contextPath}/assets/img/routine.png" alt="">
-              </div>
-              <div class="review-title">즐거운 루틴 모임 시간이었습니다!</div>
-              <div class="review-text">
-                <div class="review-person">전보라</div>
-                <div class="review-date">2025.08.03(일)</div>
-              </div>
-            </a>
-          </div> --%>
 				</div>
 			</div>
 			<div class="review-container">
@@ -336,62 +291,12 @@
 							</div>
 						</c:otherwise>
 					</c:choose>
-					<%-- <div class="review-box">
-						<a
-							href="${pageContext.request.contextPath}/app/course/course-review-detail.jsp"
-							class="a-review-box">
-							<div class="review-img-box">
-								<img
-									src="${pageContext.request.contextPath}/assets/img/routine.png"
-									alt="">
-							</div>
-							<div class="review-title">알찬 구성 수업과 실력있는 선생님~</div>
-							<div class="review-text">
-								<div class="routine-review-person">전보라</div>
-								<div class="routine-review-date">2025.08.03(일)</div>
-							</div>
-						</a>
-					</div>
-					<div class="review-box">
-						<a
-							href="${pageContext.request.contextPath}/app/course/course-review-detail.jsp"
-							class="a-review-box">
-							<div class="review-img-box">
-								<img
-									src="${pageContext.request.contextPath}/assets/img/routine.png"
-									alt="">
-							</div>
-							<div class="review-title">알찬 구성 수업과 실력있는 선생님~</div>
-							<div class="review-text">
-								<div class="review-person">전보라</div>
-								<div class="review-date">2025.08.03(일)</div>
-							</div>
-						</a>
-					</div>
-					<div class="review-box">
-						<a
-							href="${pageContext.request.contextPath}/app/course/course-review-detail.jsp"
-							class="a-review-box">
-							<div class="review-img-box">
-								<img
-									src="${pageContext.request.contextPath}/assets/img/routine.png"
-									alt="">
-							</div>
-							<div class="review-title">알찬 구성 수업과 실력있는 선생님~</div>
-							<div class="review-text">
-								<div class="review-person">전보라</div>
-								<div class="review-date">2025.08.03(일)</div>
-							</div>
-						</a>
-					</div> --%>
 				</div>
 			</div>
 		</div>
 	</main>
 	<!-- 푸터 -->
 	<div id="footer"></div>
-	<%-- 
-  	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>  --%>
 	<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
 
