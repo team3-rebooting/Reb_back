@@ -59,7 +59,7 @@
 				<div class="div-user-integration">
 					<!-- 유저 프로필 영역 -->
 					<div class="div-user-profile">
-						<img src="./../../assets/img/karina.jpg" class="img-user-profile">
+						<img src="./../../assets/img/profile.png" class="img-user-profile">
 					</div>
 					<!-- 유저 개인 정보(닉네임, 작성일) 영역 -->
 					<div class="div-user-info">
@@ -81,8 +81,7 @@
 					<!-- 좋아요 fontawesome -->
 					<div class="div-font-awesome-line">
 						<span>수업:<c:out value="${courseReview.getCourseTitle()}" /></span></br>
-						<span class="span-likes">좋아요 수 : 30 </span><i
-							class="fa-regular fa-heart"></i>
+						<span class="span-likes">좋아요 수 : 30 </span><i class="fa-regular fa-heart" style="display:none;"></i>
 					</div>
 				</div>
 				<!--상세 글 영역 -->

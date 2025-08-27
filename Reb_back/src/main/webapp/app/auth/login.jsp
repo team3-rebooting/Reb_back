@@ -93,7 +93,7 @@
   <div class="modal-pw-background">
     <!-- 비밀번호 찾기 모달 창 -->
     <div class="div-findpw-modal">
-      <form action="" method="get">
+      <form action="${pageContext.request.contextPath}/member/findPwOk.me" method="post">
         <!-- x 버튼 영역 -->
         <div class="div-modal-x"><button class="button-pw-x" type="button">X</button></div>
         <!-- 모달 제목 영역 -->
@@ -104,27 +104,27 @@
         <div class="div-modal-main">
           <!-- 이름 입력 영역 -->
           <div class="div-modal-name"><span class="span-modal">이름 : </span>
-            <input type="text" placeholder="이름을 입력해주세요" name="modalPwName" class="input-modal-name-pw">
+            <input type="text" placeholder="이름을 입력해주세요" name="modalPwName" class="input-modal-name-pw" required>
           </div>
           <!-- 전화번호 인증 입력 영역 -->
           <div class="div-modal-pn"><span class="span-modal">전화번호 : </span>
             <!-- 전화번호 입력 영역 -->
             <div class="div-phone-input-area">
               <div class="div-phone-input">
-                <input type="text" placeholder="전화번호를 입력해주세요" name="modalPwPhone" class="input-modal-pn-pw">
+                <input type="text" placeholder="전화번호를 입력해주세요" name="modalPwPhone" class="input-modal-pn-pw" requiredrequired>
                 <button type="button" class="button-injung-pw">인증번호 받기</button>
                 <button type="button" class="button-retry-pw">초기화</button>
               </div>
               <!-- 인증번호 입력 영역 -->
               <div class="div-phone-input">
-                <input type="text" placeholder="" name="modalPwPhoneInjung" class="input-modal-pn-injung" readonly>
+                <input type="text" placeholder="" name="modalPwPhoneInjung" class="input-modal-pn-injung" readonly required>
                 <button type="button" class="button-injung-do-pw" disabled>인증하기</button>
               </div>
             </div>
           </div>
           <!-- 아이디 입력 영역 -->
           <div class="div-modal-id"><span class="span-modal">아이디 : </span>
-            <input type="text" placeholder="아이디를 입력해주세요" name="modalPwId" class="input-modal-id-pw">
+            <input type="text" placeholder="아이디를 입력해주세요" name="modalPwId" class="input-modal-id-pw" required>
           </div>
         </div>
         <!-- 버튼 입력 영역 -->
@@ -144,7 +144,7 @@
       </div>
       <!-- 모달 text 영역 -->
       <div class="div-modal-main-findid-end">
-        <span class="span-findid-end">홍길동님의 비밀번호는 <span class="findid">1q2w3e4r!</span> 입니다</span>
+        <span class="span-findid-end"><span id="resultName"></span>님의 비밀번호는 <span class="findid" id="resultPw"></span> 입니다</span>
       </div>
       <!-- 모달 버튼 영역 -->
       <div class="div-modal-button-area">
