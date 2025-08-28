@@ -6,45 +6,12 @@
 <div class="pagetitle"></div>
 <!-- 마이페이지 목록 틀 -->
 <div class="list">
-	<!-- 목록 속성 값 -->
+	<!-- 목록 제목 행 -->
 	<div class="list-col-type">
-		<!-- <p class="font-main list-title"></p>
-		<p class="font-main list-user-name"></p>
-		<p class="font-main list-date"></p> -->
 	</div>
 	<!-- 목록 -->
 	<ul class="mypage-ul-list" data-listCount="${rowCount}">
 		<!-- 목록 행 -->
-		<!-- <li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li>
-		<li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li>
-		<li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li>
-		<li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li>
-		<li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li>
-		<li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li>
-		<li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li>
-		<li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li>
-		<li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li>
-		<li class="li-content"><a href="" class="font-main list-title"></a>
-			<p class="font-main list-user-name"></p>
-			<p class="font-main list-date"></p></li> -->
 	</ul>
 </div>
 <div class="page-list">
@@ -52,6 +19,19 @@
 		
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="search-container" style="display:none;">
 	<form action="" method="get">
 		<div class="search-form">

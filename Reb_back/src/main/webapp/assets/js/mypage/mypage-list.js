@@ -1,152 +1,13 @@
 window.addEventListener('DOMContentLoaded', () => {
-	/*	class ListInfo {
-			constructor(title, colText, data) {
-				this.title = title;
-				this.colText = colText;
-				this.data = data;
-			}
-		}
-	
-		function ListRow(title, userName, date) {
-			this.title = title;
-			this.userName = userName;
-			this.date = date;
-		};
-	
-		const myRoutine = new ListInfo(
-			'나의 신청 루틴 모임 내역',
-			new ListRow('제목', '지도자', '신청일자'),
-			[
-				new ListRow("[26기 틈새빛]성장하는 빛", "전보라", "2025.08.02"),
-				new ListRow("[26기 틈새빛]성장하는 빛", "전보라", "2025.08.02"),
-				new ListRow("[26기 틈새빛]성장하는 빛", "전보라", "2025.08.02"),
-				new ListRow("[26기 틈새빛]성장하는 빛", "전보라", "2025.08.02"),
-			]
-		);
-	
-		const myCourse = new ListInfo(
-			'나의 수강 수업 내역',
-			new ListRow('제목', '전문가', '신청일자'),
-			[
-				new ListRow("[IT]Java의 정석1", "김영선", "2025.08.02"),
-				new ListRow("[IT]Java의 정석2", "김영선", "2025.08.02")
-			]
-		);
 	
 	
-		const myPosts = new ListInfo(
-			'나의 게시글 내역',
-			new ListRow('제목', '게시판', '작성일자'),
-			[
-				new ListRow("정말 즐거운 모임~~~~", "루틴 모임 후기", "2025.08.02"),
-				new ListRow("알찬 수업 구성에 놀라운 전문가의 실력", "수업 후기", "2025.08.02")
-			]
-		);
 	
-		const myComments = new ListInfo(
-			'나의 댓글 내역',
-			new ListRow('댓글 내용', '글 제목', '작성일자'),
-			[
-				new ListRow("오~~~~저도 정말 가고싶네요ㅎㅎㅎㅎ 기회가 된다면 꼭 루틴 모임에 나가겠습니다. 모두모두모두 행복하세요!", "정말 즐거운 모임!", "2025.08.02"),
-				new ListRow("오~~~~저도 정말 가고싶네요ㅎㅎㅎㅎ 기회가 된다면 꼭 루틴 모임에 나가겠습니다. 모두모두모두 행복하세요!", "정말 즐거운 모임!", "2025.08.02")
-			]
-		);
 	
-		function inputList(listPageTitle, listColType, listContentList, searchTypeFirst, searchTypeSecond, id) {
-			if (id === "my-courses-routine")
-				loadList(listPageTitle, listColType, listContentList, searchTypeFirst, searchTypeSecond, "./../routine-meeting/routine-meeting-detail-ing.html", myRoutine);
-			else if (id === "my-courses-courses")
-				loadList(listPageTitle, listColType, listContentList, searchTypeFirst, searchTypeSecond, "./../course/course-detail-user-ing.html", myCourse);
-			else if (id === "my-post")
-				loadList(listPageTitle, listColType, listContentList, searchTypeFirst, searchTypeSecond, "./../course/course-review-detail.html", myPosts);
-			else if (id === "my-comment")
-				loadList(listPageTitle, listColType, listContentList, searchTypeFirst, searchTypeSecond, "./../routine-meeting/routine-meeting-review-detail.html", myComments);
-		}
-	
-		function loadList(listPageTitle, listColType, listContentList, searchTypeFirst, searchTypeSecond, href, listInfo) {
-			listPageTitle.innerHTML = listInfo.title;
-	
-			listColType.querySelector('.list-title').innerHTML = listInfo.colText['title'];
-			listColType.querySelector('.list-user-name').innerHTML = listInfo.colText.userName;
-			listColType.querySelector('.list-date').innerHTML = listInfo.colText.date;
-	
-			searchTypeFirst.innerHTML = listInfo.colText['title'];
-			searchTypeSecond.innerHTML = listInfo.colText.userName;
-	
-			let count = 0;
-	
-			listContentList.forEach((e) => {
-				if (listInfo.data.length - 1 < count)
-					return;
-	
-				e.querySelector('.list-title').setAttribute("href", href);
-				e.querySelector('.list-title').innerHTML = listInfo.data[count].title;
-				e.querySelector('.list-user-name').innerHTML = listInfo.data[count].userName;
-				e.querySelector('.list-date').innerHTML = listInfo.data[count].date;
-	
-				count++;
-			});
-		}
-
-	function search(e) {
-		let id = e.target.getAttribute('value').split('_')[0];
-		selectedIndex = document.querySelector(`#${e.target.getAttribute('value')}`).selectedIndex;
-		listContentList = document.querySelector(`#${id}`).querySelectorAll('.li-content');
-		const inputSearch = document.querySelector(`#${id}`).querySelector('.input-search');
-
-		listContentList.forEach((e) => {
-			console.log(e);
-			e.querySelector('.list-title').setAttribute("href", "");
-			e.querySelector('.list-title').innerHTML = "";
-			e.querySelector('.list-user-name').innerHTML = "";
-			e.querySelector('.list-date').innerHTML = "";
-		})
-
-		let listInfo;
-		let href;
-		if (id === "my-courses-routine") {
-			listInfo = myRoutine;
-			href = "./../routine-meeting/routine-meeting-detail-ing.html";
-		}
-		else if (id === "my-courses-courses") {
-			listInfo = myCourse;
-			href = "./../course/course-detail-user-ing.html";
-		}
-		else if (id === "my-post") {
-			listInfo = myPosts;
-			href = "./../course/course-review-detail.html";
-		}
-		else if (id === "my-comment") {
-			listInfo = myComments;
-			href = "./../routine-meeting/routine-meeting-review-detail.html";
-		}
-
-		let searchList;
-
-		if (selectedIndex == 0)
-			searchList = listInfo.data.filter(data => data.title.includes(inputSearch.value));
-		else if (selectedIndex == 1)
-			searchList = listInfo.data.filter(data => data.userName.includes(inputSearch.value));
-
-		let count = 0;
-		listContentList.forEach((e) => {
-			if (searchList.length - 1 < count)
-				return;
-
-			e.querySelector('.list-title').setAttribute("href", href);
-			e.querySelector('.list-title').innerHTML = searchList[count].title;
-			e.querySelector('.list-user-name').innerHTML = searchList[count].userName;
-			e.querySelector('.list-date').innerHTML = searchList[count].date;
-			console.log(searchList[count].title);
-
-			count++;
-		});
-	}*/
-
-	// ====== 목록 로드 ======
+	// 목록 로드 비동기 처리
 	async function loadListAsync(id, page) {
 		console.log(id);
 		try {
+			// 쿼리스트링을 통해 어떠한 리스트인지 값과 목록 페이지 번호 전달
 			const res = await fetch(`/mypage/mypageListOk.my?listType=${encodeURIComponent(id)}&page=${page}`, {
 				headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" },
 			});
@@ -155,7 +16,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			const listInfo = await safeJson(res);
 
+			// 목록 로드
 			renderList(listInfo, id, listInfo.page.rowCount, listInfo.etcArr);
+			// 페이지 번호 로드
 			renderPage(listInfo.page, id);
 		} catch (error) {
 			console.error("목록 불러오기 실패:", error);
@@ -164,50 +27,75 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 
-
+	// 목록 로드
 	function loadList(e) {
+		//로드할 페이지
 		let page;
 
+		//이벤트 헨들러가 존재하지 않을 경우
 		if (e === null || e === undefined) {
 			page = 1;
 
 			const mypageList = document.querySelectorAll('.mypage-list');
 
-			mypageList.forEach((i) => {
-				loadListAsync(i.getAttribute("id"), page);
+			// 페이지 내 모든 목록 초기화
+			mypageList.forEach((list) => {
+				loadListAsync(list.getAttribute("id"), page);
 			})
 		}
+		//목록 페이지 버튼 클릭 이벤트를 통해 호출된 경우
 		else {
 			page = e.target.dataset.page;
-			console.log(e.target.dataset);
 			loadListAsync(e.target.dataset.listtype, page);
 		}
 	}
 
-	// ====== 목록 렌더링 ======
+	// 초기 로드
+	loadList();
+
+	// 목록 초기화
 	function renderList(listInfo, id, rowCount, etcArr) {
-
-		const pageNum = document.querySelectorAll(`.a-page-number`);
-		pageNum.forEach((e) => {
-			e.addEventListener('click', (e) => {
-				loadList(e);
-			})
-		})
-
+		// 리스트 부모 요소
 		const list = document.querySelector(`#${id}`);
-
-		const listPageTitle = list.querySelector('.pagetitle');
-		const col = list.querySelector('.list-col-type');
+		// 목록 ul
 		const ul = list.querySelector('.mypage-ul-list');
 
+		ul.innerHTML = ``;
+
+		// 목록 행 초기화
+		listInfo.list.forEach(function(l, i) {
+			let li = `<li class="li-content">`;
+
+			l.forEach(function(item, index) {
+				// href 값 있을 경우, 첫번째 열에 한하여 a tag로 설정
+				if (index === 0) {
+					if (etcArr[i]?.href !== undefined) {
+						li += `<a href="${etcArr[i].href}" class="font-main list-title">${item}</a>`;
+					} else {
+						li += `<li class="li-content"><p class="font-main list-title">${item}</p>`;
+					}
+				}
+				else
+					li += `<p class="font-main list-content">${item}</p>`;
+			})
+
+			li += '</li>';
+
+			ul.innerHTML += li;
+		});
+
+		
+		const listPageTitle = list.querySelector('.pagetitle');
+		const col = list.querySelector('.list-col-type');
+
+		// 검색 기능 관련 요소에 목록 타입 dataset 설정
 		list.querySelector('.button-search img').dataset.search = id;
 		list.querySelector('.select-search').dataset.search = id;
 
+		// 목록 리스트 설정
 		listPageTitle.innerHTML = listInfo.listTitle;
-
 		col.innerHTML = ``;
-		ul.innerHTML = ``;
-
+		// 목록 열 정보 행 초기화
 		listInfo.cols.forEach(function(c, i) {
 			if (i === 0) {
 				col.innerHTML += `<p class="font-main list-title">${c}</p>`;
@@ -216,27 +104,7 @@ window.addEventListener('DOMContentLoaded', () => {
 				col.innerHTML += `<p class="font-main list-content">${c}</p>`;
 			}
 		});
-
-		listInfo.list.forEach(function(l, i) {
-			let li = ``;
-			
-			console.log("href : ", etcArr[i]?.href);
-			l.forEach(function(item, index) {
-				if (index === 0) {
-					if (etcArr[i]?.href !== undefined) {
-						li += `<li class="li-content"><a href="${etcArr[i].href}" class="font-main list-title">${item}</a>`;
-					} else {
-						li += `<li class="li-content"><p class="font-main list-title">${item}</p>`;
-					}
-				}
-				else if (index === (l.length - 1))
-					li += `<p class="font-main list-content">${item}</p></li>`;
-				else
-					li += `<p class="font-main list-content">${item}</p>`;
-			})
-			ul.innerHTML += li;
-		});
-
+		// 행 개수 유지를 위해 비어있는 행 추가
 		let start = 0;
 		if (listInfo.list !== null && listInfo.list !== undefined)
 			start = listInfo.list.length;
@@ -244,9 +112,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		for (let i = start; i < rowCount; i++) {
 			ul.innerHTML += `<li  class="li-content"></li>`;
 		}
-
 	}
 
+	// 페이지네이션 초기화
 	function renderPage(pageInfo, id) {
 		const pagenation = document.querySelector(`#${id}`).querySelector(".pagenation");
 
@@ -259,35 +127,39 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		let realStartPage = startPage < 0 ? 0 : startPage;
 
+		// < 버튼
 		if (prev) {
 			innerHTML += `<a href="#" data-page="${startPage - 1}" class="a-page-number prev" data-listtype="${id}">&lt;</a>`
 		}
 
+		// 페이지 번호
 		for (let i = realStartPage; i <= endPage; i++) {
 			if (i === page) {
-				innerHTML += `<a href="#" class="a-page-number" data-page="${i}" data-listType="${id}">${i}</a>`;
+				innerHTML += `<a href="#" class="a-page-number" data-page="${i}" data-listtype="${id}">${i}</a>`;
 			} else {
 				innerHTML += `<a href="#" class="a-page-number" class="active" data-page="${i}" data-listtype="${id}">${i}</a>`
 			}
 		}
 
+		// > 버튼
 		if (next) {
 			innerHTML += `<a href="#" data-page="${endPage + 1}" class="a-page-number next" data-listtype="${id}">&gt;</a>`;
 		}
 
 		pagenation.innerHTML = innerHTML;
+
+		// 클릭 이벤트 추가
 		pagenation.querySelectorAll(".a-page-number").forEach((i) => {
 			i.addEventListener('click', loadList);
 		})
 	}
 
-	// ====== 유틸 ======
+	// text -> json으로 변환
 	async function safeJson(res) {
 		const text = await res.text();
 		try { return text ? JSON.parse(text) : null; } catch { return null; }
 	}
 
-	// 초기 로드
-	loadList();
+
 })
 
