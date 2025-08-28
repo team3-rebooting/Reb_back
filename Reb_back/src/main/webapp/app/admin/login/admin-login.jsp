@@ -20,7 +20,7 @@
     <!-- 로그인 영역 -->
     <section id="main-login">
       <!-- 사이트 로고 -->
-      <img src="./../../../assets/img/team_logo.png" alt="페이지 로고" id="main-login-logo">
+      <img src="${pageContext.request.contextPath}/assets/img/team_logo.png" alt="페이지 로고" id="main-login-logo">
       <p>틈새빛 관리 시스템</p>
       <!-- 아이디, 비밀번호 form -->
       <form action="${pageContext.request.contextPath}/admin/loginOk.ad" method="post">

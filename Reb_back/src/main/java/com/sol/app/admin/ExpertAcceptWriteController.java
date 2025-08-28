@@ -19,17 +19,15 @@ public class ExpertAcceptWriteController implements Execute {
 			throws ServletException, IOException {
 		Result result = new Result();
 		HttpSession session = request.getSession();
+		String path = null;
 		//관리자 번호는 세션에서 가져오고
 		Integer adminNumber = (Integer)session.getAttribute("adminNumber");
 		//회원 번호는 parameter 를 통해 가져온다 
 		int memberNumber = Integer.valueOf(request.getParameter("memberNumber"));
 		MemberDAO memberDAO = new MemberDAO();
-		//가져온 memberNumber 로 Expert 에 들어갈 member 정보를 memberDTO에 담는다
+		//가져온 memberNumber 로 Expert 에 들어갈 기본 member 정보를 memberDTO에 담는다
 		System.out.println(memberNumber);
 		MemberDTO memberDTO = memberDAO.findExpert(memberNumber);
-		
-		String path = null;
-		
 		//관리자 로그인 확인후
 		if(adminNumber == null) {
 			path = "/app/admin/login/admin-login.jsp";
