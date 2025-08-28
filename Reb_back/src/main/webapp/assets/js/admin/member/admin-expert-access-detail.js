@@ -29,8 +29,8 @@ submitBtn.addEventListener("click", async (e) => {
 				},
 				body: JSON.stringify({ memberNumber: memberNumber, returnMsg: returnMsg.value,isExpert : true}),
 			});
-			console.log("여기까지두");
 			const result = await safeJson(response);
+			console.log(result);
 			if (result?.status === "success") {
 				alert("반려 완료");
 				window.location.href = "/admin/expertListOk.ad";
@@ -43,14 +43,14 @@ submitBtn.addEventListener("click", async (e) => {
 			alert("반려 중 오류가 발생했습니다.");
 		}
 		returnMsg.value = "";
-		modalBackground.style.display = "none";
+		dropModal.style.display = "none";
 	}
 });
 
 closeModal.addEventListener(('click'), () => {
 	dropModal.style.display = "none";
 	returnMsg.value = "";
-})
+});
 
 
 
