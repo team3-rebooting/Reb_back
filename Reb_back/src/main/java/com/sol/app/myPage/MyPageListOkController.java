@@ -25,7 +25,7 @@ public class MyPageListOkController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String listType = request.getParameter("listType");
-		System.out.println(listType);
+		System.out.println("로드할 목록 종류 : " + listType);
 		
 		switch(listType) {
 		case "my-courses-routine":

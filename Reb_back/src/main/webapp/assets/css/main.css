@@ -124,6 +124,7 @@ button{
 /* 배너 사진 li */
 .main-li-banner{
   position: relative;
+  background-color : #f3f196;
 }
 
 /* 배너 사진 img */

@@ -121,9 +121,9 @@
 						<button>
 							<img src="./../../../assets/img/search.jpg" alt="돋보기">
 						</button>
-						<button type="button" id="main-create-routine">등록</button>
 					</form>
 				</div>
+			<button type="button" id="main-create-routine">등록</button>
 			</div>
 		</section>
 	</main>

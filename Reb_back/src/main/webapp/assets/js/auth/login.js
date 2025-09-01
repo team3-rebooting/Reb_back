@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	closeFindPwModal.addEventListener('click', () => {
 		pwModal.style.display = "none";
-		inputModalNamePw.value= "";
+		inputModalNamePw.value = "";
 		inputModalPnPw.readOnly = false;
 		inputModalPnPw.style.backgroundColor = "white";
 		inputModalPnPw.value = "";
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		veriPw.style.backgroundColor = "#d9d9d9";
 		veriPw.disabled = true;
 		rePwPn.disabled = true;
-		inputModalIdPw.value= "";
+		inputModalIdPw.value = "";
 	})
 
 	const sendSMSPwBtn = document.querySelector(".button-injung-pw");
@@ -267,10 +267,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		rePwPn.disabled = true;
 	});
 
+
 	const findPwBtn = document.querySelector(".button-modal-find-pw");
 	// let resultId = document.querySelector("#aa");
 	const findPwEndBtn = document.querySelector(".button-modal-find-end-pw");
-	
+
 
 	findPwBtn.addEventListener("click", async () => {
 		const name = inputModalNamePw.value.trim();
@@ -316,15 +317,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	findPwEndBtn.addEventListener("click", () => {
 		pwResultModal.style.display = "none";
-		putModalNamePw.value = "";
-		inputModalPnPw.value = "";
-		inputPhoneNumberPw.value = "";
+		inputModalNamePw.value = "";
 		inputModalPnPw.readOnly = false;
 		inputModalPnPw.style.backgroundColor = "white";
 		inputModalPnPw.value = "";
 		sendSMSPwBtn.style.backgroundColor = "#F38A6E";
-		sendSMSBPwtn.style.color = "white";
-		sendSMSBPwtn.disabled = false;
+		sendSMSPwBtn.style.color = "white";
+		sendSMSPwBtn.disabled = false;
 		inputPhoneNumberPw.style.backgroundColor = "#d9d9d9";
 		inputPhoneNumberPw.readOnly = true;
 		inputPhoneNumberPw.value = "";
@@ -332,6 +331,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		veriPw.style.backgroundColor = "#d9d9d9";
 		veriPw.disabled = true;
 		rePwPn.disabled = true;
+		inputModalIdPw.value = "";
 	});
+
 
 });

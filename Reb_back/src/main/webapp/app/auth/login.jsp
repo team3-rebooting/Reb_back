@@ -81,7 +81,6 @@
 				</div>
 			</form>
 		</div>
-		<<<<<<< HEAD
 	</div>
 
 	<!-- 아이디찾기 완료 모달 배경 -->
@@ -227,7 +226,6 @@
 	</main>
 	<!-- 푸터 영역 -->
 	<div id="footer"></div>
-	>>>>>>> main
 </body>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 

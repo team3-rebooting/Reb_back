@@ -60,7 +60,7 @@
           <div class="div-expert-detail">
             <p class="p-expert-info-title">모이는 장소</p>
             <div class="div-expert-info-detail">
-              <h1>지도 api 자리</h1>
+             	<c:out value="${routine.routineLocation }"/>
             </div>
           </div>
           <div class="div-expert-detail">
