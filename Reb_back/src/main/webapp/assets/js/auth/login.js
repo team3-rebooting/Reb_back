@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		rePwPn.disabled = true;
 	});
 
-<<<<<<< HEAD
+/*<<<<<<< HEAD*/
 			alert("임시 인증번호는 [" + tempCode + "] 입니다.");
 			inputModalPnPw.readOnly = true;
 			inputModalPnPw.style.backgroundColor = "#d9d9d9";
@@ -288,7 +288,7 @@ let veriPw;
 			if (!code) {
 				alert("인증번호를 입력해주세요.");
 			}
-=======
+/*=======*/
 	const findPwBtn = document.querySelector(".button-modal-find-pw");
 	// let resultId = document.querySelector("#aa");
 	const findPwEndBtn = document.querySelector(".button-modal-find-end-pw");
@@ -355,6 +355,6 @@ let veriPw;
 		veriPw.disabled = true;
 		rePwPn.disabled = true;
 	});
->>>>>>> main
+/*>>>>>>> main*/
 
 });

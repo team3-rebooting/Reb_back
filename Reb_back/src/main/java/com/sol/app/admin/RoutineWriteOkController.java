@@ -52,36 +52,23 @@ public class RoutineWriteOkController implements Execute {
 		routineDTO.setRoutineEndTime(multipartRequest.getParameter("routineEndTime"));
 		routineDTO.setRoutineRecruitCount(Integer.valueOf(multipartRequest.getParameter("routineRecruitCount")));
 		routineDTO.setRoutineLeaderNumber(Integer.valueOf(multipartRequest.getParameter("routineLeaderNumber")));
+		
+		//days String 배열안에 체크박스로 선택된 날짜들을 가지고 옴 
 		String[] days = multipartRequest.getParameterValues("days");
-		String day = "";
-		for(int i=0;i<days.length;i++) {
-			switch(days[i]) {
-			case "mon" :
-				day += "월";
-				break;
-			case "tue" :
-				day += "화";
-				break;
-			case "wed" :
-				day += "수";
-				break;
-			case "thu" :
-				day += "목";
-				break;
-			case "fri" :
-				day += "금";
-				break;
-			case "sat" :
-				day += "토";
-				break;
-			case "sun" :
-				day += "일";
-				break;		
-			}
-		}
-		routineDTO.setRoutineDayOfWeek(day);
+		//StringBuilder로 반복문 안에서 요일 계속 이어붙이기
+		StringBuilder sb = new StringBuilder();
+	    for (String day : days) {
+	    	//Days 안에서 영어로된 날짜를 한국어로 반환
+	        sb.append(Days.findKorean(day));
+	    }
+	    //dayPlus 변수에 이어붙인 요일 넣기
+	    String dayPlus = sb.toString();
+	    //루틴모임DTO에 저장
+	    routineDTO.setRoutineDayOfWeek(dayPlus);
+		
+		
 		routineDTO.setAdminNumber(adminNumber);
-		routineDTO.setRoutineLocation("지도 api 추가 후 수정");
+		routineDTO.setRoutineLocation("routineLocation");
 		//모집 전으로 고정
 		routineDTO.setRoutineStatusNumber(2);
 		System.out.println("게시글 추가 - routineDTO : " + routineDTO);
