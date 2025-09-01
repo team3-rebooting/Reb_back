@@ -16,6 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			const listInfo = await safeJson(res);
 
+			console.log(listInfo);
 			// 목록 로드
 			renderList(listInfo, id, listInfo.page.rowCount, listInfo.etcArr);
 			// 페이지 번호 로드
