@@ -121,7 +121,7 @@ public class MyApplicantCourseOkController implements Execute {
 
 			response.setContentType("application/json; charset=utf-8");
 			PrintWriter out = response.getWriter();
-
+			out.print(obj.toString());
 			out.close();
 		}
 		return null;

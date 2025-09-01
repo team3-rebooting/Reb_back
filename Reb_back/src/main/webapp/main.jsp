@@ -46,7 +46,7 @@
 					<div id="main-banner-box">
 						<ul id="main-ul-banner">
 							<li class="main-li-banner"><img
-								src="${pageContext.request.contextPath}/assets/img/banner1.jpg"
+								src="${pageContext.request.contextPath}/assets/img/routine-img.png"
 								alt=""></li>
 							<li class="main-li-banner"><img
 								src="${pageContext.request.contextPath}/assets/img/banner2.jpg"

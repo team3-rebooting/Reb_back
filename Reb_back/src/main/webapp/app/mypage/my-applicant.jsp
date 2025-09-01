@@ -43,11 +43,11 @@
 		<!-- 메인 컨테이너 -->
 		<div id="main-container">
 			<!-- 나의 루틴 모임 목록 -->
-			<div id="my-courses-routine" class="mypage-list" data-listType="myRoutine">
+			<div id="my-courses-routine" class="mypage-list">
 				<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-list.jsp" />
 			</div>
 			<!-- 나의 수강 수업 목록 -->
-			<div id="my-courses-courses" class="mypage-list" data-listType="myCourse">
+			<div id="my-courses-courses" class="mypage-list">
 				<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-list.jsp" />
 			</div>
 		</div>
