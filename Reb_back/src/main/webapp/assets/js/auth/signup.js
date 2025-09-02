@@ -26,20 +26,20 @@ document.addEventListener("DOMContentLoaded", function() {
 		fetch(`${base}/member/checkIdOk.me?memberId=${encodeURIComponent(memberId)}`, {
 			headers: { "Content-type": "application/json" }
 		})
-			.then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-			.then(data => {
-				if (data.available) {
-					idSame.style.display = "none";
-					idNotSame.style.display = "block";
-				} else {
-					idSame.style.display = "block";
-					idNotSame.style.display = "none";
-					checkAvailable = true;
-				}
-			})
-			.catch(() => {
-				console.log("예외 발생");
-			});
+		.then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+		.then(data => {
+			if (data.available) {
+				idSame.style.display = "none";
+				idNotSame.style.display = "block";
+			} else {
+				idSame.style.display = "block";
+				idNotSame.style.display = "none";
+				checkAvailable = true;
+			}
+		})
+		.catch(() => {
+			console.log("예외 발생");
+		});
 	});
 
 	const inputPw = document.querySelector(".input-password-first");
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			checkName = true;
 		}
 	});
-	
+
 	let checkGender = false;
 
 	const gender = document.querySelector("input[name='gender']");
@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 	let checkPhone = false;
-	
+
 	injunging.addEventListener('blur', function() {
 		const code = injungPhone.value.trim();
 
@@ -274,51 +274,51 @@ document.addEventListener("DOMContentLoaded", function() {
 			e.preventDefault();
 			alert("약관에 동의해주세요.");
 			return;
-		} else if(checkIdRegex){
+		} else if (checkIdRegex) {
 			e.preventDefault();
 			alert("아이디 형식을 지켜주세요.");
 			reurn;
-		} else if(checkAvailable){
+		} else if (checkAvailable) {
 			e.preventDefault();
 			alert("사용 불가능한 아이디입니다");
 			return;
-		} else if(checkpwRegex){
+		} else if (checkpwRegex) {
 			e.preventDefault();
 			alert("비밀번호 형식을 지켜주세요.");
 			return;
-		} else if(checkPwSame){
+		} else if (checkPwSame) {
 			e.preventDefault();
 			alert("비밀번호가 동일하지 않습니다.");
 			return;
-		} else if(checkBirth){
+		} else if (checkBirth) {
 			e.preventDefault();
 			alert("생년월일을 입력해주세요");
 			return;
-		} else if(checkEmail){
+		} else if (checkEmail) {
 			e.preventDefault();
 			alert("이메일 형식을 지켜주세요.");
 			return;
-		} else if(checkName){
+		} else if (checkName) {
 			e.preventDefault();
 			alert("이름을 입력해주세요.");
 			return;
-		} else if(checkGender){
+		} else if (checkGender) {
 			e.preventDefault();
 			alert("성별을 선택해주세요.");
 			return;
-		} else if(checkNickname){
+		} else if (checkNickname) {
 			e.preventDefault();
 			alert("닉네임을 입력해주세요.");
 			return;
-		} else if(checkNicknameSame){
+		} else if (checkNicknameSame) {
 			e.preventDefault();
 			alert("중복된 닉네임입니다.");
 			return;
-		} else if(checkPhone){
+		} else if (checkPhone) {
 			e.preventDefault();
 			alert("전화번호 인증을 해주세요.");
 			return;
-		} 
+		}
 	});
 
 
