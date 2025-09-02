@@ -2,6 +2,8 @@ package com.sol.app.dto;
 
 import java.util.List;
 
+import com.sol.app.status.Field;
+
 public class MyExpertDTO {
 	//ExpertDTO, ExpertCertStatusDTO, ExpertApplicantDTO, ExpertFileDTO, FiledDTO, FileDTO 
 	private int expertNumber;
@@ -39,12 +41,19 @@ public class MyExpertDTO {
 	public void setExpertCareer(String expertCareer) {
 		this.expertCareer = expertCareer;
 	}
+	
 	public String getFieldName() {
+		if(fieldName.equals(null)) {
+			this.setFieldName(Field.findFieldName(expertFieldNumber));
+		}
+		
 		return fieldName;
 	}
-	public void setFieldName(String fieldName) {
+	
+	private void setFieldName(String fieldName) {
 		this.fieldName = fieldName;
 	}
+	
 	public int getExpertCertStatusNumber() {
 		return expertCertStatusNumber;
 	}
@@ -72,8 +81,11 @@ public class MyExpertDTO {
 	public int getExpertFieldNumber() {
 		return expertFieldNumber;
 	}
+	
 	public void setExpertFieldNumber(int expertFieldNumber) {
 		this.expertFieldNumber = expertFieldNumber;
+		
+		this.setFieldName(Field.findFieldName(expertFieldNumber));
 	}
 	
 	public FileExpertDTO getFileExpert() {
@@ -92,6 +104,7 @@ public class MyExpertDTO {
 	public void setFileExpertList(List<FileExpertDTO> fileExpertList) {
 		this.fileExpertList = fileExpertList;
 	}
+	
 	@Override
 	public String toString() {
 		return "MyExpertDTO [expertNumber=" + expertNumber + ", memberNumber=" + memberNumber + ", expertLicenseInfo="
@@ -100,5 +113,4 @@ public class MyExpertDTO {
 				+ ", expertCertStatusInfo=" + expertCertStatusInfo + ", expertApplicantReason=" + expertApplicantReason
 				+ ", expertCheckDate=" + expertCheckDate + ", fileExpertList=" + fileExpertList + "]";
 	}
-	
 }
