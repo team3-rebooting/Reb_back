@@ -1,7 +1,6 @@
 package com.sol.app.dto;
 
 public class AdminRoutineListDTO {
-	private String routineStatusInfo;
 	private int routineNumber;
 	private String routineLeaderName;
 	private int adminNumber;
@@ -11,14 +10,6 @@ public class AdminRoutineListDTO {
 	private String routineEndDate;
 	private int routineRecruitCount;
 	private int routineCount;
-
-	public String getRoutineStatusInfo() {
-		return routineStatusInfo;
-	}
-
-	public void setRoutineStatusInfo(String routineStatusInfo) {
-		this.routineStatusInfo = routineStatusInfo;
-	}
 
 	public int getRoutineNumber() {
 		return routineNumber;
@@ -95,12 +86,12 @@ public class AdminRoutineListDTO {
 
 	@Override
 	public String toString() {
-		return "AdminRoutineListDTO [routineStatusInfo=" + routineStatusInfo + ", routineNumber=" + routineNumber
-				+ ", routineLeaderName=" + routineLeaderName + ", adminNumber=" + adminNumber + ", routineTitle="
-				+ routineTitle + ", routineStatusNumber=" + routineStatusNumber + ", routineStartDate="
-				+ routineStartDate + ", routineEndDate=" + routineEndDate + ", routineRecruitCount="
-				+ routineRecruitCount + ", routineCount=" + routineCount + "]";
+		return "AdminRoutineListDTO [routineNumber=" + routineNumber + ", routineLeaderName=" + routineLeaderName
+				+ ", adminNumber=" + adminNumber + ", routineTitle=" + routineTitle + ", routineStatusNumber="
+				+ routineStatusNumber + ", routineStartDate=" + routineStartDate + ", routineEndDate=" + routineEndDate
+				+ ", routineRecruitCount=" + routineRecruitCount + ", routineCount=" + routineCount + "]";
 	}
+
 
 	
 
