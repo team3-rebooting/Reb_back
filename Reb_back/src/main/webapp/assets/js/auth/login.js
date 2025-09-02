@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	closeFindPwModal.addEventListener('click', () => {
 		pwModal.style.display = "none";
-		inputModalNamePw.value= "";
+		inputModalNamePw.value = "";
 		inputModalPnPw.readOnly = false;
 		inputModalPnPw.style.backgroundColor = "white";
 		inputModalPnPw.value = "";
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		veriPw.style.backgroundColor = "#d9d9d9";
 		veriPw.disabled = true;
 		rePwPn.disabled = true;
-		inputModalIdPw.value= "";
+		inputModalIdPw.value = "";
 	})
 
 	const sendSMSPwBtn = document.querySelector(".button-injung-pw");
@@ -267,32 +267,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		rePwPn.disabled = true;
 	});
 
-/*<<<<<<< HEAD*/
-			alert("임시 인증번호는 [" + tempCode + "] 입니다.");
-			inputModalPnPw.readOnly = true;
-			inputModalPnPw.style.backgroundColor = "#d9d9d9";
-			sendSMSBtnPw.style.backgroundColor = "#d9d9d9";
-			sendSMSBtnPw.style.color = "black";
-			sendSMSBtnPw.disabled = true;
-			inputPhoneNumberPw.style.backgroundColor = "white";
-			inputPhoneNumberPw.readOnly = false;
-			veriPw.style.color = "white";
-			veriPw.style.backgroundColor = "#F38A6E";
-			veriPw.disabled = false;
-			rePwPn.disabled = false;
-		});
-let veriPw;
-		// ===== 인증번호 확인 (서버 대신 로컬 비교) =====
-		veriPw?.addEventListener("click", function() {
-			const code = inputPhoneNumberId.value.trim();
-			if (!code) {
-				alert("인증번호를 입력해주세요.");
-			}
-/*=======*/
+
 	const findPwBtn = document.querySelector(".button-modal-find-pw");
 	// let resultId = document.querySelector("#aa");
 	const findPwEndBtn = document.querySelector(".button-modal-find-end-pw");
-	
+
 
 	findPwBtn.addEventListener("click", async () => {
 		const name = inputModalNamePw.value.trim();
@@ -338,15 +317,13 @@ let veriPw;
 
 	findPwEndBtn.addEventListener("click", () => {
 		pwResultModal.style.display = "none";
-		putModalNamePw.value = "";
-		inputModalPnPw.value = "";
-		inputPhoneNumberPw.value = "";
+		inputModalNamePw.value = "";
 		inputModalPnPw.readOnly = false;
 		inputModalPnPw.style.backgroundColor = "white";
 		inputModalPnPw.value = "";
 		sendSMSPwBtn.style.backgroundColor = "#F38A6E";
-		sendSMSBPwtn.style.color = "white";
-		sendSMSBPwtn.disabled = false;
+		sendSMSPwBtn.style.color = "white";
+		sendSMSPwBtn.disabled = false;
 		inputPhoneNumberPw.style.backgroundColor = "#d9d9d9";
 		inputPhoneNumberPw.readOnly = true;
 		inputPhoneNumberPw.value = "";
@@ -354,7 +331,8 @@ let veriPw;
 		veriPw.style.backgroundColor = "#d9d9d9";
 		veriPw.disabled = true;
 		rePwPn.disabled = true;
+		inputModalIdPw.value = "";
 	});
-/*>>>>>>> main*/
+
 
 });
