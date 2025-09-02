@@ -151,15 +151,15 @@
 									clas="a-review-box"> <!-- 리뷰 이미지 -->
 									<div class="review-img-box">
 										<img
-											src="${pageContext.request.contextPath}/assets/img/routine.png"
+											src="${pageContext.request.contextPath}/assets/img/routine1.png"
 											alt="">
 									</div> <!-- 리뷰 정보 --> <!-- 리뷰 제목 -->
-									<div class="review-title">즐거운 루틴 모임 시간이었습니다!</div>
+									<div class="review-title">또 참여하고 싶은 루틴 모임</div>
 									<div class="review-text">
 										<!-- 리뷰 작성자 -->
-										<div class="routine-review-person">전보라</div>
+										<div class="routine-review-person">보라돌이</div>
 										<!-- 작성일자 -->
-										<div class="routine-review-date">2025.08.03(일)</div>
+										<div class="routine-review-date">2025.09.01</div>
 									</div>
 								</a>
 							</div>
@@ -169,13 +169,13 @@
 									class="a-review-box">
 									<div class="review-img-box">
 										<img
-											src="${pageContext.request.contextPath}/assets/img/routine.png"
+											src="${pageContext.request.contextPath}/assets/img/routine2.png"
 											alt="">
 									</div>
 									<div class="review-title">즐거운 루틴 모임 시간이었습니다!</div>
 									<div class="review-text">
-										<div class="review-person">전보라</div>
-										<div class="review-date">2025.08.03(일)</div>
+										<div class="review-person">뚜비</div>
+										<div class="review-date">2025.08.31</div>
 									</div>
 								</a>
 							</div>
@@ -185,13 +185,13 @@
 									class="a-review-box">
 									<div class="review-img-box">
 										<img
-											src="${pageContext.request.contextPath}/assets/img/routine.png"
+											src="${pageContext.request.contextPath}/assets/img/routine3.png"
 											alt="">
 									</div>
-									<div class="review-title">즐거운 루틴 모임 시간이었습니다!</div>
+									<div class="review-title">친구들 또 보고싶어요~~~</div>
 									<div class="review-text">
-										<div class="review-person">전보라</div>
-										<div class="review-date">2025.08.03(일)</div>
+										<div class="review-person">나나</div>
+										<div class="review-date">2025.08.31</div>
 									</div>
 								</a>
 							</div>
@@ -247,13 +247,13 @@
 									class="a-review-box">
 									<div class="review-img-box">
 										<img
-											src="${pageContext.request.contextPath}/assets/img/routine.png"
+											src="${pageContext.request.contextPath}/assets/img/course1.png"
 											alt="">
 									</div>
 									<div class="review-title">알찬 구성 수업과 실력있는 선생님~</div>
 									<div class="review-text">
-										<div class="routine-review-person">전보라</div>
-										<div class="routine-review-date">2025.08.03(일)</div>
+										<div class="routine-review-person">고양이</div>
+										<div class="routine-review-date">2025.09.01</div>
 									</div>
 								</a>
 							</div>
@@ -263,13 +263,13 @@
 									class="a-review-box">
 									<div class="review-img-box">
 										<img
-											src="${pageContext.request.contextPath}/assets/img/routine.png"
+											src="${pageContext.request.contextPath}/assets/img/course2.png"
 											alt="">
 									</div>
-									<div class="review-title">알찬 구성 수업과 실력있는 선생님~</div>
+									<div class="review-title">재밌는 수업이었어요</div>
 									<div class="review-text">
-										<div class="review-person">전보라</div>
-										<div class="review-date">2025.08.03(일)</div>
+										<div class="review-person">짱구</div>
+										<div class="review-date">2025.08.30</div>
 									</div>
 								</a>
 							</div>
@@ -279,13 +279,13 @@
 									class="a-review-box">
 									<div class="review-img-box">
 										<img
-											src="${pageContext.request.contextPath}/assets/img/routine.png"
+											src="${pageContext.request.contextPath}/assets/img/course-img.png"
 											alt="">
 									</div>
-									<div class="review-title">알찬 구성 수업과 실력있는 선생님~</div>
+									<div class="review-title">강추~~~합니다!</div>
 									<div class="review-text">
-										<div class="review-person">전보라</div>
-										<div class="review-date">2025.08.03(일)</div>
+										<div class="review-person">철수</div>
+										<div class="review-date">2025.08.29</div>
 									</div>
 								</a>
 							</div>

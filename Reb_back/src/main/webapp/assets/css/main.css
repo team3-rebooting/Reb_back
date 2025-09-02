@@ -223,6 +223,7 @@ button{
 /* 후기글 img */
 .review-img-box img{
   width : 330px;
+  height : 330px;
   text-decoration: none;
 }
 
