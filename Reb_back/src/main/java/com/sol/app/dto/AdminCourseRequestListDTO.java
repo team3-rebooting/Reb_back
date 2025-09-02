@@ -6,7 +6,7 @@ public class AdminCourseRequestListDTO {
 	private String memberName;
 	private int courseNumber;
 	private String courseTitle;
-	private String courseRequestType;
+	private int courseRequestTypeNumber;
 	private String courseStartDate;
 	private String courseEndDate;
 	
@@ -16,12 +16,7 @@ public class AdminCourseRequestListDTO {
 	public void setCourseTitle(String courseTitle) {
 		this.courseTitle = courseTitle;
 	}
-	public String getCourseRequestType() {
-		return courseRequestType;
-	}
-	public void setCourseRequestType(String courseRequestType) {
-		this.courseRequestType = courseRequestType;
-	}
+	
 	public String getCourseStartDate() {
 		return courseStartDate;
 	}
@@ -60,13 +55,20 @@ public class AdminCourseRequestListDTO {
 	public void setCourseNumber(int courseNumber) {
 		this.courseNumber = courseNumber;
 	}
+	public int getCourseRequestTypeNumber() {
+		return courseRequestTypeNumber;
+	}
+	public void setCourseRequestTypeNumber(int courseRequestTypeNumber) {
+		this.courseRequestTypeNumber = courseRequestTypeNumber;
+	}
 	@Override
 	public String toString() {
 		return "AdminCourseRequestListDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberName="
 				+ memberName + ", courseNumber=" + courseNumber + ", courseTitle=" + courseTitle
-				+ ", courseRequestType=" + courseRequestType + ", courseStartDate=" + courseStartDate
+				+ ", courseRequestTypeNumber=" + courseRequestTypeNumber + ", courseStartDate=" + courseStartDate
 				+ ", courseEndDate=" + courseEndDate + "]";
 	}
+	
 		
 	
 }
