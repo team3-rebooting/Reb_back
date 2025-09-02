@@ -2,6 +2,8 @@ package com.sol.app.dto;
 
 import java.util.List;
 
+import com.sol.app.status.RoutineStatus;
+
 public class AdminRoutineDTO {
 	private String routineStatusInfo;
 	private int routineNumber;
@@ -25,6 +27,9 @@ public class AdminRoutineDTO {
 	private int routineCount;
 	private int routineRecruitCount;
 	public String getRoutineStatusInfo() {
+		if(routineStatusInfo == null) {
+			this.setRoutineStatusInfo(RoutineStatus.findRoutineStatusInfo(routineStatusNumber));
+		}
 		return routineStatusInfo;
 	}
 	public void setRoutineStatusInfo(String routineStatusInfo) {
@@ -65,6 +70,8 @@ public class AdminRoutineDTO {
 	}
 	public void setRoutineStatusNumber(int routineStatusNumber) {
 		this.routineStatusNumber = routineStatusNumber;
+		
+		this.setRoutineStatusInfo(RoutineStatus.findRoutineStatusInfo(routineStatusNumber));
 	}
 	public String getRoutineLocation() {
 		return routineLocation;
