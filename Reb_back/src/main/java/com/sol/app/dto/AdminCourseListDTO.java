@@ -1,11 +1,14 @@
 package com.sol.app.dto;
 
+import com.sol.app.status.CourseOpenStatus;
+
 public class AdminCourseListDTO {
 	private String memberNumber;
 	private String memberId;
 	private String memberName;
 	private int courseNumber;
 	private String courseTitle;
+	private int courseRecruitStatusNumber;
 	private String courseStatusInfo;
 	private String courseStartDate;
 	private String courseEndDate;
@@ -51,18 +54,23 @@ public class AdminCourseListDTO {
 	public void setMemberNumber(String memberNumber) {
 		this.memberNumber = memberNumber;
 	}
+	public int getCourseRecruitStatusNumber() {
+		return courseRecruitStatusNumber;
+	}
+	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
+		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
+		this.setCourseStatusInfo(CourseOpenStatus.findCourseStatusInfo(courseRecruitStatusNumber));
+	}
 	public String getCourseStatusInfo() {
+		if(courseStatusInfo.equals(null)) {
+			this.setCourseStatusInfo(CourseOpenStatus.findCourseStatusInfo(courseRecruitStatusNumber));
+		}
 		return courseStatusInfo;
 	}
 	public void setCourseStatusInfo(String courseStatusInfo) {
 		this.courseStatusInfo = courseStatusInfo;
 	}
-	@Override
-	public String toString() {
-		return "AdminCourseListDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberName="
-				+ memberName + ", courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", courseStatusInfo="
-				+ courseStatusInfo + ", courseStartDate=" + courseStartDate + ", courseEndDate=" + courseEndDate + "]";
-	}
+
 	
 	
 	
