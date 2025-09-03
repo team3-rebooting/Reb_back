@@ -23,7 +23,6 @@ public class CourseListDTO {
 	private String courseDayOfWeek;
 	private int courseApplicantCount;
 	private int courseRecruitCount;
-	private int coursePrice;
 	private int fieldNumber;
 	private String fieldName;
 	private String expertLicenseInfo;
@@ -181,14 +180,6 @@ public class CourseListDTO {
 		this.courseRecruitCount = courseRecruitCount;
 	}
 
-	public int getCoursePrice() {
-		return coursePrice;
-	}
-
-	public void setCoursePrice(int coursePrice) {
-		this.coursePrice = coursePrice;
-	}
-
 	public FileCourseDTO getFileCourse() {
 		if (fileCourseList == null)
 			return null;
@@ -254,7 +245,7 @@ public class CourseListDTO {
 				+ courseRecruitEndDate + ", courseStartDate=" + courseStartDate + ", courseEndDate=" + courseEndDate
 				+ ", courseStartTime=" + courseStartTime + ", courseEndTime=" + courseEndTime + ", courseDayOfWeek="
 				+ courseDayOfWeek + ", courseApplicantCount=" + courseApplicantCount + ", courseRecruitCount="
-				+ courseRecruitCount + ", coursePrice=" + coursePrice + ", fieldName=" + fieldName
+				+ courseRecruitCount + ", fieldNumber=" + fieldNumber +", fieldName=" + fieldName
 				+ ", expertLicenseInfo=" + expertLicenseInfo + ", expertCareer=" + expertCareer + ", fileCourseList="
 				+ fileCourseList + "]";
 	}
