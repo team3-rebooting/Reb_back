@@ -31,7 +31,7 @@
 		SELECT 
     	r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, l.ROUTINE_LEADER_NAME,
     	r.ADMIN_NUMBER, r.ROUTINE_TITLE, r.routine_content, r.ROUTINE_STATUS_NUMBER,r.routine_location,
-    	s.ROUTINE_STATUS_INFO, 
+    	r.routine_status_number, 
     	TO_CHAR(r.routine_created_DATE, 'YYYY-MM-DD') AS routine_created_DATE, 
    		TO_CHAR(r.routine_updated_DATE, 'YYYY-MM-DD') AS routine_updated_DATE,
     	TO_CHAR(r.routine_RECRUIT_START_DATE, 'YYYY-MM-DD') AS routine_RECRUIT_START_DATE, 
@@ -45,7 +45,6 @@
     	rma.routine_number = r.routine_number) AS routine_count, 
     	r.ROUTINE_RECRUIT_COUNT
 		FROM TBL_ROUTINE r
-		JOIN TBL_ROUTINE_STATUS s ON r.ROUTINE_STATUS_NUMBER = s.ROUTINE_STATUS_NUMBER
 		JOIN TBL_ROUTINE_LEADER l ON r.ROUTINE_LEADER_NUMBER = l.ROUTINE_LEADER_NUMBER
 		WHERE r.ROUTINE_NUMBER = #{routineNumber}
 	]]>

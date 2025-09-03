@@ -1,11 +1,14 @@
 package com.sol.app.dto;
 
+import com.sol.app.status.RoutineStatus;
+
 public class AdminRoutineListDTO {
 	private int routineNumber;
 	private String routineLeaderName;
 	private int adminNumber;
 	private String routineTitle;
 	private int routineStatusNumber;
+	private String routineStatusInfo;
 	private String routineStartDate;
 	private String routineEndDate;
 	private int routineRecruitCount;
@@ -33,14 +36,6 @@ public class AdminRoutineListDTO {
 
 	public void setRoutineTitle(String routineTitle) {
 		this.routineTitle = routineTitle;
-	}
-
-	public int getRoutineStatusNumber() {
-		return routineStatusNumber;
-	}
-
-	public void setRoutineStatusNumber(int routineStatusNumber) {
-		this.routineStatusNumber = routineStatusNumber;
 	}
 
 	public String getRoutineStartDate() {
@@ -84,13 +79,38 @@ public class AdminRoutineListDTO {
 		this.routineCount = routineCount;
 	}
 
+	public int getRoutineStatusNumber() {
+		return routineStatusNumber;
+	}
+
+	public void setRoutineStatusNumber(int routineStatusNumber) {
+		this.routineStatusNumber = routineStatusNumber;
+		
+		this.setRoutineStatusInfo(RoutineStatus.findRoutineStatusInfo(routineStatusNumber));
+	}
+
+	public String getRoutineStatusInfo() {
+		if(routineStatusInfo == null) {
+			this.setRoutineStatusInfo(RoutineStatus.findRoutineStatusInfo(routineStatusNumber));
+		}
+		return routineStatusInfo;
+	}
+
+	public void setRoutineStatusInfo(String routineStatusInfo) {
+		this.routineStatusInfo = routineStatusInfo;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "AdminRoutineListDTO [routineNumber=" + routineNumber + ", routineLeaderName=" + routineLeaderName
 				+ ", adminNumber=" + adminNumber + ", routineTitle=" + routineTitle + ", routineStatusNumber="
-				+ routineStatusNumber + ", routineStartDate=" + routineStartDate + ", routineEndDate=" + routineEndDate
-				+ ", routineRecruitCount=" + routineRecruitCount + ", routineCount=" + routineCount + "]";
+				+ routineStatusNumber + ", routineStatusInfo=" + routineStatusInfo + ", routineStartDate="
+				+ routineStartDate + ", routineEndDate=" + routineEndDate + ", routineRecruitCount="
+				+ routineRecruitCount + ", routineCount=" + routineCount + "]";
 	}
+
+	
 
 
 	
