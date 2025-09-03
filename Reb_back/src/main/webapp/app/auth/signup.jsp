@@ -52,9 +52,10 @@
 						<div class="div-signup-hide">
 							<input class="input-basic input-essential" type="text"
 								placeholder="아이디 입력" name="memberId" required>
-							<p class="p-warning">아이디는 6~20자 사이 영문자,숫자를 사용해야합니다</p>
-							<p class="p-nodupli-id">중복된 아이디입니다</p>
+							<p class="p-warning">아이디는 6~20자 사이 영문자,숫자를 사용해야합니다.</p>
+							<p class="p-nodupli-id">중복된 아이디입니다.</p>
 							<p class="p-dupli-id">사용 가능한 아이디입니다.</p>
+							<p class="p-id">아이디는 필수 입력입니다.</p>
 						</div>
 					</div>
 					<!-- 비밀번호 입력 영역 -->
@@ -67,9 +68,9 @@
 							<input class="input-basic input-password-second" type="password" placeholder="비밀번호 재입력"
 								name="pwRe" required>
 							<p class="p-warning">비밀번호는 최소 8자, 최대 20자 영문과 숫자, !@#$ 1개씩 반드시
-								포함되어야 합니다</p>
-							<p class="p-nosame">입력한 비밀번호와 다릅니다</p>
-							<p class="p-same">입력한 비밀번호와 같습니다</p>
+								포함되어야 합니다.</p>
+							<p class="p-nosame">입력한 비밀번호와 다릅니다.</p>
+							<p class="p-same">입력한 비밀번호와 같습니다.</p>
 						</div>
 					</div>
 					<!-- 생년월일 입력 영역 -->
@@ -79,7 +80,7 @@
 						<div class="div-signup-hide">
 							<input class="input-basic input-essential" type="date"
 								name="memberBirthDate" required>
-							<p class="p-warning">생년월일은 필수 입력입니다</p>
+							<p class="p-warning">생년월일은 필수 입력입니다.</p>
 						</div>
 					</div>
 					<!-- 주소 입력 영역 -->
@@ -92,7 +93,7 @@
 								<button class="button-find" type="button">찾기</button>
 							</div>
 							<input class="input-address-basic input-essential" type="text" name="address" placeholder="기본 주소" required>
-							<p class="p-warning">기본 주소는 필수 입력입니다</p>
+							<p class="p-warning">기본 주소는 필수 입력입니다.</p>
 							<!-- 추가 주소 입력 영역 -->
 							<div class="div-signup-address-add">
 								<input class="input-address-add" type="text" name="addressAdd"
@@ -103,13 +104,14 @@
 					</div>
 					<!-- 이메일 입력 영역 -->
 					<div class="div-signup">
-						<span class="span-signup">이메일 :</span>
+						<span class="span-signup">* 이메일 :</span>
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-hide">
 							<!-- 이메일 아이디,주소 입력 영역 -->
 							<input class="input-basic input-essential" type="email"
-								name="email" placeholder="예시 : aaa@gmail.com">
-							<p class="p-warning">이메일 형식에 맞춰주세요</p>
+								name="email" placeholder="예시 : aaa@gmail.com" required>
+							<p class="p-warning">이메일 형식에 맞춰주세요.</p>
+							<p class="p-email">이메일은 필수 입력입니다.</p>
 						</div>
 					</div>
 					<!-- 이름 입력 영역 -->
@@ -119,7 +121,7 @@
 						<div class="div-signup-hide">
 							<input class="input-basic input-essential" type="text"
 								name="name" required>
-							<p class="p-warning">이름은 필수 입력입니다</p>
+							<p class="p-warning">이름은 필수 입력입니다.</p>
 						</div>
 					</div>
 					<!-- 성별 입력 영역 -->
@@ -130,7 +132,7 @@
 							<input type='radio' name='gender' value='M' id="male" required /><label
 								for="male">남자</label> <input type='radio' name='gender'
 								value='F' id="female" /><label for="female">여자</label>
-							<p class="p-warning">성별은 필수 입력입니다</p>
+							<p class="p-warning">성별은 필수 입력입니다.</p>
 						</div>
 					</div>
 					<!-- 닉네임 입력 영역 -->
@@ -141,8 +143,8 @@
 							<input class="input-basic input-essential" type="text"
 								name="memberNickname" required>
 							<button class="button-no-duplication" type="button">중복확인</button>
-							<p class="p-warning nickname-required">닉네임은 필수 입력입니다</p>
-							<p class="p-duplication nickname-dupli">중복입니다</p>
+							<p class="p-warning nickname-required">닉네임은 필수 입력입니다.</p>
+							<p class="p-duplication nickname-dupli">중복입니다.</p>
 							<p class="p-no-duplication nickname-nodupli">사용가능</p>
 						</div>
 					</div>
@@ -158,7 +160,7 @@
 							</div>
 							<input class="input-cert input-essential" type="text" readonly required>
 							<button class="button-injunging" type="button" disabled>인증하기</button>
-							<p class="p-warning">전화번호는 필수 입력입니다</p>
+							<p class="p-warning">전화번호는 필수 입력입니다.</p>
 						</div>
 					</div>
 					<!-- 필수 동의 항목 영역 -->
