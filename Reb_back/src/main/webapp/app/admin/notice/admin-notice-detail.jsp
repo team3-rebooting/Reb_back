@@ -52,11 +52,10 @@
 				</div>
 				<div class="notice-detail-admin-image-containter">
 					<div class="logo">
-						<c:forEach var="adminFile" items="${board.fileAdminList}">
+						<!-- 관리자 이미지 고정 -->
 							<img
-								src="${pageContext.request.contextPath}/upload/${adminFile.getFileSystemName()}"
-								class="logo-image" alt="공지사항 파일" />
-						</c:forEach>
+								src="${pageContext.request.contextPath}/assets/img/admin.png"
+								class="logo-image" alt="관리자 이미지" />
 					</div>
 					<div class="notice-detail-admin-containter">
 						<div class="board-box-writer font-main">${notice.adminNickname}</div>
@@ -77,7 +76,7 @@
 
 				<div class="notice-detail-text-content-containter">
 					<div class="notice-detail-text font-main">
-						<c:out value="${notice.noticeContent}" />
+						<pre class="pre-content"><c:out value="${notice.noticeContent}" /></pre>
 					</div>
 				</div>
 				<section id="attachment-section">

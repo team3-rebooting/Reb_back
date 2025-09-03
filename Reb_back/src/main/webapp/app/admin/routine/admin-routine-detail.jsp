@@ -52,9 +52,7 @@
           <div class="div-expert-detail">
             <p class="p-expert-info-title">내용</p>
             <div class="div-expert-info-detail">
-              <p class="p-expert-detail-comment">
-                <c:out value="${routine.routineContent}"/>
-              </p>
+               <pre class="p-expert-detail-comment"><c:out value="${routine.routineContent}"/></pre>
             </div>
           </div>
           <div class="div-expert-detail">
@@ -66,7 +64,7 @@
           <div class="div-expert-detail">
             <p class="p-expert-info-title">모집 정보</p>
             <div class="div-expert-info-detail">
-              <p>모집 기간 :<c:out value="${routine.routineRecruitStartDate}"/> ~ <c:out value="${routine.routineRecruitEndDate}"/></p>
+              <p>모집 기간 : <c:out value="${routine.routineRecruitStartDate}"/> ~ <c:out value="${routine.routineRecruitEndDate}"/></p>
               <p>모임 기간 : <c:out value="${routine.routineStartDate}"/> ~ <c:out value="${routine.routineEndDate}"/></p>
               <p>시간 : <c:out value="${routine.routineStartTime}"/> ~ <c:out value="${routine.routineEndTime}"/> [<c:out value="${routine.routineDayOfWeek}"/>]</p>
               <p>모집 인원 : <c:out value="${routine.routineCount}"/>/<c:out value="${routine.routineRecruitCount}"/> 명</p>

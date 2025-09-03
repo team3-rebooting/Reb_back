@@ -6,7 +6,7 @@ const inputIn = document.querySelectorAll(".input-in");
 cancelBtn.addEventListener('click', ()=>{
   if(confirm("수정하신 내용은 사라집니다.수정을 취소하시겠습니까?")){
     alert("수정을 취소하셨습니다.");
-    window.location.href= `${pageContext.request.contextPath}/admin/noticeReadOk.ad`;
+    window.location.href= `/admin/noticeListOk.ad`;
   }
 });
 

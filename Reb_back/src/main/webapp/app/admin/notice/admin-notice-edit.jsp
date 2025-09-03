@@ -45,11 +45,11 @@
 				id="main-admin-notice-create-title" placeholder="제목을 입력해 주세요"
 				class="input-in" value="${notice.getNoticeTitle()}">
 			<!-- 파일 입력 -->
-			<c:forEach var="file" items="${notice.fileNoticeList}">
+			
 			<input type="file" name="fileNoticeList"
 				id="main-admin-notice-create-file" placeholder="파일 변경" >
 			<!-- 내용 입력 -->			
-			</c:forEach>
+			
 			<textarea name="noticeContent" id="main-admin-notice-create-content"
 				placeholder="내용을 입력해주세요" class="input-in" >${notice.getNoticeContent()}</textarea>
 			<div>
