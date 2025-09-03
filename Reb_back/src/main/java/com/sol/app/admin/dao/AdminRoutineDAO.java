@@ -43,4 +43,9 @@ public class AdminRoutineDAO {
 	public void delete(int routineNumber) {
 		sqlSession.delete("adminRoutine.delete", routineNumber);
 	}
+	
+	//루틴 모임 수정
+	public void update(RoutineDTO routineDTO) {
+		sqlSession.update("adminRoutine.update",routineDTO);
+	}
 }

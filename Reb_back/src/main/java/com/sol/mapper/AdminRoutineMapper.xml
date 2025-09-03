@@ -74,7 +74,7 @@
 		#{routineDayOfWeek}, #{routineRecruitCount}
 		)
 	</insert>
-	<update id="update" parameterType="AdminRoutineDTO">
+	<update id="update" parameterType="RoutineDTO">
 		UPDATE TBL_ROUTINE
 		SET ROUTINE_TITLE = #{routineTitle}, ROUTINE_CONTENT = #{routineContent},
 		ROUTINE_STATUS_NUMBER = #{routineStatusNumber},

@@ -140,6 +140,10 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("루틴 모임 수정");
 			result = new RoutineUpdateController().execute(request,response);
 			break;
+		case "/admin/routineUpdateOk.ad" :
+			System.out.println("루틴 모임 수정 완료");
+			result = new RoutineUpdateOkController().execute(request, response);
+			break;
 		case "/admin/routineDeleteOk.ad" :
 			System.out.println("루틴 모임 삭제");
 			result = new RoutineDeleteOkController().execute(request, response);
