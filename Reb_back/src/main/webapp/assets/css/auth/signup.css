@@ -203,7 +203,9 @@ button {
 .p-duplication,
 .p-nosame,
 .p-nodupli-id,
-.p-same{
+.p-same,
+.p-email,
+.p-id{
   display: none;
   font-size: 16px;
   font-family: "IBM Plex Sans KR", sans-serif;
