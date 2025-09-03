@@ -7,7 +7,7 @@
 				SELECT ROWNUM AS rnum, subquery.*
 					FROM (			
 					SELECT
-						ecs.EXPERT_CERT_STATUS_INFO, m.MEMBER_ID, m.member_nickname,m.member_number, 
+						ea.EXPERT_STATUS_NUMBER, m.MEMBER_ID, m.member_nickname,m.member_number, 
 						ad.address, ad.address_detail,
 						TO_CHAR(ea.EXPERT_CHECK_DATE,'YYYY-MM-DD') AS EXPERT_CHECK_DATE,
 						fe.file_system_name , m.MEMBER_PHONE_NUMBER 
@@ -16,11 +16,9 @@
 						ON ea.MEMBER_NUMBER = m.MEMBER_NUMBER 
 						JOIN tbl_address ad
 						ON m.member_address_number = ad.address_number
-						JOIN TBL_EXPERT_CERT_STATUS ecs
-						ON ea.EXPERT_STATUS_NUMBER = ecs.EXPERT_CERT_STATUS_NUMBER
 						LEFT JOIN TBL_FILE_EXPERT fe
 						ON ea.MEMBER_NUMBER = fe.MEMBER_NUMBER
-						WHERE ecs.EXPERT_CERT_STATUS_INFO = '확인 중'
+						WHERE ea.EXPERT_STATUS_NUMBER = 1 
 						ORDER BY ea.EXPERT_CHECK_DATE DESC
 		) subquery
 	)

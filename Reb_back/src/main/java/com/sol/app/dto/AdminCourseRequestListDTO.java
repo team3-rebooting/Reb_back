@@ -1,11 +1,14 @@
 package com.sol.app.dto;
 
+import com.sol.app.status.CourseRequestType;
+
 public class AdminCourseRequestListDTO {
 	private String memberNumber;
 	private String memberId;
 	private String memberName;
 	private int courseNumber;
 	private String courseTitle;
+	private int courseRequestTypeNumber;
 	private String courseRequestType;
 	private String courseStartDate;
 	private String courseEndDate;
@@ -16,12 +19,7 @@ public class AdminCourseRequestListDTO {
 	public void setCourseTitle(String courseTitle) {
 		this.courseTitle = courseTitle;
 	}
-	public String getCourseRequestType() {
-		return courseRequestType;
-	}
-	public void setCourseRequestType(String courseRequestType) {
-		this.courseRequestType = courseRequestType;
-	}
+	
 	public String getCourseStartDate() {
 		return courseStartDate;
 	}
@@ -60,13 +58,33 @@ public class AdminCourseRequestListDTO {
 	public void setCourseNumber(int courseNumber) {
 		this.courseNumber = courseNumber;
 	}
+	public int getCourseRequestTypeNumber() {
+		return courseRequestTypeNumber;
+	}
+	public void setCourseRequestTypeNumber(int courseRequestTypeNumber) {
+		this.courseRequestTypeNumber = courseRequestTypeNumber;
+		
+		this.courseRequestType = CourseRequestType.findCourseRequestType(courseRequestTypeNumber);
+	}
+	
+	public String getCourseRequestType() {
+		if(courseRequestType == null) {
+			this.setCourseRequestType(CourseRequestType.findCourseRequestType(courseRequestTypeNumber));
+		}
+		return courseRequestType;
+	}
+	public void setCourseRequestType(String courseRequestType) {
+		this.courseRequestType = courseRequestType;
+	}
 	@Override
 	public String toString() {
 		return "AdminCourseRequestListDTO [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberName="
 				+ memberName + ", courseNumber=" + courseNumber + ", courseTitle=" + courseTitle
-				+ ", courseRequestType=" + courseRequestType + ", courseStartDate=" + courseStartDate
-				+ ", courseEndDate=" + courseEndDate + "]";
+				+ ", courseRequestTypeNumber=" + courseRequestTypeNumber + ", courseRequestType=" + courseRequestType
+				+ ", courseStartDate=" + courseStartDate + ", courseEndDate=" + courseEndDate + "]";
 	}
+	
+	
 		
 	
 }

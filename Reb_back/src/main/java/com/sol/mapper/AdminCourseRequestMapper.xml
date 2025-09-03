@@ -6,20 +6,16 @@
 		SELECT * FROM (
     		SELECT ROWNUM AS rnum, subquery.* FROM (
         	SELECT cr.course_number, m.member_number, m.member_id, m.member_name, c.COURSE_TITLE,TO_CHAR(c.COURSE_START_DATE, 'YYYY-MM-DD') AS COURSE_START_DATE,
-            TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD') AS COURSE_END_DATE,t.COURSE_REQUEST_TYPE 
+            TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD') AS COURSE_END_DATE,cr.COURSE_REQUEST_TYPE_number 
         	FROM TBL_COURSE_request cr
         	JOIN TBL_COURSE c
         	ON cr.COURSE_NUMBER = c.COURSE_NUMBER
-        	JOIN TBL_COURSE_OPEN_STATUS s
-        	ON cr.COURSE_OPEN_STATUS_NUMBER = s.COURSE_OPEN_STATUS_NUMBER
-        	JOIN TBL_COURSE_REQUEST_TYPE t
-            ON cr.COURSE_REQUEST_TYPE_NUMBER = t.COURSE_REQUEST_TYPE_NUMBER
         	JOIN TBL_EXPERT e
     		ON c.EXPERT_NUMBER = e.EXPERT_NUMBER
 			JOIN TBL_MEMBER m
     		ON e.MEMBER_NUMBER = m.MEMBER_NUMBER
     		where cr.course_open_status_number = 1 
-            ORDER BY c.COURSE_START_DATE 
+            ORDER BY c.COURSE_START_DATE  
     	) subquery
 	)
 	WHERE rnum BETWEEN #{startRow} AND #{endRow}
@@ -40,7 +36,7 @@
     TO_CHAR(cr.COURSE_RESULT_DATE, 'YYYY-MM-DD') AS COURSE_RESULT_DATE,
     cr.COURSE_REJECT_REASON,
     c.COURSE_NUMBER, c.COURSE_TITLE, c.COURSE_CONTENT,
-    c.EXPERT_NUMBER, m.member_name, e.expert_license_info, e.expert_career, f.field_name,
+    c.EXPERT_NUMBER, m.member_name, e.expert_license_info, e.expert_career, e.expert_field_number,
     c.COURSE_RECRUIT_STATUS_NUMBER,
     (select count(*) from tbl_course_member_applicant cma where
     cma.course_number = c.course_number) AS course_count, 
@@ -60,8 +56,6 @@
     ON e.expert_number = c.expert_number
     JOIN tbl_member m
     ON e.member_number = m.MEMBER_number 
-    JOIN tbl_field f
-    ON f.field_number = e.expert_field_number 
     where cr.COURSE_NUMBER = #{courseNumber}
 	]]>
 	</select>
