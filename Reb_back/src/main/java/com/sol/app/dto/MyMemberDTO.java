@@ -2,6 +2,8 @@ package com.sol.app.dto;
 
 import java.util.List;
 
+import com.sol.app.status.ExpertCertStatus;
+
 public class MyMemberDTO {
 	// MemberDTO, AddressDTO, ExpertCertStatusDTO, FileDTO,ExpertApplicantDTO
 	private int memberNumber;
@@ -125,13 +127,18 @@ public class MyMemberDTO {
 
 	public void setExpertCertStatusNumber(int expertCertStatusNumber) {
 		this.expertCertStatusNumber = expertCertStatusNumber;
+		
+		this.setExpertCertStatusInfo(ExpertCertStatus.findExpertCertStatus(expertCertStatusNumber));
 	}
 
 	public String getExpertCertStatusInfo() {
+		if(expertCertStatusInfo == null)
+			this.setExpertCertStatusInfo(ExpertCertStatus.findExpertCertStatus(expertCertStatusNumber));
+		
 		return expertCertStatusInfo;
 	}
 
-	public void setExpertCertStatusInfo(String expertCertStatusInfo) {
+	private void setExpertCertStatusInfo(String expertCertStatusInfo) {
 		this.expertCertStatusInfo = expertCertStatusInfo;
 	}
 

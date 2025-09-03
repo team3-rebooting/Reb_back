@@ -8,17 +8,34 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.course.dao.CourseListDAO;
 import com.sol.app.dto.CourseListDTO;
+import com.sol.app.dto.ExpertDTO;
+import com.sol.app.member.dao.ExpertDAO;
 
-public class CourseListOkController  implements Execute {
+public class CourseListOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("====CourseListOkController 실행====");
+		
+		HttpSession session = request.getSession();
+		Integer memberNumber = (Integer) session.getAttribute("memberNumber");
+
+		if (memberNumber != null) {
+			ExpertDAO expertDAO = new ExpertDAO();
+			ExpertDTO expertDTO = expertDAO.select(memberNumber);
+
+			if (expertDTO != null) {
+				session.setAttribute("expertNumber", expertDTO.getExpertNumber());
+				System.out.println("세션 값 expertNumber : " + expertDTO.getExpertNumber());
+			}
+		}
+
 		CourseListDAO courseListDAO = new CourseListDAO();
 		Result result = new Result();
 

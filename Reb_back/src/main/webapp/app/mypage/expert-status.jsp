@@ -68,7 +68,7 @@
 								</button>
 							</div>
 							<div>
-								(일자 :
+								(신청 일자 :
 								<c:out value="${expert.expertCheckDate}" />
 								)
 							</div>
@@ -85,7 +85,8 @@
 									</c:when>
 									<c:otherwise>
 										<button class="button-modal-open" type="button"
-											data-type="expertFileUpload" disabled style="background-color:gray;">-</button>
+											data-type="expertFileUpload" disabled
+											style="background-color: gray;">-</button>
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -107,15 +108,31 @@
 					<div id="expert-specialization" class="expert-status-info">
 						<div class="expert-status-title">전문 분야</div>
 						<div class="expert-status-confirm-text" id="expert-specialization">
-							<c:out value="${expert.fieldName}" />
+							<p style="white-space: pre-line; word-break: break-all;">
+								<c:choose>
+									<c:when test="${not empty expert.getFieldName()}">
+										<c:out value="${expert.fieldName}" />
+									</c:when>
+									<c:otherwise>
+									-
+									</c:otherwise>
+								</c:choose>
+							</p>
 						</div>
 					</div>
 					<div id="expert-personal-history" class="expert-status-info">
 						<div class="expert-status-title">경력</div>
 						<div class="expert-status-confirm-text"
 							id="expert-personal-history-text">
-							<p style="white-space: pre-line; word-break: break-all;">
-								<c:out value="${expert.expertCareer}" />
+							<p style="white-space: pre-line; word-break: break-all;">								
+								<c:choose>
+									<c:when test="${not empty expert.getExpertCareer()}">
+										<c:out value="${expert.expertCareer}" />
+									</c:when>
+									<c:otherwise>
+									-
+									</c:otherwise>
+								</c:choose>
 							</p>
 						</div>
 					</div>
@@ -124,7 +141,14 @@
 						<div class="expert-status-confirm-text"
 							id="expert-certificate-text">
 							<p style="white-space: pre-line; word-break: break-all;">
-								<c:out value="${expert.expertLicenseInfo}" />
+								<c:choose>
+									<c:when test="${not empty expert.getExpertLicenseInfo()}">
+										<c:out value="${expert.expertLicenseInfo}" />
+									</c:when>
+									<c:otherwise>
+									-
+									</c:otherwise>
+								</c:choose>
 							</p>
 						</div>
 					</div>

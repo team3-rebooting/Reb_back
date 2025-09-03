@@ -3,6 +3,8 @@ package com.sol.app.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sol.app.status.RoutineStatus;
+
 public class RoutineListDTO {
 	//RoutineDTO, RoutineLeaderDTO, RoutineStatusDTO, FileDTO, RoutineMemberApplicantDTO
 	
@@ -71,11 +73,16 @@ public class RoutineListDTO {
 	}
 	public void setRoutineStatusNumber(int routineStatusNumber) {
 		this.routineStatusNumber = routineStatusNumber;
+		
+		this.setRoutineStatusInfo(RoutineStatus.findRoutineStatusInfo(routineStatusNumber));		
 	}
 	public String getRoutineStatusInfo() {
+		if(routineStatusInfo == null)
+			this.setRoutineStatusInfo(RoutineStatus.findRoutineStatusInfo(routineStatusNumber));	
+		
 		return routineStatusInfo;
 	}
-	public void setRoutineStatusInfo(String routineStatusInfo) {
+	private void setRoutineStatusInfo(String routineStatusInfo) {
 		this.routineStatusInfo = routineStatusInfo;
 	}
 	public String getRoutineLocation() {

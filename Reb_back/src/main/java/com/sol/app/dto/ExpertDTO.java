@@ -42,5 +42,4 @@ public class ExpertDTO {
 				+ expertLicenseInfo + ", expertCareer=" + expertCareer + ", expertFieldNumber=" + expertFieldNumber
 				+ "]";
 	}
-
 }

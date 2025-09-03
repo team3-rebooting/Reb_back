@@ -94,12 +94,7 @@
 								<div colspan="5" align="center">등록된 게시물이 없습니다.</div>
 							</div>
 						</c:otherwise>
-					</c:choose>
-					
-					
-					
-					
-					
+					</c:choose>					
 				</ul>
 				<div class="div-page">
 					<div class="div-pagenation">
@@ -132,7 +127,7 @@
 						</c:if>
 					</div>
 				</div>
-				<div class="div-find" style="display:none;">
+				<div class="div-find">
 					<form action="" method="get">
 						<div class="div-find-form">
 							<div class="find-container">
