@@ -9,12 +9,10 @@
     			FROM (
             			SELECT
                 		e.expert_number, m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_nickNAME,
-                		f.field_name, TO_CHAR(a.EXPERT_CHECK_DATE, 'YYYY-MM-DD') AS EXPERT_CHECK_DATE
+                		e.expert_field_number, TO_CHAR(a.EXPERT_CHECK_DATE, 'YYYY-MM-DD') AS EXPERT_CHECK_DATE
             			FROM TBL_EXPERT e
             			JOIN tbl_expert_applicant a 
             			ON e.member_number = a.member_number 
-                		JOIN tbl_field f 
-                		ON e.expert_field_number = f.field_number 
             			JOIN TBL_MEMBER m 
                 		ON a.MEMBER_NUMBER = m.MEMBER_NUMBER 
             			ORDER BY a.EXPERT_CHECK_DATE DESC

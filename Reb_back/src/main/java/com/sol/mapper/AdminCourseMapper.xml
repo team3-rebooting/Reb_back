@@ -32,8 +32,8 @@
 	<![CDATA[
  	SELECT
     c.COURSE_NUMBER, c.COURSE_TITLE, c.COURSE_CONTENT,
-    e.EXPERT_NUMBER, m.member_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER,  f.field_name,
-    cr.course_status_info,
+    e.EXPERT_NUMBER, m.member_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER,  e.expert_field_number,
+    c.course_recruit_status_number,
     (select count(*) from tbl_course_member_applicant cma where
     cma.course_number = c.course_number) AS course_count, 
     TO_CHAR(c.COURSE_POST_DATE, 'YYYY-MM-DD') AS COURSE_POST_DATE, 
@@ -52,10 +52,6 @@
     ON c.COURSE_NUMBER = fc.COURSE_NUMBER
     JOIN tbl_member m
     ON e.member_number = m.member_number
-    JOIN tbl_field f
-    ON f.field_number = e.expert_field_number 
-    JOIN TBL_COURSE_RECRUIT_STATUS cr
-    ON cr.COURSE_RECRUIT_STATUS_NUMBER = c.COURSE_RECRUIT_STATUS_NUMBER 
 	WHERE c.COURSE_NUMBER = #{courseNumber}
 	]]>
 	</select>
