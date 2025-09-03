@@ -242,8 +242,25 @@ document.addEventListener("DOMContentLoaded", function() {
 	let injungPhone = document.querySelector(".input-cert");
 	let injunging = document.querySelector(".button-injunging");
 	const retry = document.querySelector(".button-retry");
+	
+	buttonInjung.addEventListener('click', async()=>{
+		const phoneNumberValue = phoneNumber.value.trim();
+		if (!phoneNumberValue) {
+			alert("핸드폰 번호를 입력해주세요");
+			return;
+		} else{
+			fetch(`${base}/member/joinSMS.me`, {
+				method: 'POST',
+				headers: {
+					"Content-Type": "application",
+					'X-Requested-With': 'XMLHttpRequest'
+				},
+			})
+		}
+		
+	});
 
-	buttonInjung.addEventListener('click', function() {
+	/*buttonInjung.addEventListener('click', function() {
 		const phoneNumberValue = phoneNumber.value.trim();
 		if (!phoneNumberValue) {
 			alert("핸드폰 번호를 입력해주세요");
@@ -270,7 +287,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	let checkPhone = false;
 
-	injunging.addEventListener('blur', function() {
+	injunging.addEventListener('click', function() {
 		const code = injungPhone.value.trim();
 
 		if (code === tempCode) {
@@ -300,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		retry.style.color = "#d9d9d9";
 		phoneNumber.value = "";
 	});
-
+*/
 
 
 	form.addEventListener("submit", function(e) {
