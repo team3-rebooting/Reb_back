@@ -1,7 +1,11 @@
 package com.sol.app.dto;
 
+import com.sol.app.status.CourseOpenStatus;
+import com.sol.app.status.CourseRequestType;
+import com.sol.app.status.Field;
+
 public class MyCourseRequestDTO {
-	//CourseRequestDTO, CourseDTO, ExpertDTO, CourseMemberApplicantDTO, CourseRequestTypeDTO, CourseOpenStatusDTO, FiledDTO
+	//CourseRequestDTO, CourseDTO, ExpertDTO, CourseMemberApplicantDTO
 	private int memberNumber;
 	private int courseNumber;
 	private int prevCourseNumber;
@@ -19,6 +23,7 @@ public class MyCourseRequestDTO {
 	private String fieldName;
 	private int courseApplicantCount;
 	private int courseRecruitCount;
+	
 	public int getMemberNumber() {
 		return memberNumber;
 	}
@@ -42,11 +47,16 @@ public class MyCourseRequestDTO {
 	}
 	public void setCourseOpenStatusNumber(int courseOpenStatusNumber) {
 		this.courseOpenStatusNumber = courseOpenStatusNumber;
+		
+		this.setCourseStatusInfo(CourseOpenStatus.findCourseStatusInfo(courseOpenStatusNumber));
 	}
 	public String getCourseStatusInfo() {
+		if(courseStatusInfo == null)
+			this.setCourseStatusInfo(CourseOpenStatus.findCourseStatusInfo(courseOpenStatusNumber));
+		
 		return courseStatusInfo;
 	}
-	public void setCourseStatusInfo(String courseStatusInfo) {
+	private void setCourseStatusInfo(String courseStatusInfo) {
 		this.courseStatusInfo = courseStatusInfo;
 	}
 	public int getCourseRequestTypeNumber() {
@@ -54,11 +64,16 @@ public class MyCourseRequestDTO {
 	}
 	public void setCourseRequestTypeNumber(int courseRequestTypeNumber) {
 		this.courseRequestTypeNumber = courseRequestTypeNumber;
+		
+		this.setCourseRequestType(CourseRequestType.findCourseRequestType(courseRequestTypeNumber));
 	}
 	public String getCourseRequestType() {
+		if(courseRequestType == null)
+			this.setCourseRequestType(CourseRequestType.findCourseRequestType(courseRequestTypeNumber));
+		
 		return courseRequestType;
 	}
-	public void setCourseRequestType(String courseRequestType) {
+	private void setCourseRequestType(String courseRequestType) {
 		this.courseRequestType = courseRequestType;
 	}
 	public String getCourseRegisterDate() {
@@ -102,11 +117,16 @@ public class MyCourseRequestDTO {
 	}
 	public void setExpertFieldNumber(int expertFieldNumber) {
 		this.expertFieldNumber = expertFieldNumber;
+		
+		this.setFieldName(Field.findFieldName(expertFieldNumber));
 	}
 	public String getFieldName() {
+		if(fieldName == null)
+			this.setFieldName(Field.findFieldName(expertFieldNumber));
+		
 		return fieldName;
 	}
-	public void setFieldName(String fieldName) {
+	private void setFieldName(String fieldName) {
 		this.fieldName = fieldName;
 	}
 	public int getCourseApplicantCount() {

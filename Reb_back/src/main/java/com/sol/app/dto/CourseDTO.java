@@ -21,7 +21,6 @@ public class CourseDTO {
 	private String courseEndTime;
 	private String courseDayOfWeek;
 	private int courseRecruitCount;
-	private int coursePrice;
 	private String courseLocation;
 	public int getCourseNumber() {
 		return courseNumber;
@@ -137,12 +136,6 @@ public class CourseDTO {
 	public void setCourseRecruitCount(int courseRecruitCount) {
 		this.courseRecruitCount = courseRecruitCount;
 	}
-	public int getCoursePrice() {
-		return coursePrice;
-	}
-	public void setCoursePrice(int coursePrice) {
-		this.coursePrice = coursePrice;
-	}
 	public String getCourseLocation() {
 		return courseLocation;
 	}
@@ -159,7 +152,7 @@ public class CourseDTO {
 				+ courseRecruitStartDate + ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate="
 				+ courseStartDate + ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime
 				+ ", courseEndTime=" + courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount="
-				+ courseRecruitCount + ", coursePrice=" + coursePrice + ", courseLocation=" + courseLocation + "]";
+				+ courseRecruitCount + ", courseLocation=" + courseLocation + "]";
 	}
 
 	

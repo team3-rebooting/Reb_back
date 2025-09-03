@@ -8,16 +8,14 @@
       FROM (
       	SELECT * FROM
       	(
-			SELECT c.COURSE_NUMBER, c.expert_number, m.member_name as expert_name, c.COURSE_TITLE, c.COURSE_CONTENT, c.COURSE_RECRUIT_STATUS_NUMBER, cs.COURSE_STATUS_INFO, 
+			SELECT c.COURSE_NUMBER, c.expert_number, m.member_name as expert_name, c.COURSE_TITLE, c.COURSE_CONTENT, c.COURSE_RECRUIT_STATUS_NUMBER,
 			to_char(c.COURSE_POST_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_DATE, to_char(c.COURSE_POST_UPDATE_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_UPDATE_DATE, to_char(c.COURSE_RECRUIT_START_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_START_DATE, 
 			to_char(c.COURSE_RECRUIT_END_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_END_DATE, to_char(c.COURSE_START_DATE, 'yyyy.mm.dd(day)') as COURSE_START_DATE, to_char(c.COURSE_END_DATE, 'yyyy.mm.dd(day)') as COURSE_END_DATE, to_char(c.COURSE_START_TIME,'hh:mi') as COURSE_START_TIME,  to_char(c.COURSE_END_TIME,'hh:mi') as COURSE_END_TIME, c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT,
-			c.COURSE_PRICE, f.field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER
+			e.expert_field_number as field_number, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER
 			FROM tbl_course c
-			FULL OUTER JOIN TBL_COURSE_RECRUIT_STATUS cs ON c.COURSE_RECRUIT_STATUS_NUMBER = cs.COURSE_RECRUIT_STATUS_NUMBER
-			FULL OUTER JOIN tbl_expert e ON c.expert_number = e.expert_number
+			LEFT JOIN tbl_expert e ON c.expert_number = e.expert_number
 			LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
-			LEFT JOIN TBL_FILE_course fc ON fc.course_NUMBER = c.course_NUMBER			
-			LEFT OUTER JOIN tbl_field f ON f.field_number = e.expert_field_number
+			LEFT JOIN TBL_FILE_course fc ON fc.course_NUMBER = c.course_NUMBER
 			ORDER BY c.COURSE_POST_DATE DESC ) ORDER BY COURSE_RECRUIT_STATUS_NUMBER
       ) subquery
    	) WHERE rnum BETWEEN #{startRow} AND #{endRow} 
@@ -38,10 +36,10 @@
 		</selectKey>
 		insert into tbl_course(course_number, course_title, course_content, expert_number, course_recruit_status_number,
 			COURSE_RECRUIT_START_DATE, COURSE_RECRUIT_END_DATE, COURSE_START_DATE, COURSE_END_DATE,
-			 COURSE_START_TIME, COURSE_END_TIME, COURSE_DAY_OF_WEEK, COURSE_RECRUIT_COUNT, COURSE_PRICE)
+			 COURSE_START_TIME, COURSE_END_TIME, COURSE_DAY_OF_WEEK, COURSE_RECRUIT_COUNT)
 		values(#{courseNumber}, #{courseTitle}, #{courseContent}, #{expertNumber}, #{courseRecruitStatusNumber},
 			#{courseRecruitStartDate}, #{courseRecruitEndDate}, #{courseStartDate}, #{courseEndDate},
-			#{courseStartTime}, #{courseEndTime}, #{courseDayOfWeek}, #{courseRecruitCount}, #{coursePrice})
+			#{courseStartTime}, #{courseEndTime}, #{courseDayOfWeek}, #{courseRecruitCount})
 	</insert>
 	
 	<!-- 수업 개설 요청 -->
@@ -66,16 +64,14 @@
 	<!-- 수업 상세 내용 -->
 	<select id="select" parameterType="int" resultType="CourseListDTO">
 		<![CDATA[
-			SELECT c.COURSE_NUMBER, c.expert_number, m.member_name as expert_name, c.COURSE_TITLE, c.COURSE_CONTENT, c.COURSE_RECRUIT_STATUS_NUMBER, cs.COURSE_STATUS_INFO, 
+			SELECT c.COURSE_NUMBER, c.expert_number, m.member_name as expert_name, c.COURSE_TITLE, c.COURSE_CONTENT, c.COURSE_RECRUIT_STATUS_NUMBER, 
 			to_char(c.COURSE_POST_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_DATE, to_char(c.COURSE_POST_UPDATE_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_UPDATE_DATE, to_char(c.COURSE_RECRUIT_START_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_START_DATE, 
 			to_char(c.COURSE_RECRUIT_END_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_END_DATE, to_char(c.COURSE_START_DATE, 'yyyy.mm.dd(day)') as COURSE_START_DATE, to_char(c.COURSE_END_DATE, 'yyyy.mm.dd(day)') as COURSE_END_DATE, to_char(c.COURSE_START_TIME,'hh:mi') as COURSE_START_TIME,  to_char(c.COURSE_END_TIME,'hh:mi') as COURSE_END_TIME, c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT,
-			c.COURSE_PRICE, f.field_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER
+			e.expert_field_number as field_number, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER
 			FROM tbl_course c
-			FULL OUTER JOIN TBL_COURSE_RECRUIT_STATUS cs ON c.COURSE_RECRUIT_STATUS_NUMBER = cs.COURSE_RECRUIT_STATUS_NUMBER
-			FULL OUTER JOIN tbl_expert e ON c.expert_number = e.expert_number
+			LEFT JOIN tbl_expert e ON c.expert_number = e.expert_number
 			LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
-			LEFT JOIN TBL_FILE_course fc ON fc.course_NUMBER = c.course_NUMBER			
-			LEFT OUTER JOIN tbl_field f ON f.field_number = e.expert_field_number
+			LEFT JOIN TBL_FILE_course fc ON fc.course_NUMBER = c.course_NUMBER
 			WHERE c.COURSE_NUMBER = #{courseNumber}
 		]]>
 	</select>

@@ -2,6 +2,7 @@ package com.sol.app.dto;
 
 import java.util.List;
 
+import com.sol.app.status.ExpertCertStatus;
 import com.sol.app.status.Field;
 
 public class MyExpertDTO {
@@ -43,7 +44,7 @@ public class MyExpertDTO {
 	}
 	
 	public String getFieldName() {
-		if(fieldName.equals(null)) {
+		if(fieldName == null) {
 			this.setFieldName(Field.findFieldName(expertFieldNumber));
 		}
 		
@@ -59,11 +60,16 @@ public class MyExpertDTO {
 	}
 	public void setExpertCertStatusNumber(int expertCertStatusNumber) {
 		this.expertCertStatusNumber = expertCertStatusNumber;
+		
+		this.setExpertCertStatusInfo(ExpertCertStatus.findExpertCertStatus(expertCertStatusNumber));
 	}
 	public String getExpertCertStatusInfo() {
+		if(expertCertStatusInfo == null)
+			this.setExpertCertStatusInfo(ExpertCertStatus.findExpertCertStatus(expertCertStatusNumber));
+		
 		return expertCertStatusInfo;
 	}
-	public void setExpertCertStatusInfo(String expertCertStatusInfo) {
+	private void setExpertCertStatusInfo(String expertCertStatusInfo) {
 		this.expertCertStatusInfo = expertCertStatusInfo;
 	}
 	public String getExpertApplicantReason() {

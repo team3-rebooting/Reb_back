@@ -26,7 +26,6 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
 	rel="stylesheet">
-<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 <title>틈새빛</title>
 </head>
 
@@ -145,6 +144,9 @@
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
+							<div class="review-box" style="height:330px;">등록된 후기가 없습니다.</div>
+						</c:otherwise>
+						<%-- <c:otherwise>
 							<div class="review-box">
 								<a
 									href="${pageContext.request.contextPath}/app/routine/routine-meeting-review-detail.jsp"
@@ -195,7 +197,7 @@
 									</div>
 								</a>
 							</div>
-						</c:otherwise>
+						</c:otherwise> --%>
 					</c:choose>
 				</div>
 			</div>
@@ -241,6 +243,9 @@
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
+							<div class="review-box" style="height:330px;">등록된 후기가 없습니다.</div>
+						</c:otherwise>
+						<%-- <c:otherwise>
 							<div class="review-box">
 								<a
 									href="${pageContext.request.contextPath}/app/course/course-review-detail.jsp"
@@ -289,15 +294,15 @@
 									</div>
 								</a>
 							</div>
-						</c:otherwise>
+						</c:otherwise> --%>
 					</c:choose>
 				</div>
 			</div>
 		</div>
 	</main>
 	<!-- 푸터 -->
-	<div id="footer"></div>
-	<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
+	<jsp:include page="/footer.jsp" />
+	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 </body>
 
 </html>

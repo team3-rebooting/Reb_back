@@ -1,6 +1,8 @@
 package com.sol.app.dto;
 
 import java.util.List;
+import com.sol.app.status.CourseRecruitStatus;
+import com.sol.app.status.Field;
 
 public class CourseListDTO {
 	private int courseNumber;
@@ -21,7 +23,7 @@ public class CourseListDTO {
 	private String courseDayOfWeek;
 	private int courseApplicantCount;
 	private int courseRecruitCount;
-	private int coursePrice;
+	private int fieldNumber;
 	private String fieldName;
 	private String expertLicenseInfo;
 	private String expertCareer;
@@ -74,13 +76,19 @@ public class CourseListDTO {
 
 	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
 		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
+		
+		this.setCourseStatusInfo(CourseRecruitStatus.findCourseStatusInfo(courseRecruitStatusNumber));
 	}
 
 	public String getCourseStatusInfo() {
+		if(courseStatusInfo == null) {
+			this.setCourseStatusInfo(CourseRecruitStatus.findCourseStatusInfo(courseRecruitStatusNumber));
+		}
+		
 		return courseStatusInfo;
 	}
 
-	public void setCourseStatusInfo(String courseStatusInfo) {
+	private void setCourseStatusInfo(String courseStatusInfo) {
 		this.courseStatusInfo = courseStatusInfo;
 	}
 
@@ -172,14 +180,6 @@ public class CourseListDTO {
 		this.courseRecruitCount = courseRecruitCount;
 	}
 
-	public int getCoursePrice() {
-		return coursePrice;
-	}
-
-	public void setCoursePrice(int coursePrice) {
-		this.coursePrice = coursePrice;
-	}
-
 	public FileCourseDTO getFileCourse() {
 		if (fileCourseList == null)
 			return null;
@@ -197,11 +197,25 @@ public class CourseListDTO {
 		this.fileCourseList = fileCourseList;
 	}
 
+	public int getFieldNumber() {
+		return fieldNumber;
+	}
+
+	public void setFieldNumber(int fieldNumber) {
+		this.fieldNumber = fieldNumber;
+		
+		this.setFieldName(Field.findFieldName(fieldNumber));
+	}
+	
 	public String getFieldName() {
+		if(fieldName == null) {
+			this.setFieldName(Field.findFieldName(fieldNumber));
+		}
+		
 		return fieldName;
 	}
 
-	public void setFieldName(String fieldName) {
+	private void setFieldName(String fieldName) {
 		this.fieldName = fieldName;
 	}
 
@@ -231,7 +245,7 @@ public class CourseListDTO {
 				+ courseRecruitEndDate + ", courseStartDate=" + courseStartDate + ", courseEndDate=" + courseEndDate
 				+ ", courseStartTime=" + courseStartTime + ", courseEndTime=" + courseEndTime + ", courseDayOfWeek="
 				+ courseDayOfWeek + ", courseApplicantCount=" + courseApplicantCount + ", courseRecruitCount="
-				+ courseRecruitCount + ", coursePrice=" + coursePrice + ", fieldName=" + fieldName
+				+ courseRecruitCount + ", fieldNumber=" + fieldNumber +", fieldName=" + fieldName
 				+ ", expertLicenseInfo=" + expertLicenseInfo + ", expertCareer=" + expertCareer + ", fileCourseList="
 				+ fileCourseList + "]";
 	}

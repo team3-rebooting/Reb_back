@@ -26,6 +26,6 @@ public enum ExpertCertStatus {
 			}
 		}
 		
-		return "오류";
+		return "-";
 	}
 }
