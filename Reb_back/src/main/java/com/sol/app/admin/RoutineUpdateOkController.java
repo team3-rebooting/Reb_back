@@ -2,6 +2,7 @@ package com.sol.app.admin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -37,10 +38,9 @@ public class RoutineUpdateOkController implements Execute {
         MultipartParser parser = new MultipartParser(request, FILE_SIZE);
         parser.setEncoding("utf-8");
         System.out.println("MultipartParser 초기화 완료");
-
         int routineNumber = 0;
         boolean isFileUpload = false;
-        
+        List<String> dayList = new ArrayList<>();
         // 파일, 텍스트 데이터 처리
         Part part;
         while ((part = parser.readNextPart()) != null) {
@@ -51,6 +51,10 @@ public class RoutineUpdateOkController implements Execute {
                 String paramName = paramPart.getName();
                 String paramValue = paramPart.getStringValue();
                 System.out.println("파라미터: " + paramName + " = " + paramValue);
+                //얘를 parser 가 배열 처럼 모아줌 
+                if("days".equals(paramName)) {
+                	dayList.add(paramValue);
+                };
                 switch(paramName) {
                 case "routineNumber" : 
                 	System.out.println("여기들어옴");
@@ -80,16 +84,6 @@ public class RoutineUpdateOkController implements Execute {
                 	break;
                 case "routineEndTime":
                 	routineDTO.setRoutineEndTime(paramValue);
-                	break;
-                case "days" :
-                	MultipartRequest multipartRequest = new MultipartRequest(request, UPLOAD_PATH, FILE_SIZE, "utf-8", new DefaultFileRenamePolicy());
-                	String[] days = multipartRequest.getParameterValues("days");
-                	StringBuffer sb = new StringBuffer();
-                	for(String day : days) {
-                		sb.append(Days.findKorean(day));                		
-                	}
-                	String dayPlus = sb.toString();
-                	routineDTO.setRoutineDayOfWeek(dayPlus);
                 	break;
                 }
                 
@@ -137,7 +131,18 @@ public class RoutineUpdateOkController implements Execute {
                 }
             }
         }
+        
+        StringBuffer sb = new StringBuffer();
+        for(String day : dayList) {
+        	sb.append(Days.findKorean(day));                		
+        }
+        String dayPlus = sb.toString();
+        routineDTO.setRoutineDayOfWeek(dayPlus);
+        
+        
         AdminRoutineDAO routineDAO = new AdminRoutineDAO();
+        // 지도 API 수정전까지는 일단 고정
+        routineDTO.setRoutineLocation("서울시 강남구 테헤란로 63빌딩");
 //        // 게시글 업데이트 실행
         routineDAO.update(routineDTO);
         System.out.println("루틴 모임 수정 완료");
