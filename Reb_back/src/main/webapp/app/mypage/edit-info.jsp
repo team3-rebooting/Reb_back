@@ -154,7 +154,7 @@
 						<div class="edit-info-type">이메일</div>
 						<div class="edit-info-data">
 							<input type="email" id="input-edit-info-email" name="memberEmail"
-								value="${myMemberDTO.memberEmail}" placeholder="이메일 주소">
+								value="${myMemberDTO.memberEmail}" placeholder="이메일 주소" required>
 						</div>
 					</div>
 					<!-- 전화번호 -->
@@ -213,15 +213,15 @@
 						<div class="edit-info-data">
 							<!-- 프로필 사진 이미지 -->
 							<c:set var="file" value="${myMember.getFileMemberProfile()}"></c:set>
-							<div id="profile-picture">
+							<%-- <div id="profile-picture">
 								<img id="img-edit-profile-pic"
 									src="${pageContext.request.contextPath}/assets/img/profile.png"
 									alt="프로필">
-							</div>
-							<%-- <c:if test="${empty file}">
+							</div> --%>
+							<c:if test="${empty file}">
 								<div id="profile-picture">
 									<img id="img-edit-profile-pic"
-										src="${pageContext.request.contextPath}/assets/img/profilePicture/dog.jpg"
+										src="${pageContext.request.contextPath}/assets/img/profile.png"
 										alt="프로필">
 								</div>
 							</c:if>
@@ -230,10 +230,10 @@
 									<img id="img-edit-profile-pic"
 										src="${pageContext.request.contextPath}/upload/profile/${file.getFileSystemName()}">
 								</div>
-							</c:if> --%>
+							</c:if>
 							<!-- 프로필 사진 수정 버튼 -->
-							<!-- <button type="button" id="button-edit-profile-pic"
-								class="button-modal-open" name="profilePicUpload">수정</button> -->
+							<button type="button" id="button-edit-profile-pic"
+								class="button-modal-open" name="profilePicUpload">수정</button>
 						</div>
 					</div>
 				</div>

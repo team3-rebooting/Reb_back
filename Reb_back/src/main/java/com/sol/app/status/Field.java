@@ -27,6 +27,6 @@ public enum Field {
 			}
 		}
 		
-		return "기타";
+		return null;
 	}
 }

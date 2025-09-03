@@ -68,7 +68,7 @@
 								</button>
 							</div>
 							<div>
-								(일자 :
+								(신청 일자 :
 								<c:out value="${expert.expertCheckDate}" />
 								)
 							</div>

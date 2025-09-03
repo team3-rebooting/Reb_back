@@ -40,7 +40,6 @@ public class ExpertStatusOkController implements Execute {
 				myExpertDTO = new MyExpertDTO();
 				
 				myExpertDTO.setExpertCareer("-");
-				myExpertDTO.setExpertCertStatusInfo("-");
 				myExpertDTO.setExpertLicenseInfo("-");
 			}
 

@@ -21,14 +21,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	async function loadList() {
 		try {
-			const response = await fetch(`/main/reviewListOk.ma`, {
-				method: "GET"
+			const res = await fetch(`/main/reviewListOk.ma`, {
+				headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" }
 			});
+			
+			if (!res.ok) throw new Error("목록을 불러오는 데 실패했습니다.");
+			
+			const listInfo = await safeJson(res);
+			
+			console.log(listInfo.routineReviewList);
+			console.log(listInfo.courseReviewList);
+			
 		} catch (error) {
 			console.error("실패:", error);
 			alert("오류가 발생했습니다.");
 		}
 	}
 
-	loadList();	
+	// ====== 유틸 ======
+	async function safeJson(res) {
+		const text = await res.text();
+		try { return text ? JSON.parse(text) : null; } catch { return null; }
+	}
+
+	loadList();
 })
