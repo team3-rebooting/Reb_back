@@ -5,8 +5,8 @@
 		<selectKey keyProperty="courseNumber" resultType="int" order="BEFORE">
 			select SEQ_COURSE.NEXTVAL FROM DUAL
 		</selectKey>
-		INSERT INTO TBL_COURSE (COURSE_NUMBER, COURSE_TITLE, COURSE_CONTENT, EXPERT_NUMBER, COURSE_RECRUIT_STATUS_NUMBER, COURSE_POST_DATE, COURSE_POST_UPDATE_DATE, COURSE_RECRUIT_START_DATE, COURSE_RECRUIT_END_DATE, COURSE_START_DATE, COURSE_END_DATE, COURSE_START_TIME, COURSE_END_TIME, COURSE_DAY_OF_WEEK, COURSE_RECRUIT_COUNT) 
-		VALUES (#{courseNumber}, #{courseTitle}, #{courseContent}, #{expertNumber}, 2, sysdate, sysdate, to_date(#{courseStartDate}, 'yyyy-mm-dd') - 31 , to_date(#{courseStartDate}, 'yyyy-mm-dd') - 1, to_date(#{courseStartDate}, 'yyyy-mm-dd'), to_date(#{courseEndDate}, 'yyyy-mm-dd'), to_date(#{courseStartTime}, 'hh24:mi'), to_date(#{courseEndTime}, 'hh24:mi'), #{courseDayOfWeek}, #{courseRecruitCount})
+		INSERT INTO TBL_COURSE (COURSE_NUMBER, COURSE_TITLE, COURSE_CONTENT, EXPERT_NUMBER, COURSE_POST_DATE, COURSE_POST_UPDATE_DATE, COURSE_RECRUIT_START_DATE, COURSE_RECRUIT_END_DATE, COURSE_START_DATE, COURSE_END_DATE, COURSE_START_TIME, COURSE_END_TIME, COURSE_DAY_OF_WEEK, COURSE_RECRUIT_COUNT) 
+		VALUES (#{courseNumber}, #{courseTitle}, #{courseContent}, #{expertNumber}, sysdate, sysdate, to_date(#{courseStartDate}, 'yyyy-mm-dd') - 31 , to_date(#{courseStartDate}, 'yyyy-mm-dd') - 1, to_date(#{courseStartDate}, 'yyyy-mm-dd'), to_date(#{courseEndDate}, 'yyyy-mm-dd'), to_date(#{courseStartTime}, 'hh24:mi'), to_date(#{courseEndTime}, 'hh24:mi'), #{courseDayOfWeek}, #{courseRecruitCount})
 	</insert>
 	
 	<select id="isExist" parameterType="int">

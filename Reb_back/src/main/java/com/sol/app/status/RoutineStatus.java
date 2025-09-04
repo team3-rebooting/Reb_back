@@ -24,8 +24,7 @@ public enum RoutineStatus {
 		return strToDate;
 	}
 
-	public static int getRoutineStatusNumber(String strRecruitStartDate, String strRecruitEndDate, String strStartDate,
-			String strEndDate) {
+	public static int getRoutineStatusNumber(String strRecruitStartDate, String strRecruitEndDate, String strStartDate, String strEndDate) {
 		Date now = new Date();
 
 		Date recruitStartDate = parseStrToDate(strRecruitStartDate);
@@ -34,10 +33,20 @@ public enum RoutineStatus {
 		Date startDate = parseStrToDate(strStartDate);
 		Date endDate = parseStrToDate(strEndDate);
 
-		if (now.compareTo(recruitStartDate) >= 0) {
-			System.out.println("now가 더 큼");
+		if (now.compareTo(recruitStartDate) < 0) {
+			return 2;
 		}
-
+		if(now.compareTo(recruitEndDate) < 0) {
+			return 1;
+		}
+		if(now.compareTo(startDate) < 0) {
+			return 3;
+		}
+		if(now.compareTo(endDate) > 0) {
+			return 5;
+		}
+		
+		return 4;
 	}
 
 	public int getRoutineStatusNumber() {

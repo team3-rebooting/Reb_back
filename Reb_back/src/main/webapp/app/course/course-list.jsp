@@ -69,15 +69,15 @@
 										</p>
 										<div class="div-box-status">
 											<c:choose>
-												<c:when test="${course.courseRecruitStatusNumber == 1}">
+												<c:when test="${course.getCourseRecruitStatusNumber() == 1}">
 													<button type="button" class="button-recruit-ing">
-														<c:out value="${course.courseStatusInfo}" />
+														<c:out value="${course.getCourseStatusInfo()}" />
 													</button>
 												</c:when>
 												<c:otherwise>
 													<button type="button" class="button-recruit-ing"
 														style="background-color: gray;">
-														<c:out value="${course.courseStatusInfo}" />
+														<c:out value="${course.getCourseStatusInfo()}" />
 													</button>
 												</c:otherwise>
 											</c:choose>
