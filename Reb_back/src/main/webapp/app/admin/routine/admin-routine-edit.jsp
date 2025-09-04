@@ -38,6 +38,7 @@
       <!-- 내용 입력 영역 -->
       <form action="${pageContext.request.contextPath}/admin/routineUpdateOk.ad" method="post" 
        enctype="multipart/form-data">
+       <input type="hidden" name="routineNumber" value="${routine.getRoutineNumber()}">
         <!-- 제목 입력 영역 -->
         <div class="div-create-routine">
           <input type="text" class="input-title" name="routineTitle" placeholder="제목을 입력해주세요" class="input-in" value="${routine.getRoutineTitle()}">
