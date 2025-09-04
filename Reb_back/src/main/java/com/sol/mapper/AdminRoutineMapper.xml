@@ -8,7 +8,7 @@
     			FROM (
     					SELECT
             				r.ROUTINE_NUMBER, rl.ROUTINE_LEADER_NAME, r.ADMIN_NUMBER,
-               				r.ROUTINE_TITLE, r.ROUTINE_STATUS_NUMBER,
+               				r.ROUTINE_TITLE,
                 			TO_CHAR(r.ROUTINE_START_DATE, 'YY-MM-DD') AS ROUTINE_START_DATE,
                 			TO_CHAR(r.ROUTINE_END_DATE, 'YY-MM-DD') AS ROUTINE_END_DATE,
                 			r.ROUTINE_RECRUIT_COUNT,
