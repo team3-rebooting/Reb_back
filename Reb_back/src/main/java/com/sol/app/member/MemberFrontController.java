@@ -94,6 +94,15 @@ public class MemberFrontController extends HttpServlet {
 			System.out.println("비밀번호 찾기 처리 요청");
 			result = new FindPwOkController().execute(request, response);
 			System.out.println("비밀번호 찾기 처리 요청 완료");
+			break;
+		case "/member/joinSMS.me":
+			System.out.println("인증번호 전송 처리 요청");
+			result = new JoinSMSController().execute(request, response);
+			break;
+		case "/member/verifyCode.me":
+			System.out.println("인증번호 확인 처리 요청");
+			result = new VerifyCodeController().execute(request, response);
+			break;
 		}
 		
 		if(result != null && result.getPath() != null) {
