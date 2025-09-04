@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSession;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
+import com.sol.app.dto.ExpertDTO;
 import com.sol.app.dto.MemberDTO;
+import com.sol.app.member.dao.ExpertDAO;
 import com.sol.app.myPage.dao.MyPageDAO;
 
 public class MyPasswordOKController implements Execute {
@@ -31,6 +33,14 @@ public class MyPasswordOKController implements Execute {
 		if (memberNumber == null) {
 			path = request.getContextPath() + "/member/login.me";
 		} else {
+			ExpertDAO expertDAO = new ExpertDAO();
+			ExpertDTO expertDTO = expertDAO.select(memberNumber);
+
+			if (expertDTO != null) {
+				session.setAttribute("expertNumber", expertDTO.getExpertNumber());
+				System.out.println("세션 값 expertNumber : " + expertDTO.getExpertNumber());
+			}
+			
 			memberDTO.setMemberNumber(memberNumber);
 			if (myPageDAO.checkPassword(memberDTO)) {
 				path = request.getContextPath() + "/myPage/myInfoOk.my";

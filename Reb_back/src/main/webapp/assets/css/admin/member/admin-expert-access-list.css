@@ -170,7 +170,6 @@ button {
 
 /* 승인된 전문가 리스트 제목 */
 #main-expert-access-list-title {
-  border: 1px solid black;
   background-color: #d9d9d9;
   margin-top: 100px;
   display: flex;

@@ -99,7 +99,7 @@
 					<div class="div-expert-detail">
 						<!-- 글 영역  -->
 						<div class="div-expert-info-detail">
-							<p class="p-expert-detail-comment">
+							<p class="p-expert-detail-comment" style="white-space:pre-line; word-break: break-all;">
 								<c:out value="${courseReview.getCourseReviewContent()}" />
 							</p>
 							<!-- 강사님이 너무 친절하기구 수업도 열정적으로 알려주셔요! 과제도 그만큼 열정적으로 내주셔요!!!

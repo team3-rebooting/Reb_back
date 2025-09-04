@@ -34,10 +34,11 @@
   <main>
     <!-- 메인 컨테이너 -->
     <div id="main-container">
-      <p class="pagetitle">루틴 모임 개설</p>
+      <p class="pagetitle">루틴 모임 수정</p>
       <!-- 내용 입력 영역 -->
       <form action="${pageContext.request.contextPath}/admin/routineUpdateOk.ad" method="post" 
        enctype="multipart/form-data">
+       <input type="hidden" name="routineNumber" value="${routine.getRoutineNumber()}">
         <!-- 제목 입력 영역 -->
         <div class="div-create-routine">
           <input type="text" class="input-title" name="routineTitle" placeholder="제목을 입력해주세요" class="input-in" value="${routine.getRoutineTitle()}">
@@ -50,9 +51,7 @@
         <!-- 내용 입력 영역 -->
         <div class="div-create-routine">
           <p class="font-main little-title">내용</p>
-          <textarea class="textarea-text" name="routineContent" rows="20" cols="130" class="input-in">
-         	${routine.getRoutineContent()}
-          </textarea>
+          <textarea class="textarea-text" name="routineContent" rows="20" cols="130" class="input-in">${routine.getRoutineContent()}</textarea>
         </div>
         <!-- 지도 입력 영역 -->
         <div class="div-create-routine">
@@ -76,7 +75,7 @@
               <!-- 모임 날짜 입력 영역 -->
               <div class="div-input-info">
                 <input type="date" name="routineStartDate" id="routine-start-date" class="input-in" readonly="readonly" value="${routine.getRoutineStartDate()}">
-                <input type="date" name="routineEndDate" id="routine-end-date" class="input-in" readonly="readonly" value="${routine.getRoutineStartDate()}">
+                <input type="date" name="routineEndDate" id="routine-end-date" class="input-in" readonly="readonly" value="${routine.getRoutineEndDate()}">
               </div>
             </div>
             <div class="div-info-line">
@@ -91,14 +90,20 @@
             <div class="div-info-line">
               <p class="font-main">요일</p>
               <div class="div-input-info">
-                <label for="monday">월요일</label><input type="checkbox" id="monday" name="days" class="checkbox-input" value="mon">
-                <label for="tuesday">화요일</label><input type="checkbox" id="tuesday" name="days" class="checkbox-input" value="tue">
-                <label for="wednesday">수요일</label><input type="checkbox" id="wednesday" name="days"
-                  class="checkbox-input" value="wed">
-                <label for="thursday">목요일</label><input type="checkbox" id="thursday" name="days" class="checkbox-input" value="thu">
-                <label for="friday">금요일</label><input type="checkbox" id="friday" name="days" class="checkbox-input" value="fri">
-                <label for="saturday">토요일</label><input type="checkbox" id="saturday" name="days" class="checkbox-input" value="sat">
-                <label for="sunday">일요일</label><input type="checkbox" id="sunday" name="days" class="checkbox-input" value="sun">
+                <label for="monday">월요일</label><input type="checkbox" id="monday" name="days" class="checkbox-input" value="mon"
+                <c:if test="${not empty days['월'] }">checked</c:if>>
+                <label for="tuesday">화요일</label><input type="checkbox" id="tuesday" name="days" class="checkbox-input" value="tue"
+                <c:if test="${not empty days['화'] }">checked</c:if>>
+                <label for="wednesday">수요일</label><input type="checkbox" id="wednesday" name="days" class="checkbox-input" value="wed"
+                <c:if test="${not empty days['수'] }">checked</c:if>>
+                <label for="thursday">목요일</label><input type="checkbox" id="thursday" name="days" class="checkbox-input" value="thu"
+                <c:if test="${not empty days['목'] }">checked</c:if>>
+                <label for="friday">금요일</label><input type="checkbox" id="friday" name="days" class="checkbox-input" value="fri"
+                <c:if test="${not empty days['금'] }">checked</c:if>>
+                <label for="saturday">토요일</label><input type="checkbox" id="saturday" name="days" class="checkbox-input" value="sat"
+                <c:if test="${not empty days['토'] }">checked</c:if>>
+                <label for="sunday">일요일</label><input type="checkbox" id="sunday" name="days" class="checkbox-input" value="sun"
+                <c:if test="${not empty days['일'] }">checked</c:if>>
               </div>
             </div>
             <div class="div-info-line">
@@ -122,7 +127,8 @@
         <div class="div-create-routine">
           <div class="div-button-line">
             <!-- 수정 버튼 -->
-            <button class="button-ok" type="submit">수정</button>
+            <button class="button-ok" type="submit"
+            data-routine-number="${routine.routineNumber}">수정</button>
             <!-- 취소 버튼 -->
             <button class="button-cancel" type="button">취소</button>
           </div>

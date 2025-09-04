@@ -104,7 +104,7 @@
 							</p>
 							<p class="p-expert-field">
 								주요 분야 :
-								<c:out value="${course.fieldName}" />
+								<c:out value="${course.getFieldName()}" />
 							</p>
 						</div>
 					</div>
@@ -112,18 +112,18 @@
 					<div class="div-expert-detail">
 						<p class="p-expert-info-title">내용</p>
 						<div class="div-expert-info-detail">
-							<p class="p-expert-detail-comment">
+							<p class="p-expert-detail-comment" style="white-space:pre-line; word-break: break-all;">
 								<c:out value="${course.courseContent}" />
 							</p>
 						</div>
 					</div>
 					<!-- 지도 영역 -->
-					<div class="div-expert-detail">
+					<!-- <div class="div-expert-detail">
 						<p class="p-expert-info-title">오시는 길</p>
 						<div class="div-expert-info-detail">
 							<h1>지도 api 자리</h1>
 						</div>
-					</div>
+					</div> -->
 					<!-- 모집정보 영역 -->
 					<div class="div-expert-detail">
 						<p class="p-expert-info-title">모집 정보</p>
@@ -155,11 +155,11 @@
 								<c:out value="${course.courseRecruitCount}" />
 								명
 							</p>
-							<p>
+							<%-- <p>
 								가격 :
 								<c:out value="${course.coursePrice}" />
 								원
-							</p>
+							</p> --%>
 						</div>
 					</div>
 					<!-- 일반 사용자가 보는 버튼 영역 -->
@@ -169,7 +169,7 @@
 								<c:when
 									test="${course.expertNumber != sessionScope.expertNumber}">
 									<c:choose>
-										<c:when test="${course.courseRecruitStatusNumber == 1}">
+										<c:when test="${course.getCourseRecruitStatusNumber() == 1}">
 											<c:choose>
 												<c:when test="${applicant}">
 													<button class="button-cancel" type="button">취소</button>
@@ -184,12 +184,12 @@
 											</c:choose>
 										</c:when>
 										<c:otherwise>
-											<button class="button-before" type="button">${course.courseStatusInfo}</button>
+											<button class="button-before" type="button">${course.getCourseStatusInfo()}</button>
 										</c:otherwise>
 									</c:choose>
 								</c:when>
 								<c:otherwise>
-									<button class="button-status" type="button">${course.courseStatusInfo}</button>
+									<button class="button-status" type="button">${course.getCourseStatusInfo()}</button>
 								</c:otherwise>
 							</c:choose>
 						</div>
