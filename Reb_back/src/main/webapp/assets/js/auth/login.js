@@ -36,35 +36,72 @@ document.addEventListener("DOMContentLoaded", function() {
 	const veriId = document.querySelector(".button-injung-do-id");
 	const reIdPn = document.querySelector(".button-retry-id");
 
-	let tempCode = "";   // 임시 발급 코드 저장할 변수
+	/*	let tempCode = "";   // 임시 발급 코드 저장할 변수
+	
+		sendSMSBtn.addEventListener("click", function() {
+			const phoneNumber = inputModalPnId.value.trim();
+			if (!phoneNumber) {
+				alert("핸드폰 번호를 입력해주세요.");
+				return;
+			}
+	
+			// 6자리 난수 생성
+			tempCode = String(Math.floor(100000 + Math.random() * 900000));
+			console.log("임시 인증번호:", tempCode); // 콘솔 확인용
+	
+	
+	
+			alert("임시 인증번호는 [" + tempCode + "] 입니다.");
+			inputModalPnId.readOnly = true;
+			inputModalPnId.style.backgroundColor = "#d9d9d9";
+			sendSMSBtn.style.backgroundColor = "#d9d9d9";
+			sendSMSBtn.style.color = "black";
+			sendSMSBtn.disabled = true;
+			inputPhoneNumberId.style.backgroundColor = "white";
+			inputPhoneNumberId.readOnly = false;
+			veriId.style.color = "white";
+			veriId.style.backgroundColor = "#F38A6E";
+			veriId.disabled = false;
+			reIdPn.disabled = false;
+		});
+		*/
 
 	sendSMSBtn.addEventListener("click", function() {
 		const phoneNumber = inputModalPnId.value.trim();
 		if (!phoneNumber) {
-			alert("핸드폰 번호를 입력해주세요.");
+			alert("핸드폰 번호를 입력해주세요");
 			return;
 		}
+		console.log(phoneNumber);
 
-		// 6자리 난수 생성
-		tempCode = String(Math.floor(100000 + Math.random() * 900000));
-		console.log("임시 인증번호:", tempCode); // 콘솔 확인용
-
-
-
-		alert("임시 인증번호는 [" + tempCode + "] 입니다.");
-		inputModalPnId.readOnly = true;
-		inputModalPnId.style.backgroundColor = "#d9d9d9";
-		sendSMSBtn.style.backgroundColor = "#d9d9d9";
-		sendSMSBtn.style.color = "black";
-		sendSMSBtn.disabled = true;
-		inputPhoneNumberId.style.backgroundColor = "white";
-		inputPhoneNumberId.readOnly = false;
-		veriId.style.color = "white";
-		veriId.style.backgroundColor = "#F38A6E";
-		veriId.disabled = false;
-		reIdPn.disabled = false;
+		fetch("/member/joinSMS.me", {
+			method: 'POST',
+			headers: {
+				"Content-Type": "application/json",
+				"X-Requested-With": "XMLHttpRequest"
+			},
+			body: JSON.stringify({ phoneNumberValue: phoneNumber })
+		})
+			.then(response => {
+				if (!response.ok) throw new Error(`오류 상태 코드 : ${response.status}`);
+			})
+			.then(() => {
+				console.log("인증번호발송 성공");
+				inputModalPnId.readOnly = true;
+				inputModalPnId.style.backgroundColor = "#d9d9d9";
+				sendSMSBtn.style.backgroundColor = "#d9d9d9";
+				sendSMSBtn.style.color = "black";
+				sendSMSBtn.disabled = true;
+				inputPhoneNumberId.style.backgroundColor = "white";
+				inputPhoneNumberId.readOnly = false;
+				veriId.style.color = "white";
+				veriId.style.backgroundColor = "#F38A6E";
+				veriId.disabled = false;
+				reIdPn.disabled = false;
+			});
 	});
 
+	/*
 	// ===== 인증번호 확인 (서버 대신 로컬 비교) =====
 	veriId.addEventListener("click", function() {
 		const code = inputPhoneNumberId.value.trim();
@@ -82,6 +119,43 @@ document.addEventListener("DOMContentLoaded", function() {
 		} else {
 			alert("인증에 실패하였습니다.");
 		}
+	});
+	*/
+
+	let checkPhone = true;
+
+	veriId.addEventListener("click", function() {
+		const code = inputPhoneNumberId.value.trim();
+
+		if (code === "") {
+			alert("인증번호를 입력해주세요");
+			return;
+		}
+
+		fetch("/member/verifyCode.me", {
+			method: 'POST',
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ code: code })
+		})
+			.then(response => {
+				if (!response.ok) throw new Error(`HTTP 오류!, 상태코드 : ${response.status}`);
+				return response.json();
+			})
+			.then(data => {
+				console.log(data);
+
+				if (data.success) {
+					alert("인증에 성공했습니다.");
+					inputPhoneNumberId.style.backgroundColor = "#d9d9d9";
+					inputPhoneNumberId.readOnly = true;
+					veriId.style.color = "black";
+					veriId.style.backgroundColor = "#d9d9d9";
+					veriId.disabled = true;
+					checkPhone = false;
+				} else {
+					alert("인증번호가 맞지 않습니다.");
+				}
+			});
 	});
 
 
@@ -113,6 +187,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		if (!name || !phoneNumber) {
 			alert("이름과 전화번호를 입력해주세요.");
+			return;
+		}
+
+		if (checkPhone) {
+			alert("핸드폰 인증을 완료해주세요.");
 			return;
 		}
 
@@ -204,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// let tempCode = "";   // 임시 발급 코드 저장할 변수
 
-	sendSMSPwBtn.addEventListener("click", function() {
+	/*sendSMSPwBtn.addEventListener("click", function() {
 		const phoneNumber = inputModalPnPw.value.trim();
 		if (!phoneNumber) {
 			alert("핸드폰 번호를 입력해주세요.");
@@ -230,9 +309,81 @@ document.addEventListener("DOMContentLoaded", function() {
 		veriPw.disabled = false;
 		rePwPn.disabled = false;
 	});
+*/
+
+	sendSMSPwBtn.addEventListener("click", function() {
+		const phoneNumber = inputModalPnPw.value.trim();
+		if (!phoneNumber) {
+			alert("핸드폰 번호를 입력해주세요");
+			return;
+		}
+		console.log(phoneNumber);
+
+		fetch("/member/joinSMS.me", {
+			method: 'POST',
+			headers: {
+				"Content-Type": "application/json",
+				"X-Requested-With": "XMLHttpRequest"
+			},
+			body: JSON.stringify({ phoneNumberValue: phoneNumber })
+		})
+			.then(response => {
+				if (!response.ok) throw new Error(`오류 상태 코드 : ${response.status}`);
+			})
+			.then(() => {
+				console.log("인증번호발송 성공");
+				inputModalPnPw.readOnly = true;
+				inputModalPnPw.style.backgroundColor = "#d9d9d9";
+				sendSMSPwBtn.style.backgroundColor = "#d9d9d9";
+				sendSMSPwBtn.style.color = "black";
+				sendSMSPwBtn.disabled = true;
+				inputPhoneNumberPw.style.backgroundColor = "white";
+				inputPhoneNumberPw.readOnly = false;
+				veriPw.style.color = "white";
+				veriPw.style.backgroundColor = "#F38A6E";
+				veriPw.disabled = false;
+				rePwPn.disabled = false;
+			});
+	});
+
+	let checkPhonePw = true;
+
+	veriPw.addEventListener("click", function() {
+		const code = inputPhoneNumberPw.value.trim();
+
+		if (code === "") {
+			alert("인증번호를 입력해주세요");
+			return;
+		}
+
+		fetch("/member/verifyCode.me", {
+			method: 'POST',
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ code: code })
+		})
+			.then(response =>{
+				if(!response.ok) throw new Error(`HTTP 오류!, 상태코드 : ${response.status}`);
+				return response.json();
+			})
+			.then(data => {
+				console.log(data);
+
+				if (data.success) {
+					alert("인증에 성공했습니다.");
+					inputPhoneNumberPw.style.backgroundColor = "#d9d9d9";
+					inputPhoneNumberPw.readOnly = true;
+					veriPw.style.color = "black";
+					veriPw.style.backgroundColor = "#d9d9d9";
+					veriPw.disabled = true;
+					checkPhonePw = false;
+				} else {
+					alert("인증번호가 맞지 않습니다.");
+				}
+			});
+	});
 
 	// ===== 인증번호 확인 (서버 대신 로컬 비교) =====
-	veriPw.addEventListener("click", function() {
+	/*veriPw.addEventListener("click", function() {
 		const code = inputPhoneNumberPw.value.trim();
 		if (!code) {
 			alert("인증번호를 입력해주세요.");
@@ -249,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			alert("인증에 실패하였습니다.");
 		}
 	});
-
+*/
 
 	rePwPn.addEventListener("click", function() {
 		inputModalPnPw.readOnly = false;
@@ -283,6 +434,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		if (!name || !phoneNumber || !id) {
 			alert("이름과 전화번호를 입력해주세요.");
+			return;
+		}
+
+		if (checkPhonePw) {
+			alert("핸드폰 인증을 완료해주세요.");
 			return;
 		}
 

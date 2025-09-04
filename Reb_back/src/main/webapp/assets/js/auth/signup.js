@@ -243,22 +243,44 @@ document.addEventListener("DOMContentLoaded", function() {
 	let injunging = document.querySelector(".button-injunging");
 	const retry = document.querySelector(".button-retry");
 	
-	buttonInjung.addEventListener('click', async()=>{
-		const phoneNumberValue = phoneNumber.value.trim();
+	buttonInjung.addEventListener('click', function(){
+		const phoneNumberValue = phoneNumber.value.trim().replace(/[^0-9]/g, "");
 		if (!phoneNumberValue) {
 			alert("핸드폰 번호를 입력해주세요");
 			return;
-		} else{
-			fetch(`${base}/member/joinSMS.me`, {
-				method: 'POST',
-				headers: {
-					"Content-Type": "application",
-					'X-Requested-With': 'XMLHttpRequest'
-				},
-			})
 		}
+		console.log(phoneNumberValue);
 		
+		fetch("/member/joinSMS.me", {
+			method: 'POST',
+			headers: {
+				"Content-Type": "application/json",
+				"X-Requested-With": "XMLHttpRequest"
+			},
+			body : JSON.stringify({phoneNumberValue : phoneNumberValue})
+		})
+		.then(response => {
+			if(!response.ok) throw new Error(`오류 상태 코드 : ${response.status}`);
+		})
+		.then(() => {
+			console.log("인증발송 성공");
+			phoneNumber.readOnly = true;
+			phoneNumber.style.backgroundColor = "#d9d9d9";
+			buttonInjung.disabled = true;
+			buttonInjung.style.color = "#d9d9d9";
+			injungPhone.readOnly = false;
+			injungPhone.style.backgroundColor = "white";
+			injunging.disabled = false;
+			injunging.style.color = "white";
+			retry.disabled = false;
+			retry.style.color = "white";
+		})
+		.catch(error =>{
+			console.error("sms 발송 오류 : ", error);
+			alert("인증번호 발송 중 오류가 발생했습니다.");
+		});
 	});
+	
 
 	/*buttonInjung.addEventListener('click', function() {
 		const phoneNumberValue = phoneNumber.value.trim();
@@ -283,9 +305,47 @@ document.addEventListener("DOMContentLoaded", function() {
 		retry.disabled = false;
 		retry.style.color = "white";
 
-	});
+	});*/
 
 	let checkPhone = false;
+	
+	injunging.addEventListener("click", function(){
+		const code = injungPhone.value.trim();
+		
+		if(code === ""){
+			alert("인증번호를 입력해주세요.");
+			return;
+		}
+		
+		fetch("/member/verifyCode.me", {
+			method: "POST",
+			headers : {"Content-Type" : "application/json"},
+			body : JSON.stringify({code : code})
+		})
+		.then(response =>{
+			if(!response.ok) throw new Error(`HTTP 오류!, 상태코드 : ${response.status}`);
+			return response.json();
+		})
+		.then(data => {
+			console.log(data);
+			if(data.success){
+				alert("인증에 성공했습니다.");
+				injungPhone.readOnly = true;
+				injungPhone.style.backgroundColor = "#d9d9d9";
+				injunging.disabled = true;
+				injunging.style.color = "#d9d9d9";
+				checkPhone = false;
+			}else {
+				alert("인증번호가 맞지 않습니다");
+				checkPhone = true;
+			}
+		})
+		.catch(error => {
+			console.error("인증 확인 오류:", error);
+			alert("인증 처리중 오류가 발생했습니다.")
+		})
+	})
+/*
 
 	injunging.addEventListener('click', function() {
 		const code = injungPhone.value.trim();
@@ -303,6 +363,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
+*/
 	retry.addEventListener('click', () => {
 		phoneNumber.readOnly = false;
 		phoneNumber.style.backgroundColor = "white";
@@ -317,7 +378,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		retry.style.color = "#d9d9d9";
 		phoneNumber.value = "";
 	});
-*/
 
 
 	form.addEventListener("submit", function(e) {

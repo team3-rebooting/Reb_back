@@ -23,6 +23,9 @@ public class FindIdOkController implements Execute {
 		String name = request.getParameter("modalIdName");
 		String phone = request.getParameter("modalIdPhone");
 		
+		System.out.println(name);
+		System.out.println(phone);
+		
 		MemberDTO memberDTO = new MemberDTO();
 		MemberDAO memberDAO = new MemberDAO();
 		
@@ -31,15 +34,16 @@ public class FindIdOkController implements Execute {
 		memberDTO.setMemberName(name);
 		memberDTO.setMemberPhoneNumber(phone);
 
-		MemberDTO findMemberDTO = memberDAO.findId(memberDTO);
+		memberDTO = memberDAO.findId(memberDTO);
+		
 		
 		response.setContentType("application/json; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
 		Gson gson = new Gson();
 		
-		if(findMemberDTO != null) {
-			String json = gson.toJson(findMemberDTO);
+		if(memberDTO != null) {
+			String json = gson.toJson(memberDTO);
 			response.getWriter().write(json);
 		} else {
 			response.getWriter().write("{}");
