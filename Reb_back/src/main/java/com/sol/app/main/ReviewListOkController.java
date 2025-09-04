@@ -29,6 +29,10 @@ public class ReviewListOkController implements Execute {
 		JsonArray list = new JsonArray();
 
 		Result result = new Result();
+		
+		return null;
+		
+		/*
 		RoutineReviewListDAO routineReviewListDAO = new RoutineReviewListDAO();
 
 		Map<String, Integer> map = new HashMap<>();
@@ -78,14 +82,7 @@ public class ReviewListOkController implements Execute {
 		out.print(obj.toString());
 		out.close();
 
-		/*
-		 * String code = request.getParameter("code");
-		 * System.out.println("====================code : " + code) ;
-		 * 
-		 * Cookie cookie = new Cookie("authorize-access-token", code);
-		 * cookie.setMaxAge(60 * 60 * 24); // 1일 response.addCookie(cookie);
-		 */
-
 		return null;
+		*/
 	}
 }

@@ -64,14 +64,14 @@
 										</p>
 										<div class="div-box-status">
 											<c:choose>
-												<c:when test="${routine.routineStatusNumber == 1}">
+												<c:when test="${routine.getRoutineStatusNumber() == 1}">
 													<button type="button" class="button-recruit-ing">
-														<c:out value="${routine.routineStatusInfo}" />
+														<c:out value="${routine.getRoutineStatusInfo()}" />
 													</button>
 												</c:when>
 												<c:otherwise>
 													<button type="button" class="button-recruit-ing" style="background-color: gray;">
-														<c:out value="${routine.routineStatusInfo}" />
+														<c:out value="${routine.getRoutineStatusInfo()}" />
 													</button>
 												</c:otherwise>
 											</c:choose>

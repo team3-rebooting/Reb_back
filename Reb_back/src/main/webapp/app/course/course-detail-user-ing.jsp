@@ -169,7 +169,7 @@
 								<c:when
 									test="${course.expertNumber != sessionScope.expertNumber}">
 									<c:choose>
-										<c:when test="${course.courseRecruitStatusNumber == 1}">
+										<c:when test="${course.getCourseRecruitStatusNumber() == 1}">
 											<c:choose>
 												<c:when test="${applicant}">
 													<button class="button-cancel" type="button">취소</button>
@@ -184,12 +184,12 @@
 											</c:choose>
 										</c:when>
 										<c:otherwise>
-											<button class="button-before" type="button">${course.courseStatusInfo}</button>
+											<button class="button-before" type="button">${course.getCourseStatusInfo()}</button>
 										</c:otherwise>
 									</c:choose>
 								</c:when>
 								<c:otherwise>
-									<button class="button-status" type="button">${course.courseStatusInfo}</button>
+									<button class="button-status" type="button">${course.getCourseStatusInfo()}</button>
 								</c:otherwise>
 							</c:choose>
 						</div>

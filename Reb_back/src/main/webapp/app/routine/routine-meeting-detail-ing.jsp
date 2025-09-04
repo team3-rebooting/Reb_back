@@ -121,7 +121,7 @@
 					</div>
 					<div class="div-expert-detail-button">
 						<c:if test="${not empty sessionScope.memberNumber}">
-							<c:if test="${routine.routineStatusNumber == 1}">
+							<c:if test="${routine.getRoutineStatusNumber() == 1}">
 								<c:choose>
 									<c:when test="${applicant}">
 										<button class="button-cancel" type="button">취소</button>
@@ -135,9 +135,9 @@
 									</c:otherwise>
 								</c:choose>
 							</c:if>
-							<c:if test="${routine.routineStatusNumber != 1}">
+							<c:if test="${routine.getRoutineStatusNumber() != 1}">
 								<button class="button-before" type="button">
-									<c:out value="${routine.routineStatusInfo}" />
+									<c:out value="${routine.getRoutineStatusInfo()}" />
 								</button>
 							</c:if>
 						</c:if>

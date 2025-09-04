@@ -10,8 +10,6 @@ public class CourseListDTO {
 	private String expertName;
 	private String courseTitle;
 	private String courseContent;
-	private int courseRecruitStatusNumber;
-	private String courseStatusInfo;
 	private String coursePostDate;
 	private String coursePostUpdateDate;
 	private String courseRecruitStartDate;
@@ -71,25 +69,11 @@ public class CourseListDTO {
 	}
 
 	public int getCourseRecruitStatusNumber() {
-		return courseRecruitStatusNumber;
-	}
-
-	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
-		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
-		
-		this.setCourseStatusInfo(CourseRecruitStatus.findCourseStatusInfo(courseRecruitStatusNumber));
+		return CourseRecruitStatus.getCourseRecruitStatusNumber(courseRecruitStartDate, courseRecruitEndDate, courseStartDate, courseEndDate);
 	}
 
 	public String getCourseStatusInfo() {
-		if(courseStatusInfo == null) {
-			this.setCourseStatusInfo(CourseRecruitStatus.findCourseStatusInfo(courseRecruitStatusNumber));
-		}
-		
-		return courseStatusInfo;
-	}
-
-	private void setCourseStatusInfo(String courseStatusInfo) {
-		this.courseStatusInfo = courseStatusInfo;
+		return CourseRecruitStatus.findCourseStatusInfo(CourseRecruitStatus.getCourseRecruitStatusNumber(courseRecruitStartDate, courseRecruitEndDate, courseStartDate, courseEndDate));
 	}
 
 	public String getCoursePostDate() {
@@ -239,7 +223,7 @@ public class CourseListDTO {
 	public String toString() {
 		return "CourseListDTO [courseNumber=" + courseNumber + ", expertNumber=" + expertNumber + ", expertName="
 				+ expertName + ", courseTitle=" + courseTitle + ", courseContent=" + courseContent
-				+ ", courseRecruitStatusNumber=" + courseRecruitStatusNumber + ", courseStatusInfo=" + courseStatusInfo
+				+ ", courseRecruitStatusNumber=" + getCourseRecruitStatusNumber() + ", courseStatusInfo=" + getCourseStatusInfo()
 				+ ", coursePostDate=" + coursePostDate + ", coursePostUpdateDate=" + coursePostUpdateDate
 				+ ", courseRecruitStartDate=" + courseRecruitStartDate + ", courseRecruitEndDate="
 				+ courseRecruitEndDate + ", courseStartDate=" + courseStartDate + ", courseEndDate=" + courseEndDate
