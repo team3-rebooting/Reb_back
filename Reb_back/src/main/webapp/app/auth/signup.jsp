@@ -153,7 +153,7 @@
 						<span class="span-signup">* 전화번호 :</span>
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-hide">
-							<input class="input-basic" type="text" name="phoneNumber" required>
+							<input class="input-basic" type="text" name='phoneNumber' required>
 							<div>
 								<button type="button" class="button-retry" disabled>초기화</button>
 								<button class="button-injung" type="button">인증번호받기</button>
