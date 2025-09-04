@@ -8,7 +8,7 @@
     			FROM (
     					SELECT
             				r.ROUTINE_NUMBER, rl.ROUTINE_LEADER_NAME, r.ADMIN_NUMBER,
-               				r.ROUTINE_TITLE, r.ROUTINE_STATUS_NUMBER,
+               				r.ROUTINE_TITLE,
                 			TO_CHAR(r.ROUTINE_START_DATE, 'YY-MM-DD') AS ROUTINE_START_DATE,
                 			TO_CHAR(r.ROUTINE_END_DATE, 'YY-MM-DD') AS ROUTINE_END_DATE,
                 			r.ROUTINE_RECRUIT_COUNT,
@@ -30,8 +30,7 @@
 	<![CDATA[
 		SELECT 
     	r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, l.ROUTINE_LEADER_NAME,
-    	r.ADMIN_NUMBER, r.ROUTINE_TITLE, r.routine_content, r.ROUTINE_STATUS_NUMBER,r.routine_location,
-    	r.routine_status_number, 
+    	r.ADMIN_NUMBER, r.ROUTINE_TITLE, r.routine_content, r.routine_location, 
     	TO_CHAR(r.routine_created_DATE, 'YYYY-MM-DD') AS routine_created_DATE, 
    		TO_CHAR(r.routine_updated_DATE, 'YYYY-MM-DD') AS routine_updated_DATE,
     	TO_CHAR(r.routine_RECRUIT_START_DATE, 'YYYY-MM-DD') AS routine_RECRUIT_START_DATE, 
@@ -56,7 +55,7 @@
 		</selectKey>
 		INSERT INTO TBL_ROUTINE (
 		ROUTINE_NUMBER, ROUTINE_LEADER_NUMBER, ADMIN_NUMBER, ROUTINE_TITLE,
-		ROUTINE_CONTENT, ROUTINE_STATUS_NUMBER, ROUTINE_LOCATION,
+		ROUTINE_CONTENT, ROUTINE_LOCATION,
 		ROUTINE_CREATED_DATE, ROUTINE_UPDATED_DATE,ROUTINE_RECRUIT_START_DATE, ROUTINE_RECRUIT_END_DATE,
 		ROUTINE_START_DATE, ROUTINE_END_DATE, ROUTINE_START_TIME,
 		ROUTINE_END_TIME,
@@ -64,7 +63,7 @@
 		)
 		VALUES (
 		#{routineNumber}, #{routineLeaderNumber}, #{adminNumber}, #{routineTitle},
-		#{routineContent}, #{routineStatusNumber}, #{routineLocation},
+		#{routineContent}, #{routineLocation},
 		(sysdate),(sysdate), TO_DATE(#{routineRecruitStartDate}, 'YYYY-MM-DD'),
 		TO_DATE(#{routineRecruitEndDate}, 'YYYY-MM-DD'),
 		TO_DATE(#{routineStartDate}, 'YYYY-MM-DD'), 
@@ -77,7 +76,6 @@
 	<update id="update" parameterType="RoutineDTO">
 		UPDATE TBL_ROUTINE
 		SET ROUTINE_TITLE = #{routineTitle}, ROUTINE_CONTENT = #{routineContent},
-		ROUTINE_STATUS_NUMBER = #{routineStatusNumber},
 		ROUTINE_LOCATION = #{routineLocation}, ROUTINE_UPDATED_DATE = SYSDATE,
 		ROUTINE_RECRUIT_START_DATE = TO_DATE(#{routineRecruitStartDate},
 		'YYYY-MM-DD'),
