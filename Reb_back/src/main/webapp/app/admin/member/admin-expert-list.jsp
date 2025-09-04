@@ -107,7 +107,7 @@
 									<div class="main-expert-list-info">
 										<p>
 											[주소]
-											<c:out value="${applicant.address}" /><br>
+											<c:out value="${applicant.address}" /> 
 											<c:out value="${applicant.addressDetail}" />
 										</p>
 										<p>

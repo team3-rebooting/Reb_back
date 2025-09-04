@@ -74,21 +74,23 @@
             <!-- 이미지 영역 -->
             <div class="div-img">
             	<c:forEach var="reviewFile" items="${review.fileRoutineReviewList}">
-              		<img src="${pageContext.request.contextPath}/upload/${reviewFile.getFileSystemName()}" class="img-detail">
+              		<img src="${pageContext.request.contextPath}/upload/routine/${reviewFile.getFileSystemName()}" class="img-detail">
             	</c:forEach>
             </div>
             <!-- 내용 글 영역 -->
             <div class="div-admin-detail">
               <div class="div-admin-info-detail">
-                <p class="p-admin-detail-comment">
+                <pre class="p-admin-detail-comment">
                   <c:out value="${review.routineReviewContent}" />
-                </p>
+                </pre>
               </div>
             </div>
             <!-- 버튼 영역 -->
             <div class="div-button-area">
               <!-- 삭제 버튼 -->
-              <button class="button-cancel">삭제</button>
+              <button class="button-cancel" 
+              data-review-number="${review.routineReviewNumber}" 
+              data-member-number="${review.memberNumber}">삭제</button>
             </div>
             <!-- 댓글 영역 -->
             <div class="div-comment-area">

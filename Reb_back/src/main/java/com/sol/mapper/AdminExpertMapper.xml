@@ -43,7 +43,7 @@
 	<!-- 전문가 반려 -->
 	<update id="update" parameterType="ExpertApplicantDTO">
 		update tbl_expert_applicant 
-		set expert_applicant_reason = #{expertApplicantReason}, expert_status_number = 4
+		set expert_applicant_reason = #{expertApplicantReason}, expert_status_number = 3
 		where member_number = #{memberNumber}
 	</update>
 	<!--전문가 생성 -->

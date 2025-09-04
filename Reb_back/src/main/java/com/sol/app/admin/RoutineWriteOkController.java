@@ -69,8 +69,6 @@ public class RoutineWriteOkController implements Execute {
 		
 		routineDTO.setAdminNumber(adminNumber);
 		routineDTO.setRoutineLocation("routineLocation");
-		//모집 전으로 고정
-		routineDTO.setRoutineStatusNumber(2);
 		System.out.println("게시글 추가 - routineDTO : " + routineDTO);
 		
 		//게시글 추가
