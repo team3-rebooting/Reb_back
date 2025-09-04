@@ -14,8 +14,6 @@ public class RoutineListDTO {
 	private int adminNumber;
 	private String routineTitle;
 	private String routineContent;
-	private int routineStatusNumber;
-	private String routineStatusInfo;
 	private String routineLocation;
 	private String routineCreatedDate;
 	private String routineUpdatedDate;
@@ -69,22 +67,21 @@ public class RoutineListDTO {
 		this.routineContent = routineContent;
 	}
 	public int getRoutineStatusNumber() {
-		return routineStatusNumber;
+		return RoutineStatus.getRoutineStatusNumber(routineRecruitStartDate, routineRecruitEndDate, routineStartDate, routineEndDate);
 	}
-	public void setRoutineStatusNumber(int routineStatusNumber) {
-		this.routineStatusNumber = routineStatusNumber;
-		
-		this.setRoutineStatusInfo(RoutineStatus.findRoutineStatusInfo(routineStatusNumber));		
-	}
+	
+	/*
+	 * public void setRoutineStatusNumber(int routineStatusNumber) {
+	 * this.routineStatusNumber = routineStatusNumber;
+	 * 
+	 * this.setRoutineStatusInfo(RoutineStatus.findRoutineStatusInfo(
+	 * routineStatusNumber)); }
+	 */
+	
 	public String getRoutineStatusInfo() {
-		if(routineStatusInfo == null)
-			this.setRoutineStatusInfo(RoutineStatus.findRoutineStatusInfo(routineStatusNumber));	
-		
-		return routineStatusInfo;
+		return RoutineStatus.findRoutineStatusInfo(getRoutineStatusNumber());
 	}
-	private void setRoutineStatusInfo(String routineStatusInfo) {
-		this.routineStatusInfo = routineStatusInfo;
-	}
+	
 	public String getRoutineLocation() {
 		return routineLocation;
 	}
@@ -182,8 +179,8 @@ public class RoutineListDTO {
 	public String toString() {
 		return "RoutineListDTO [routineNumber=" + routineNumber + ", routineLeaderNumber=" + routineLeaderNumber
 				+ ", routineLeaderName=" + routineLeaderName + ", adminNumber=" + adminNumber + ", routineTitle="
-				+ routineTitle + ", routineContent=" + routineContent + ", routineStatusNumber=" + routineStatusNumber
-				+ ", routineStatusInfo=" + routineStatusInfo + ", fileRoutineList=" + fileRoutineList
+				+ routineTitle + ", routineContent=" + routineContent + ", routineStatusNumber=" + getRoutineStatusNumber()
+				+ ", routineStatusInfo=" + getRoutineStatusInfo() + ", fileRoutineList=" + fileRoutineList
 				+ ", routineLocation=" + routineLocation + ", routineCreatedDate=" + routineCreatedDate
 				+ ", routineUpdatedDate=" + routineUpdatedDate + ", routineRecruitStartDate=" + routineRecruitStartDate
 				+ ", routineRecruitEndDate=" + routineRecruitEndDate + ", routineStartDate=" + routineStartDate
