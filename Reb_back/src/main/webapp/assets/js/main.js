@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+//window.addEventListener('DOMContentLoaded', () => {
 	const bannerContainer = document.querySelector('#main-ul-banner')
 	const bannerImgList = document.querySelectorAll('.main-li-banner');
 	const bannerPageNumber = document.querySelector('#banner-page-number');
@@ -45,4 +45,4 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	loadList();
-})
+//})

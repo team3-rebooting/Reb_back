@@ -16,7 +16,7 @@ import com.google.gson.Gson;
  */
 public class KakaoPayService {
 
-    private final String ADMIN_KEY = "ff912d39bd11f4701e8e58e910ea13b9";
+    private final String ADMIN_KEY = "";
 
     public Map<String, Object> readySimple(Map<String, String> requestMap) throws IOException {
 
