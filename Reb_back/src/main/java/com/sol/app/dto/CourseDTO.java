@@ -1,5 +1,6 @@
 package com.sol.app.dto;
 
+import com.sol.app.status.CourseRecruitStatus;
 
 public class CourseDTO {
 	private int courseNumber;
@@ -70,12 +71,21 @@ public class CourseDTO {
 	public void setExpertFieldNumber(int expertFieldNumber) {
 		this.expertFieldNumber = expertFieldNumber;
 	}
-	public int getCourseRecruitStatusNumber() {
+	public int getCourseRecruitStatusNumber() {		
+		if(courseRecruitStatusNumber == 0)
+			setCourseRecruitStatusNumber();
+		
 		return courseRecruitStatusNumber;
 	}
+	
+	public void setCourseRecruitStatusNumber() {
+		this.courseRecruitStatusNumber = CourseRecruitStatus.getCourseRecruitStatusNumber(courseRecruitStartDate, courseRecruitEndDate, courseStartDate, courseEndDate);
+	}
+	
 	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
 		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
 	}
+
 	public String getCoursePostDate() {
 		return coursePostDate;
 	}
@@ -153,8 +163,5 @@ public class CourseDTO {
 				+ courseStartDate + ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime
 				+ ", courseEndTime=" + courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseRecruitCount="
 				+ courseRecruitCount + ", courseLocation=" + courseLocation + "]";
-	}
-
-	
-	
+	}	
 }

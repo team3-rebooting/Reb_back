@@ -28,7 +28,7 @@
 }
 
 main { 
-  height: 1700px; 
+  height: 1900px; 
   min-height: calc(100vh - 235px);
   width: 100%;
   background-color: #FFFEF1;

@@ -53,7 +53,7 @@
 			<div class="pagetitle">전문가 인증 정보</div>
 			<form action="" method="post">
 				<input type="hidden" id="expert-cert-status_number"
-					value="${expert.expertCertStatusNumber}"> <input
+					value="${expert.getExpertCertStatusNumber()}"> <input
 					type="hidden" id="expert-applicant-reason"
 					value="${expert.expertApplicantReason}">
 				<div class="expert-status-content-box">
@@ -64,7 +64,7 @@
 								<button class="button-modal-open" type="button"
 									id="button-expert-status-rejection-reason"
 									data-type="expertRejectionReason">
-									<c:out value="${expert.expertCertStatusInfo}" />
+									<c:out value="${expert.getExpertCertStatusInfo()}" />
 								</button>
 							</div>
 							<div>
@@ -158,12 +158,11 @@
 		</div>
 	</main>
 	<!-- 푸터 -->
-	<div id="footer"></div>
+	<jsp:include page="/footer.jsp" />
 	<script
 		src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/assets/js/mypage/expert-file-upload.js"></script>
 </body>

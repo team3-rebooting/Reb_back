@@ -111,7 +111,7 @@ button{
   margin: 0px 20px;
   position: relative;
   overflow: hidden;
-  top : 18px;
+  top : 16px;
 }
 
 /* 배너 ul */
@@ -130,7 +130,7 @@ button{
 /* 배너 사진 img */
 .main-li-banner img{
   width : 900px;
-  height: 500px;
+  height: 493px;
 }
 
 /* 배너 좌/우측 버튼 */

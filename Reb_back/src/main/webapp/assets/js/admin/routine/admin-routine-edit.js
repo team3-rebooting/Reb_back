@@ -74,8 +74,6 @@ okBtn.addEventListener("click", (e) => {
     }
     if (tf === true) {
       alert("수정 완료되었습니다.");
-	  const routineNumber = e.target.dataset.memberNumber;
-      location.href = `/admin/routineReadOk.ad?routineNumber=`+routineNumber;
     }
     else {
       alert("모든 정보가 입력되어야 합니다");
