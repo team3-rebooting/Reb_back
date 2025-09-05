@@ -20,21 +20,25 @@ public class FindIdOkController implements Execute {
 
 		System.out.println("FindIdOkController 진입 완료");
 		
+		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("modalIdName");
 		String phone = request.getParameter("modalIdPhone");
 		
-		System.out.println(name);
-		System.out.println(phone);
+		System.out.println("[" + name + "]");
+		System.out.println("[" + phone + "]");
 		
 		MemberDTO memberDTO = new MemberDTO();
 		MemberDAO memberDAO = new MemberDAO();
 		
-		request.setCharacterEncoding("UTF-8");
 
 		memberDTO.setMemberName(name);
 		memberDTO.setMemberPhoneNumber(phone);
 
+		System.out.println(memberDTO);
+
 		memberDTO = memberDAO.findId(memberDTO);
+		
+		System.out.println(memberDTO);
 		
 		
 		response.setContentType("application/json; charset=UTF-8");
