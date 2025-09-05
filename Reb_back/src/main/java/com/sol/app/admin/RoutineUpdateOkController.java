@@ -32,7 +32,7 @@ public class RoutineUpdateOkController implements Execute {
 		Result result = new Result();
 		RoutineDTO routineDTO = new RoutineDTO();
 		FileRoutineDAO fileRoutineDAO = new FileRoutineDAO();
-		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
+		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/routine/";
         final int FILE_SIZE = 1024 * 1024 * 5; 
         // MultipartParser 실행
         MultipartParser parser = new MultipartParser(request, FILE_SIZE);
@@ -84,6 +84,10 @@ public class RoutineUpdateOkController implements Execute {
                 	break;
                 case "routineEndTime":
                 	routineDTO.setRoutineEndTime(paramValue);
+                	break;
+                case "routineRecruitCount":
+                	int count = Integer.parseInt(paramValue);
+                	routineDTO.setRoutineRecruitCount(count);
                 	break;
                 }
                 
@@ -147,8 +151,8 @@ public class RoutineUpdateOkController implements Execute {
         routineDAO.update(routineDTO);
         System.out.println("루틴 모임 수정 완료");
 
-        //수정 완료 후 리스트 페이지로 이동
-        result.setPath("/admin/routineListOk.ad");
+        //수정 완료 후 상세 페이지로 이동
+        result.setPath("/admin/routineReadOk.ad?routineNumber="+routineDTO.getRoutineNumber());
         result.setRedirect(true);
         return result;
 	}

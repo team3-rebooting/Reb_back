@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="adminRoutine">
-	<select id="selectAll" resultType="AdminRoutineListDTO">
-		<![CDATA[
-		SELECT * FROM (
-    		SELECT ROWNUM AS rnum, subquery.* 
-    			FROM (
-    					SELECT
-            				r.ROUTINE_NUMBER, rl.ROUTINE_LEADER_NAME, r.ADMIN_NUMBER,
-               				r.ROUTINE_TITLE,
-                			TO_CHAR(r.ROUTINE_START_DATE, 'YY-MM-DD') AS ROUTINE_START_DATE,
-                			TO_CHAR(r.ROUTINE_END_DATE, 'YY-MM-DD') AS ROUTINE_END_DATE,
-                			r.ROUTINE_RECRUIT_COUNT,
-                			(select count(*) from TBL_ROUTINE_MEMBER_APPLICANT rma where
-                        	rma.routine_number = r.routine_number) AS routine_count 
-            				FROM TBL_ROUTINE r
-            				JOIN tbl_routine_leader rl ON r.ROUTINE_LEADER_NUMBER = rl.ROUTINE_LEADER_NUMBER
-            				ORDER BY r.ROUTINE_START_DATE DESC
-        			) subquery
-			) WHERE rnum BETWEEN #{startRow} AND #{endRow}
-		]]>
-	</select>
+   <select id="selectAll" resultType="AdminRoutineListDTO">
+      <![CDATA[
+      SELECT * FROM (
+          SELECT ROWNUM AS rnum, subquery.* 
+             FROM (
+                   SELECT
+                        r.ROUTINE_NUMBER, rl.ROUTINE_LEADER_NAME, r.ADMIN_NUMBER, ROUTINE_STATUS_NUMBER,
+                           r.ROUTINE_TITLE,
+                         TO_CHAR(r.ROUTINE_START_DATE, 'YY-MM-DD') AS ROUTINE_START_DATE,
+                         TO_CHAR(r.ROUTINE_END_DATE, 'YY-MM-DD') AS ROUTINE_END_DATE,
+                         r.ROUTINE_RECRUIT_COUNT,
+                         (select count(*) from TBL_ROUTINE_MEMBER_APPLICANT rma where
+                           rma.routine_number = r.routine_number) AS routine_count 
+                        FROM TBL_ROUTINE r
+                        JOIN tbl_routine_leader rl ON r.ROUTINE_LEADER_NUMBER = rl.ROUTINE_LEADER_NUMBER
+                        ORDER BY r.ROUTINE_START_DATE DESC
+                 ) subquery
+         ) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+      ]]>
+   </select>
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(routine_number)
 		FROM tbl_routine
@@ -59,7 +59,7 @@
 		ROUTINE_CREATED_DATE, ROUTINE_UPDATED_DATE,ROUTINE_RECRUIT_START_DATE, ROUTINE_RECRUIT_END_DATE,
 		ROUTINE_START_DATE, ROUTINE_END_DATE, ROUTINE_START_TIME,
 		ROUTINE_END_TIME,
-		ROUTINE_DAY_OF_WEEK, ROUTINE_RECRUIT_COUNT
+		ROUTINE_DAY_OF_WEEK, ROUTINE_RECRUIT_COUNT, ROUTINE_STATUS_NUMBER 
 		)
 		VALUES (
 		#{routineNumber}, #{routineLeaderNumber}, #{adminNumber}, #{routineTitle},
@@ -70,7 +70,7 @@
 		TO_DATE(#{routineEndDate}, 'YYYY-MM-DD'),
 		TO_DATE(#{routineStartTime}, 'HH24:MI'),
 		TO_DATE(#{routineEndTime}, 'HH24:MI'),
-		#{routineDayOfWeek}, #{routineRecruitCount}
+		#{routineDayOfWeek}, #{routineRecruitCount}, 2
 		)
 	</insert>
 	<update id="update" parameterType="RoutineDTO">
