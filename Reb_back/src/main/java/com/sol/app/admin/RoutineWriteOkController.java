@@ -16,6 +16,7 @@ import com.sol.app.admin.dao.AdminRoutineDAO;
 import com.sol.app.dto.FileRoutineDTO;
 import com.sol.app.dto.RoutineDTO;
 import com.sol.app.file.dao.FileRoutineDAO;
+import com.sol.app.status.RoutineStatus;
 
 public class RoutineWriteOkController implements Execute {
 
@@ -37,7 +38,7 @@ public class RoutineWriteOkController implements Execute {
 			return null;
 		}
 		//파일 업로드 환경 설정
-		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
+		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/routine/";
 		final int FILE_SIZE = 1024 * 1024 * 5; //5MB
 		//MultipartRequest를 이용한 데이터 파싱
 		MultipartRequest multipartRequest = new MultipartRequest(request, UPLOAD_PATH, FILE_SIZE, "utf-8", new DefaultFileRenamePolicy());
@@ -69,6 +70,12 @@ public class RoutineWriteOkController implements Execute {
 		
 		routineDTO.setAdminNumber(adminNumber);
 		routineDTO.setRoutineLocation("routineLocation");
+		//이부분 다시 체크
+		//2가 들어와야됨 지금 어떤 메소드 이용해야하는지 확인
+		routineDTO.setRoutineStatusNumber(RoutineStatus.getRoutineStatusNumber
+				(routineDTO.getRoutineRecruitStartDate(), routineDTO.getRoutineRecruitEndDate(),
+				routineDTO.getRoutineStartDate(),routineDTO.getRoutineEndDate()));
+		System.out.println(routineDTO.getRoutineStatusNumber());
 		System.out.println("게시글 추가 - routineDTO : " + routineDTO);
 		
 		//게시글 추가
