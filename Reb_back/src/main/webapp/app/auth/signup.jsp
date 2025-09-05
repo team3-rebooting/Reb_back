@@ -129,10 +129,11 @@
 						<span class="span-signup">* 성별 :</span>
 						<!-- input, 아래 숨겨져있는 문구 영역 -->
 						<div class="div-signup-radio">
-							<input type='radio' name='gender' value='M' id="male" required /><label
-								for="male">남자</label> <input type='radio' name='gender'
-								value='F' id="female" /><label for="female">여자</label>
-							<p class="p-warning">성별은 필수 입력입니다.</p>
+							<input type='radio' name='gender' value='M' id="male" />
+							<label for="male">남자</label> 
+							<input type='radio' name='gender' value='F' id="female" />
+							<label for="female">여자</label>
+							<p class="p-warning p-warning-gender">성별은 필수 입력입니다.</p>
 						</div>
 					</div>
 					<!-- 닉네임 입력 영역 -->
