@@ -29,8 +29,8 @@ window.addEventListener('DOMContentLoaded', () => {
 			
 			const listInfo = await safeJson(res);
 			
-			console.log(listInfo.routineReviewList);
-			console.log(listInfo.courseReviewList);
+			console.log(listInfo?.routineReviewList);
+			console.log(listInfo?.courseReviewList);
 			
 		} catch (error) {
 			console.error("실패:", error);

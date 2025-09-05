@@ -189,6 +189,10 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("루틴 모임 리뷰 상세");
 			result = new AdminRoutineReviewReadOkController().execute(request,response);
 			break;
+		case "/admin/routineReviewDeleteOk.ad" :
+			System.out.println("루틴 모임 리뷰 강제 삭제");
+			result = new AdminRoutineReviewDeleteOkController().execute(request, response);
+			break;
 		case "/admin/courseReviewListOk.ad" :
 			System.out.println("수업 리뷰 목록");
 			result = new CourseReviewListOkController().execute(request,response);
