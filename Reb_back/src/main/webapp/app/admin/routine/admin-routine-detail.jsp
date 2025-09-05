@@ -42,11 +42,16 @@
         <div class="div-detail-area">
           <div class="div-img">
            <c:forEach var="routineFile" items="${routine.fileRoutineList}">
-            <img src="${pageContext.request.contextPath}/upload/${routineFile.getFileSystemName()}" class="img-detail" alt="루틴 모임 대표 사진">           
+            <img src="${pageContext.request.contextPath}/upload/routine/${routineFile.getFileSystemName()}" class="img-detail" alt="루틴 모임 대표 사진">           
            </c:forEach>
           </div>
           <div class="div-write-date">
-            <p class="p-write-date">작성일 : <c:out value="${routine.routineCreatedDate}"/></p>
+          	<c:if test="${routine.routineCreatedDate eq routine.routineUpdatedDate}">
+	            <p class="p-write-date">작성일 : <c:out value="${routine.routineCreatedDate}"/></p>
+          	</c:if>
+          	<c:if test="${routine.routineCreatedDate ne routine.routineUpdatedDate}">
+	            <p class="p-write-date">작성일 : <c:out value="${routine.routineUpdatedDate}"/> (수정됨)</p>
+          	</c:if>
           </div>
 
           <div class="div-expert-detail">
