@@ -3,9 +3,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	const expertCertStatusNumber = document.querySelector("#expert-cert-status_number");
 	console.log('expertCertStatusNumber ',expertCertStatusNumber.value);
 	//onclick="openModal('expertFileUpload')"
-	if (expertCertStatusNumber.value === 3) {
+	if (expertCertStatusNumber.value == 3) {
 		expertStatusText.style.cursor = "pointer";
 		expertStatusText.style.textDecoration = "underline";
+		
+		console.log(expertStatusText);
 	} else {
 		expertStatusText.style.cursor = "default";
 		expertStatusText.style.textDecoration = "none";

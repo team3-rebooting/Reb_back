@@ -25,6 +25,8 @@ public class CourseListDTO {
 	private String fieldName;
 	private String expertLicenseInfo;
 	private String expertCareer;
+	
+	private int courseRecruitStatusNumber;
 
 	private List<FileCourseDTO> fileCourseList;
 
@@ -69,9 +71,13 @@ public class CourseListDTO {
 	}
 
 	public int getCourseRecruitStatusNumber() {
-		return CourseRecruitStatus.getCourseRecruitStatusNumber(courseRecruitStartDate, courseRecruitEndDate, courseStartDate, courseEndDate);
+		return courseRecruitStatusNumber;
 	}
-
+	
+	public void setCourseRecruitStatusNumber() {
+		this.courseRecruitStatusNumber = CourseRecruitStatus.getCourseRecruitStatusNumber(courseRecruitStartDate, courseRecruitEndDate, courseStartDate, courseEndDate);
+	}
+	
 	public String getCourseStatusInfo() {
 		return CourseRecruitStatus.findCourseStatusInfo(CourseRecruitStatus.getCourseRecruitStatusNumber(courseRecruitStartDate, courseRecruitEndDate, courseStartDate, courseEndDate));
 	}
@@ -230,7 +236,7 @@ public class CourseListDTO {
 				+ ", courseStartTime=" + courseStartTime + ", courseEndTime=" + courseEndTime + ", courseDayOfWeek="
 				+ courseDayOfWeek + ", courseApplicantCount=" + courseApplicantCount + ", courseRecruitCount="
 				+ courseRecruitCount + ", fieldNumber=" + fieldNumber +", fieldName=" + fieldName
-				+ ", expertLicenseInfo=" + expertLicenseInfo + ", expertCareer=" + expertCareer + ", fileCourseList="
+				+ ", expertLicenseInfo=" + expertLicenseInfo + ", courseRecruitStatusNumber="+ courseRecruitStatusNumber +", expertCareer=" + expertCareer + ", fileCourseList="
 				+ fileCourseList + "]";
 	}
 }

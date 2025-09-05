@@ -74,7 +74,7 @@
 					<div class="div-expert-detail">
 						<p class="p-expert-info-title">내용</p>
 						<div class="div-expert-info-detail">
-							<p class="p-expert-detail-comment">
+							<p class="p-expert-detail-comment" style="white-space:pre-line; word-break: break-all;">
 								<c:out value="${routine.routineContent}" />
 							</p>
 						</div>

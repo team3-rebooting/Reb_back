@@ -38,7 +38,6 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 			result.setPath("/course/courseListOk.co");
 			result.setRedirect(true);
 		} else {
-
 			// 파일 업로드 환경 설정
 			final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
 			final int FILE_SIZE = 1024 * 1024 * 5; // 5MB
@@ -55,6 +54,7 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 			courseDTO.setCourseStartTime(multipartRequest.getParameter("courseStartTime"));
 			courseDTO.setCourseEndTime(multipartRequest.getParameter("courseEndTime"));
 			courseDTO.setCourseRecruitCount(Integer.valueOf(multipartRequest.getParameter("recruitmentNumber")));
+			
 			courseDTO.setCourseLocation("지도 api 추가 후 수정");
 			String[] days = multipartRequest.getParameterValues("dow");
 			String day = "";
