@@ -35,9 +35,7 @@
     </div>
   </main>
   <!-- 푸터 -->
-  <div id="footer">
-  </div>
-  <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
+  <jsp:include page="/footer.jsp" />
 </body>
 
 </html>

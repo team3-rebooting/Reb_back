@@ -158,12 +158,11 @@
 		</div>
 	</main>
 	<!-- 푸터 -->
-	<div id="footer"></div>
+	<jsp:include page="/footer.jsp" />
 	<script
 		src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/assets/js/mypage/expert-file-upload.js"></script>
 </body>
