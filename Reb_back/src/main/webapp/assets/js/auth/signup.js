@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	const form = document.getElementById("joinForm") || document.querySelector("form");
 	const base = (form && form.dataset.contextPath) ? form.dataset.contextPath : "";
 
-	let checkIdRegex = false;
-	let checkAvailable = false;
-	let checkpwRegex = false;
+	let checkIdRegex = true;
+	let checkAvailable = true;
+	let checkpwRegex = true;
 	let checkPwSame = false;
 
 	const inputId = document.querySelector("input[name='memberId']");
@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const idNotSame = document.querySelector(".p-dupli-id");
 	const idRequired = document.querySelector(".p-id");
 	const idRegex = /^[a-z0-9]{5,19}$/;
+	const pnRegex = /^0\d{2}-\d{4}-\d{4}$/;
 
 	inputId.addEventListener("blur", function() {
 		const nearWarning = inputId.closest(".div-signup");
@@ -96,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 	const birth = document.querySelector("input[name='memberBirthDate']");
-	let checkBirth = false;
+	let checkBirth = true;
 
 	birth.addEventListener('blur', () => {
 		const nearWarning = birth.closest(".div-signup");
@@ -140,8 +141,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	}
 
-	let checkEmail = false;
-	let checkInputEmail = false;
+	let checkEmail = true;
+	let checkInputEmail = true;
 	const emailRegex = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
 	const email = document.querySelector("input[name='email']");
 	const emailRequired = document.querySelector(".p-email");
@@ -166,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
-	let checkName = false;
+	let checkName = true;
 	const name = document.querySelector("input[name='name']");
 	name.addEventListener('blur', function() {
 		inputName = name.value.trim();
@@ -181,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
-	let checkGender = false;
+	let checkGender = true;
 
 	const gender = document.querySelector("input[name='gender']");
 	gender.addEventListener('blur', () => {
@@ -200,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const nicknameRequired = document.querySelector(".nickname-required");
 	const nicknameDupli = document.querySelector(".nickname-dupli");
 	const nicknameNoDupli = document.querySelector(".nickname-nodupli");
-	let checkNickname = false;
+	let checkNickname = true;
 
 	inputNickname.addEventListener('blur', function() {
 		const memberNickname = inputNickname.value.trim();
@@ -214,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 	const nicknameBtn = document.querySelector(".button-no-duplication");
-	let checkNicknameSame = false;
+	let checkNicknameSame = true;
 
 	nicknameBtn.addEventListener("click", function() {
 		const memberNickname = inputNickname.value.trim();
@@ -250,36 +251,41 @@ document.addEventListener("DOMContentLoaded", function() {
 			return;
 		}
 		console.log(phoneNumberValue);
-		
-		fetch("/member/joinSMS.me", {
-			method: 'POST',
-			headers: {
-				"Content-Type": "application/json",
-				"X-Requested-With": "XMLHttpRequest"
-			},
-			body : JSON.stringify({phoneNumberValue : phoneNumberValue})
-		})
-		.then(response => {
-			if(!response.ok) throw new Error(`오류 상태 코드 : ${response.status}`);
-		})
-		.then(() => {
-			console.log("인증발송 성공");
-			phoneNumber.readOnly = true;
-			phoneNumber.style.backgroundColor = "#d9d9d9";
-			buttonInjung.disabled = true;
-			buttonInjung.style.color = "#d9d9d9";
-			injungPhone.readOnly = false;
-			injungPhone.style.backgroundColor = "white";
-			injunging.disabled = false;
-			injunging.style.color = "white";
-			retry.disabled = false;
-			retry.style.color = "white";
-		})
-		.catch(error =>{
-			console.error("sms 발송 오류 : ", error);
-			alert("인증번호 발송 중 오류가 발생했습니다.");
-		});
+		if(pnRegex.test(phoneNumber.value)){
+			fetch("/member/joinSMS.me", {
+				method: 'POST',
+				headers: {
+					"Content-Type": "application/json",
+					"X-Requested-With": "XMLHttpRequest"
+				},
+				body : JSON.stringify({phoneNumberValue : phoneNumberValue})
+			})
+			.then(response => {
+				if(!response.ok) throw new Error(`오류 상태 코드 : ${response.status}`);
+			})
+			.then(() => {
+				console.log("인증발송 성공");
+				phoneNumber.readOnly = true;
+				phoneNumber.style.backgroundColor = "#d9d9d9";
+				buttonInjung.disabled = true;
+				buttonInjung.style.color = "#d9d9d9";
+				injungPhone.readOnly = false;
+				injungPhone.style.backgroundColor = "white";
+				injunging.disabled = false;
+				injunging.style.color = "white";
+				retry.disabled = false;
+				retry.style.color = "white";
+			})
+			.catch(error =>{
+				console.error("sms 발송 오류 : ", error);
+				alert("인증번호 발송 중 오류가 발생했습니다.");
+			});
+		} else{
+			alert("형식을 지켜주세요.");
+			return;
+		}
 	});
+	
 	
 
 	/*buttonInjung.addEventListener('click', function() {
@@ -307,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	});*/
 
-	let checkPhone = false;
+	let checkPhone = true;
 	
 	injunging.addEventListener("click", function(){
 		const code = injungPhone.value.trim();
@@ -427,7 +433,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			return;
 		} else if (checkNicknameSame) {
 			e.preventDefault();
-			alert("중복된 닉네임입니다.");
+			alert("닉네임 중복을 확인해주세요.");
 			return;
 		} else if (checkPhone) {
 			e.preventDefault();

@@ -54,7 +54,7 @@ public class LoginOkController implements Execute{
 			if(expertDTO != null) {
 				session.setAttribute("expertNumber", expertDTO.getExpertNumber());
 				System.out.println("세션 값 expertNumber : " + expertDTO.getExpertNumber());
-			}			
+			}
 			
 			/*
 			 * if(remember != null) { 
@@ -73,7 +73,7 @@ public class LoginOkController implements Execute{
 		}
 		
 		
-		result.setRedirect(true);	// 세션에 저장된 값은 유지
+		result.setRedirect(false);	// 세션에 저장된 값은 유지
 		result.setPath(path);
 		
 		System.out.println("loginOkController 탈출");

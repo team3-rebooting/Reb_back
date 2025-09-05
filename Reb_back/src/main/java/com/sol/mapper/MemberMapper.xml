@@ -25,7 +25,7 @@
 	
 	<!-- 아이디 전화번호 인증 -->
 	<select id="findId" parameterType="MemberDTO" resultType="MemberDTO">
-		select member_id, member_signup_date
+		select member_id as memberId, member_signup_date as memberSignupDate
 		from tbl_member
 		where member_name = #{memberName} and member_phone_number = #{memberPhoneNumber}
 	</select>
