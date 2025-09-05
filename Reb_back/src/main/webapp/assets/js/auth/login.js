@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		*/
 
 	sendSMSBtn.addEventListener("click", function() {
-		const phoneNumber = inputModalPnId.value.trim();
+		const phoneNumber = inputModalPnId.value.trim().replace(/[^0-9]/g, "");
 		if (!phoneNumber) {
 			alert("핸드폰 번호를 입력해주세요");
 			return;
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			const res = await fetch("/member/findIdOk.me", {
 				method: 'POST',
 				headers: {
-					'content-Type': "application/x-www-form-urlencoded"
+					'Content-Type': "application/x-www-form-urlencoded"
 				},
 				body: new URLSearchParams({
 					modalIdName: name,
@@ -209,9 +209,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			if (!res.ok) throw new Error("서버에 오류가 발생했습니다.");
 			const data = await res.json();
-			console.log(`${data.memberId}`);
-			console.log(`${data.memberSignupDate}`)
-
+			console.log(`memberDTO : `, data);
+			/*console.log(`${data.memberId}`);
+			console.log(`${data.memberSignupDate}`);
+*/
 			// 결과 모달에 값 추가
 			document.getElementById('resultId').textContent = `ID : ${data.memberId}`;
 			document.getElementById('resultIdBirth').textContent = `가입일자 : ${data.memberSignupDate}`;
@@ -312,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
 */
 
 	sendSMSPwBtn.addEventListener("click", function() {
-		const phoneNumber = inputModalPnPw.value.trim();
+		const phoneNumber = inputModalPnPw.value.trim().replace(/[^0-9]/g, "");
 		if (!phoneNumber) {
 			alert("핸드폰 번호를 입력해주세요");
 			return;
