@@ -47,19 +47,20 @@
 	<!-- 헤더 -->
 	<jsp:include page="/header.jsp" />
 	<main>
-		<!-- 모달 -->
-		<jsp:include
-			page="${pageContext.request.contextPath}/app/mypage/mypage-modal.jsp" />
-		<!-- 사이드 메뉴 -->
-		<jsp:include
-			page="${pageContext.request.contextPath}/app/mypage/sidemenu.jsp" />
-		<!-- 메인 컨테이너 -->
-		<div id="main-container">
-			<div class="pagetitle">개인정보 수정</div>
-			<!-- 개인정보 수정 form -->
-			<form
-				action="${pageContext.request.contextPath}/myPage/editCompleteOk.my"
-				method="post" id="formEdit" enctype="multipart/form-data">
+		<form
+			action="${pageContext.request.contextPath}/myPage/editCompleteOk.my"
+			method="post" id="formEdit" enctype="multipart/form-data">
+			<!-- 모달 -->
+			<jsp:include
+				page="${pageContext.request.contextPath}/app/mypage/mypage-modal.jsp" />
+			<!-- 사이드 메뉴 -->
+			<jsp:include
+				page="${pageContext.request.contextPath}/app/mypage/sidemenu.jsp" />
+			<!-- 메인 컨테이너 -->
+			<div id="main-container">
+				<div class="pagetitle">개인정보 수정</div>
+				<!-- 개인정보 수정 form -->
+
 				<div class="edit-info-container">
 					<!-- ID -->
 					<div class="edit-info-list">
@@ -218,22 +219,28 @@
 									src="${pageContext.request.contextPath}/assets/img/profile.png"
 									alt="프로필">
 							</div> --%>
-							<c:if test="${empty file}">
-								<div id="profile-picture">
-									<img id="img-edit-profile-pic"
-										src="${pageContext.request.contextPath}/assets/img/profile.png"
-										alt="프로필">
-								</div>
-							</c:if>
-							<c:if test="${not empty file}">
-								<div id="profile-picture">
-									<img id="img-edit-profile-pic"
-										src="${pageContext.request.contextPath}/upload/profile/${file.getFileSystemName()}">
-								</div>
-							</c:if>
+
+							<c:choose>
+								<c:when test="${empty file}">
+
+									<div id="profile-picture">
+										<img id="img-edit-profile-pic"
+											src="${pageContext.request.contextPath}/assets/img/profile.png"
+											alt="프로필">
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div id="profile-picture">
+										<img id="img-edit-profile-pic"
+											src="${pageContext.request.contextPath}/upload/${file.getFileSystemName()}">
+									</div>
+								</c:otherwise>
+							</c:choose>
 							<!-- 프로필 사진 수정 버튼 -->
 							<button type="button" id="button-edit-profile-pic"
-								class="button-modal-open" name="profilePicUpload">수정</button>
+								class="button-modal-open" name="profilePicUpload"
+								data-type="profilePicUpload">수정</button>
+							<!-- <input type="file" id="input-profile-pic-file" style="display:none"> -->
 						</div>
 					</div>
 				</div>
@@ -242,8 +249,8 @@
 					<button type="submit" id="button-edit-user-complete">수정</button>
 					<button type="button" id="button-edit-user-cancel">취소</button>
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
 	</main>
 	<!-- 푸터 -->
 	<jsp:include page="/footer.jsp" />

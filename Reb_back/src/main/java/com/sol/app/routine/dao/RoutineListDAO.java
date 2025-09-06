@@ -15,8 +15,12 @@ public class RoutineListDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public List<RoutineListDTO> selectAll(Map map){
-		return sqlSession.selectList("routineList.selectAll", map);
+	public List<RoutineListDTO> selectList(Map map){
+		return sqlSession.selectList("routineList.selectList", map);
+	}
+	
+	public List<RoutineListDTO> selectAll(){
+		return sqlSession.selectList("routineList.selectAll");
 	}
 	
 	public int getTotal() {
@@ -29,5 +33,9 @@ public class RoutineListDAO {
 	
 	public int getCount(int boardNumber) {
 		return sqlSession.selectOne("routineMemberApplicant.getCount", boardNumber);
+	}
+	
+	public void updateStatus(RoutineListDTO routineListDTO) {
+		sqlSession.update("routineList.updateStatus", routineListDTO);
 	}
 }

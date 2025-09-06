@@ -21,6 +21,16 @@ public class RoutineOkController implements Execute {
 			throws ServletException, IOException {
 		System.out.println("====RoutineOkController 실행====");
 		RoutineListDAO routineListDAO = new RoutineListDAO();
+		
+		List<RoutineListDTO> routineListDTO = routineListDAO.selectAll();
+		
+		if(routineListDTO != null) {
+			for(RoutineListDTO r : routineListDTO) {
+				r.setRoutineStatusNumber();
+				routineListDAO.updateStatus(r);
+			}
+		}
+		
 		Result result = new Result();
 		FileRoutineDAO fileRoutineDAO = new FileRoutineDAO();
 
@@ -39,16 +49,16 @@ public class RoutineOkController implements Execute {
 		pageMap.put("endRow", endRow);
 
 		// 게시글 목록 조회
-		List<RoutineListDTO> routineList = routineListDAO.selectAll(pageMap);
+		List<RoutineListDTO> routineList = routineListDAO.selectList(pageMap);
 		request.setAttribute("routineList", routineList);
 		
-		for(RoutineListDTO routine : routineList) {
-			if(routine.getRoutineNumber() != 0)
+		System.out.println("routineList size : " + routineList.size());
+
+		for (RoutineListDTO routine : routineList) {
+			if (routine.getRoutineNumber() != 0)
 				routine.setFileRoutineList(fileRoutineDAO.selectList(routine.getRoutineNumber()));
 		}
-		
-		
-		
+
 		for (RoutineListDTO r : routineList) {
 			System.out.println("getRoutineCreatedDate " + r.getRoutineCreatedDate());
 		}
@@ -78,7 +88,8 @@ public class RoutineOkController implements Execute {
 
 		System.out.println("====페이징정보 확인====");
 		System.out.println("pageMap : " + pageMap);
-		System.out.println("routineList : " + routineList);
+		if (routineList != null)
+			System.out.println("routineList : " + routineList);
 		System.out.println(
 				"startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");

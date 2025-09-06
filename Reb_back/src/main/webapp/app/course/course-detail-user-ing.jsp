@@ -81,8 +81,20 @@
 				<div class="div-detail-area">
 					<!-- 이미지 영역 -->
 					<div class="div-img">
-						<img src="./../../assets/img/stone.jpg" class="img-detail">
+						<c:choose>
+							<c:when test="${empty course.getFileCourse()}">
+								<img
+									src="${pageContext.request.contextPath}/assets/img/team_logo.png"
+									class="img-detail">
+							</c:when>
+							<c:otherwise>
+								<img
+									src="${pageContext.request.contextPath}/upload/${course.getFileCourse().getFileSystemName()}"
+									class="img-detail">
+							</c:otherwise>
+						</c:choose>
 					</div>
+
 					<!-- 작성일 영역 -->
 					<div class="div-write-date">
 						<p class="p-write-date">
@@ -112,18 +124,12 @@
 					<div class="div-expert-detail">
 						<p class="p-expert-info-title">내용</p>
 						<div class="div-expert-info-detail">
-							<p class="p-expert-detail-comment" style="white-space:pre-line; word-break: break-all;">
+							<p class="p-expert-detail-comment"
+								style="white-space: pre-line; word-break: break-all;">
 								<c:out value="${course.courseContent}" />
 							</p>
 						</div>
 					</div>
-					<!-- 지도 영역 -->
-					<!-- <div class="div-expert-detail">
-						<p class="p-expert-info-title">오시는 길</p>
-						<div class="div-expert-info-detail">
-							<h1>지도 api 자리</h1>
-						</div>
-					</div> -->
 					<!-- 모집정보 영역 -->
 					<div class="div-expert-detail">
 						<p class="p-expert-info-title">모집 정보</p>
@@ -196,27 +202,22 @@
 					</c:if>
 					<!-- 전문가가 자기 자신의 수업을 보는 버튼 영역 -->
 					<c:if test="${course.expertNumber == sessionScope.expertNumber}">
-						<!-- <div class="div-expert-edit-button">
-							<a href="./expert-course-edit-request.html"><button
-									class="button-edit" type="button">수정 요청하기</button></a>
-							<button class="button-delete" type="button">삭제 요청하기</button>
+						<div class="div-expert-detail-button">
+							<c:choose>
+								<c:when test="${course.getCourseOpenStatusNumber() != 1}">
+									<a
+										href="/course/expertCourseEditRequest.co?courseNumber=${course.courseNumber}"><button
+											class="button-edit" type="button">수정 요청하기</button></a>
+									<button class="button-delete" type="button">삭제 요청하기</button>
+								</c:when>
+								<c:otherwise>
+									<div class="div-expert-detail-info">
+										${course.getCourseRequestType()} 요청 중
+									</div>
+								</c:otherwise>
+							</c:choose>
 						</div>
-						전문가가 자기 자신 수업 수정 요청 시 보여지는 버튼 영역
-						<div class="div-expert-edit-ing-button">
-							<button class="button-edit-ing" type="button">수정 요청중</button>
-						</div>
-						전문가가 자기 자신 수업 삭제 요청 시 보여지는 버튼 영역
-						<div class="div-expert-delete-ing-button">
-							<button class="button-delete-ing" type="button">삭제 요청중</button>
-						</div>
-						모집 전인 수업 시 보여지는 버튼 영역
-						<div class="div-expert-before-button">
-							<button class="button-before" type="button">모집 전</button>
-						</div>
-						모집 종료 시 보여지는 버튼 영역
-						<div class="div-expert-after-button">
-							<button class="button-after" type="button">모집 종료</button>
-						</div> -->
+
 					</c:if>
 				</div>
 			</div>

@@ -34,10 +34,10 @@ public class EditCompleteOkController implements Execute {
 		FileMemberProfileDAO fileDAO = new FileMemberProfileDAO();
 		MyAddressDAO addressDAO = new MyAddressDAO();
 		AddressDTO addressDTO = new AddressDTO();
-		
+
 		Result result = new Result();
 
-		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/profile";
+		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload";
 		final int FILE_SIZE = 1024 * 1024 * 5;
 
 		// MultipartParser 실행
@@ -49,7 +49,7 @@ public class EditCompleteOkController implements Execute {
 		Integer memberNumber = (Integer) session.getAttribute("memberNumber");
 
 		myMemberDTO = myPageDAO.select(memberNumber);
-		
+
 		boolean isFileUpload = false;
 
 		// 파일, 텍스트 데이터 처리
@@ -63,12 +63,6 @@ public class EditCompleteOkController implements Execute {
 				String paramName = paramPart.getName();
 				String paramValue = paramPart.getStringValue();
 
-				/*
-				 * MEMBER_PASSWORD = #{memberPassword}, MEMBER_NICKNAME = #{memberNickname},
-				 * MEMBER_ADDRESS_NUMBER = #{memberAddressNumber}, MEMBER_EMAIL =
-				 * #{memberEmail}, MEMBER_PHONE_NUMBER = #{memberPhoneNumber}
-				 */
-
 				System.out.println("파라미터: " + paramName + " = " + paramValue);
 
 				if ("memberPassword".equals(paramName)) {
@@ -80,14 +74,14 @@ public class EditCompleteOkController implements Execute {
 				} else if ("memberEmail".equals(paramName)) {
 					myMemberDTO.setMemberEmail(paramValue);
 				} else if ("memberAddressNumber".equals(paramName)) {
-					myMemberDTO.setMemberAddressNumber(Integer.parseInt(paramValue));   
-				}else if("address".equals(paramName)) {
+					myMemberDTO.setMemberAddressNumber(Integer.parseInt(paramValue));
+				} else if ("address".equals(paramName)) {
 					addressDTO.setAddress(paramValue);
 					myMemberDTO.setAddress(paramValue);
-				}else if("addressDetail".equals(paramName)) {
+				} else if ("addressDetail".equals(paramName)) {
 					addressDTO.setAddressDetail(paramValue);
 					myMemberDTO.setAddressDetail(paramValue);
-				}else if("zipCode".equals(paramName)) {
+				} else if ("zipCode".equals(paramName)) {
 					addressDTO.setZipCode(paramValue);
 					myMemberDTO.setZipCode(paramValue);
 				}
@@ -100,14 +94,16 @@ public class EditCompleteOkController implements Execute {
 				if (memberNumber != 0) {
 					FileMemberProfileDTO existingFile = fileDAO.select(memberNumber);
 
-					File oldFile = new File(UPLOAD_PATH, existingFile.getFileSystemName());
-					if (oldFile.exists()) {
-						System.out.println("기존 파일 삭제: " + oldFile.getAbsolutePath());
-						oldFile.delete();
+					if (existingFile != null) {
+						File oldFile = new File(UPLOAD_PATH, existingFile.getFileSystemName());
+						if (oldFile.exists()) {
+							System.out.println("기존 파일 삭제: " + oldFile.getAbsolutePath());
+							oldFile.delete();
+						}
+
+						fileDAO.delete(memberNumber);
+						System.out.println("기존 파일 DB 삭제 완료");
 					}
-					
-					fileDAO.delete(memberNumber);
-					System.out.println("기존 파일 DB 삭제 완료");
 				}
 
 				if (fileOriginalName != null) {
@@ -138,16 +134,16 @@ public class EditCompleteOkController implements Execute {
 
 		int addressNumber = addressDAO.insert(addressDTO);
 		myMemberDTO.setMemberNumber(memberNumber);
-		
+
 		MemberDTO memberDTO = new MemberDTO();
-		
+
 		memberDTO.setMemberAddressNumber(addressNumber);
 		memberDTO.setMemberNumber(myMemberDTO.getMemberNumber());
 		memberDTO.setMemberEmail(myMemberDTO.getMemberEmail());
 		memberDTO.setMemberNickname(myMemberDTO.getMemberNickname());
 		memberDTO.setMemberPhoneNumber(myMemberDTO.getMemberPhoneNumber());
 		memberDTO.setMemberPassword(myMemberDTO.getMemberPassword());
-		
+
 		System.out.println("updated : " + memberDTO);
 		myPageDAO.update(memberDTO);
 

@@ -39,22 +39,11 @@
         </div>
         <div class="div-create-course">
           <p class="font-main little-title">내용</p>
-          <textarea class="textarea-text font-main" name="courseText" rows="20" cols="130" required></textarea>
+          <textarea class="textarea-text font-main" class="input-content" name="courseText" rows="20" cols="130" required></textarea>
         </div>
-        <!-- <div class="div-create-course">
-          <p class="font-main little-title">장소</p>
-          <h1>지도 자리</h1>
-        </div> -->
         <div class="div-create-course">
           <p class="font-main little-title">모집 관련 정보</p>
           <div class="div-recruit-info">
-            <!-- <div class="div-info-line">
-              <p class="font-main">모집 기간</p>
-              <div class="div-input-info">
-                <input type="date" name="recruitmentStartDate">
-                <input type="date" name="recruitmentEndDate">
-              </div>
-            </div> -->
             <div class="div-info-line">
               <p class="font-main">강의일</p>
               <div class="div-input-info">

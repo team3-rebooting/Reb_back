@@ -148,8 +148,6 @@
 			</div>
 		</div>
 	</main>
-	<div id="footer"></div>
+	<jsp:include page="/footer.jsp" />
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
-
 </html>
