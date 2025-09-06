@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	const idNotSame = document.querySelector(".p-dupli-id");
 	const idRequired = document.querySelector(".p-id");
 	const idRegex = /^[a-z0-9]{5,19}$/;
-	const pnRegex = /^0\d{2}-\d{4}-\d{4}$/;
 
 	inputId.addEventListener("blur", function() {
 		const nearWarning = inputId.closest(".div-signup");
@@ -182,7 +181,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
-	let checkGender = false;
 
 	/*const gender = document.getElementsByName("gender");
 	let checkedGender = document.querySelector("input[type='radio'][name='gender']:checked");*/
@@ -202,10 +200,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	    if (!isChecked) {
 	      warning.style.display = "block"; // 경고 문구 보이기
-	      return false; // 폼 제출 막기
+	      return true; // 폼 제출 막기
 	    } else {
 	      warning.style.display = "none"; // 경고 문구 숨기기 (이미 선택한 경우)
-	      return true; // 폼 제출 허용
+	      return false; // 폼 제출 허용
 	    }
 	  }
 	
@@ -268,6 +266,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	let injungPhone = document.querySelector(".input-cert");
 	let injunging = document.querySelector(".button-injunging");
 	const retry = document.querySelector(".button-retry");
+	const pnRegex = /^0\d{2}-\d{4}-\d{4}$/;
 
 	buttonInjung.addEventListener('click', function() {
 		const phoneNumberValue = phoneNumber.value.trim().replace(/[^0-9]/g, "");
@@ -278,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		console.log(phoneNumberValue);
 
 		if (!pnRegex.test(phoneNumber.value)) {
-			alert("형식을 지켜주세요.");
+			alert("-를 입력해 형식을 지켜주세요.");
 			return;
 		}
 		fetch("/member/joinSMS.me", {
@@ -448,10 +447,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			e.preventDefault();
 			alert("이름을 입력해주세요.");
 			return;
-		} else if (checkGender) {
-			e.preventDefault();
-			alert("성별을 선택해주세요.");
-			return;
 		} else if (checkNickname) {
 			e.preventDefault();
 			alert("닉네임을 입력해주세요.");
@@ -465,7 +460,10 @@ document.addEventListener("DOMContentLoaded", function() {
 			alert("전화번호 인증을 해주세요.");
 			return;
 		}
-		checkedGender();
+		if(checkedGender()){
+			e.preventDefault();
+			alert("성별을 입력해주세요.")
+		}
 	});
 
 

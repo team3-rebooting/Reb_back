@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const inputModalNameId = document.querySelector(".input-modal-name-id");
 	const inputModalPnId = document.querySelector(".input-modal-pn-id");
 	const inputPhoneNumberId = document.querySelector("input[name='modalIdPhoneInjung']");
+	const pnRegex = /^0\d{2}-\d{4}-\d{4}$/;
 
 	findIdModal.addEventListener('click', () => {
 		idModal.style.display = "flex";
@@ -73,6 +74,11 @@ document.addEventListener("DOMContentLoaded", function() {
 			return;
 		}
 		console.log(phoneNumber);
+		
+		if (!pnRegex.test(inputModalPnId.value)) {
+			alert("-를 입력해 형식을 지켜주세요.");
+			return;
+		}
 
 		fetch("/member/joinSMS.me", {
 			method: 'POST',
@@ -245,6 +251,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		reIdPn.disabled = true;
 	});
 	/*--------------------------------------------------------------------*/
+	
+	
+	/*--------------------------------------------------------------------*/
 
 	const findPwModal = document.querySelector(".p-findpw");
 	const pwModal = document.querySelector(".modal-pw-background");
@@ -319,6 +328,11 @@ document.addEventListener("DOMContentLoaded", function() {
 			return;
 		}
 		console.log(phoneNumber);
+		
+		if (!pnRegex.test(inputModalPnPw.value)) {
+			alert("-를 입력해 형식을 지켜주세요.");
+			return;
+		}
 
 		fetch("/member/joinSMS.me", {
 			method: 'POST',
