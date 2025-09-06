@@ -49,7 +49,21 @@
 				</p>
 				<div class="div-user-integration">
 					<div class="div-user-profile">
-						<img src="${pageContext.request.contextPath}/assets/img/profile.png" class="img-user-profile">
+						<%-- img
+						src="${pageContext.request.contextPath}/assets/img/profile.png"
+						class="img-user-profile">--%>
+						<c:set var="file" value="${routineReview.getFileMemberProfile()}"></c:set>
+						<c:choose>
+							<c:when test="${empty file}">
+								<img class="img-user-profile"
+									src="${pageContext.request.contextPath}/assets/img/profile.png"
+									alt="프로필">
+							</c:when>
+							<c:otherwise>
+								<img class="img-user-profile"
+									src="${pageContext.request.contextPath}/upload/${file.getFileSystemName()}">
+							</c:otherwise>
+						</c:choose>
 					</div>
 					<div class="div-user-info">
 						<p class="p-user-name">
@@ -62,9 +76,9 @@
 							</c:if>
 						</p>
 					</div>
-					<div class="div-font-awesome-line" style="display:none">
-						<span>루틴 모임 : ${routineReview.routineTitle}</span><br>
-						<span class="span-likes">좋아요 수 : <c:out
+					<div class="div-font-awesome-line" style="display: none">
+						<span>루틴 모임 : ${routineReview.routineTitle}</span><br> <span
+							class="span-likes">좋아요 수 : <c:out
 								value="${routineReview.getLikeCount()}" />
 						</span><i class="fa-regular fa-heart"></i>
 					</div>
@@ -86,7 +100,8 @@
 					</div>
 					<div class="div-expert-detail">
 						<div class="div-expert-info-detail">
-							<p class="p-expert-detail-comment" style="white-space:pre-line; word-break: break-all;">
+							<p class="p-expert-detail-comment"
+								style="white-space: pre-line; word-break: break-all;">
 								<c:out value="${routineReview.getRoutineReviewContent()}" />
 							</p>
 						</div>
@@ -94,8 +109,10 @@
 					<c:if
 						test="${sessionScope.memberNumber == routineReview.getMemberNumber()}">
 						<div class="div-button-area">
-							<button class="button-application" data-reviewnumber ="${routineReview.routineReviewNumber}">수정</button>
-							<button class="button-cancel" data-reviewnumber ="${routineReview.routineReviewNumber}">삭제</button>
+							<button class="button-application"
+								data-reviewnumber="${routineReview.routineReviewNumber}">수정</button>
+							<button class="button-cancel"
+								data-reviewnumber="${routineReview.routineReviewNumber}">삭제</button>
 						</div>
 					</c:if>
 					<div class="div-comment-area">
@@ -123,10 +140,11 @@
 			</div>
 		</div>
 	</main>
-	<div id="footer"></div>
+	<jsp:include page="/footer.jsp" />
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/comment/comment.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/routine/routine-meeting-review-detail.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/comment/comment.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/routine/routine-meeting-review-detail.js"></script>
 
 </html>

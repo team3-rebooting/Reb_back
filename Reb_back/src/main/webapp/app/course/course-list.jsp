@@ -59,7 +59,7 @@
 											</c:when>
 											<c:otherwise>
 												<img
-													src="${pageContext.request.contextPath}/upload/course/${course.getFileCourse().getFileSystemName()}"
+													src="${pageContext.request.contextPath}/upload/${course.getFileCourse().getFileSystemName()}"
 													class="img-box">
 											</c:otherwise>
 										</c:choose>

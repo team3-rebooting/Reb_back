@@ -98,6 +98,10 @@ button:hover {
 	cursor: pointer;
 }
 
+.input-content{
+	padding : 10px;
+}
+
 .div-create-course {
 	padding-top: 30px;
 }

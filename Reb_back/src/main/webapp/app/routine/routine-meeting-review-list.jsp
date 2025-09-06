@@ -37,10 +37,10 @@
 			<p class="pagetitle">루틴 모임 후기 게시판</p>
 
 			<div class="div-review-title">
-				<p class="font-main review-title-title">제목</p>
+				<p class="font-main review-title">제목</p>
 				<p class="font-main review-author">작성자</p>
 				<p class="font-main review-date">작성일</p>
-				<p class="font-main review-like" style="display:none">좋아요</p>
+				<p class="font-main review-like">좋아요</p>
 			</div>
 			<!-- 게시글 목록 -->
 			<div class="board-body">
@@ -59,7 +59,10 @@
 										<c:out value="${routine.memberNickname}" />
 									</p>
 									<p class="review-date">
-										<c:out value="${routine.routineReviewCreatedDate}" />
+										<c:out value="${routine.getRoutineReviewCreatedDate()}" />
+										<c:if test="${routine.isUpdated()}">
+											(수정됨)
+										</c:if>
 									</p>
 									<p class="review-like" style="display:none">
 										<c:out value="${routine.likeCount}" />
@@ -137,7 +140,6 @@
 
 
 	</main>
-	<div id="footer"></div>
+	<jsp:include page="/footer.jsp" />
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </html>
