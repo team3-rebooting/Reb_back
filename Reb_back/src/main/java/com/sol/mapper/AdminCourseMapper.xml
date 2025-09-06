@@ -8,7 +8,8 @@
     			FROM (
                 		SELECT c.course_number, m.member_number, m.member_id, m.member_name, c.COURSE_TITLE,
 						TO_CHAR(c.COURSE_START_DATE, 'YYYY-MM-DD') AS COURSE_START_DATE,
-            			TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD') AS COURSE_END_DATE
+            			TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD') AS COURSE_END_DATE,
+            			c.course_recruit_status_number 
         				FROM TBL_course c
         				JOIN TBL_EXPERT e 
     					ON c.EXPERT_NUMBER = e.EXPERT_NUMBER 
