@@ -1,6 +1,6 @@
 package com.sol.app.dto;
 
-import com.sol.app.status.CourseOpenStatus;
+import com.sol.app.status.CourseRecruitStatus;
 
 public class AdminCourseListDTO {
 	private String memberNumber;
@@ -75,12 +75,12 @@ public class AdminCourseListDTO {
 
 	public void setCourseRecruitStatusNumber(int courseRecruitStatusNumber) {
 		this.courseRecruitStatusNumber = courseRecruitStatusNumber;
-		this.setCourseStatusInfo(CourseOpenStatus.findCourseStatusInfo(courseRecruitStatusNumber));
+		this.setCourseStatusInfo(CourseRecruitStatus.findCourseStatusInfo(courseRecruitStatusNumber));
 	}
 
 	public String getCourseStatusInfo() {
 		if (courseStatusInfo == null) {
-			this.setCourseStatusInfo(CourseOpenStatus.findCourseStatusInfo(courseRecruitStatusNumber));
+			this.setCourseStatusInfo(CourseRecruitStatus.findCourseStatusInfo(courseRecruitStatusNumber));
 		}
 		return courseStatusInfo;
 	}
