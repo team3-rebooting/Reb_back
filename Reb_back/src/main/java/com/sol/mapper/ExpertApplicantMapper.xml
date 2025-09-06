@@ -11,4 +11,7 @@
 	<insert id="insert" parameterType="int">
 		INSERT INTO TBL_EXPERT_APPLICANT (MEMBER_NUMBER, EXPERT_STATUS_NUMBER, EXPERT_CHECK_DATE) VALUES (#{memberNumber}, 1, sysdate)
 	</insert>
+	<select id="exist" parameterType="int" resultType="int">
+		select count(MEMBER_NUMBER) from TBL_EXPERT_APPLICANT where MEMBER_NUMBER = #{memberNumber}
+	</select>
 </mapper>

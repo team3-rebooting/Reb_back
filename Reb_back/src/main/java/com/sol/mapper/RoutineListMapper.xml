@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="routineList">
-	<select id="selectAll" resultType="RoutineListDTO">
+	<select id="selectList" resultType="RoutineListDTO">
 		<![CDATA[
 		SELECT * FROM (
 		SELECT ROWNUM AS rnum, subquery.*
 		FROM (
+			select * from (
 			SELECT r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, rl.ROUTINE_LEADER_NAME, r.ADMIN_NUMBER, r.ROUTINE_TITLE, r.ROUTINE_CONTENT, r.ROUTINE_LOCATION, 
 			to_char(r.ROUTINE_CREATED_DATE, 'yyyy.mm.dd(day)') as ROUTINE_CREATED_DATE, 
 			to_char(r.ROUTINE_UPDATED_DATE, 'yyyy.mm.dd(day)') as ROUTINE_UPDATED_DATE, 
@@ -13,16 +14,30 @@
 			to_char(r.ROUTINE_RECRUIT_END_DATE, 'yyyy.mm.dd(day)') as ROUTINE_RECRUIT_END_DATE, 
 			to_char(r.ROUTINE_START_DATE, 'yyyy.mm.dd(day)') as ROUTINE_START_DATE, 
 			to_char(r.ROUTINE_END_DATE, 'yyyy.mm.dd(day)') as ROUTINE_END_DATE, 
-			to_char(r.ROUTINE_START_TIME,'hh:mi') as ROUTINE_START_TIME,  
+			to_char(r.ROUTINE_START_TIME,'hh:mi') as ROUTINE_START_TIME,  r.routine_status_number,
 			to_char(r.ROUTINE_END_TIME,'hh:mi') as ROUTINE_END_TIME, r.ROUTINE_DAY_OF_WEEK, r.ROUTINE_RECRUIT_COUNT FROM tbl_routine r
-			FULL OUTER JOIN tbl_routine_leader rl ON r.ROUTINE_LEADER_NUMBER  = rl.ROUTINE_LEADER_NUMBER
+			LEFT JOIN tbl_routine_leader rl ON r.ROUTINE_LEADER_NUMBER  = rl.ROUTINE_LEADER_NUMBER
 			LEFT JOIN TBL_FILE_ROUTINE fr ON fr.ROUTINE_NUMBER = r.ROUTINE_NUMBER
-			ORDER BY r.ROUTINE_CREATED_DATE DESC
+			ORDER BY r.ROUTINE_CREATED_DATE DESC) t order by t.routine_status_number
 			) subquery
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>
 	</select>
 
+	
+	<select id="selectAll" resultType="RoutineListDTO">
+		<![CDATA[
+			SELECT ROUTINE_NUMBER, ROUTINE_LEADER_NUMBER, ADMIN_NUMBER, ROUTINE_TITLE, ROUTINE_CONTENT, ROUTINE_LOCATION, 
+			to_char(ROUTINE_CREATED_DATE, 'yyyy.mm.dd(day)') as ROUTINE_CREATED_DATE, 
+			to_char(ROUTINE_UPDATED_DATE, 'yyyy.mm.dd(day)') as ROUTINE_UPDATED_DATE, 
+			to_char(ROUTINE_RECRUIT_START_DATE, 'yyyy.mm.dd(day)') as ROUTINE_RECRUIT_START_DATE, 
+			to_char(ROUTINE_RECRUIT_END_DATE, 'yyyy.mm.dd(day)') as ROUTINE_RECRUIT_END_DATE, 
+			to_char(ROUTINE_START_DATE, 'yyyy.mm.dd(day)') as ROUTINE_START_DATE, 
+			to_char(ROUTINE_END_DATE, 'yyyy.mm.dd(day)') as ROUTINE_END_DATE, 
+			to_char(ROUTINE_START_TIME,'hh:mi') as ROUTINE_START_TIME,  routine_status_number,
+			to_char(ROUTINE_END_TIME,'hh:mi') as ROUTINE_END_TIME, ROUTINE_DAY_OF_WEEK, ROUTINE_RECRUIT_COUNT FROM tbl_routine
+		]]>
+	</select>
 	
 	<select id="getTotal" resultType="int">
 		SELECT count(*) FROM TBL_ROUTINE
@@ -30,7 +45,7 @@
 	
 	<select id="select" parameterType="int" resultType="RoutineListDTO">
 		<![CDATA[
-		SELECT r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, rl.ROUTINE_LEADER_NAME, r.ADMIN_NUMBER, r.ROUTINE_TITLE, r.ROUTINE_CONTENT, r.ROUTINE_LOCATION, 
+		SELECT r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, rl.ROUTINE_LEADER_NAME, r.ADMIN_NUMBER, r.ROUTINE_TITLE, r.ROUTINE_CONTENT, r.ROUTINE_LOCATION, r.routine_status_number,
 			to_char(r.ROUTINE_CREATED_DATE, 'yyyy.mm.dd(day)') as ROUTINE_CREATED_DATE, 
 			to_char(r.ROUTINE_UPDATED_DATE, 'yyyy.mm.dd(day)') as ROUTINE_UPDATED_DATE, 
 			to_char(r.ROUTINE_RECRUIT_START_DATE, 'yyyy.mm.dd(day)') as ROUTINE_RECRUIT_START_DATE, 
@@ -43,4 +58,8 @@
 			WHERE r.ROUTINE_NUMBER = #{routineNumber}
 		]]>
 	</select>
+		
+	<update id="updateStatus" parameterType="RoutineListDTO">
+		update TBL_ROUTINE set routine_status_number = #{routineStatusNumber} where routine_number = #{routineNumber}
+	</update>
 </mapper>

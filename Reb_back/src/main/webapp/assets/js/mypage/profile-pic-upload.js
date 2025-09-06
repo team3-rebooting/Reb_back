@@ -11,7 +11,7 @@ function loadImage(e) {
 let imgFileName;
 let imgFile;
 
-function saveImage() {
+async function saveImage() {
     if (imgFile == null || imgFile == ""){
         alert("첨부파일이 없습니다.");
         return;
@@ -28,6 +28,6 @@ function saveImage() {
             profilePic.src = path;
         }
 
-        closeModal();
+		document.querySelector(`.mypage-modal`).style.display = "none";
     }
 }

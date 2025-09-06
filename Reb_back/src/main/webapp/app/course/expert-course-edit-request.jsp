@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,20 +38,16 @@
 			<form action="" method="post">
 				<div class="div-create-course">
 					<input type="text" class="input-title input-in" name="courseTitle"
-						placeholder="제목을 입력해주세요">
+						placeholder="제목을 입력해주세요" value="${course.courseTitle}" required>
 				</div>
 				<div class="div-create-course">
 					<span class="font-main little-title">대표 이미지 : </span> <input
-						type="file" name="courseFile" class="input-in">
+						type="file" name="courseFile" class="input-in" required>
 				</div>
 				<div class="div-create-course">
-					<p class="font-main little-title">내용(summernote 자리)</p>
-					<textarea class="textarea-text input-in" name="courseText"
-						rows="20" cols="130"></textarea>
-				</div>
-				<div class="div-create-course">
-					<p class="font-main little-title">장소</p>
-					<h1>지도 자리</h1>
+					<p class="font-main little-title">내용</p>
+					<textarea class="textarea-text input-in font-main" name="courseText"
+						rows="20" cols="130" required>${course.courseContent}</textarea>
 				</div>
 				<div class="div-create-course">
 					<p class="font-main little-title">모집 관련 정보</p>
@@ -65,15 +62,15 @@
 						<div class="div-info-line">
 							<p class="font-main">강의일</p>
 							<div class="div-input-info">
-								<input type="date" name="courseStartDate" class="input-in">
-								<input type="date" name="courseEndDate" class="input-in">
+								<input type="date" name="courseStartDate" class="input-in" required>
+								<input type="date" name="courseEndDate" class="input-in" required>
 							</div>
 						</div>
 						<div class="div-info-line">
 							<p class="font-main">시간</p>
 							<div class="div-input-info">
-								<input type="time" name="courseStartTime" class="input-in">
-								<input type="time" name="courseEndTime" class="input-in">
+								<input type="time" name="courseStartTime" class="input-in" required>
+								<input type="time" name="courseEndTime" class="input-in" required>
 							</div>
 						</div>
 						<div class="div-info-line">
@@ -97,13 +94,7 @@
 						<div class="div-info-line">
 							<p class="font-main">모집 인원</p>
 							<div class="div-input-info">
-								<input type="number" name="recruitmentNumber" class="input-in">
-							</div>
-						</div>
-						<div class="div-info-line">
-							<p class="font-main">가격</p>
-							<div class="div-input-info">
-								<input type="number" name="recruitmentPrice" class="input-in">
+								<input type="number" name="recruitmentNumber" class="input-in" value="${course.courseRecruitCount}"required>
 							</div>
 						</div>
 					</div>
@@ -111,14 +102,13 @@
 				<div class="div-create-course">
 					<div class="div-button-line">
 						<button class="button-ok" type="button">수정 요청</button>
-						<a href="./course-detail-expert-basic.html"><button
+						<a href="/course/courseDetailOk.co?courseNumber=${course.courseNumber}"><button
 								class="button-cancel" type="button">취소</button></a>
 					</div>
 				</div>
 			</form>
 		</div>
 	</main>
-	<div id="footer"></div>
+	<jsp:include page="/footer.jsp" />
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </html>

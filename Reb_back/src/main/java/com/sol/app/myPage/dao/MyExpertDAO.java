@@ -32,4 +32,8 @@ public class MyExpertDAO {
 	public void update(ExpertDTO expert) {
 		//sqlSession.update("expert.update", expert);
 	}
+	
+	public boolean exist(int memberNumber) {
+		return (Integer)sqlSession.selectOne("expertApplicant.exist", memberNumber) >= 1;
+	}
 }

@@ -3,6 +3,7 @@ package com.sol.app.course.dao;
 import org.apache.ibatis.session.SqlSession;
 
 import com.sol.app.dto.CourseDTO;
+import com.sol.app.dto.CourseListDTO;
 import com.sol.config.MyBatisConfig;
 
 public class CourseDAO {
@@ -24,7 +25,4 @@ public class CourseDAO {
 		
 		return courseNumber;
 	}
-	
-	
-	
 }

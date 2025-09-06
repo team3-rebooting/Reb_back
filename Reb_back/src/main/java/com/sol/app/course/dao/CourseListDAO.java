@@ -23,8 +23,8 @@ public class CourseListDAO {
 		return sqlSession.selectOne("courseList.getTotal");
 	}
 	
-	public CourseListDTO select(int boardNumber) {
-		return sqlSession.selectOne("courseList.select", boardNumber);
+	public CourseListDTO select(int courseNumber) {
+		return sqlSession.selectOne("courseList.select", courseNumber);
 	}
 	
 	public int getCount(int boardNumber) {

@@ -126,9 +126,26 @@
 						<div class="personal-info-type">프로필 사진</div>
 						<div class="personal-info-data">
 							<div id="profile-picture">
-								<img
+								<%-- <img
 									src="${pageContext.request.contextPath}/assets/img/profile.png"
-									alt="프로필">
+									alt="프로필"> --%>
+								<c:set var="file" value="${myMemberDTO.getFileMemberProfile()}"></c:set>
+								<c:choose>
+									<c:when test="${empty file}">
+
+										<div id="profile-picture">
+											<img id="img-edit-profile-pic"
+												src="${pageContext.request.contextPath}/assets/img/profile.png"
+												alt="프로필">
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div id="profile-picture">
+											<img id="img-edit-profile-pic"
+												src="${pageContext.request.contextPath}/upload/${file.getFileSystemName()}">
+										</div>
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</div>
 					</div>

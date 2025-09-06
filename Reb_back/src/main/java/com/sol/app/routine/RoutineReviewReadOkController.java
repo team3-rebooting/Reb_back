@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.dto.RoutineReviewListDTO;
+import com.sol.app.myPage.dao.FileMemberProfileDAO;
 import com.sol.app.routine.dao.FileRoutineReviewDAO;
 import com.sol.app.routine.dao.RoutineReviewListDAO;
 
@@ -21,13 +22,17 @@ public class RoutineReviewReadOkController implements Execute {
 		RoutineReviewListDTO routineReviewListDTO = new RoutineReviewListDTO();
 		
 		FileRoutineReviewDAO fileRoutineReviewDAO = new FileRoutineReviewDAO();
+		
+		FileMemberProfileDAO fileMemberProfileDAO = new FileMemberProfileDAO();
+		
 		Result result = new Result();
 		
 		routineReviewListDTO = routineReviewListDAO.select(Integer.valueOf(request.getParameter("routineReviewNumber")));
 		
-		if(routineReviewListDTO.getRoutineReviewNumber() != 0)
+		if(routineReviewListDTO.getRoutineReviewNumber() != 0) {
 			routineReviewListDTO.setFileRoutineReviewList(fileRoutineReviewDAO.selectList(routineReviewListDTO.getRoutineReviewNumber()));
-		
+			routineReviewListDTO.setFileMemberProfile(fileMemberProfileDAO.select(routineReviewListDTO.getMemberNumber()));
+		}
 		System.out.println("routineReviewListDTO : " + routineReviewListDTO);
 		
 		request.setAttribute("routineReview", routineReviewListDTO);
