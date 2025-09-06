@@ -36,4 +36,8 @@ public class RoutineReviewListDAO {
 	public void delete(int routineReviewNumber) {
 		sqlSession.delete("routineReview.delete", routineReviewNumber);
 	}
+	
+	public void update(RoutineReviewDTO routineReviewDTO) {
+		sqlSession.update("routineReview.update", routineReviewDTO);
+	}
 }

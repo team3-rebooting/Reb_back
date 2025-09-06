@@ -15,6 +15,7 @@ public class RoutineReviewListDTO {
 	private String routineReviewUpdatedDate;
 	private String routineReviewContent;
 	private List<FileRoutineReviewDTO> fileRoutineReviewList;
+	private List<FileMemberProfileDTO> fileMemberProfileList;
 	private int likeCount;
 	private List<RoutineReviewLikeDTO> likeList = new ArrayList<>();
 	public int getRoutineReviewNumber() {
@@ -54,17 +55,18 @@ public class RoutineReviewListDTO {
 		this.memberNickname = memberNickname;
 	}
 	public String getRoutineReviewCreatedDate() {
-		return routineReviewCreatedDate;
+		return routineReviewCreatedDate.split(" ")[0].replace('-', '.');
 	}
 	public void setRoutineReviewCreatedDate(String routineReviewCreatedDate) {
-		this.routineReviewCreatedDate = routineReviewCreatedDate.split(" ")[0].replace('-', '.');
+		this.routineReviewCreatedDate = routineReviewCreatedDate;
 	}
 	public String getRoutineReviewUpdatedDate() {
-		return routineReviewUpdatedDate;
+		return routineReviewUpdatedDate.split(" ")[0].replace('-', '.');
 	}
 	public void setRoutineReviewUpdatedDate(String routineReviewUpdatedDate) {
-		this.routineReviewUpdatedDate = routineReviewUpdatedDate.split(" ")[0].replace('-', '.');
+		this.routineReviewUpdatedDate = routineReviewUpdatedDate;
 	}
+	
 	public String getRoutineReviewContent() {
 		return routineReviewContent;
 	}
@@ -100,6 +102,26 @@ public class RoutineReviewListDTO {
 		this.fileRoutineReviewList = fileRoutineReviewList;
 	}
 	
+	public FileMemberProfileDTO getFileMemberProfile() {
+		if(fileMemberProfileList == null)
+			return null;
+		if(fileMemberProfileList.size() == 0)
+			return null;
+		
+		return fileMemberProfileList.get(0);
+	}
+	
+	public List<FileMemberProfileDTO> getFileMemberProfileList() {
+		return fileMemberProfileList;
+	}
+	public void setFileMemberProfile(FileMemberProfileDTO fileMemberProfileList) {
+		this.fileMemberProfileList = new ArrayList<>();
+		this.fileMemberProfileList.add(fileMemberProfileList);
+	}	
+	public void setFileMemberProfileList(List<FileMemberProfileDTO> fileMemberProfileList) {
+		this.fileMemberProfileList = fileMemberProfileList;
+	}	
+	
 	public boolean isUpdated() {
 		return !routineReviewUpdatedDate.equals(routineReviewCreatedDate);
 	}
@@ -111,6 +133,7 @@ public class RoutineReviewListDTO {
 				+ memberNumber + ", memberNickname=" + memberNickname + ", routineReviewCreatedDate="
 				+ routineReviewCreatedDate + ", routineReviewUpdatedDate=" + routineReviewUpdatedDate
 				+ ", routineReviewContent=" + routineReviewContent + ", fileRoutineReviewList=" + fileRoutineReviewList
+				+ ", fileMemberProfileList=" + fileMemberProfileList
 				+ ", likeCount=" + likeCount + ", likeList=" + likeList + "]";
 	}
 }

@@ -1,7 +1,10 @@
 package com.sol.app.dto;
 
 import java.util.List;
+
+import com.sol.app.status.CourseOpenStatus;
 import com.sol.app.status.CourseRecruitStatus;
+import com.sol.app.status.CourseRequestType;
 import com.sol.app.status.Field;
 
 public class CourseListDTO {
@@ -25,7 +28,11 @@ public class CourseListDTO {
 	private String fieldName;
 	private String expertLicenseInfo;
 	private String expertCareer;
-	
+
+	private int courseOpenStatusNumber;
+
+	private int courseRequestTypeNumber;
+
 	private int courseRecruitStatusNumber;
 
 	private List<FileCourseDTO> fileCourseList;
@@ -73,13 +80,15 @@ public class CourseListDTO {
 	public int getCourseRecruitStatusNumber() {
 		return courseRecruitStatusNumber;
 	}
-	
+
 	public void setCourseRecruitStatusNumber() {
-		this.courseRecruitStatusNumber = CourseRecruitStatus.getCourseRecruitStatusNumber(courseRecruitStartDate, courseRecruitEndDate, courseStartDate, courseEndDate);
+		this.courseRecruitStatusNumber = CourseRecruitStatus.getCourseRecruitStatusNumber(courseRecruitStartDate,
+				courseRecruitEndDate, courseStartDate, courseEndDate);
 	}
-	
+
 	public String getCourseStatusInfo() {
-		return CourseRecruitStatus.findCourseStatusInfo(CourseRecruitStatus.getCourseRecruitStatusNumber(courseRecruitStartDate, courseRecruitEndDate, courseStartDate, courseEndDate));
+		return CourseRecruitStatus.findCourseStatusInfo(CourseRecruitStatus.getCourseRecruitStatusNumber(
+				courseRecruitStartDate, courseRecruitEndDate, courseStartDate, courseEndDate));
 	}
 
 	public String getCoursePostDate() {
@@ -193,15 +202,15 @@ public class CourseListDTO {
 
 	public void setFieldNumber(int fieldNumber) {
 		this.fieldNumber = fieldNumber;
-		
+
 		this.setFieldName(Field.findFieldName(fieldNumber));
 	}
-	
+
 	public String getFieldName() {
-		if(fieldName == null) {
+		if (fieldName == null) {
 			this.setFieldName(Field.findFieldName(fieldNumber));
 		}
-		
+
 		return fieldName;
 	}
 
@@ -225,18 +234,45 @@ public class CourseListDTO {
 		this.expertCareer = expertCareer;
 	}
 
+	public int getCourseRequestTypeNumber() {
+		return courseRequestTypeNumber;
+	}
+
+	public void setCourseRequestTypeNumber(int courseRequestTypeNumber) {
+		this.courseRequestTypeNumber = courseRequestTypeNumber;
+	}
+
+	public String getCourseRequestType() {
+		return CourseRequestType.findCourseRequestType(courseRequestTypeNumber);
+	}
+
+	public int getCourseOpenStatusNumber() {
+		return courseOpenStatusNumber;
+	}
+
+	public void setCourseOpenStatusNumber(int courseOpenStatusNumber) {
+		this.courseOpenStatusNumber = courseOpenStatusNumber;
+	}
+
+	public String getCourseOpenStatusInfo() {
+		return CourseOpenStatus.findCourseStatusInfo(courseOpenStatusNumber);
+	}
+
 	@Override
 	public String toString() {
 		return "CourseListDTO [courseNumber=" + courseNumber + ", expertNumber=" + expertNumber + ", expertName="
 				+ expertName + ", courseTitle=" + courseTitle + ", courseContent=" + courseContent
-				+ ", courseRecruitStatusNumber=" + getCourseRecruitStatusNumber() + ", courseStatusInfo=" + getCourseStatusInfo()
-				+ ", coursePostDate=" + coursePostDate + ", coursePostUpdateDate=" + coursePostUpdateDate
-				+ ", courseRecruitStartDate=" + courseRecruitStartDate + ", courseRecruitEndDate="
-				+ courseRecruitEndDate + ", courseStartDate=" + courseStartDate + ", courseEndDate=" + courseEndDate
-				+ ", courseStartTime=" + courseStartTime + ", courseEndTime=" + courseEndTime + ", courseDayOfWeek="
-				+ courseDayOfWeek + ", courseApplicantCount=" + courseApplicantCount + ", courseRecruitCount="
-				+ courseRecruitCount + ", fieldNumber=" + fieldNumber +", fieldName=" + fieldName
-				+ ", expertLicenseInfo=" + expertLicenseInfo + ", courseRecruitStatusNumber="+ courseRecruitStatusNumber +", expertCareer=" + expertCareer + ", fileCourseList="
-				+ fileCourseList + "]";
+				+ ", courseRecruitStatusNumber=" + getCourseRecruitStatusNumber() + ", courseStatusInfo="
+				+ getCourseStatusInfo() + ", coursePostDate=" + coursePostDate + ", coursePostUpdateDate="
+				+ coursePostUpdateDate + ", courseRecruitStartDate=" + courseRecruitStartDate
+				+ ", courseRecruitEndDate=" + courseRecruitEndDate + ", courseStartDate=" + courseStartDate
+				+ ", courseEndDate=" + courseEndDate + ", courseStartTime=" + courseStartTime + ", courseEndTime="
+				+ courseEndTime + ", courseDayOfWeek=" + courseDayOfWeek + ", courseApplicantCount="
+				+ courseApplicantCount + ", courseRecruitCount=" + courseRecruitCount + ", fieldNumber=" + fieldNumber
+				+ ", fieldName=" + fieldName + ", expertLicenseInfo=" + expertLicenseInfo
+				+ ", courseRecruitStatusNumber=" + courseRecruitStatusNumber + ", expertCareer=" + expertCareer 
+				+ ", courseRequestTypeNumber=" + getCourseRequestTypeNumber() + ", courseRequestType=" + getCourseRequestType()
+				+ ", courseOpenStatusNumber" + getCourseOpenStatusNumber() + ", courseOpenStatusInfo" + getCourseOpenStatusInfo()
+				+ ", fileCourseList=" + fileCourseList + "]";
 	}
 }

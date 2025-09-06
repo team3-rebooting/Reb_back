@@ -37,6 +37,13 @@ public class ExpertFileUploadOkController implements Execute {
 
 			return result;
 		}
+		
+		if(myExpertDAO.exist(memberNumber)) {
+			result.setPath(request.getContextPath() + "/myPage/expertStatus.my");
+			result.setRedirect(false);
+			
+			return result;
+		}
 
 		// 파일 업로드 환경 설정
 		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
@@ -50,26 +57,7 @@ public class ExpertFileUploadOkController implements Execute {
 		// UPLOAD_PATH : 파일을 저장할 경로
 		// FILE_SIZE : 파일의 최대 크기
 		// "utf-8" : 파일명 인코딩 방식
-		// new DefaultFileRenamePolicy() : 파일명이 중복될 경우 자동으로 이름 변경해주는 정책
-
-		//System.out.println("routineNumber : " + multipartRequest.getParameter("routineNumber"));
-
-		//routineReviewDTO.setMemberNumber(memberNumber);
-		//routineReviewDTO.setRoutineReviewContent(multipartRequest.getParameter("routineReviewContent"));
-		//routineReviewDTO.setRoutineReviewTitle(multipartRequest.getParameter("routineReviewTitle"));
-
-		//routineReviewDTO.setRoutineNumber(Integer.parseInt(multipartRequest.getParameter("routineNumber")));
-
-		//System.out.println("routineReviewDTO : " + routineReviewDTO);
 		
-		//int reviewNum = routineReviewListDAO.insert(routineReviewDTO);
-
-		//System.out.println("============게시글 작성 : " + reviewNum);
-
-		//result.setPath(request.getContextPath() + "/routine/routineReviewReadOk.ro?routineReviewNumber=" + reviewNum);
-		//result.setRedirect(false);
-
-		// 파일 업로드 처리
 		// Enumeration : java.util 패키지에 포함된 인터페이스, Iterator와 비슷한 역할함
 		Enumeration<String> fileNames = multipartRequest.getFileNames();
 		while (fileNames.hasMoreElements()) {
