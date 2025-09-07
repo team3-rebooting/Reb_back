@@ -60,6 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			if (!res.ok) throw new Error("댓글 삭제 실패");
 			
+			loadList();
 		} catch (error) {
 			console.error("댓글 삭제 실패:", error);
 			alert("댓글 삭제를 실패 했습니다.");
@@ -85,9 +86,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			console.log(listInfo);
 			let updated = '';
+			let deleteButton = '';
 			if (l.reviewCreatedDate !== l.reviewUpdatedDate)
 				if (l.reviewUpdatedDate !== null && l.reviewUpdatedDate !== undefined)
 					updated = '(수정됨)';
+			if(l.currentMemberNumber === l.memberNumber){
+				deleteButton =  `<span class="span-comment-delete" data-num="${l.reviewCommentNumber}"
+								data-mem="${l.memberNumber}" data-listtype="${id}">삭제</span>`
+			}	
+		
 
 			let li = `				<li class="li-comment">
 										<div class="div-user-profile">
@@ -99,10 +106,7 @@ window.addEventListener('DOMContentLoaded', () => {
 											</div>
 											<div class="div-user-text-area">
 												<p class="p-comment-text">${l.reviewContent}</p>
-												<c:if test="` +"${l.mem == sessionScope.memberNumber}" + `"
-													<span class="span-comment-delete" data-num="${l.reviewCommentNumber}"
-													data-mem="${l.memberNumber}" data-listtype="${id}"></span>
-												</c:if>
+												${deleteButton}
 											</div>
 											<p class="p-update-date">
 												${l.reviewCreatedDate}<span class="p-update-status">${updated}</span>
@@ -160,7 +164,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	const submitBtn = document.querySelector(".button-write");
 
-	submitBtn.addEventListener("click", async () => {
+	submitBtn?.addEventListener("click", async () => {
 		const contentEl = document.querySelector(".input-comment");
 		const content = contentEl?.value.trim();
 
@@ -190,10 +194,6 @@ window.addEventListener('DOMContentLoaded', () => {
 			alert("댓글 작성 중 오류가 발생했습니다.");
 		}
 	});
-
-
-
-
 
 
 	// 초기 로드

@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -24,6 +25,9 @@ public class CourseCommentOkController implements Execute {
 			throws ServletException, IOException {
 		System.out.println("CourseCommentOkController 진입");
 
+		HttpSession session = request.getSession();
+		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
+		
 		String temp = request.getParameter("page");
 		System.out.println("temp page : " + temp);
 		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
@@ -102,6 +106,8 @@ public class CourseCommentOkController implements Execute {
 					o.add("reviewCreatedDate", data.getAsJsonObject().get("courseReviewCreatedDate"));
 					o.add("reviewUpdatedDate", data.getAsJsonObject().get("courseReviewUpdatedDate"));
 					o.add("reviewContent", data.getAsJsonObject().get("courseReviewContent"));
+
+					o.addProperty("currentMemberNumber", memberNumber);
 
 					list.add(o);
 				});

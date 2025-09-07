@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="courseList">
-	<select id="selectList" parameterType="map" resultType="CourseListDTO">
+	<select id="selectList" parameterType="map"
+		resultType="CourseListDTO">
 	<![CDATA[
 	SELECT * FROM (
       SELECT ROWNUM AS rnum, subquery.*
@@ -24,38 +25,58 @@
 	]]>
 	</select>
 
-	
+
+	<select id="selectAll" resultType="CourseListDTO">
+	<![CDATA[
+		SELECT COURSE_NUMBER, expert_number, COURSE_TITLE, COURSE_CONTENT,
+			to_char(COURSE_POST_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_DATE, to_char(COURSE_POST_UPDATE_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_UPDATE_DATE, to_char(COURSE_RECRUIT_START_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_START_DATE, 
+			to_char(COURSE_RECRUIT_END_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_END_DATE, to_char(COURSE_START_DATE, 'yyyy.mm.dd(day)') as COURSE_START_DATE, to_char(COURSE_END_DATE, 'yyyy.mm.dd(day)') as COURSE_END_DATE, to_char(COURSE_START_TIME,'hh:mi') as COURSE_START_TIME,  to_char(COURSE_END_TIME,'hh:mi') as COURSE_END_TIME, COURSE_DAY_OF_WEEK, COURSE_RECRUIT_COUNT,
+			COURSE_RECRUIT_STATUS_NUMBER
+			FROM tbl_course c
+	]]>
+	</select>
+
 	<update id="updateStatus" parameterType="map">
-		update tbl_course set COURSE_RECRUIT_STATUS_NUMBER = #{courseRecruitStatusNumber} where COURSE_NUMBER = #{courseNumber}
+		update tbl_course set
+		COURSE_RECRUIT_STATUS_NUMBER = #{courseRecruitStatusNumber} where
+		COURSE_NUMBER = #{courseNumber}
 	</update>
-	
+
 	<!-- 총 목록 개수 -->
 	<select id="getTotal" resultType="int">
 		select count(*)
 		from tbl_course
 	</select>
-	
-	<!-- 수업 요청 정보-->
+
+	<!-- 수업 요청 정보 -->
 	<insert id="insert" parameterType="CourseDTO">
-		<selectKey keyProperty="courseNumber" resultType="int" order="BEFORE">
+		<selectKey keyProperty="courseNumber" resultType="int"
+			order="BEFORE">
 			select seq_course.nextval from dual
 		</selectKey>
-		insert into tbl_course(course_number, course_title, course_content, expert_number,
-			COURSE_RECRUIT_START_DATE, COURSE_RECRUIT_END_DATE, COURSE_START_DATE, COURSE_END_DATE,
-			 COURSE_START_TIME, COURSE_END_TIME, COURSE_DAY_OF_WEEK, COURSE_RECRUIT_COUNT, COURSE_RECRUIT_STATUS_NUMBER)
-		values(#{courseNumber}, #{courseTitle}, #{courseContent}, #{expertNumber}, 
-			#{courseRecruitStartDate}, #{courseRecruitEndDate}, #{courseStartDate}, #{courseEndDate},
-			#{courseStartTime}, #{courseEndTime}, #{courseDayOfWeek}, #{courseRecruitCount}, #{courseRecruitStatusNumber})
+		insert into tbl_course(course_number, course_title, course_content,
+		expert_number,
+		COURSE_RECRUIT_START_DATE, COURSE_RECRUIT_END_DATE, COURSE_START_DATE, COURSE_END_DATE,
+		COURSE_START_TIME, COURSE_END_TIME, COURSE_DAY_OF_WEEK,
+		COURSE_RECRUIT_COUNT, COURSE_RECRUIT_STATUS_NUMBER)
+		values(#{courseNumber}, #{courseTitle}, #{courseContent},
+		#{expertNumber},
+		#{courseRecruitStartDate}, #{courseRecruitEndDate}, #{courseStartDate}, #{courseEndDate},
+		#{courseStartTime}, #{courseEndTime}, #{courseDayOfWeek},
+		#{courseRecruitCount}, #{courseRecruitStatusNumber})
 	</insert>
-	
+
 	<!-- 수업 개설 요청 -->
 	<insert id="request" parameterType="CourseRequestDTO">
-		insert into TBL_COURSE_REQUEST(course_number, COURSE_OPEN_STATUS_NUMBER, COURSE_REQUEST_TYPE_NUMBER, COURSE_REQUEST_DATE)
+		insert into
+		TBL_COURSE_REQUEST(course_number, COURSE_OPEN_STATUS_NUMBER,
+		COURSE_REQUEST_TYPE_NUMBER, COURSE_REQUEST_DATE)
 		values(#{courseNumber}, 1, 1, to_date(sysdate, 'yyyy-mm-dd'))
 	</insert>
-	
+
 	<!-- 수업 상세 내용 -->
-	<select id="select" parameterType="int" resultType="CourseListDTO">
+	<select id="select" parameterType="int"
+		resultType="CourseListDTO">
 		<![CDATA[
 			SELECT c.COURSE_NUMBER, c.expert_number, m.member_name as expert_name, c.COURSE_TITLE, c.COURSE_CONTENT, 
 			to_char(c.COURSE_POST_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_DATE, to_char(c.COURSE_POST_UPDATE_DATE, 'yyyy.mm.dd(day)') as COURSE_POST_UPDATE_DATE, to_char(c.COURSE_RECRUIT_START_DATE, 'yyyy.mm.dd(day)') as COURSE_RECRUIT_START_DATE, 

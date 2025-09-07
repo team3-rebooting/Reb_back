@@ -19,6 +19,14 @@ public class CourseListDAO {
 		return sqlSession.selectList("courseList.selectList", map);
 	}
 	
+	public List<CourseListDTO> selectAll(){
+		return sqlSession.selectList("courseList.selectAll");
+	}
+	
+	public void updateStatus(CourseListDTO courseListDTO) {
+		sqlSession.update("courseList.updateStatus", courseListDTO);
+	}
+	
 	public int getTotal() {
 		return sqlSession.selectOne("courseList.getTotal");
 	}

@@ -195,7 +195,7 @@
 									</c:choose>
 								</c:when>
 								<c:otherwise>
-									<button class="button-status" type="button">${course.getCourseStatusInfo()}</button>
+									<button class="button-expert" type="button">${course.getCourseStatusInfo()}</button>
 								</c:otherwise>
 							</c:choose>
 						</div>

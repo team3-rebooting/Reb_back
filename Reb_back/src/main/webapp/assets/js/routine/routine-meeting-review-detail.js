@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		history.back();
 	});
 
-	updateButton.addEventListener("click", (e) => {
+	updateButton?.addEventListener("click", (e) => {
 		if (confirm("정말 수정하시겠습니까?")) {
 			location.href = `/routine/routineReviewUpdateOk.ro?reviewNumber=${e.target.dataset.reviewnumber}`;
 		}
@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 
 
-	deleteButton.addEventListener("click", async (e) => {
+	deleteButton?.addEventListener("click", async (e) => {
 		if (confirm("정말 삭제하시겠습니까?")) {
 			try {
 				const response = await fetch(`/routine/routineReviewDeleteOk.ro?reviewNumber=${e.target.dataset.reviewnumber}`);
@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
-	heart.addEventListener('click', () => {
+	heart?.addEventListener('click', () => {
 		if (heart.classList.contains('fa-regular')) {
 			heart.classList.replace('fa-regular', 'fa-solid');
 		}
