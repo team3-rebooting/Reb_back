@@ -13,6 +13,7 @@ import com.sol.app.course.dao.CourseReviewDAO;
 import com.sol.app.course.dao.FileCourseReviewDAO;
 import com.sol.app.dto.CourseReviewListDTO;
 import com.sol.app.dto.FileCourseReviewDTO;
+import com.sol.app.dto.FileMemberProfileDTO;
 import com.sol.app.myPage.dao.FileMemberProfileDAO;
 
 public class CourseReviewDetailOkController implements Execute {
@@ -38,6 +39,7 @@ public class CourseReviewDetailOkController implements Execute {
 		FileMemberProfileDAO fileMemberProfileDAO = new FileMemberProfileDAO();
 
 		CourseReviewListDTO courseReviewListDTO = courseReviewDAO.select(courseReviewNumber);
+		
 
 		if (courseReviewListDTO == null) {
 			System.out.println("존재하지 않는 게시글입니다" + courseReviewNumber);
@@ -63,6 +65,12 @@ public class CourseReviewDetailOkController implements Execute {
 		// 현재 게시글의 작성자 번호 가져오기
 		int courseReviewWriterNumber = courseReviewListDTO.getMemberNumber();
 		System.out.println("현재 게시글 작성자 번호 : " + courseReviewWriterNumber);
+		
+		// 작성자 프로필 가져오기
+		FileMemberProfileDTO profiles = fileMemberProfileDAO.select(courseReviewWriterNumber);
+		System.out.println("작성자 프로필 번호" + profiles);
+		
+		courseReviewListDTO.setFileWriterProFileList(profiles);
 
 		request.setAttribute("courseReview", courseReviewListDTO);
 		result.setPath("/app/course/course-review-detail.jsp");
