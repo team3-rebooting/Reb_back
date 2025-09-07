@@ -25,6 +25,9 @@ public class RoutineCommentOkController implements Execute {
 			throws ServletException, IOException {
 		System.out.println("RoutineCommentOkController 진입");
 
+		HttpSession session = request.getSession();
+		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
+		
 		String temp = request.getParameter("page");
 		System.out.println("temp page : " + temp);
 		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
@@ -102,6 +105,8 @@ public class RoutineCommentOkController implements Execute {
 					o.add("reviewCreatedDate", data.getAsJsonObject().get("routineReviewCreatedDate"));
 					o.add("reviewUpdatedDate", data.getAsJsonObject().get("routineReviewUpdatedDate"));
 					o.add("reviewContent", data.getAsJsonObject().get("routineReviewContent"));
+					
+					o.addProperty("currentMemberNumber", memberNumber);
 
 					list.add(o);
 				});
