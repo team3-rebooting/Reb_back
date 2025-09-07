@@ -13,7 +13,7 @@ public class CourseReviewListDTO {
 	private String courseReviewCreatedDate;
 	private String courseReviewUpdatedDate;
 	private int courseReviewLike;
-	private List<FileMemberProfileDTO> fileWriterProFileList;
+	private FileMemberProfileDTO fileWriterProFileList;
 	private List<FileMemberProfileDTO> fileCommentProFileList; 
 	private List<FileCourseReviewDTO> fileCourseReviewList;
 	/*
@@ -87,10 +87,10 @@ public class CourseReviewListDTO {
 	public void setCourseReviewLike(int courseReviewLike) {
 		this.courseReviewLike = courseReviewLike;
 	}
-	public List<FileMemberProfileDTO> getFileWriterProFileList() {
+	public FileMemberProfileDTO getFileWriterProFileList() {
 		return fileWriterProFileList;
 	}
-	public void setFileWriterProFileList(List<FileMemberProfileDTO> fileWriterProFileList) {
+	public void setFileWriterProFileList(FileMemberProfileDTO fileWriterProFileList) {
 		this.fileWriterProFileList = fileWriterProFileList;
 	}
 	public List<FileMemberProfileDTO> getFileCommentProFileList() {

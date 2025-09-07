@@ -59,7 +59,15 @@
 				<div class="div-user-integration">
 					<!-- 유저 프로필 영역 -->
 					<div class="div-user-profile">
-						<img src="./../../assets/img/profile.png" class="img-user-profile">
+						<c:set var="profiles" value="${courseReview.getFileWriterProFileList()}"></c:set>
+						<c:choose>
+							<c:when test="${not empty profiles}">
+								<img src="${pageContext.request.contextPath}/upload/${profiles.getFileSystemName()}"  class="img-user-profile" />
+							</c:when>
+							<c:otherwise>
+								<img src="./../../assets/img/profile.png" class="img-user-profile">
+							</c:otherwise>
+						</c:choose>
 					</div>
 					<!-- 유저 개인 정보(닉네임, 작성일) 영역 -->
 					<div class="div-user-info">
