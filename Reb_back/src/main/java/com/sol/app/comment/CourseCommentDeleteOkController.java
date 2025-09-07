@@ -15,11 +15,13 @@ import com.google.gson.JsonParser;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.course.dao.CourseReviewCommentDAO;
+import com.sol.app.routine.dao.RoutineReviewCommentDAO;
 
 public class CourseCommentDeleteOkController  implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("CourseCommentDeleteOkController 진입");
 		CourseReviewCommentDAO commentDAO = new CourseReviewCommentDAO();
 
 		request.setCharacterEncoding("utf-8");
@@ -27,20 +29,8 @@ public class CourseCommentDeleteOkController  implements Execute {
 		// json 응답
 		Gson gson = new Gson();
 
-		// Json 데이터 읽기
-		BufferedReader reader = request.getReader();
-		JsonObject jsonObject = JsonParser.parseString(reader.lines().collect(Collectors.joining())).getAsJsonObject();
-
-		
-		// 필수 파라미터 확인
-		if (!jsonObject.has("reviewNumber")) {
-			response.setContentType("application/json; charset=utf-8");
-			response.getWriter().write(gson.toJson(Map.of("status", "fail", "message", "필수 데이터가 없습니다")));
-			return null;
-		}
-
 		// DTO 설정
-		int courseReviewCommentNumber = jsonObject.get("commentNumber").getAsInt();
+		int courseReviewCommentNumber = Integer.valueOf(request.getParameter("commentNumber"));
 		System.out.println("courseReviewCommentNumber 확인 :" + courseReviewCommentNumber);
 
 		// DB 저장

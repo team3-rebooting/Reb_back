@@ -210,7 +210,12 @@ button{
 }
 
 /* 후기글 목록 */
-#review-list{
+#course-review-list{
+  display: flex;
+  justify-content:space-between;
+}
+
+#routine-review-list{
   display: flex;
   justify-content:space-between;
 }

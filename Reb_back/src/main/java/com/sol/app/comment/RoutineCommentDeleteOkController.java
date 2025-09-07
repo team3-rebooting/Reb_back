@@ -2,6 +2,7 @@ package com.sol.app.comment;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -20,7 +21,8 @@ import com.sol.app.routine.dao.RoutineReviewCommentDAO;
 public class RoutineCommentDeleteOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException {		
+		System.out.println("RoutineCommentDeleteOkController 진입");
 		RoutineReviewCommentDAO commentDAO = new RoutineReviewCommentDAO();
 
 		request.setCharacterEncoding("utf-8");
@@ -28,20 +30,8 @@ public class RoutineCommentDeleteOkController implements Execute {
 		// json 응답
 		Gson gson = new Gson();
 
-		// Json 데이터 읽기
-		BufferedReader reader = request.getReader();
-		JsonObject jsonObject = JsonParser.parseString(reader.lines().collect(Collectors.joining())).getAsJsonObject();
-
-		
-		// 필수 파라미터 확인
-		if (!jsonObject.has("reviewNumber")) {
-			response.setContentType("application/json; charset=utf-8");
-			response.getWriter().write(gson.toJson(Map.of("status", "fail", "message", "필수 데이터가 없습니다")));
-			return null;
-		}
-
 		// DTO 설정
-		int routineReviewCommentNumber = jsonObject.get("commentNumber").getAsInt();
+		int routineReviewCommentNumber = Integer.valueOf(request.getParameter("commentNumber"));
 		System.out.println("routineReviewCommentNumber 확인 :" + routineReviewCommentNumber);
 
 		// DB 저장

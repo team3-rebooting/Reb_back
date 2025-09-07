@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.course.dao.CourseListDAO;
+import com.sol.app.course.dao.FileCourseDAO;
 import com.sol.app.dto.CourseListDTO;
 import com.sol.app.dto.ExpertDTO;
 import com.sol.app.member.dao.ExpertDAO;
@@ -22,7 +23,19 @@ public class CourseListOkController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("====CourseListOkController 실행====");
-		
+
+		CourseListDAO courseListDAO = new CourseListDAO();
+		FileCourseDAO fileCourseDAO = new FileCourseDAO();
+
+		List<CourseListDTO> courseListDTO = courseListDAO.selectAll();
+
+		if (courseListDAO != null) {
+			for (CourseListDTO c : courseListDTO) {
+				c.setCourseRecruitStatusNumber();
+				courseListDAO.updateStatus(c);
+			}
+		}
+
 		HttpSession session = request.getSession();
 		Integer memberNumber = (Integer) session.getAttribute("memberNumber");
 
@@ -36,7 +49,6 @@ public class CourseListOkController implements Execute {
 			}
 		}
 
-		CourseListDAO courseListDAO = new CourseListDAO();
 		Result result = new Result();
 
 		String temp = request.getParameter("page");
@@ -58,7 +70,8 @@ public class CourseListOkController implements Execute {
 		request.setAttribute("courseList", courseList);
 
 		for (CourseListDTO c : courseList) {
-			System.out.println("CourseListDTO " + c);
+			System.out.println("CourseListDTO " + c);			
+			c.setFileCourseList(fileCourseDAO.selectList(c.getCourseNumber())); 
 		}
 
 		// 페이징 정보 설정
