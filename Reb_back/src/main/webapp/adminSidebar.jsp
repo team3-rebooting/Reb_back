@@ -14,6 +14,10 @@
 				루틴 모임 목록 
 					</a>
 				</li>
+				<li><a href="${pageContext.request.contextPath}/admin/routineListOk.ad?page=1">
+				모임장 목록 
+					</a>
+				</li>
 				<li><a href="${pageContext.request.contextPath}/admin/memberListOk.ad?page=1"> 
 				회원 목록 
 					</a>

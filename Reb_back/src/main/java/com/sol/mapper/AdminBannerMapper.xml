@@ -19,8 +19,8 @@
 		INSERT INTO TBL_BANNER(BANNER_NUMBER, BANNER_TITLE, BANNER_ORDER_NUMBER)
 		VALUES(#{bannerNumber}, #{bannerTitle}, #{bannerOrderNumber})
 	</insert>
-	<update id="update" parameterType="int">
-		UPDATE TBL_BANNER SET BANNER_ORDER_NUMBER = #{bannerOrderNumber}
+	<update id="update" parameterType="AdminBannerDTO">
+		UPDATE TBL_BANNER SET BANNER_ORDER_NUMBER = #{bannerOrderNumber} WHERE BANNER_NUMBER = #{bannerNumber}
 	</update>
 	<delete id="delete" parameterType="int">
 		DELETE FROM TBL_BANNER WHERE BANNER_NUMBER = #{bannerNumber}
