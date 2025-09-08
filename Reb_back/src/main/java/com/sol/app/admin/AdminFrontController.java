@@ -201,9 +201,21 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("수업 리뷰 상세");
 			result = new AdminCourseReviewListOkController().execute(request, response);
 			break;
+		case "/admin/courseReviewDeleteOk.ad" :
+			System.out.println("수업 리뷰 강제 삭제");
+			result = new AdminCourseReviewDeleteOkController().execute(request, response);
+			break;
 		case "/admin/bannerListOk.ad" :
 			System.out.println("배너 목록");
 			result = new BannerListOkController().execute(request,response);
+			break;
+		case "/admin/bannerWrite.ad":
+			System.out.println("배너 생성");
+			result = new BannerWriteController().execute(request,response);
+			break;
+		case "/admin/bannerWriteOk.ad" :
+			System.out.println("배너 생성 완료");
+			result = new BannerWriteOkController().execute(request,response);
 			break;
 		}
 		

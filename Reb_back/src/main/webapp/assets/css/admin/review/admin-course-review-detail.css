@@ -178,55 +178,77 @@ main {
   width: 600px;
 }
 
-/* 버튼 영역 */
-.div-button-area {
-  margin: 50px 0px;
-  display: flex;
-  justify-content: center;
+.div-user-name-area, .div-user-text-area {
+	width: 1150px;
+	display: flex;
+	justify-content: space-between;
 }
 
-/* 댓글 영역 */
-.div-comment-area {
-  border: 1px solid black;
-  background-color: white;
+.div-comment-write {
+	margin: 15px 0px;
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
 }
 
-/* 댓글 1개 */
-.div-comment-area>div {
-  display: flex;
-  border-bottom: 1px solid black;
+.span-comment-edit {
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 12px;
+	line-height: 24px;
 }
 
-/* 댓글 프로필 사진 */
-.div-comment-area>div>img {
-  margin: 5px;
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
+.span-comment-delete {
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 12px;
+	line-height: 24px;
+	color: #ff0000;
 }
 
-/* 삭제 버튼 */
-.div-comment-area>div>button {
-  width: 70px;
-  position: relative;
-  font-size: 14px;
-  left: 75%;
-  height: 25px;
-  background-color: white;
+.span-comment-edit:hover, .span-comment-delete:hover {
+	cursor: pointer;
 }
 
-/* 페이지네이션 */
-#main-page-number{
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  font-size: 20px;
-  margin-bottom: 100px;
+button:hover {
+	cursor: pointer;
 }
 
-/* 텍스트 스타일 제거 */
-#main-page-number>a{
-  margin: 0 28px;
-  text-decoration: none;
-  color: black;
+.div-page {
+	display: flex;
+	justify-content: center;
 }
+
+.div-pagenation {
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.input-comment {
+	border-radius: 15px;
+	border: 0px;
+	width: 90%;
+	height: 20px;
+	padding: 20px;
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 14px;
+	background-color: #F7F7F7;
+}
+
+.li-comment {
+	display: flex;
+	list-style: none;
+	border-bottom: 1px solid black;
+	width: 100%;
+}
+.div-button-area{
+	display: flex;
+	justify-content: center;
+}
+

@@ -132,6 +132,8 @@
          alias="MyExpertDTO"></typeAlias>
       <typeAlias type="com.sol.app.dto.CourseMemberApplicantDTO"
          alias="CourseMemberApplicantDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.FileBannerDTO"
+         alias="FileBannerDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -196,6 +198,7 @@
       	<mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" />
       	<mapper resource="com/sol/mapper/ExpertApplicantMapper.xml"/> 
       	<mapper resource="com/sol/mapper/ExpertCourseRequestMapper.xml"/> 
+      	<mapper resource="com/sol/mapper/FileBannerMapper.xml"/> 
 	</mappers>
 	<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/> -->
 	<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 

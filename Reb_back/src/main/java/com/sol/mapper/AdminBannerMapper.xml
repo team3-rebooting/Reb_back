@@ -13,8 +13,11 @@
 		FROM tbl_banner	
 	</select>
 	<insert id="insert" parameterType="AdminBannerDTO">
+		<selectKey keyProperty="bannerNumber" resultType="int" order="BEFORE">
+			SELECT seq_banner.nextval FROM DUAL
+		</selectKey>
 		INSERT INTO TBL_BANNER(BANNER_NUMBER, BANNER_TITLE, BANNER_ORDER_NUMBER)
-		VALUES(SEQ.BANNER.NEXTVAL, #{bannerTitle}, #{bannerOrderNumber})
+		VALUES(#{bannerNumber}, #{bannerTitle}, #{bannerOrderNumber})
 	</insert>
 	<update id="update" parameterType="int">
 		UPDATE TBL_BANNER SET BANNER_ORDER_NUMBER = #{bannerOrderNumber}

@@ -29,65 +29,22 @@
   <!-- 메인 -->
   <main>
     <!-- 사이드바 리스트 영역 -->
-    <section id="main-admin-list-menu">
-      <!-- 사이드바 리스트 -->
-      <ul id="main-admin-list">
-        <li>
-          <a href="./../notice/admin-notice-list.html">
-            공지 사항 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../course/admin-course-request-list.html">
-            수업 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../routine/admin-routine-list.html">
-            루틴 모임 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../member/admin-member-list.html">
-            회원 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../member/admin-sponsor-list.html">
-            후원자 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../member/admin-expert-list.html">
-            전문가 승인 목록
-          </a>
-        </li>
-        <li>
-          <a href="./../review/admin-routine-review-list.html">
-            활동 후기
-          </a>
-        </li>
-        <li>
-          <a href="./../banner/admin-banner-list.html">
-            <strong>배너 등록</strong>
-          </a>
-        </li>
-      </ul>
-    </section>
+		<jsp:include page="/adminSidebar.jsp" />
     <!-- 메인 영역 -->
     <section id="main-banner">
       <!-- 배너명, 배너 파일 등록, 취소 영역 -->
       <div id="main-banner-div">
         <!-- input 담은 form -->
-        <form action="" method="get">
+        <form action="${pageContext.request.contextPath}/admin/bannerWriteOk.ad" method="post" 
+        enctype="multipart/form-data">
           <!-- 배너 명 입력 -->
-          <input type="text" id="main-banner-input-name" placeholder="배너 명">
+          <input type="text" id="main-banner-input-name" placeholder="배너 명" name="bannerTitle">
           <!-- 배너 이미지 파일 입력 -->
-          <input type="file" placeholder="이미지 파일">
+          <input type="file" placeholder="이미지 파일" name="bannerFile">
           <!-- 등록, 취소 버튼 영역 -->
           <div id="main-banner-btn">
             <!-- 등록 버튼 -->
-            <button type="button">
+            <button type="submit">
               등록
             </button>
             <!-- 취소 버튼 -->
