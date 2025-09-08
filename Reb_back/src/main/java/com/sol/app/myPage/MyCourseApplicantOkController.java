@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,40 +17,60 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.myPage.dao.MyCourseRequestDAO;
+import com.sol.app.myPage.dao.MyCourseApplicantDAO;
 
-public class MyCourseRequestOKController implements Execute {
+public class MyCourseApplicantOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("MyCourseRequestOKController 진입");
+		System.out.println("MyCourseApplicantOkController 진입");
+		Integer courseNumber = null; 
+		Cookie[] cookies = request.getCookies(); // 모든 쿠키 가져오기
+		if (cookies != null) {
+			for (Cookie c : cookies) {
+				String name = c.getName(); // 쿠키 이름 가져오기
+				String value = c.getValue(); // 쿠키 값 가져오기
+				if (name.equals("courseNumber")) {
+					courseNumber = Integer.parseInt(value);
+				}
+			}
+		}
+		
+		Cookie cookie = new Cookie("courseNumber", null); // 삭제할 쿠키에 대한 값을 null로 지정
+	    cookie.setMaxAge(0); // 유효시간을 0으로 설정해서 바로 만료시킨다.
+	    response.addCookie(cookie); // 응답에 추가해서 없어지도록 함
 
 		String temp = request.getParameter("page");
 		System.out.println("temp page : " + temp);
 		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
 
-		MyCourseRequestDAO myCourseRequestDAO = new MyCourseRequestDAO();
+		MyCourseApplicantDAO myCourseApplicantDAO = new MyCourseApplicantDAO();
 		Result result = new Result();
 
 		Gson gson = new Gson();
 		JsonObject obj = new JsonObject();
 		JsonArray list = new JsonArray();
+		JsonArray etcArr = new JsonArray();
 		JsonArray cols = new JsonArray();
 
 		HttpSession session = request.getSession();
 		Integer memberNumber = (Integer) session.getAttribute("memberNumber");
 
+		System.out.println("courseNumber : " + courseNumber);
+
+		//Integer courseNumber = Integer.parseInt(request.getParameter("courseNumber"));
+
 		int pageCount = 5; // 페이지 버튼 수
-		int rowCount = 10; // 한 페이지당 게시글 수
+		int rowCount = 3; // 한 페이지당 게시글 수
 
 		// 페이징 처리
 		int startRow = (page - 1) * rowCount + 1; // 시작행(1, 11, 21, ..)
 		int endRow = startRow + rowCount - 1; // 끝 행(10, 20, 30, ..)
-
+		
 		Map<String, Integer> map = new HashMap<>();
 		map.put("startRow", startRow);
 		map.put("endRow", endRow);
-		map.put("memberNumber", memberNumber);
+		map.put("courseNumber", courseNumber);
 
 		if (memberNumber == null) {
 			result.setPath(request.getContextPath() + "/member/login.me");
@@ -57,9 +78,9 @@ public class MyCourseRequestOKController implements Execute {
 		} else {
 			// 페이징 정보 설정
 			// 실제 마지막 페이지 번호(realEndPage)를 계산함
-			int total = myCourseRequestDAO.getTotal(memberNumber);
+			int total = myCourseApplicantDAO.getCourseApplicantCount(courseNumber);
 
-			System.out.println("MyCourseRequestDAO getTotal 끝");
+			System.out.println("MyCourseApplicantOkController getCourseApplicantCount 끝");
 			int realEndPage = (int) Math.ceil(total / (double) rowCount); // 실제 마지막 페이지(전체 게시글 기준으로 계산)
 			int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount); // 현재 페이지 그룹에서의 마지막 페이지
 			int startPage = endPage - (pageCount - 1); // 현재 페이지 그룹에서의 첫 페이지
@@ -87,57 +108,24 @@ public class MyCourseRequestOKController implements Execute {
 					"startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 			System.out.println("====================");
 
-			cols.add("제목");
-			cols.add("진행 사항");
-			cols.add("인원");
-			cols.add("신청일자");
+			cols.add("신청자 명");
+			cols.add("전화번호");
+			cols.add("이메일");
 
-			myCourseRequestDAO.selectList(map).stream().map(gson::toJson).map(JsonParser::parseString)
+			myCourseApplicantDAO.selectCourseApplicant(map).stream().map(gson::toJson).map(JsonParser::parseString)
 					.forEach((data) -> {
 						JsonArray a = new JsonArray();
-
-						String title = "[" + data.getAsJsonObject().get("fieldName").getAsString() + "]"
-								+ data.getAsJsonObject().get("courseTitle").getAsString();
-						String status = data.getAsJsonObject().get("courseRequestType").getAsString() + " "
-								+ data.getAsJsonObject().get("courseStatusInfo").getAsString();
-						int statusNumber = data.getAsJsonObject().get("courseOpenStatusNumber").getAsInt();
-						String applicantCount = data.getAsJsonObject().get("courseApplicantCount") + "/"
-								+ data.getAsJsonObject().get("courseRecruitCount");
-						String requestDate = data.getAsJsonObject().get("courseRequestDate").getAsString();
-
-						String href = "/course/courseDetailOk.co?courseNumber=" + data.getAsJsonObject().get("courseNumber");
-							
-
-						a.add("<a href=\"" + href + "\" class=\"font-main list-title\">" + title + "</a>");
-
-						if (statusNumber != 3) {
-							a.add("<p class=\"font-main list-content\">" + status + "</p>");
-						} else {
-							String reason = data.getAsJsonObject().get("courseRejectReason").getAsString();
-							a.add("<button class=\"button-modal-open font-main\" type=\"button\"\r\n"
-									+ "id=\"button-course-rejection-reason\"\r\n"
-									+ "data-type=\"courseRejectionReason\" data-reject=\"" + reason + "\">\r\n" + status
-									+ "</button>");
-						}
-
-						a.add("<a href=\"/myPage/myCourseApplicant.my?courseNumber="+ data.getAsJsonObject().get("courseNumber") +"\" class=\"font-main list-content\">" + applicantCount + "</a>");
-						a.add("<p class=\"font-main list-content\">" + requestDate + "</p>");
-
-						/*
-						 * JsonObject etc = new JsonObject();
-						 * 
-						 * etc.addProperty("listtype", "course"); etc.add("coursenumber",
-						 * data.getAsJsonObject().get("courseNumber"));
-						 * 
-						 * etc.addProperty("href", href);
-						 */
+						a.add(data.getAsJsonObject().get("memberName").getAsString());
+						a.add(data.getAsJsonObject().get("memberEmail"));
+						a.add(data.getAsJsonObject().get("memberPhoneNumber"));
 
 						list.add(a);
 					});
 
-			obj.addProperty("listTitle", "나의 수업 개설 내역");
+			obj.addProperty("listTitle", "수업 신청자 내역");
 			obj.add("cols", cols);
 			obj.add("list", list);
+			obj.add("etcArr", etcArr);
 
 			System.out.println(obj.toString());
 

@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="courseMemberApplicant">
-	<select id="selectAll" parameterType="int" resultType="CourseMemberApplicantDTO">
-		SELECT TC.COURSE_NUMBER as courseNumber, TC.COURSE_TITLE as courseTitle
-		FROM TBL_COURSE_MEMBER_APPLICANT TM LEFT OUTER JOIN TBL_COURSE TC
-			ON TM.COURSE_NUMBER = TC.COURSE_NUMBER
-		WHERE TM.MEMBER_NUMBER = #{memberNumber}
+	<select id="selectAll" parameterType="int"
+		resultType="CourseMemberApplicantDTO">
+		SELECT TC.COURSE_NUMBER as courseNumber, TC.COURSE_TITLE as
+		courseTitle
+		FROM TBL_COURSE_MEMBER_APPLICANT TM LEFT OUTER JOIN
+		TBL_COURSE TC
+		ON TM.COURSE_NUMBER = TC.COURSE_NUMBER
+		WHERE TM.MEMBER_NUMBER =
+		#{memberNumber}
 	</select>
-	
+
+	<select id="selectCourseApplicant" parameterType="map"
+		resultType="MemberDTO">
+		<![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+		SELECT m.MEMBER_NAME , m.MEMBER_EMAIL, m.MEMBER_PHONE_NUMBER 
+		FROM TBL_COURSE_MEMBER_APPLICANT a LEFT OUTER JOIN TBL_MEMBER m
+			ON a.MEMBER_NUMBER = m.MEMBER_NUMBER
+		WHERE a.COURSE_NUMBER = #{courseNumber}) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
+	</select>
+
+	<select id="getCourseApplicantCount" parameterType="int"
+		resultType="int">
+		SELECT count(MEMBER_NUMBER)
+		FROM TBL_COURSE_MEMBER_APPLICANT
+		WHERE COURSE_NUMBER = #{coursNumber}
+	</select>
+
 	<select id="getCount" parameterType="int" resultType="int">
 		SELECT
 		count(a.MEMBER_NUMBER)
 		FROM TBL_COURSE_MEMBER_APPLICANT a
-		JOIN (SELECT COURSE_NUMBER FROM TBL_COURSE WHERE COURSE_NUMBER =
+		JOIN (SELECT
+		COURSE_NUMBER FROM TBL_COURSE WHERE COURSE_NUMBER =
 		#{courseNumber}) r
 		ON r.COURSE_NUMBER = a.COURSE_NUMBER
 	</select>
@@ -29,7 +55,8 @@
 		delete from
 		tbl_course_member_applicant
 		where COURSE_NUMBER = #{courseNumber}
-		and member_number = #{memberNumber}
+		and
+		member_number = #{memberNumber}
 	</delete>
 
 	<select id="select" parameterType="map" resultType="int">
@@ -39,11 +66,14 @@
 		COURSE_NUMBER = #{courseNumber} and member_number = #{memberNumber}
 	</select>
 
-	<select id="getCourseList" parameterType="int" resultType="CourseDTO">
+	<select id="getCourseList" parameterType="int"
+		resultType="CourseDTO">
 		select a.COURSE_NUMBER, c.course_title
-		from tbl_course_member_applicant a
+		from
+		tbl_course_member_applicant a
 		JOIN tbl_course c
-		ON a.course_number = c.routine_number
+		ON a.course_number =
+		c.routine_number
 		where member_number = #{memberNumber}
 	</select>
 </mapper>
