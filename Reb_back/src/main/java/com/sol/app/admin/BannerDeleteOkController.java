@@ -8,19 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
-import com.sol.app.admin.dao.AdminNoticeDAO;
-import com.sol.app.file.dao.FileNoticeDAO;
+import com.sol.app.admin.dao.AdminBannerDAO;
+import com.sol.app.file.dao.FileBannerDAO;
 
-public class NoticeDeleteOkController implements Execute {
+public class BannerDeleteOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AdminNoticeDAO noticeDAO = new AdminNoticeDAO();
-		FileNoticeDAO fileNoticeDAO = new FileNoticeDAO();
-		int noticeNumber = Integer.valueOf(request.getParameter("noticeNumber"));
-		fileNoticeDAO.delete(noticeNumber);
-		noticeDAO.delete(noticeNumber);
+		AdminBannerDAO bannerDAO = new AdminBannerDAO();
+		FileBannerDAO fileBannerDAO = new FileBannerDAO();
+		int bannerNumber = Integer.valueOf(request.getParameter("bannerNumber"));
+		fileBannerDAO.delete(bannerNumber);
+		bannerDAO.delete(bannerNumber);
 		System.out.println("삭제 완료");
 		return null;
 	}

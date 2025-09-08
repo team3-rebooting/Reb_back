@@ -41,7 +41,7 @@
 					<!-- 업다운 영역 -->
 					<div class="main-banner-up-down"></div>
 					<!-- 배너 번호 영역 -->
-					<p class="main-banner-number">번호</p>
+					<p class="main-banner-number">순서</p>
 					<!-- 배너명 영역 -->
 					<p class="main-banner-name">배너명</p>
 					<!-- 배너 이미지명 영역 -->
@@ -59,20 +59,28 @@
 										<form action="" method="get">
 											<c:choose>
 												<c:when test="${banner.bannerOrderNumber eq 1 }">
-													<button class="down">▼</button>
+													<button class="down" 
+													data-banner-number="${banner.bannerNumber}"
+													data-banner-order-number="${banner.bannerOrderNumber}">▼</button>
 												</c:when>
 												<c:when test="${banner.bannerOrderNumber eq 10 }">
-													<button class="up">▲</button>
+													<button class="up"
+													data-banner-number="${banner.bannerNumber}"
+													data-banner-order-number="${banner.bannerOrderNumber}">▲</button>
 												</c:when>
 												<c:otherwise>
-													<button class="up">▲</button>
-													<button class="down">▼</button>
+													<button class="up"
+													data-banner-number="${banner.bannerNumber}"
+													data-banner-order-number="${banner.bannerOrderNumber}">▲</button>
+													<button class="down"
+													data-banner-number="${banner.bannerNumber}"
+													data-banner-order-number="${banner.bannerOrderNumber}">▼</button>
 												</c:otherwise>
 											</c:choose>
 										</form>
 									</div>
 									<p class="main-banner-number">
-										<c:out value="${banner.bannerNumber}" />
+										<c:out value="${banner.bannerOrderNumber}" />
 									</p>
 									<p class="main-banner-name">
 										<c:out value="${banner.bannerTitle}" />
@@ -81,9 +89,8 @@
 										<c:out value="${banner.fileSystemName}" />
 									</p>
 									<div class="main-banner-delete">
-										<form action="" method="get">
-											<button class="delete">삭제</button>
-										</form>
+											<button class="delete"
+											data-banner-number="${banner.bannerNumber}">삭제</button>
 									</div>
 								</li>
 							</c:forEach>
