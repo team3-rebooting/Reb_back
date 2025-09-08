@@ -18,7 +18,7 @@ import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.myPage.dao.MyCourseRequestDAO;
 
-public class MyCourseRequestOKController  implements Execute {
+public class MyCourseRequestOKController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -34,7 +34,6 @@ public class MyCourseRequestOKController  implements Execute {
 		Gson gson = new Gson();
 		JsonObject obj = new JsonObject();
 		JsonArray list = new JsonArray();
-		JsonArray etcArr = new JsonArray();
 		JsonArray cols = new JsonArray();
 
 		HttpSession session = request.getSession();
@@ -57,7 +56,6 @@ public class MyCourseRequestOKController  implements Execute {
 			result.setRedirect(true);
 		} else {
 			// 페이징 정보 설정
-			// BoardMapper.xml의 getTotal을 이용하여 전체 게시글 개수 조회
 			// 실제 마지막 페이지 번호(realEndPage)를 계산함
 			int total = myCourseRequestDAO.getTotal(memberNumber);
 
@@ -72,9 +70,9 @@ public class MyCourseRequestOKController  implements Execute {
 			// prev, next 버튼 활성화 여부 확인
 			boolean prev = startPage > 1;
 			boolean next = endPage < realEndPage;
-			
+
 			JsonObject pageObj = new JsonObject();
-			
+
 			pageObj.addProperty("page", page);
 			pageObj.addProperty("startPage", startPage);
 			pageObj.addProperty("endPage", endPage);
@@ -83,7 +81,6 @@ public class MyCourseRequestOKController  implements Execute {
 			pageObj.addProperty("rowCount", rowCount);
 
 			obj.add("page", pageObj);
-			
 
 			System.out.println("====페이징정보 확인====");
 			System.out.println(
@@ -95,31 +92,52 @@ public class MyCourseRequestOKController  implements Execute {
 			cols.add("인원");
 			cols.add("신청일자");
 
-			myCourseRequestDAO.selectList(map).stream().map(gson::toJson).map(JsonParser::parseString).forEach((data) -> {
-				JsonArray a = new JsonArray();
-				
-				a.add("[" +  data.getAsJsonObject().get("fieldName").getAsString()+ "]" + data.getAsJsonObject().get("courseTitle").getAsString());
-				a.add(data.getAsJsonObject().get("courseRequestType").getAsString() + " " + data.getAsJsonObject().get("courseStatusInfo").getAsString());
-				a.add(data.getAsJsonObject().get("courseApplicantCount") + "/" + data.getAsJsonObject().get("courseRecruitCount"));
-				a.add(data.getAsJsonObject().get("courseRequestDate"));
-				
-				list.add(a);
-				
-				JsonObject etc = new JsonObject();
+			myCourseRequestDAO.selectList(map).stream().map(gson::toJson).map(JsonParser::parseString)
+					.forEach((data) -> {
+						JsonArray a = new JsonArray();
 
-				etc.addProperty("listtype", "course");
-				etc.add("coursenumber", data.getAsJsonObject().get("courseNumber"));
-				
-				String href = "/course/courseDetailOk.co?courseNumber=" + data.getAsJsonObject().get("courseNumber");
-				etc.addProperty("href", href);
+						String title = "[" + data.getAsJsonObject().get("fieldName").getAsString() + "]"
+								+ data.getAsJsonObject().get("courseTitle").getAsString();
+						String status = data.getAsJsonObject().get("courseRequestType").getAsString() + " "
+								+ data.getAsJsonObject().get("courseStatusInfo").getAsString();
+						int statusNumber = data.getAsJsonObject().get("courseOpenStatusNumber").getAsInt();
+						String applicantCount = data.getAsJsonObject().get("courseApplicantCount") + "/"
+								+ data.getAsJsonObject().get("courseRecruitCount");
+						String requestDate = data.getAsJsonObject().get("courseRequestDate").getAsString();
 
-				etcArr.add(etc);
-			});
+						String href = "/course/courseDetailOk.co?courseNumber="
+								+ data.getAsJsonObject().get("courseNumber");
+
+						a.add("<a href=\"" + href + "\" class=\"font-main list-title\">" + title + "</a>");
+
+						if (statusNumber != 3) {
+							a.add("<p class=\"font-main list-content\">" + status + "</p>");
+						}
+						else {
+							a.add("<button class=\"button-modal-open font-main\" type=\"button\"\r\n"
+									+ "id=\"button-course-rejection-reason\"\r\n"
+									+ "data-type=\"courseRejectionReason\">\r\n"
+									+  status + "</button>");
+						}
+
+						a.add("<a href=\"" + "#" + "\" class=\"font-main list-content\">" + applicantCount + "</a>");
+						a.add("<p class=\"font-main list-content\">" + requestDate + "</p>");
+
+						/*
+						 * JsonObject etc = new JsonObject();
+						 * 
+						 * etc.addProperty("listtype", "course"); etc.add("coursenumber",
+						 * data.getAsJsonObject().get("courseNumber"));
+						 * 
+						 * etc.addProperty("href", href);
+						 */
+						
+						list.add(a);
+					});
 
 			obj.addProperty("listTitle", "나의 수업 개설 내역");
 			obj.add("cols", cols);
 			obj.add("list", list);
-			obj.add("etcArr", etcArr);
 
 			System.out.println(obj.toString());
 
