@@ -25,7 +25,7 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
         rel="stylesheet">
 
-    <script defer src="./../../assets/js/mypage/my-sponsorship.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/mypage/my-sponsorship.js"></script>
     <title>틈새빛</title>
 </head>
 

@@ -24,7 +24,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
-  <script defer src="${pageContext.request.contextPath}/assets/js/mypage/expert-course-info.js"></script>
   <title>틈새빛</title>
 </head>
 
@@ -152,7 +151,8 @@
   <jsp:include page="/footer.jsp" />
   <script src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
-  <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-list.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-list.js"></script>  
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/expert-course-info.js"></script>
 </body>
 
 </html>

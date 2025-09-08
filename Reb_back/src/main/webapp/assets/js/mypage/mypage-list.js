@@ -1,8 +1,4 @@
 window.addEventListener('DOMContentLoaded', () => {
-	
-	
-	
-	
 	// 목록 로드 비동기 처리
 	async function loadListAsync(id, page) {
 		console.log(id);
@@ -18,9 +14,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			console.log(listInfo);
 			// 목록 로드
-			if(id === "my-course-request"){
+			if (id === "my-course-request") {
 				renderListExpetRequest(listInfo, id, listInfo.page.rowCount);
-			}else{
+			} else {
 				renderList(listInfo, id, listInfo.page.rowCount, listInfo.etcArr);
 			}
 			// 페이지 번호 로드
@@ -57,61 +53,68 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	// 초기 로드
 	loadList();
-	
-	
-	
+
+
+
 	function renderListExpetRequest(listInfo, id, rowCount) {
-			// 리스트 부모 요소
-			const list = document.querySelector(`#${id}`);
-			// 목록 ul
-			const ul = list.querySelector('.mypage-ul-list');
+		// 리스트 부모 요소
+		const list = document.querySelector(`#${id}`);
+		// 목록 ul
+		const ul = list.querySelector('.mypage-ul-list');
 
-			ul.innerHTML = ``;
+		ul.innerHTML = ``;
 
-			// 목록 행 초기화
-			listInfo.list.forEach(function(l, i) {
-				
-				let li = `<li class="li-content">`;
+		// 목록 행 초기화
+		listInfo.list.forEach(function(l, i) {
+			let li = `<li class="li-content">`;
 
-				l.forEach(function(item, index) {
-					li += item;
-				});
-
-				li += '</li>';
-
-				ul.innerHTML += li;
+			l.forEach(function(item, index) {
+				li += item;
 			});
 
-			
-			const listPageTitle = list.querySelector('.pagetitle');
-			const col = list.querySelector('.list-col-type');
+			li += '</li>';
 
-			// 검색 기능 관련 요소에 목록 타입 dataset 설정
-			list.querySelector('.button-search img').dataset.search = id;
-			list.querySelector('.select-search').dataset.search = id;
+			ul.innerHTML += li;
+		});
 
-			// 목록 리스트 설정
-			listPageTitle.innerHTML = listInfo.listTitle;
-			col.innerHTML = ``;
-			// 목록 열 정보 행 초기화
-			listInfo.cols.forEach(function(c, i) {
-				if (i === 0) {
-					col.innerHTML += `<p class="font-main list-title">${c}</p>`;
-				}
-				else {
-					col.innerHTML += `<p class="font-main list-content">${c}</p>`;
-				}
-			});
-			// 행 개수 유지를 위해 비어있는 행 추가
-			let start = 0;
-			if (listInfo.list !== null && listInfo.list !== undefined)
-				start = listInfo.list.length;
 
-			for (let i = start; i < rowCount; i++) {
-				ul.innerHTML += `<li  class="li-content"></li>`;
+		const listPageTitle = list.querySelector('.pagetitle');
+		const col = list.querySelector('.list-col-type');
+
+		// 검색 기능 관련 요소에 목록 타입 dataset 설정
+		list.querySelector('.button-search img').dataset.search = id;
+		list.querySelector('.select-search').dataset.search = id;
+
+		// 목록 리스트 설정
+		listPageTitle.innerHTML = listInfo.listTitle;
+		col.innerHTML = ``;
+		// 목록 열 정보 행 초기화
+		listInfo.cols.forEach(function(c, i) {
+			if (i === 0) {
+				col.innerHTML += `<p class="font-main list-title">${c}</p>`;
 			}
+			else {
+				col.innerHTML += `<p class="font-main list-content">${c}</p>`;
+			}
+		});
+		// 행 개수 유지를 위해 비어있는 행 추가
+		let start = 0;
+		if (listInfo.list !== null && listInfo.list !== undefined)
+			start = listInfo.list.length;
+
+		for (let i = start; i < rowCount; i++) {
+			ul.innerHTML += `<li  class="li-content"></li>`;
 		}
-	
+
+		const openModalButtonList = ul.querySelectorAll(`.button-modal-open`);
+
+		openModalButtonList.forEach((button) => {
+			button.addEventListener('click', (e) => {
+				openModal(e.target.dataset.type, e.target.dataset.reject);
+			});
+		});
+	}
+
 
 	// 목록 초기화
 	function renderList(listInfo, id, rowCount, etcArr) {
@@ -144,7 +147,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			ul.innerHTML += li;
 		});
 
-		
+
 		const listPageTitle = list.querySelector('.pagetitle');
 		const col = list.querySelector('.list-col-type');
 
@@ -211,7 +214,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		// 클릭 이벤트 추가
 		pagenation.querySelectorAll(".a-page-number").forEach((i) => {
 			i.addEventListener('click', loadList);
-		})
+		});
 	}
 
 	// text -> json으로 변환

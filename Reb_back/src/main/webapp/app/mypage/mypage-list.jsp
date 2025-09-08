@@ -19,19 +19,6 @@
 		
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="search-container" style="display:none;">
 	<form action="" method="get">
 		<div class="search-form">

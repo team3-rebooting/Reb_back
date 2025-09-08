@@ -119,6 +119,10 @@ public class MyPageFrontController extends HttpServlet {
 			System.out.println("마이페이지 목록 분기 처리");
 			result = new MyPageListOkController().execute(request, response);
 			break;
+		case "/myPage/myCourseApplicant.my":
+			System.out.println("후원 정보 페이지");
+			result = new MyCourseApplicantController().execute(request, response);
+			break;
 		}
 		
 		if (result != null && result.getPath() != null) {
