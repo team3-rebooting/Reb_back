@@ -20,7 +20,7 @@
 			JOIN tbl_course_request cr
 				ON cr.COURSE_NUMBER = c.COURSE_NUMBER
 				ORDER BY cr.COURSE_REQUEST_DATE
-		) subquery
+		) subquery WHERE subquery.MEMBER_NUMBER = ${memberNumber}
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>
 	</select>	
