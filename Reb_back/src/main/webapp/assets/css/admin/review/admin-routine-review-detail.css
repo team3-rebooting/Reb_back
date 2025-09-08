@@ -1,234 +1,253 @@
 @charset "UTF-8";
+
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 /* 폰트 */
 .font-main {
-  font-size: 18px;
-  font-family: "IBM Plex Sans KR", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: white;
+	font-size: 18px;
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: white;
 }
 
 /* 헤더 */
 header {
-  height: 110px;
-  width: 100%;
-  position: fixed;
-  background-color: #757575;
-  display: flex;
-  justify-content: center;
+	height: 110px;
+	width: 100%;
+	position: fixed;
+	background-color: #757575;
+	display: flex;
+	justify-content: center;
 }
 
 /* 마우스 호버시 손가락 모양 */
 button {
-  cursor: pointer;
-  border-radius: 13px;
-  padding: 0px 20px;
-  height: 40px;
-  background-color: #f59d85;
-  border: 0px;
+	cursor: pointer;
+	border-radius: 13px;
+	padding: 0px 20px;
+	height: 40px;
+	background-color: #f59d85;
+	border: 0px;
 }
 
 /* 페이지 로고 */
 header>a>img {
-  height: 110px;
-  width: 110px;
+	height: 110px;
+	width: 110px;
 }
 
 /* 푸터 */
 footer {
-  width: 100%;
-  height: 125px;
-  background-color: #d9d9d9;
+	width: 100%;
+	height: 125px;
+	background-color: #d9d9d9;
 }
 
 /* 메인 컨테이너 */
 #main-container {
-  width: 1200px;
-  height: 100%;
-  background-color: #FFFEF1;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  min-height: calc(100vh - 235px);
+	width: 1200px;
+	height: 100%;
+	background-color: #FFFEF1;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	min-height: calc(100vh - 235px);
 }
 
 /* 메인 */
 main {
-  padding-top: 110px;
-  height: 100%;
-  width: 100%;
-  background-color: #a6a6a6;
-  font-family: "IBM Plex Sans KR", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  min-height: calc(100vh - 235px);
+	padding-top: 110px;
+	height: 100%;
+	width: 100%;
+	background-color: #a6a6a6;
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	min-height: calc(100vh - 235px);
 }
 
 /* 페이지 제목 */
 .pagetitle {
-  font-size: 30px;
-  color: #F38A6E;
-
-  height: 110px;
-  line-height: 110px;
-
-  font-family: "IBM Plex Sans KR", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+	font-size: 30px;
+	color: #F38A6E;
+	height: 110px;
+	line-height: 110px;
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
 }
 
 /* 목록으로 이동 */
 .back-list {
-  height: 50px;
-  width: 80px;
-  background-color: #818181;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 20px;
-  color: white;
-  cursor: pointer;
-  margin-top: 30px;
+	height: 50px;
+	width: 80px;
+	background-color: #818181;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 20px;
+	color: white;
+	cursor: pointer;
+	margin-top: 30px;
 }
 
 /* 디테일 컨테이너 */
 .detail-container {
-  background-color: #FFFEF1;
-  display: flex;
-  flex-direction: column;
-  width: 1200px;
-  height: 100%;
+	background-color: #FFFEF1;
+	display: flex;
+	flex-direction: column;
+	width: 1200px;
+	height: 100%;
 }
 
 /* 페이지 제목 영역 */
 #detail-container-list {
-  display: flex;
-  margin-top: 100px;
-  justify-content: space-between;
+	display: flex;
+	margin-top: 100px;
+	justify-content: space-between;
 }
 
 /* 작성자 프로필 사진 */
 .img-user-profile {
-  width: 30px;
-  height: 30px;
-  border-radius: 30px;
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
 }
 
 /* 내용 영역 */
 .div-detail-area {
-  width: 100%;
-  /* height: 100%; */
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  font-size: 18px;
+	width: 100%;
+	/* height: 100%; */
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 18px;
 }
 
 /* 대표 이미지 */
 .img-detail {
-  width: 600px;
-  height: 500px;
+	width: 600px;
+	height: 500px;
 }
 
 /* 대표 이미지 영역 */
 .div-img {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 /* 작성 날짜 */
 .div-write-date {
-  display: flex;
-  justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
 }
 
 /* 내용 글 영역 */
 .div-admin-detail {
-  margin-top: 50px;
-
+	margin-top: 50px;
 }
 
 /* 내용 글 영역 */
 .div-admin-info-detail {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 /* 삭제 버튼 */
 .button-cancel {
-  width: 120px;
-  height: 55px;
-  font-size: 30px;
-  background-color: white;
-  border-radius: 20px;
-  padding: 0px 20px;
-  font-size: 20px;
-  color: #ff0000;
-  border: 3px solid #ff0000;
+	width: 120px;
+	height: 55px;
+	font-size: 30px;
+	background-color: white;
+	border-radius: 20px;
+	padding: 0px 20px;
+	font-size: 20px;
+	color: #ff0000;
+	border: 3px solid #ff0000;
 }
 
 /* 내용 영역 */
 .p-admin-detail-comment {
-  width: 600px;
-  font-family: "IBM Plex Sans KR", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+	width: 600px;
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
 }
 
-/* 버튼 영역 */
-.div-button-area {
-  margin: 50px 0px;
-  display: flex;
-  justify-content: center;
+.div-user-name-area, .div-user-text-area {
+	width: 1150px;
+	display: flex;
+	justify-content: space-between;
 }
 
-/* 댓글 영역 */
-.div-comment-area {
-  border: 1px solid black;
-  background-color: white;
+.div-comment-write {
+	margin: 15px 0px;
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
 }
 
-/* 댓글 1개 */
-.div-comment-area>div {
-  display: flex;
-  border-bottom: 1px solid black;
+.span-comment-edit {
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 12px;
+	line-height: 24px;
 }
 
-/* 댓글 프로필 사진 */
-.div-comment-area>div>img {
-  margin: 5px;
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
+.span-comment-delete {
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 12px;
+	line-height: 24px;
+	color: #ff0000;
 }
 
-/* 삭제 버튼 */
-.div-comment-area>div>button {
-  width: 70px;
-  position: relative;
-  font-size: 14px;
-  left: 75%;
-  height: 25px;
-  background-color: white;
+.span-comment-edit:hover, .span-comment-delete:hover {
+	cursor: pointer;
 }
 
-/* 페이지네이션 */
-#main-page-number{
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  font-size: 20px;
-  margin-bottom: 100px;
+button:hover {
+	cursor: pointer;
 }
 
-/* 텍스트 스타일 제거 */
-#main-page-number>a{
-  margin: 0 28px;
-  text-decoration: none;
-  color: black;
+.div-page {
+	display: flex;
+	justify-content: center;
+}
+
+.div-pagenation {
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.input-comment {
+	border-radius: 15px;
+	border: 0px;
+	width: 90%;
+	height: 20px;
+	padding: 20px;
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 14px;
+	background-color: #F7F7F7;
+}
+
+.li-comment {
+	display: flex;
+	list-style: none;
+	border-bottom: 1px solid black;
+	width: 100%;
+}
+.div-button-area{
+	display: flex;
+	justify-content: center;
 }

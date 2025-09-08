@@ -87,7 +87,9 @@
           <!-- 버튼 영역 -->
           <div class="div-button-area">
             <!-- 삭제 버튼 -->
-            <button class="button-cancel">삭제</button>
+            <button class="button-cancel" 
+            data-review-number="${review.courseReviewNumber}" 
+            data-member-number="${review.memberNumber}">삭제</button>
           </div>
           <!-- 댓글 영역 -->
           <div class="div-comment-area">
