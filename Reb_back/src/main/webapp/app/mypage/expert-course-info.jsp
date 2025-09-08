@@ -32,8 +32,8 @@
   <jsp:include page="/header.jsp" />
   <main>
     <!-- 모달 -->
-    <div class="mypage-modal">
-    </div>
+    <jsp:include
+				page="${pageContext.request.contextPath}/app/mypage/mypage-modal.jsp" />
     <!-- 사이드 메뉴 -->
     <jsp:include page="${pageContext.request.contextPath}/app/mypage/sidemenu.jsp" />
     <!-- 메인 컨테이너 -->
