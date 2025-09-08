@@ -125,6 +125,6 @@
 	<footer> </footer>
 </body>
 <script
-	src="${pageContext.request.contextPath}/assets/js/comment/comment.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/comment/admincomment.js"></script>
 
 </html>

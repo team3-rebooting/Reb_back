@@ -26,9 +26,11 @@ public class AdminBannerDAO {
 		return sqlSession.selectOne("adminBanner.getTotal");
 	}
 
-	// 배너 추가(수정필요)
-	public void insert(AdminBannerDTO adminBannerDTO) {
-		sqlSession.insert("adminBanner.insert",adminBannerDTO);
+	// 배너 추가
+	public int insert(AdminBannerDTO adminBannerDTO) {
+		int number = sqlSession.insert("adminBanner.insert",adminBannerDTO);
+		System.out.println(number);
+		return number;
 	}
 	// 배너 순서 변경
 	public void update(int bannerOrderNumber) {

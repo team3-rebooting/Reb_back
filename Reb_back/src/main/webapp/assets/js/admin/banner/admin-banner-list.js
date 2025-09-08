@@ -8,7 +8,7 @@ addBtn.addEventListener('click', () => {
   if (bannerCount.length >= 10) {
     alert("최대 10개까지 등록 가능합니다");
   } else {
-    location.href = "./../../../app/admin/banner/admin-banner-create.html";
+    location.href = "/admin/bannerWrite.ad";
   }
 });
 
