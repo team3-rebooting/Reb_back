@@ -18,7 +18,7 @@ import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.myPage.dao.MySponsorDAO;
 
-public class MySponsorOKController  implements Execute {
+public class MySponsorOKController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
