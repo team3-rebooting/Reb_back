@@ -13,6 +13,7 @@
 	href="${pageContext.request.contextPath}/assets/css/header.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/auth/policy.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -166,15 +167,21 @@
 					</div>
 					<!-- 필수 동의 항목 영역 -->
 					<div id="check">
+					<div class="div-signup">
+							<input class="input-terms-all input-essential" type="checkbox" id="check-all"> 
+							<label for="check-all" class="label-terms">전체 동의</label>
+						</div>
 						<div class="div-signup">
 							<input class="input-terms input-essential" type="checkbox" id="id-terms"> 
-							<label for="id-terms" class="label-terms">개인정보처리방침 동의(필수)</label></span> <span class="span-add">보기</span>
+							<label for="id-terms" class="label-terms">개인정보처리방침 동의(필수)</label> <span class="span-add privacy-view">보기</span>
 						</div>
 						<div class="div-signup">
 							<input class="input-terms input-essential" type="checkbox" id="id-terms1"> 
-							<label for="id-terms1" class="label-terms">이용약관 동의(필수)</label></span> <span class="span-add">보기</span>
+							<label for="id-terms1" class="label-terms">이용약관 동의(필수)</label> <span class="span-add terms-view">보기</span>
 						</div>
 					</div>
+					<!-- 정책 -->
+					<jsp:include page="${pageContext.request.contextPath}/app/auth/policy.jsp" />
 					<!-- 회원가입 버튼, 뒤로가기 버튼 영역 -->
 					<div class="div-signup">
 						<button type="button" class="button-back">뒤로가기</button>
@@ -187,6 +194,7 @@
 	<!-- 푸터 영역 -->
 	<jsp:include page="/footer.jsp" />
 	<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/auth/policy.js"></script>
 </body>
 
 </html>

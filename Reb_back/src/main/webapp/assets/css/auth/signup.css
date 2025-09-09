@@ -120,7 +120,7 @@ button {
 .div-signup {
   width: 100%;
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   margin: 15px 0 0;
 }
 
@@ -253,8 +253,11 @@ button {
 
 .label-terms{
 	width: 200px;
-	margin: 0 10px;
 	text-align: right;
+}
+
+.span-add{
+	margin-left: 10px;
 }
 
 .label-terms,

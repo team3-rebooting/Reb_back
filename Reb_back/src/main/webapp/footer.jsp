@@ -14,6 +14,7 @@
           <ul id="footer-ul-link-list">
             <li><a href="${pageContext.request.contextPath}/app/aboutUs/site-introduction.jsp">소개글</a></li>
             <li><a href="${pageContext.request.contextPath}/app/aboutUs/privacy-policy.jsp">개인정보처리방침</a></li>
+            <li><a href="${pageContext.request.contextPath}/app/aboutUs/terms-policy.jsp">이용약관</a></li>
           </ul>
         </nav>
       </div>
