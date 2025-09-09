@@ -165,10 +165,15 @@
 						</div>
 					</div>
 					<!-- 필수 동의 항목 영역 -->
-					<div class="div-signup">
-						<input class="input-terms input-essential" type="checkbox"
-							id="id-terms"> <label for="id-terms" class="label-terms">개인정보
-							수집 및 이용 동의(필수)</label></span> <span class="span-add">보기</span>
+					<div id="check">
+						<div class="div-signup">
+							<input class="input-terms input-essential" type="checkbox" id="id-terms"> 
+							<label for="id-terms" class="label-terms">개인정보처리방침 동의(필수)</label></span> <span class="span-add">보기</span>
+						</div>
+						<div class="div-signup">
+							<input class="input-terms input-essential" type="checkbox" id="id-terms1"> 
+							<label for="id-terms1" class="label-terms">이용약관 동의(필수)</label></span> <span class="span-add">보기</span>
+						</div>
 					</div>
 					<!-- 회원가입 버튼, 뒤로가기 버튼 영역 -->
 					<div class="div-signup">
@@ -180,8 +185,8 @@
 		</div>
 	</main>
 	<!-- 푸터 영역 -->
-	<div id="footer"></div>
+	<jsp:include page="/footer.jsp" />
+	<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>

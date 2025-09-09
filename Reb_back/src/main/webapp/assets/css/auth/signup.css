@@ -110,11 +110,18 @@ button {
   height: 90%;
 }
 
+#check{
+	display: flex;
+	flex-direction: column;
+	align-self: end;
+	margin: 15px;
+}
+
 .div-signup {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  margin: 15px;
+  justify-content: right;
+  margin: 15px 0 0;
 }
 
 .div-signup-hide {
@@ -242,6 +249,12 @@ button {
   line-height: 50px;
   display: flex;
   justify-content: space-around;
+}
+
+.label-terms{
+	width: 200px;
+	margin: 0 10px;
+	text-align: right;
 }
 
 .label-terms,

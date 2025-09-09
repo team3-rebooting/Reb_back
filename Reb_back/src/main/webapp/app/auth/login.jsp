@@ -225,8 +225,8 @@
 		</div>
 	</main>
 	<!-- 푸터 영역 -->
-	<div id="footer"></div>
+	<jsp:include page="/footer.jsp" />
+	<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>
