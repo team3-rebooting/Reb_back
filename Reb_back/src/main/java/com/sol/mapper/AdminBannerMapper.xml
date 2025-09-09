@@ -25,4 +25,7 @@
 	<delete id="delete" parameterType="int">
 		DELETE FROM TBL_BANNER WHERE BANNER_NUMBER = #{bannerNumber}
 	</delete>
+	<select id="findBannerNumber" parameterType="int" resultType="int">
+		select banner_number from tbl_banner where banner_order_number = #{bannerOrderNumber}
+	</select>
 </mapper>

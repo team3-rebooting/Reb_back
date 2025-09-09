@@ -41,4 +41,9 @@ public class AdminBannerDAO {
 	public void delete(int bannerNumber) {
 		sqlSession.delete("adminBanner.delete",bannerNumber);
 	}
+	// 배너 번호 찾기(배너순서번호로)
+	public int findBannerNumber(int bannerOrderNumber) {
+		Integer bannerNumber = sqlSession.selectOne("adminBanner.findBannerNumber",bannerOrderNumber);
+		return bannerNumber != null ? bannerNumber : 0;  
+	}
 }
