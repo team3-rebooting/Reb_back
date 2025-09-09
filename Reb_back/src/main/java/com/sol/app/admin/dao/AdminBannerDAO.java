@@ -30,11 +30,12 @@ public class AdminBannerDAO {
 	public int insert(AdminBannerDTO adminBannerDTO) {
 		int number = sqlSession.insert("adminBanner.insert",adminBannerDTO);
 		System.out.println(number);
-		return number;
+		System.out.println(adminBannerDTO.getBannerNumber());
+		return adminBannerDTO.getBannerNumber();
 	}
 	// 배너 순서 변경
-	public void update(int bannerOrderNumber) {
-		sqlSession.update("adminBanner.update",bannerOrderNumber);
+	public void update(AdminBannerDTO bannerDTO) {
+		sqlSession.update("adminBanner.update",bannerDTO);
 	}
 	// 배너 삭제
 	public void delete(int bannerNumber) {
