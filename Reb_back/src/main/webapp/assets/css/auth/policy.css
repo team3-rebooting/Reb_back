@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+#privacy,
+#terms-of-service{
+	background-color: white;
+	border: 1px solid black;
+	position: fixed;
+	width: 700px;
+	height: 750px;
+	top: 150px;
+	display: none;
+	z-index: 10;
+}
+
+.inner{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;/* 
+	display: block; */
+}
+
+.div-title{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 25px;
+    line-height: 50px;
+}
+
+.modal-title{
+    font-size: 24px;
+}
+
+.content{
+	width: 650px;
+	height: 650px;
+	overflow-y: auto;
+}
+
+
+

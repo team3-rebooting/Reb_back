@@ -149,11 +149,11 @@
 			</div>
 		</div>
 	</main>
-	<div id="footer"></div>
+	<jsp:include page="/footer.jsp" />
+	<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 	<script>
 		let memberNumber = "{sessionScope.memberNumber}";
 	</script>
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>

@@ -408,11 +408,46 @@ document.addEventListener("DOMContentLoaded", function() {
 		retry.style.color = "#d9d9d9";
 		phoneNumber.value = "";
 	});
+	
+	
+	NodeList.prototype.map = Array.prototype.map;
+	NodeList.prototype.filter = Array.prototype.filter;
+
+	const all = document.querySelector(".input-terms-all");
+	const terms = document.querySelectorAll(".input-terms");
+	console.log(all);
+	console.log(terms);
+
+	//전체동의 체크박스를 클릭할 때 마다 실행되는 이벤트 리스너
+	all.addEventListener('click', () => {
+	  terms.forEach((term) => {
+	    console.log(term);
+	    term.checked = all.checked;
+	  });
+	});
+
+	//약관동의 체크박스를 클릭할 때마다 실행되는 이벤트 리스터
+	terms.forEach((term) => {
+	  term.addEventListener('click', () =>{
+	    all.checked = terms.map((term) => term.checked).filter((checked) => checked).length === terms.length;
+	  });
+	});
+	
+	const privacy = document.querySelector(".privacy-view");
+	
+	privacy.addEventListener('click', ()=>{
+		document.querySelector("#privacy").style.display= "block";
+	})
+	
+	const termsView = document.querySelector(".terms-view");
+	
+	termsView.addEventListener('click', ()=>{
+		document.querySelector("#terms-of-service").style.display= "block";
+	})
 
 
 	form.addEventListener("submit", function(e) {
-		const agree = document.getElementById("id-terms");
-		if (!agree.checked) {
+		if (!all.checked) {
 			e.preventDefault();
 			alert("약관에 동의해주세요.");
 			return;
