@@ -31,14 +31,40 @@ public class BannerUpdateOkController implements Execute{
 		boolean up = Boolean.valueOf(request.getParameter("up"));
 		int bannerOrderNumber = Integer.valueOf(request.getParameter("bannerOrderNumber"));
 		if(up) {
-			do {
-				bannerOrderNumber--;
-			}while (bannerOrderNumberSet.contains(bannerOrderNumber));
-			bannerDTO.setBannerNumber(bannerNumber);
-			bannerDTO.setBannerOrderNumber(bannerOrderNumber);
-			bannerDAO.update(bannerDTO);
+			Integer lastBannerOrderNumber = (Integer)bannerDAO.findBannerNumber(1);
+			if(bannerOrderNumber == 2 && lastBannerOrderNumber != 0) {
+				//1번이었던 배너를 2번으로 옮김
+				bannerDTO.setBannerNumber(lastBannerOrderNumber);
+				bannerDTO.setBannerOrderNumber(2);
+				bannerDAO.update(bannerDTO);
+				//그 후 2번인 배너를 1번으로 옮김 ㅋㅋ
+				AdminBannerDTO newBannerDTO = new AdminBannerDTO();
+				newBannerDTO.setBannerOrderNumber(1);
+				newBannerDTO.setBannerNumber(bannerNumber);
+				bannerDAO.update(newBannerDTO);
+			}
+			else {
+				do {
+					bannerOrderNumber--;
+				}while (bannerOrderNumberSet.contains(bannerOrderNumber));
+				bannerDTO.setBannerNumber(bannerNumber);
+				bannerDTO.setBannerOrderNumber(bannerOrderNumber);
+				bannerDAO.update(bannerDTO);				
+			}
 		}
 		else {
+			Integer lastBannerOrderNumber = (Integer)bannerDAO.findBannerNumber(10);
+			if(bannerOrderNumber == 9 && lastBannerOrderNumber != 0) {
+				
+				bannerDTO.setBannerNumber(lastBannerOrderNumber);
+				bannerDTO.setBannerOrderNumber(9);
+				bannerDAO.update(bannerDTO);
+				
+				AdminBannerDTO newBannerDTO = new AdminBannerDTO();
+				newBannerDTO.setBannerOrderNumber(10);
+				newBannerDTO.setBannerNumber(bannerNumber);
+				bannerDAO.update(newBannerDTO);
+			}
 			do {
 				bannerOrderNumber++;				
 			}while (bannerOrderNumberSet.contains(bannerOrderNumber));
