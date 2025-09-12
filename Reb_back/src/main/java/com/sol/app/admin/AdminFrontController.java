@@ -225,6 +225,10 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("배너 삭제 완료");
 			result = new BannerDeleteOkController().execute(request,response);
 			break;
+		case "/admin/leaderListOk.ad":
+			System.out.println("모임장 목록");
+			result = new LeaderListOkController().execute(request,response);
+			break;
 		}
 		
 		if (result != null && result.getPath() != null) {
