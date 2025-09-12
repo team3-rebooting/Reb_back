@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="routineLeader">
+	<select id="selectAll"  resultType="RoutineLeaderDTO">
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+		SELECT routine_leader_number, routine_leader_name FROM TBL_ROUTINE_LEADER
+		) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<insert id="insert" parameterType="RoutineLeaderDTO">
+		insert into tbl_routine_leader(routine_leader_number, routine_leader_name)
+		values(#{routineLeaderNumber}, #{routineLeaderName})
+	</insert>
+	<delete id="RoutineLeaderDTO">
+		delete from tbl_routine_leader where routine_leader_number = #{routineLeaderNumber}
+	</delete>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(routine_leader_number)
+		FROM TBL_ROUTINE_LEADER	
+	</select>
+</mapper>
