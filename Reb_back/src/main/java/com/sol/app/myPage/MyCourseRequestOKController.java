@@ -16,6 +16,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.sol.app.Execute;
 import com.sol.app.Result;
+import com.sol.app.course.dao.CourseMemberApplicantDAO;
 import com.sol.app.myPage.dao.MyCourseRequestDAO;
 
 public class MyCourseRequestOKController implements Execute {
@@ -29,6 +30,7 @@ public class MyCourseRequestOKController implements Execute {
 		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
 
 		MyCourseRequestDAO myCourseRequestDAO = new MyCourseRequestDAO();
+		CourseMemberApplicantDAO courseMemberApplicantDAO = new CourseMemberApplicantDAO();
 		Result result = new Result();
 
 		Gson gson = new Gson();
@@ -95,17 +97,18 @@ public class MyCourseRequestOKController implements Execute {
 			myCourseRequestDAO.selectList(map).stream().map(gson::toJson).map(JsonParser::parseString)
 					.forEach((data) -> {
 						JsonArray a = new JsonArray();
+						int courseNumber = data.getAsJsonObject().get("courseNumber").getAsInt();
 
 						String title = "[" + data.getAsJsonObject().get("fieldName").getAsString() + "]"
 								+ data.getAsJsonObject().get("courseTitle").getAsString();
 						String status = data.getAsJsonObject().get("courseRequestType").getAsString() + " "
 								+ data.getAsJsonObject().get("courseStatusInfo").getAsString();
 						int statusNumber = data.getAsJsonObject().get("courseOpenStatusNumber").getAsInt();
-						String applicantCount = data.getAsJsonObject().get("courseApplicantCount") + "/"
+						String applicantCount = courseMemberApplicantDAO.getCount(courseNumber) + "/"
 								+ data.getAsJsonObject().get("courseRecruitCount");
 						String requestDate = data.getAsJsonObject().get("courseRequestDate").getAsString();
 
-						String href = "/course/courseDetailOk.co?courseNumber=" + data.getAsJsonObject().get("courseNumber");
+						String href = "/course/courseDetailOk.co?courseNumber=" + courseNumber;
 							
 
 						a.add("<a href=\"" + href + "\" class=\"font-main list-title\">" + title + "</a>");

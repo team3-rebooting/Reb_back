@@ -61,7 +61,7 @@ public class MyCourseApplicantOkController implements Execute {
 		//Integer courseNumber = Integer.parseInt(request.getParameter("courseNumber"));
 
 		int pageCount = 5; // 페이지 버튼 수
-		int rowCount = 3; // 한 페이지당 게시글 수
+		int rowCount = 10; // 한 페이지당 게시글 수
 
 		// 페이징 처리
 		int startRow = (page - 1) * rowCount + 1; // 시작행(1, 11, 21, ..)
@@ -116,8 +116,8 @@ public class MyCourseApplicantOkController implements Execute {
 					.forEach((data) -> {
 						JsonArray a = new JsonArray();
 						a.add(data.getAsJsonObject().get("memberName").getAsString());
-						a.add(data.getAsJsonObject().get("memberEmail"));
 						a.add(data.getAsJsonObject().get("memberPhoneNumber"));
+						a.add(data.getAsJsonObject().get("memberEmail"));
 
 						list.add(a);
 					});

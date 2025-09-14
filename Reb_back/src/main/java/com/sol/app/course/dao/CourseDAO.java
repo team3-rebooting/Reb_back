@@ -14,14 +14,16 @@ public class CourseDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 
-	public int createRequest(CourseDTO courseDTO) {
+	public int createRequest(CourseDTO courseDTO, boolean createRequset) {
 		sqlSession.insert("expertCourseRequest.create", courseDTO);
-		
+
 		int courseNumber = courseDTO.getCourseNumber();
-		
-		System.out.println("courseNumber=================" + courseNumber);
-		
-		sqlSession.insert("expertCourseRequest.createRequest", courseNumber);
+
+		if (createRequset) {
+			System.out.println("courseNumber=================" + courseNumber);
+
+			sqlSession.insert("expertCourseRequest.createRequest", courseNumber);
+		}
 		
 		return courseNumber;
 	}
