@@ -10,7 +10,7 @@
 
 /* 목록 속성 값의 제목 열 */
 .list-col-type .list-title{
-    text-align: center;
+    text-align: left;
 }
 
 /* 목록 */
@@ -40,18 +40,18 @@ p{
 
 /* 목록 사람 이름 열 */
 .list-content{
-  text-align: center;
-  width: 15%;
+  text-align: left;
+  padding-left: 20px;
+  width: 20%;
 }
 
 
 /* 목록 제목 열 */
 .list-title {
   text-align: left;
-  width: 10%;
   padding-left: 15px;
   text-align: left;
-  width: 70%;
+  width: 60%;
 }
 
 /* 목록 행 */

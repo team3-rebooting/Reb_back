@@ -41,7 +41,7 @@
         <!-- 메인 컨테이너 -->
         <div id="main-container">
             <!-- 수업 신청자 목록 -->
-            <div class="my-sponsorship-list-container font-main" id="my-sponsorship">
+            <div class="my-sponsorship-list-container font-main" id="my-course-applicant-container">
                 <div class="mypage-list" id="my-course-applicant">
                 	<jsp:include page="${pageContext.request.contextPath}/app/mypage/mypage-list.jsp" />
                 </div>

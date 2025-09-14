@@ -93,7 +93,10 @@ button {
 	height: 50px;
 	line-height: 50px;
 	background-color: white;
-	width: 15%;
+	width: 21.5%;
+	text-align: left;
+	padding: 0px;
+	padding-left:20px; 
 }
 
 /* 수업 목록 글자 p */

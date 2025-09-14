@@ -87,8 +87,10 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 				}
 			}
 			courseDTO.setCourseDayOfWeek(day);
+			
+			System.out.println(courseDTO);
 
-			int courseNumber = courseDAO.createRequest(courseDTO);
+			int courseNumber = courseDAO.createRequest(courseDTO, true);
 			System.out.println("생성된 게시글 번호 : " + courseNumber);
 
 			// 파일 업로드 처리
@@ -111,8 +113,8 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 				fileCourseDAO.insert(fileCourseDTO);
 			}
 
-			result.setPath("/course/courseListOk.co");
-			result.setRedirect(true);
+			result.setPath("/course/courseDetailOk.co?courseNumber="+courseNumber);
+			result.setRedirect(false);
 		}
 		return result;
 	}

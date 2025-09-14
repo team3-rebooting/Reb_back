@@ -6,4 +6,17 @@
 			FROM TBL_COURSE_REQUEST
 			WHERE MEMBER_NUMBER = #{memberNumber}
 	</select>
+	<select id="select" parameterType="int" resultType="CourseRequestDTO">
+		<![CDATA[
+			SELECT COURSE_NUMBER, COURSE_OPEN_STATUS_NUMBER, COURSE_REQUEST_TYPE_NUMBER, to_char(COURSE_REGISTER_DATE, 'yyyy-mm-dd') as COURSE_REGISTER_DATE, to_char(COURSE_REQUEST_DATE, 'yyyy-mm-dd') as COURSE_REQUEST_DATE, to_char(COURSE_RESULT_DATE, 'yyyy-mm-dd') as COURSE_RESULT_DATE, prev_course_number from TBL_COURSE_REQUEST
+   			where COURSE_NUMBER = #{courseNumber}
+   		]]>
+	</select>	
+	<delete id="delete" parameterType="int">
+		DELETE FROM TBL_COURSE_REQUEST WHERE COURSE_NUMBER=#{courseNumber}
+	</delete>
+	<insert id="insert" parameterType="CourseRequestDTO">
+		INSERT INTO TBL_COURSE_REQUEST(COURSE_NUMBER, COURSE_OPEN_STATUS_NUMBER, COURSE_REQUEST_TYPE_NUMBER, COURSE_REGISTER_DATE, COURSE_REQUEST_DATE, COURSE_RESULT_DATE, COURSE_REJECT_REASON, prev_course_number)
+		values(#{courseNumber}, #{courseOpenStatusNumber}, #{courseRequestTypeNumber}, TO_DATE(#{courseRegisterDate}, 'YYYY-MM-DD'), sysdate, TO_DATE(#{courseResultDate}, 'YYYY-MM-DD'), #{courseRejectReason}, #{prevCourseNumber})
+	</insert>
 </mapper>
