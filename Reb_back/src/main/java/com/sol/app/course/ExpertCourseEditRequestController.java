@@ -45,6 +45,8 @@ public class ExpertCourseEditRequestController implements Execute{
 		result.setPath("/app/course/expert-course-edit-request.jsp");
 		result.setRedirect(false);
 		
+		System.out.println("path : " + result.getPath());
+		
 		return result;
 	}
 

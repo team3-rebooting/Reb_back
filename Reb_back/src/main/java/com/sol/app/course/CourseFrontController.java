@@ -104,7 +104,7 @@ public class CourseFrontController extends HttpServlet {
 			break;
 		case "/course/expertCourseEditRequestOk.co":
 			System.out.println("수업 수정 요청 처리 요청");
-			//result = new ExpertCourseEditRequestOkController().execute(request, response);
+			result = new ExpertCourseEditRequestOkController().execute(request, response);
 			break;
 		case "/course/courseApplyOk.co":
 			System.out.println("수업 신청/취소 처리 요청");

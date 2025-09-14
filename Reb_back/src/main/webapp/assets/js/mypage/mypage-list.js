@@ -15,9 +15,11 @@ window.addEventListener('DOMContentLoaded', () => {
 			console.log(listInfo);
 			// 목록 로드
 			if (id === "my-course-request") {
-				renderListExpetRequest(listInfo, id, listInfo.page.rowCount);
+				renderListExpertRequest(listInfo, id, listInfo.page.rowCount);
+			} else if (id === "my-course-applicant") {
+				renderList(listInfo, id, listInfo.page.rowCount, listInfo.etcArr, 2);
 			} else {
-				renderList(listInfo, id, listInfo.page.rowCount, listInfo.etcArr);
+				renderList(listInfo, id, listInfo.page.rowCount, listInfo.etcArr, 0);
 			}
 			// 페이지 번호 로드
 			renderPage(listInfo.page, id);
@@ -56,7 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-	function renderListExpetRequest(listInfo, id, rowCount) {
+	function renderListExpertRequest(listInfo, id, rowCount) {
 		// 리스트 부모 요소
 		const list = document.querySelector(`#${id}`);
 		// 목록 ul
@@ -65,10 +67,10 @@ window.addEventListener('DOMContentLoaded', () => {
 		ul.innerHTML = ``;
 
 		// 목록 행 초기화
-		listInfo.list.forEach(function(l, i) {
+		listInfo.list.forEach(function(l) {
 			let li = `<li class="li-content">`;
 
-			l.forEach(function(item, index) {
+			l.forEach(function(item) {
 				li += item;
 			});
 
@@ -115,9 +117,8 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-
 	// 목록 초기화
-	function renderList(listInfo, id, rowCount, etcArr) {
+	function renderList(listInfo, id, rowCount, etcArr, titleIndex) {
 		// 리스트 부모 요소
 		const list = document.querySelector(`#${id}`);
 		// 목록 ul
@@ -125,21 +126,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		ul.innerHTML = ``;
 
+		let length = listInfo.cols.length;
 		// 목록 행 초기화
 		listInfo.list.forEach(function(l, i) {
 			let li = `<li class="li-content">`;
 
 			l.forEach(function(item, index) {
-				// href 값 있을 경우, 첫번째 열에 한하여 a tag로 설정
-				if (index === 0) {
-					if (etcArr[i]?.href !== undefined) {
-						li += `<a href="${etcArr[i].href}" class="font-main list-title">${item}</a>`;
-					} else {
-						li += `<li class="li-content"><p class="font-main list-title">${item}</p>`;
+				if (length > index) {
+					// href 값 있을 경우, 첫번째 열에 한하여 a tag로 설정
+					if (index === titleIndex) {
+						if (etcArr[i]?.href !== undefined) {
+							li += `<a href="${etcArr[i].href}" class="font-main list-title">${item}</a>`;
+						} else {
+							li += `<p class="font-main list-title">${item}</p>`;
+						}
 					}
+					else
+						li += `<p class="font-main list-content">${item}</p>`;
+
 				}
-				else
-					li += `<p class="font-main list-content">${item}</p>`;
 			})
 
 			li += '</li>';
@@ -160,7 +165,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		col.innerHTML = ``;
 		// 목록 열 정보 행 초기화
 		listInfo.cols.forEach(function(c, i) {
-			if (i === 0) {
+			if (i === titleIndex) {
 				col.innerHTML += `<p class="font-main list-title">${c}</p>`;
 			}
 			else {
