@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.dto.RoutineReviewListDTO;
+import com.sol.app.routine.dao.RoutineReviewLikeDAO;
 import com.sol.app.routine.dao.RoutineReviewListDAO;
 
 public class RoutineReviewOkController  implements Execute {
@@ -21,6 +22,7 @@ public class RoutineReviewOkController  implements Execute {
 			throws ServletException, IOException {
 		System.out.println("====RoutineReviewOkController 실행====");
 		RoutineReviewListDAO routineReviewListDAO = new RoutineReviewListDAO();
+		RoutineReviewLikeDAO routineReviewLikeDAO = new RoutineReviewLikeDAO();
 		Result result = new Result();
 
 		String temp = request.getParameter("page");
@@ -39,11 +41,14 @@ public class RoutineReviewOkController  implements Execute {
 
 		// 게시글 목록 조회
 		List<RoutineReviewListDTO> routineReviewList = routineReviewListDAO.selectAll(pageMap);
-		request.setAttribute("routineReviewList", routineReviewList);
 		
 		for(RoutineReviewListDTO r : routineReviewList) {
-			 System.out.println("getRoutineReviewCreatedDate " + r.getRoutineReviewCreatedDate()); 
+			r.setLikeCount(routineReviewLikeDAO.getCount(r.getRoutineReviewNumber()));
 		}
+		
+		request.setAttribute("routineReviewList", routineReviewList);
+		
+		
 
 		// 페이징 정보 설정
 		// BoardMapper.xml의 getTotal을 이용하여 전체 게시글 개수 조회

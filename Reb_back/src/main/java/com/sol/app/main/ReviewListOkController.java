@@ -9,7 +9,6 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -17,6 +16,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.sol.app.Execute;
 import com.sol.app.Result;
+import com.sol.app.admin.dao.AdminBannerDAO;
 import com.sol.app.course.dao.CourseReviewDAO;
 import com.sol.app.course.dao.FileCourseReviewDAO;
 import com.sol.app.dto.FileCourseReviewDTO;
@@ -96,6 +96,16 @@ public class ReviewListOkController implements Execute {
 		});
 
 		obj.add("courseReviewList", courseList);
+		
+		
+		AdminBannerDAO adminBannerDAO = new AdminBannerDAO();
+		JsonArray array = new JsonArray();
+
+		adminBannerDAO.selectAll().stream().map(gson::toJson).map(JsonParser::parseString).forEach((data) -> {
+			array.add(data.getAsJsonObject().get("fileSystemName"));
+		});
+
+		obj.add("bannerList", array);
 
 		System.out.println("obj : " + obj.toString());
 

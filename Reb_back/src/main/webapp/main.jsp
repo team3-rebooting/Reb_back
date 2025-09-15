@@ -44,7 +44,7 @@
 					<!-- 배너 이미지 목록 -->
 					<div id="main-banner-box">
 						<ul id="main-ul-banner">
-							<li class="main-li-banner"><img
+							<%-- <li class="main-li-banner"><img
 								src="${pageContext.request.contextPath}/assets/img/routine-img.png"
 								alt=""></li>
 							<li class="main-li-banner"><img
@@ -73,7 +73,7 @@
 								alt=""></li>
 							<li class="main-li-banner"><img
 								src="${pageContext.request.contextPath}/assets/img/banner10.jpg"
-								alt=""></li>
+								alt=""></li> --%>
 						</ul>
 					</div>
 					<!-- 배너 우측 버튼 -->

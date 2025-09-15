@@ -114,6 +114,10 @@ button {
   font-size: 18px;
 }
 
+#i-heart:hover{
+	cursor:pointer;
+}
+
 .img-detail {
   width: 600px;
   height: 500px;

@@ -38,6 +38,8 @@
 	<main>
 		<div id="main-container">
 			<div class="detail-container">
+				<input type="hidden" id="routine-review-number"
+					value="${routineReview.routineReviewNumber}">
 				<div>
 					<!-- 뒤로가기 -->
 					<p class="p-back">
@@ -77,10 +79,21 @@
 						</p>
 					</div>
 					<div class="div-font-awesome-line">
-						<span>루틴 모임 : ${routineReview.routineTitle}</span><br> <span
-							class="span-likes">좋아요 수 : <c:out
-								value="${routineReview.getLikeCount()}" />
-						</span><i class="fa-regular fa-heart"></i>
+						<span>참여 루틴 모임 : ${routineReview.routineTitle}</span> <br> <input
+							type="hidden" id="like" value="${like}"> <span
+							class="span-likes">좋아요 수 : <span id="span-like-count"><c:out
+									value="${routineReview.getLikeCount()}" /></span>
+						</span>
+						<c:if test="${not empty sessionScope.memberNumber}">
+							<c:choose>
+								<c:when test="${like}">
+									<i id="i-heart" class="fa-solid fa-heart"></i>
+								</c:when>
+								<c:otherwise>
+									<i id="i-heart" class="fa-regular fa-heart"></i>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
 					</div>
 				</div>
 				<div class="div-detail-area">
