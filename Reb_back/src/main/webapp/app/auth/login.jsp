@@ -27,6 +27,11 @@
 	rel="stylesheet">
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/auth/login.js"></script>
+<!-- 카카오톡 api -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+<script src="${pageContext.request.contextPath}/assets/js/auth/kakao-login-api.js"></script>
+
 <title>틈새빛</title>
 </head>
 
@@ -207,8 +212,16 @@
 						로그인</button>
 					<!-- 카카오로그인 버튼 -->
 					<button class="button-kakao" type="button">
+					<a href="javascript:void(0)">
 						<img src="${pageContext.request.contextPath}/assets/img/kakao.png"
 							class="kakao-img">카카오 로그인
+					</a>
+					</button>
+					<button class="button-kakao button-kakao-logout" type="button">
+						<a href="javascript:void(0)">
+							<img src="${pageContext.request.contextPath}/assets/img/kakao.png"
+							class="kakao-img">카카오 로그아웃
+						</a>
 					</button>
 				</form>
 				<!-- 밑줄 -->
