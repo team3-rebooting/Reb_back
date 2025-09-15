@@ -1,16 +1,18 @@
 window.addEventListener('DOMContentLoaded', () => {
 	const deleteButton = document.querySelector(".button-cancel");
 	const updateButton = document.querySelector(".button-application");
-
-	const heart = document.querySelector(".fa-heart");
+	const like = document.querySelector("#like");
+	const routineNumber = document.querySelector("#routine-review-number");
+	const heartCount = document.querySelector("#span-like-count");
+	const heart = document.querySelector("#i-heart");
 	const back = document.querySelector(".p-back");
-	
+
 	// ====== 유틸 ======
 	async function safeJson(res) {
 		const text = await res.text();
 		try { return text ? JSON.parse(text) : null; } catch { return null; }
 	}
-	
+
 	back.addEventListener("click", () => {
 		history.back();
 	});
@@ -46,14 +48,48 @@ window.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
-	heart?.addEventListener('click', () => {
-		if (heart.classList.contains('fa-regular')) {
-			heart.classList.replace('fa-regular', 'fa-solid');
+	heart?.addEventListener('click', async () => {
+		try {
+			const response = await fetch(`/routine/routineReviewLikeOk.ro`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json; charset=utf-8",
+					"X-Requested-With": "XMLHttpRequest",
+				},
+				body: JSON.stringify({ routineNumber: routineNumber.value, like: like.value }),
+			});
+
+			const result = await safeJson(response);
+			if (result?.status === "success") {
+				if (heart.classList.contains('fa-regular')) {
+					heart.classList.replace('fa-regular', 'fa-solid');
+				}
+				else {
+					heart.classList.replace('fa-solid', 'fa-regular');
+				}
+
+				if (like.value == 'true') {
+					heartCount.innerHTML = Number(heartCount.innerHTML) - 1;
+					like.value = 'false';
+				} else {
+					heartCount.innerHTML = Number(heartCount.innerHTML) + 1;
+					like.value = 'true';
+				}
+			}
+		} catch (error) {
+			console.error("좋아요 실패", error);
+			alert("좋아요 중 오류가 발생했습니다.");
 		}
-		else {
-			heart.classList.replace('fa-solid', 'fa-regular');
-		}
+
+
+
+
+
 	});
+
+	function initHeart() {
+		;
+	}
 
 	//let edit = document.querySelectorAll(".span-comment-edit");
 	//let commentAdd = document.querySelector(".input-comment");
