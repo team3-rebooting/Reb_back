@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
 						
 						console.log(user);
 						
-						/*fetch(`/member/checkIdOk.me?memberId=${encodeURIComponent(userId)}`, {
+						fetch(`/member/checkIdOk.me?memberId=${encodeURIComponent(userId)}`, {
 							headers: { "Content-type": "application/json" }
 						})
 						.then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
@@ -57,8 +57,7 @@ window.addEventListener('DOMContentLoaded', () => {
 								console.log('회원가입 진행');
 								signup(user);
 							}
-						}*/
-						
+						});
 						
 						
 					},
@@ -99,7 +98,10 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 	
 	function signup(user){
-		fetch('/member/kakaosignup.me')
+		fetch('/member/kakaosignup.me', {
+			headers : {"Content-type": "application/json"},
+			
+		})
 	}
 	
 });
