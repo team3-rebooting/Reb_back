@@ -4,8 +4,36 @@ window.addEventListener('DOMContentLoaded', () => {
 	const back = document.querySelector(".p-back");
 	const courseNumber = document.querySelector("#courseNumber").value;
 	const applicantCount = document.querySelector('#applicant-count');
-	
-	
+
+
+	const modal = document.querySelector(".modal-background");
+	const deleteBtn = document.querySelector(".button-delete");
+	const modalClose = document.querySelector(".button-x");
+	const buttonModalDelete = document.querySelector(".button-modal-delete");
+	const textareaDelete = document.querySelector(".textarea-delete-modal");
+
+	deleteBtn.addEventListener('click', () => {
+		modal.style.display = "flex";
+	});
+
+	modalClose.addEventListener('click', () => {
+		modal.style.display = "none";
+	});
+
+	buttonModalDelete.addEventListener('click', (e) => {
+		console.log(textareaDelete.value.length);
+		if (textareaDelete.value === "" || textareaDelete.value.length === 0) {
+			e.preventDefault();
+			alert("요청을 입력해주세요");
+		}
+		else {
+			alert("삭제 요청 완료되었습니다");
+			/*textareaDelete.value = null;*/
+			modal.style.display = "none";
+		}
+	});
+
+
 	back.addEventListener("click", () => {
 		history.back();
 	});
@@ -71,32 +99,6 @@ window.addEventListener('DOMContentLoaded', () => {
 			}
 		}
 	})
-	
-	const modal = document.querySelector(".modal-background");
-	const deleteBtn = document.querySelector(".button-delete");
-	const modalClose = document.querySelector(".button-x");
-	const buttonModalDelete = document.querySelector(".button-modal-delete");
-	const textareaDelete = document.querySelector(".textarea-delete-modal");
 
-	deleteBtn.addEventListener('click', () => {
-	  modal.style.display = "flex";
-	});
-
-	modalClose.addEventListener('click',()=>{
-	  modal.style.display = "none";
-	});
-
-	buttonModalDelete.addEventListener('click',()=>{
-	  console.log(textareaDelete.value.length);
-	   if(textareaDelete.value === "" || textareaDelete.value.length === 0){
-	      alert("요청을 입력해주세요");
-	    }
-	    else{
-	      alert("삭제 요청 완료되었습니다");
-	      textareaDelete.value = null;
-	      modal.style.display ="none";
-	      location.href= "./course-detail-expert-delete-ing.html";
-	    }
-	});
 })
 

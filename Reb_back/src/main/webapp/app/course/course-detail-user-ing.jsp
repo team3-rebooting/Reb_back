@@ -40,7 +40,9 @@
 		<!-- 모달 창 영역-->
 		<div class="cancel-modal">
 			<!-- 삭제 요청 이유 form -->
-			<form action="" method="get">
+			<form action="${pageContext.request.contextPath}/course/expertCourseDeleteRequestOk.co" method="post">
+				<!-- 해당 수업 번호 -->
+				<input type="hidden" value="${course.courseNumber}" name="courseNumber">
 				<!-- 취소 버튼 영역 -->
 				<div class="div-modal-x">
 					<button class="button-x" type="button">X</button>
@@ -51,11 +53,11 @@
 				</div>
 				<!-- 모달 text 영역 -->
 				<div class="div-modal-main">
-					<textarea class="textarea-delete-modal"></textarea>
+					<textarea name="requestReason" class="textarea-delete-modal"></textarea>
 				</div>
 				<!-- 모달 버튼 영역 -->
 				<div class="div-modal-button-area">
-					<button class="button-modal-delete" type="button">삭제 요청</button>
+					<button class="button-modal-delete" type="submit">삭제 요청</button>
 				</div>
 			</form>
 		</div>
