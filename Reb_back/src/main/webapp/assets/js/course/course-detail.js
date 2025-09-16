@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	const buttonModalDelete = document.querySelector(".button-modal-delete");
 	const textareaDelete = document.querySelector(".textarea-delete-modal");
 
-	deleteBtn.addEventListener('click', () => {
+	deleteBtn?.addEventListener('click', () => {
 		modal.style.display = "flex";
 	});
 

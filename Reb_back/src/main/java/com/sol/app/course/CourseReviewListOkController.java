@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.course.dao.CourseReviewDAO;
+import com.sol.app.course.dao.CourseReviewLikeDAO;
 import com.sol.app.dto.CourseReviewListDTO;
 
 public class CourseReviewListOkController implements Execute{
@@ -22,6 +23,7 @@ public class CourseReviewListOkController implements Execute{
 
 		System.out.println("==============CourseReviewListOkController============");
 		CourseReviewDAO courseReviewDAO = new CourseReviewDAO();
+		CourseReviewLikeDAO courseReviewLikeDAO = new CourseReviewLikeDAO();
 		Result result = new Result();
 		
 		String temp = request.getParameter("page");
@@ -39,6 +41,12 @@ public class CourseReviewListOkController implements Execute{
 		
 		// 게시글 목록 조회
 		List<CourseReviewListDTO> courseReviewList = courseReviewDAO.selectAll(pageMap);
+		
+		for(CourseReviewListDTO c : courseReviewList) {
+			c.setLikeCount(courseReviewLikeDAO.getCount(c.getCourseReviewNumber()));
+		}
+		
+		
 		request.setAttribute("courseReviewList", courseReviewList);
 		
 		// 페이지 정보 설정

@@ -16,6 +16,7 @@ public class CourseReviewListDTO {
 	private FileMemberProfileDTO fileWriterProFileList;
 	private List<FileMemberProfileDTO> fileCommentProFileList; 
 	private List<FileCourseReviewDTO> fileCourseReviewList;
+	private int likeCount;
 	/*
 	 * //작성자 프로필 사진 private String profileFilePath; private
 	 * List<FileMemberProfileDTO> fileWriterPriFileList; private int
@@ -105,6 +106,12 @@ public class CourseReviewListDTO {
 	public void setFileCourseReviewList(List<FileCourseReviewDTO> fileCourseReviewList) {
 		this.fileCourseReviewList = fileCourseReviewList;
 	}
+	public int getLikeCount() {
+		return likeCount;
+	}
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
 	@Override
 	public String toString() {
 		return "CourseReviewListDTO [courseReviewNumber=" + courseReviewNumber + ", courseNumber=" + courseNumber
@@ -113,8 +120,6 @@ public class CourseReviewListDTO {
 				+ ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewUpdatedDate="
 				+ courseReviewUpdatedDate + ", courseReviewLike=" + courseReviewLike + ", fileWriterProFileList="
 				+ fileWriterProFileList + ", fileCommentProFileList=" + fileCommentProFileList
-				+ ", fileCourseReviewList=" + fileCourseReviewList + "]";
-	}
-	
-	
+				+ ", fileCourseReviewList=" + fileCourseReviewList + "]" + ", likeCount=" + likeCount;
+	}	
 }

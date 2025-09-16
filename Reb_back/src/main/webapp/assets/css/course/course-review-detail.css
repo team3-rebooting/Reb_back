@@ -205,7 +205,7 @@
  .span-likes,
  .fa-regular,
  .fa-heart{
- 	display: none;
+ 	/* display: none; */
  }
 
  .li-comment {

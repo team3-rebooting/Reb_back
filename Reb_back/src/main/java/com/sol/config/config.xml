@@ -41,6 +41,8 @@
 			alias="RoutineListDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.RoutineMemberApplicantDTO"
 			alias="RoutineMemberApplicantDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.CourseReviewLikeDTO"
+			alias="CourseReviewLikeDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.RoutineReviewLikeDTO"
 			alias="RoutineReviewLikeDTO"></typeAlias>
 		<typeAlias type="com.sol.app.dto.RoutineReviewCommentDTO"
@@ -166,6 +168,7 @@
 		<mapper
 			resource="com/sol/mapper/RoutineMemberApplicantMapper.xml" />
 		<mapper resource="com/sol/mapper/RoutineReviewLikeMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseReviewLikeMapper.xml" />
 		<mapper
 			resource="com/sol/mapper/RoutineReviewCommentMapper.xml" />
 		<mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" />

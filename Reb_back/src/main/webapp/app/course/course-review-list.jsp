@@ -72,7 +72,7 @@
 												<c:out value="${courseReview.getCourseReviewCreatedDate()}" />
 									</div>
 									<div class="review-like">
-										<c:out value="${courseReview.getCourseReviewLike()}" />
+										<c:out value="${courseReview.getLikeCount()}" />
 									</div>
 								</li>
 							</c:forEach>

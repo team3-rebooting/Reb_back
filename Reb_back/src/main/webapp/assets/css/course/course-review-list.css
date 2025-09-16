@@ -83,14 +83,15 @@ button:hover{
 }
 
 .review-title-title{
-  text-align: center;
+  text-align: left;
+  padding-left: 15px;
   width: 70%;
 }
 
 .review-title {
   text-align: left;
-  width: 70%;
   padding-left: 15px;
+  width: 70%;
   
 }
 .review-number,
@@ -100,9 +101,9 @@ button:hover{
   width: 10%;
 }
 
-.review-like{
+/* .review-like{
 	display: none;
-}
+} */
 
 .review-date {
   text-align: center;

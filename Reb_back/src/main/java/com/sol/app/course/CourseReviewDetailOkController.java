@@ -6,11 +6,14 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.course.dao.CourseReviewDAO;
+import com.sol.app.course.dao.CourseReviewLikeDAO;
 import com.sol.app.course.dao.FileCourseReviewDAO;
+import com.sol.app.dto.CourseReviewLikeDTO;
 import com.sol.app.dto.CourseReviewListDTO;
 import com.sol.app.dto.FileCourseReviewDTO;
 import com.sol.app.dto.FileMemberProfileDTO;
@@ -35,6 +38,7 @@ public class CourseReviewDetailOkController implements Execute {
 		int courseReviewNumber = Integer.parseInt(courseReviewNumberStr);
 
 		CourseReviewDAO courseReviewDAO = new CourseReviewDAO();
+		CourseReviewLikeDAO courseReviewLikeDAO = new CourseReviewLikeDAO();
 		FileCourseReviewDAO fileCourseReviewDAO = new FileCourseReviewDAO();
 		FileMemberProfileDAO fileMemberProfileDAO = new FileMemberProfileDAO();
 
@@ -71,6 +75,20 @@ public class CourseReviewDetailOkController implements Execute {
 		System.out.println("작성자 프로필 번호" + profiles);
 		
 		courseReviewListDTO.setFileWriterProFileList(profiles);
+		courseReviewListDTO.setLikeCount(courseReviewLikeDAO.getCount(courseReviewListDTO.getCourseReviewNumber()));
+		
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("memberNumber") != null) {
+			Integer memberNumber = (Integer) session.getAttribute("memberNumber");
+
+			CourseReviewLikeDTO courseReviewLikeDTO = new CourseReviewLikeDTO();
+			
+			courseReviewLikeDTO.setMemberNumber(memberNumber);
+			courseReviewLikeDTO.setCourseReviewNumber(courseReviewListDTO.getCourseReviewNumber());
+			
+			request.setAttribute("like", courseReviewLikeDAO.isLike(courseReviewLikeDTO));
+		}
 
 		request.setAttribute("courseReview", courseReviewListDTO);
 		result.setPath("/app/course/course-review-detail.jsp");

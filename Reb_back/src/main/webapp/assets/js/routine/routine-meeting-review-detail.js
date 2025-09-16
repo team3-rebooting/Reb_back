@@ -81,10 +81,6 @@ window.addEventListener('DOMContentLoaded', () => {
 			alert("좋아요 중 오류가 발생했습니다.");
 		}
 
-
-
-
-
 	});
 
 	function initHeart() {

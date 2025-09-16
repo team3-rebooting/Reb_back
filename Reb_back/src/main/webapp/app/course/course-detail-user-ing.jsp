@@ -29,8 +29,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 <title>틈새빛</title>
 </head>
-<script
-	src="${pageContext.request.contextPath}/assets/js/course/course-detail.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/course/course-detail.js"></script>
 
 <body>
 	<!-- 헤더 영역 -->
