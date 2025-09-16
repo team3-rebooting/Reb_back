@@ -8,14 +8,14 @@
 		]]>
 	</select>
 	
-	<select id="isLike" parameterType="routineReviewLikeDTO" resultType="int">
+	<select id="isLike" parameterType="RoutineReviewLikeDTO" resultType="int">
 		<![CDATA[
 			select count(ROUTINE_REVIEW_NUMBER) from TBL_ROUTINE_REVIEW_LIKE
 			where MEMBER_NUMBER = #{memberNumber} and ROUTINE_REVIEW_NUMBER = #{routineReviewNumber}
 		]]>
 	</select>
 	
-	<insert id="insert" parameterType="routineReviewLikeDTO">	
+	<insert id="insert" parameterType="RoutineReviewLikeDTO">	
 		INSERT INTO TBL_ROUTINE_REVIEW_LIKE (ROUTINE_REVIEW_NUMBER, MEMBER_NUMBER) 
 			VALUES (#{routineReviewNumber}, #{memberNumber})
 	</insert>

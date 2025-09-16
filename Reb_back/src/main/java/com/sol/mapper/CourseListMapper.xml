@@ -17,7 +17,7 @@
 			LEFT JOIN tbl_expert e ON c.expert_number = e.expert_number
 			LEFT OUTER JOIN tbl_member m ON m.member_number = e.member_number
 			LEFT JOIN TBL_FILE_course fc ON fc.course_NUMBER = c.course_NUMBER
-			WHERE cr.COURSE_OPEN_STATUS_NUMBER = 2
+			WHERE NOT ((cr.COURSE_OPEN_STATUS_NUMBER = 1 AND cr.COURSE_REQUEST_TYPE_NUMBER = 1) OR (cr.COURSE_OPEN_STATUS_NUMBER = 3 AND cr.COURSE_REQUEST_TYPE_NUMBER = 1))
 			ORDER BY c.COURSE_POST_DATE DESC) c
 			order by c.COURSE_RECRUIT_STATUS_NUMBER
       ) subquery

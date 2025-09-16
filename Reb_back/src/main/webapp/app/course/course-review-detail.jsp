@@ -44,6 +44,8 @@
 		<div id="main-container">
 			<!-- 상세 컨테이너 영역 -->
 			<div class="detail-container">
+				<input type="hidden" id="course-review-number"
+					value="${courseReview.courseReviewNumber}">
 				<div>
 					<!-- 뒤로가기 -->
 					<p class="p-back">
@@ -88,8 +90,21 @@
 					</div>
 					<!-- 좋아요 fontawesome -->
 					<div class="div-font-awesome-line">
-						<span>수업:<c:out value="${courseReview.getCourseTitle()}" /></span></br>
-						<span class="span-likes">좋아요 수 : 30 </span><i class="fa-regular fa-heart" style="display:none;"></i>
+						<span>참여 루틴 모임 : ${courseReview.courseTitle}</span> <br> <input
+							type="hidden" id="like" value="${like}"> <span
+							class="span-likes">좋아요 수 : <span id="span-like-count"><c:out
+									value="${courseReview.getLikeCount()}" /></span>
+						</span>
+						<c:if test="${not empty sessionScope.memberNumber}">
+							<c:choose>
+								<c:when test="${like}">
+									<i id="i-heart" class="fa-solid fa-heart"></i>
+								</c:when>
+								<c:otherwise>
+									<i id="i-heart" class="fa-regular fa-heart"></i>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
 					</div>
 				</div>
 				<!--상세 글 영역 -->

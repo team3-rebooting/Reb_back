@@ -1,11 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const deleteBtn = document.querySelector(".button-cancel");
-	const heart = document.querySelector(".fa-heart");
+	const heart = document.querySelector("#i-heart");
 	const back = document.querySelector(".p-back");
 	const editBtn = document.querySelector(".button-application");
+	
+	const heartCount = document.querySelector("#span-like-count");
+
+	const like = document.querySelector("#like");
+	const courseNumber = document.querySelector("#course-review-number");
 
 	const courseReviewNumber = editBtn?.dataset.courseReviewNumber ?? window.courseReviewNumber;
 	const memberNumber = editBtn?.dataset.memberNumber ?? window.memberNumber;
+
+	// ====== 유틸 ======
+	async function safeJson(res) {
+		const text = await res.text();
+		try { return text ? JSON.parse(text) : null; } catch { return null; }
+	}
 
 	back.addEventListener("click", () => {
 		history.back();
@@ -41,22 +52,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-	heart.addEventListener('click', () => {
-		if (heart.classList.contains('fa-regular')) {
-			heart.classList.replace('fa-regular', 'fa-solid');
+	heart?.addEventListener('click', async () => {
+		try {
+			const response = await fetch(`/course/courseReviewLikeOk.co`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json; charset=utf-8",
+					"X-Requested-With": "XMLHttpRequest",
+				},
+				body: JSON.stringify({ courseNumber: courseNumber.value, like: like.value }),
+			});
+
+			const result = await safeJson(response);
+			console.log(result);
+			if (result?.status === "success") {
+				if (heart.classList.contains('fa-regular')) {
+					heart.classList.replace('fa-regular', 'fa-solid');
+				}
+				else {
+					heart.classList.replace('fa-solid', 'fa-regular');
+				}
+
+				if (like.value == 'true') {
+					heartCount.innerHTML = Number(heartCount.innerHTML) - 1;
+					like.value = 'false';
+				} else {
+					heartCount.innerHTML = Number(heartCount.innerHTML) + 1;
+					like.value = 'true';
+				}
+			}
+		} catch (error) {
+			console.error("좋아요 실패", error);
+			alert("좋아요 중 오류가 발생했습니다.");
 		}
-		else {
-			heart.classList.replace('fa-solid', 'fa-regular');
-		}
+
 	});
 
-	let edit = document.querySelectorAll(".span-comment-edit");
-	let commentAdd = document.querySelector(".input-comment");
-	const buttonWrite = document.querySelector(".button-write");
-	const commentList = document.querySelector(".ul-comment-list");
-	const commentDelete = document.querySelectorAll(".span-comment-delete");
+	//let edit = document.querySelectorAll(".span-comment-edit");
+	//let commentAdd = document.querySelector(".input-comment");
+	//const buttonWrite = document.querySelector(".button-write");
+	//const commentList = document.querySelector(".ul-comment-list");
+	//const commentDelete = document.querySelectorAll(".span-comment-delete");
 
-	buttonWrite.addEventListener('click', (e) => {
+	/*buttonWrite.addEventListener('click', (e) => {
 		let newLi = document.createElement('li');
 		newLi.setAttribute('class', 'li-comment');
 		newLi.innerHTML = '<div class="div-user-profile"><img src="./../../assets/img/karina.jpg" class="img-user-profile"></div>' +
@@ -73,9 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			commentList.appendChild(newLi);
 			commentAdd.value = "";
 		}
-	});
+	});*/
 
-	commentList.addEventListener('click', (e) => {
+	/*commentList.addEventListener('click', (e) => {
 		console.log(e.target.classList);
 		if (e.target.classList.value === 'span-comment-edit') {
 			console.log(e.target.parentNode.nextNode);
@@ -88,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				comment.remove();
 			}
 		}
-	});
+	});*/
 });
 
 

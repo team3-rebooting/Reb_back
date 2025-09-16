@@ -1,14 +1,14 @@
 package com.sol.app.dto;
 
 public class CourseReviewLikeDTO {
-	private int routineReviewNumber;
+	private int courseReviewNumber;
 	private int memberNumber;
 	
-	public int getRoutineReviewNumber() {
-		return routineReviewNumber;
+	public int getCourseReviewNumber() {
+		return courseReviewNumber;
 	}
-	public void setRoutineReviewNumber(int routineReviewNumber) {
-		this.routineReviewNumber = routineReviewNumber;
+	public void setCourseReviewNumber(int courseReviewNumber) {
+		this.courseReviewNumber = courseReviewNumber;
 	}
 	public int getMemberNumber() {
 		return memberNumber;
@@ -16,10 +16,9 @@ public class CourseReviewLikeDTO {
 	public void setMemberNumber(int memberNumber) {
 		this.memberNumber = memberNumber;
 	}
+	
 	@Override
 	public String toString() {
-		return "CourseReviewLikeDTO [routineReviewNumber=" + routineReviewNumber + ", memberNumber=" + memberNumber
-				+ "]";
+		return "CourseReviewLikeDTO [courseReviewNumber=" + courseReviewNumber + ", memberNumber=" + memberNumber + "]";
 	}
-	
 }
