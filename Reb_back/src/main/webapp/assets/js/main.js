@@ -1,16 +1,17 @@
 //window.addEventListener('DOMContentLoaded', () => {
 const bannerContainer = document.querySelector('#main-ul-banner');
-const bannerImgList = document.querySelectorAll('.main-li-banner');
+//const bannerImgList = document.querySelectorAll('.main-li-banner');
 const bannerPageNumber = document.querySelector('#banner-page-number');
 
 const routineReview = document.querySelector('#routine-review-list');
 const courseReview = document.querySelector('#course-review-list');
 
-const imgWidth = bannerImgList[0].style.width;
+//const imgWidth = bannerImgList[0].style.width;
 
 let currentIdx = 0;
 
 function moveBanner(add) {
+	const bannerImgList = document.querySelectorAll('.main-li-banner');
 	if ((currentIdx + add < 0) || (currentIdx + add >= bannerImgList.length))
 		return;
 
@@ -38,11 +39,39 @@ async function loadList() {
 		if (listInfo !== null && listInfo !== undefined) {
 			loadCourseList(listInfo.courseReviewList);
 			loadRoutineList(listInfo.routineReviewList);
+			loadBannerList(listInfo.bannerList);
 		}
 	} catch (error) {
 		console.error("실패:", error);
 		alert("오류가 발생했습니다.");
 	}
+}
+
+function loadBannerList(list) {
+	let innerHTML = '';
+
+	let total = 1;
+
+	if (list === null || list === undefined) {
+		innerHTML = `<li class="main-li-banner"><img src="/assets/img/routine-img.png" alt=""></li>`;
+	} else if (list.length == 0) {
+		innerHTML = `<li class="main-li-banner"><img src="/assets/img/routine-img.png" alt=""></li>`;
+	} else {
+		total = list.length;
+	}
+
+	let src = '/assets/img/team_logo.png';
+
+	list.forEach((banner) => {
+		if (banner !== null && banner !== undefined) {
+			src = `/upload/${banner}`;
+		}
+
+		innerHTML += `<li class="main-li-banner"><img src="${src}" alt=""></li>`;
+	});
+
+	bannerContainer.innerHTML = innerHTML;
+	bannerPageNumber.innerHTML = '1/' + total;
 }
 
 function loadCourseList(list) {
@@ -53,7 +82,7 @@ function loadCourseList(list) {
 	}
 
 	let src = '/assets/img/team_logo.png';
-	
+
 	list.forEach((course) => {
 		if (course.file !== null && course.file !== undefined) {
 			src = `/upload/${course.file}`;

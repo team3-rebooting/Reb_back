@@ -64,7 +64,7 @@
 											(수정됨)
 										</c:if>
 									</p>
-									<p class="review-like" style="display:none">
+									<p class="review-like">
 										<c:out value="${routine.likeCount}" />
 									</p>
 								</li>
