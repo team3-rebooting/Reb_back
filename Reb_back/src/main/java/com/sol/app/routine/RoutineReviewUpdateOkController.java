@@ -11,6 +11,9 @@ import com.google.gson.Gson;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.dto.RoutineReviewListDTO;
+import com.sol.app.myPage.dao.FileMemberProfileDAO;
+import com.sol.app.routine.dao.FileRoutineReviewDAO;
+import com.sol.app.routine.dao.RoutineReviewLikeDAO;
 import com.sol.app.routine.dao.RoutineReviewListDAO;
 
 public class RoutineReviewUpdateOkController implements Execute {
@@ -27,6 +30,7 @@ public class RoutineReviewUpdateOkController implements Execute {
 
 		RoutineReviewListDTO routineReviewListDTO = new RoutineReviewListDTO();
 		RoutineReviewListDAO routineReviewListDAO = new RoutineReviewListDAO();
+		FileRoutineReviewDAO fileRoutineReviewDAO = new FileRoutineReviewDAO();
 		
 		Integer reviewNumber = Integer.valueOf(request.getParameter("reviewNumber"));
 		
@@ -42,7 +46,12 @@ public class RoutineReviewUpdateOkController implements Execute {
 			return null;
 		} else {
 			routineReviewListDTO = routineReviewListDAO.select(reviewNumber);
+
+			routineReviewListDTO.setFileRoutineReviewList(fileRoutineReviewDAO.selectList(routineReviewListDTO.getRoutineReviewNumber()));
+			
 			request.setAttribute("routineReview", routineReviewListDTO);
+			
+			System.out.println(routineReviewListDTO);
 			
 			result.setPath(request.getContextPath() + "/routine/routineUpdate.ro");
 			result.setRedirect(false);

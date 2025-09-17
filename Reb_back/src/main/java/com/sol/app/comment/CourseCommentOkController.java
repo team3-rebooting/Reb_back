@@ -106,6 +106,7 @@ public class CourseCommentOkController implements Execute {
 					o.add("reviewCreatedDate", data.getAsJsonObject().get("courseReviewCreatedDate"));
 					o.add("reviewUpdatedDate", data.getAsJsonObject().get("courseReviewUpdatedDate"));
 					o.add("reviewContent", data.getAsJsonObject().get("courseReviewContent"));
+					o.add("fileSystemName", data.getAsJsonObject().get("fileSystemName"));
 
 					o.addProperty("currentMemberNumber", memberNumber);
 

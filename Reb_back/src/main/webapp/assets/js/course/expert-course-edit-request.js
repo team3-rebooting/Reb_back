@@ -26,6 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	imgFile.addEventListener('change', (e) => {
 		if (!confirm("정말로 수정하시겠습니까? 기존 이미지는 삭제됩니다")) {
+			e.target.value = null;
 			e.preventDefault();
 		}else{
 			orinalImgFile.innerHTML = "";
