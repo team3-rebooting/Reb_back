@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.sol.app.dto.AdminSponsorListDTO;
+import com.sol.app.dto.SponsorDTO;
 import com.sol.config.MyBatisConfig;
 
 public class SponsorDAO {
@@ -24,5 +25,8 @@ public class SponsorDAO {
 		public int getTotal() {
 			return sqlSession.selectOne("sponsor.getTotal");
 		}
-
+	// 후원하기
+	public void spon(SponsorDTO sponsorDTO) {
+		sqlSession.insert("sponsor.spon",sponsorDTO);
+	}
 }

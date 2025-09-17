@@ -76,4 +76,7 @@
 		select member_number, member_name , member_gender, member_phone_number, member_email 
 		from tbl_member where member_number = #{memberNumber}
 	</select>
+	<select id="findName" parameterType="int" resultType="String">
+		select member_name from tbl_member where member_number = #{memberNumber}
+	</select>
 </mapper>

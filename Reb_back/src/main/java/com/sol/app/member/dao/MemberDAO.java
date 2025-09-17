@@ -48,4 +48,7 @@ public class MemberDAO {
 	public MemberDTO findExpert(int memberNumber) {
 		return sqlSession.selectOne("member.findExpert",memberNumber);
 	}
+	public String findName(int memberNumber) {
+		return sqlSession.selectOne("member.findName",memberNumber);
+	}
 }
