@@ -44,8 +44,6 @@ public class ExpertCourseEditRequestOkController implements Execute {
 			CourseRequestDAO courseRequestDAO = new CourseRequestDAO();
 			CourseRequestDTO courseRequestDTO = new CourseRequestDTO();
 
-			
-			
 			// 파일 업로드 환경 설정
 			final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
 			final int FILE_SIZE = 1024 * 1024 * 5; // 5MB
