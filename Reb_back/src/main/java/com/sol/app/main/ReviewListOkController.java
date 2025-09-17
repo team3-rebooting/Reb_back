@@ -55,9 +55,9 @@ public class ReviewListOkController implements Execute {
 			o.add("reviewCommentNumber", data.getAsJsonObject().get("routineReviewCommentNumber"));
 			o.add("memberNumber", data.getAsJsonObject().get("memberNumber"));
 			o.add("memberNickname", data.getAsJsonObject().get("memberNickname"));
-			o.add("reviewCreatedDate", data.getAsJsonObject().get("routineReviewCreatedDate"));
-			o.add("reviewUpdatedDate", data.getAsJsonObject().get("routineReviewUpdatedDate"));
-			o.add("reviewContent", data.getAsJsonObject().get("routineReviewContent"));
+			o.addProperty("reviewCreatedDate", data.getAsJsonObject().get("routineReviewCreatedDate").getAsString().split(" ")[0].replace('-', '.'));
+			//o.add("reviewUpdatedDate", data.getAsJsonObject().get("routineReviewUpdatedDate"));
+			//o.add("reviewContent", data.getAsJsonObject().get("routineReviewContent"));
 			o.add("reviewTitle", data.getAsJsonObject().get("routineReviewTitle"));
 			
 			List<FileRoutineReviewDTO> fileList = fileRoutineReviewDAO.selectList(routineReviewNumber);
@@ -82,8 +82,8 @@ public class ReviewListOkController implements Execute {
 			o.add("memberNumber", data.getAsJsonObject().get("memberNumber"));
 			o.add("memberNickname", data.getAsJsonObject().get("memberNickname"));
 			o.add("reviewCreatedDate", data.getAsJsonObject().get("courseReviewCreatedDate"));
-			o.add("reviewUpdatedDate", data.getAsJsonObject().get("courseReviewUpdatedDate"));
-			o.add("reviewContent", data.getAsJsonObject().get("courseReviewContent"));
+			//o.add("reviewUpdatedDate", data.getAsJsonObject().get("courseReviewUpdatedDate"));
+			//o.add("reviewContent", data.getAsJsonObject().get("courseReviewContent"));
 			o.add("reviewTitle", data.getAsJsonObject().get("courseReviewTitle"));
 
 			List<FileCourseReviewDTO> fileList = fileCourseReviewDAO.select(courseReviewNumber);
