@@ -126,6 +126,11 @@ public class CourseListDTO {
 	public String getCourseStartDate() {
 		return courseStartDate;
 	}
+	
+	public String getCourseStartDateForEdit() {
+		System.out.println(courseStartDate.substring(0, 10).replace('.', '-'));
+		return courseStartDate.substring(0, 10).replace('.', '-');
+	}
 
 	public void setCourseStartDate(String courseStartDate) {
 		this.courseStartDate = courseStartDate;
@@ -135,6 +140,11 @@ public class CourseListDTO {
 		return courseEndDate;
 	}
 
+	public String getCourseEndDateForEdit() {
+		System.out.println(courseEndDate.substring(0, 10).replace('.', '-'));
+		return courseEndDate.substring(0, 10).replace('.', '-');
+	}
+	
 	public void setCourseEndDate(String courseEndDate) {
 		this.courseEndDate = courseEndDate;
 	}
@@ -161,6 +171,34 @@ public class CourseListDTO {
 
 	public void setCourseDayOfWeek(String courseDayOfWeek) {
 		this.courseDayOfWeek = courseDayOfWeek;
+	}
+	
+	public boolean existMonday() {
+		return courseDayOfWeek.contains("월");
+	}
+	
+	public boolean existTuesday() {
+		return courseDayOfWeek.contains("화");
+	}
+	
+	public boolean existWednesday() {
+		return courseDayOfWeek.contains("수");
+	}
+
+	public boolean existThursday() {
+		return courseDayOfWeek.contains("목");
+	}
+	
+	public boolean existFriday() {
+		return courseDayOfWeek.contains("금");
+	}
+	
+	public boolean existSaturday() {
+		return courseDayOfWeek.contains("토");
+	}
+	
+	public boolean existSunday() {
+		return courseDayOfWeek.contains("일");
 	}
 
 	public int getCourseApplicantCount() {

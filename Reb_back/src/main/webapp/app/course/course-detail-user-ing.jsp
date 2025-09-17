@@ -29,7 +29,8 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 <title>틈새빛</title>
 </head>
-<script src="${pageContext.request.contextPath}/assets/js/course/course-detail.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/course/course-detail.js"></script>
 
 <body>
 	<!-- 헤더 영역 -->
@@ -39,9 +40,12 @@
 		<!-- 모달 창 영역-->
 		<div class="cancel-modal">
 			<!-- 삭제 요청 이유 form -->
-			<form action="${pageContext.request.contextPath}/course/expertCourseDeleteRequestOk.co" method="post">
+			<form
+				action="${pageContext.request.contextPath}/course/expertCourseDeleteRequestOk.co"
+				method="post">
 				<!-- 해당 수업 번호 -->
-				<input type="hidden" value="${course.courseNumber}" name="courseNumber">
+				<input type="hidden" value="${course.courseNumber}"
+					name="courseNumber">
 				<!-- 취소 버튼 영역 -->
 				<div class="div-modal-x">
 					<button class="button-x" type="button">X</button>
@@ -204,19 +208,20 @@
 					<!-- 전문가가 자기 자신의 수업을 보는 버튼 영역 -->
 					<c:if test="${course.expertNumber == sessionScope.expertNumber}">
 						<div class="div-expert-detail-button">
-							<c:choose>
-								<c:when test="${course.getCourseOpenStatusNumber() != 1}">
-									<a
-										href="/course/expertCourseEditRequest.co?courseNumber=${course.courseNumber}"><button
-											class="button-edit" type="button">수정 요청하기</button></a>
-									<button class="button-delete" type="button">삭제 요청하기</button>
-								</c:when>
-								<c:otherwise>
-									<div class="div-expert-detail-info">
-										${course.getCourseRequestType()} 요청 중
-									</div>
-								</c:otherwise>
-							</c:choose>
+							<c:if test="${course.getCourseRecruitStatusNumber() == 2}">
+								<c:choose>
+									<c:when test="${course.getCourseOpenStatusNumber() != 1}">
+										<a
+											href="/course/expertCourseEditRequest.co?courseNumber=${course.courseNumber}"><button
+												class="button-edit" type="button">수정 요청하기</button></a>
+										<button class="button-delete" type="button">삭제 요청하기</button>
+									</c:when>
+									<c:otherwise>
+										<div class="div-expert-detail-info">
+											${course.getCourseRequestType()} 요청 중</div>
+									</c:otherwise>
+								</c:choose>
+							</c:if>
 						</div>
 
 					</c:if>

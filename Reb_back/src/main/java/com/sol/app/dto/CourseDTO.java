@@ -113,11 +113,17 @@ public class CourseDTO {
 	public String getCourseStartDate() {
 		return courseStartDate;
 	}
+	public String getCourseStartDateForEdit() {
+		return courseStartDate.split("(")[0].replace('.', '-');
+	}
 	public void setCourseStartDate(String courseStartDate) {
 		this.courseStartDate = courseStartDate;
 	}
 	public String getCourseEndDate() {
 		return courseEndDate;
+	}
+	public String getCourseEndDateForEdit() {
+		return courseEndDate.split("(")[0].replace('.', '-');
 	}
 	public void setCourseEndDate(String courseEndDate) {
 		this.courseEndDate = courseEndDate;
