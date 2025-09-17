@@ -19,7 +19,7 @@
 			JOIN tbl_expert e ON c.EXPERT_NUMBER = e.EXPERT_NUMBER
 			JOIN tbl_course_request cr
 				ON cr.COURSE_NUMBER = c.COURSE_NUMBER
-				ORDER BY cr.COURSE_REQUEST_DATE
+				ORDER BY cr.COURSE_REQUEST_DATE desc
 		) subquery WHERE subquery.MEMBER_NUMBER = ${memberNumber}
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>
@@ -33,5 +33,7 @@
 			FROM tbl_expert
 			WHERE MEMBER_NUMBER = #{memberNumber}) e
 			ON c.EXPERT_NUMBER = e.EXPERT_NUMBER
+			JOIN tbl_course_request cr
+				ON cr.COURSE_NUMBER = c.COURSE_NUMBER
 	</select>
 </mapper>

@@ -45,7 +45,7 @@
 				</div>
 				<div class="div-create-course">
 					<span class="font-main little-title">대표 이미지 : </span> 
-					<input type="file" name="courseFile" class="input-in">
+					<input type="file" name="courseFile">
 					<span class="font-main" id="original-file">기존 파일 : <c:out value="${course.getFileCourse().getFileOriginalName()}"/></span>
 				</div>
 				<div class="div-create-course">
