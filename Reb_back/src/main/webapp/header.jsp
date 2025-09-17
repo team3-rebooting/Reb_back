@@ -83,6 +83,7 @@
 								모임 게시판</a> <a
 								href="${pageContext.request.contextPath}/routine/routineReviewOk.ro">루틴
 								모임 후기 게시판</a>
+							<a href="${pageContext.request.contextPath}/club/smallClubListOk.cl">소모임 게시판</a>
 						</div>
 					</div>
 				</div>

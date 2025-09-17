@@ -6,6 +6,7 @@ public class SmallClubListDTO {
 	private int smallClubNumber;
 	private String smallClubTitle;
 	private int memberNumber;
+	private String memberName;
 	private String smallClubCreatedDate;
 	private String smallClubUpdatedDate;
 	private String smallClubContent;
@@ -28,6 +29,12 @@ public class SmallClubListDTO {
 	}
 	public void setMemberNumber(int memberNumber) {
 		this.memberNumber = memberNumber;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 	public String getSmallClubCreatedDate() {
 		return smallClubCreatedDate;
@@ -53,13 +60,12 @@ public class SmallClubListDTO {
 	public void setFileSmallClubList(List<FileSmallClubDTO> fileSmallClubList) {
 		this.fileSmallClubList = fileSmallClubList;
 	}
-	
 	@Override
 	public String toString() {
 		return "SmallClubListDTO [smallClubNumber=" + smallClubNumber + ", smallClubTitle=" + smallClubTitle
-				+ ", memberNumber=" + memberNumber + ", smallClubCreatedDate=" + smallClubCreatedDate
-				+ ", smallClubUpdatedDate=" + smallClubUpdatedDate + ", smallClubContent=" + smallClubContent
-				+ ", fileSmallClubList=" + fileSmallClubList + "]";
+				+ ", memberNumber=" + memberNumber + ", memberName=" + memberName + ", smallClubCreatedDate="
+				+ smallClubCreatedDate + ", smallClubUpdatedDate=" + smallClubUpdatedDate + ", smallClubContent="
+				+ smallClubContent + ", fileSmallClubList=" + fileSmallClubList + "]";
 	}
 	
 }

@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/routine/routine-meeting-list.css">
+	href="${pageContext.request.contextPath}/assets/css/club/small-club-list.css">
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/header.css">
@@ -31,14 +31,13 @@
 <title>틈새빛</title>
 </head>
 <script defer
-	src="${pageContext.request.contextPath}/assets/js/routine-meeting/small-club-list.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/club/small-club-list.js"></script>
 
 <body>
 	<jsp:include page="/header.jsp" />
 	<main>
 		<div id="main-container">
 			<div class="small-club-list-container">
-			<a href="/club/smallClubOk.cl">소모임 이동</a>
 				<p class="pagetitle">소모임 게시판</p>
 				<ul class="ul-small-club-list">
 					<c:choose>
@@ -48,7 +47,7 @@
 								<li class="li-small-club-list-box"><a
 									href="${pageContext.request.contextPath}/club/smallClubReadOk.cl?smallClubNumber=${smallClub.smallClubNumber}">
 										<c:choose>
-											<c:when test="${empty smallClub.getFileClub() }">
+											<c:when test="${empty smallClub.getFileSmallClubList() }">
 												<img
 													src="${pageContext.request.contextPath}/assets/img/team_logo.png"
 													class="img-box">
@@ -64,7 +63,7 @@
 											<c:out value="${smallClublub.smallClubTitle}" />
 										</p>
 										<div class="div-box-status">
-											<c:choose>
+											<%-- <c:choose>
 												<c:when test="${smallClub.getSmallClubStatusNumber() == 1}">
 													<button type="button" class="button-recruit-ing">
 														<c:out value="${club.getSmallClubStatusInfo()}" />
@@ -75,9 +74,9 @@
 														<c:out value="${smallClub.getSmallClubStatusInfo()}" />
 													</button>
 												</c:otherwise>
-											</c:choose>
+											</c:choose> --%>
 											<p class="p-name-date">
-												<c:out value="${smallClub.routineLeaderName}" />
+												<c:out value="${smallClub.memberName}" />
 												<c:out value="${smallClub.smallClubCreatedDate}" />
 											</p>
 										</div>
