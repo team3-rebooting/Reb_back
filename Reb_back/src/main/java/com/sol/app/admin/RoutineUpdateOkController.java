@@ -89,6 +89,12 @@ public class RoutineUpdateOkController implements Execute {
                 	int count = Integer.parseInt(paramValue);
                 	routineDTO.setRoutineRecruitCount(count);
                 	break;
+                case "routineLocation" :
+                	routineDTO.setRoutineLocation(paramValue);
+                	break;
+                case "routineLocationAdd" :
+                	routineDTO.setRoutineLocationAdd(paramValue);
+                	break;
                 }
                 
             } else if (part.isFile() && !isFileUpload) {
@@ -145,8 +151,6 @@ public class RoutineUpdateOkController implements Execute {
         
         
         AdminRoutineDAO routineDAO = new AdminRoutineDAO();
-        // 지도 API 수정전까지는 일단 고정
-        routineDTO.setRoutineLocation("서울시 강남구 테헤란로 63빌딩");
 //        // 게시글 업데이트 실행
         routineDAO.update(routineDTO);
         System.out.println("루틴 모임 수정 완료");

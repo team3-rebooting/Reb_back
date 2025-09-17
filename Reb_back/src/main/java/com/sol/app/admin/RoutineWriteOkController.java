@@ -69,7 +69,8 @@ public class RoutineWriteOkController implements Execute {
 		
 		
 		routineDTO.setAdminNumber(adminNumber);
-		routineDTO.setRoutineLocation("routineLocation");
+		routineDTO.setRoutineLocation(multipartRequest.getParameter("routineLocation"));
+		routineDTO.setRoutineLocationAdd(multipartRequest.getParameter("routineLocationAdd"));
 		//이부분 다시 체크
 		//2가 들어와야됨 지금 어떤 메소드 이용해야하는지 확인
 		routineDTO.setRoutineStatusNumber(RoutineStatus.getRoutineStatusNumber

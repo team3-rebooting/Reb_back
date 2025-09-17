@@ -30,7 +30,7 @@
 	<![CDATA[
 		SELECT 
     	r.ROUTINE_NUMBER, r.ROUTINE_LEADER_NUMBER, l.ROUTINE_LEADER_NAME,
-    	r.ADMIN_NUMBER, r.ROUTINE_TITLE, r.routine_content, r.routine_location, 
+    	r.ADMIN_NUMBER, r.ROUTINE_TITLE, r.routine_content, r.routine_location, r.routine_location_add,  
     	TO_CHAR(r.routine_created_DATE, 'YYYY-MM-DD') AS routine_created_DATE, 
    		TO_CHAR(r.routine_updated_DATE, 'YYYY-MM-DD') AS routine_updated_DATE,
     	TO_CHAR(r.routine_RECRUIT_START_DATE, 'YYYY-MM-DD') AS routine_RECRUIT_START_DATE, 
@@ -59,7 +59,8 @@
 		ROUTINE_CREATED_DATE, ROUTINE_UPDATED_DATE,ROUTINE_RECRUIT_START_DATE, ROUTINE_RECRUIT_END_DATE,
 		ROUTINE_START_DATE, ROUTINE_END_DATE, ROUTINE_START_TIME,
 		ROUTINE_END_TIME,
-		ROUTINE_DAY_OF_WEEK, ROUTINE_RECRUIT_COUNT, ROUTINE_STATUS_NUMBER 
+		ROUTINE_DAY_OF_WEEK, ROUTINE_RECRUIT_COUNT, ROUTINE_STATUS_NUMBER,
+		ROUTINE_LOCATION_ADD 
 		)
 		VALUES (
 		#{routineNumber}, #{routineLeaderNumber}, #{adminNumber}, #{routineTitle},
@@ -70,13 +71,14 @@
 		TO_DATE(#{routineEndDate}, 'YYYY-MM-DD'),
 		TO_DATE(#{routineStartTime}, 'HH24:MI'),
 		TO_DATE(#{routineEndTime}, 'HH24:MI'),
-		#{routineDayOfWeek}, #{routineRecruitCount}, 2
+		#{routineDayOfWeek}, #{routineRecruitCount}, 2,
+		#{routineLocationAdd} 
 		)
 	</insert>
 	<update id="update" parameterType="RoutineDTO">
 		UPDATE TBL_ROUTINE
 		SET ROUTINE_TITLE = #{routineTitle}, ROUTINE_CONTENT = #{routineContent},
-		ROUTINE_LOCATION = #{routineLocation}, ROUTINE_UPDATED_DATE = SYSDATE,
+		ROUTINE_LOCATION = #{routineLocation}, ROUTINE_LOCATION_ADD = #{routineLocationAdd}, ROUTINE_UPDATED_DATE = SYSDATE,
 		ROUTINE_RECRUIT_START_DATE = TO_DATE(#{routineRecruitStartDate},
 		'YYYY-MM-DD'),
 		ROUTINE_RECRUIT_END_DATE = TO_DATE(#{routineRecruitEndDate}, 'YYYY-MM-DD'),
