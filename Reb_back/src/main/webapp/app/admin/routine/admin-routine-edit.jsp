@@ -18,6 +18,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&family=Yeon+Sung&display=swap"
     rel="stylesheet">
+<script type="text/javascript" 
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <title>루틴 모임 수정</title>
 </head>
 
@@ -56,7 +58,11 @@
         <!-- 지도 입력 영역 -->
         <div class="div-create-routine">
           <p class="font-main little-title">장소</p>
-          <h1>지도 자리</h1>
+          기본주소
+          <input class="input-in input-address-basic" type="text" name="routineLocation" value="${routine.getRoutineLocation()}" readonly><button class="button-find" type="button">찾기</button>
+          <br> 
+          추가주소
+          <input class="input-in" type="text" name="routineLocationAdd" value="${routine.getRoutineLocationAdd()}"> 
         </div>
         <!-- 모집 관련 정보 영역 -->
         <div class="div-create-routine">
