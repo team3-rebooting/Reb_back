@@ -6,7 +6,7 @@
 		SET
 		COURSE_REVIEW_UPDATED_DATE = sysdate, 
 		COURSE_REVIEW_CONTENT = #{courseReviewContent}
-		where MEMBER_NUMBER = #{memberNumber} and COURSE_REVIEW_COMMENT_NUMBER = #{courseReviewCommentNumber}
+		where COURSE_REVIEW_COMMENT_NUMBER = #{courseReviewCommentNumber}
 	</update>
 	
 	<delete id="delete" parameterType="int">

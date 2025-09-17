@@ -105,6 +105,7 @@ public class RoutineCommentOkController implements Execute {
 					o.add("reviewCreatedDate", data.getAsJsonObject().get("routineReviewCreatedDate"));
 					o.add("reviewUpdatedDate", data.getAsJsonObject().get("routineReviewUpdatedDate"));
 					o.add("reviewContent", data.getAsJsonObject().get("routineReviewContent"));
+					o.add("fileSystemName", data.getAsJsonObject().get("fileSystemName"));
 					
 					o.addProperty("currentMemberNumber", memberNumber);
 

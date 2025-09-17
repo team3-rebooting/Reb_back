@@ -292,31 +292,14 @@
  }
 
 
- .span-comment-edit {
-   font-family: "IBM Plex Sans KR", sans-serif;
-   font-weight: 400;
-   font-style: normal;
-   font-size: 12px;
-   line-height: 24px;
- }
 
- .span-comment-delete {
-   font-family: "IBM Plex Sans KR", sans-serif;
-   font-weight: 400;
-   font-style: normal;
-   font-size: 12px;
-   line-height: 24px;
-   color: #ff0000;
- }
+
 
  button:hover {
    cursor: pointer;
  }
 
- .span-comment-edit:hover,
- .span-comment-delete:hover {
-   cursor: pointer;
- }
+
  .div-page {
   display: flex;
   justify-content: center;

@@ -5,7 +5,9 @@
 		update TBL_ROUTINE_REVIEW_COMMENT
 		SET
 		ROUTINE_REVIEW_UPDATED_DATE = sysdate, 
-		ROUTINE_REVIEW_CONTENT = #{routineReviewContent}
+		ROUTINE_REVIEW_CONTENT = #{routineReviewComment}
+		where
+		ROUTINE_REVIEW_COMMENT_NUMBER = #{routineReviewCommentNumber}
 	</update>
 	
 	<delete id="delete" parameterType="int">

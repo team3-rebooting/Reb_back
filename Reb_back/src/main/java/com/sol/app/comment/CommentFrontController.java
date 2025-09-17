@@ -70,6 +70,10 @@ public class CommentFrontController extends HttpServlet {
 			System.out.println("댓글 목록 삭제 분기 처리");
 			result = new CommentDeleteOkController().execute(request, response);
 			break;
+		case "/comment/commentEditOk.cm":
+			System.out.println("댓글 목록 수정 분기 처리");
+			result = new CommentEditOkController().execute(request, response);
+			break;
 		}
 		
 		if (result != null && result.getPath() != null) {
