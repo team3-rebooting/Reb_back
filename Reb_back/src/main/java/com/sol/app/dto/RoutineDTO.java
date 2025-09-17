@@ -9,6 +9,7 @@ public class RoutineDTO {
 	private String routineContent;
 	private int routineStatusNumber;
 	private String routineLocation;
+	private String routineLocationAdd;
 	private String routineCreatedDate;
 	private String routineUpdatedDate;
 	private String routineRecruitStartDate;
@@ -121,17 +122,24 @@ public class RoutineDTO {
 	public void setRoutineRecruitCount(int routineRecruitCount) {
 		this.routineRecruitCount = routineRecruitCount;
 	}
+	public String getRoutineLocationAdd() {
+		return routineLocationAdd;
+	}
+	public void setRoutineLocationAdd(String routineLocationAdd) {
+		this.routineLocationAdd = routineLocationAdd;
+	}
 	@Override
 	public String toString() {
 		return "RoutineDTO [routineNumber=" + routineNumber + ", routineLeaderNumber=" + routineLeaderNumber
 				+ ", adminNumber=" + adminNumber + ", routineTitle=" + routineTitle + ", routineContent="
 				+ routineContent + ", routineStatusNumber=" + routineStatusNumber + ", routineLocation="
-				+ routineLocation + ", routineCreatedDate=" + routineCreatedDate + ", routineUpdatedDate="
-				+ routineUpdatedDate + ", routineRecruitStartDate=" + routineRecruitStartDate
-				+ ", routineRecruitEndDate=" + routineRecruitEndDate + ", routineStartDate=" + routineStartDate
-				+ ", routineEndDate=" + routineEndDate + ", routineStartTime=" + routineStartTime + ", routineEndTime="
-				+ routineEndTime + ", routineDayOfWeek=" + routineDayOfWeek + ", routineRecruitCount="
-				+ routineRecruitCount + "]";
+				+ routineLocation + ", routineLocationAdd=" + routineLocationAdd + ", routineCreatedDate="
+				+ routineCreatedDate + ", routineUpdatedDate=" + routineUpdatedDate + ", routineRecruitStartDate="
+				+ routineRecruitStartDate + ", routineRecruitEndDate=" + routineRecruitEndDate + ", routineStartDate="
+				+ routineStartDate + ", routineEndDate=" + routineEndDate + ", routineStartTime=" + routineStartTime
+				+ ", routineEndTime=" + routineEndTime + ", routineDayOfWeek=" + routineDayOfWeek
+				+ ", routineRecruitCount=" + routineRecruitCount + "]";
 	}
+	
 	
 }
