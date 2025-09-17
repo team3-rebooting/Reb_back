@@ -46,7 +46,7 @@ public class ReviewListOkController implements Execute {
 		map.put("startRow", 1);
 		map.put("endRow", 3);
 
-		routineReviewListDAO.selectAll(map).stream().map(gson::toJson).map(JsonParser::parseString).forEach((data) -> {
+		routineReviewListDAO.selectMain(map).stream().map(gson::toJson).map(JsonParser::parseString).forEach((data) -> {
 			JsonObject o = new JsonObject();
 
 			int routineReviewNumber = data.getAsJsonObject().get("routineReviewNumber").getAsInt();
@@ -73,7 +73,7 @@ public class ReviewListOkController implements Execute {
 
 		CourseReviewDAO courseReviewDAO = new CourseReviewDAO();
 
-		courseReviewDAO.selectAll(map).stream().map(gson::toJson).map(JsonParser::parseString).forEach((data) -> {
+		courseReviewDAO.selectMain(map).stream().map(gson::toJson).map(JsonParser::parseString).forEach((data) -> {
 			JsonObject o = new JsonObject();
 			int courseReviewNumber = data.getAsJsonObject().get("courseReviewNumber").getAsInt();
 

@@ -23,6 +23,11 @@ public class CourseReviewDAO {
 		return list;
 	}
 	
+	public List<CourseReviewListDTO> selectMain(Map<String, Integer> pageMap){
+		List<CourseReviewListDTO> list = sqlSession.selectList("courseReview.selectMain", pageMap);
+		return list;
+	}
+	
 	public int getTotal() {
 		System.out.println("게시글 총 개수 조회");
 		
