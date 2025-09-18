@@ -18,7 +18,24 @@
 				) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 			]]>
 	</select>
-
+	
+	<select id="selectMain" resultType="CourseReviewListDTO">
+			<![CDATA[
+				SELECT * FROM (
+					SELECT ROWNUM AS rnum, subquery.*
+					FROM (
+						SELECT CR.COURSE_REVIEW_NUMBER, CR.COURSE_NUMBER, CR.COURSE_REVIEW_TITLE, M.member_nickname, TO_CHAR(CR.course_review_created_date, 'YYYY-MM-DD') AS course_review_created_date
+						from tbl_course_review cr left outer join tbl_course c
+							on cr.course_number = c.course_number
+								left outer join tbl_member m
+							on cr.member_number = m.member_number
+						where cr.course_review_created_date between (sysdate - 30) and sysdate
+						order by (select count(*) from tbl_course_review_like crl where crl.course_review_number = cr.course_review_number) desc
+					) subquery
+				) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+			]]>
+	</select>
+	
 	<!-- 게시글 총 개수 -->
 	<select id="getTotal" resultType="int">
 		select count(*)

@@ -30,4 +30,31 @@ document.addEventListener("DOMContentLoaded", () => {
 	moveBtn.addEventListener('click', () => {
 		window.location.href = "/admin/routineListOk.ad";
 	});
+	
+	// 지도 컨테이너
+	var mapContainer = document.getElementById('map');
+	var mapOption = {
+	    center: new kakao.maps.LatLng(37.537187, 127.005476),
+	    level: 5
+	};
+	var map = new kakao.maps.Map(mapContainer, mapOption);
+
+	// 주소-좌표 변환 객체
+	var geocoder = new kakao.maps.services.Geocoder();
+
+	// 마커
+	var marker = new kakao.maps.Marker({ map: map });
+
+	// DB에서 불러온 주소
+	var dbAddr = document.querySelector(".routineLocation").innerText;
+
+	geocoder.addressSearch(dbAddr, function(results, status) {
+	    if (status === kakao.maps.services.Status.OK) {
+	        var result = results[0];
+	        var coords = new kakao.maps.LatLng(result.y, result.x);
+
+	        map.setCenter(coords);
+	        marker.setPosition(coords);
+	    }
+	});
 });

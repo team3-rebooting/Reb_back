@@ -117,4 +117,14 @@
       <servlet-name>Donation</servlet-name>
       <url-pattern>*.do</url-pattern>
    </servlet-mapping>
+   
+   <servlet>
+   		<servlet-name>SmallClub</servlet-name>
+   		<servlet-class>com.sol.app.club.SmallClubFrontController</servlet-class>
+   </servlet>
+   
+   <servlet-mapping>
+   		<servlet-name>SmallClub</servlet-name>
+   		<url-pattern>*.cl</url-pattern>
+   </servlet-mapping>
 </web-app>

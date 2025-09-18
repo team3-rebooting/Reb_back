@@ -24,6 +24,10 @@ public class RoutineReviewListDAO {
 		return sqlSession.selectList("routineReviewList.selectAll", map);
 	}
 	
+	public List<RoutineReviewListDTO> selectMain(Map map) {
+		return sqlSession.selectList("routineReviewList.selectMain", map);
+	}
+	
 	public int getTotal() {
 		return sqlSession.selectOne("routineReviewList.getTotal");
 	}

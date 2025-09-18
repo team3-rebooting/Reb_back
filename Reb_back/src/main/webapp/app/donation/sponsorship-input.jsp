@@ -65,7 +65,6 @@
   <div id="footer">
   </div>
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/header-login.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 
 </html>

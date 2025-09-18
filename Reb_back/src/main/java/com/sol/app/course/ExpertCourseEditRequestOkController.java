@@ -44,8 +44,6 @@ public class ExpertCourseEditRequestOkController implements Execute {
 			CourseRequestDAO courseRequestDAO = new CourseRequestDAO();
 			CourseRequestDTO courseRequestDTO = new CourseRequestDTO();
 
-			
-			
 			// 파일 업로드 환경 설정
 			final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
 			final int FILE_SIZE = 1024 * 1024 * 5; // 5MB
@@ -111,14 +109,23 @@ public class ExpertCourseEditRequestOkController implements Execute {
 			System.out.println("생성된 게시글 번호 : " + courseNumber);
 			courseRequestDTO.setCourseNumber(courseNumber);
 			
+			boolean addFile = false;
+			
+			
 			// 파일 업로드 처리
 			// Enumeration : java.util 패키지에 포함된 인터페이스, Iterator와 비슷한 역할함
 			Enumeration<String> fileNames = multipartRequest.getFileNames();
 			while (fileNames.hasMoreElements()) {
 				String name = fileNames.nextElement();
+				
+				System.out.println("name : " + name);
+				
 				String fileSystemName = multipartRequest.getFilesystemName(name);
 				String fileOriginalName = multipartRequest.getOriginalFileName(name);
 
+				System.out.println("fileSystemName : " + fileSystemName);
+				System.out.println("fileOriginalName : " + fileOriginalName);
+				
 				if (fileSystemName == null) {
 					continue;
 				}
@@ -129,6 +136,15 @@ public class ExpertCourseEditRequestOkController implements Execute {
 
 				System.out.println("업로드 된 파일 정보 : " + fileCourseDTO);
 				fileCourseDAO.insert(fileCourseDTO);
+				addFile = true;
+			}
+			
+			if(!addFile) {			
+				//기존파일 불러와서 넣는거 추가
+				FileCourseDTO originalFileCourseDTO = fileCourseDAO.selectList(editCourseNumber).get(0);
+				originalFileCourseDTO.setCourseNumber(courseNumber);
+				System.out.println("업로드 된 파일 정보 : " + originalFileCourseDTO);
+				fileCourseDAO.insert(originalFileCourseDTO);
 			}
 			
 			System.out.println("새로운 요청 courseRequestDTO : " + courseRequestDTO);

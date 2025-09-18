@@ -43,7 +43,8 @@
 				</div>
 				<div class="div-create-course">
 					<span class="font-main little-title">대표 이미지 : </span> <input
-						type="file" name="routineReviewFile" class="input-bundle" required>
+						type="file" name="routineReviewFile">
+					<span class="font-main" id="original-file">기존 파일 : <c:out value="${routineReview.getFileRoutineReview().getFileOriginalName()}"/></span>
 				</div>
 				<div class="div-create-course">
 					<p class="font-main little-title">내용</p>

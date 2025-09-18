@@ -72,10 +72,6 @@ public class RoutineReviewUpdateCompleteOkController implements Execute {
 
 		System.out.println("============게시글 작성 : " + reviewNum);
 
-		result.setPath(request.getContextPath() + "/routine/routineReviewReadOk.ro?routineReviewNumber=" + reviewNum);
-		result.setRedirect(false);
-
-		fileRoutineReviewDAO.delete(reviewNum);
 		// 파일 업로드 처리
 		// Enumeration : java.util 패키지에 포함된 인터페이스, Iterator와 비슷한 역할함
 		Enumeration<String> fileNames = multipartRequest.getFileNames();
@@ -88,6 +84,7 @@ public class RoutineReviewUpdateCompleteOkController implements Execute {
 				continue;
 			}
 
+			fileRoutineReviewDAO.delete(reviewNum);
 			fileRoutineReviewDTO.setFileSystemName(fileSystemName);
 			fileRoutineReviewDTO.setFileOriginalName(fileOriginalName);
 			fileRoutineReviewDTO.setRoutineReviewNumber(reviewNum);
@@ -95,6 +92,10 @@ public class RoutineReviewUpdateCompleteOkController implements Execute {
 			System.out.println("업로드 된 파일 정보 : " + fileRoutineReviewDTO);
 			fileRoutineReviewDAO.insert(fileRoutineReviewDTO);
 		}
+		
+		
+		result.setPath(request.getContextPath() + "/routine/routineReviewReadOk.ro?routineReviewNumber=" + reviewNum);
+		result.setRedirect(false);
 
 		return result;
 	}

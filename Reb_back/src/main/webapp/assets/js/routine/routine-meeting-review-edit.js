@@ -2,6 +2,18 @@ window.addEventListener('DOMContentLoaded', () => {
 	const okButton = document.querySelector(".button-ok");
 	const cancelButton = document.querySelector(".button-cancel");
 	const inputBundle = document.querySelectorAll(".input-bundle");
+	const imgFile = document.querySelector("input[type='file']");
+	const orinalImgFile = document.querySelector("#original-file");
+
+	imgFile.addEventListener('change', (e) => {
+		if (!confirm("정말로 수정하시겠습니까? 기존 이미지는 삭제됩니다")) {
+			e.target.value = null;
+			e.preventDefault();
+		} else {
+			orinalImgFile.innerHTML = "";
+		}
+	})
+
 
 	okButton.addEventListener("click", (e) => {
 		let isWrite = true;
@@ -11,11 +23,8 @@ window.addEventListener('DOMContentLoaded', () => {
 					isWrite = false;
 				}
 			}
-			if (isWrite) {
-				
-			}
-			else {
-				alert("제목, 이미지, 내용 확인해주세요");
+			if (!isWrite) {
+				alert("제목, 내용을 확인해주세요");
 			}
 		}
 		else {

@@ -9,7 +9,6 @@ public class CourseRequestDTO {
 	private String courseRequestDate;
 	private String courseResultDate;
 	private String courseRejectReason;
-	private String courseDeleteRequestReason;
 	
 	public int getCourseNumber() {
 		return courseNumber;
@@ -59,19 +58,15 @@ public class CourseRequestDTO {
 	public void setCourseRejectReason(String courseRejectReason) {
 		this.courseRejectReason = courseRejectReason;
 	}
-	public String getCourseDeleteRequestReason() {
-		return courseDeleteRequestReason;
-	}
-	public void setCourseDeleteRequestReason(String courseDeleteRequestReason) {
-		this.courseDeleteRequestReason = courseDeleteRequestReason;
-	}
 	@Override
 	public String toString() {
 		return "CourseRequestDTO [courseNumber=" + courseNumber + ", prevCourseNumber=" + prevCourseNumber
 				+ ", courseOpenStatusNumber=" + courseOpenStatusNumber + ", courseRequestTypeNumber="
 				+ courseRequestTypeNumber + ", courseRegisterDate=" + courseRegisterDate + ", courseRequestDate="
 				+ courseRequestDate + ", courseResultDate=" + courseResultDate + ", courseRejectReason="
-				+ courseRejectReason + ", courseDeleteRequestReason=" + courseDeleteRequestReason + "]";
+				+ courseRejectReason + "]";
 	}
+
+	
 	
 }

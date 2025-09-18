@@ -15,6 +15,7 @@ public class AdminRoutineDTO {
 	private int routineStatusNumber;
 	private List<FileRoutineDTO> fileRoutineList;
 	private String routineLocation;
+	private String routineLocationAdd;
 	private String routineCreatedDate;
 	private String routineUpdatedDate;
 	private String routineRecruitStartDate;
@@ -157,18 +158,25 @@ public class AdminRoutineDTO {
 	public void setRoutineLeaderName(String routineLeaderName) {
 		this.routineLeaderName = routineLeaderName;
 	}
+	public String getRoutineLocationAdd() {
+		return routineLocationAdd;
+	}
+	public void setRoutineLocationAdd(String routineLocationAdd) {
+		this.routineLocationAdd = routineLocationAdd;
+	}
 	@Override
 	public String toString() {
 		return "AdminRoutineDTO [routineStatusInfo=" + routineStatusInfo + ", routineNumber=" + routineNumber
 				+ ", routineLeaderNumber=" + routineLeaderNumber + ", routineLeaderName=" + routineLeaderName
 				+ ", adminNumber=" + adminNumber + ", routineTitle=" + routineTitle + ", routineContent="
 				+ routineContent + ", routineStatusNumber=" + routineStatusNumber + ", fileRoutineList="
-				+ fileRoutineList + ", routineLocation=" + routineLocation + ", routineCreatedDate="
-				+ routineCreatedDate + ", routineUpdatedDate=" + routineUpdatedDate + ", routineRecruitStartDate="
-				+ routineRecruitStartDate + ", routineRecruitEndDate=" + routineRecruitEndDate + ", routineStartDate="
-				+ routineStartDate + ", routineEndDate=" + routineEndDate + ", routineStartTime=" + routineStartTime
-				+ ", routineEndTime=" + routineEndTime + ", routineDayOfWeek=" + routineDayOfWeek + ", routineCount="
-				+ routineCount + ", routineRecruitCount=" + routineRecruitCount + "]";
+				+ fileRoutineList + ", routineLocation=" + routineLocation + ", routineLocationAdd="
+				+ routineLocationAdd + ", routineCreatedDate=" + routineCreatedDate + ", routineUpdatedDate="
+				+ routineUpdatedDate + ", routineRecruitStartDate=" + routineRecruitStartDate
+				+ ", routineRecruitEndDate=" + routineRecruitEndDate + ", routineStartDate=" + routineStartDate
+				+ ", routineEndDate=" + routineEndDate + ", routineStartTime=" + routineStartTime + ", routineEndTime="
+				+ routineEndTime + ", routineDayOfWeek=" + routineDayOfWeek + ", routineCount=" + routineCount
+				+ ", routineRecruitCount=" + routineRecruitCount + "]";
 	}
 	
 	
