@@ -17,8 +17,10 @@ import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminCourseDAO;
 import com.sol.app.admin.dao.AdminCourseRequestDAO;
 import com.sol.app.course.dao.CourseDAO;
+import com.sol.app.course.dao.CourseRequestDAO;
 import com.sol.app.dto.AdminCourseRequestDTO;
 import com.sol.app.dto.CourseDTO;
+import com.sol.app.dto.CourseRequestDTO;
 
 public class CourseRequestCompanionOkController implements Execute {
 
@@ -38,14 +40,19 @@ public class CourseRequestCompanionOkController implements Execute {
 			System.out.println(returnMsg);
 			String companionType = json.get("companionType").getAsString();
 			AdminCourseRequestDTO requestDTO = new AdminCourseRequestDTO();
+			CourseRequestDAO basicRequestDTO = new CourseRequestDAO();
 			requestDTO.setCourseNumber(courseNumber);
 			requestDTO.setCourseRejectReason(returnMsg);
 			if(companionType.equals("create")) {
-				System.out.println("dd");
 				requestDAO.rejection(requestDTO);
 			}
-			else if(companionType == "update"){
-				requestDAO.rejection(requestDTO);
+			else if(companionType.equals("update")){
+				CourseRequestDTO newDTO = basicRequestDTO.select(courseNumber);
+				courseDAO.delete(courseNumber);
+				newDTO.setCourseNumber(newDTO.getPrevCourseNumber());
+				newDTO.setCourseRejectReason(returnMsg);
+				requestDAO.insert(newDTO);
+				requestDAO.deleteRequest(courseNumber);
 			}
 			else if(companionType.equals("delete")) {
 				requestDAO.rejection(requestDTO);

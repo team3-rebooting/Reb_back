@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.sol.app.dto.AdminCourseRequestDTO;
 import com.sol.app.dto.AdminCourseRequestListDTO;
+import com.sol.app.dto.CourseRequestDTO;
 import com.sol.config.MyBatisConfig;
 
 public class AdminCourseRequestDAO {
@@ -49,6 +50,13 @@ public class AdminCourseRequestDAO {
 	//이전 번호 가져오기
 	public int selectPrev(int courseNumber) {
 		return sqlSession.selectOne("adminCourseRequest.selectPrev", courseNumber);
+	}
+	//수정 반려시 새로운 요청으로 변경
+	public void insert(CourseRequestDTO requestDTO) {
+		sqlSession.insert("adminCourseRequest.insert", requestDTO);
+	}
+	public void deleteRequest(int courseNumber) {
+		sqlSession.delete("adminCourseRequest.deleteRequest",courseNumber);
 	}
 	
 }
