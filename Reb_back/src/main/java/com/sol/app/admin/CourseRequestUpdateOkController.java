@@ -10,8 +10,9 @@ import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminCourseDAO;
 import com.sol.app.admin.dao.AdminCourseRequestDAO;
+import com.sol.app.dto.AdminCourseRequestDTO;
 
-public class CourseRequestDeleteOkController implements Execute {
+public class CourseRequestUpdateOkController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
@@ -19,13 +20,17 @@ public class CourseRequestDeleteOkController implements Execute {
 		Result result = new Result();
 		AdminCourseRequestDAO requestDAO = new AdminCourseRequestDAO();
 		AdminCourseDAO courseDAO = new AdminCourseDAO();
-		int requestNumber = Integer.valueOf(request.getParameter("courseNumber"));
-		requestDAO.deleteApprove(requestNumber);
-		courseDAO.delete(requestNumber);
+		AdminCourseRequestDTO requestDTO = requestDAO.select(Integer.parseInt(request.getParameter("courseNumber")));
+		//이전 수업 삭제
+		System.out.println(requestDTO.getPrevCourseNumber());
+		courseDAO.delete(requestDTO.getPrevCourseNumber());
+		//수업 승인
+		requestDAO.update(requestDTO.getCourseNumber());
 		
 		result.setPath("/admin/courseRequestListOk.ad");
 		result.setRedirect(true);
+		
 		return result;
 	}
-	
+
 }

@@ -117,7 +117,7 @@
               <p>강의일 : <c:out value="${course.courseStartDate}"/> ~ <c:out value="${course.courseEndDate}"/></p>
               <p>시간 : <c:out value="${course.courseStartTime}"/> ~ <c:out value="${course.courseEndTime}"/> [<c:out value="${course.courseDayOfWeek}"/>]</p>
               <p>모집 인원 : <c:out value="${course.courseCount}"/>/<c:out value="${course.courseRecruitCount}"/> 명</p>
-              <p>가격 : <c:out value="${course.coursePrice}"/> 원</p>
+              
             </div>
           </div>
         <div id="div-admin-detail-button-delete">

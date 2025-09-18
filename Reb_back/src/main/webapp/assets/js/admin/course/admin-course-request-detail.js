@@ -18,9 +18,13 @@ approveButtons.forEach(button => {
 				alert("승인되었습니다");
 				window.location.href = `/admin/courseRequestApproveOk.ad?courseNumber=${courseNumber}`
 			}
-			/*if(state === '3'){
+			if(state === '2'){
+				alert("승인되었습니다");
+				window.location.href = `/admin/courseRequestUpdateOk.ad?courseNumber=${courseNumber}`
+			}
+			if(state === '3'){
 				window.location.href = `/admin/courseRequestDeleteOk.ad?courseNumber=${courseNumber}`
-			}*/
+			}
 
 		}
 	});
