@@ -14,18 +14,35 @@
 		<welcome-file>main.jsp</welcome-file>
 	</welcome-file-list>
 
-	<!-- 실제 수행 할 리스너이벤트-->
+	<!-- <error-page>
+		<exception-type>java.lang.ArithmeticException</exception-type>
+		<location>/error_page.jsp</location>
+	</error-page> -->
+	<!-- <error-page>
+		<exception-type>java.lang.ArithmeticException</exception-type>
+		<location>error_page.jsp</location>
+	</error-page> -->
+	<!-- <error-page>
+		<error-code>500</error-code>
+		<location>/error_page.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error_page.jsp</location>
+	</error-page> -->
+
+	<!-- 실제 수행 할 리스너이벤트 -->
 	<listener>
 		<listener-class>com.sol.app.ServletContextTest</listener-class>
 	</listener>
 
-	<!-- 초기화 파라미터로써 ServletContext에 파라미터를 보낸다 -->
+	<!-- 초기화 파라미터로써 ServletContext에 파라미터를 보낸다  -->
 	<context-param>
-			<param-name>contextTest</param-name>
-			<param-value>테스트값입니다</param-value>
+		<param-name>contextTest</param-name>
+		<param-value>테스트값입니다</param-value>
 	</context-param>
-	
-	
+
+
 	<servlet>
 		<servlet-name>Comment</servlet-name>
 		<servlet-class>com.sol.app.comment.CommentFrontController</servlet-class>
@@ -98,44 +115,44 @@
 		<servlet-name>Tidings</servlet-name>
 		<url-pattern>*.ti</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-      <servlet-name>File</servlet-name>
-      <servlet-class>com.sol.app.file.FileFrontController</servlet-class>
-   </servlet>
+		<servlet-name>File</servlet-name>
+		<servlet-class>com.sol.app.file.FileFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>File</servlet-name>
-      <url-pattern>*.file</url-pattern>
-   </servlet-mapping>
-   
-   <servlet>
-      <servlet-name>Main</servlet-name>
-      <servlet-class>com.sol.app.main.MainFrontController</servlet-class>
-   </servlet>
+	<servlet-mapping>
+		<servlet-name>File</servlet-name>
+		<url-pattern>*.file</url-pattern>
+	</servlet-mapping>
 
-   <servlet-mapping>
-      <servlet-name>Main</servlet-name>
-      <url-pattern>*.ma</url-pattern>
-   </servlet-mapping>
-   
-   <servlet>
-      <servlet-name>Donation</servlet-name>
-      <servlet-class>com.sol.app.donation.DonationFrontController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>Main</servlet-name>
+		<servlet-class>com.sol.app.main.MainFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>Donation</servlet-name>
-      <url-pattern>*.do</url-pattern>
-   </servlet-mapping>
-   
-   <servlet>
-   		<servlet-name>SmallClub</servlet-name>
-   		<servlet-class>com.sol.app.club.SmallClubFrontController</servlet-class>
-   </servlet>
-   
-   <servlet-mapping>
-   		<servlet-name>SmallClub</servlet-name>
-   		<url-pattern>*.cl</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Main</servlet-name>
+		<url-pattern>*.ma</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Donation</servlet-name>
+		<servlet-class>com.sol.app.donation.DonationFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Donation</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SmallClub</servlet-name>
+		<servlet-class>com.sol.app.club.SmallClubFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SmallClub</servlet-name>
+		<url-pattern>*.cl</url-pattern>
+	</servlet-mapping>
 </web-app>
