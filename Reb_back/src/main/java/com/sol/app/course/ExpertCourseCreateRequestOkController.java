@@ -12,8 +12,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.course.dao.CourseDAO;
+import com.sol.app.course.dao.CourseListDAO;
 import com.sol.app.course.dao.FileCourseDAO;
 import com.sol.app.dto.CourseDTO;
+import com.sol.app.dto.CourseListDTO;
 import com.sol.app.dto.FileCourseDTO;
 
 public class ExpertCourseCreateRequestOkController implements Execute {
@@ -24,6 +26,7 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 
 		CourseDTO courseDTO = new CourseDTO();
 		CourseDAO courseDAO = new CourseDAO();
+		CourseListDAO courseListDAO = new CourseListDAO();
 		FileCourseDTO fileCourseDTO = new FileCourseDTO();
 		FileCourseDAO fileCourseDAO = new FileCourseDAO();
 		Result result = new Result();
@@ -91,6 +94,11 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 			System.out.println(courseDTO);
 
 			int courseNumber = courseDAO.createRequest(courseDTO, true);
+			
+			CourseListDTO courseListDTO = courseListDAO.select(courseNumber);
+			
+			courseListDTO.setCourseRecruitStatusNumber();
+			courseListDAO.updateStatus(courseListDTO);
 			System.out.println("생성된 게시글 번호 : " + courseNumber);
 
 			// 파일 업로드 처리
