@@ -12,9 +12,11 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.course.dao.CourseDAO;
+import com.sol.app.course.dao.CourseListDAO;
 import com.sol.app.course.dao.CourseRequestDAO;
 import com.sol.app.course.dao.FileCourseDAO;
 import com.sol.app.dto.CourseDTO;
+import com.sol.app.dto.CourseListDTO;
 import com.sol.app.dto.CourseRequestDTO;
 import com.sol.app.dto.FileCourseDTO;
 
@@ -27,6 +29,7 @@ public class ExpertCourseEditRequestOkController implements Execute {
 
 		CourseDTO courseDTO = new CourseDTO();
 		CourseDAO courseDAO = new CourseDAO();
+		CourseListDAO courseListDAO = new CourseListDAO();
 		FileCourseDTO fileCourseDTO = new FileCourseDTO();
 		FileCourseDAO fileCourseDAO = new FileCourseDAO();
 		Result result = new Result();
@@ -108,6 +111,11 @@ public class ExpertCourseEditRequestOkController implements Execute {
 			int courseNumber = courseDAO.createRequest(courseDTO, false);
 			System.out.println("생성된 게시글 번호 : " + courseNumber);
 			courseRequestDTO.setCourseNumber(courseNumber);
+			
+			CourseListDTO courseListDTO = courseListDAO.select(courseNumber);
+			
+			courseListDTO.setCourseRecruitStatusNumber();
+			courseListDAO.updateStatus(courseListDTO);	
 			
 			boolean addFile = false;
 			

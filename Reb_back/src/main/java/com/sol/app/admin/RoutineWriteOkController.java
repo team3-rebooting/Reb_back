@@ -15,7 +15,9 @@ import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminRoutineDAO;
 import com.sol.app.dto.FileRoutineDTO;
 import com.sol.app.dto.RoutineDTO;
+import com.sol.app.dto.RoutineListDTO;
 import com.sol.app.file.dao.FileRoutineDAO;
+import com.sol.app.routine.dao.RoutineListDAO;
 import com.sol.app.status.RoutineStatus;
 
 public class RoutineWriteOkController implements Execute {
@@ -24,6 +26,7 @@ public class RoutineWriteOkController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		AdminRoutineDAO routineDAO = new AdminRoutineDAO();
+		RoutineListDAO routineListDAO = new RoutineListDAO();
 		RoutineDTO routineDTO = new RoutineDTO();
 		Result result = new Result();
 		FileRoutineDAO fileDAO = new FileRoutineDAO();
@@ -82,6 +85,11 @@ public class RoutineWriteOkController implements Execute {
 		//게시글 추가
 		int routineNumber =routineDAO.insert(routineDTO);
 		System.out.println("생성된 게시글 번호 : " + routineNumber);
+		
+		RoutineListDTO routineListDTO = routineListDAO.select(routineNumber);
+        
+        routineListDTO.setRoutineStatusNumber();
+		routineListDAO.updateStatus(routineListDTO);
 		
 		//파일 업로드 처리
 		//Enumeration : java.util 패키지에 포함된 인터페이스, Iterator와 비슷한 역할

@@ -29,12 +29,10 @@ public class CourseListOkController implements Execute {
 
 		List<CourseListDTO> courseListDTO = courseListDAO.selectAll();
 
-		if (courseListDAO != null) {
-			for (CourseListDTO c : courseListDTO) {
-				c.setCourseRecruitStatusNumber();
-				courseListDAO.updateStatus(c);
-			}
-		}
+		/*
+		 * if (courseListDAO != null) { for (CourseListDTO c : courseListDTO) {
+		 * c.setCourseRecruitStatusNumber(); courseListDAO.updateStatus(c); } }
+		 */
 
 		HttpSession session = request.getSession();
 		Integer memberNumber = (Integer) session.getAttribute("memberNumber");

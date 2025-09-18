@@ -14,7 +14,18 @@
 		<welcome-file>main.jsp</welcome-file>
 	</welcome-file-list>
 
+	<!-- 실제 수행 할 리스너이벤트-->
+	<listener>
+		<listener-class>com.sol.app.ServletContextTest</listener-class>
+	</listener>
 
+	<!-- 초기화 파라미터로써 ServletContext에 파라미터를 보낸다 -->
+	<context-param>
+			<param-name>contextTest</param-name>
+			<param-value>테스트값입니다</param-value>
+	</context-param>
+	
+	
 	<servlet>
 		<servlet-name>Comment</servlet-name>
 		<servlet-class>com.sol.app.comment.CommentFrontController</servlet-class>
