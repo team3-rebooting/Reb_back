@@ -48,7 +48,7 @@
     TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD') AS COURSE_END_DATE,
     TO_CHAR(c.COURSE_START_TIME, 'HH24:MI') AS COURSE_START_TIME, 
     TO_CHAR(c.COURSE_END_TIME, 'HH24:MI') AS COURSE_END_TIME,
-    c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT 
+    c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT, cr.PREV_COURSE_NUMBER 
 	FROM TBL_COURSE_REQUEST cr
 	JOIN TBL_COURSE c
     ON cr.COURSE_NUMBER = c.COURSE_NUMBER
@@ -60,16 +60,23 @@
 	]]>
 	</select>
 	<!-- 여기 update 문 status number 다시 한번 확인  -->
-	<!-- 신청, 수정 승인 -->
+	<!-- 신청 승인 -->
 	<update id="approve" parameterType="int">
 		update tbl_course_request set COURSE_OPEN_STATUS_NUMBER = 2, 
 		COURSE_RESULT_DATE = to_date(sysdate, 'YYYY-MM-DD')
 		where course_number = #{courseNumber}
 	</update>
-	<!-- 삭제 승인  -->
-	<update id="deleteApprove" parameterType="int">
-		update tbl_course set course_title = '삭제됨' , course_content = '삭제됨' where course_number = #{courseNumber}
+	<!-- 수정 승인 -->
+	<update id="update" parameterType="int">
+		update tbl_course_request set COURSE_OPEN_STATUS_NUMBER = 2, 
+		COURSE_RESULT_DATE = to_date(sysdate, 'YYYY-MM-DD'),
+		prev_course_number = '' 
+		where course_number = #{courseNumber}
 	</update>
+	<!-- 삭제 승인  -->
+	<delete id="deleteApprove" parameterType="int">
+		delete from tbl_course_request where course_number = #{courseNumber}
+	</delete>
 	<!-- 반려 사유  -->
 	<update id="rejection" parameterType="AdminCourseRequestDTO">
 		update tbl_course_request set COURSE_OPEN_STATUS_NUMBER = 3, 
