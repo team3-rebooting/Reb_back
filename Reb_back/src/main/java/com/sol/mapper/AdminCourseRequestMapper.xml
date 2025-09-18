@@ -88,4 +88,11 @@
 	<select id="selectPrev" parameterType="int" resultType="int">
 		select prev_course_number from tbl_course_request where course_number = #{courseNumber}
 	</select>
+	<insert id="insert" parameterType="CourseRequestDTO">
+		INSERT INTO TBL_COURSE_REQUEST(COURSE_NUMBER, COURSE_OPEN_STATUS_NUMBER, COURSE_REQUEST_TYPE_NUMBER, COURSE_REGISTER_DATE, COURSE_REQUEST_DATE, COURSE_RESULT_DATE, COURSE_REJECT_REASON)
+		values(#{courseNumber}, 3, #{courseRequestTypeNumber}, TO_DATE(#{courseRegisterDate}, 'YYYY-MM-DD'), sysdate, TO_DATE(#{courseResultDate}, 'YYYY-MM-DD'), #{courseRejectReason})
+	</insert>
+	<delete id="deleteRequest" parameterType="int">
+		delete from tbl_course_request where course_number = #{courseNumber}
+	</delete>
 </mapper>
