@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.oreilly.servlet.multipart.FilePart;
 import com.oreilly.servlet.multipart.MultipartParser;
@@ -18,10 +17,11 @@ import com.oreilly.servlet.multipart.Part;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminRoutineDAO;
-import com.sol.app.dto.AdminRoutineDTO;
 import com.sol.app.dto.FileRoutineDTO;
 import com.sol.app.dto.RoutineDTO;
+import com.sol.app.dto.RoutineListDTO;
 import com.sol.app.file.dao.FileRoutineDAO;
+import com.sol.app.routine.dao.RoutineListDAO;
 
 public class RoutineUpdateOkController implements Execute {
 
@@ -31,6 +31,7 @@ public class RoutineUpdateOkController implements Execute {
 
 		Result result = new Result();
 		RoutineDTO routineDTO = new RoutineDTO();
+		RoutineListDAO routineListDAO = new RoutineListDAO();
 		FileRoutineDAO fileRoutineDAO = new FileRoutineDAO();
 		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/routine/";
         final int FILE_SIZE = 1024 * 1024 * 5; 
@@ -154,6 +155,11 @@ public class RoutineUpdateOkController implements Execute {
 //        // 게시글 업데이트 실행
         routineDAO.update(routineDTO);
         System.out.println("루틴 모임 수정 완료");
+        
+        RoutineListDTO routineListDTO = routineListDAO.select(routineNumber);
+        
+        routineListDTO.setRoutineStatusNumber();
+		routineListDAO.updateStatus(routineListDTO);
 
         //수정 완료 후 상세 페이지로 이동
         result.setPath("/admin/routineReadOk.ad?routineNumber="+routineDTO.getRoutineNumber());

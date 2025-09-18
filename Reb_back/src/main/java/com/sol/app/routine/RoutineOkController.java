@@ -24,12 +24,10 @@ public class RoutineOkController implements Execute {
 		
 		List<RoutineListDTO> routineListDTO = routineListDAO.selectAll();
 		
-		if(routineListDTO != null) {
-			for(RoutineListDTO r : routineListDTO) {
-				r.setRoutineStatusNumber();
-				routineListDAO.updateStatus(r);
-			}
-		}
+		/*
+		 * if(routineListDTO != null) { for(RoutineListDTO r : routineListDTO) {
+		 * r.setRoutineStatusNumber(); routineListDAO.updateStatus(r); } }
+		 */
 		
 		Result result = new Result();
 		FileRoutineDAO fileRoutineDAO = new FileRoutineDAO();

@@ -30,13 +30,17 @@ public class AdminCourseRequestDAO {
 	public AdminCourseRequestDTO select(int courseNumber) {
 		return sqlSession.selectOne("adminCourseRequest.select", courseNumber);
 	}
-	// 수업 신청/수정 요청 승인
+	// 수업 신청 요청 승인
 	public void approve(int courseNumber) {
 		sqlSession.update("adminCourseRequest.approve",courseNumber);
 	}
+	// 수업 수정 요청 승인
+	public void update(int courseNumber) {
+		sqlSession.update("adminCourseRequest.update",courseNumber);
+	}
 	//수업 삭제 요청 승인
 	public void deleteApprove(int courseNumber) {
-		sqlSession.update("adminCourseRequest.deleteApprove",courseNumber);
+		sqlSession.delete("adminCourseRequest.deleteApprove",courseNumber);
 	}
 	//반려 처리
 	public void rejection(AdminCourseRequestDTO adminCourseRequestDTO) {

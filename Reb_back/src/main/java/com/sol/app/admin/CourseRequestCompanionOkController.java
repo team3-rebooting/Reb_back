@@ -44,14 +44,11 @@ public class CourseRequestCompanionOkController implements Execute {
 				System.out.println("dd");
 				requestDAO.rejection(requestDTO);
 			}
-//			else if(companionType == "update"){
-//				requestDAO.rejection(requestDTO);
-//				int prev = requestDAO.selectPrev(courseNumber);
-//				CourseDTO courseDTO = courseDAO.selectCourse(prev);
-//			}
+			else if(companionType == "update"){
+				requestDAO.rejection(requestDTO);
+			}
 			else if(companionType.equals("delete")) {
 				requestDAO.rejection(requestDTO);
-				courseDAO.updateDelete(courseNumber);
 			}
 			response.setContentType("application/json; charset=utf-8");
 			PrintWriter out = response.getWriter();

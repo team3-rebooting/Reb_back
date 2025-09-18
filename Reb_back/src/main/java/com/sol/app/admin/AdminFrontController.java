@@ -105,6 +105,10 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("수업 개설 반려");
 			result = new CourseRequestCompanionOkController().execute(request,response);
 			break;
+		case "/admin/courseRequestUpdateOk.ad" :
+			System.out.println("수업 수정 승인");
+			result = new CourseRequestUpdateOkController().execute(request,response);
+			break;
 		case "/admin/courseRequestDeleteOk.ad" :
 			System.out.println("수업 삭제 승인");
 			result = new CourseRequestDeleteOkController().execute(request, response);
