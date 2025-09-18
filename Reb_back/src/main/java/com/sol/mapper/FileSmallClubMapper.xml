@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fileSmallClub">
+	<!-- 파일 추가 -->
+	<insert id="insert" parameterType="FileSmallClubDTO">
+		insert into tbl_file_small_club(file_system_name, file_original_name, small_club_number)
+		values(#{fileSystemName}, #{fileOriginalName}, #{smallClubNumber})
+	</insert>
+	
+	<!-- 파일 조회 -->
+	<select id="select" parameterType="int" resultType="FileSmallClubDTO">
+		select file_system_name, file_original_name, small_club_number
+		from tbl_file_small_club
+		where small_club_number = #{smallClubNumber}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_file_small_club
+		where small_club_number = #{smallClubNumber}
+	</delete>
+
+</mapper>
