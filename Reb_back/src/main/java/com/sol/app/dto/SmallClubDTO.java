@@ -1,17 +1,23 @@
 package com.sol.app.dto;
 
+import java.util.List;
+
 public class SmallClubDTO {
-	private int smallClubNuber;
+	private int smallClubNumber;
 	private String smallClubTitle;
 	private int memberNumber;
+	private String memberNickname;
 	private String smallClubCreatedDate;
 	private String smallClubUpdatedDate;
 	private String smallClubContent;
-	public int getSmallClubNuber() {
-		return smallClubNuber;
+	private FileMemberProfileDTO fileWriterProFileList;
+	private List<FileMemberProfileDTO> fileCommentProFileList;
+	private List<FileSmallClubDTO> fileSmallClubList;
+	public int getSmallClubNumber() {
+		return smallClubNumber;
 	}
-	public void setSmallClubNuber(int smallClubNuber) {
-		this.smallClubNuber = smallClubNuber;
+	public void setSmallClubNumber(int smallClubNumber) {
+		this.smallClubNumber = smallClubNumber;
 	}
 	public String getSmallClubTitle() {
 		return smallClubTitle;
@@ -24,6 +30,12 @@ public class SmallClubDTO {
 	}
 	public void setMemberNumber(int memberNumber) {
 		this.memberNumber = memberNumber;
+	}
+	public String getMemberNickname() {
+		return memberNickname;
+	}
+	public void setMemberNickname(String memberNickname) {
+		this.memberNickname = memberNickname;
 	}
 	public String getSmallClubCreatedDate() {
 		return smallClubCreatedDate;
@@ -43,12 +55,34 @@ public class SmallClubDTO {
 	public void setSmallClubContent(String smallClubContent) {
 		this.smallClubContent = smallClubContent;
 	}
+	public FileMemberProfileDTO getFileWriterProFileList() {
+		return fileWriterProFileList;
+	}
+	public void setFileWriterProFileList(FileMemberProfileDTO fileWriterProFileList) {
+		this.fileWriterProFileList = fileWriterProFileList;
+	}
+	public List<FileMemberProfileDTO> getFileCommentProFileList() {
+		return fileCommentProFileList;
+	}
+	public void setFileCommentProFileList(List<FileMemberProfileDTO> fileCommentProFileList) {
+		this.fileCommentProFileList = fileCommentProFileList;
+	}
+	public List<FileSmallClubDTO> getFileSmallClubList() {
+		return fileSmallClubList;
+	}
+	public void setFileSmallClubList(List<FileSmallClubDTO> fileSmallClubList) {
+		this.fileSmallClubList = fileSmallClubList;
+	}
 	@Override
 	public String toString() {
-		return "SmallClubDTO [smallClubNuber=" + smallClubNuber + ", smallClubTitle=" + smallClubTitle
-				+ ", memberNumber=" + memberNumber + ", smallClubCreatedDate=" + smallClubCreatedDate
-				+ ", smallClubUpdatedDate=" + smallClubUpdatedDate + ", smallClubContent=" + smallClubContent + "]";
+		return "SmallClubDTO [smallClubNumber=" + smallClubNumber + ", smallClubTitle=" + smallClubTitle
+				+ ", memberNumber=" + memberNumber + ", memberNickname=" + memberNickname + ", smallClubCreatedDate="
+				+ smallClubCreatedDate + ", smallClubUpdatedDate=" + smallClubUpdatedDate + ", smallClubContent="
+				+ smallClubContent + ", fileWriterProFileList=" + fileWriterProFileList + ", fileCommentProFileList="
+				+ fileCommentProFileList + ", fileSmallClubList=" + fileSmallClubList + "]";
 	}
+	
+	
 	
 	
 }
