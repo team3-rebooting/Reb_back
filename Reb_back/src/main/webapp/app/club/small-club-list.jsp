@@ -45,7 +45,7 @@
 							<c:forEach var="smallClub" items="${smallClubList}">
 
 								<li class="li-small-club-list-box"><a
-									href="${pageContext.request.contextPath}/club/smallClubReadOk.cl?smallClubNumber=${smallClub.smallClubNumber}">
+									href="${pageContext.request.contextPath}/club/smallClubDetailOk.cl?smallClubNumber=${smallClub.smallClubNumber}">
 										<c:choose>
 											<c:when test="${empty smallClub.getFileSmallClubList() }">
 												<img
@@ -94,7 +94,7 @@
 					<div class="div-pagenation">
 						<c:if test="${prev}">
 							<a
-								href="${pageContext.request.contextPath}/club/smallClubOk.cl?page=${startPage - 1}"
+								href="${pageContext.request.contextPath}/club/smallClubListOk.cl?page=${startPage - 1}"
 								class="prev">&lt;</a>
 						</c:if>
 
@@ -104,7 +104,7 @@
 							<c:choose>
 								<c:when test="${!(i == page) }">
 									<a
-										href="${pageContext.request.contextPath}/smallClub/smallClubOk.cl?page=${i}">
+										href="${pageContext.request.contextPath}/club/smallClubListOk.cl?page=${i}">
 										<c:out value="${i}" />
 									</a>
 								</c:when>
@@ -116,7 +116,7 @@
 						</c:forEach>
 						<c:if test="${next}">
 							<a
-								href="${pageContext.request.contextPath}/club/smallClubOk.cl?page=${endPage + 1}"
+								href="${pageContext.request.contextPath}/club/smallClubListOk.cl?page=${endPage + 1}"
 								class="next">&gt;</a>
 						</c:if>
 					</div>
@@ -145,6 +145,9 @@
 						</div>
 					</form>
 				</div>
+				<a href="${pageContext.request.contextPath}/club/smallClubWrite.cl">
+					<button type="button" class="button-write">글 쓰기</button>
+				</a>
 			</div>
 		</div>
 	</main>
