@@ -21,14 +21,7 @@
 
 <body class="font-menu">
 	<!-- 헤더 -->
-	<header>
-		<!-- 헤더 메뉴명 -->
-		<p>
-			<strong>배너 목록</strong>
-		</p>
-		<!-- 로그아웃 버튼 -->
-		<button>logout</button>
-	</header>
+	<jsp:include page="/admin_header.jsp" />
 	<!-- 메인 -->
 	<main>
 		<!-- 사이드바 리스트 영역 -->
@@ -107,9 +100,7 @@
 				<button id="main-banner-add">추가</button>
 			</div>
 		</section>
-		<c:set var="uri" value="${pageContext.request.requestURI}" />
 	</main>
-		<c:if test="${uri eq '/app/admin/banner/admin-banner-list.jsp'}">ㅋㅋㅋ</c:if>
 </body>
 
 </html>

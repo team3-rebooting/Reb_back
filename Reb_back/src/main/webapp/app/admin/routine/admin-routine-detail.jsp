@@ -88,7 +88,7 @@
 							<p class="routineLocation"><c:out value="${routine.routineLocation}" /></p>
 							<c:out value="${routine.routineLocationAdd}" />
 						</div>
-						<div id="map" style="width: 500px; height: 400px;"></div>
+						<div id="map" style="width: 500px; height: 500px;"></div>
 					</div>
 					<div class="div-expert-detail">
 						<p class="p-expert-info-title">모집 정보</p>
