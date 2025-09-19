@@ -54,6 +54,14 @@ public class SmallClubListDTO {
 	public void setSmallClubContent(String smallClubContent) {
 		this.smallClubContent = smallClubContent;
 	}
+	public FileSmallClubDTO getFileSmallClub() {
+		if (fileSmallClubList == null)
+			return null;
+		if (fileSmallClubList.size() == 0)
+			return null;
+
+		return fileSmallClubList.get(0);
+	}
 	public List<FileSmallClubDTO> getFileSmallClubList() {
 		return fileSmallClubList;
 	}
