@@ -9,8 +9,8 @@
 			SELECT s.small_club_COMMENT_NUMBER, s.small_club_NUMBER, m.MEMBER_NUMBER, m.MEMBER_NICKNAME, f.FILE_SYSTEM_NAME, s.small_club_CREATED_DATE, s.small_club_UPDATED_DATE, s.small_club_CONTENT from tbl_small_club_comment s 
 			JOIN tbl_member m ON s.MEMBER_NUMBER = m.MEMBER_NUMBER
 			LEFT JOIN TBL_FILE_MEMBER_PROFILE f ON m.MEMBER_NUMBER = f.MEMBER_NUMBER
-			WHERE c.small_club_NUMBER = #{smallClubNumber}
-			ORDER BY c.small_club_CREATED_DATE desc
+			WHERE s.small_club_NUMBER = #{smallClubNumber}
+			ORDER BY s.small_club_CREATED_DATE desc
 		) subquery
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>

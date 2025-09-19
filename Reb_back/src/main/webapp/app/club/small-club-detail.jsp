@@ -145,12 +145,11 @@
 
 						</c:if>
 					</div>
-					<%-- 
 					<!-- 댓글 영역 -->
 					<div class="div-comment-area">
 						<!-- 댓글 영역 ul -->
-						<div id="course" class="comment-list" data-listType="course"
-							data-reviewnumber="${courseReview.courseReviewNumber}">
+						<div id="smallClub" class="comment-list" data-listType="smallClub"
+							data-reviewnumber="${smallClub.smallClubNumber}">
 							<jsp:include
 								page="${pageContext.request.contextPath}/app/comment/comment.jsp" />
 						</div>
@@ -170,7 +169,6 @@
 							</div>
 						</c:if>
 					</div>
- --%>
 				</div>
 			</div>
 		</div>

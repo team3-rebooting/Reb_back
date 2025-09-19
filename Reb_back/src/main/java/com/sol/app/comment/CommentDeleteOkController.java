@@ -23,6 +23,9 @@ public class CommentDeleteOkController implements Execute {
 		case "course":
 			new CourseCommentDeleteOkController().execute(request, response);
 			break;
+		case "smallClub":
+			new SmallClubCommentDeleteOkController().execute(request, response);
+			break;
 		}
 
 		return null;
