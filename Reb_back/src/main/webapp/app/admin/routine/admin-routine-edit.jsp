@@ -136,7 +136,8 @@
             <button class="button-ok" type="submit"
             data-routine-number="${routine.routineNumber}">수정</button>
             <!-- 취소 버튼 -->
-            <button class="button-cancel" type="button">취소</button>
+            <button class="button-cancel" type="button"
+            data-routine-number="${routine.routineNumber}">취소</button>
           </div>
         </div>
       </form>

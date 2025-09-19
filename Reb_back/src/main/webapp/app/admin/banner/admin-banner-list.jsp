@@ -107,7 +107,9 @@
 				<button id="main-banner-add">추가</button>
 			</div>
 		</section>
+		<c:set var="uri" value="${pageContext.request.requestURI}" />
 	</main>
+		<c:if test="${uri eq '/app/admin/banner/admin-banner-list.jsp'}">ㅋㅋㅋ</c:if>
 </body>
 
 </html>

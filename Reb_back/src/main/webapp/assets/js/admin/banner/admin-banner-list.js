@@ -53,11 +53,10 @@ upBtn.forEach(btn => {
 					"X-Requested-With": "XMLHttpRequest",
 				},
 			});
-			if (!response.ok) throw new Error("변경 실패");
 			window.location.href = "/admin/bannerListOk.ad";
 		} catch (error) {
 			console.error("변경 실패:", error);
-			alert("변경 중 오류가 발생했습니다.");
+			/*alert("변경 중 오류가 발생했습니다.");*/
 		}
 	});
 });
@@ -73,11 +72,10 @@ downBtn.forEach(btn => {
 					"X-Requested-With": "XMLHttpRequest",
 				},
 			});
-			if (!response.ok) throw new Error("변경 실패");
 			window.location.href = "/admin/bannerListOk.ad";
 		} catch (error) {
 			console.error("변경 실패:", error);
-			alert("변경 중 오류가 발생했습니다.");
+			/*alert("변경 중 오류가 발생했습니다.");*/
 		}
 	});
 });
