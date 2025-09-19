@@ -58,7 +58,7 @@ public class JoinSMSController implements Execute {
 			}
 
 			// 일반 요청의 경우 에러 페이지로 리다이렉트
-			result.setPath("/error.jsp");
+			result.setPath("/error_page.jsp");
 			result.setRedirect(true);
 		}
 

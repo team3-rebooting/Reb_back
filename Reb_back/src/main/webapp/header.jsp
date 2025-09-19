@@ -19,12 +19,12 @@
 					<c:choose>
 						<c:when test="${empty sessionScope.memberNumber}">
 							<!-- 로그인 페이지 이동처리 -->
-							<a href="${pageContext.request.contextPath}/member/login.me" class="font-main"
-								class="login-btn">로그인/회원가입</a>
+							<a href="${pageContext.request.contextPath}/member/login.me"
+								class="font-main" class="login-btn">로그인/회원가입</a>
 						</c:when>
 						<c:otherwise>
-							<a href="${pageContext.request.contextPath}/member/logoutOk.me" class="font-main"
-								class="logout-btn">로그아웃</a>
+							<a href="${pageContext.request.contextPath}/member/logoutOk.me"
+								class="font-main" class="logout-btn">로그아웃</a>
 						</c:otherwise>
 					</c:choose>
 				</div>
@@ -70,20 +70,24 @@
 					<div class="header-menu-dropdown">
 						<!-- 루틴 모임 메뉴 -->
 						<div class="header-menu-dropdown-menu">
-							<a
-								href="${pageContext.request.contextPath}/routine/routineOk.ro">루틴
+							<a href="${pageContext.request.contextPath}/routine/routineOk.ro">루틴
 								모임</a>
 						</div>
 						<!-- 드롭 다운 배경 -->
 						<div class="header-menu-dropdown-bg"></div>
 						<!-- 루틴 모임 드롭다운 메뉴 -->
 						<div class="header-menu-dropdown-menu-content">
-							<a
-								href="${pageContext.request.contextPath}/routine/routineOk.ro">루틴
+							<a href="${pageContext.request.contextPath}/routine/routineOk.ro">루틴
 								모임 게시판</a> <a
 								href="${pageContext.request.contextPath}/routine/routineReviewOk.ro">루틴
 								모임 후기 게시판</a>
-							<a href="${pageContext.request.contextPath}/club/smallClubListOk.cl">소모임 게시판</a>
+						</div>
+					</div>
+					<div class="header-menu-dropdown">
+						<div class="header-menu-dropdown-menu">
+							<a
+								href="${pageContext.request.contextPath}/club/smallClubListOk.cl">소모임
+								게시판</a>
 						</div>
 					</div>
 				</div>
@@ -91,8 +95,7 @@
 				<div class="header-menu-right">
 					<!-- 후원 버튼 -->
 					<div id="div-a-donation-link">
-						<a
-							href="${pageContext.request.contextPath}/donation/donate.do">후원</a>
+						<a href="${pageContext.request.contextPath}/donation/donate.do">후원</a>
 					</div>
 					<!-- 마이페이지 버튼 -->
 					<a href="${pageContext.request.contextPath}/myPage/myPassword.my"><img
