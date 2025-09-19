@@ -20,13 +20,7 @@
 </head>
 
 <body class="font-menu">
-	<header>
-		<p>
-			<strong>루틴 모임 목록</strong>
-		</p>
-		<button type="button">logout</button>
-	</header>
-
+	<jsp:include page="/admin_header.jsp" />
 	<main>
 		<jsp:include page="/adminSidebar.jsp" />
 

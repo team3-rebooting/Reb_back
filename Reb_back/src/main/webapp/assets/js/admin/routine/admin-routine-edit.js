@@ -14,8 +14,9 @@ const inputIn = document.querySelectorAll(".input-in");
 
 cancelBtn.addEventListener('click', () => {
   if (confirm("작성하신 내용을 지우시겠습니까?")) {
+	const routineNumber = cancelBtn.dataset.routineNumber;
     alert("작성을 취소하셨습니다.");
-    location.href = "/admin/routineList.ad";
+    location.href = `/admin/routineReadOk.ad?routineNumber=`+routineNumber;
   }
 });
 

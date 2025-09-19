@@ -21,28 +21,7 @@
 
 <body class="font-menu">
 	<!-- 헤더 -->
-	<header>
-		<!-- 상단 목록 영역 -->
-		<section>
-			<!-- 상단 목록 -->
-			<p>
-				<strong>활동 후기</strong>
-			</p>
-			<!-- 로그아웃 버튼 -->
-			<button>logout</button>
-		</section>
-		<!-- 하단 목록 영역 -->
-		<section>
-			<!-- 하단 목록 리스트 -->
-			<ul>
-				<li><a href="${pageContext.request.contextPath}/admin/routineReviewListOk.ad?page=1"> <strong>루틴
-							모임 후기</strong>
-				</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/courseReviewListOk.ad?page=1"> 수업
-						후기 </a></li>
-			</ul>
-		</section>
-	</header>
+	<jsp:include page="/admin_header.jsp" />
 	<!-- 메인 -->
 	<main>
 		<!-- 사이드바 리스트 영역 -->
