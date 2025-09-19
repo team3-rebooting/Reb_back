@@ -140,6 +140,7 @@
          alias="RoutineLeaderDTO"></typeAlias>
          <typeAlias type="com.sol.app.dto.SmallClubListDTO" alias="SmallClubListDTO"></typeAlias>
          <typeAlias type="com.sol.app.dto.FileSmallClubDTO" alias="FileSmallClubDTO"></typeAlias>
+         <typeAlias type="com.sol.app.dto.SmallClubDTO" alias="SmallClubDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -209,6 +210,7 @@
       	<mapper resource="com/sol/mapper/RoutineLeaderMapper.xml"/>      	
       	<mapper resource="com/sol/mapper/CourseRequestMapper.xml"/>
       	<mapper resource="com/sol/mapper/SmallClubListMapper.xml"/>
+      	<mapper resource="com/sol/mapper/SmallClubMapper.xml"/>
       	<mapper resource="com/sol/mapper/FileSmallClubMapper.xml"/>
 	</mappers>
 	<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/> -->
