@@ -15,6 +15,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -27,6 +29,8 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=카톡방확인&libraries=services"></script>
 <title>틈새빛</title>
 </head>
 
@@ -74,7 +78,8 @@
 					<div class="div-expert-detail">
 						<p class="p-expert-info-title">내용</p>
 						<div class="div-expert-info-detail">
-							<p class="p-expert-detail-comment" style="white-space:pre-line; word-break: break-all;">
+							<p class="p-expert-detail-comment"
+								style="white-space: pre-line; word-break: break-all;">
 								<c:out value="${routine.routineContent}" />
 							</p>
 						</div>
@@ -82,8 +87,12 @@
 					<div class="div-expert-detail">
 						<p class="p-expert-info-title">모이는 장소</p>
 						<div class="div-expert-info-detail">
-							<h1>지도 API 연동 예정</h1>
-							<c:out value="${routine.routineLocation}" />
+							<div id="map" style="width: 500px; height: 500px;"></div>
+							<input type="hidden" id="routine-location"
+								value="${routine.routineLocation}">
+							<br>
+							<c:out
+								value="${routine.routineLocation}, ${routine.routineLocationAdd}" />
 						</div>
 					</div>
 					<div class="div-expert-detail">
@@ -148,5 +157,6 @@
 	</main>
 	<jsp:include page="/footer.jsp" />
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/routine/routine-meeting-detail.js"></script>
+<script defer
+	src="${pageContext.request.contextPath}/assets/js/routine/routine-meeting-detail.js"></script>
 </html>
