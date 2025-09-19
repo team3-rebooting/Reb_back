@@ -25,6 +25,9 @@ public class CommentWriteOkController implements Execute {
 		case "course":
 			new CourseCommentWriteOkController().execute(request, response);
 			break;
+		case "smallClub":
+			new SmallClubCommentWriteOkController().execute(request, response);
+			break;
 		}
 
 		return null;

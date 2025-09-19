@@ -141,6 +141,8 @@
          <typeAlias type="com.sol.app.dto.SmallClubListDTO" alias="SmallClubListDTO"></typeAlias>
          <typeAlias type="com.sol.app.dto.FileSmallClubDTO" alias="FileSmallClubDTO"></typeAlias>
          <typeAlias type="com.sol.app.dto.SmallClubDTO" alias="SmallClubDTO"></typeAlias>
+         <typeAlias type="com.sol.app.dto.SmallClubCommentDTO" alias="SmallClubCommentDTO"></typeAlias>
+         <typeAlias type="com.sol.app.dto.SmallClubCommentListDTO" alias="SmallClubCommentListDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">
@@ -198,6 +200,7 @@
 		<mapper resource="com/sol/mapper/FileCourseMapper.xml" />
       	<mapper resource="com/sol/mapper/FileExpertMapper.xml" />
       	<mapper resource="com/sol/mapper/FileCourseReviewMapper.xml" />
+      	<mapper resource="com/sol/mapper/FileSmallClubMapper.xml" />
       	<mapper resource="com/sol/mapper/AddressMapper.xml" />      	
       	<mapper resource="com/sol/mapper/RoutineReviewCommentListMapper.xml" />
       	<mapper resource="com/sol/mapper/CourseReviewCommentListMapper.xml" />
@@ -211,7 +214,8 @@
       	<mapper resource="com/sol/mapper/CourseRequestMapper.xml"/>
       	<mapper resource="com/sol/mapper/SmallClubListMapper.xml"/>
       	<mapper resource="com/sol/mapper/SmallClubMapper.xml"/>
-      	<mapper resource="com/sol/mapper/FileSmallClubMapper.xml"/>
+      	<mapper resource="com/sol/mapper/SmallClubCommentMapper.xml"/>
+      	<mapper resource="com/sol/mapper/SmallClubCommentListMapper.xml"/>
 	</mappers>
 	<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/> -->
 	<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 

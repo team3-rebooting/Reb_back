@@ -23,6 +23,9 @@ public class CommentListOkController implements Execute {
 		case "course":
 			new CourseCommentOkController().execute(request, response);
 			break;
+		case "smallClub":
+			new SmallClubCommentOkController().execute(request, response);
+			break;
 		}
 		
 		return null;

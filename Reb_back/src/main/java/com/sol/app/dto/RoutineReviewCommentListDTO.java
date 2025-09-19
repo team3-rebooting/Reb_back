@@ -9,6 +9,7 @@ public class RoutineReviewCommentListDTO {
 	private int memberNumber;
 	private String memberNickname;
 	private List<FileMemberProfileDTO> fileMemberProFileList;
+	private String fileSystemName;
 	private String routineReviewCreatedDate;
 	private String routineReviewUpdatedDate;
 	private String routineReviewContent;
@@ -60,13 +61,19 @@ public class RoutineReviewCommentListDTO {
 	public void setFileMemberProFileList(List<FileMemberProfileDTO> fileMemberProFileList) {
 		this.fileMemberProFileList = fileMemberProFileList;
 	}
+	public String getFileSystemName() {
+		return fileSystemName;
+	}
+	public void setFileSystemName(String fileSystemName) {
+		this.fileSystemName = fileSystemName;
+	}
 	@Override
 	public String toString() {
 		return "RoutineReviewCommentListDTO [routineReviewCommentNumber=" + routineReviewCommentNumber
 				+ ", routineReviewNumber=" + routineReviewNumber + ", memberNumber=" + memberNumber
 				+ ", memberNickname=" + memberNickname + ", fileMemberProFileList=" + fileMemberProFileList
 				+ ", routineReviewCreatedDate=" + routineReviewCreatedDate + ", routineReviewUpdatedDate="
-				+ routineReviewUpdatedDate + ", routineReviewContent=" + routineReviewContent + "]";
+				+ routineReviewUpdatedDate + ", routineReviewContent=" + routineReviewContent + "]" + ", fileSystemName=" + fileSystemName;
 	}
 	
 }
