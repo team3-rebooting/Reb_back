@@ -33,7 +33,7 @@
 <title>틈새빛</title>
 </head>
 <script defer
-	src="${pageContext.request.contextPath}/assets/js/course/course-review-detail.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/club/small-club-detail.js"></script>
 
 <body>
 	<!-- 헤더 영역 -->

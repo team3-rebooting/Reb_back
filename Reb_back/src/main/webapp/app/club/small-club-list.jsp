@@ -54,7 +54,7 @@
 											</c:when>
 											<c:otherwise>
 												<img
-													src="${pageContext.request.contextPath}/upload/${smallClub.getFileSmallClubList()}"
+													src="${pageContext.request.contextPath}/upload/${smallClub.getFileSmallClub().getFileSystemName()}"
 													class="img-box">
 											</c:otherwise>
 										</c:choose>
