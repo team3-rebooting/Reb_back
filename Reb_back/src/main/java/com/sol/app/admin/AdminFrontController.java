@@ -102,7 +102,7 @@ public class AdminFrontController extends HttpServlet {
 			result = new CourseRequestApproveOkController().execute(request,response);
 			break;
 		case "/admin/courseRequestCompanionOk.ad" :
-			System.out.println("수업 개설 반려");
+			System.out.println("수업 반려");
 			result = new CourseRequestCompanionOkController().execute(request,response);
 			break;
 		case "/admin/courseRequestUpdateOk.ad" :
