@@ -16,6 +16,7 @@ public class RoutineListDTO {
 	private String routineTitle;
 	private String routineContent;
 	private String routineLocation;
+	private String routineLocationAdd;
 	private String routineCreatedDate;
 	private String routineUpdatedDate;
 	private String routineRecruitStartDate;
@@ -108,6 +109,14 @@ public class RoutineListDTO {
 
 	public void setRoutineLocation(String routineLocation) {
 		this.routineLocation = routineLocation;
+	}
+	
+	public String getRoutineLocationAdd() {
+		return routineLocationAdd;
+	}
+
+	public void setRoutineLocationAdd(String routineLocationAdd) {
+		this.routineLocationAdd = routineLocationAdd;
 	}
 
 	public String getRoutineCreatedDate() {
@@ -223,13 +232,14 @@ public class RoutineListDTO {
 		this.fileRoutineList = fileRoutineList;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "RoutineListDTO [routineNumber=" + routineNumber + ", routineLeaderNumber=" + routineLeaderNumber
 				+ ", routineLeaderName=" + routineLeaderName + ", adminNumber=" + adminNumber + ", routineStatusNumber="
 				+ routineStatusNumber + ", routineTitle=" + routineTitle + ", routineContent=" + routineContent
 				+ ", routineStatusNumber=" + getRoutineStatusNumber() + ", routineStatusInfo=" + getRoutineStatusInfo()
-				+ ", fileRoutineList=" + fileRoutineList + ", routineLocation=" + routineLocation
+				+ ", fileRoutineList=" + fileRoutineList + ", routineLocation=" + routineLocation + ", routineLocationAdd=" + routineLocationAdd
 				+ ", routineCreatedDate=" + routineCreatedDate + ", routineUpdatedDate=" + routineUpdatedDate
 				+ ", routineRecruitStartDate=" + routineRecruitStartDate + ", routineRecruitEndDate="
 				+ routineRecruitEndDate + ", routineStartDate=" + routineStartDate + ", routineEndDate="

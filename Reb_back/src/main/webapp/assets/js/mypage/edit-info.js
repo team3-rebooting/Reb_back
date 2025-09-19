@@ -84,19 +84,53 @@ document.addEventListener("DOMContentLoaded", function() {
 				var main = base + (extra ? " (" + extra + ")" : "");
 				document.querySelector("#edit-info-address-text").innerHTML = main;
 				document.querySelector("#input-edit-info-address-text").value = main;
-				
+
 				// 상세주소 포커스
 				document.querySelector("#address-re-input input").focus();
 			}
 		}).open({ popupTitle: "우편번호 검색" });
 	});
 
+	const pnRegex = /^0\d{2}-\d{4}-\d{4}$/;
 
+	buttonSendVerificationCode.addEventListener('click', function() {
+		const phoneNumberValue = inputEditInfoPhoneNumber.value.trim().replace(/[^0-9]/g, "");
+		if (!phoneNumberValue) {
+			alert("핸드폰 번호를 입력해주세요");
+			return;
+		}
+		console.log(phoneNumberValue);
 
+		if (!pnRegex.test(inputEditInfoPhoneNumber.value)) {
+			alert("-를 입력해 형식을 지켜주세요.");
+			return;
+		}
+		fetch("/member/joinSMS.me", {
+			method: 'POST',
+			headers: {
+				"Content-Type": "application/json",
+				"X-Requested-With": "XMLHttpRequest"
+			},
+			body: JSON.stringify({ phoneNumberValue: phoneNumberValue })
+		})
+			.then(response => {
+				if (!response.ok) throw new Error(`오류 상태 코드 : ${response.status}`);
+			})
+			.then(() => {
+				inputEditInfoPhoneNumber.setAttribute("disabled", true);
+				inputVerificationCode.removeAttribute("disabled");
 
+				buttonSendVerificationCode.setAttribute("disabled", true);
+				buttonSendVerificationCode.style.backgroundColor = buttonDisabledColor;
 
-
-
+				console.log("인증발송 성공");
+				alert("인증 번호를 전송하였습니다.");
+			})
+			.catch(error => {
+				console.error("sms 발송 오류 : ", error);
+				alert("인증번호 발송 중 오류가 발생했습니다.");
+			});
+	});
 
 
 	let checkPhoneNumber = false;
@@ -117,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		buttonCheckVerificationCode.style.backgroundColor = buttonColor;
 	});
 
-	buttonSendVerificationCode.addEventListener('click', () => {
+	/*buttonSendVerificationCode.addEventListener('click', () => {
 		inputEditInfoPhoneNumber.setAttribute("disabled", true);
 		inputVerificationCode.removeAttribute("disabled");
 
@@ -125,9 +159,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		buttonSendVerificationCode.style.backgroundColor = buttonDisabledColor;
 
 		alert("인증 번호를 전송하였습니다.");
-	});
+	});*/
 
-	buttonCheckVerificationCode.addEventListener('click', () => {
+	/*buttonCheckVerificationCode.addEventListener('click', () => {
 		if (verificatioCode === inputVerificationCode.value) {
 			buttonCheckVerificationCode.setAttribute("disabled", true);
 			buttonCheckVerificationCode.style.backgroundColor = buttonDisabledColor;
@@ -141,7 +175,50 @@ document.addEventListener("DOMContentLoaded", function() {
 			inputVerificationCode.value = "발송한 인증번호와 다른 입력";
 			inputVerificationCode.style.color = "red";
 		}
-	});
+	});*/
+
+
+
+	buttonCheckVerificationCode.addEventListener("click", function() {
+		const code = inputVerificationCode.value.trim();
+
+		if (code === "") {
+			alert("인증번호를 입력해주세요.");
+			return;
+		}
+
+		fetch("/member/verifyCode.me", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ code: code })
+		})
+			.then(response => {
+				if (!response.ok) throw new Error(`HTTP 오류!, 상태코드 : ${response.status}`);
+				return response.json();
+			})
+			.then(data => {
+				console.log(data);
+				if (data.success) {
+					buttonCheckVerificationCode.setAttribute("disabled", true);
+					buttonCheckVerificationCode.style.backgroundColor = buttonDisabledColor;
+
+					inputVerificationCode.setAttribute("disabled", true);
+					buttonSendVerificationCode.setAttribute("disabled", true);
+					buttonSendVerificationCode.style.backgroundColor = buttonDisabledColor;
+					checkPhoneNumber = true;
+					alert("전화번호 변경을 성공하였습니다.");
+				} else {
+					inputVerificationCode.value = "발송한 인증번호와 다른 입력";
+					inputVerificationCode.style.color = "red";
+				}
+			})
+			.catch(error => {
+				console.error("인증 확인 오류:", error);
+				alert("인증 처리중 오류가 발생했습니다.")
+			})
+	})
+
+
 
 	pwReInput.addEventListener('change', compareEqualPassword);
 	const pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$])[A-Za-z\d!@#$]{8,20}$/;
