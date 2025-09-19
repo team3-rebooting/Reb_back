@@ -54,7 +54,7 @@
 											</c:when>
 											<c:otherwise>
 												<img
-													src="${pageContext.request.contextPath}/upload/club/${smallClub.getFileSmallClub().getFileSystemName()}"
+													src="${pageContext.request.contextPath}/upload/${smallClub.getFileSmallClubList()}"
 													class="img-box">
 											</c:otherwise>
 										</c:choose>
@@ -145,9 +145,11 @@
 						</div>
 					</form>
 				</div>
-				<a href="${pageContext.request.contextPath}/club/smallClubWrite.cl">
-					<button type="button" class="button-write">글 쓰기</button>
-				</a>
+				<c:if test="${not empty sessionScope.memberNumber}">
+					<a href="${pageContext.request.contextPath}/club/smallClubWrite.cl">
+						<button type="button" class="button-write">글 쓰기</button>
+					</a>
+				</c:if>
 			</div>
 		</div>
 	</main>
