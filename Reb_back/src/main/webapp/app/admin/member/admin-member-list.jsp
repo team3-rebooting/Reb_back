@@ -21,14 +21,7 @@
 
 <body class="font-menu">
 	<!-- 헤더 -->
-	<header>
-		<!-- 상단 목록 -->
-		<p>
-			<strong>회원 목록</strong>
-		</p>
-		<!-- 로그아웃 -->
-		<button>logout</button>
-	</header>
+	<jsp:include page="/admin_header.jsp" />
 	<!-- 메인 -->
 	<main>
 		<!-- 사이드바 리스트 영역 -->

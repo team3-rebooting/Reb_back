@@ -22,30 +22,7 @@
 
 <body class="font-menu">
 	<!-- 헤더 -->
-	<header>
-		<!-- 상단 목록 영역 -->
-		<section>
-			<!-- 상단 목록 -->
-			<p>
-				<strong>전문가 승인 목록</strong>
-			</p>
-			<!-- 로그아웃 버튼 -->
-			<button id="logout">logout</button>
-		</section>
-		<!-- 하단 목록 영역 -->
-		<section>
-			<!-- 하단 목록 리스트 -->
-			<ul>
-				<li><a
-					href="${pageContext.request.contextPath}/admin/expertApplicantListOk.ad?page=1">
-						<strong>전문가 인증 신청</strong>
-				</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/admin/expertListOk.ad?page=1">
-						전문가 목록 </a></li>
-			</ul>
-		</section>
-	</header>
+	<jsp:include page="/admin_header.jsp" />
 	<!-- 반려 모달 전체 창 -->
 	<div id="modal-background">
 		<!-- 반려 모달 -->
