@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 */
 
-	buttonCancel.addEventListener("click", async () => {
+	buttonCancel?.addEventListener("click", async () => {
 		if (confirm("취소하시겠습니까?")) {
 			try {
 				const response = await fetch(`/routine/routineApplyOk.ro`, {
@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		}
 	})
 
-	buttonApp.addEventListener("click", async () => {
+	buttonApp?.addEventListener("click", async () => {
 		if (confirm("신청하시겠습니까?")) {
 			try {
 				const response = await fetch(`/routine/routineApplyOk.ro`, {
@@ -88,5 +88,33 @@ window.addEventListener('DOMContentLoaded', () => {
 			}
 		}
 	})
+	
+	
+	// 지도 컨테이너
+		var mapContainer = document.getElementById('map');
+		var mapOption = {
+		    center: new kakao.maps.LatLng(37.537187, 127.005476),
+		    level: 3
+		};
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		// 주소-좌표 변환 객체
+		var geocoder = new kakao.maps.services.Geocoder();
+
+		// 마커
+		var marker = new kakao.maps.Marker({ map: map });
+
+		// DB에서 불러온 주소
+		var dbAddr = document.querySelector("#routine-location").value;
+
+		geocoder.addressSearch(dbAddr, function(results, status) {
+		    if (status === kakao.maps.services.Status.OK) {
+		        var result = results[0];
+		        var coords = new kakao.maps.LatLng(result.y, result.x);
+
+		        map.setCenter(coords);
+		        marker.setPosition(coords);
+		    }
+		});
 })
 
