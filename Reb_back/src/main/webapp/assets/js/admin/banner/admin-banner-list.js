@@ -1,5 +1,4 @@
 const addBtn = document.querySelector("#main-banner-add");
-const logoutBtn = document.querySelector("header>button");
 const deleteBtn = document.querySelectorAll(".delete");
 let bannerList = document.querySelectorAll("#main-banner-list>li");
 const upBtn = document.querySelectorAll(".up");
@@ -14,9 +13,6 @@ addBtn.addEventListener('click', () => {
 	}
 });
 
-logoutBtn.addEventListener('click', () => {
-	location.href = "/admin/logoutOk.ad";
-});
 
 deleteBtn.forEach(btn => {
 	btn.addEventListener('click', async () => {

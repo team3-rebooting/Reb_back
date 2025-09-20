@@ -4,7 +4,6 @@ const cancelBtn = document.querySelectorAll(".cancel");
 const submitBtn = document.querySelector("#submit");
 const closeModal = document.querySelector("#close-modal");
 const returnMsg = document.querySelector("#return-message");
-const logoutBtn = document.querySelector("#logout");
 
 
 acceptBtn?.forEach(btn => {
@@ -62,9 +61,6 @@ closeModal.addEventListener(('click'), () => {
 	modalBackground.style.display = "none";
 });
 
-logoutBtn.addEventListener('click', () => {
-	location.href = "/admin/logoutOk.ad";
-});
 
 
 
