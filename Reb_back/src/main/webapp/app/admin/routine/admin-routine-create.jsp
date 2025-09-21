@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -149,8 +150,12 @@
 							<p class="font-main">모임장 번호</p>
 							<!-- 모집 인원 입력 영역 -->
 							<div class="div-input-info">
-								<input type="number" name="routineLeaderNumber" class="input-in"
-									placeholder="모임장 번호">
+							<select name="routineLeaderNumber" class="select-leader">
+								<c:forEach var="leader" items="${leader}">
+									<option value="${leader.routineLeaderNumber}"><c:out value="${leader.routineLeaderName}"/></option>
+								</c:forEach>
+							</select>
+
 							</div>
 						</div>
 

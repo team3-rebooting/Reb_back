@@ -6,6 +6,8 @@ public class AdminRoutineReviewListDTO {
 	private String memberNickname;
 	private String routineReviewCreatedDate;
 	private String routineReviewUpdatedDate;
+	private int likeCount;
+	
 	public int getRoutineReviewNumber() {
 		return routineReviewNumber;
 	}
@@ -36,12 +38,21 @@ public class AdminRoutineReviewListDTO {
 	public void setRoutineReviewUpdatedDate(String routineReviewUpdatedDate) {
 		this.routineReviewUpdatedDate = routineReviewUpdatedDate;
 	}
+	public int getLikeCount() {
+		return likeCount;
+	}
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
+	
 	@Override
 	public String toString() {
 		return "AdminRoutineReviewListDTO [routineReviewNumber=" + routineReviewNumber + ", routineReviewTitle="
 				+ routineReviewTitle + ", memberNickname=" + memberNickname + ", routineReviewCreatedDate="
-				+ routineReviewCreatedDate + ", routineReviewUpdatedDate=" + routineReviewUpdatedDate + "]";
+				+ routineReviewCreatedDate + ", routineReviewUpdatedDate=" + routineReviewUpdatedDate + ", likeCount="
+				+ likeCount + "]";
 	}
+	
 	
 	
 	

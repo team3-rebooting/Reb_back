@@ -9,9 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>루틴 모임 목록</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/admin/routine/admin-routine-list.css">
+	href="${pageContext.request.contextPath}/assets/css/admin/club/admin-small-club-list.css">
 <script defer
-	src="${pageContext.request.contextPath}/assets/js/admin/routine/admin-routine-list.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/admin/club/admin-club-list.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -24,34 +24,49 @@
 	<main>
 		<jsp:include page="/adminSidebar.jsp" />
 
-		<section id="main-routine">
-			<div id="main-routine-div">
-				<div id="main-routine-list-title">
-					<p class="main-routine-number">번호</p>
-					<p class="main-routine-name">작성자</p>
-					<p class="main-routine-title">소모임 제목</p>
-					<p class="main-routine-start">작성일</p>
+		<section id="main-club">
+			<div id="main-club-div">
+				<div id="main-club-list-title">
+					<div class="class-club-number">
+						<p class="main-club-number">번호</p>
+					</div>
+					<div class="class-club-name">
+						<p class="main-club-name">작성자</p>
+					</div>
+					<div class="class-club-title">
+						<p class="main-club-title">소모임 제목</p>
+					</div>
+					<div class="class-club-start">
+						<p class="main-club-start">작성일</p>
+					</div>
 				</div>
-				<ul id="main-routine-list">
+				<ul id="main-club-list">
 					<c:choose>
 						<c:when test="${not empty smallClubList}">
 							<c:forEach var="smallClub" items="${smallClubList}">
 								<li class="main-must-read"><a
 									href="${pageContext.request.contextPath}/admin/smallclubReadOk.ad?smallClubNumber=${smallClub.smallClubNumber}"
-									 class="main-routine-link">
-										<p class="main-routine-number">
-											<c:out value="${smallClub.smallClubNumber}" />
-										</p>
-										<p class="main-routine-name">
-											<c:out value="${smallClub.memberName}" />
-										</p>
-										<p class="main-routine-title">
-											<c:out value="${smallClub.smallClubTitle}" />
-										</p>
-										<p class="main-routine-start">
-											<c:out value="${smallClub.smallClubCreatedDate}" /> 
-										</p>
-										
+									class="main-club-link">
+										<div class="class-club-number">
+											<p class="main-club-number">
+												<c:out value="${smallClub.smallClubNumber}" />
+											</p>
+										</div>
+										<div class="class-club-name">
+											<p class="main-club-name">
+												<c:out value="${smallClub.memberNickname}" />
+											</p>
+										</div>
+										<div class="class-club-title class-club-title-add">
+											<p class="main-club-title">
+												<c:out value="${smallClub.smallClubTitle}" />
+											</p>
+										</div>
+										<div class="class-club-start">
+											<p class="main-club-start">
+												<c:out value="${smallClub.smallClubCreatedDate}" />
+											</p>
+										</div>
 								</a></li>
 							</c:forEach>
 						</c:when>
@@ -92,7 +107,7 @@
 						</c:if>
 					</ul>
 				</div>
-				
+
 			</div>
 		</section>
 	</main>

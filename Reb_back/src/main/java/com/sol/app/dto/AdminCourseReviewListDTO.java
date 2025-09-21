@@ -7,6 +7,7 @@ public class AdminCourseReviewListDTO {
 	private String memberNickname;
 	private String courseReviewCreatedDate;
 	private String courseReviewUpdatedDate;
+	private int likeCount;
 	
 	public int getCourseReviewNumber() {
 		return courseReviewNumber;
@@ -44,12 +45,18 @@ public class AdminCourseReviewListDTO {
 	public void setMemberNickname(String memberNickname) {
 		this.memberNickname = memberNickname;
 	}
+	public int getLikeCount() {
+		return likeCount;
+	}
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
 	@Override
 	public String toString() {
 		return "AdminCourseReviewListDTO [courseReviewNumber=" + courseReviewNumber + ", courseReviewTitle="
 				+ courseReviewTitle + ", memberNumber=" + memberNumber + ", memberNickname=" + memberNickname
 				+ ", courseReviewCreatedDate=" + courseReviewCreatedDate + ", courseReviewUpdatedDate="
-				+ courseReviewUpdatedDate + "]";
+				+ courseReviewUpdatedDate + ", likeCount=" + likeCount + "]";
 	}
 	
 	

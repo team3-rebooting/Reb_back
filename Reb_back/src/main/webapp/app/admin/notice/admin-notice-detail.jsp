@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,14 +63,12 @@
 						<div class="board-box-writer font-main">${notice.adminNickname}</div>
 						<div class="board-box-day font-main">
 							<c:choose>
-							<c:when
-								test="${notice.noticeCreatedDate ne notice.noticeUpdatedDate}">
-								<c:out value="${notice.noticeUpdatedDate}" />(수정됨)
-							</c:when>
-							<c:otherwise>
-								<c:out value="${notice.noticeCreatedDate}" />
-							</c:otherwise>
-							
+  								<c:when test="${notice.noticeCreatedDate ne notice.noticeUpdatedDate}">
+    								${fn:substring(notice.noticeUpdatedDate, 0, 10)}(수정됨)
+  								</c:when>
+  							<c:otherwise>
+    								${fn:substring(notice.noticeCreatedDate, 0, 10)}
+  							</c:otherwise>
 							</c:choose>
 						</div>
 					</div>

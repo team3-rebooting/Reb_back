@@ -102,13 +102,7 @@
               </p>
             </div>
           </div>
-          <!-- 지도 영역 -->
-          <div class="div-expert-detail">
-            <p class="p-expert-info-title">오시는 길</p>
-            <div class="div-expert-info-detail">
-              <h1>지도 api 자리</h1>
-            </div>
-          </div>
+          
           <!-- 모집 정보 영역 -->
           <div class="div-expert-detail">
             <p class="p-expert-info-title">모집 정보</p>
@@ -119,6 +113,12 @@
               <p>모집 인원 : <c:out value="${course.courseCount}"/>/<c:out value="${course.courseRecruitCount}"/> 명</p>
              <%--  <p>가격 : <c:out value="${course.coursePrice}"/> 원</p> --%>
             </div>
+          </div>
+          <div class="div-expert-detail">
+          	<p class="p-expert-info-title">삭제 요청 사유</p>
+          	 <div class="div-expert-info-detail">
+          	<p><c:out value="${course.courseRejectReason}"></c:out></p>          	 
+          	 </div>
           </div>
           <!-- 개설 버튼 영역 -->
           <c:choose>

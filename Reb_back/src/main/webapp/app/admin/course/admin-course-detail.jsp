@@ -102,13 +102,6 @@
               </p>
             </div>
           </div>
-          <!-- 지도 영역 -->
-          <div class="div-expert-detail">
-            <p class="p-expert-info-title">오시는 길</p>
-            <div class="div-expert-info-detail">
-              <h1>지도 api 자리</h1>
-            </div>
-          </div>
           <!-- 모집 정보 영역 -->
           <div class="div-expert-detail">
             <p class="p-expert-info-title">모집 정보</p>
@@ -120,13 +113,13 @@
               
             </div>
           </div>
-        <div id="div-admin-detail-button-delete">
+        <%-- <div id="div-admin-detail-button-delete">
           <!-- 삭제 반려 버튼 -->
           <c:if test="${course.courseStatusInfo=='모집전'}">
           <button class="button-cancel" type="button"
           data-course-number="${course.courseNumber}">삭제</button>          
           </c:if>
-        </div>
+        </div> --%>
       </div>
      </div>
     </div>

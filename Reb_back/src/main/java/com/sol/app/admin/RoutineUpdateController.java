@@ -2,6 +2,7 @@ package com.sol.app.admin;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminRoutineDAO;
+import com.sol.app.admin.dao.RoutineLeaderDAO;
 import com.sol.app.dto.AdminRoutineDTO;
+import com.sol.app.dto.RoutineLeaderDTO;
 import com.sol.app.file.dao.FileRoutineDAO;
 
 public class RoutineUpdateController implements Execute{
@@ -23,6 +26,8 @@ public class RoutineUpdateController implements Execute{
 		AdminRoutineDAO routineDAO = new AdminRoutineDAO();
 		FileRoutineDAO fileDAO = new FileRoutineDAO();
 		Result result = new Result();
+		RoutineLeaderDAO leaderDAO = new RoutineLeaderDAO();
+		List<RoutineLeaderDTO> leaderList = leaderDAO.selectForRoutine();
 		
 		//routineDTO를 불러와서
 		AdminRoutineDTO routineDTO = routineDAO.select(routineNumber);
@@ -48,6 +53,7 @@ public class RoutineUpdateController implements Execute{
 		routineDTO.setFileRoutineList(fileDAO.select(routineNumber));
 		//추가한 파일까지 같이 set
 		request.setAttribute("routine", routineDTO);
+		request.setAttribute("leader", leaderList);
 		result.setPath("/app/admin/routine/admin-routine-edit.jsp");
 		result.setRedirect(false);
 		return result;

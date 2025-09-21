@@ -64,7 +64,7 @@ public class NoticeReadOkController implements Execute {
 		// 로그인한 사용자 번호 가져오기
 		Integer loginAdminNumber = (Integer) request.getSession().getAttribute("adminNumber");
 		System.out.println("로그인 한 관리자 번호 : " + loginAdminNumber);
-
+		
 		request.setAttribute("notice", noticeDTO);
 		result.setPath("/app/admin/notice/admin-notice-detail.jsp");
 		result.setRedirect(false);

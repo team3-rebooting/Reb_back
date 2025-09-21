@@ -51,7 +51,7 @@
 										<p class="main-rt-review-name">
 											<c:out value="${routineReviewList.routineReviewTitle}" />
 										</p>
-										<p class="main-rt-review-heart">32</p>
+										<p class="main-rt-review-heart"><c:out value="${routineReviewList.likeCount}"/></p>
 										<p class="main-rt-review-nickname">
 											<c:out value="${routineReviewList.memberNickname}" />
 										</p>

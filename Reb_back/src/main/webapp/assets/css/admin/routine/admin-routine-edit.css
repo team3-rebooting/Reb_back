@@ -114,6 +114,7 @@ button {
 /* 내용 입력 */
 .textarea-text{
   resize: none;
+  padding : 10px;
 }
 
 /* 모집 관련 영역 */
@@ -195,4 +196,14 @@ label {
   background-color: white;
   color: #ff0000;
   border: 1px solid #ff0000;
+}
+
+.select-leader{
+	width: 50%;
+	margin-top :10px;
+	height: 30px;
+	font-family: "IBM Plex Sans KR", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 20px;
 }
