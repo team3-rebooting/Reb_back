@@ -80,7 +80,7 @@ public class SmallClubWriteOkController implements Execute{
 		result.setPath("/club/smallClubListOk.cl");
 		result.setRedirect(false);
 		
-		return null;
+		return result;
 	}
 
 	
