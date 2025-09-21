@@ -87,7 +87,7 @@ button {
 
 .notice-board-box-title {
   font-size: 20px;
-  width: 730px;
+  width: 664px;
   color: white;
   text-align: center;
 }
@@ -103,7 +103,7 @@ button {
 
 .notice-board-box-day {
   font-size: 20px;
-  width: 134px;
+  width: 200px;
   text-align: center;
   color: white;
 }
@@ -142,7 +142,7 @@ button {
 }
 
 .notice-must-read-emphasize-title {
-  width: 730px;
+  width: 664px;
   text-align: left;
 }
 
@@ -152,12 +152,12 @@ button {
 }
 
 .notice-must-read-emphasize-day {
-  width: 134px;
+  width: 200px;
   text-align: center;
 }
 
 .notice-list-title {
-  width: 730px;
+  width: 664px;
   text-align: left;
 }
 
@@ -167,7 +167,7 @@ button {
 }
 
 .notice-list-day {
-  width: 134px;
+  width: 200px;
   text-align: center;
 }
 
