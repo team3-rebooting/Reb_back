@@ -111,6 +111,10 @@ public class MyPageFrontController extends HttpServlet {
 			System.out.println("나의 후기/댓글 목록 페이지");
 			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/my-review.jsp").forward(request, response);
 			break;
+		case "/mypage/mySmallClub.my":
+			System.out.println("나의 후기/댓글 목록 페이지");
+			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/my-small-club.jsp").forward(request, response);
+			break;
 		case "/myPage/myCourseRequest.my":
 			System.out.println("나의 개설 수업 목록 페이지");
 			request.getRequestDispatcher(request.getContextPath() + "/app/mypage/expert-course-info.jsp").forward(request, response);

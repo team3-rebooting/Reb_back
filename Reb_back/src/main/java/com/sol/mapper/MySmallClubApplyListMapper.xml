@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mySmallClubApplyList">
+	<select id="selectList" resultType="SmallClubListDTO">
+		<![CDATA[			
+			SELECT * FROM (
+			SELECT ROWNUM AS rnum, subquery.*
+			FROM (
+				SELECT sc.small_club_number, sc.small_club_title, m.member_nickname, to_char(sc.small_club_created_date, 'yyyy.mm.dd(day)') as small_club_created_date,
+					to_char(sc.small_club_start_date, 'yyyy.mm.dd(day)') as small_club_start_date
+					FROM tbl_small_club sc LEFT JOIN tbl_member m ON sc.member_number = m.member_number
+					LEFT JOIN TBL_small_club_MEMBER_APPLICANT scma ON scma.small_club_NUMBER = sc.small_club_NUMBER
+					WHERE scma.member_number = #{memberNumber}
+					ORDER BY sc.small_club_created_date DESC
+				) subquery
+			) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
+	</select>
+	
+	<!-- 게시글 총 개수 -->
+	<select id="getTotal" parameterType="int" resultType="int">
+		select count(member_number)
+		from
+		TBL_small_club_MEMBER_APPLICANT
+		WHERE member_number = #{memberNumber}
+	</select>
+</mapper>

@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			const commentList = document.querySelectorAll('.comment-list');
 
-			console.log(commentList);
+			/*console.log(commentList);*/
 			commentList.forEach((i) => {
 				reviewNumber = i.dataset.reviewnumber;
 				loadListAsync(i.getAttribute("id"), reviewNumber, page);
@@ -119,7 +119,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		listInfo.list.forEach(function(l, i) {
 
-			console.log(listInfo);
+			/*console.log(listInfo);*/
 			let updated = '';
 			let deleteButton = '';
 			let editButton = '';
@@ -214,7 +214,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	function renderPage(pageInfo, reviewNumber, id) {
 		const pagenation = document.querySelector(`#${id}`).querySelector(".pagenation");
 
-		console.log('pageInfo', pageInfo);
+		/*console.log('pageInfo', pageInfo);*/
 		let innerHTML = ``;
 		let page = pageInfo.page;
 		let startPage = pageInfo.startPage;

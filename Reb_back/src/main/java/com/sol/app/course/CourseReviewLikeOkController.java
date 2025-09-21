@@ -43,6 +43,8 @@ public class CourseReviewLikeOkController implements Execute {
 		if (!jsonObject.has("courseNumber") || !jsonObject.has("like")) {
 			response.setContentType("application/json; charset=utf-8");
 			response.getWriter().write(gson.toJson(Map.of("status", "fail", "message", "필수 데이터가 없습니다")));
+			
+			System.out.println("좋아요 실패");
 			return null;
 		}
 
