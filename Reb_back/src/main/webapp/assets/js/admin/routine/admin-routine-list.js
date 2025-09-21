@@ -5,6 +5,6 @@ createBtn.addEventListener('click', ()=>{
   location.href= "/admin/routineWrite.ad";
 });
 
-logoutBtn.addEventListener('click', ()=>{
+/*logoutBtn.addEventListener('click', ()=>{
   location.href= "/admin/logoutOk.ad";
-});
+});*/

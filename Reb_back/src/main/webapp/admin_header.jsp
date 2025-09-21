@@ -11,7 +11,7 @@
 			<strong>공지 사항 목록</strong>
 		</p>
 		<!-- 로그아웃 버튼 -->
-		<button id="logout">logout</button>
+		<button class="logout">logout</button>
 	</c:if>
 	<c:if
 		test="${uri eq '/app/admin/course/admin-course-request-list.jsp'}">
@@ -22,7 +22,7 @@
 				<strong>수업 목록</strong>
 			</p>
 			<!-- 로그아웃 버튼 -->
-			<button id="logout">logout</button>
+			<button class="logout">logout</button>
 		</section>
 		<!-- 하단 목록 영역 -->
 		<section>
@@ -46,7 +46,7 @@
 				<strong>수업 목록</strong>
 			</p>
 			<!-- 로그아웃 버튼 -->
-			<button id="logout">logout</button>
+			<button class="logout">logout</button>
 		</section>
 		<!-- 하단 목록 영역 -->
 		<section>
@@ -66,7 +66,7 @@
 		<p>
 			<strong>루틴 모임 목록</strong>
 		</p>
-		<button type="button">logout</button>
+		<button class="logout">logout</button>
 	</c:if>
 	<c:if test="${uri eq '/app/admin/leader/leader-list.jsp'}">
 		<!-- 상단 목록 -->
@@ -74,7 +74,7 @@
 			<strong>모임장 목록</strong>
 		</p>
 		<!-- 로그아웃 -->
-		<button>logout</button>
+		<button class="logout">logout</button>
 	</c:if>
 	<c:if test="${uri eq '/app/admin/member/admin-member-list.jsp'}">
 		<!-- 상단 목록 -->
@@ -82,7 +82,7 @@
 			<strong>회원 목록</strong>
 		</p>
 		<!-- 로그아웃 -->
-		<button>logout</button>
+		<button class="logout">logout</button>
 	</c:if>
 	<c:if test="${uri eq '/app/admin/member/admin-sponsor-list.jsp'}">
 		<!-- 상단 목록 -->
@@ -90,7 +90,7 @@
 			<strong>후원자 목록</strong>
 		</p>
 		<!-- 로그아웃 -->
-		<button>logout</button>
+		<button class="logout">logout</button>
 	</c:if>
 	<c:if test="${uri eq '/app/admin/member/admin-expert-list.jsp'}">
 		<!-- 상단 목록 영역 -->
@@ -100,7 +100,7 @@
 				<strong>전문가 승인 목록</strong>
 			</p>
 			<!-- 로그아웃 버튼 -->
-			<button id="logout">logout</button>
+			<button class="logout">logout</button>
 		</section>
 		<!-- 하단 목록 영역 -->
 		<section>
@@ -124,7 +124,7 @@
 				<strong>전문가 승인 목록</strong>
 			</p>
 			<!-- 로그아웃 버튼 -->
-			<button id="logout">logout</button>
+			<button class="logout">logout</button>
 		</section>
 		<!-- 하단 목록 영역 -->
 		<section>
@@ -140,7 +140,7 @@
 			</ul>
 		</section>
 	</c:if>
-	<c:if test="${uri eq '/app/admin/review/admin-routine-list.jsp'}">
+	<c:if test="${uri eq '/app/admin/review/admin-routine-review-list.jsp'}">
 		<!-- 상단 목록 영역 -->
 		<section>
 			<!-- 상단 목록 -->
@@ -148,7 +148,7 @@
 				<strong>활동 후기</strong>
 			</p>
 			<!-- 로그아웃 버튼 -->
-			<button>logout</button>
+			<button class="logout">logout</button>
 		</section>
 		<!-- 하단 목록 영역 -->
 		<section>
@@ -164,7 +164,7 @@
 			</ul>
 		</section>
 	</c:if>
-	<c:if test="${uri eq '/app/admin/review/admin-course-list.jsp'}">
+	<c:if test="${uri eq '/app/admin/review/admin-course-review-list.jsp'}">
 		<!-- 상단 목록 영역 -->
 		<section>
 			<!-- 상단 목록 -->
@@ -172,7 +172,7 @@
 				<strong>활동 후기</strong>
 			</p>
 			<!-- 로그아웃 버튼 -->
-			<button>logout</button>
+			<button class="logout">logout</button>
 		</section>
 		<!-- 하단 목록 영역 -->
 		<section>
@@ -194,6 +194,6 @@
 			<strong>배너 목록</strong>
 		</p>
 		<!-- 로그아웃 버튼 -->
-		<button>logout</button>
+		<button class="logout">logout</button>
 	</c:if>
 </header>
