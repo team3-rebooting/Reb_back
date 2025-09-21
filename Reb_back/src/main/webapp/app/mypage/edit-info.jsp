@@ -145,7 +145,7 @@
 							<!-- 실거주지 입력 -->
 							<div id="address-re-input">
 								<input type="text" name="addressDetail"
-									value=<c:if test="${not empty myMemberDTO.addressDetail}">"${myMemberDTO.addressDetail}"</c:if>
+									value="${empty myMemberDTO.addressDetail ? '' : myMemberDTO.addressDetail}"
 									placeholder="상세 주소">
 							</div>
 						</div>

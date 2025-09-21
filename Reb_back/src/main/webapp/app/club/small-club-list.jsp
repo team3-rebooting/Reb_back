@@ -60,7 +60,7 @@
 										</c:choose>
 
 										<p class="p-list-comment">
-											<c:out value="${smallClublub.smallClubTitle}" />
+											<c:out value="${smallClub.smallClubTitle}" />
 										</p>
 										<div class="div-box-status">
 											<%-- <c:choose>
@@ -76,7 +76,7 @@
 												</c:otherwise>
 											</c:choose> --%>
 											<p class="p-name-date">
-												<c:out value="${smallClub.memberName}" />
+												<c:out value="${smallClub.memberNickname}" />
 												<c:out value="${smallClub.smallClubCreatedDate}" />
 											</p>
 										</div>

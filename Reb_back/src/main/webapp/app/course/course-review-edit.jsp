@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 
-  <script defer src="./../../assets/js/course/course-review-edit.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/course/course-review-edit.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR&display=swap"
@@ -33,7 +33,7 @@
     <!-- 메인 컨테이너 -->
     <div id="main-container">
       <!-- 제목 -->
-      <p class="pagetitle">수업 후기 작성</p>
+      <p class="pagetitle">수업 후기 수정</p>
       <!-- 수정 form -->
       <form action="${pageContext.request.contextPath}/course/courseReviewEditOk.co" method="post" enctype="multipart/form-data">
       	<input type="hidden" name="courseReviewNumber" value="${courseReview.courseReviewNumber}" />
@@ -45,10 +45,11 @@
         <div class="div-create-course">
           <span class="font-main little-title">대표 이미지 : </span>
           <input type="file" name="courseFile" class="input-bundle" id="file">
+          <span class="font-main" id="original-file">기존 파일 : <c:out value="${courseReview.getFileCourseReview().getFileOriginalName()}"/></span>
         </div>
         <!-- 리뷰 작성 textarea -->
         <div class="div-create-course">
-          <p class="font-main little-title">내용(summernote 자리)</p>
+          <p class="font-main little-title">내용</p>
           <textarea class="textarea-text input-bundle" name="courseReviewContent" rows="20" cols="100" required><c:out value="${courseReview.getCourseReviewContent()}" /></textarea>
         </div>
         <!-- 버튼 영역 -->

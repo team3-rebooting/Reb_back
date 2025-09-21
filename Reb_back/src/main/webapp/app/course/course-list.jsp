@@ -130,7 +130,7 @@
 				<div class="div-find">
 					<form action="" method="get">
 						<div class="div-find-form">
-							<div class="find-container">
+							<!-- <div class="find-container">
 								<select class="select-find">
 									<option value="title">제목</option>
 									<option value="name">전문가 명</option>
@@ -141,7 +141,7 @@
 										<i class="fa-solid fa-magnifying-glass"></i>
 									</button>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</form>
 					<form action="${pageContext.request.contextPath}/course/expertCourseCreateRequest.co" method="post">

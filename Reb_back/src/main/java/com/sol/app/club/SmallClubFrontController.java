@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
+
 import com.sol.app.Result;
 
 /**
@@ -59,6 +61,18 @@ public class SmallClubFrontController extends HttpServlet {
 		case "/club/smallClubWriteOk.cl":
 			System.out.println("소모임 게시글 작성 처리 요청");
 			result = new SmallClubWriteOkController().execute(request, response);
+			break;
+		case "/club/smallClubDeleteOk.cl":
+			System.out.println("소모임 게시글 삭제 처리 요청");
+			result = new SmallClubDeleteOkController().execute(request, response);
+			break;
+		case "/club/smallClubEdit.cl":
+			System.out.println("소모임 게시글 수정 페이지 요청");
+			result = new SmallClubEditController().execute(request, response);
+			break;
+		case "/club/smallClubEditOk.cl":
+			System.out.println("소모임 게시글 수정 처리 요청");
+			result = new SmallClubEditOkController().execute(request, response);
 			break;
 		}
 		

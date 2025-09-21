@@ -38,6 +38,8 @@
 							<li class="li-subsidemenu"><a
 								href="${pageContext.request.contextPath}/mypage/myReview.my">나의
 									후기/댓글</a></li>
+							<li class="li-subsidemenu"><a
+								href="${pageContext.request.contextPath}/mypage/mySmallClub.my">나의 소모임</a></li>
 						</ul></li>
 					<!-- 수업 -->
 					<input type="hidden" id="expertNumber" value="${sessionScope.expertNumber}">
