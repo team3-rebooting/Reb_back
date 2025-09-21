@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,14 +57,14 @@
 											<c:out value="${routineReviewList.memberNickname}" />
 										</p>
 										<p class="main-rt-review-date">
-											<c:if
-												test="${routineReviewList.routineReviewCreatedDate ne routineReviewList.routineReviewUpdatedDate}">
-												<c:out value="${routineReviewList.routineReviewUpdatedDate}" />
-											</c:if>
-											<c:if
-												test="${routineReviewList.routineReviewCreatedDate eq routineReviewList.routineReviewUpdatedDate}">
-												<c:out value="${routineReviewList.routineReviewCreatedDate}" />
-											</c:if>
+												<c:choose>
+  													<c:when test="${routineReviewList.routineReviewCreatedDate ne routineReviewList.routineReviewUpdatedDate}">
+    												${fn:substring(routineReviewList.routineReviewUpdatedDate, 0, 10)}(수정됨)
+  													</c:when>
+  												<c:otherwise>
+    												${fn:substring(routineReviewList.routineReviewCreatedDate, 0, 10)}
+  												</c:otherwise>
+												</c:choose>
 										</p>
 								</a></li>
 							</c:forEach>

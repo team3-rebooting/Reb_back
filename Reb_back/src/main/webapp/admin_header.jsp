@@ -196,4 +196,13 @@
 		<!-- 로그아웃 버튼 -->
 		<button class="logout">logout</button>
 	</c:if>
+	
+	<c:if test="${uri eq '/app/admin/club/admin-small-club-list.jsp'}">
+		<!-- 헤더 메뉴명 -->
+		<p>
+			<strong>소모임 목록</strong>
+		</p>
+		<!-- 로그아웃 버튼 -->
+		<button class="logout">logout</button>
+	</c:if>
 </header>

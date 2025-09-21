@@ -6,8 +6,8 @@
 		SELECT
    		r.Routine_Review_Number, r.Routine_Number, r.Routine_Review_Title,
    		m.MEMBER_NUMBER, m.MEMBER_NICKNAME,
-    	TO_CHAR(r.Routine_Review_Created_Date, 'YYYY-MM-DD') AS Routine_Review_Created_Date,
-   		TO_CHAR(r.Routine_Review_Updated_Date, 'YYYY-MM-DD') AS Routine_Review_Updated_Date,
+    	TO_CHAR(r.Routine_Review_Created_Date, 'YYYY-MM-DD HH:mm:ss') AS Routine_Review_Created_Date,
+   		TO_CHAR(r.Routine_Review_Updated_Date, 'YYYY-MM-DD HH:mm:ss') AS Routine_Review_Updated_Date,
   		r.Routine_Review_Content 
 		FROM TBL_ROUTINE_REVIEW r
 		JOIN TBL_MEMBER m
@@ -22,8 +22,8 @@
     			FROM (
            			SELECT
                 	r.ROUTINE_REVIEW_NUMBER, r.ROUTINE_REVIEW_TITLE, 
-                	m.MEMBER_NICKNAME, TO_CHAR(r.ROUTINE_REVIEW_CREATED_DATE, 'YYYY-MM-DD') AS ROUTINE_REVIEW_CREATED_DATE,
-                	TO_CHAR(r.ROUTINE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD') AS ROUTINE_REVIEW_UPDATED_DATE 
+                	m.MEMBER_NICKNAME, TO_CHAR(r.ROUTINE_REVIEW_CREATED_DATE, 'YYYY-MM-DD HH:mm:ss') AS ROUTINE_REVIEW_CREATED_DATE,
+                	TO_CHAR(r.ROUTINE_REVIEW_UPDATED_DATE, 'YYYY-MM-DD HH:mm:ss') AS ROUTINE_REVIEW_UPDATED_DATE 
             		FROM TBL_ROUTINE_REVIEW r
             		JOIN TBL_MEMBER m
                 	ON r.MEMBER_NUMBER = m.MEMBER_NUMBER

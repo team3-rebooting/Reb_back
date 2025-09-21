@@ -151,7 +151,7 @@ a>.main-notice-title:hover{
 
 /* 제목 영역 */
 .main-notice-title{
-  width: 600px;
+  width: 522px;
   text-align: center;
 }
 
@@ -163,7 +163,7 @@ a>.main-notice-title:hover{
 
 /* 작성 날짜 영역 */
 .main-notice-create-date{
-  width: 126px;
+  width: 200px;
   text-align: center;
 }
 

@@ -21,7 +21,7 @@ public class AdminSmallClubReadOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-Result result = new Result();
+			Result result = new Result();
 		
 		String smallClubNumberStr = request.getParameter("smallClubNumber");
 		if (smallClubNumberStr == null || smallClubNumberStr.trim().isEmpty()) {
@@ -41,7 +41,7 @@ Result result = new Result();
 		
 		if (smallClubDTO == null) {
 			System.out.println("존재하지 않는 게시글입니다" + smallClubNumber);
-			result.setPath("/app/club/small-club-list.jsp");
+			result.setPath("/app/admin/club/admin-small-club-list.jsp");
 			result.setRedirect(true);
 			return result;
 		}

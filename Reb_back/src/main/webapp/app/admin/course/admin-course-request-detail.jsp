@@ -97,9 +97,9 @@
           <div class="div-expert-detail">
             <p class="p-expert-info-title">내용</p>
             <div class="div-expert-info-detail">
-              <p class="p-expert-detail-comment">
+              <pre class="p-expert-detail-comment">
                <c:out value="${course.courseContent}"/>
-              </p>
+              </pre>
             </div>
           </div>
           

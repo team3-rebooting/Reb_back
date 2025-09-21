@@ -180,7 +180,7 @@ main {
 /* 후기 제목 */
 .main-course-review-name{
   margin-left: 20px;
-  width: 500px;
+  width: 420px;
 }
 
 /* 좋아요수 */
@@ -195,7 +195,7 @@ main {
 
 /* 작성 날짜 */
 .main-course-review-date{
-  width: 120px;
+  width: 200px;
   margin-right: 20px;
 }
 
