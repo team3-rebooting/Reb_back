@@ -14,7 +14,7 @@ public class CourseReviewListDTO {
 	private String courseReviewUpdatedDate;
 	private int courseReviewLike;
 	private FileMemberProfileDTO fileWriterProFileList;
-	private List<FileMemberProfileDTO> fileCommentProFileList; 
+	private List<FileMemberProfileDTO> fileCommentProFileList;
 	private List<FileCourseReviewDTO> fileCourseReviewList;
 	private int likeCount;
 	/*

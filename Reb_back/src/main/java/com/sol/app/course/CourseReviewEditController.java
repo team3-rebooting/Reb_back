@@ -40,23 +40,15 @@ public class CourseReviewEditController implements Execute{
 		} else {
 			courseReviewListDTO = courseReviewDAO.select(courseReviewNumber);
 
-			/*
-			 * routineReviewListDTO.setFileRoutineReviewList(fileRoutineReviewDAO.selectList
-			 * (routineReviewListDTO.getRoutineReviewNumber()));
-			 * 
-			 * request.setAttribute("routineReview", routineReviewListDTO);
-			 * 
-			 * System.out.println(routineReviewListDTO);
-			 * 
-			 * result.setPath(request.getContextPath() + "/routine/routineUpdate.ro");
-			 * result.setRedirect(false);
-			 */
+			courseReviewListDTO.setFileCourseReviewList(fileCourseReviewDAO.select(courseReviewListDTO.getCourseReviewNumber()));
+			
+			request.setAttribute("courseReview", courseReviewListDTO);
+			
+			System.out.println(courseReviewListDTO);
+			
+			result.setPath("/app/course/course-review-edit.jsp");
+			result.setRedirect(false);
 		}
-		
-		request.setAttribute("courseReview", courseReviewDAO.select(courseReviewNumber));
-		
-		result.setPath("/app/course/course-review-edit.jsp");
-		result.setRedirect(false);
 		
 		return result;
 	}

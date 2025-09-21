@@ -10,6 +10,9 @@ public class SmallClubDTO {
 	private String smallClubCreatedDate;
 	private String smallClubUpdatedDate;
 	private String smallClubContent;
+	private String smallClubStartDate;
+	private String smallClubStartTime;
+	private int smallClubRecruitCount;
 	private FileMemberProfileDTO fileWriterProFileList;
 	private List<FileMemberProfileDTO> fileCommentProFileList;
 	private List<FileSmallClubDTO> fileSmallClubList;
@@ -73,14 +76,35 @@ public class SmallClubDTO {
 	public void setFileSmallClubList(List<FileSmallClubDTO> fileSmallClubList) {
 		this.fileSmallClubList = fileSmallClubList;
 	}
+	public String getSmallClubStartDate() {
+		return smallClubStartDate;
+	}
+	public void setSmallClubStartDate(String smallClubStartDate) {
+		this.smallClubStartDate = smallClubStartDate;
+	}
+	public String getSmallClubStartTime() {
+		return smallClubStartTime;
+	}
+	public void setSmallClubStartTime(String smallClubStartTime) {
+		this.smallClubStartTime = smallClubStartTime;
+	}
+	public int getSmallClubRecruitCount() {
+		return smallClubRecruitCount;
+	}
+	public void setSmallClubRecruitCount(int smallClubRecruitCount) {
+		this.smallClubRecruitCount = smallClubRecruitCount;
+	}
 	@Override
 	public String toString() {
 		return "SmallClubDTO [smallClubNumber=" + smallClubNumber + ", smallClubTitle=" + smallClubTitle
 				+ ", memberNumber=" + memberNumber + ", memberNickname=" + memberNickname + ", smallClubCreatedDate="
 				+ smallClubCreatedDate + ", smallClubUpdatedDate=" + smallClubUpdatedDate + ", smallClubContent="
-				+ smallClubContent + ", fileWriterProFileList=" + fileWriterProFileList + ", fileCommentProFileList="
-				+ fileCommentProFileList + ", fileSmallClubList=" + fileSmallClubList + "]";
+				+ smallClubContent + ", smallClubStartDate=" + smallClubStartDate + ", smallClubStartTime="
+				+ smallClubStartTime + ", smallClubRecruitCount=" + smallClubRecruitCount + ", fileWriterProFileList="
+				+ fileWriterProFileList + ", fileCommentProFileList=" + fileCommentProFileList + ", fileSmallClubList="
+				+ fileSmallClubList + "]";
 	}
+	
 	
 	
 	

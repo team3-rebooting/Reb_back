@@ -1,6 +1,7 @@
 package com.sol.app.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -69,6 +70,10 @@ public class LoginOkController implements Execute{
 			 *  }
 			 */
 		}else {
+//			PrintWriter warning = response.getWriter();
+//			warning.println("<script>alert('아이디 또는 비밀번호가 틀렸습니다')</script>");
+//			warning.flush();
+			request.getSession().setAttribute("msg", "로그인에 실패했습니다.");
 			path = "/member/login.me?login=fail";
 		}
 		
