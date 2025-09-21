@@ -9,9 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>모임장 목록</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/admin/member/admin-member-list.css">
+	href="${pageContext.request.contextPath}/assets/css/admin/leader/leader-list.css">
 <script defer
-	src="${pageContext.request.contextPath}/assets/js/admin/member/admin-member-list.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/admin/leader/leader-list.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -32,9 +32,10 @@
 				<!-- 회원 리스트 제목 -->
 				<div id="main-admin-member-list-title">
 					<!-- 회원 번호 영역 -->
-					<p class="main-admin-member-list-number">번호</p>
-					<!-- 아이디 영역 -->
-					<p class="main-admin-member-list-id">모임장명</p>
+					<div class="div-number-area"><p class="main-admin-member-list-number">번호</p></div>
+					<!-- 모임장 영역 -->
+					<div class="div-name-area"><p class="main-admin-member-list-id">모임장명</p></div>
+					<div class="div-empty-area"></div>
 					<!-- 회원 유형 영역 -->
 				</div>
 				<!-- 회원 목록 리스트 -->
@@ -44,13 +45,16 @@
 						<c:when test="${not empty leaderList}">
 							<c:forEach var="leader" items="${leaderList}">
 								<li>
-									<p class="main-admin-member-list-number">
+									<div class="div-number-area"><p class="main-admin-member-list-number">
 										<c:out value="${leader.routineLeaderNumber}" />
 									</p>
-									<p class="main-admin-member-list-id">
+									</div>
+									<div class="div-name-area"><p class="main-admin-member-list-id">
 										<c:out value="${leader.routineLeaderName}" />
 									</p>
-									
+									</div>
+									<div class="div-delete-area"><button class="deleteBtn" data-leader-number="${leader.routineLeaderNumber}">삭제</button>
+									</div>
 								</li>
 							</c:forEach>
 						</c:when>
@@ -92,6 +96,7 @@
 						</c:if>
 					</ul>
 				</div>
+				<button id="main-leader-add">추가</button>
 				<!-- 검색 영역 -->
 				<div id="main-search" style="display:none;" >
 					<!-- 검색 종류 -->
