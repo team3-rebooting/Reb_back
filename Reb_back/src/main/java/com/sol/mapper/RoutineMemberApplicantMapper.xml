@@ -37,6 +37,6 @@
 		from tbl_routine_member_applicant a
 		JOIN tbl_routine r
 		ON a.routine_number = r.routine_number
-		where member_number = #{memberNumber}
+		where member_number = #{memberNumber} AND r.ROUTINE_STATUS_NUMBER = 5
 	</select>
 </mapper>

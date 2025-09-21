@@ -8,8 +8,7 @@
 		FROM TBL_COURSE_MEMBER_APPLICANT TM LEFT OUTER JOIN
 		TBL_COURSE TC
 		ON TM.COURSE_NUMBER = TC.COURSE_NUMBER
-		WHERE TM.MEMBER_NUMBER =
-		#{memberNumber}
+		WHERE TM.MEMBER_NUMBER = #{memberNumber} AND tc.COURSE_RECRUIT_STATUS_NUMBER = 5
 	</select>
 
 	<select id="selectCourseApplicant" parameterType="map"
