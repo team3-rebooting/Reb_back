@@ -55,7 +55,6 @@
               <p class="font-main">시간</p>
               <div class="div-input-info">
                 <input type="time" name="smallClubStartTime" class="input-in font-main" required>
-                <input type="time" name="smallClubEndTime" class="input-in font-main" required>
               </div>
             </div>
             <div class="div-info-line">

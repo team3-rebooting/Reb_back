@@ -51,7 +51,10 @@ public class SmallClubWriteOkController implements Execute{
 		smallClubDTO.setSmallClubTitle(multipartRequest.getParameter("smallClubTitle"));
 		smallClubDTO.setSmallClubContent(multipartRequest.getParameter("smallClubContent"));
 		smallClubDTO.setMemberNumber(memberNumber);
-//		smallClubDTO.setCourseNumber(Integer.valueOf(multipartRequest.getParameter("courseNumber")));
+		smallClubDTO.setSmallClubStartDate(multipartRequest.getParameter("smallClubStartDate"));
+		smallClubDTO.setSmallClubStartTime(multipartRequest.getParameter("smallClubStartTime"));
+		smallClubDTO.setSmallClubRecruitCount(Integer.valueOf(multipartRequest.getParameter("recruitmentNumber")));
+		System.out.println(smallClubDTO);
 				
 		// 게시글 추가
 		int smallClubNumber = smallClubDAO.insertSmallClub(smallClubDTO);
