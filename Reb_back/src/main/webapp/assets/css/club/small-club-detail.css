@@ -291,9 +291,13 @@
    justify-content: space-between;
  }
 
+.div-small-club-detail{
+	margin-left: 100px;
+}
 
-
-
+.div-small-club-detail>p{
+	padding-top: 15px;
+}
 
  button:hover {
    cursor: pointer;

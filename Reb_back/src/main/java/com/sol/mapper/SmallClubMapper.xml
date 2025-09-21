@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="smallClub">
 	<select id="select" parameterType="int" resultType="SmallClubDTO">
-		SELECT SMALL_CLUB_NUMBER, SMALL_CLUB_TITLE, SC.MEMBER_NUMBER, M.MEMBER_NICKNAME, to_char(SMALL_CLUB_CREATED_DATE, 'YYYY-MM-DD') as small_club_created_date, to_char(SMALL_CLUB_UPDATED_DATE, 'YYYY-MM-DD') as small_club_updated_date, SMALL_CLUB_CONTENT
-			to_char(small_club_start_date, 'yyyy-mm-dd') as small_club_start_date, to_char(small_club_start_time, 'hh24:mi:ss') as small_club_start_time, small_club_recruit_count
+		SELECT SMALL_CLUB_NUMBER, SMALL_CLUB_TITLE, SC.MEMBER_NUMBER, M.MEMBER_NICKNAME, to_char(SMALL_CLUB_CREATED_DATE, 'YYYY-MM-DD') as small_club_created_date, to_char(SMALL_CLUB_UPDATED_DATE, 'YYYY-MM-DD') as small_club_updated_date, SMALL_CLUB_CONTENT,
+			to_char(small_club_start_date, 'YYYY-MM-DD') as small_club_start_date, to_char(small_club_start_time, 'HH24:MI') as small_club_start_time, small_club_recruit_count
 		FROM TBL_SMALL_CLUB SC LEFT OUTER JOIN TBL_MEMBER M ON SC.MEMBER_NUMBER = M.MEMBER_NUMBER
 		WHERE SMALL_CLUB_NUMBER = #{smallClubNumber}
 	</select>
@@ -13,7 +13,7 @@
 			select seq_small_club.nextval from dual
 		</selectKey>
 		insert into tbl_small_club(small_club_number, small_club_title, member_number, small_club_content, small_club_start_date, small_club_start_time, small_club_recruit_count)
-		values(#{smallClubNumber}, #{smallClubTitle}, #{memberNumber}, #{smallClubContent}, #{smallClubStartDate}, #{smallClubStartTime}, #{smallClubEndTime}, #{smallClubRecruitCount})
+		values(#{smallClubNumber}, #{smallClubTitle}, #{memberNumber}, #{smallClubContent}, to_date(#{smallClubStartDate}, 'YYYY-MM-DD'), to_date(#{smallClubStartTime}, 'HH24:MI'), #{smallClubRecruitCount})
 	</insert>
 	
 	<delete id="delete" parameterType="int">

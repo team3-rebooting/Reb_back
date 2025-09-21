@@ -52,6 +52,29 @@
           <p class="font-main little-title">내용</p>
           <textarea class="textarea-text input-bundle" name="smallClubContent" rows="20" cols="100" required><c:out value="${smallClub.getSmallClubContent()}" /></textarea>
         </div>
+        <div class="div-create-small-club">
+          <p class="font-main little-title">모집 관련 정보</p>
+          <div class="div-recruit-info">
+            <div class="div-info-line">
+              <p class="font-main">모임일</p>
+              <div class="div-input-info">
+                <input type="date" name="smallClubStartDate" class="font-main" required>
+              </div>
+            </div>
+            <div class="div-info-line">
+              <p class="font-main">시간</p>
+              <div class="div-input-info">
+                <input type="time" name="smallClubStartTime" class="input-in font-main" required>
+              </div>
+            </div>
+            <div class="div-info-line">
+              <p class="font-main">모집 인원</p>
+              <div class="div-input-info">
+                <input type="number" name="recruitmentNumber" required>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- 버튼 영역 -->
         <div class="div-create-small-club">
           <div class="div-button-line">
