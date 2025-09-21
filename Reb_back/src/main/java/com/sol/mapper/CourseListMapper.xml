@@ -45,7 +45,8 @@
 	<!-- 총 목록 개수 -->
 	<select id="getTotal" resultType="int">
 		select count(*)
-		from tbl_course
+		from TBL_COURSE_REQUEST
+		WHERE (COURSE_OPEN_STATUS_NUMBER = 2 AND COURSE_REQUEST_TYPE_NUMBER = 1) OR (COURSE_OPEN_STATUS_NUMBER = 2 AND COURSE_REQUEST_TYPE_NUMBER = 2)
 	</select>
 
 	<!-- 수업 요청 정보 -->

@@ -46,8 +46,8 @@
 								href="${pageContext.request.contextPath}/app/aboutUs/site-introduction.jsp">소개글</a>
 							<a
 								href="${pageContext.request.contextPath}/tidings/noticeListOk.ti">공지사항</a>
-							<a
-								href="${pageContext.request.contextPath}/app/jobList/job-listings.jsp">채용공고</a>
+							<%-- <a
+								href="${pageContext.request.contextPath}/app/jobList/job-listings.jsp">채용공고</a> --%>
 						</div>
 					</div>
 					<div class="header-menu-dropdown">
