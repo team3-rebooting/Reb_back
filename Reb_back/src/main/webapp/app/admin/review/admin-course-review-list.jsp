@@ -51,7 +51,7 @@
 										<p class="main-course-review-name">
 											<c:out value="${courseReview.courseReviewTitle}" />
 										</p>
-										<p class="main-course-review-heart">6</p>
+										<p class="main-course-review-heart"><c:out value="${courseReview.likeCount}" /></p>
 										<p class="main-course-review-nickname">
 											<c:out value="${courseReview.memberNickname}" />
 										</p>

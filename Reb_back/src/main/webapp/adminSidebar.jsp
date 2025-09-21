@@ -47,7 +47,7 @@
 				<c:if test="${uri ne '/app/admin/banner/admin-banner-list.jsp'}">배너 목록</c:if> </a></li>
 		<li><a
 			href="${pageContext.request.contextPath}/admin/smallclubListOk.ad?page=1">
-				<c:if test="${uri eq '/app/admin/club/admin/small-club-list.jsp'}"><strong>소모임 목록</strong></c:if>
-				<c:if test="${uri ne '/app/admin/club/admin/small-club-list.jsp'}">소모임 목록</c:if> </a></li>
+				<c:if test="${uri eq '/app/admin/club/admin-small-club-list.jsp'}"><strong>소모임 목록</strong></c:if>
+				<c:if test="${uri ne '/app/admin/club/admin-small-club-list.jsp'}">소모임 목록</c:if> </a></li>
 	</ul>
 </section>

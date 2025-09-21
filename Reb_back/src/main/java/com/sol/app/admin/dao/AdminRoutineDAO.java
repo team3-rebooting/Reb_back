@@ -48,4 +48,7 @@ public class AdminRoutineDAO {
 	public void update(RoutineDTO routineDTO) {
 		sqlSession.update("adminRoutine.update",routineDTO);
 	}
+	public List<AdminRoutineDTO> selectFromLeader(int leaderNumber){
+		return sqlSession.selectList("adminRoutine.selectFromLeader",leaderNumber);
+	}
 }

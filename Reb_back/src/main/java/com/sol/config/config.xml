@@ -143,6 +143,7 @@
          <typeAlias type="com.sol.app.dto.SmallClubDTO" alias="SmallClubDTO"></typeAlias>
          <typeAlias type="com.sol.app.dto.SmallClubCommentDTO" alias="SmallClubCommentDTO"></typeAlias>
          <typeAlias type="com.sol.app.dto.SmallClubCommentListDTO" alias="SmallClubCommentListDTO"></typeAlias>
+         <typeAlias type="com.sol.app.dto.CourseDeletedDTO" alias="CourseDeletedDTO"></typeAlias>
 	</typeAliases>
 
 	<environments default="oracle">

@@ -95,4 +95,8 @@
 	<delete id="deleteRequest" parameterType="int">
 		delete from tbl_course_request where course_number = #{courseNumber}
 	</delete>
+	<insert id="deletedCourse" parameterType="CourseDeletedDTO">
+		insert into tbl_deleted_course(course_number,course_title, expert_number, course_deleted_date)
+		values(#{courseNumber}, #{courseTitle}, #{expertNumber}, (sysdate)) 
+	</insert>
 </mapper>

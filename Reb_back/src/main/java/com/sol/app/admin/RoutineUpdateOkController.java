@@ -96,6 +96,10 @@ public class RoutineUpdateOkController implements Execute {
                 case "routineLocationAdd" :
                 	routineDTO.setRoutineLocationAdd(paramValue);
                 	break;
+                case "routineLeaderNumber" :
+                	int leaderNumber = Integer.parseInt(paramValue);
+                	routineDTO.setRoutineLeaderNumber(leaderNumber);
+                	break;
                 }
                 
             } else if (part.isFile() && !isFileUpload) {

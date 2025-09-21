@@ -18,8 +18,15 @@ delBtn?.forEach(button => {
 						"X-Requested-With": "XMLHttpRequest",
 					},
 				});
-				if (!response.ok) throw new Error("삭제 실패");
-				window.location.href = "/admin/leaderListOk.ad";
+				
+				const result = await response.json();
+
+				if (result.status === "success") {
+				  alert("삭제 완료되었습니다.");
+				  window.location.href = "/admin/leaderListOk.ad";
+				} else {
+				  alert(result.message);
+				}
 			} catch (error) {
 				console.error("삭제 실패:", error);
 				alert("삭제 중 오류가 발생했습니다.");
