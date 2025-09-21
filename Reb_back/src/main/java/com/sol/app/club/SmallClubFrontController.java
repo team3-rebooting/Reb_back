@@ -74,6 +74,10 @@ public class SmallClubFrontController extends HttpServlet {
 			System.out.println("소모임 게시글 수정 처리 요청");
 			result = new SmallClubEditOkController().execute(request, response);
 			break;
+		case "/club/smallClubApplyOk.cl":
+			System.out.println("신청 취소 요청");
+			result = new SmallClubApplyOkController().execute(request, response);
+			break;
 		}
 		
 		if(result != null) {

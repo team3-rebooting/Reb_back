@@ -1,5 +1,7 @@
 package com.sol.app.member.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.sol.app.dto.MemberDTO;
@@ -34,9 +36,9 @@ public class MemberDAO {
 		return sqlSession.selectOne("member.getId", memberNumber);
 	}
 	
-	public MemberDTO findId(MemberDTO memberDTO) {
-		return sqlSession.selectOne("member.findId", memberDTO);
-	}
+	public List<MemberDTO> findIds(MemberDTO memberDTO) {
+        return sqlSession.selectList("member.findId", memberDTO);
+    }
 	
 	public MemberDTO findPw(MemberDTO memberDTO) {
 		return sqlSession.selectOne("member.findPw", memberDTO);

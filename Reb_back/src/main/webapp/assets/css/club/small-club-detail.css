@@ -156,7 +156,8 @@
    justify-content: center;
  }
 
- .button-application {
+ .button-application,
+ .button-application-edit {
    width: 147px;
    height: 50px;
    color: white;
@@ -167,7 +168,8 @@
    border: 0px;
  }
 
- .button-cancel {
+ .button-cancel,
+ .button-application-cancel {
    /* display: none; */
    width: 147px;
    height: 50px;

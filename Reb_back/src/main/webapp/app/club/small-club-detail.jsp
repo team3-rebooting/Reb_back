@@ -61,13 +61,18 @@
 				<div class="div-user-integration">
 					<!-- 유저 프로필 영역 -->
 					<div class="div-user-profile">
-						<c:set var="profiles" value="${smallClub.getFileWriterProFileList()}"></c:set>
+						<c:set var="profiles"
+							value="${smallClub.getFileWriterProFileList()}"></c:set>
 						<c:choose>
 							<c:when test="${not empty profiles}">
-								<img src="${pageContext.request.contextPath}/upload/${profiles.getFileSystemName()}"  class="img-user-profile" />
+								<img
+									src="${pageContext.request.contextPath}/upload/${profiles.getFileSystemName()}"
+									class="img-user-profile" />
 							</c:when>
 							<c:otherwise>
-								<img src="${pageContext.request.contextPath}/assets/img/profile.png" class="img-user-profile">
+								<img
+									src="${pageContext.request.contextPath}/assets/img/profile.png"
+									class="img-user-profile">
 							</c:otherwise>
 						</c:choose>
 					</div>
@@ -78,8 +83,7 @@
 						</p>
 						<p class="p-update-date">
 							<c:choose>
-								<c:when
-									test="${not empty smallClub.smallClubUpdatedDate}">
+								<c:when test="${not empty smallClub.smallClubUpdatedDate}">
 									<c:out value="${smallClub.getSmallClubUpdatedDate() }" />(수정됨)
 								</c:when>
 								<c:otherwise>
@@ -110,8 +114,7 @@
 				<!--상세 글 영역 -->
 				<div class="div-detail-area">
 					<!-- 대표 사진 영역 -->
-					<c:forEach var="file"
-						items="${smallClub.getFileSmallClubList()}">
+					<c:forEach var="file" items="${smallClub.getFileSmallClubList()}">
 						<div class="div-img">
 							<img
 								src="${pageContext.request.contextPath}/upload/${file.getFileSystemName()}"
@@ -122,7 +125,8 @@
 					<div class="div-expert-detail">
 						<!-- 글 영역  -->
 						<div class="div-expert-info-detail">
-							<p class="p-expert-detail-comment" style="white-space:pre-line; word-break: break-all;">
+							<p class="p-expert-detail-comment"
+								style="white-space: pre-line; word-break: break-all;">
 								<c:out value="${smallClub.getSmallClubContent()}" />
 							</p>
 							<!-- 강사님이 너무 친절하기구 수업도 열정적으로 알려주셔요! 과제도 그만큼 열정적으로 내주셔요!!!
@@ -143,7 +147,7 @@
 								<c:out value="${smallClub.smallClubStartTime}" />
 							</p>
 							<p>
-								모집 인원 : <%-- <span id="applicant-count">${course.courseApplicantCount}</span> --%>
+								모집 인원 : <span id="applicant-count">${smallClub.smallClubApplicantCount}</span>
 								/
 								<c:out value="${smallClub.smallClubRecruitCount}" />
 								명
@@ -155,11 +159,30 @@
 							</p> --%>
 						</div>
 					</div>
+					<c:if test="${not empty sessionScope.memberNumber}">
+						<div class="div-expert-detail-button">
+							<c:if
+								test="${smallClub.memberNumber != sessionScope.memberNumber}">
+								<c:choose>
+									<c:when test="${applicant}">
+										<button class="button-application-cancel" type="button">취소</button>
+										<button class="button-application" type="button"
+											style="display: none;">신청하기</button>
+									</c:when>
+									<c:otherwise>
+										<button class="button-application-cancel" type="button"
+											style="display: none;">취소</button>
+										<button class="button-application" type="button">신청하기</button>
+									</c:otherwise>
+								</c:choose>
+							</c:if>
+						</div>
+					</c:if>
 					<!-- 버튼 영역 -->
 					<div class="div-button-area">
 						<c:if
 							test="${sessionScope.memberNumber == smallClub.getMemberNumber() }">
-							<button class="button-application" type="button"
+							<button class="button-application-edit" type="button"
 								data-small-club-number="${smallClub.smallClubNumber}"
 								data-member-number="${sessionScope.memberNumber}">수정</button>
 

@@ -62,6 +62,13 @@ public class SmallClubEditOkController implements Execute {
 					smallClubDTO.setSmallClubTitle(paramValue);
 				} else if ("smallClubContent".equals(paramName)) {
 					smallClubDTO.setSmallClubContent(paramValue);
+				} else if ("smallClubStartDate".equals(paramName)) {
+					smallClubDTO.setSmallClubStartDate(paramValue);
+				} else if ("smallClubStartTime".equals(paramName)) {
+					smallClubDTO.setSmallClubStartTime(paramValue);
+				} else if ("smallClubRecruitCount".equals(paramName)) {
+					int recruitCount = Integer.parseInt(paramValue);
+					smallClubDTO.setSmallClubRecruitCount(recruitCount);
 				}
 			} else if (part.isFile() && !isFileUpload) {
 				FilePart filePart = (FilePart) part;
@@ -108,6 +115,7 @@ public class SmallClubEditOkController implements Execute {
 
 		// 게시글 업데이트 실행
 		smallClubDTO.setMemberNumber((Integer) request.getSession().getAttribute("memberNumber"));
+		System.out.println(smallClubDTO);
 		smallClubDAO.update(smallClubDTO);
 		System.out.println("게시글 수정 완료");
 		

@@ -98,8 +98,10 @@
 			</div>
 			<!-- ID 알려주는 text 영역 -->
 			<div class="div-modal-main-findid-end">
-				<span class="findid" id="resultId"></span><br /> <span
-					class="span-findid-end" id="resultIdBirth"></span>
+				<div>
+					<div id="resultId"></div>
+					<div id="resultIdBirth"></div>
+				</div>
 			</div>
 
 

@@ -70,7 +70,7 @@
             <div class="div-info-line">
               <p class="font-main">모집 인원</p>
               <div class="div-input-info">
-                <input type="number" name="recruitmentNumber" value="${smallClub.getSmallClubRecruitNumber() }" required>
+                <input type="number" name="smallClubRecruitCount" value="${smallClub.getSmallClubRecruitCount() }" required>
               </div>
             </div>
           </div>

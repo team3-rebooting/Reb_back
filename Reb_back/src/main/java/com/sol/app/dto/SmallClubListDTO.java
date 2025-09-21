@@ -10,6 +10,7 @@ public class SmallClubListDTO {
 	private String smallClubCreatedDate;
 	private String smallClubUpdatedDate;
 	private String smallClubContent;
+	private String smallClubStartDate;
 	private List<FileSmallClubDTO> fileSmallClubList;
 	
 	public int getSmallClubNumber() {
@@ -53,6 +54,12 @@ public class SmallClubListDTO {
 	}
 	public void setSmallClubContent(String smallClubContent) {
 		this.smallClubContent = smallClubContent;
+	}
+	public String getSmallClubStartDate() {
+		return smallClubStartDate;
+	}
+	public void setSmallClubStartDate(String smallClubStartDate) {
+		this.smallClubStartDate = smallClubStartDate;
 	}
 	public FileSmallClubDTO getFileSmallClub() {
 		if (fileSmallClubList == null)
