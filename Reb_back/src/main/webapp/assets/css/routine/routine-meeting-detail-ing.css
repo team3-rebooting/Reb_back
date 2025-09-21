@@ -119,10 +119,9 @@ button:hover {
 	justify-content: center;
 }
 
-/* .img-box{
-	width : 300px;
-	height : 300px;
-} */
+.img-box{
+	height : 500px;
+}
 
 .div-write-date {
 	display: flex;

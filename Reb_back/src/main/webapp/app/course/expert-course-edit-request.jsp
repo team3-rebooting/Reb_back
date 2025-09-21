@@ -88,9 +88,9 @@
 								<input
 									type="checkbox" id="tuesday" name="dow"
 									class="checkbox-input input-day" value="tue" class="font-main" <c:if test="${course.existTuesday()}"> checked </c:if> >
-								<label for="wednesday" <c:if test="${course.existWednesday()}"> checked </c:if>>수요일</label>
+								<label for="wednesday">수요일</label>
 								<input type="checkbox"
-									id="wednesday" name="dow" class="checkbox-input" value="wen">
+									id="wednesday" name="dow" class="checkbox-input" value="wed" <c:if test="${course.existWednesday()}"> checked </c:if>>
 								<label for="thursday">목요일</label>
 								<input type="checkbox"
 									id="thursday" name="dow" class="checkbox-input input-day"
