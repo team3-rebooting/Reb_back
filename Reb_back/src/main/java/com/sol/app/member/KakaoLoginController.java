@@ -17,15 +17,15 @@ public class KakaoLoginController implements Execute {
 		
 		Result result = new Result();
 		
-		String code = request.getParameter("code");
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("code", code);
-		
-		System.out.println("code : " + code);
-		result.setRedirect(true);
-		result.setPath("/main/reviewListOk.ma");
-		
-		return result;
+		String clientId = "";
+        String redirectUri = "http://localhost:8888/member/kakaoCallBack.me";
+        String kakaoAuthUrl = "https://kauth.kakao.com/oauth/authorize"
+                            + "?client_id=" + clientId
+                            + "&redirect_uri=" + redirectUri
+                            + "&response_type=code";
+
+        result.setPath(kakaoAuthUrl);
+        result.setRedirect(true); // 카카오 로그인 페이지로 리다이렉트
+        return result;
 	}
 }

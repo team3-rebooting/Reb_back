@@ -30,7 +30,7 @@
 <!-- 카카오톡 api -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
-<script src="${pageContext.request.contextPath}/assets/js/auth/kakao-login-api.js"></script>
+<%-- <script src="${pageContext.request.contextPath}/assets/js/auth/kakao-login-api.js"></script> --%>
 
 <title>틈새빛</title>
 </head>
@@ -212,7 +212,8 @@
 						로그인</button>
 					<!-- 카카오로그인 버튼 -->
 					<button class="button-kakao" type="button">
-					<a href="javascript:void(0)">
+					<!-- <a href="javascript:void(0)"> -->
+					<a href="https://kauth.kakao.com/oauth/authorize?client_id=5e44f3ff932a35b0d2814a1ee4e24d13&redirect_uri=http://localhost:8888/member/kakaoCallBack.me&response_type=code">
 						<img src="${pageContext.request.contextPath}/assets/img/kakao.png"
 							class="kakao-img">카카오 로그인
 					</a>

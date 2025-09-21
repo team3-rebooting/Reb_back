@@ -14,4 +14,15 @@
 		insert into tbl_small_club(small_club_number, small_club_title, member_number, small_club_content)
 		values(#{smallClubNumber}, #{smallClubTitle}, #{memberNumber}, #{smallClubContent})
 	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_small_club
+		where small_club_number = #{smallClubNumber}
+	</delete>
+	
+	<update id="update" parameterType="SmallClubDTO">
+		update tbl_small_club
+		set small_club_title = #{smallClubTitle}, small_club_content = #{smallClubContent}, small_club_updated_date = sysdate
+		where small_club_number = #{smallClubNumber}
+	</update>
 </mapper>

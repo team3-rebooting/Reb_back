@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const heartCount = document.querySelector("#span-like-count");
 
 	const like = document.querySelector("#like");
-	const courseNumber = document.querySelector("#course-review-number");
+	const courseNumber = document.querySelector("#course-review-number").value;
 
 	const courseReviewNumber = editBtn?.dataset.courseReviewNumber ?? window.courseReviewNumber;
 	const memberNumber = editBtn?.dataset.memberNumber ?? window.memberNumber;

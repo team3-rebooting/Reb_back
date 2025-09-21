@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
 	
-	Kakao.init('');	// javascript api 키 입력
+	Kakao.init('e3a9c8fcb6fd9dd237a0a410d1f5a4c9');	// javascript api 키 입력
 	console.log(Kakao.isInitialized());	// sdk 초기화 여부 판단
 	
 	const kakaoBtn = document.querySelector(".button-kakao");

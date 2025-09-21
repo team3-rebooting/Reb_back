@@ -60,7 +60,7 @@
 										</c:choose>
 
 										<p class="p-list-comment">
-											<c:out value="${smallClublub.smallClubTitle}" />
+											<c:out value="${smallClub.smallClubTitle}" />
 										</p>
 										<div class="div-box-status">
 											<%-- <c:choose>
