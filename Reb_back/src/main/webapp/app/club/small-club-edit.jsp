@@ -48,7 +48,7 @@
         </div>
         <!-- 리뷰 작성 textarea -->
         <div class="div-create-small-club">
-          <p class="font-main little-title"></p>
+          <p class="font-main little-title">내용</p>
           <textarea class="textarea-text input-bundle" name="smallClubContent" rows="20" cols="100" required><c:out value="${smallClub.getSmallClubContent()}" /></textarea>
         </div>
         <!-- 버튼 영역 -->

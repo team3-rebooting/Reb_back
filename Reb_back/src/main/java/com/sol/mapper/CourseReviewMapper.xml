@@ -51,7 +51,7 @@
 		</selectKey>
 		insert into tbl_course_review(course_review_number, course_number,
 		course_review_title, member_number, course_review_content)
-		values(#{courseReviewNumber}, 1, #{courseReviewTitle},
+		values(#{courseReviewNumber}, #{courseNumber}, #{courseReviewTitle},
 		#{memberNumber}, #{courseReviewContent})
 	</insert>
 

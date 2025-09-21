@@ -6,7 +6,7 @@
 			SELECT * FROM (
 				SELECT ROWNUM AS rnum, subquery.*
 				FROM (
-					SELECT small_club_number, small_club_title, m.member_name, to_char(small_club_created_date, 'yyyy.mm.dd(day)') as small_club_created_date
+					SELECT small_club_number, small_club_title, m.member_nickname, to_char(small_club_created_date, 'yyyy.mm.dd(day)') as small_club_created_date
 					FROM tbl_small_club sc LEFT OUTER JOIN tbl_member m ON sc.member_number = m.member_number
 					ORDER BY small_club_created_date DESC
 				) subquery

@@ -34,7 +34,7 @@
         <div class="div-create-course">
           <input type="text" class="input-title input-bundle" name="courseReviewTitle" placeholder="제목을 입력해주세요" required>
         </div>
-        <div>수강한 수업
+        <div><span class="span-course">수강한 수업</span>
         	<select class="course" name="courseNumber" required>
         		<c:forEach var="courselist" items="${courseMemberApplicant}">
         			<option value="${courselist.getCourseNumber()}" ><c:out value="${courselist.getCourseTitle()}" /></option>
@@ -46,7 +46,7 @@
           <input type="file" name="courseFile" class="input-bundle" required>
         </div>
         <div class="div-create-course">
-          <p class="font-main little-title">내용(summernote 자리)</p>
+          <p class="font-main little-title">내용</p>
           <textarea class="textarea-text input-bundle" name="courseReviewContent" rows="20" cols="100" required></textarea>
         </div>
 
