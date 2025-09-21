@@ -49,6 +49,12 @@ public class MyPageListOkController implements Execute {
 		case "my-course-applicant":
 			new MyCourseApplicantOkController().execute(request, response);
 			break;
+		case "my-small-club":
+			new MySmallClubOkController().execute(request, response);
+			break;
+		case "my-small-club-apply":
+			new MySmallClubApplyOkController().execute(request, response);
+			break;
 		}
 		
 		return null;

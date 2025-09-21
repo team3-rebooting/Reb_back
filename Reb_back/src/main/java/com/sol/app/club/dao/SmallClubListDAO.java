@@ -26,5 +26,4 @@ public class SmallClubListDAO {
 		System.out.println("게시글 총 개수 조회");
 		return sqlSession.selectOne("smallClubList.getTotal");
 	}
-
 }

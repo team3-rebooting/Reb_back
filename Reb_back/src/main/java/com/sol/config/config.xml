@@ -216,6 +216,8 @@
       	<mapper resource="com/sol/mapper/SmallClubMapper.xml"/>
       	<mapper resource="com/sol/mapper/SmallClubCommentMapper.xml"/>
       	<mapper resource="com/sol/mapper/SmallClubCommentListMapper.xml"/>
+      	<mapper resource="com/sol/mapper/MySmallClubApplyListMapper.xml"/>
+      	<mapper resource="com/sol/mapper/MySmallClubListMapper.xml"/>      	
 	</mappers>
 	<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/> -->
 	<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 
