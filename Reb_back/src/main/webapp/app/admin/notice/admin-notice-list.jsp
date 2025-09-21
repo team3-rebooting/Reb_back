@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html lang="en">
 
 <head>
@@ -54,7 +55,14 @@
 											<c:out value="${notice.adminNickname}" />
 										</p>
 										<p class="main-notice-create-date">
-											<c:out value="${notice.noticeCreatedDate}" />
+												<c:choose>
+  													<c:when test="${notice.noticeCreatedDate ne notice.noticeUpdatedDate}">
+    												${fn:substring(notice.noticeUpdatedDate, 0, 10)}(수정됨)
+  													</c:when>
+  												<c:otherwise>
+    												${fn:substring(notice.noticeCreatedDate, 0, 10)}
+  												</c:otherwise>
+												</c:choose>
 										</p>
 								</a></li>
 							</c:forEach>

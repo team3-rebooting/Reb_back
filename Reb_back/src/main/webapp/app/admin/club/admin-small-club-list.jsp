@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>루틴 모임 목록</title>
+<title>소모임 목록</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/admin/club/admin-small-club-list.css">
 <%-- <script defer

@@ -253,6 +253,9 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("소모임 상세");
 			result = new AdminSmallClubReadOkController().execute(request,response);
 			break;
+		case "/admin/smallclubDeleteOk.ad" :
+			System.out.println("소모임 삭제");
+			result = new AdminSmallClubDeleteOkController().execute(request,response);
 		}
 		
 		if (result != null && result.getPath() != null) {

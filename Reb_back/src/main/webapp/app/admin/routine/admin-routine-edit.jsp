@@ -155,8 +155,9 @@
 							<div class="div-input-info">
 								<select name="routineLeaderNumber" class="select-leader">
 									<c:forEach var="leader" items="${leader}">
-										<option value="${leader.routineLeaderNumber}"><c:out
-												value="${leader.routineLeaderName}" /></option>
+										<option value="${leader.routineLeaderNumber}" 
+										<c:if test="${leader.routineLeaderNumber eq routine.routineLeaderNumber}">selected</c:if>>
+										<c:out value="${leader.routineLeaderName}" /></option>
 									</c:forEach>
 								</select>
 							</div>

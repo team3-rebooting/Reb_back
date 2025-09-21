@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,20 +69,16 @@
 							<c:out value="${review.memberNickname}" />
 						</p>
 						<!-- 작성날짜 -->
-						<c:choose>
-							<c:when
-								test="${review.courseReviewCreatedDate == review.courseReviewUpdatedDate}">
-								<p class="p-update-date">
-									<c:out value="${review.courseReviewCreatedDate}" />
-								</p>
-							</c:when>
-							<c:otherwise>
-								<p class="p-update-date">
-									<c:out value="${review.courseReviewUpdatedDate}" />
-									<span class="p-update-status">(수정됨)</span>
-								</p>
-							</c:otherwise>
-						</c:choose>
+						<p class="p-update-date">
+							<c:choose>
+  								<c:when test="${review.courseReviewCreatedDate ne review.courseReviewUpdatedDate}">
+    							${fn:substring(review.courseReviewUpdatedDate, 0, 10)}(수정됨)
+  								</c:when>
+  								<c:otherwise>
+    							${fn:substring(review.courseReviewCreatedDate, 0, 10)}
+  								</c:otherwise>
+							</c:choose>
+						</p>
 					</div>
 					<!-- 내용 영역 -->
 					<div class="div-detail-area">

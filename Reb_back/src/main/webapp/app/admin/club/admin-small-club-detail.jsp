@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/club/small-club-detail.css">
+	href="${pageContext.request.contextPath}/assets/css/admin/club/admin-small-club-detail.css">
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/comment/comment.css">
@@ -28,13 +28,13 @@
 <title>틈새빛</title>
 </head>
 <script defer
-	src="${pageContext.request.contextPath}/assets/js/club/small-club-detail.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/admin/club/admin-small-club-detail.js"></script>
 
 <body>
 	<header>
-		<!-- 수업 목록 이동 -->
+		<!-- 소모임 목록 이동 -->
 		<a
-			href="${pageContext.request.contextPath}/admin/courseListOk.ad?page=1">
+			href="${pageContext.request.contextPath}/admin/smallclubListOk.ad?">
 			<!-- 사이드 로고 --> <img
 			src="${pageContext.request.contextPath}/assets/img/team_logo.png"
 			alt="사이트 로고 사진">
@@ -152,20 +152,6 @@
 								page="${pageContext.request.contextPath}/app/comment/comment.jsp" />
 						</div>
 
-						<c:if test="${ not empty sessionScope.memberNumber }">
-							<!-- 댓글 작성 영역 -->
-							<div class="div-comment-write">
-								<!-- 댓글 작성 form -->
-								<form action="" method="get" class="form-comment-write">
-									<!-- 댓글 작성 input -->
-									<input type="text" placeholder="댓글을 입력해주세요" name="comment"
-										class="input-comment">
-									<!-- 등록 버튼 -->
-									<button class="button-write" type="button">등록</button>
-								</form>
-
-							</div>
-						</c:if>
 					</div>
 				</div>
 			</div>
@@ -173,6 +159,6 @@
 	</main>
 </body>
 <script
-	src="${pageContext.request.contextPath}/assets/js/comment/comment.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/comment/admincomment.js"></script>
 
 </html>
