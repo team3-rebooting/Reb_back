@@ -233,6 +233,26 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("모임장 목록");
 			result = new LeaderListOkController().execute(request,response);
 			break;
+		case "/admin/leaderWrite.ad":
+			System.out.println("모임장 생성");
+			result = new LeaderWriteController().execute(request,response);
+			break;
+		case "/admin/leaderWriteOk.ad" :
+			System.out.println("모임장 생성 완료");
+			result = new LeaderWriteOkController().execute(request,response);
+			break;
+		case "/admin/leaderDeleteOk.ad" :
+			System.out.println("모임장 삭제");
+			result = new LeaderDeleteOkController().execute(request,response);
+			break;
+		case "/admin/smallclubListOk.ad" :
+			System.out.println("소모임 목록 조회");
+			result = new AdminSmallClubListOkController().execute(request,response);
+			break;
+		case "/admin/smallclubReadOk.ad" :
+			System.out.println("소모임 상세");
+			result = new AdminSmallClubReadOkController().execute(request,response);
+			break;
 		}
 		
 		if (result != null && result.getPath() != null) {

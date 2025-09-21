@@ -1,7 +1,6 @@
 package com.sol.app.admin;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,10 +10,8 @@ import javax.servlet.http.HttpSession;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminDAO;
-import com.sol.app.admin.dao.RoutineLeaderDAO;
-import com.sol.app.dto.RoutineLeaderDTO;
 
-public class RoutineWriteController implements Execute{
+public class LeaderWriteController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
@@ -24,17 +21,12 @@ public class RoutineWriteController implements Execute{
 		HttpSession session = request.getSession();
 		Integer adminNumber = (Integer)session.getAttribute("adminNumber");
 		String path = null;
-		RoutineLeaderDAO leaderDAO = new RoutineLeaderDAO();
-		
-		List<RoutineLeaderDTO> leaderList = leaderDAO.selectForRoutine();
-		
 		
 		if(adminNumber == null) {
 			path = "/app/admin/login/admin-login.jsp";
 		}else {
-			path = "/app/admin/routine/admin-routine-create.jsp";
+			path = "/app/admin/leader/leader-create.jsp";
 			request.setAttribute("adminId", adminDAO.getAdminId(adminNumber));
-			request.setAttribute("leader", leaderList);
 		}
 		
 		result.setPath(path);

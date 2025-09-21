@@ -5,19 +5,25 @@
 		SELECT * FROM (
 		SELECT ROWNUM AS rnum, subquery.*
 		FROM (
-		SELECT routine_leader_number, routine_leader_name FROM TBL_ROUTINE_LEADER
+		SELECT routine_leader_number, routine_leader_name FROM TBL_ROUTINE_LEADER order by routine_leader_number
 		) subquery
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 	</select>
 	<insert id="insert" parameterType="RoutineLeaderDTO">
+		<selectKey keyProperty="routineLeaderNumber" resultType="int" order="BEFORE">
+			SELECT seq_routine_leader.nextVal FROM DUAL
+		</selectKey>
 		insert into tbl_routine_leader(routine_leader_number, routine_leader_name)
 		values(#{routineLeaderNumber}, #{routineLeaderName})
 	</insert>
-	<delete id="RoutineLeaderDTO">
+	<delete id="delete" parameterType="int">
 		delete from tbl_routine_leader where routine_leader_number = #{routineLeaderNumber}
 	</delete>
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(routine_leader_number)
 		FROM TBL_ROUTINE_LEADER	
 	</select>
+	<select id="selectForRoutine" resultType="RoutineLeaderDTO">
+		SELECT routine_leader_number, routine_leader_name FROM TBL_ROUTINE_LEADER order by routine_leader_number
+	</select>	
 </mapper>
