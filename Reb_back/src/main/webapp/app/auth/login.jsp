@@ -212,19 +212,27 @@
 						로그인</button>
 					<!-- 카카오로그인 버튼 -->
 					<button class="button-kakao" type="button">
-					<!-- <a href="javascript:void(0)"> -->
-					<a href="https://kauth.kakao.com/oauth/authorize?client_id=api키&redirect_uri=http://localhost:8888/member/kakaoCallBack.me&response_type=code">
-						<img src="${pageContext.request.contextPath}/assets/img/kakao.png"
+						<!-- <a href="javascript:void(0)"> -->
+						<a
+							href="https://kauth.kakao.com/oauth/authorize?client_id=api키&redirect_uri=http://localhost:8888/member/kakaoCallBack.me&response_type=code">
+							<img
+							src="${pageContext.request.contextPath}/assets/img/kakao.png"
 							class="kakao-img">카카오 로그인
-					</a>
+						</a>
 					</button>
 					<button class="button-kakao button-kakao-logout" type="button">
-						<a href="javascript:void(0)">
-							<img src="${pageContext.request.contextPath}/assets/img/kakao.png"
+						<a href="javascript:void(0)"> <img
+							src="${pageContext.request.contextPath}/assets/img/kakao.png"
 							class="kakao-img">카카오 로그아웃
 						</a>
 					</button>
 				</form>
+				<c:if test="${not empty sessionScope.msg}">
+					<script>
+						alert("${sessionScope.msg}");
+					</script>
+					<c:remove var="msg" scope="session" />
+				</c:if>
 				<!-- 밑줄 -->
 				<hr>
 				<!-- 아이디찾기, 비밀번호찾기, 회원가입 영역 -->
