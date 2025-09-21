@@ -10,8 +10,8 @@
 <title>루틴 모임 목록</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/admin/club/admin-small-club-list.css">
-<script defer
-	src="${pageContext.request.contextPath}/assets/js/admin/club/admin-club-list.js"></script>
+<%-- <script defer
+	src="${pageContext.request.contextPath}/assets/js/admin/club/admin-club-list.js"></script> --%>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
