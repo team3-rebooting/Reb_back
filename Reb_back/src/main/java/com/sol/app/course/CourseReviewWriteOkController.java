@@ -82,7 +82,7 @@ public class CourseReviewWriteOkController implements Execute{
 			
 		}
 		
-		result.setPath("/course/courseReviewListOk.co");
+		result.setPath(request.getContextPath() + "/course/courseReviewDetailOk.co?courseReviewNumber=" + courseReviewNumber);
 		result.setRedirect(false);
 		
 		return result;

@@ -77,7 +77,7 @@ public class SmallClubWriteOkController implements Execute{
 					
 		}
 				
-		result.setPath("/club/smallClubListOk.cl");
+		result.setPath(request.getContextPath() + "/club/smallClubDetailOk.cl?smallClubNumber=" + smallClubNumber);
 		result.setRedirect(false);
 		
 		return result;

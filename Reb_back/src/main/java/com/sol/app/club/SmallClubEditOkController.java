@@ -68,8 +68,10 @@ public class SmallClubEditOkController implements Execute {
 				filePart.setRenamePolicy(new DefaultFileRenamePolicy());
 				String fileOriginalName = filePart.getFileName();
 
-				// 기존 파일 삭제
-				if (smallClubNumber != 0) {
+				
+
+				if (fileOriginalName != null) {
+					// 기존 파일 삭제
 					List<FileSmallClubDTO> existingFiles = fileSmallClubDAO.select(smallClubNumber);
 					for (FileSmallClubDTO file : existingFiles) {
 						File oldFile = new File(UPLOAD_PATH, file.getFileSystemName());
@@ -80,9 +82,6 @@ public class SmallClubEditOkController implements Execute {
 					}
 					fileSmallClubDAO.delete(smallClubNumber);
 					System.out.println("기존 파일 DB 삭제 완료");
-				}
-
-				if (fileOriginalName != null) {
 					String newFileName = System.currentTimeMillis() + "_" + fileOriginalName;
 					File newFile = new File(UPLOAD_PATH, newFileName);
 					filePart.writeTo(newFile);
@@ -111,9 +110,10 @@ public class SmallClubEditOkController implements Execute {
 		smallClubDTO.setMemberNumber((Integer) request.getSession().getAttribute("memberNumber"));
 		smallClubDAO.update(smallClubDTO);
 		System.out.println("게시글 수정 완료");
+		
 
 		// 수정 완료 후 리스트 페이지로 이동
-		result.setPath("/club/smallClubListOk.cl");
+		result.setPath(request.getContextPath() + "/club/smallClubDetailOk.cl?smallClubNumber=" + smallClubNumber);
 		result.setRedirect(true);
 
 		return result;

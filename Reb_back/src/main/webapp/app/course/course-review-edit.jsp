@@ -45,7 +45,7 @@
         <div class="div-create-course">
           <span class="font-main little-title">대표 이미지 : </span>
           <input type="file" name="courseFile" class="input-bundle" id="file">
-          <span class="font-main" id="original-file">기존 파일 : <c:out value="${courseReview.getFileCourseReview().getFileOriginalName()}"/></span>
+          <span class="font-main" id="original-file">기존 파일 : <c:out value="${courseReview.getFileCourseReviewList().get(0).getFileOriginalName()}"/></span>
         </div>
         <!-- 리뷰 작성 textarea -->
         <div class="div-create-course">
