@@ -58,19 +58,19 @@
             <div class="div-info-line">
               <p class="font-main">모임일</p>
               <div class="div-input-info">
-                <input type="date" name="smallClubStartDate" class="font-main" required>
+                <input type="date" name="smallClubStartDate" class="font-main" value="${smallClub.getSmallClubStartDate() }" required>
               </div>
             </div>
             <div class="div-info-line">
               <p class="font-main">시간</p>
               <div class="div-input-info">
-                <input type="time" name="smallClubStartTime" class="input-in font-main" required>
+                <input type="time" name="smallClubStartTime" class="input-in font-main" value="${smallClub.getSmallClubStartTime() }" required>
               </div>
             </div>
             <div class="div-info-line">
               <p class="font-main">모집 인원</p>
               <div class="div-input-info">
-                <input type="number" name="recruitmentNumber" required>
+                <input type="number" name="recruitmentNumber" value="${smallClub.getSmallClubRecruitNumber() }" required>
               </div>
             </div>
           </div>
