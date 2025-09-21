@@ -52,7 +52,6 @@
   <jsp:include page="/footer.jsp" />
   <script src="${pageContext.request.contextPath}/assets/js/mypage/sidemenu.js"></script>
   <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-list.js"></script>
-  <script src="${pageContext.request.contextPath}/assets/js/mypage/mypage-modal.js"></script>
 </body>
 
 </html>

@@ -54,13 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	heart?.addEventListener('click', async () => {
 		try {
+			console.log("courseNumber", courseNumber, "like", like.value);
 			const response = await fetch(`/course/courseReviewLikeOk.co`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json; charset=utf-8",
 					"X-Requested-With": "XMLHttpRequest",
 				},
-				body: JSON.stringify({ courseNumber: courseNumber.value, like: like.value }),
+				body: JSON.stringify({ courseNumber: courseNumber, like: like.value }),
 			});
 
 			const result = await safeJson(response);

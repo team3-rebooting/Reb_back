@@ -38,7 +38,10 @@ public class MyPasswordOKController implements Execute {
 
 			if (expertDTO != null) {
 				session.setAttribute("expertNumber", expertDTO.getExpertNumber());
+				
 				System.out.println("세션 값 expertNumber : " + expertDTO.getExpertNumber());
+			}else {
+				request.setAttribute("expertNumber", null);
 			}
 			
 			memberDTO.setMemberNumber(memberNumber);
