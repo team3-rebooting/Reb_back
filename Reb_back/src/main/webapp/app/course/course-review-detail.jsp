@@ -90,7 +90,7 @@
 					</div>
 					<!-- 좋아요 fontawesome -->
 					<div class="div-font-awesome-line">
-						<span>참여 루틴 모임 : ${courseReview.courseTitle}</span> <br> <input
+						<span>참여 수업 모임 : ${courseReview.courseTitle}</span> <br> <input
 							type="hidden" id="like" value="${like}"> <span
 							class="span-likes">좋아요 수 : <span id="span-like-count"><c:out
 									value="${courseReview.getLikeCount()}" /></span>

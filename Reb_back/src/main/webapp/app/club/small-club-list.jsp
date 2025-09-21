@@ -76,7 +76,7 @@
 												</c:otherwise>
 											</c:choose> --%>
 											<p class="p-name-date">
-												<c:out value="${smallClub.memberName}" />
+												<c:out value="${smallClub.memberNickname}" />
 												<c:out value="${smallClub.smallClubCreatedDate}" />
 											</p>
 										</div>
