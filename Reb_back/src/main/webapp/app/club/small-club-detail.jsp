@@ -54,7 +54,7 @@
 				</div>
 				<!-- 제목 -->
 				<p class="pagetitle">
-					<!-- 웹 보안 수업 후기 -->
+					<!-- 소모임 후기 -->
 					<c:out value="${smallClub.getSmallClubTitle()}" />
 				</p>
 				<!-- 유저 정보 영역 -->
