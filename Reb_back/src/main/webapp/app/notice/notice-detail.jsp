@@ -12,7 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/header.css">
 <link rel="stylesheet"
@@ -42,8 +43,10 @@
 					<div class="notice-detail-title-text pagetitle font-main">
 						<c:out value="${notice.noticeTitle}" />
 					</div>
-					<!-- 목록 이동  -->
-					<div class="back-list">목록</div>
+					<!-- 뒤로가기 버튼 -->
+					<p class="p-back">
+						<i class="fa-solid fa-arrow-left"></i>
+					</p>
 				</div>
 				<div class="notice-detail-admin-image-containter">
 					<div class="logo">
