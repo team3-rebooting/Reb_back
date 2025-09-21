@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminCourseReviewDAO;
-import com.sol.app.dto.AdminCourseReviewDTO;
+import com.sol.app.course.dao.CourseReviewLikeDAO;
 import com.sol.app.dto.AdminCourseReviewListDTO;
 
 public class CourseReviewListOkController implements Execute {
@@ -21,6 +21,7 @@ public class CourseReviewListOkController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		AdminCourseReviewDAO courseReviewDAO = new AdminCourseReviewDAO();
+		CourseReviewLikeDAO courseReviewLikeDAO = new CourseReviewLikeDAO();
 		Result result = new Result();
 
 		String temp = request.getParameter("page");
@@ -37,6 +38,9 @@ public class CourseReviewListOkController implements Execute {
 		pageMap.put("endRow", endRow);
 
 		List<AdminCourseReviewListDTO> courseReviewList = courseReviewDAO.selectAll(pageMap);
+		for(AdminCourseReviewListDTO c : courseReviewList) {
+			c.setLikeCount(courseReviewLikeDAO.getCount(c.getCourseReviewNumber()));
+		}
 		request.setAttribute("courseReviewList", courseReviewList);
 
 		// 페이징 정보 설정

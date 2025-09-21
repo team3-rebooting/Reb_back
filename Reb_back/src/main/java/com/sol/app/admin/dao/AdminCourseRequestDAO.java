@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.sol.app.dto.AdminCourseRequestDTO;
 import com.sol.app.dto.AdminCourseRequestListDTO;
+import com.sol.app.dto.CourseDeletedDTO;
 import com.sol.app.dto.CourseRequestDTO;
 import com.sol.config.MyBatisConfig;
 
@@ -57,6 +58,10 @@ public class AdminCourseRequestDAO {
 	}
 	public void deleteRequest(int courseNumber) {
 		sqlSession.delete("adminCourseRequest.deleteRequest",courseNumber);
+	}
+	//삭제시 삭제된 수업 테이블로 이동
+	public void deletedCourse(CourseDeletedDTO deletedDTO) {
+		sqlSession.insert("adminCourseRequest.deletedCourse",deletedDTO);
 	}
 	
 }

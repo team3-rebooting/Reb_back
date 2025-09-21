@@ -61,9 +61,7 @@
       </section>
     </div>
   </main>
-  <!-- 푸터 -->
-  <div id="footer">
-  </div>
+  <jsp:include page="/footer.jsp" />
 </body>
 <script src="${pageContext.request.contextPath}/assets/js/footer.js"></script>
 

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.admin.dao.AdminRoutineReviewDAO;
-import com.sol.app.dto.AdminRoutineReviewDTO;
 import com.sol.app.dto.AdminRoutineReviewListDTO;
+import com.sol.app.routine.dao.RoutineReviewLikeDAO;
 
 public class RoutineReviewListOkController implements Execute {
 
@@ -21,6 +21,7 @@ public class RoutineReviewListOkController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		AdminRoutineReviewDAO routineReviewDAO = new AdminRoutineReviewDAO();
+		RoutineReviewLikeDAO routineReviewLikeDAO = new RoutineReviewLikeDAO();
 		Result result = new Result();
 
 		String temp = request.getParameter("page");
@@ -37,6 +38,9 @@ public class RoutineReviewListOkController implements Execute {
 		pageMap.put("endRow", endRow);
 
 		List<AdminRoutineReviewListDTO> routineReviewList = routineReviewDAO.selectAll(pageMap);
+		for(AdminRoutineReviewListDTO r : routineReviewList) {
+			r.setLikeCount(routineReviewLikeDAO.getCount(r.getRoutineReviewNumber()));
+		}
 		request.setAttribute("routineReviewList", routineReviewList);
 
 		// 페이징 정보 설정

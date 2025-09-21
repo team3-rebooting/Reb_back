@@ -60,10 +60,10 @@
 		delete from tbl_course where
 		course_number = #{courseNumber}
 	</delete>
-	<!-- <select id="selectCourse" parameterType="int" resultType="CourseDTO">
+	 <select id="selectCourse" parameterType="int" resultType="CourseDTO">
 		select * from tbl_course where course_number = #{courseNumber}
 	</select>
-	 -->
+	
 	 <update id="updateDelete" parameterType="int">
 	 	update tbl_course set course_title = '삭제됨' , course_content = '삭제됨' where course_number = #{courseNumber}
 	 </update>

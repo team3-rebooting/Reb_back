@@ -150,7 +150,7 @@
 							<p class="font-main">모임장</p>
 							<!-- 모집 인원 입력 영역 -->
 							<div class="div-input-info">
-							<select name="routineLeaderNumber">
+							<select name="routineLeaderNumber" class="select-leader">
 								<c:forEach var="leader" items="${leader}">
 									<option value="${leader.routineLeaderNumber}"><c:out value="${leader.routineLeaderName}"/></option>
 								</c:forEach>
