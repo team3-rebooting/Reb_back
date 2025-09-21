@@ -131,6 +131,30 @@
                 짧은 글 읽어주셔서 감사합니다 -->
 						</div>
 					</div>
+					<div class="div-expert-detail">
+						<p class="p-expert-info-title">모집 정보</p>
+						<div class="div-small-club-detail">
+							<p>
+								모임일 :
+								<c:out value="${smallClub.smallClubStartDate}" />
+							</p>
+							<p>
+								시작 시간 :
+								<c:out value="${smallClub.smallClubStartTime}" />
+							</p>
+							<p>
+								모집 인원 : <%-- <span id="applicant-count">${course.courseApplicantCount}</span> --%>
+								/
+								<c:out value="${smallClub.smallClubRecruitCount}" />
+								명
+							</p>
+							<%-- <p>
+								가격 :
+								<c:out value="${course.coursePrice}" />
+								원
+							</p> --%>
+						</div>
+					</div>
 					<!-- 버튼 영역 -->
 					<div class="div-button-area">
 						<c:if
