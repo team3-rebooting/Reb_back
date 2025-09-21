@@ -65,7 +65,7 @@
                 <label for="monday">월요일</label><input type="checkbox" id="monday" name="dow" class="checkbox-input input-day" value="mon" class="font-main">
                 <label for="tuesday">화요일</label><input type="checkbox" id="tuesday" name="dow" class="checkbox-input input-day" value="tue" class="font-main">
                 <label for="wednesday">수요일</label><input type="checkbox" id="wednesday" name="dow"
-                  class="checkbox-input" value="wen">
+                  class="checkbox-input" value="wed">
                 <label for="thursday">목요일</label><input type="checkbox" id="thursday" name="dow" class="checkbox-input input-day" value="thu" class="font-main">
                 <label for="friday">금요일</label><input type="checkbox" id="friday" name="dow" class="checkbox-input input-day" value="fri" class="font-main">
                 <label for="saturday">토요일</label><input type="checkbox" id="saturday" name="dow" class="checkbox-input input-day" value="sat" class="font-main"> 
