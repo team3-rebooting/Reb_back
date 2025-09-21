@@ -13,6 +13,7 @@ public class SmallClubDTO {
 	private String smallClubStartDate;
 	private String smallClubStartTime;
 	private int smallClubRecruitCount;
+	private int smallClubApplicantCount;
 	private FileMemberProfileDTO fileWriterProFileList;
 	private List<FileMemberProfileDTO> fileCommentProFileList;
 	private List<FileSmallClubDTO> fileSmallClubList;
@@ -58,6 +59,12 @@ public class SmallClubDTO {
 	public void setSmallClubContent(String smallClubContent) {
 		this.smallClubContent = smallClubContent;
 	}
+	public int getSmallClubApplicantCount() {
+		return smallClubApplicantCount;
+	}
+	public void setSmallClubApplicantCount(int smallClubApplicantCount) {
+		this.smallClubApplicantCount = smallClubApplicantCount;
+	}
 	public FileMemberProfileDTO getFileWriterProFileList() {
 		return fileWriterProFileList;
 	}
@@ -100,10 +107,13 @@ public class SmallClubDTO {
 				+ ", memberNumber=" + memberNumber + ", memberNickname=" + memberNickname + ", smallClubCreatedDate="
 				+ smallClubCreatedDate + ", smallClubUpdatedDate=" + smallClubUpdatedDate + ", smallClubContent="
 				+ smallClubContent + ", smallClubStartDate=" + smallClubStartDate + ", smallClubStartTime="
-				+ smallClubStartTime + ", smallClubRecruitCount=" + smallClubRecruitCount + ", fileWriterProFileList="
-				+ fileWriterProFileList + ", fileCommentProFileList=" + fileCommentProFileList + ", fileSmallClubList="
-				+ fileSmallClubList + "]";
+				+ smallClubStartTime + ", smallClubRecruitCount=" + smallClubRecruitCount + ", smallClubApplicantCount="
+				+ smallClubApplicantCount + ", fileWriterProFileList=" + fileWriterProFileList
+				+ ", fileCommentProFileList=" + fileCommentProFileList + ", fileSmallClubList=" + fileSmallClubList
+				+ "]";
 	}
+
+
 	
 	
 	

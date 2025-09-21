@@ -23,7 +23,7 @@
 	
 	<update id="update" parameterType="SmallClubDTO">
 		update tbl_small_club
-		set small_club_title = #{smallClubTitle}, small_club_content = #{smallClubContent}, small_club_updated_date = sysdate, small_club_start_date = #{smallClubStartDate}, small_club_start_time = #{smallClubStartTime}, small_club_recruit_count = #{smallClubRecruitCount}
+		set small_club_title = #{smallClubTitle}, small_club_content = #{smallClubContent}, small_club_updated_date = sysdate, small_club_start_date = to_date(#{smallClubStartDate}, 'YYYY-MM-DD'), small_club_start_time = to_date(#{smallClubStartTime}, 'HH24:MI'), small_club_recruit_count = #{smallClubRecruitCount}
 		where small_club_number = #{smallClubNumber}
 	</update>
 </mapper>

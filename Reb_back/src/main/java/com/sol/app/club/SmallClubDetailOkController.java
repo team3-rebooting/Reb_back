@@ -1,7 +1,9 @@
 package com.sol.app.club;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +13,7 @@ import com.sol.app.Execute;
 import com.sol.app.Result;
 import com.sol.app.club.dao.FileSmallClubDAO;
 import com.sol.app.club.dao.SmallClubDAO;
+import com.sol.app.club.dao.SmallClubMemberApplicantDAO;
 import com.sol.app.dto.FileMemberProfileDTO;
 import com.sol.app.dto.FileSmallClubDTO;
 import com.sol.app.dto.SmallClubDTO;
@@ -24,6 +27,8 @@ public class SmallClubDetailOkController implements Execute{
 		Result result = new Result();
 		
 		String smallClubNumberStr = request.getParameter("smallClubNumber");
+		SmallClubMemberApplicantDAO applicantDAO = new SmallClubMemberApplicantDAO();
+		
 		if (smallClubNumberStr == null || smallClubNumberStr.trim().isEmpty()) {
 			System.out.println("smallClubNumber 값이 없습니다");
 			result.setPath("/app/club/small-club-list.jsp");
@@ -55,8 +60,8 @@ public class SmallClubDetailOkController implements Execute{
 		smallClubDTO.setFileSmallClubList(files);
 		
 		// 로그인한 사용자 번호 가져오기
-		Integer loginMemberNumber = (Integer) request.getSession().getAttribute("mamberNumber");
-		System.out.println("로그인 한 멤버 번호 : " + loginMemberNumber);
+		int memberNumber = (Integer) request.getSession().getAttribute("memberNumber");
+		System.out.println("로그인 한 멤버 번호 : " + memberNumber);
 		
 		// 현재 게시글의 작성자 번호 가져오기
 		int smallClubWriterNumber = smallClubDTO.getMemberNumber();
@@ -67,6 +72,16 @@ public class SmallClubDetailOkController implements Execute{
 		System.out.println("작성자 프로필 번호" + profiles);
 		
 		smallClubDTO.setFileWriterProFileList(profiles);
+		
+		Map<String, Integer> map = new HashMap<>();
+
+		map.put("smallClubNumber", smallClubNumber);
+		map.put("memberNumber", memberNumber);
+		System.out.println(smallClubNumber + "|" + memberNumber);
+
+		request.setAttribute("applicant", applicantDAO.select(map));
+		System.out.println(applicantDAO.select(map));
+		smallClubDTO.setSmallClubApplicantCount(applicantDAO.getCount(smallClubNumber));
 		
 		request.setAttribute("smallClub", smallClubDTO);
 		result.setPath("/app/club/small-club-detail.jsp");

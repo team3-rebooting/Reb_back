@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			return;
 		}
 		console.log(phoneNumber);
-		
+
 		if (!pnRegex.test(inputModalPnId.value)) {
 			alert("-를 입력해 형식을 지켜주세요.");
 			return;
@@ -107,26 +107,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			});
 	});
 
-	/*
-	// ===== 인증번호 확인 (서버 대신 로컬 비교) =====
-	veriId.addEventListener("click", function() {
-		const code = inputPhoneNumberId.value.trim();
-		if (!code) {
-			alert("인증번호를 입력해주세요.");
-		}
-
-		if (code === tempCode) {
-			alert("인증에 성공하였습니다.");
-			inputPhoneNumberId.style.backgroundColor = "#d9d9d9";
-			inputPhoneNumberId.readOnly = true;
-			veriId.style.color = "black";
-			veriId.style.backgroundColor = "#d9d9d9";
-			veriId.disabled = true;
-		} else {
-			alert("인증에 실패하였습니다.");
-		}
-	});
-	*/
 
 	let checkPhone = true;
 
@@ -220,8 +200,21 @@ document.addEventListener("DOMContentLoaded", function() {
 			console.log(`${data.memberSignupDate}`);
 */
 			// 결과 모달에 값 추가
-			document.getElementById('resultId').textContent = `ID : ${data.memberId}`;
-			document.getElementById('resultIdBirth').textContent = `가입일자 : ${data.memberSignupDate}`;
+			const resultContainer = document.getElementById('resultId');
+			const birthContainer = document.getElementById('resultIdBirth');
+			resultContainer.innerHTML = "";
+			birthContainer.innerHTML = "";
+
+			if (data.length === 0) {
+				resultContainer.textContent = "일치하는 아이디가 없습니다.";
+			} else {
+				data.forEach(item => {
+					const div = document.createElement('div');
+					// 한 줄에 ID와 가입일 함께 표시
+					div.textContent = `ID: ${item.memberId}, 가입일: ${item.memberSignupDate}`;
+					resultContainer.appendChild(div);
+				});
+			}
 
 			idModal.style.display = "none";
 			idResultModal.style.display = "flex";
@@ -251,8 +244,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		reIdPn.disabled = true;
 	});
 	/*--------------------------------------------------------------------*/
-	
-	
+
+
 	/*--------------------------------------------------------------------*/
 
 	const findPwModal = document.querySelector(".p-findpw");
@@ -328,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			return;
 		}
 		console.log(phoneNumber);
-		
+
 		if (!pnRegex.test(inputModalPnPw.value)) {
 			alert("-를 입력해 형식을 지켜주세요.");
 			return;
@@ -376,8 +369,8 @@ document.addEventListener("DOMContentLoaded", function() {
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ code: code })
 		})
-			.then(response =>{
-				if(!response.ok) throw new Error(`HTTP 오류!, 상태코드 : ${response.status}`);
+			.then(response => {
+				if (!response.ok) throw new Error(`HTTP 오류!, 상태코드 : ${response.status}`);
 				return response.json();
 			})
 			.then(data => {
