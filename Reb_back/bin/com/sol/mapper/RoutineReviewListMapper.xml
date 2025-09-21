@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="routineReviewList">
+	<select id="select" parameterType="int" resultType="RoutineReviewListDTO">
+		<![CDATA[
+		SELECT rr.ROUTINE_REVIEW_NUMBER, rr.ROUTINE_NUMBER, r.routine_title, rr.routine_review_title, m.MEMBER_NUMBER, m.MEMBER_NICKNAME, rr.ROUTINE_REVIEW_CREATED_DATE , rr.ROUTINE_REVIEW_UPDATED_DATE, rr.ROUTINE_REVIEW_CONTENT
+		FROM tbl_Routine_Review rr JOIN tbl_routine r on rr.routine_number = r.routine_number LEFT JOIN tbl_file_routine_review fr ON rr.ROUTINE_REVIEW_NUMBER = fr.ROUTINE_REVIEW_NUMBER
+		JOIN tbl_Member m ON rr.MEMBER_NUMBER = m.MEMBER_NUMBER
+		WHERE rr.routine_review_number = #{routineReviewNumber}
+		]]>
+	</select>
+	
+	<select id="selectAll" resultType="RoutineReviewListDTO">
+		<![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+			SELECT rr.ROUTINE_REVIEW_NUMBER, rr.ROUTINE_NUMBER, rr.routine_review_title, m.MEMBER_NUMBER, m.MEMBER_NICKNAME, rr.ROUTINE_REVIEW_CREATED_DATE , rr.ROUTINE_REVIEW_UPDATED_DATE, rr.ROUTINE_REVIEW_CONTENT
+			FROM tbl_Routine_Review rr LEFT JOIN tbl_file_routine_review fr ON rr.ROUTINE_REVIEW_NUMBER = fr.ROUTINE_REVIEW_NUMBER
+			JOIN tbl_Member m ON rr.MEMBER_NUMBER = m.MEMBER_NUMBER
+			ORDER BY rr.ROUTINE_REVIEW_CREATED_DATE DESC
+		) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
+		]]>
+	</select>
+	<select id="selectMain" resultType="RoutineReviewListDTO">
+		<![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+			SELECT rr.ROUTINE_REVIEW_NUMBER, rr.ROUTINE_NUMBER, rr.routine_review_title, m.MEMBER_NUMBER, m.MEMBER_NICKNAME, rr.ROUTINE_REVIEW_CREATED_DATE , rr.ROUTINE_REVIEW_UPDATED_DATE, rr.ROUTINE_REVIEW_CONTENT
+			FROM tbl_Routine_Review rr LEFT JOIN tbl_file_routine_review fr ON rr.ROUTINE_REVIEW_NUMBER = fr.ROUTINE_REVIEW_NUMBER
+			JOIN tbl_Member m ON rr.MEMBER_NUMBER = m.MEMBER_NUMBER
+			where rr.routine_review_created_date between (sysdate - 30) and sysdate
+			order by (select count(*) from tbl_routine_review_like rrl where rrl.routine_review_number = rr.routine_review_number) desc
+		) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
+		]]>
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		SELECT count(ROUTINE_REVIEW_NUMBER) FROM tbl_Routine_Review
+	</select>
+</mapper>

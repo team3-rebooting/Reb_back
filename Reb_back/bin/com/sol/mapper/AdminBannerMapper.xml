@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminBanner">
+	<select id="selectAll" resultType="AdminBannerDTO">
+		SELECT b.banner_number,
+		b.banner_title, b.banner_order_number, fb.file_system_name 
+		FROM tbl_banner b JOIN tbl_file_banner fb 
+		ON b.banner_number = fb.banner_number 
+		ORDER BY BANNER_ORDER_NUMBER 
+	</select>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(banner_number)
+		FROM tbl_banner	
+	</select>
+	<insert id="insert" parameterType="AdminBannerDTO">
+		<selectKey keyProperty="bannerNumber" resultType="int" order="BEFORE">
+			SELECT seq_banner.nextval FROM DUAL
+		</selectKey>
+		INSERT INTO TBL_BANNER(BANNER_NUMBER, BANNER_TITLE, BANNER_ORDER_NUMBER)
+		VALUES(#{bannerNumber}, #{bannerTitle}, #{bannerOrderNumber})
+	</insert>
+	<update id="update" parameterType="AdminBannerDTO">
+		UPDATE TBL_BANNER SET BANNER_ORDER_NUMBER = #{bannerOrderNumber} WHERE BANNER_NUMBER = #{bannerNumber}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM TBL_BANNER WHERE BANNER_NUMBER = #{bannerNumber}
+	</delete>
+	<select id="findBannerNumber" parameterType="int" resultType="int">
+		select banner_number from tbl_banner where banner_order_number = #{bannerOrderNumber}
+	</select>
+</mapper>

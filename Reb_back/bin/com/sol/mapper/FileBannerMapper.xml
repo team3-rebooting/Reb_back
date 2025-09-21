@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fileBanner">
+	<!-- 파일 추가 -->
+	<insert id="insert" parameterType="FileBannerDTO">
+		insert into tbl_file_banner
+		values(#{fileSystemName}, #{fileOriginalName}, #{bannerNumber})
+	</insert>
+	
+	<!-- 파일 조회 -->
+	<select id="select" parameterType="int" resultType="FileBannerDTO">
+		select file_system_name, file_original_name, banner_number
+		from tbl_file_banner
+		where banner_number = #{bannerNumber}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_file_banner
+		where banner_number = #{bannerNumber}
+	</delete>
+</mapper>

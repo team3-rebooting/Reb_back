@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fileCourseReview">
+	<!-- 파일 추가 -->
+	<insert id="insert" parameterType="FileCourseReviewDTO">
+		insert into tbl_file_course_review(file_system_name, file_original_name, course_review_number)
+		values(#{fileSystemName}, #{fileOriginalName}, #{courseReviewNumber})
+	</insert>
+	
+	<!-- 파일 조회 -->
+	<select id="select" parameterType="int" resultType="FileCourseReviewDTO">
+		select file_system_name, file_original_name, course_review_number
+		from tbl_file_course_review
+		where course_review_number = #{courseReviewNumber}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_file_course_review
+		where course_review_number = #{courseReviewNumber}
+	</delete>
+
+</mapper>

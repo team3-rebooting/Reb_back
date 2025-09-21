@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myMember">
+	<select id="select" parameterType="int" resultType="MyMemberDTO">
+		<![CDATA[
+		SELECT m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_PASSWORD, a.ADDRESS_NUMBER as member_Address_Number, a.ZIP_CODE, a.ADDRESS, a.ADDRESS_DETAIL, m.MEMBER_EMAIL, m.MEMBER_NAME, m.MEMBER_GENDER, m.MEMBER_NICKNAME, m.MEMBER_PHONE_NUMBER, ea.EXPERT_STATUS_NUMBER as EXPERT_CERT_STATUS_NUMBER, ea.EXPERT_APPLICANT_REASON, m.MEMBER_BIRTH_DATE
+			FROM TBL_MEMBER m 
+			JOIN TBL_ADDRESS a ON m.MEMBER_ADDRESS_NUMBER = a.ADDRESS_NUMBER
+			LEFT JOIN TBL_EXPERT_APPLICANT ea ON ea.MEMBER_NUMBER = m.MEMBER_NUMBER
+			WHERE m.Member_NUMBER = #{memberNumber}
+		]]>
+	</select>
+</mapper>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<!-- 로그인 쿼리 작성 -->
+	<select id="login" parameterType="MemberDTO" resultType="int">
+		SELECT MEMBER_NUMBER
+		FROM TBL_MEMBER
+		WHERE MEMBER_ID = #{memberId} and MEMBER_PASSWORD = #{memberPassword}
+	</select>
+	
+	<!-- 회원가입 주소 입력 -->
+	<insert id="signupAddress" parameterType="memberSignupDTO">
+		<selectKey keyProperty="addressNumber" resultType="int" order="BEFORE">
+			SELECT seq_address.nextval from dual
+		</selectKey>
+		INSERT INTO TBL_ADDRESS
+		VALUES(#{addressNumber}, #{zipCode}, #{address}, #{addressAdd})
+	</insert>
+	
+	<!-- 회원 가입 -->
+	<insert id="signup" parameterType="MemberSignupDTO">
+		INSERT INTO TBL_MEMBER(member_number, member_id, member_password, member_address_number, member_email, member_name, member_gender, member_nickname, member_phone_number, member_birth_date, member_signup_date)
+		VALUES(SEQ_MEMBER.NEXTVAL, #{memberId}, #{memberPassword}, #{addressNumber}, #{memberEmail}, #{memberName},  #{memberGender}, #{memberNickname}, #{memberPhoneNumber}, #{memberBirthDate}, to_date(sysdate, 'yyyy-mm-dd'))
+	</insert>
+	
+	<!-- 아이디 전화번호 인증 -->
+	<select id="findId" parameterType="MemberDTO" resultType="MemberDTO">
+		select member_id as memberId, member_signup_date as memberSignupDate
+		from tbl_member
+		where member_name = #{memberName} and member_phone_number = #{memberPhoneNumber}
+	</select>
+	
+	<select id="findPw" parameterType="MemberDTO" resultType="MemberDTO">
+		select member_password
+		from tbl_member
+		where member_name = #{memberName} and member_phone_number = #{memberPhoneNumber} and member_id = #{memberId}
+	</select>
+	
+	<select id="getId" parameterType="int" resultType="string">
+		SELECT MEMBER_ID
+		FROM TBL_MEMBER
+		WHERE MEMBER_NUMBER = #{memberNumber}
+	</select>
+	
+	<select id="checkId" parameterType="String" resultType="int">
+		select count(member_number) from tbl_member
+		where member_id = #{memberId}
+	</select>
+	
+	<select id= "checkPassword" parameterType="MemberDTO" resultType="int">
+		SELECT count(member_number)
+		FROM TBL_MEMBER
+		WHERE MEMBER_NUMBER = #{memberNumber} and MEMBER_PASSWORD = #{memberPassword}
+	</select>
+	
+	<select id= "checkNickname" parameterType="string" resultType="int">
+		SELECT count(member_number)
+		FROM TBL_MEMBER
+		WHERE  MEMBER_NICKNAME = #{memberNickname}
+	</select>
+	
+	<update id="update" parameterType="MemberDTO">
+		UPDATE TBL_MEMBER 
+		SET MEMBER_PASSWORD = #{memberPassword}, MEMBER_NICKNAME = #{memberNickname}, 
+			MEMBER_ADDRESS_NUMBER = #{memberAddressNumber}, 
+			MEMBER_EMAIL = #{memberEmail}, MEMBER_PHONE_NUMBER = #{memberPhoneNumber}
+		WHERE MEMBER_NUMBER = #{memberNumber}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM TBL_MEMBER 
+		WHERE MEMBER_NUMBER = #{memberNumber}
+	</delete>
+	
+	<select id="findExpert" parameterType="int" resultType="MemberDTO">
+		select member_number, member_name , member_gender, member_phone_number, member_email 
+		from tbl_member where member_number = #{memberNumber}
+	</select>
+	<select id="findName" parameterType="int" resultType="String">
+		select member_name from tbl_member where member_number = #{memberNumber}
+	</select>
+</mapper>

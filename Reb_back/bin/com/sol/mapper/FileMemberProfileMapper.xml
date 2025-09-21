@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fileMemberProfile">
+	<select id="select" parameterType="int" resultType="FileMemberProfileDTO">
+		<![CDATA[
+		SELECT file_system_name, file_original_name, member_number
+		FROM TBL_FILE_MEMBER_PROFILE where Member_NUMBER = #{memberNumber}
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="FileMemberProfileDTO">
+		INSERT INTO TBL_FILE_MEMBER_PROFILE(FILE_SYSTEM_NAME, FILE_ORIGINAL_NAME, MEMBER_NUMBER)
+		VALUES(#{fileSystemName}, #{fileOriginalName}, #{memberNumber})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM TBL_FILE_MEMBER_PROFILE 
+		WHERE MEMBER_NUMBER = #{memberNumber}
+	</delete>
+</mapper>

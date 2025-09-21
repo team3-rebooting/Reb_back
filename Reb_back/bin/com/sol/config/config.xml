@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 카멜 케이스 매핑 설정 -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+
+		<!-- 쿼리 결과 필드가 null인 경우 누락되지 않도록 설정 -->
+		<setting name="callSettersOnNulls" value="true" />
+
+		<!-- 쿼리에 보내는 파라미터가 null인 경우 오류가 발생하는 것을 방지 설정 -->
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<!-- DTO 별칭 설정 추후 추가 -->
+	<typeAliases>
+		<typeAlias type="com.sol.app.dto.MemberDTO"
+			alias="MemberDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminDTO" alias="AdminDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.MyMemberDTO"
+			alias="MyMemberDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.MemberSignupDTO"
+			alias="MemberSignupDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminNoticeListDTO"
+			alias="AdminNoticeListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminNoticeDTO"
+			alias="AdminNoticeDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.NoticeDTO"
+			alias="NoticeDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.MyRoutineDTO"
+			alias="MyRoutineDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.MyCourseDTO"
+			alias="MyCourseDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.MyReviewDTO"
+			alias="MyReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.MyCommentDTO"
+			alias="MyCommentDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.MyCourseRequestDTO"
+			alias="MyCourseRequestDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.RoutineListDTO"
+			alias="RoutineListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.RoutineMemberApplicantDTO"
+			alias="RoutineMemberApplicantDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.CourseReviewLikeDTO"
+			alias="CourseReviewLikeDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.RoutineReviewLikeDTO"
+			alias="RoutineReviewLikeDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.RoutineReviewCommentDTO"
+			alias="RoutineReviewCommentDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.CourseReviewCommentDTO"
+			alias="CourseReviewCommentDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.RoutineReviewListDTO"
+			alias="RoutineReviewListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminRoutineListDTO"
+			alias="AdminRoutineListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminRoutineDTO"
+			alias="AdminRoutineDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminMemberListDTO"
+			alias="AdminMemberListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.CourseReviewDTO"
+			alias="CourseReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.CourseReviewListDTO"
+			alias="CourseReviewListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileMemberProfileDTO"
+			alias="FileMemberProfileDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.SponsorDTO"
+			alias="SponsorDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseRequestListDTO"
+			alias="AdminCourseRequestListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseRequestDTO"
+			alias="AdminCourseRequestDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseListDTO"
+			alias="AdminCourseListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseDTO"
+			alias="AdminCourseDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminSponsorListDTO"
+			alias="AdminSponsorListDTO"></typeAlias>
+		<typeAlias
+			type="com.sol.app.dto.AdminExpertApplicantListDTO"
+			alias="AdminExpertApplicantListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminExpertApplicantDTO"
+			alias="AdminExpertApplicantDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.ExpertApplicantDTO"
+			alias="ExpertApplicantDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminExpertListDTO"
+			alias="AdminExpertListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminExpertDTO"
+			alias="AdminExpertDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.ExpertApplicantDTO"
+			alias="ExpertApplicantDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminRoutineReviewDTO"
+			alias="AdminRoutineReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminRoutineReviewListDTO"
+			alias="AdminRoutineReviewListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseReviewDTO"
+			alias="AdminCourseReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminCourseReviewListDTO"
+			alias="AdminCourseReviewListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.AdminBannerDTO"
+			alias="AdminBannerDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileNoticeDTO"
+			alias="FileNoticeDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.RoutineReviewDTO"
+			alias="RoutineReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileRoutineReviewDTO"
+			alias="FileRoutineReviewDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileAdminDTO"
+         alias="FileAdminDTO"></typeAlias>
+        <typeAlias type="com.sol.app.dto.FileRoutineDTO"
+         alias="FileRoutineDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.CourseListDTO"
+			alias="CourseListDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.CourseDTO"
+			alias="CourseDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.CourseRequestDTO"
+			alias="CourseRequestDTO"></typeAlias>
+		<typeAlias type="com.sol.app.dto.FileCourseDTO"
+			alias="FileCourseDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.FileExpertDTO"
+         alias="FileExpertDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.FileCourseReviewDTO"
+         alias="FileCourseReviewDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.AddressDTO"
+         alias="AddressDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.RoutineReviewCommentListDTO"
+         alias="RoutineReviewCommentListDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.CourseReviewCommentListDTO"
+         alias="CourseReviewCommentListDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.RoutineDTO"
+         alias="RoutineDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.ExpertDTO"
+         alias="ExpertDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.MyExpertDTO"
+         alias="MyExpertDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.CourseMemberApplicantDTO"
+         alias="CourseMemberApplicantDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.FileBannerDTO"
+         alias="FileBannerDTO"></typeAlias>
+      <typeAlias type="com.sol.app.dto.RoutineLeaderDTO"
+         alias="RoutineLeaderDTO"></typeAlias>
+         <typeAlias type="com.sol.app.dto.SmallClubListDTO" alias="SmallClubListDTO"></typeAlias>
+         <typeAlias type="com.sol.app.dto.FileSmallClubDTO" alias="FileSmallClubDTO"></typeAlias>
+         <typeAlias type="com.sol.app.dto.SmallClubDTO" alias="SmallClubDTO"></typeAlias>
+         <typeAlias type="com.sol.app.dto.SmallClubCommentDTO" alias="SmallClubCommentDTO"></typeAlias>
+         <typeAlias type="com.sol.app.dto.SmallClubCommentListDTO" alias="SmallClubCommentListDTO"></typeAlias>
+	</typeAliases>
+
+	<environments default="oracle">
+		<environment id="oracle">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.OracleDriver" />
+				<property name="url"
+					value="jdbc:oracle:thin:@localhost:1521/xe" />
+				<property name="username" value="kdt03" />
+				<property name="password" value="rebooting0829" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- mapper.xml 추후 추가 -->
+	<mappers>
+		<mapper resource="com/sol/mapper/MemberMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminMapper.xml" />
+		<mapper resource="com/sol/mapper/MyMemberMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminNoticeMapper.xml" />
+		<mapper resource="com/sol/mapper/MyRoutineMapper.xml" />
+		<mapper resource="com/sol/mapper/MyCourseMapper.xml" />
+		<mapper resource="com/sol/mapper/MyReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/MyCommentMapper.xml" />
+		<mapper resource="com/sol/mapper/MyCourseRequestMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineListMapper.xml" />
+		<mapper
+			resource="com/sol/mapper/RoutineMemberApplicantMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewLikeMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseReviewLikeMapper.xml" />
+		<mapper
+			resource="com/sol/mapper/RoutineReviewCommentMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewListMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminRoutineMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminMemberMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/FileMemberProfileMapper.xml" />
+		<mapper resource="com/sol/mapper/SponsorMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminCourseRequestMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminCourseMapper.xml" />
+		<mapper
+			resource="com/sol/mapper/AdminExpertApplicantMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminExpertMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminRoutineReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminCourseReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/AdminBannerMapper.xml" />
+		<mapper resource="com/sol/mapper/RoutineReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/FileRoutineReviewMapper.xml" />
+		<mapper resource="com/sol/mapper/FileAdminMapper.xml" />
+		<mapper resource="com/sol/mapper/FileNoticeMapper.xml" />
+		<mapper resource="com/sol/mapper/FileRoutineMapper.xml" />
+		<mapper resource="com/sol/mapper/CourseListMapper.xml" />
+		<mapper resource="com/sol/mapper/FileCourseMapper.xml" />
+      	<mapper resource="com/sol/mapper/FileExpertMapper.xml" />
+      	<mapper resource="com/sol/mapper/FileCourseReviewMapper.xml" />
+      	<mapper resource="com/sol/mapper/FileSmallClubMapper.xml" />
+      	<mapper resource="com/sol/mapper/AddressMapper.xml" />      	
+      	<mapper resource="com/sol/mapper/RoutineReviewCommentListMapper.xml" />
+      	<mapper resource="com/sol/mapper/CourseReviewCommentListMapper.xml" />
+      	<mapper resource="com/sol/mapper/ExpertMapper.xml" />
+      	<mapper resource="com/sol/mapper/MyExpertMapper.xml" />
+      	<mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" />
+      	<mapper resource="com/sol/mapper/ExpertApplicantMapper.xml"/> 
+      	<mapper resource="com/sol/mapper/ExpertCourseRequestMapper.xml"/> 
+      	<mapper resource="com/sol/mapper/FileBannerMapper.xml"/> 
+      	<mapper resource="com/sol/mapper/RoutineLeaderMapper.xml"/>      	
+      	<mapper resource="com/sol/mapper/CourseRequestMapper.xml"/>
+      	<mapper resource="com/sol/mapper/SmallClubListMapper.xml"/>
+      	<mapper resource="com/sol/mapper/SmallClubMapper.xml"/>
+      	<mapper resource="com/sol/mapper/SmallClubCommentMapper.xml"/>
+      	<mapper resource="com/sol/mapper/SmallClubCommentListMapper.xml"/>
+	</mappers>
+	<!-- <mapper resource="com/sol/mapper/FileMemberProfileMapper.xml"/> -->
+	<!-- <mapper resource="com/sol/mapper/AddressMapper.xml" /> <mapper resource="com/sol/mapper/CourseMemberApplicantMapper.xml" 
+		/> <mapper resource="com/sol/mapper/CourseRequestMapper.xml" /> <mapper resource="com/sol/mapper/CourseReviewCommentList.xml" 
+		/> <mapper resource="com/sol/mapper/CourseReviewCommentMapper.xml" /> <mapper 
+		resource="com/sol/mapper/CourseReviewMapper.xml" /> <mapper resource="com/sol/mapper/ExpertApplicantMapper.xml" 
+		/> <mapper resource="com/sol/mapper/ExpertFileMapper.xml" /> <mapper resource="com/sol/mapper/ExpertMapper.xml" 
+		/> <mapper resource="com/sol/mapper/ExpertMapper.xml" /> <mapper resource="com/sol/mapper/FileMapper.xml" 
+		/> <mapper resource="com/sol/mapper/MemberMapper.xml" /> <mapper resource="com/sol/mapper/MyCommentMapper.xml" 
+		/> <mapper resource="com/sol/mapper/MyCourseMapper.xml" /> <mapper resource="com/sol/mapper/MyCourseRequestMapper.xml" 
+		/> <mapper resource="com/sol/mapper/MyExpertMapper.xml" /> <mapper resource="com/sol/mapper/MyPageMapper.xml" 
+		/> <mapper resource="com/sol/mapper/MyReviewMapper.xml" /> <mapper resource="com/sol/mapper/MyRoutineMapper.xml" 
+		/> <mapper resource="com/sol/mapper/RoutineListMapper.xml" /> <mapper resource="com/sol/mapper/RoutineMemberApplicantMapper.xml" 
+		/> <mapper resource="com/sol/mapper/RoutineReviewCommentList.xml" /> <mapper 
+		resource="com/sol/mapper/RoutineReviewCommentMapper.xml" /> <mapper resource="com/sol/mapper/RoutineReviewLikeMapper.xml" 
+		/> <mapper resource="com/sol/mapper/RoutineReviewListMapper.xml" /> <mapper 
+		resource="com/sol/mapper/RoutineReviewMapper.xml" /> <mapper resource="com/sol/mapper/SponsorMapper.xml" 
+		/> -->
+</configuration>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="routineReviewComment">
+	<update id="update" parameterType="RoutineReviewCommentDTO">
+		update TBL_ROUTINE_REVIEW_COMMENT
+		SET
+		ROUTINE_REVIEW_UPDATED_DATE = sysdate, 
+		ROUTINE_REVIEW_CONTENT = #{routineReviewContent}
+		where
+		ROUTINE_REVIEW_COMMENT_NUMBER = #{routineReviewCommentNumber}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from TBL_ROUTINE_REVIEW_COMMENT
+		where ROUTINE_REVIEW_COMMENT_NUMBER = #{routineReviewCommentNumber}
+	</delete>
+	
+	<insert id="insert" parameterType="RoutineReviewCommentDTO">
+		INSERT INTO TBL_ROUTINE_REVIEW_COMMENT (ROUTINE_REVIEW_COMMENT_NUMBER, ROUTINE_REVIEW_NUMBER, MEMBER_NUMBER, ROUTINE_REVIEW_CREATED_DATE, ROUTINE_REVIEW_UPDATED_DATE, ROUTINE_REVIEW_CONTENT) 
+		VALUES (SEQ_ROUTINE_REVIEW_COMMENT.nextval, #{routineReviewNumber}, #{memberNumber}, sysdate, sysdate, #{routineReviewContent})
+	</insert>
+</mapper>

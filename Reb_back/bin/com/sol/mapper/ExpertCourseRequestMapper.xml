@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="expertCourseRequest">
+	<insert id="create" parameterType="CourseDTO">
+		<selectKey keyProperty="courseNumber" resultType="int" order="BEFORE">
+			select SEQ_COURSE.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO TBL_COURSE (COURSE_NUMBER, COURSE_TITLE, COURSE_CONTENT, EXPERT_NUMBER, COURSE_POST_DATE, COURSE_POST_UPDATE_DATE, COURSE_RECRUIT_START_DATE, COURSE_RECRUIT_END_DATE, COURSE_START_DATE, COURSE_END_DATE, COURSE_START_TIME, COURSE_END_TIME, COURSE_DAY_OF_WEEK, COURSE_RECRUIT_COUNT, COURSE_RECRUIT_STATUS_NUMBER) 
+		VALUES (#{courseNumber}, #{courseTitle}, #{courseContent}, #{expertNumber}, sysdate, sysdate, to_date(#{courseStartDate}, 'yyyy-mm-dd') - 31 , to_date(#{courseStartDate}, 'yyyy-mm-dd') - 1, to_date(#{courseStartDate}, 'yyyy-mm-dd'), to_date(#{courseEndDate}, 'yyyy-mm-dd'), to_date(#{courseStartTime}, 'hh24:mi'), to_date(#{courseEndTime}, 'hh24:mi'), #{courseDayOfWeek}, #{courseRecruitCount}, 2)
+	</insert>
+	
+	<select id="isExist" parameterType="int">
+		select count(course_number) from TBL_COURSE_REQUEST where course_number = #{courseNumber}
+	</select>
+	<update id="update" parameterType="int">
+		update TBL_COURSE_REQUEST
+		set
+			course_open_status_number = 1, 
+			course_request_type_number = 2, 
+			course_request_date = sysdate
+		where 
+			course_number = #{courseNumber}
+	</update>
+	<insert id="createRequest" parameterType="int">
+		INSERT INTO TBL_COURSE_REQUEST(course_number, course_open_status_number, course_request_type_number, course_register_date, course_request_date)
+		VALUES(#{courseNumber}, 1, 1, sysdate, sysdate)
+	</insert>
+</mapper>

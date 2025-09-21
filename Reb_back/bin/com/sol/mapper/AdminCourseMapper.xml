@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminCourse">
+	<select id="selectAll" resultType="AdminCourseListDTO">
+		<![CDATA[
+		SELECT * FROM (
+    			SELECT ROWNUM AS rnum, subquery.*
+    			FROM (
+                		SELECT c.course_number, m.member_number, m.member_id, m.member_name, c.COURSE_TITLE,
+						TO_CHAR(c.COURSE_START_DATE, 'YYYY-MM-DD') AS COURSE_START_DATE,
+            			TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD') AS COURSE_END_DATE,
+            			c.course_recruit_status_number 
+        				FROM TBL_course c
+        				JOIN TBL_EXPERT e 
+    					ON c.EXPERT_NUMBER = e.EXPERT_NUMBER 
+						JOIN TBL_MEMBER m 
+    					ON e.MEMBER_NUMBER = m.MEMBER_NUMBER 
+    					JOIN tbl_course_request cr
+    					ON cr.course_number = c.course_number
+    					WHERE cr.course_open_status_number = 2 
+            			ORDER BY c.COURSE_START_DATE
+        			) subquery
+				)	
+			WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
+	</select>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(course_number)
+		FROM tbl_course
+	</select>
+	<select id="select" parameterType="int"
+		resultType="adminCourseDTO">
+	<![CDATA[
+ 	SELECT
+    c.COURSE_NUMBER, c.COURSE_TITLE, c.COURSE_CONTENT,
+    e.EXPERT_NUMBER, m.member_name, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER,  e.expert_field_number,
+    c.course_recruit_status_number,
+    (select count(*) from tbl_course_member_applicant cma where
+    cma.course_number = c.course_number) AS course_count, 
+    TO_CHAR(c.COURSE_POST_DATE, 'YYYY-MM-DD') AS COURSE_POST_DATE, 
+    TO_CHAR(c.COURSE_POST_UPDATE_DATE, 'YYYY-MM-DD') AS COURSE_POST_UPDATE_DATE,
+    TO_CHAR(c.COURSE_RECRUIT_START_DATE, 'YYYY-MM-DD') AS COURSE_RECRUIT_START_DATE, 
+    TO_CHAR(c.COURSE_RECRUIT_END_DATE, 'YYYY-MM-DD') AS COURSE_RECRUIT_END_DATE,
+    TO_CHAR(c.COURSE_START_DATE, 'YYYY-MM-DD') AS COURSE_START_DATE, 
+    TO_CHAR(c.COURSE_END_DATE, 'YYYY-MM-DD') AS COURSE_END_DATE,
+    TO_CHAR(c.COURSE_START_TIME, 'HH24:MI') AS COURSE_START_TIME, 
+    TO_CHAR(c.COURSE_END_TIME, 'HH24:MI') AS COURSE_END_TIME,
+    c.COURSE_DAY_OF_WEEK, c.COURSE_RECRUIT_COUNT 
+	FROM TBL_COURSE c
+	JOIN TBL_EXPERT e
+    ON c.EXPERT_NUMBER = e.EXPERT_NUMBER
+	LEFT JOIN TBL_FILE_COURSE fc
+    ON c.COURSE_NUMBER = fc.COURSE_NUMBER
+    JOIN tbl_member m
+    ON e.member_number = m.member_number
+	WHERE c.COURSE_NUMBER = #{courseNumber}
+	]]>
+	</select>
+	<delete id="delete" parameterType="int">
+		delete from tbl_course where
+		course_number = #{courseNumber}
+	</delete>
+	<!-- <select id="selectCourse" parameterType="int" resultType="CourseDTO">
+		select * from tbl_course where course_number = #{courseNumber}
+	</select>
+	 -->
+	 <update id="updateDelete" parameterType="int">
+	 	update tbl_course set course_title = '삭제됨' , course_content = '삭제됨' where course_number = #{courseNumber}
+	 </update>
+</mapper>

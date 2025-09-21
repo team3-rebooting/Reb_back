@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="expertApplicant">
+	<select id="getReason" parameterType="int" resultType="string">
+		SELECT EXPERT_APPLICANT_REASON FROM TBL_EXPERT_APPLICANT
+		WHERE MEMBER_NUMBER = #{memberNumber}
+	</select>
+	<delete id="delete" parameterType="int">
+		delete from TBL_EXPERT_APPLICANT WHERE MEMBER_NUMBER = #{memberNumber}
+	</delete>
+	<insert id="insert" parameterType="int">
+		INSERT INTO TBL_EXPERT_APPLICANT (MEMBER_NUMBER, EXPERT_STATUS_NUMBER, EXPERT_CHECK_DATE) VALUES (#{memberNumber}, 1, sysdate)
+	</insert>
+	<select id="exist" parameterType="int" resultType="int">
+		select count(MEMBER_NUMBER) from TBL_EXPERT_APPLICANT where MEMBER_NUMBER = #{memberNumber}
+	</select>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myCourseRequest">
+	<select id="selectList" parameterType="map" resultType="MyCourseRequestDTO">
+		<![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+			SELECT
+			e.MEMBER_NUMBER, c.COURSE_NUMBER, cr.PREV_COURSE_NUMBER,
+			cr.COURSE_OPEN_STATUS_NUMBER, 
+			cr.COURSE_REQUEST_TYPE_NUMBER,
+			cr.COURSE_REGISTER_DATE, cr.COURSE_REQUEST_DATE,
+			cr.COURSE_REJECT_REASON,
+			c.COURSE_TITLE, e.EXPERT_NUMBER,
+			e.EXPERT_FIELD_NUMBER,
+			c.COURSE_RECRUIT_COUNT
+			FROM tbl_course c
+			JOIN tbl_expert e ON c.EXPERT_NUMBER = e.EXPERT_NUMBER
+			JOIN tbl_course_request cr
+				ON cr.COURSE_NUMBER = c.COURSE_NUMBER
+				ORDER BY cr.COURSE_REQUEST_DATE desc
+		) subquery WHERE subquery.MEMBER_NUMBER = ${memberNumber}
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
+	</select>	
+	
+	<select id="getTotal" parameterType="int" resultType="int">
+		SELECT count(c.EXPERT_NUMBER)
+		FROM tbl_course c
+			JOIN(
+			SELECT *
+			FROM tbl_expert
+			WHERE MEMBER_NUMBER = #{memberNumber}) e
+			ON c.EXPERT_NUMBER = e.EXPERT_NUMBER
+			JOIN tbl_course_request cr
+				ON cr.COURSE_NUMBER = c.COURSE_NUMBER
+	</select>
+</mapper>

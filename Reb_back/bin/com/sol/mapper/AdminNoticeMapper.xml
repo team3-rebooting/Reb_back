@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminNotice">
+	<select id="select" parameterType="int" resultType="AdminNoticeDTO">
+		<![CDATA[
+		SELECT  n.NOTICE_NUMBER, n.NOTICE_TITLE, n.ADMIN_NUMBER,a.ADMIN_NICKNAME,
+    		TO_CHAR(n.NOTICE_CREATED_DATE, 'YYYY-MM-DD') AS NOTICE_CREATED_DATE,
+    		TO_CHAR(n.NOTICE_UPDATED_DATE, 'YYYY-MM-DD') AS NOTICE_UPDATED_DATE,
+    		n.NOTICE_CONTENT  
+			FROM TBL_NOTICE n JOIN TBL_ADMIN a ON n.ADMIN_NUMBER = a.ADMIN_NUMBER 
+			WHERE n.NOTICE_NUMBER = #{noticeNumber}
+		]]>
+	</select>
+	<select id="selectAll" resultType="AdminNoticeListDTO">
+		<![CDATA[
+		select * from (
+			select rownum as rnum, subquery.* 
+					from (
+						select a.admin_number, a.admin_nickname, n.notice_number, n.notice_title, n.notice_content, 
+						TO_CHAR(n.notice_created_date,'YY-MM-DD') AS notice_created_date 
+						from tbl_admin a join tbl_notice n
+						on a.admin_number = n.admin_number
+						order by n.notice_created_date desc
+				) subquery
+			) where rnum between #{startRow} and #{endRow}
+		]]>	 
+	</select>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(notice_number)
+		FROM tbl_notice	
+	</select>
+	<insert id="insert" parameterType="NoticeDTO">
+		<selectKey keyProperty="noticeNumber" resultType="int" order="BEFORE">
+			SELECT seq_notice.nextVal FROM DUAL
+		</selectKey>
+    INSERT INTO TBL_NOTICE (NOTICE_NUMBER, NOTICE_TITLE, ADMIN_NUMBER, NOTICE_CONTENT) 
+    VALUES (#{noticeNumber}, #{noticeTitle}, #{adminNumber}, #{noticeContent})
+	</insert>
+	<update id="update" parameterType="NoticeDTO">
+    UPDATE TBL_NOTICE
+    SET NOTICE_TITLE = #{noticeTitle}, NOTICE_CONTENT = #{noticeContent}, NOTICE_UPDATED_DATE = SYSDATE
+    WHERE NOTICE_NUMBER = #{noticeNumber} AND ADMIN_NUMBER = #{adminNumber}
+	</update>
+	<delete id="delete" parameterType="int">
+    DELETE FROM TBL_NOTICE WHERE NOTICE_NUMBER = #{noticeNumber}
+	</delete>
+	
+</mapper>

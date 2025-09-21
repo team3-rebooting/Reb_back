@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="routineReview">
+	<insert id="insert" parameterType="RoutineReviewDTO">
+		<selectKey keyProperty="routineReviewNumber" resultType="int" order="BEFORE">
+			SELECT seq_routine_review.nextVal FROM DUAL
+		</selectKey>
+		INSERT INTO TBL_ROUTINE_REVIEW (ROUTINE_REVIEW_NUMBER, ROUTINE_NUMBER, ROUTINE_REVIEW_TITLE, MEMBER_NUMBER, ROUTINE_REVIEW_CREATED_DATE, ROUTINE_REVIEW_UPDATED_DATE, ROUTINE_REVIEW_CONTENT) 
+		VALUES (#{routineReviewNumber}, #{routineNumber}, #{routineReviewTitle}, #{memberNumber}, sysdate, sysdate, #{routineReviewContent})
+	</insert>
+	<delete id="delete" parameterType="RoutineReviewDTO">
+		delete from TBL_ROUTINE_REVIEW
+		where ROUTINE_REVIEW_NUMBER = #{routineReviewNumber} and MEMBER_NUMBER = #{memberNumber}
+	</delete>
+	
+	<update id="update" parameterType="RoutineReviewDTO">
+		update TBL_ROUTINE_REVIEW
+		set
+		ROUTINE_REVIEW_TITLE = #{routineReviewTitle},
+		ROUTINE_REVIEW_UPDATED_DATE = sysdate, 
+		ROUTINE_REVIEW_CONTENT = #{routineReviewContent}
+		where ROUTINE_REVIEW_NUMBER = #{routineReviewNumber} and MEMBER_NUMBER = #{memberNumber}
+	</update>
+</mapper>

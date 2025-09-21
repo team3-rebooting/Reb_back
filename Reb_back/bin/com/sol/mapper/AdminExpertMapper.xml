@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminExpert">
+	<select id="selectAll" resultType="AdminExpertListDTO">
+	<![CDATA[
+		SELECT *
+			FROM (
+    			SELECT ROWNUM AS rnum, subquery.*
+    			FROM (
+            			SELECT
+                		e.expert_number, m.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_nickNAME,
+                		e.expert_field_number, TO_CHAR(a.EXPERT_CHECK_DATE, 'YYYY-MM-DD') AS EXPERT_CHECK_DATE
+            			FROM TBL_EXPERT e
+            			JOIN tbl_expert_applicant a 
+            			ON e.member_number = a.member_number 
+            			JOIN TBL_MEMBER m 
+                		ON a.MEMBER_NUMBER = m.MEMBER_NUMBER 
+            			ORDER BY a.EXPERT_CHECK_DATE DESC
+        				) subquery
+					)
+		WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
+	</select>
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(expert_number)
+		FROM tbl_expert	
+	</select>
+	<select id="select" parameterType="int" resultType="AdminExpertDTO">
+	<![CDATA[
+		SELECT
+    	e.EXPERT_NUMBER, e.MEMBER_NUMBER, m.MEMBER_NAME,
+    	m.MEMBER_GENDER, m.MEMBER_PHONE_NUMBER, m.MEMBER_EMAIL,
+    	fe.FILE_SYSTEM_NAME AS EXPERT_FILE_NUMBER, e.EXPERT_LICENSE_INFO, e.EXPERT_CAREER,
+    	e.EXPERT_FIELD_NUMBER
+		FROM TBL_EXPERT e
+		JOIN TBL_MEMBER m
+    		ON e.MEMBER_NUMBER = m.MEMBER_NUMBER
+		LEFT JOIN TBL_FILE_EXPERT fe
+   			 ON e.MEMBER_NUMBER = fe.MEMBER_NUMBER
+		WHERE e.EXPERT_NUMBER = #{expertNumber}
+	]]>
+	</select>
+	<!-- 전문가 반려 -->
+	<update id="update" parameterType="ExpertApplicantDTO">
+		update tbl_expert_applicant 
+		set expert_applicant_reason = #{expertApplicantReason}, expert_status_number = 3
+		where member_number = #{memberNumber}
+	</update>
+	<!--전문가 생성 -->
+	<insert id="insert" parameterType="ExpertDTO">
+		<selectKey keyProperty="expertNumber" resultType="int" order="BEFORE">
+			SELECT seq_expert.nextval FROM DUAL
+		</selectKey>
+		insert into tbl_expert(expert_number,member_number,expert_license_info,expert_career,expert_field_number) 
+		values(#{expertNumber},#{memberNumber},#{expertLicenseInfo},#{expertCareer},#{expertFieldNumber})
+	
+	</insert>
+	<update id="updateExpert" parameterType="int">
+		update tbl_expert_applicant set expert_status_number = 2 where member_number = #{memberNumber}
+	</update>
+	<!-- 전문가 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from tbl_expert where member_number = #{memberNumber}
+	</delete>
+</mapper>

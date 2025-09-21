@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smallClub">
+	<select id="select" parameterType="int" resultType="SmallClubDTO">
+		SELECT SMALL_CLUB_NUMBER, SMALL_CLUB_TITLE, SC.MEMBER_NUMBER, M.MEMBER_NICKNAME, to_char(SMALL_CLUB_CREATED_DATE, 'YYYY-MM-DD') as small_club_created_date, to_char(SMALL_CLUB_UPDATED_DATE, 'YYYY-MM-DD') as small_club_updated_date, SMALL_CLUB_CONTENT
+		FROM TBL_SMALL_CLUB SC LEFT OUTER JOIN TBL_MEMBER M ON SC.MEMBER_NUMBER = M.MEMBER_NUMBER
+		WHERE SMALL_CLUB_NUMBER = #{smallClubNumber}
+	</select>
+	
+	<insert id="insert" parameterType="SmallClubDTO">
+		<selectKey keyProperty="smallClubNumber" resultType="int" order="BEFORE">
+			select seq_small_club.nextval from dual
+		</selectKey>
+		insert into tbl_small_club(small_club_number, small_club_title, member_number, small_club_content)
+		values(#{smallClubNumber}, #{smallClubTitle}, #{memberNumber}, #{smallClubContent})
+	</insert>
+</mapper>

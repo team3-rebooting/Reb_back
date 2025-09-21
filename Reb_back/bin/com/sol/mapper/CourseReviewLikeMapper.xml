@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="courseReviewLike">
+	<select id="select" parameterType="int" resultType="CourseReviewLikeDTO">
+		<![CDATA[
+			select COURSE_REVIEW_NUMBER, MEMBER_NUMBER from TBL_COURSE_REVIEW_LIKE
+			where MEMBER_NUMBER = #{memberNumber}
+		]]>
+	</select>
+	
+	<select id="isLike" parameterType="CourseReviewLikeDTO" resultType="int">
+		<![CDATA[
+			select count(COURSE_REVIEW_NUMBER) from TBL_COURSE_REVIEW_LIKE
+			where MEMBER_NUMBER = #{memberNumber} and COURSE_REVIEW_NUMBER = #{courseReviewNumber}
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="CourseReviewLikeDTO">	
+		INSERT INTO TBL_COURSE_REVIEW_LIKE (COURSE_REVIEW_NUMBER, MEMBER_NUMBER) 
+			VALUES (#{courseReviewNumber}, #{memberNumber})
+	</insert>
+	
+	<delete id="delete" parameterType="CourseReviewLikeDTO">
+		delete from TBL_COURSE_REVIEW_LIKE
+		where MEMBER_NUMBER = #{memberNumber} and COURSE_REVIEW_NUMBER = #{courseReviewNumber}
+	</delete>
+	
+	<select id="getCount" parameterType="int" resultType="int">
+		select count(COURSE_REVIEW_NUMBER) from TBL_COURSE_REVIEW_LIKE
+		where COURSE_REVIEW_NUMBER = #{courseReviewNumber}
+	</select>
+</mapper>

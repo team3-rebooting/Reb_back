@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smallClubComment">
+	<update id="update" parameterType="SmallClubCommentDTO">
+		update TBL_SMALL_CLUB_COMMENT
+		SET
+		SMALL_CLUB_UPDATED_DATE = sysdate, 
+		SMALL_CLUB_CONTENT = #{smallClubContent}
+		where SMALL_CLUB_COMMENT_NUMBER = #{smallClubCommentNumber}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from TBL_SMALL_CLUB_COMMENT
+		where SMALL_CLUB_COMMENT_NUMBER = #{smallClubCommentNumber}
+	</delete>
+	
+	<insert id="insert" parameterType="SmallClubCommentDTO">
+		INSERT INTO TBL_SMALL_CLUB_COMMENT (SMALL_CLUB_COMMENT_NUMBER, SMALL_CLUB_NUMBER, MEMBER_NUMBER, SMALL_CLUB_CREATED_DATE, SMALL_CLUB_UPDATED_DATE, SMALL_CLUB_CONTENT) 
+		VALUES (seq_small_club_comment.nextval, #{smallClubNumber}, #{memberNumber}, sysdate, sysdate, #{smallClubContent})
+	</insert>
+</mapper>
