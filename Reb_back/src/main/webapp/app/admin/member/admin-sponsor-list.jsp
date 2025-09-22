@@ -49,7 +49,7 @@
 							</c:choose>
 						</p>
 					</div>
-					<div>
+					<%-- <div>
 						<p>최근 1년간 후원 금액 :</p>
 						<p>${total}원
 							<!-- 보류 -->
@@ -58,7 +58,7 @@
 					<div>
 						<p>최근 1달간 후원 금액 :</p>
 						<p>${total}원</p>
-					</div>
+					</div> --%>
 				</div>
 				<!-- 후원자 리스트 제목 -->
 				<div id="main-sponsor-list-title">
@@ -67,7 +67,7 @@
 					<!-- 닉네임 영역 -->
 					<p class="main-sponsor-list-nickname">닉네임</p>
 					<!-- 후원금액 영역 -->
-					<p class="main-sponsor-list-support">총 후원금액(원)</p>
+					<p class="main-sponsor-list-support">후원금액(원)</p>
 					<p class="main-sponsor-list-date">후원날짜</p>
 				</div>
 				<!-- 후원자 목록 리스트 -->
@@ -84,7 +84,7 @@
 										<c:out value="${sponsor.memberNickname}" />
 									</p>
 									<p class="main-sponsor-list-support">
-										<c:out value="${sponsor.sponsorAmount}" />
+										<c:out value="${sponsor.sponsorAmount}" />원
 									</p>
 									<p class="main-sponsor-list-date">
 										<c:out value="${sponsor.sponsorDate}" />
