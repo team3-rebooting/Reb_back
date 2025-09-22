@@ -114,12 +114,14 @@
              <%--  <p>가격 : <c:out value="${course.coursePrice}"/> 원</p> --%>
             </div>
           </div>
+          <c:if test="${course.courseRequestTypeNumber == 3}">
           <div class="div-expert-detail">
           	<p class="p-expert-info-title">삭제 요청 사유</p>
           	 <div class="div-expert-info-detail">
           	<p><c:out value="${course.courseRejectReason}"></c:out></p>          	 
           	 </div>
-          </div>
+          </div>       
+          </c:if>
           <!-- 개설 버튼 영역 -->
           <c:choose>
           	<c:when test="${course.courseRequestTypeNumber == 1}">
