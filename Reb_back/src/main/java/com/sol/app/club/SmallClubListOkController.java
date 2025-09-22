@@ -30,7 +30,7 @@ public class SmallClubListOkController implements Execute {
 		
 		String temp = request.getParameter("page");
 		int page = (temp == null) ? 1 : Integer.valueOf(temp);	// 페이지 기본값 1로 설정
-		int rowCount = 10;	// 페이지 목록 개수
+		int rowCount = 9;	// 페이지 목록 개수
 		int pageCount = 5;	// 페이지네이션 버튼 개수
 		
 		// 페이지 처리
