@@ -39,7 +39,7 @@
 }
 
 main {
-	height: 2000px;
+	height: 2300px;
 	min-height: calc(100vh - 235px);
 	width: 100%;
 	background-color: #FFFEF1;

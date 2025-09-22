@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,19 +52,30 @@
 										<p class="main-course-review-name">
 											<c:out value="${courseReview.courseReviewTitle}" />
 										</p>
-										<p class="main-course-review-heart"><c:out value="${courseReview.likeCount}" /></p>
+										<p class="main-course-review-heart">
+											<c:out value="${courseReview.likeCount}" />
+										</p>
 										<p class="main-course-review-nickname">
 											<c:out value="${courseReview.memberNickname}" />
 										</p>
 										<p class="main-course-review-date">
-												<c:choose>
-  													<c:when test="${courseReview.courseReviewCreatedDate ne courseReview.courseReviewUpdatedDate}">
-    												${fn:substring(courseReview.courseReviewUpdatedDate, 0, 10)}(수정됨)
+											<c:choose>
+												<c:when
+													test="${ not empty courseReview.courseReviewUpdatedDate }">
+													<c:choose>
+														<c:when
+															test="${courseReview.courseReviewCreatedDate ne courseReview.courseReviewUpdatedDate}">
+    												${fn:substring(courseReview.courseReviewUpdatedDate, 0, 10)} (수정됨)
   													</c:when>
-  												<c:otherwise>
+														<c:otherwise>
     												${fn:substring(courseReview.courseReviewCreatedDate, 0, 10)}
   												</c:otherwise>
-												</c:choose>
+													</c:choose>
+												</c:when>
+												<c:otherwise>
+												${fn:substring(courseReview.courseReviewCreatedDate, 0, 10)}
+												</c:otherwise>
+											</c:choose>
 										</p>
 								</a></li>
 							</c:forEach>
@@ -108,7 +119,7 @@
 					</ul>
 				</div>
 				<!-- 검색 영역 -->
-				<div id="main-search" style="display:none;" >
+				<div id="main-search" style="display: none;">
 					<!-- 검색 종류 -->
 					<div id="main-search-basic">
 						<select class="select-find">

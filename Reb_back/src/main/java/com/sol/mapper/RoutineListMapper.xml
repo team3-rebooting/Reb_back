@@ -18,8 +18,8 @@
 			to_char(r.ROUTINE_END_TIME,'hh:mi') as ROUTINE_END_TIME, r.ROUTINE_DAY_OF_WEEK, r.ROUTINE_RECRUIT_COUNT FROM tbl_routine r
 			LEFT JOIN tbl_routine_leader rl ON r.ROUTINE_LEADER_NUMBER  = rl.ROUTINE_LEADER_NUMBER
 			LEFT JOIN TBL_FILE_ROUTINE fr ON fr.ROUTINE_NUMBER = r.ROUTINE_NUMBER
-			ORDER BY r.ROUTINE_CREATED_DATE DESC) t order by t.routine_status_number
-			) subquery
+			ORDER BY r.ROUTINE_CREATED_DATE DESC) t 
+			) subquery order by subquery.routine_status_number
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>
 	</select>

@@ -19,8 +19,7 @@
 			LEFT JOIN TBL_FILE_course fc ON fc.course_NUMBER = c.course_NUMBER
 			WHERE (cr.COURSE_OPEN_STATUS_NUMBER = 2 AND cr.COURSE_REQUEST_TYPE_NUMBER = 1) OR (cr.COURSE_OPEN_STATUS_NUMBER = 2 AND cr.COURSE_REQUEST_TYPE_NUMBER = 2)
 			ORDER BY c.COURSE_POST_DATE DESC) c
-			order by c.COURSE_RECRUIT_STATUS_NUMBER
-      ) subquery
+      ) subquery order by subquery.COURSE_RECRUIT_STATUS_NUMBER
    	) WHERE rnum BETWEEN #{startRow} AND #{endRow} 
 	]]>
 	</select>

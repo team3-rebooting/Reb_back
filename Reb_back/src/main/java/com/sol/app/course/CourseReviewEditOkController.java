@@ -34,7 +34,7 @@ public class CourseReviewEditOkController implements Execute {
 		Result result = new Result();
 
 		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
-		final int FILE_SIZE = 1024 * 1024 * 5;
+		final int FILE_SIZE = 1024 * 1024 * 50;
 
 		MultipartParser parser = new MultipartParser(request, FILE_SIZE);
 		parser.setEncoding("utf-8");

@@ -41,7 +41,7 @@ public class SmallClubWriteOkController implements Execute{
 				
 		// 파일 업로드 환경 설정
 		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
-		final int FILE_SIZE = 1024 * 1024 * 5;	// 5MB
+		final int FILE_SIZE = 1024 * 1024 * 50;	// 5MB
 		System.out.println("파일 업로드 경로 : " + UPLOAD_PATH);
 				
 		// MulpartRequest를 이용한 데이터 파싱
