@@ -71,7 +71,7 @@
 
 				<div class="notice-detail-text-content-containter">
 					<div class="notice-detail-text font-main">
-						<c:out value="${notice.noticeContent}" />
+						<pre class="pre-content"><c:out value="${notice.noticeContent}" /></pre>
 					</div>
 				</div>
 
