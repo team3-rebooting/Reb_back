@@ -43,7 +43,7 @@ public class ExpertCourseCreateRequestOkController implements Execute {
 		} else {
 			// 파일 업로드 환경 설정
 			final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
-			final int FILE_SIZE = 1024 * 1024 * 5; // 5MB
+			final int FILE_SIZE = 1024 * 1024 * 50; // 50MB
 			// MultipartRequest를 이용한 데이터 파싱
 			MultipartRequest multipartRequest = new MultipartRequest(request, UPLOAD_PATH, FILE_SIZE, "utf-8",
 					new DefaultFileRenamePolicy());
