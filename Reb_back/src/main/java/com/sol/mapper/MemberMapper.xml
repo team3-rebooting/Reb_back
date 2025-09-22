@@ -20,12 +20,12 @@
 	<!-- 회원 가입 -->
 	<insert id="signup" parameterType="MemberSignupDTO">
 		INSERT INTO TBL_MEMBER(member_number, member_id, member_password, member_address_number, member_email, member_name, member_gender, member_nickname, member_phone_number, member_birth_date, member_signup_date)
-		VALUES(SEQ_MEMBER.NEXTVAL, #{memberId}, #{memberPassword}, #{addressNumber}, #{memberEmail}, #{memberName},  #{memberGender}, #{memberNickname}, #{memberPhoneNumber}, #{memberBirthDate}, to_date(sysdate, 'yyyy-mm-dd'))
+		VALUES(SEQ_MEMBER.NEXTVAL, #{memberId}, #{memberPassword}, #{addressNumber}, #{memberEmail}, #{memberName},  #{memberGender}, #{memberNickname}, #{memberPhoneNumber}, #{memberBirthDate}, sysdate)
 	</insert>
 	
 	<!-- 아이디 전화번호 인증 -->
 	<select id="findId" parameterType="MemberDTO" resultType="MemberDTO">
-		select member_id as memberId, to_char(member_signup_date, 'YYYY-MM-DD HH24:MI:SS') as memberSignupDate
+		select member_id as memberId, to_char(member_signup_date, 'YYYY-MM-DD') as memberSignupDate
 		from tbl_member
 		where member_name = #{memberName} and member_phone_number = #{memberPhoneNumber}
 	</select>
