@@ -213,7 +213,7 @@
 					<button class="button-basic button-login" type="submit">
 						로그인</button>
 					<!-- 카카오로그인 버튼 -->
-					<button class="button-kakao" type="button">
+					<%-- <button class="button-kakao" type="button">
 						<!-- <a href="javascript:void(0)"> -->
 						<a
 							href="https://kauth.kakao.com/oauth/authorize?client_id=api키&redirect_uri=http://localhost:8888/member/kakaoCallBack.me&response_type=code">
@@ -227,7 +227,7 @@
 							src="${pageContext.request.contextPath}/assets/img/kakao.png"
 							class="kakao-img">카카오 로그아웃
 						</a>
-					</button>
+					</button> --%>
 				</form>
 				<c:if test="${not empty sessionScope.msg}">
 					<script>
