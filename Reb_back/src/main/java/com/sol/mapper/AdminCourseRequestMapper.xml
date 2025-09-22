@@ -25,7 +25,8 @@
 
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(course_number)
-		FROM tbl_course_request	
+		FROM tbl_course_request
+		where course_open_status_number = 1
 	</select> 
 	<select id="select" parameterType="int" resultType="AdminCourseRequestDTO">
 	<![CDATA[

@@ -29,7 +29,7 @@ public class NoticeUpdateOkController implements Execute {
 		AdminNoticeDTO noticeDTO = new AdminNoticeDTO();
 		FileNoticeDAO fileNoticeDAO = new FileNoticeDAO();
 		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
-        final int FILE_SIZE = 1024 * 1024 * 5; 
+        final int FILE_SIZE = 1024 * 1024 * 50; 
 
         // MultipartParser 실행
         MultipartParser parser = new MultipartParser(request, FILE_SIZE);
